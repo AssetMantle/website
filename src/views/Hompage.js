@@ -12,8 +12,8 @@ const HomePage = () => {
                             Launch your own storefronts
                             Secured NFT Marketplace built on PersistenceSDK</p>
                         <div className="buttons-group">
-                            <Button variant="primary" className="button-double-border">Launch your own Store
-                                (Coming Soon)</Button>
+                            {/*<Button variant="primary" className="button-double-border">Launch your own Store*/}
+                            {/*    (Coming Soon)</Button>*/}
                             <Button variant="primary" className="button-double-border">Market Place</Button>
                         </div>
                     </div>
@@ -40,8 +40,7 @@ const HomePage = () => {
                             <p className="banner-content">Be the first to receive Asset Mantle updates, latest projects,announcements and sneak peeks.
                             </p>
                             <div className="buttons-group">
-                            <Button variant="primary" className="button-double-border">Email</Button>
-                            <Button variant="primary" className="button-double-border">Join Whitelis</Button>
+                            <Button variant="primary" className="button-double-border">Join Whitelist(bob123@gmail.com)</Button>
                             </div>
                         </div>
                     </div>
