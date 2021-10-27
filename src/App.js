@@ -4,6 +4,7 @@ import Homepage from "./views/Hompage";
 import Header from "./components/Header";
 import RouteNotFound from "./components/RouteNotFound";
 import './scss/style.css';
+import Footer from "./components/Footer";
 const App = () => {
   const routes = [
     {
@@ -31,7 +32,7 @@ const App = () => {
           }
           <Route component={RouteNotFound}/>
         </Switch>
-
+        <Footer/>
       </div>
   );
 };

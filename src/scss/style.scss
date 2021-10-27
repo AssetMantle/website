@@ -7,7 +7,7 @@ body{
 }
 
 .homeSection {
-  padding: 200px 0;
+  padding: 200px 0 100px 0px;
 
   .btn-primary {
     border-color: #262A2B !important;
@@ -69,6 +69,7 @@ body{
     text-align: center;
   }
   button{
+    width: 100%;
     margin-bottom: 20px;
   }
   p{
@@ -86,5 +87,63 @@ body{
   display: flex;
   button{
     margin: 0px 5px;
+  }
+}
+
+.footer {
+  width: 100%;
+  padding:30px 0;
+  font-size: 0.875rem;
+  text-align: center;
+  .footer-text{
+    margin: 15px 0;
+  }
+  p{
+    color: #808080;
+  }
+  .social-links-section {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    ul {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      margin: 0;
+      a {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        -webkit-align-items: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #363b46;
+
+        .icon {
+          width: 12px;
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  .bottom-section{
+    display: flex;
+    justify-content: space-between;
+    .blogs{
+      display: flex;
+      p{
+        margin: 0 5px;
+      }
+    }
+    .bottom-right-section{
+      display: flex;
+    }
   }
 }
