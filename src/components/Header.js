@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink, withRouter} from "react-router-dom";
 import {useHistory} from "react-router-dom";
-import {Navbar, Nav, Button} from "react-bootstrap";
+import {Navbar, Nav } from "react-bootstrap";
 import logo from '../images/logo.svg';
 
 const Header = () => {
