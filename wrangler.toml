@@ -1,0 +1,14 @@
+name = "assetmantle-website"
+type = "webpack"
+zone_id = '56f80f9b92647da8867be957889b2281'
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+site = {bucket = "",entry-point = "workers-site"}
+compatibility_date = "2021-10-27"
+
+[env.staging]
+routes = ["https://staging.assetmantle.one/*"]
+
+[env.release]
+routes = ["https://assetmantle.one/*"]
