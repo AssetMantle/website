@@ -1,0 +1,81 @@
+body {
+  background: #121212;
+  font-family: Poppins, sans-serif;
+}
+
+.bg-dark, .app-nav {
+  background-color: #191c24 !important;
+}
+
+.homeSection {
+  padding: 200px 0;
+}
+.homeSection .btn-primary {
+  border-color: #262A2B !important;
+  box-shadow: 0px 0px 0 0px #efcc30, 0px 0px 0 0px #262a2b, 4px 4px 0 1px #efcc30, 4px 4px 0 2px #efcc30 !important;
+  background-color: #262A2B !important;
+  color: #efcc30;
+}
+.homeSection .row {
+  margin-left: auto;
+  margin-right: auto;
+}
+.homeSection .col-md-6 {
+  flex: 50%;
+  max-width: 50%;
+}
+.homeSection .appInfoBox .banner-heading {
+  font-weight: bold;
+  font-size: 58px;
+  line-height: 96px;
+  color: #FFFFFF;
+}
+.homeSection .appInfoBox .banner-content {
+  line-height: 2;
+  margin-bottom: 25px;
+  color: #818485;
+}
+.homeSection .banner-image-section {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 992px) and (max-width: 1080px) {
+  .banner-image-section img {
+    margin-right: -30px;
+    width: 350px;
+  }
+}
+.second-section {
+  padding: 100px 0 200px 0;
+}
+.second-section .heading {
+  color: #FFFFFF;
+  font-size: 36px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.second-section button {
+  margin-bottom: 20px;
+}
+.second-section p {
+  color: #818485;
+}
+.second-section .inner-box {
+  border: 1px solid #545b62;
+  flex: 1;
+  height: 100%;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.buttons-group {
+  display: flex;
+}
+.buttons-group button {
+  margin: 0px 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
