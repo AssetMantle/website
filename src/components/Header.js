@@ -1,5 +1,4 @@
 import React from "react";
-import {NavLink, withRouter} from "react-router-dom";
 import {useHistory} from "react-router-dom";
 import {Navbar, Nav } from "react-bootstrap";
 import logo from '../images/logo.svg';
@@ -8,10 +7,6 @@ const Header = () => {
     const history = useHistory();
     const handleRoute = route => () => {
         history.push(route);
-    };
-
-    const handleModelRoute = (route) => {
-        history.push(`/${route}`);
     };
 
     return (
@@ -26,9 +21,11 @@ const Header = () => {
                     </Nav>
 
                     <Nav>
-                        <Nav.Link onClick={() => handleModelRoute("signup")}>Market Place</Nav.Link>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/marketplace">Docs</NavLink>
+                            <a href="https://notes.persistence.one/s/Jufq_ChF-" target="_blank" rel="noopener noreferrer" className="nav-link" >Market Place</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="https://notes.persistence.one/s/Jufq_ChF-" target="_blank" rel="noopener noreferrer" className="nav-link">Docs</a>
                         </li>
                     </Nav>
                 </Navbar.Collapse>
@@ -38,4 +35,4 @@ const Header = () => {
 };
 
 
-export default withRouter(Header);
+export default Header;

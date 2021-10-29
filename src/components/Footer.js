@@ -5,11 +5,11 @@ import Icon from "./icons";
 const Footer = () => {
     const socialList = [
         {
-            url: "asdfadf",
+            url: "https://twitter.com/AssetMantle",
             iconName: 'twitter-logo',
             tooltip: 'twitter'
         }, {
-            url:  "PERSISTENCEONE_MEDIUM_URL" ,
+            url:  "https://medium.com/persistence-blog" ,
             iconName: 'medium',
             tooltip: 'medium'
         },
@@ -18,47 +18,21 @@ const Footer = () => {
        
         <div className="footer">
             <div className="container">
-                <div className="top-section">
-                    <div className="logo">
-                        <img src={logo} alt="logo"/>
-                    </div>
-                    <p className="footer-text"> © {new Date().getFullYear()}
-                        <span className="link_color"> Asset-Dapp - Marketplace for NFTs </span>
-                    </p>
-                    {/*<div className="social-links-section">*/}
-                    {/*    <ul className="list-unstyled footer-list">*/}
-                    {/*        {*/}
-                    {/*            socialList.map((item,) => (*/}
-                    {/*                <OverlayTrigger*/}
-                    {/*                    key={item.iconName}*/}
-                    {/*                    placement="top"*/}
-                    {/*                    overlay={*/}
-                    {/*                        <Tooltip id={`tooltip-${item.iconName}}`}>*/}
-                    {/*                            {item.tooltip}*/}
-                    {/*                        </Tooltip>*/}
-                    {/*                    }*/}
-                    {/*                >*/}
-                    {/*                    <a href={item.url}  rel="noopener noreferrer"*/}
-                    {/*                        target="_blank"><Icon viewClass="social_icon_imgg"*/}
-                    {/*                            icon={item.iconName} /></a>*/}
-                    {/*                </OverlayTrigger>*/}
-                    {/*            ))*/}
-                    {/*        }*/}
-                    
-                    {/*    </ul>*/}
-                    {/*</div>*/}
-
-                </div>
                 <div className="bottom-section">
                     <div className="blogs">
-                        <p className="help">
-                            Blog
-                        </p>
-                        <p className="blog">
+                        <a href="https://persistence.one" target="_blank" rel="noopener noreferrer" className="help">
+                            Company
+                        </a>
+                        <a href="https://notes.persistence.one/s/Jufq_ChF-" target="_blank" rel="noopener noreferrer" className="blog">
                             Docs
-                        </p>
-                        <p className="kit">
-                        Terms of Service
+                        </a>
+                    </div>
+                    <div className="top-section">
+                        <div className="logo">
+                            <img src={logo} alt="logo"/>
+                        </div>
+                        <p className="footer-text"> © {new Date().getFullYear()}
+                            <span className="link_color"> AssetMantle - Marketplace for NFTs </span>
                         </p>
                     </div>
                     <div className="bottom-right-section">
