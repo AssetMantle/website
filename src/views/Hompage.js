@@ -42,7 +42,7 @@ const HomePage = () => {
                             <p className="banner-content">Be the first to receive Asset Mantle updates, latest projects,announcements and sneak peeks.
                             </p>
                             <div className="buttons-group">
-                            <Button variant="secondary" className="button-double-border">Join Whitelist(bob123@gmail.com)</Button>
+                            <Button variant="secondary" className="button-double-border" disabled>Join Whitelist(bob123@gmail.com)</Button>
                             </div>
                         </div>
                     </div>
