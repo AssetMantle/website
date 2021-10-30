@@ -131,7 +131,7 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.buttons-group button {
+.buttons-group button, .buttons-group a {
   margin: 5px;
 }
 
