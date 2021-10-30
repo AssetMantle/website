@@ -12,7 +12,9 @@ const HomePage = () => {
                             Launch your own storefronts
                             <br/> Secured NFT Marketplace built on PersistenceSDK</p>
                         <div className="buttons-group">
-                            <Button variant="primary" className="button-double-border">Marketplace</Button>
+                            <a href="https://demo.app.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="btn-primary-link">
+                                Marketplace
+                            </a>
                             <Button variant="secondary" className="button-double-border" disabled title="Coming Soon">Launch Your Own Store
                             </Button>
                         </div>
@@ -52,7 +54,7 @@ const HomePage = () => {
                 <div className="row row-cols-1 row-cols-md-2 card-deck infoRow">
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
-                            <p className="card-title">Multi-Wallet Support Wallets</p>
+                            <p className="card-title">Multi-Wallet Support</p>
                             <p className="card-content">Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger</p>
                         </div>
                     </div>
@@ -71,7 +73,7 @@ const HomePage = () => {
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Interoperability</p>
-                            <p className="card-content">The NFT module is implemented at the native chain application logic level instead of at the Smart Contract level,r</p>
+                            <p className="card-content">The NFT module is implemented at the native chain application logic level instead of at the Smart Contract level.</p>
                         </div>
                     </div>
                 </div>
