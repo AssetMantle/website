@@ -27,6 +27,9 @@ const Header = () => {
                         <li className="nav-item">
                             <a href="https://notes.persistence.one/s/Jufq_ChF-" target="_blank" rel="noopener noreferrer" className="nav-link">Docs</a>
                         </li>
+                        <li className="nav-item">
+                            <a href="https://explorer.demo.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="nav-link">Explorer</a>
+                        </li>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
