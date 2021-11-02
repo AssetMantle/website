@@ -55,25 +55,28 @@ const HomePage = () => {
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Multi-Wallet Support</p>
-                            <p className="card-content">Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger</p>
+                            <p className="card-content">Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger
+                            </p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Interoperable NFTs</p>
-                            <p className="card-content">An implementation of the NFT interface. The interNFT is defined to allow for maximum application logic flexibility in one interface and is focused on inter chain ownership transfer.</p>
+                            <p className="card-content">Built on top our InterNFT Standards, the marketplace would allow an convinient way to support cross-chain interoperable NFTs</p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Launch Your Own Stores</p>
-                            <p className="card-content">The marketplace will allow users to create their own storefronts. This marketplace will further allow users to upload, publish, and sell their minted NFTs.</p>
+                            <p className="card-content">The marketplace will allow users to create their own storefronts with user friendly & drag-and-drop experience.
+                                Also allow users to upload, publish, and sell their minted NFTs.</p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
-                            <p className="card-title">Interoperability</p>
-                            <p className="card-content">The NFT module is implemented at the native chain application logic level instead of at the Smart Contract level.</p>
+                            <p className="card-title">First NFT marketplace in cosmos ecosystem
+                            </p>
+                            <p className="card-content">Much needed NFT marketplace in the cosmos space with zero gas fees and very low minting cos</p>
                         </div>
                     </div>
                 </div>
