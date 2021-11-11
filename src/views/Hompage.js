@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import bannerImage from "../images/homeBanner.svg";
 import {Button} from "react-bootstrap";
+import MailChimpModal from "../components/mailChimpModal";
 const HomePage = () => {
+    const [showModal, setShowModal] = useState(false);
+    const modalHandler = () =>{
+        setShowModal(true);
+    };
     return (
         <>
             <div className="container homeSection">
                 <div className="row row-cols-1 row-cols-md-2 card-deck infoRow">
                     <div className="col-md-7 appInfoBox">
-                        <h3 className="banner-heading">Shopify for NFTs</h3>
+                        <h3 className="banner-heading">Shopify of NFTs</h3>
                         <p className="banner-content">
                             Launch your own storefronts
                             <br/> Secured NFT Marketplace built on PersistenceSDK</p>
@@ -44,7 +49,7 @@ const HomePage = () => {
                             <p className="banner-content">Be the first to receive Asset Mantle updates, latest projects,announcements and sneak peeks.
                             </p>
                             <div className="buttons-group">
-                            <Button variant="secondary" className="button-double-border" disabled>Join Whitelist(bob123@gmail.com)</Button>
+                            <Button variant="secondary" className="button-double-border" onClick={modalHandler}>Join Whitelist(bob123@gmail.com)</Button>
                             </div>
                         </div>
                     </div>
@@ -74,13 +79,18 @@ const HomePage = () => {
                     </div>
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
-                            <p className="card-title">First NFT marketplace in cosmos ecosystem
+                            <p className="card-title">Decentralised NFT marketplace
                             </p>
-                            <p className="card-content">Much needed NFT marketplace in the cosmos space with zero gas fees and very low minting cos</p>
+                            <p className="card-content">First Decentralised marketplace for NFTs in cosmos ecosystem with zero gas fees and low minting costs.</p>
                         </div>
                     </div>
                 </div>
             </div>
+            {
+                showModal ?
+                    <MailChimpModal setShowModal={setShowModal}/>
+                    : ""
+            }
             </>
 
 

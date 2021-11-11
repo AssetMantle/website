@@ -220,4 +220,30 @@ body {
   display: flex;
 }
 
+.mail-modal .modal-content {
+  background: #212529;
+}
+.mail-modal .modal-content .modal-header {
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin: 0px;
+  border-bottom: 1px solid #343a40;
+}
+.mail-modal .modal-content .modal-header button {
+  outline: none !important;
+  font-weight: 500;
+  text-shadow: none;
+  color: #e9ecef;
+}
+.mail-modal .modal-content .modal-body label {
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.mail-modal .modal-content .modal-body .form-control {
+  background: #343a40;
+  border: 1px solid #343a40 !important;
+  color: #FFFFFF;
+}
+
 /*# sourceMappingURL=style.css.map */
