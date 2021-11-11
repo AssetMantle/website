@@ -12,6 +12,10 @@ const Footer = () => {
             url:  "https://medium.com/persistence-blog" ,
             iconName: 'medium',
             tooltip: 'medium'
+        }, {
+            url: "https://t.me/assetmantle",
+            iconName: 'telegram-plane',
+            tooltip: 'telegram'
         },
     ];
     return (
