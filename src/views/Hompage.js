@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import bannerImage from "../images/homeBanner.svg";
-import {Button} from "react-bootstrap";
+import {Button, OverlayTrigger, Tooltip} from "react-bootstrap";
 import MailChimpModal from "../components/mailChimpModal";
+import Icon from "../components/icons";
 const HomePage = () => {
     const [showModal, setShowModal] = useState(false);
     const modalHandler = () =>{
@@ -20,8 +21,19 @@ const HomePage = () => {
                             <a href="https://demo.app.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="btn-primary-link">
                                 Marketplace
                             </a>
-                            <Button variant="secondary" className="button-double-border" disabled title="Coming Soon">Launch Your Own Store
-                            </Button>
+                            <OverlayTrigger
+                                key="coming-soon-button"
+                                placement="top"
+                                overlay={
+                                    <Tooltip id={`tooltip-coming-soon-button`}>
+                                        Coming Soon
+                                    </Tooltip>
+                                }
+                            >
+                                <Button variant="secondary" className="button-double-border">Launch Your Own Store
+                                </Button>
+                            </OverlayTrigger>
+
                         </div>
                     </div>
                     <div className="col-md-5 banner-image-section">

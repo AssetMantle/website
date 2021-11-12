@@ -45,7 +45,7 @@ body {
   align-items: center;
 }
 .homeSection .btn-secondary {
-  cursor: not-allowed;
+  opacity: 0.65;
 }
 .homeSection .row {
   flex: 1;
@@ -201,7 +201,7 @@ body {
   background: #FFFFFF;
 }
 .footer .social-links-section ul a .icon {
-  width: 12px;
+  width: 14px;
   fill: #000;
 }
 .footer .bottom-section {

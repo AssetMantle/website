@@ -47,7 +47,7 @@ body{
   align-items: center;
 
   .btn-secondary {
-    cursor: not-allowed;
+    opacity:0.65;
   }
   .row {
     flex: 1;
@@ -214,7 +214,7 @@ body{
         background: #FFFFFF;
 
         .icon {
-          width: 12px;
+          width: 14px;
           fill: #000;
         }
       }
