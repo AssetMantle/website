@@ -13,7 +13,7 @@ const Footer = () => {
             iconName: 'medium',
             tooltip: 'medium'
         }, {
-            url: "",
+            url: "https://t.me/assetmantle",
             iconName: 'telegram-plane',
             tooltip: 'telegram'
         }, {
