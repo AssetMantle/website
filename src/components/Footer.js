@@ -16,6 +16,10 @@ const Footer = () => {
             url: "https://t.me/assetmantle",
             iconName: 'telegram-plane',
             tooltip: 'telegram'
+        }, {
+            url: "https://discord.gg/gQBaV799",
+            iconName: 'discord',
+            tooltip: 'discord'
         },
     ];
     return (
