@@ -9,8 +9,8 @@ body {
 
 .btn-primary, .btn-primary-link {
   display: inline-flex;
-  background: #EFCB30 !important;
-  box-shadow: 0px 8px 16px rgba(239, 203, 48, 0.1), 0px 2px 8px rgba(239, 203, 48, 0.2) !important;
+  background: #E50913 !important;
+  box-shadow: 0px 8px 16px #e509132e, 0px 2px 8px #e509132e !important;
   border-radius: 12px;
   border: 0px solid !important;
   font-weight: 600;
@@ -19,7 +19,7 @@ body {
   align-items: center;
   letter-spacing: 0.75px;
   padding: 12px 16px;
-  color: rgba(0, 0, 0, 0.69) !important;
+  color: #FFFFFF !important;
   text-decoration: none !important;
 }
 
