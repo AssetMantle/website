@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import {Button, Modal, Spinner, Form} from "react-bootstrap";
 
-let mailURl = 'https://gmail.us17.list-manage.com/subscribe/post?u=ae3865653441609735c7a9078&amp;id=5827c16cea';
+const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 function simulateNetworkRequest() {
     return new Promise((resolve) => setTimeout(resolve, 500));
