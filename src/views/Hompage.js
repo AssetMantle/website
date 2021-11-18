@@ -17,7 +17,7 @@ const HomePage = () => {
                             Launch your own storefronts
                             <br/> Secured NFT Marketplace built on PersistenceSDK</p>
                         <div className="buttons-group">
-                            <a href="https://demo.app.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="btn-primary-link">
+                            <a href="https://demo.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="btn-primary-link">
                                 Marketplace
                             </a>
                             <Button variant="secondary" className="button-double-border" disabled title="Coming Soon">Launch Your Own Store
