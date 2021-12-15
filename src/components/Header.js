@@ -22,7 +22,7 @@ const Header = () => {
 
                     <Nav>
                         <li className="nav-item">
-                            <a href="https://demo.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="nav-link" >Market Place</a>
+                            <a href="https://demo.assetmantle.one/" target="_blank" rel="noopener noreferrer" className="nav-link" >Marketplace</a>
                         </li>
                         <li className="nav-item">
                             <a href="https://notes.persistence.one/s/Jufq_ChF-" target="_blank" rel="noopener noreferrer" className="nav-link">Docs</a>
