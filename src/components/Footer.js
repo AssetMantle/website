@@ -17,7 +17,7 @@ const Footer = () => {
             iconName: 'telegram-plane',
             tooltip: 'telegram'
         }, {
-            url: "https://discord.gg/gQBaV799",
+            url: "https://discord.com/invite/EJr6uwJCjw",
             iconName: 'discord',
             tooltip: 'discord'
         },
