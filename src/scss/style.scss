@@ -5,6 +5,10 @@ body{
 .bg-dark, .app-nav {
   background-color: #191c24 !important;
 }
+
+.navbar-brand img{
+  width: 160px;
+}
 .btn-primary , .btn-primary-link{
   //border-color: #262A2B !important;
   //box-shadow: 0px 0px 0 0px #efcc30, 0px 0px 0 0px #262a2b, 4px 4px 0 1px #efcc30, 4px 4px 0 2px #efcc30 !important;
@@ -221,10 +225,18 @@ body{
     }
   }
 
+  .top-section{
+    .logo img{
+      width: 140px;
+    }
+  }
   .bottom-section{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .icon{
+      width: 14px;
+    }
     .blogs{
       display: flex;
       a{
