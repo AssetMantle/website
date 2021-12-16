@@ -34,11 +34,10 @@ const HomePage = () => {
                 <div className="row row-cols-1 row-cols-md-2 card-deck infoRow">
                     <div className="col-md-6">
                         <div className="inner-box">
-                            <p className="banner-content"> Artists & creators, want to get featured in the alpha launch of the marketplace
-                                Apply today
+                            <p className="banner-content"> Apply today to launch your own stores and NFT Collections on assetMantle.
                             </p>
                             <a href="https://forms.gle/bcVYqGXUiHsTM2XF8" target="_blank" rel="noopener noreferrer" className="btn-primary-link">
-                                Fill the form
+                               Apply here
                             </a>
 
                         </div>
@@ -46,7 +45,7 @@ const HomePage = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="inner-box">
-                            <p className="banner-content">Be the first to receive Asset Mantle updates, latest projects,announcements and sneak peeks.
+                            <p className="banner-content">Subscribe to our newsletters and be the first one to get latest updates and announcements.
                             </p>
                             <div className="buttons-group">
                             <Button variant="secondary" className="button-double-border" onClick={modalHandler}>Join Whitelist(bob123@gmail.com)</Button>
@@ -60,14 +59,14 @@ const HomePage = () => {
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Multi-Wallet Support</p>
-                            <p className="card-content">Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger
+                            <p className="card-content">assetMantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger.
                             </p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-3">
                         <div className="inner-card">
                             <p className="card-title">Interoperable NFTs</p>
-                            <p className="card-content">Built on top our InterNFT Standards, the marketplace would allow an convinient way to support cross-chain interoperable NFTs</p>
+                            <p className="card-content">Built on top our InterNFT Standards, the marketplace would allow a convinient way to support cross-chain interoperable NFTs.</p>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-3">
@@ -81,7 +80,7 @@ const HomePage = () => {
                         <div className="inner-card">
                             <p className="card-title">Decentralised NFT marketplace
                             </p>
-                            <p className="card-content">First Decentralised marketplace for NFTs in cosmos ecosystem with zero gas fees and low minting costs.</p>
+                            <p className="card-content">First Decentralised marketplace for NFTs in cosmos ecosystem with zero gas fees and low minting cost.</p>
                         </div>
                     </div>
                 </div>
