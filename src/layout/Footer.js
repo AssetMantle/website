@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "../images/logo.svg";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import Icon from "./icons";
 const Footer = () => {
@@ -39,7 +38,7 @@ const Footer = () => {
                     </div>
                     <div className="top-section">
                         <div className="logo">
-                            <img src={logo} alt="logo"/>
+                            <img src='/images/logo.svg' alt="logo"/>
                         </div>
                         <p className="footer-text">© {new Date().getFullYear()} | Built with <Icon viewClass="social_icon_imgg"
                                                                           icon="footer_heart" /> by Persistence.</p>
