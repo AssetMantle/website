@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import bannerImage from "../images/homeBanner.svg";
 import {Button} from "react-bootstrap";
 import MailChimpModal from "../components/mailChimpModal";
+
 const HomePage = () => {
     const [showModal, setShowModal] = useState(false);
     const modalHandler = () =>{
@@ -25,7 +25,7 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div className="col-md-5 banner-image-section">
-                        <img src={bannerImage} alt={"bannerImage"} />
+                        <img src='/images/homeBanner.svg' alt={"bannerImage"} />
                     </div>
                 </div>
             </div>

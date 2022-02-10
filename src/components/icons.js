@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import iconSymbols from '../images/iconSymbols.svg';
+// import iconSymbols from '/images/iconSymbols.svg';
+import iconSymbols from './iconSymbols.svg';
 
 export default class Icon extends Component {
     render() {
