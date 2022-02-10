@@ -7,3 +7,7 @@ build
 faucet/.env
 faucet/node_modules
 .github
+
+#  files
+package-lock.json
+yarn.lock
