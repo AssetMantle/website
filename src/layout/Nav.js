@@ -73,9 +73,12 @@ const NavContainer = styled.div`
   .nav__container {
     position: relative;
     height: 100%;
-    width: min(80%, 468px);
+    width: min(88%, 468px);
     background-color: var(--dark);
     padding: 62px 80px;
+    @media (max-width: 548px) {
+      padding: 62px 20px 60px 40px;
+    }
     &_box {
       height: 100%;
       overflow-y: auto;
@@ -86,6 +89,10 @@ const NavContainer = styled.div`
       scrollbar-width: none;
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      @media (max-width: 548px) {
+        padding-bottom: 70px;
       }
     }
   }
