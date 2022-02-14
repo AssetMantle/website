@@ -13,6 +13,9 @@ const HeaderContainer = styled.header`
   right: 0;
   padding: 62px 92px;
   z-index: 300;
+  @media (max-width: 548px) {
+    padding: 40px 20px;
+  }
   .header {
     &__left {
       img {
@@ -31,6 +34,9 @@ const HeaderContainer = styled.header`
         align-items: center;
         justify-content: center;
         gap: 61.5px;
+        @media (max-width: 768px) {
+          display: none;
+        }
         &_theme__toggler {
           display: flex;
           align-items: center;
