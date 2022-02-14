@@ -28,7 +28,7 @@ export default function Home() {
           </div>
         </div>
         <div className="section_1__right">
-          <h1>{DATA.section1.right.h1}</h1>
+          <h1 dangerouslySetInnerHTML={{ __html: DATA.section1.right.h1 }}></h1>
           <p>{DATA.section1.right.p}</p>
         </div>
       </section>
@@ -58,15 +58,21 @@ export default function Home() {
       </section>
       <section className="section_3">
         <div className="section_3__element">
-          <img src="/images/Group 279.png" alt="world icon" />
+          <img src={`/images/${DATA.section3.left.img}.png`} alt="world icon" />
           <h2>{DATA.section3.left.h2}</h2>
         </div>
         <div className="section_3__element">
-          <img src="/images/Group 288.png" alt="world icon" />
+          <img
+            src={`/images/${DATA.section3.middle.img}.png`}
+            alt="world icon"
+          />
           <h2>{DATA.section3.middle.h2}</h2>
         </div>
         <div className="section_3__element">
-          <img src="/images/Group 275.png" alt="world icon" />
+          <img
+            src={`/images/${DATA.section3.right.img}.png`}
+            alt="world icon"
+          />
           <h2>{DATA.section3.right.h2}</h2>
         </div>
       </section>
@@ -133,7 +139,7 @@ export default function Home() {
           <h2>{DATA.section6.h2}</h2>
           <p>{DATA.section6.p_l}</p>
         </div>
-        <ButtonPrimary text={DATA.section6.bp} />
+        <ButtonPrimary text={DATA.section6.bp} href={DATA.section6.href} />
       </section>
       {/* <section className="section_7">
         <div className="section_7__element">
@@ -163,9 +169,9 @@ export default function Home() {
             ))
           )}
         </div>
-        <p className="am_diff__link">
+        {/* <p className="am_diff__link">
           {DATA.amDif.p_l2} <a href={DATA.amDif.href}>{DATA.amDif.link}</a>
-        </p>
+        </p> */}
       </section>
     </HomeContainer>
   );

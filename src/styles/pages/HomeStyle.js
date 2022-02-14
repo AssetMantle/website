@@ -3,36 +3,27 @@ import styled from "styled-components";
 export const HomeContainer = styled.main`
   max-width: 1440px;
   margin: 0 auto;
-  z-index: 1;
   background-image: url("/images/bg assets.svg");
   background-size: 100%;
   background-repeat: no-repeat;
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: auto;
-    z-index: -1;
-  }
   min-height: 100vh;
-  section {
-    z-index: 1;
-  }
+  z-index: 1;
   .section {
     &_1 {
-      padding: 85px 92px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       justify-items: flex-start;
+      padding: 85px 92px;
       @media (max-width: 768px) {
-        padding: 55px 52px 0;
+        padding: 55px 32px 0;
+        gap: 30px;
       }
       @media (max-width: 548px) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
         padding: 45px 20px 0;
+        gap: 50px;
       }
       &__left {
         display: flex;
@@ -43,6 +34,9 @@ export const HomeContainer = styled.main`
           padding: 25.41px;
           border-radius: 16px;
           width: min(100%, 376.01px);
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
           img {
             width: 100%;
             border-radius: 16px;
@@ -91,13 +85,42 @@ export const HomeContainer = styled.main`
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-content: space-between;
-      padding: 49.3px 192px 160px;
+      padding: 49.3px 160px 160px;
+      gap: 25px;
+      @media (max-width: 768px) {
+        padding: 60px 32px;
+      }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
+        padding: 98px 20px;
+        gap: 120px;
       }
       &__element {
         display: flex;
         gap: 12px;
+        img {
+          width: 132px;
+          height: 132px;
+        }
+        @media (max-width: 768px) {
+          img {
+            width: 100px;
+            height: 100px;
+            aspect-ratio: 1/1;
+          }
+        }
+        @media (max-width: 548px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 20px;
+          img {
+            width: 78px;
+            height: auto;
+          }
+        }
         &_details {
           h2 {
             font: var(--h2);
@@ -117,26 +140,42 @@ export const HomeContainer = styled.main`
       grid-template-columns: 1fr 1fr 1fr;
       align-items: center;
       justify-content: space-around;
+      gap: 40px;
+      @media (max-width: 548px) {
+        grid-template-columns: 1fr;
+        padding: 48px 20px;
+        gap: 80px;
+      }
       &__element {
         max-width: 273px;
         display: grid;
-        grid-template-rows: 2fr 1fr;
         align-items: center;
         justify-content: center;
         gap: 52px;
         margin: 0 auto;
+        @media (max-width: 548px) {
+          gap: 48px;
+        }
         img {
-          height: 0 auto;
-          width: 160px;
-          margin: auto;
+          height: auto;
+          width: 216px;
+          margin: 0 auto;
+          @media (max-width: 768px) {
+            width: 150px;
+          }
+
+          @media (max-width: 548px) {
+            width: 216px;
+          }
         }
         h2 {
           font: var(--h2);
           color: var(--gray);
           text-align: center;
           margin-bottom: auto;
+          max-width: 225px;
         }
-        &:nth-child(2) {
+        /* &:nth-child(2) {
           img {
             width: 172px;
           }
@@ -145,15 +184,21 @@ export const HomeContainer = styled.main`
           img {
             width: 216px;
           }
-        }
+        } */
       }
     }
     &_4 {
       padding: 120px 92px 112px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+
+      @media (max-width: 768px) {
+        padding: 90px 32px;
+      }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
+        padding: 130px 20px;
+        gap: 50px;
       }
       &__element {
         &:nth-child(1) {
@@ -173,15 +218,33 @@ export const HomeContainer = styled.main`
           display: flex;
           img {
             margin: auto;
+
+            @media (max-width: 768px) {
+              width: 80%;
+            }
+            @media (max-width: 548px) {
+              width: 100%;
+              height: auto;
+            }
           }
         }
       }
     }
     &_5 {
       padding: 0 92px 92px;
+
+      @media (max-width: 768px) {
+        padding: 50px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 50px 20px;
+      }
       h2 {
         font: var(--h2);
         color: var(--gray);
+        @media (max-width: 548px) {
+          margin-bottom: 30px;
+        }
       }
       p {
         margin: 0;
@@ -191,9 +254,13 @@ export const HomeContainer = styled.main`
         &.one {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          @media (max-width: 548px) {
+            overflow-y: auto;
+            gap: 40px;
+            margin: 40px 0;
+          }
           .section_5__element_options {
             text-align: center;
-            overflow-x: auto;
             padding: 40px 20px;
             h3 {
               font: var(--h3);
@@ -215,6 +282,14 @@ export const HomeContainer = styled.main`
           flex-wrap: wrap;
           align-items: flex-start;
           justify-content: space-around;
+
+          @media (max-width: 768px) {
+            gap: 70px;
+          }
+          @media (max-width: 548px) {
+            padding: 40px 0;
+            gap: 120px;
+          }
         }
         &_content {
           max-width: 219px;
@@ -271,6 +346,12 @@ export const HomeContainer = styled.main`
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 50px;
+      @media (max-width: 768px) {
+        padding: 60px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 60px 28px;
+      }
       &__element {
         &:nth-child(1) {
           width: min(100%, 736px);
@@ -278,6 +359,9 @@ export const HomeContainer = styled.main`
         h2 {
           font: var(--h2);
           color: var(--gray);
+          @media (max-width: 548px) {
+            margin-bottom: 30px;
+          }
         }
         p {
           margin: 0;
@@ -301,6 +385,12 @@ export const HomeContainer = styled.main`
   }
   .am_diff {
     padding: 120px 92px 70px;
+    @media (max-width: 768px) {
+      padding: 100px 40px;
+    }
+    @media (max-width: 548px) {
+      padding: 120px 20px;
+    }
     h2 {
       font: var(--h2);
       color: var(--gray);
@@ -316,10 +406,44 @@ export const HomeContainer = styled.main`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
+      @media (max-width: 768px) {
+        gap: 40px;
+      }
+
+      @media (max-width: 635px) {
+        grid-template-columns: 1fr;
+      }
+      @media (max-width: 548px) {
+        grid-template-columns: 1fr;
+        gap: 80px;
+      }
       &_content {
         display: grid;
         grid-template-columns: 2fr 10fr;
         gap: 23px;
+        @media (max-width: 768px) {
+          align-items: flex-start;
+          grid-template-columns: 1fr 11fr;
+          gap: 15px;
+        }
+        @media (max-width: 548px) {
+          grid-template-columns: 1fr;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 20px;
+        }
+        img {
+          margin: auto;
+
+          @media (max-width: 768px) {
+            margin: 0 auto auto;
+          }
+
+          @media (max-width: 548px) {
+            margin: auto;
+          }
+        }
         h3 {
           font: var(--h3);
           color: var(--gray);
