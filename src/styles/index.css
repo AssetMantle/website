@@ -1,7 +1,9 @@
 /* font importation */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -19,25 +21,33 @@
   --yellow-2: #fbc131;
   --yellow-3: #f5b71d;
   --yellow-4: #f2b110;
-  --yellow-gradient-bg: radial-gradient(45% 45% at 223.6% -90.33%, #FFC942 0%, #FEC73E 28%, #FBC131 57%, #F5B71D 86%, #F2B110 100%);;
+  --yellow-disabled: #624d19;
+  --yellow-gradient-bg: radial-gradient(
+    45% 45% at 223.6% -90.33%,
+    #ffc942 0%,
+    #fec73e 28%,
+    #fbc131 57%,
+    #f5b71d 86%,
+    #f2b110 100%
+  );
 
   --gray: #c2c2c2;
   --gray-deep: #9d9d9d;
 
   /* --------------fonts---------------------- */
-  --h1: bold 40px/120% 'Inter', sans-serif;
-  --h2: bold 32px/120% 'Inter', sans-serif;
-  --h3: bold 28px/120% 'Inter', sans-serif;
-  --h4: bold 20px/120% 'Inter', sans-serif;
-  --h5: bold 28px/120% 'Inter', sans-serif;
-  
-  --p-xl: 32px/120% 'Lato', sans-serif;
-  --p-l: 24px/120% 'Lato', sans-serif;
-  --p-m: 20px/120% 'Lato', sans-serif;
-  --p-s: 16px/120% 'Lato', sans-serif;
-  --p-xs: 14px/120% 'Lato', sans-serif;
+  --h1: bold 40px/120% "Inter", sans-serif;
+  --h2: bold 32px/120% "Inter", sans-serif;
+  --h3: bold 28px/120% "Inter", sans-serif;
+  --h4: bold 20px/120% "Inter", sans-serif;
+  --h5: bold 28px/120% "Inter", sans-serif;
+
+  --p-xl: 32px/120% "Lato", sans-serif;
+  --p-l: 24px/120% "Lato", sans-serif;
+  --p-m: 20px/120% "Lato", sans-serif;
+  --p-s: 16px/120% "Lato", sans-serif;
+  --p-xs: 14px/120% "Lato", sans-serif;
   /* for semi bold font use font-weight: 600; */
-  
-  --label: 600 28px/120% 'Inter', sans-serif;
-  --input: 18px/120% 'Lato', sans-serif;
+
+  --label: 600 28px/120% "Inter", sans-serif;
+  --input: 18px/120% "Lato", sans-serif;
 }
