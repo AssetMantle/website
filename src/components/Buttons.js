@@ -23,7 +23,8 @@ const BPS = styled.div`
     color: var(--dark-m);
     text-decoration: none;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
   }
 `;
@@ -37,8 +38,9 @@ export const ButtonPrimaryDisabled = ({ text }) => {
 };
 
 const BPDS = styled(BPS)`
-  background: #624d19;
-  &:hover {
+  background: var(--yellow-disabled);
+  &:hover,
+  &:focus {
     box-shadow: none;
   }
 `;
@@ -64,7 +66,8 @@ const BSS = styled.div`
     color: var(--yellow);
     text-decoration: none;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
   }
 `;
@@ -78,23 +81,20 @@ export const ButtonSecondaryDisabled = ({ text, href }) => {
 };
 
 const BSDS = styled(BSS)`
-  color: #624d19;
-  border: 2px solid #624d19;
-  background: #624d19;
-  &:hover {
+  color: var(--yellow-disabled);
+  border: 2px solid var(--yellow-disabled);
+  background: var(--yellow-disabled);
+  &:hover,
+  &:focus {
     box-shadow: none;
   }
 `;
 
 export const ButtonTertiary = ({ text, href }) => {
-  return (
-    <BSS tabIndex={`0`} role="button">
-      <a href={href}>{text}</a>
-    </BSS>
-  );
+  return <BTS href={href}>{text}</BTS>;
 };
 
-const BTS = styled.div`
+const BTS = styled.a`
   font: 600 var(--p-m);
   color: var(--yellow);
   a {
@@ -112,5 +112,5 @@ export const ButtonTertiaryDisabled = ({ text, href }) => {
 };
 
 const BTDS = styled(BTS)`
-  color: #624d19;
+  color: var(--yellow-disabled);
 `;
