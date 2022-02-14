@@ -6,14 +6,14 @@ import "./styles/App.css";
 
 import Header from "./layout/Header";
 import RouteNotFound from "./components/RouteNotFound";
-import Homepage from "./views/Hompage";
+import Home from "./pages/Home";
 // import Footer from "./components/Footer";
 const App = () => {
   const [theme, setTheme] = useState(false);
 
   const routes = [
     {
-      component: Homepage,
+      component: Home,
       path: "/",
     },
   ];
