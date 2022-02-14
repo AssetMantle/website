@@ -1,0 +1,82 @@
+{
+  "headerButtons": {
+    "themeToggler": {
+      "visibility": true
+    },
+    "primary": {
+      "visible": true,
+      "text": "Save",
+      "href": ""
+    },
+    "secondary": {
+      "visible": true,
+      "text": "Save",
+      "href": ""
+    }
+  },
+  "navItems": {
+    "normal": [
+      {
+        "visibility": true,
+        "text": "Home",
+        "href": "/"
+      },
+      {
+        "visibility": true,
+        "text": "About",
+        "href": ""
+      },
+      {
+        "visibility": true,
+        "text": "What's an NFT",
+        "href": ""
+      },
+      {
+        "visibility": true,
+        "text": "Who it's for",
+        "href": "",
+        "icon": "down-fill"
+      },
+      {
+        "visibility": true,
+        "text": "Pricing",
+        "href": ""
+      },
+      {
+        "visibility": true,
+        "text": "Support",
+        "href": ""
+      },
+      {
+        "visibility": true,
+        "text": "Documents",
+        "href": ""
+      },
+      {
+        "visibility": true,
+        "text": "Explorer",
+        "href": ""
+      }
+    ],
+    "spacial": [
+      {
+        "visibility": true,
+        "disable": true,
+        "target": "blank",
+        "text": "Mantlebuilder",
+        "instruction": "(Coming Soon)",
+        "href": "",
+        "icon": "external-link"
+      },
+      {
+        "visibility": true,
+        "disable": true,
+        "target": "blank",
+        "text": "Mantleplace",
+        "instruction": "(Coming Soon)",
+        "href": "",
+        "icon": "external-link"
+      }
+    ]
+  }
+}

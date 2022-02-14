@@ -1,0 +1,148 @@
+{
+  "section1": {
+    "left": {
+      "name": "Enim Ad",
+      "eth": "1.000000 ETH"
+    },
+    "right": {
+      "h1": "Secure NFT Marketplace",
+      "p": "Launch your own storefronts for free using AssetMantle’s secured NFT Marketplace."
+    }
+  },
+  "section2": {
+    "left": {
+      "h2": "Build a Store",
+      "p_l": "Lorem ipsum dolor sit amet",
+      "a": "Mantlebuilder",
+      "href": ""
+    },
+    "right": {
+      "h2": "Start Shopping",
+      "p_l": "Sed ut perspiciatis unde omnis",
+      "a": "Mantlebuilder",
+      "href": ""
+    }
+  },
+  "section3": {
+    "left": {
+      "h2": "Carbon emission prevented"
+    },
+    "middle": {
+      "h2": "Gift NFTs"
+    },
+    "right": {
+      "h2": "Metaverse Compatible"
+    }
+  },
+  "section4": {
+    "left": {
+      "h2": "What is AssetMantle?",
+      "p_l": "AssetMantle is a one-of-a-kind platform to facilitate commerce for your NFTs.",
+      "list": [
+        "Sign up, mint and start selling in under 5 minutes",
+        "Turn anything into an NFT! We support various formats and kinds.",
+        "Batch listing & minting",
+        "Auctions and secondary sales",
+        "Creative collaborations made easy with royalty splits",
+        "24X7 chat and call support",
+        "Fastest and most secure NFT platform out there"
+      ]
+    }
+  },
+  "section5": {
+    "h2": "How it works",
+    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "options": [
+      {
+        "name": "Storebuilder",
+        "content": [
+          {
+            "img": "Group 291",
+            "h3": "Create Account",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 250",
+            "h3": "Create Store",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 290",
+            "h3": "Publish",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 251",
+            "h3": "Sell",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          }
+        ],
+        "button": "Tell Me More"
+      },
+      {
+        "name": "Marketplace",
+        "content": [
+          {
+            "img": "Group 219",
+            "h3": "Create Account",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 250",
+            "h3": "Create Store",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 290",
+            "h3": "Publish",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          {
+            "img": "Group 290",
+            "h3": "Sell",
+            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          }
+        ],
+        "button": "Tell Me More"
+      }
+    ]
+  },
+  "section6": {
+    "h2": "I’m sold, let’s do this!",
+    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "bp": "Create a Store"
+  },
+  "section7": {
+    "leftImg": "Union",
+    "mid": {
+      "h2": "I need some convincing",
+      "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "rightButton": "Take a Tour"
+  },
+  "section8": {
+    "h2": "Getting started with AssetMantle",
+    "p_m": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "options": [
+      {
+        "img": "",
+        "name": "Artist",
+        "h2": "how does AssetMantle help you",
+        "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+        "list": [
+          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+          "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+          "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur",
+          "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit",
+          "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil",
+          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
+        ],
+        "button": "Tell Me More"
+      },
+      {
+        "img": "",
+        "name": "NFT Collector"
+      }
+    ]
+  }
+}
