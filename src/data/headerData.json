@@ -1,16 +1,16 @@
 {
   "headerButtons": {
     "themeToggler": {
-      "visibility": true
+      "visibility": false
     },
     "primary": {
-      "visible": true,
-      "text": "Save",
+      "visibility": false,
+      "text": "Storebuilder",
       "href": ""
     },
     "secondary": {
-      "visible": true,
-      "text": "Save",
+      "visibility": false,
+      "text": "Marketplace",
       "href": ""
     }
   },
