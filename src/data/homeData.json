@@ -2,36 +2,39 @@
   "section1": {
     "left": {
       "name": "Enim Ad",
-      "eth": "1.000000 ETH"
+      "eth": "Coming soon"
     },
     "right": {
-      "h1": "Secure NFT Marketplace",
-      "p": "Launch your own storefronts for free using AssetMantle’s secured NFT Marketplace."
+      "h1": "Create, Own.<br />Discover, Collect.",
+      "p": "Your one stop shop for NFTs. A community first platform for creators and collectors."
     }
   },
   "section2": {
     "left": {
       "h2": "Build a Store",
-      "p_l": "Lorem ipsum dolor sit amet",
+      "p_l": "Fully customizable store builder",
       "a": "Mantlebuilder",
       "href": ""
     },
     "right": {
       "h2": "Start Shopping",
-      "p_l": "Sed ut perspiciatis unde omnis",
+      "p_l": "Build your collection of NFTs",
       "a": "Mantlebuilder",
       "href": ""
     }
   },
   "section3": {
     "left": {
-      "h2": "Carbon emission prevented"
+      "img": "Group 333",
+      "h2": "44,600+ NFTs Sold"
     },
     "middle": {
-      "h2": "Gift NFTs"
+      "img": "Group 334",
+      "h2": "35,606,746 Total sales"
     },
     "right": {
-      "h2": "Metaverse Compatible"
+      "img": "Group 335",
+      "h2": "3,055,542 Active Wallets"
     }
   },
   "section4": {
@@ -51,7 +54,7 @@
   },
   "section5": {
     "h2": "How it works",
-    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "p_l": "Create a store of your own in a few steps using Mantlebuilder or browse through the vast collection of NFTs in Mantleplace.",
     "options": [
       {
         "name": "Storebuilder",
@@ -59,22 +62,22 @@
           {
             "img": "Group 291",
             "h3": "Create Account",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Simple account creation process using an email ID and password"
           },
           {
             "img": "Group 250",
             "h3": "Create Store",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Choose from a variety of templates or start from scratch"
           },
           {
             "img": "Group 290",
             "h3": "Publish",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Ready to sell in just a couple of days "
           },
           {
             "img": "Group 251",
             "h3": "Sell",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Name your price and your sale mechanism "
           }
         ],
         "button": "Tell Me More"
@@ -85,12 +88,12 @@
           {
             "img": "Group 291",
             "h3": "Create Account",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Simple account creation process using an email ID and password"
           },
           {
             "img": "Group 250",
             "h3": "Buy/Sell",
-            "p_m": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+            "p_m": "Buy someone else’s or list your own NFTs"
           }
         ],
         "button": "Tell Me More"
@@ -99,8 +102,9 @@
   },
   "section6": {
     "h2": "I’m sold, let’s do this!",
-    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "bp": "Create a Store"
+    "p_l": "Join the AssetMantle community today.",
+    "bp": "Notify me!",
+    "href": "https://docs.google.com/forms/d/e/1FAIpQLSdPgt8o5-kNdI4rcu3muaRi15Me6lUAGks6nA6dhmH1ivDPJg/viewform"
   },
   "section7": {
     "leftImg": "Union",
@@ -136,8 +140,8 @@
     ]
   },
   "amDif": {
-    "h2": "Multi-chain access",
-    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "h2": "The AssetMantle difference",
+    "p_l": "AssetMantle brings never before seen features that enhance the experience of buying and selling NFTs",
     "contents": [
       {
         "img": "Group 254",
