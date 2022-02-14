@@ -1,0 +1,52 @@
+{
+  "h2": "Get in touch",
+  "p_l": "We would love to hear from you.",
+  "left": {
+    "h3": "Join our Whitelist",
+    "p_s": "Your Email ID",
+    "placeHolder": "example@gmail.com",
+    "link_1": {
+      "text": "Spotted something wrong? ",
+      "btnTr": "Bug Bounty",
+      "href": ""
+    },
+    "link_2": {
+      "text": "Have something in mind? ",
+      "btnTr": "Suggest a Feature",
+      "href": ""
+    }
+  },
+  "right": {
+    "h3": "Social Media",
+    "links": [
+      {
+        "icon": "Group 286",
+        "alt": "Discord link",
+        "href": "https://discord.gg/BSdBQ4495d"
+      },
+      {
+        "icon": "Group 285",
+        "alt": "Instagram link",
+        "href": "https://www.instagram.com/assetmantle/"
+      },
+      {
+        "icon": "Group 284",
+        "alt": "Telegram link",
+        "href": "https://t.me/assetmantlechat"
+      },
+      {
+        "icon": "Group 283",
+        "alt": " Twitter link",
+        "href": "https://twitter.com/AssetMantle"
+      }
+    ],
+    "link1": {
+      "text": "Blog",
+      "href": "https://blog.assetmantle.one/"
+    },
+    "link2": {
+      "text": "Docs",
+      "href": "https://docs.assetmantle.one/"
+    }
+  }
+}
