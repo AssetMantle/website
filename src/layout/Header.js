@@ -5,6 +5,8 @@ import { ButtonPrimary, ButtonSecondary } from "../components/Buttons";
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
 
+import DATA from "../data/headerData.json";
+
 function Header({ theme = false, setTheme }) {
   const [navToggler, setNavToggler] = useState(false);
 
@@ -20,41 +22,57 @@ function Header({ theme = false, setTheme }) {
         </Link>
       </div>
       <div className="header__right">
-        <div className="header__right_second__nav">
-          <div className="header__right_second__nav_theme__toggler">
-            <img
-              src="/images/icons/moon.svg"
-              alt="moon icon"
-              className={`moon ${theme ? "" : "active"}`}
-            />
+        {DATA.headerButtons.themeToggler.visibility ||
+          DATA.headerButtons.primary.visibility ||
+          (DATA.headerButtons.secondary.visibility && (
+            <div className="header__right_second__nav">
+              {DATA.headerButtons.themeToggler.visibility && (
+                <div className="header__right_second__nav_theme__toggler">
+                  <img
+                    src="/images/icons/moon.svg"
+                    alt="moon icon"
+                    className={`moon ${theme ? "" : "active"}`}
+                  />
 
-            <div
-              className={`header__right_second__nav_theme__toggler_button ${
-                !theme ? "" : "active"
-              }`}
-              onClick={() => setTheme(!theme)}
-              onKeyPress={(e) => e.key === "Enter" && setTheme(!theme)}
-              tabIndex="0"
-              role="button"
-            >
-              <div
-                className={`header__right_second__nav_theme__toggler_button__dot ${
-                  !theme ? "" : "active"
-                }`}
-              ></div>
+                  <div
+                    className={`header__right_second__nav_theme__toggler_button ${
+                      !theme ? "" : "active"
+                    }`}
+                    onClick={() => setTheme(!theme)}
+                    onKeyPress={(e) => e.key === "Enter" && setTheme(!theme)}
+                    tabIndex="0"
+                    role="button"
+                  >
+                    <div
+                      className={`header__right_second__nav_theme__toggler_button__dot ${
+                        !theme ? "" : "active"
+                      }`}
+                    ></div>
+                  </div>
+
+                  <img
+                    src="/images/icons/sun.svg"
+                    alt="sun icon"
+                    className={`sun ${!theme ? "" : "active"}`}
+                  />
+                </div>
+              )}
+              <div className="header__right_second__nav_buttons">
+                {DATA.headerButtons.primary.visibility && (
+                  <ButtonPrimary
+                    text={DATA.headerButtons.primary.text}
+                    href={DATA.headerButtons.primary.href}
+                  />
+                )}
+                {DATA.headerButtons.secondary.visibility && (
+                  <ButtonSecondary
+                    text={DATA.headerButtons.secondary.text}
+                    href={DATA.headerButtons.secondary.href}
+                  />
+                )}
+              </div>
             </div>
-
-            <img
-              src="/images/icons/sun.svg"
-              alt="sun icon"
-              className={`sun ${!theme ? "" : "active"}`}
-            />
-          </div>
-          <div className="header__right_second__nav_buttons">
-            <ButtonPrimary text={`Storebuilder`} />
-            <ButtonSecondary text={`Marketplace`} />
-          </div>
-        </div>
+          ))}
         <NavIcon
           className="toggler"
           tabIndex="0"
