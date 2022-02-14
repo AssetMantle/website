@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
-  padding: 62px 92px;
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  left: 0;
+  right: 0;
+  padding: 62px 92px;
+  z-index: 300;
   .header {
     &__left {
       img {
@@ -71,25 +79,25 @@ export const NavIcon = styled.div`
     &_btn {
       margin: 10px 0;
       height: 2px;
-      width: 20px;
+      width: 32px;
       background: var(--yellow-gradient-bg);
       position: relative;
       transition: all cubic-bezier(0.67, -0.62, 0, 1.53) 300ms;
       &::before {
         position: absolute;
-        top: -8px;
+        top: -10px;
         right: 0;
         height: 2px;
-        width: 20px;
+        width: 32px;
         background: var(--yellow-gradient-bg);
         content: "";
       }
       &::after {
         position: absolute;
-        bottom: -8px;
+        bottom: -10px;
         right: 0;
         height: 2px;
-        width: 20px;
+        width: 32px;
         background: var(--yellow-gradient-bg);
         content: "";
       }
@@ -99,12 +107,12 @@ export const NavIcon = styled.div`
         &::before {
           transform: rotate(45deg);
           top: 0;
-          width: 25px;
+          width: 32px;
         }
         &::after {
           transform: rotate(-45deg);
           top: 0;
-          width: 25px;
+          width: 32px;
         }
       }
     }
