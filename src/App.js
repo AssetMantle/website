@@ -6,8 +6,9 @@ import "./styles/App.css";
 
 import Header from "./layout/Header";
 import RouteNotFound from "./components/RouteNotFound";
+import Footer from "./layout/Footer";
 import Home from "./pages/Home";
-// import Footer from "./components/Footer";
+
 const App = () => {
   const [theme, setTheme] = useState(false);
 
@@ -37,7 +38,7 @@ const App = () => {
         })}
         <Route component={RouteNotFound} />
       </Switch>
-      {/* <Footer/> */}
+      <Footer />
     </div>
   );
 };
