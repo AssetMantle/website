@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ButtonPrimary, ButtonSecondary } from "../components/Buttons";
 
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
+import Nav from "./Nav";
 
 function Header({ theme = false, setTheme }) {
   const [navToggler, setNavToggler] = useState(false);
@@ -9,7 +11,13 @@ function Header({ theme = false, setTheme }) {
   return (
     <HeaderContainer>
       <div className="header__left">
-        <img src="/images/icons/logo.svg" alt="" className="logo" />
+        <Link to="/">
+          <img
+            src="/images/icons/logo.svg"
+            alt=""
+            className="AssetMantle.one"
+          />
+        </Link>
       </div>
       <div className="header__right">
         <div className="header__right_second__nav">
@@ -25,6 +33,9 @@ function Header({ theme = false, setTheme }) {
                 !theme ? "" : "active"
               }`}
               onClick={() => setTheme(!theme)}
+              onKeyPress={(e) => e.key === "Enter" && setTheme(!theme)}
+              tabIndex="0"
+              role="button"
             >
               <div
                 className={`header__right_second__nav_theme__toggler_button__dot ${
@@ -44,10 +55,17 @@ function Header({ theme = false, setTheme }) {
             <ButtonSecondary text={`Marketplace`} />
           </div>
         </div>
-        <NavIcon className="toggler" onClick={() => setNavToggler(!navToggler)}>
+        <NavIcon
+          className="toggler"
+          tabIndex="0"
+          role="button"
+          onClick={() => setNavToggler(!navToggler)}
+          onKeyPress={(e) => e.key === "Enter" && setNavToggler(!navToggler)}
+        >
           <div className={`toggler_btn ${!navToggler ? "" : "active"}`}></div>
         </NavIcon>
       </div>
+      {navToggler && <Nav />}
     </HeaderContainer>
   );
 }
