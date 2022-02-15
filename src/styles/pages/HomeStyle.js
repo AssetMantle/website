@@ -8,6 +8,12 @@ export const HomeContainer = styled.main`
   background-repeat: no-repeat;
   min-height: 100vh;
   z-index: 1;
+  @media (max-width: 768px) {
+    background-image: url("/images/tab_bg_assets.svg");
+  }
+  @media (max-width: 548px) {
+    background-image: url("/images/m_bg_assets.svg");
+  }
   .section {
     &_1 {
       display: grid;
@@ -34,6 +40,8 @@ export const HomeContainer = styled.main`
           padding: 25.41px;
           border-radius: 16px;
           width: min(100%, 376.01px);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+            inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #303030;
           @media (max-width: 548px) {
             padding: 20px;
           }
@@ -88,7 +96,10 @@ export const HomeContainer = styled.main`
       padding: 49.3px 160px 160px;
       gap: 25px;
       @media (max-width: 768px) {
-        padding: 60px 32px;
+        padding: 90px 40px 60px;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 50px;
       }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
@@ -98,6 +109,10 @@ export const HomeContainer = styled.main`
       &__element {
         display: flex;
         gap: 12px;
+        @media (max-width: 768px) {
+          align-items: center;
+          justify-content: center;
+        }
         img {
           width: 132px;
           height: 132px;
@@ -117,7 +132,7 @@ export const HomeContainer = styled.main`
           text-align: center;
           gap: 20px;
           img {
-            width: 78px;
+            width: 88px;
             height: auto;
           }
         }
@@ -135,16 +150,29 @@ export const HomeContainer = styled.main`
     }
     &_3 {
       background-color: var(--dark-m);
-      padding: 44px 92px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      align-items: center;
-      justify-content: space-around;
-      gap: 40px;
+      padding: 60px 92px;
+      h2 {
+        padding: 0 0 80px;
+        font: var(--h2);
+        color: var(--gray);
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        padding: 50px 40px;
+      }
       @media (max-width: 548px) {
-        grid-template-columns: 1fr;
         padding: 48px 20px;
-        gap: 80px;
+      }
+      &_element_con {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: space-around;
+        gap: 40px;
+        @media (max-width: 548px) {
+          grid-template-columns: 1fr;
+          gap: 80px;
+        }
       }
       &__element {
         max-width: 273px;
@@ -174,17 +202,16 @@ export const HomeContainer = styled.main`
           text-align: center;
           margin-bottom: auto;
           max-width: 225px;
-        }
-        /* &:nth-child(2) {
-          img {
-            width: 172px;
+
+          @media (max-width: 768px) {
+            font: var(--h3);
           }
         }
-        &:nth-child(3) {
-          img {
-            width: 216px;
+        &:nth-child(2) {
+          h2 {
+            max-width: 349px;
           }
-        } */
+        }
       }
     }
     &_4 {
@@ -193,7 +220,7 @@ export const HomeContainer = styled.main`
       grid-template-columns: 1fr 1fr;
 
       @media (max-width: 768px) {
-        padding: 90px 32px;
+        padding: 90px 40px;
       }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
@@ -248,7 +275,9 @@ export const HomeContainer = styled.main`
       }
       p {
         margin: 0;
+        font: var(--p-l);
         color: var(--gray-deep);
+        max-width: 936px;
       }
       &__element {
         &.one {
@@ -282,7 +311,7 @@ export const HomeContainer = styled.main`
           flex-wrap: wrap;
           align-items: flex-start;
           justify-content: space-around;
-
+          gap: 30px;
           @media (max-width: 768px) {
             gap: 70px;
           }
@@ -299,7 +328,7 @@ export const HomeContainer = styled.main`
           justify-content: center;
           text-align: center;
           img {
-            margin-bottom: 54px;
+            margin-bottom: 44px;
           }
           h3 {
             font: var(--h3);
@@ -325,13 +354,14 @@ export const HomeContainer = styled.main`
           &:nth-child(3) {
             img {
               width: 102.7px;
-              height: 96px;
+              height: auto;
             }
           }
           &:nth-child(4) {
             img {
               width: 108.31px;
               height: 92px;
+              margin-bottom: 30px;
             }
           }
         }
@@ -354,7 +384,7 @@ export const HomeContainer = styled.main`
       }
       &__element {
         &:nth-child(1) {
-          width: min(100%, 736px);
+          max-width: 736px;
         }
         h2 {
           font: var(--h2);
