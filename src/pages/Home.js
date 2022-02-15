@@ -57,23 +57,29 @@ export default function Home() {
         </div>
       </section>
       <section className="section_3">
-        <div className="section_3__element">
-          <img src={`/images/${DATA.section3.left.img}.png`} alt="world icon" />
-          <h2>{DATA.section3.left.h2}</h2>
-        </div>
-        <div className="section_3__element">
-          <img
-            src={`/images/${DATA.section3.middle.img}.png`}
-            alt="world icon"
-          />
-          <h2>{DATA.section3.middle.h2}</h2>
-        </div>
-        <div className="section_3__element">
-          <img
-            src={`/images/${DATA.section3.right.img}.png`}
-            alt="world icon"
-          />
-          <h2>{DATA.section3.right.h2}</h2>
+        <h2>Become a part of the booming NFT community*</h2>
+        <div className="section_3_element_con">
+          <div className="section_3__element">
+            <img
+              src={`/images/${DATA.section3.left.img}.png`}
+              alt="world icon"
+            />
+            <h2>{DATA.section3.left.h2}</h2>
+          </div>
+          <div className="section_3__element">
+            <img
+              src={`/images/${DATA.section3.middle.img}.png`}
+              alt="world icon"
+            />
+            <h2>{DATA.section3.middle.h2}</h2>
+          </div>
+          <div className="section_3__element">
+            <img
+              src={`/images/${DATA.section3.right.img}.png`}
+              alt="world icon"
+            />
+            <h2>{DATA.section3.right.h2}</h2>
+          </div>
         </div>
       </section>
       <section className="section_4">

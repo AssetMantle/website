@@ -2,10 +2,16 @@ import React from "react";
 import { FooterContainer } from "../styles/layout/FooterStyle";
 import DATA from "../data/footerData.json";
 import { useState } from "react";
+import BugBountyModal from "../components/BugBountyModal";
 
 const Footer = () => {
   const [email, setEmail] = useState();
-  console.log(email);
+  const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+  };
 
   return (
     <FooterContainer>
@@ -72,19 +78,27 @@ const Footer = () => {
             <p className="footer_container__element_2__subscribe_label">
               Your Email ID
             </p>
-            <form className="footer_container__element_2__subscribe_form">
+            <form
+              className="footer_container__element_2__subscribe_form"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="email"
                 placeholder="example@gmail.com"
+                required
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <button type="submit">Join</button>
+              <button type="submit" onSubmit={(e) => e.preventDefault}>
+                Join
+              </button>
             </form>
           </div>
           <div className="footer_container__element_2__links">
             <p className="footer_container__element_2__links_link">
               Spotted something wrong?&nbsp;
-              <button>Bug Bounty</button>
+              <button onClick={() => setBugBountyModalStat(true)}>
+                Bug Bounty
+              </button>
             </p>
             <p className="footer_container__element_2__links_link">
               Have something in mind?&nbsp;
@@ -113,6 +127,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {bugBountyModalStat === "" && (
+        <BugBountyModal closeModal={setBugBountyModalStat} />
+      )}
     </FooterContainer>
   );
 };

@@ -10,16 +10,25 @@ export default function UList({ data }) {
 }
 
 const Container = styled.ul`
-  list-style: url("/images/icons/list.svg");
   li {
-    list-style-position: inside;
+    position: relative;
     list-style-type: none;
     color: var(--gray-deep);
+    font: var(--p-s);
+    line-height: 24px;
     padding: 8px 0;
+    padding-left: 25px;
     line-height: 90%;
-    /* display: flex;
-    align-items: center; */
-    /* &::marker {
-    } */
+    &:before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+      background-image: url("/images/icons/list.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 `;

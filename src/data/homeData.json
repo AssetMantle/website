@@ -26,15 +26,15 @@
   "section3": {
     "left": {
       "img": "Group 345",
-      "h2": "44,600+ NFTs Sold"
+      "h2": "22+ billion Sales in USD"
     },
     "middle": {
       "img": "Group 334",
-      "h2": "35,606,746 Total sales"
+      "h2": "35.6+ million Total number of sales"
     },
     "right": {
       "img": "Group 335",
-      "h2": "3,055,542 Active Wallets"
+      "h2": "3 million+ Active Wallets"
     }
   },
   "section4": {
@@ -42,19 +42,19 @@
       "h2": "What is AssetMantle?",
       "p_l": "AssetMantle is a one-of-a-kind platform to facilitate commerce for your NFTs.",
       "list": [
-        "Sign up, mint and start selling in under 5 minutes",
-        "Turn anything into an NFT! We support various formats and kinds.",
-        "Batch listing & minting",
-        "Auctions and secondary sales",
-        "Creative collaborations made easy with royalty splits",
-        "24X7 chat and call support",
-        "Fastest and most secure NFT platform out there"
+        "Sign up, Mint, and Start Selling in under 5 minutes!",
+        "Option to turn anything into an NFT (AssetMantle supports various formats and kinds).",
+        "Royalty splits make Creative collaborations much easy.",
+        "'Trade Room' for accessible communication between creators and collectors.",
+        "Integrates Analytics for Improved marketing.",
+        "Batch Listing and Minting.",
+        "Auctions and Secondary Sales."
       ]
     }
   },
   "section5": {
     "h2": "How it works",
-    "p_l": "Create a store of your own in a few steps using Mantlebuilder or browse through the vast collection of NFTs in Mantleplace.",
+    "p_l": "Create a store of your own in a few steps using Mantlebuilder or browse through the vast collection of NFTs in Mantleplace",
     "options": [
       {
         "name": "Storebuilder",
