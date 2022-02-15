@@ -9,79 +9,108 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <h2 className="footer__title">{DATA.h2}</h2>
-      <p className="footer__details">{DATA.p_l}</p>
+      <h2 className="footer__title">Get in touch</h2>
+      <p className="footer__details">We would love to hear from you.</p>
       <div className="footer_container">
         <div className="footer_container__element">
-          <h3>{DATA.left.h3}</h3>
-          <p className="footer_container__element_label">{DATA.left.p_s}</p>
-          <form className="footer_container__element_form">
-            <input
-              type="email"
-              placeholder={DATA.left.placeHolder}
-              onChange={(e) => setEmail(e.target.value)}
+          <div className="footer_container__element_emails">
+            <img
+              src="/images/email_icon.png"
+              alt="email icon"
+              className="footer_container__element_emails__icon"
             />
-            <button type="submit">Join</button>
-          </form>
-        </div>
-        <div className="footer_container__element">
-          <h3>{DATA.right.h3}</h3>
-          <div className="footer_container__element_media__icons">
-            {React.Children.toArray(
-              DATA.right.links.map((data) => (
-                <a
-                  className="footer_container__element_media__icons_icon"
-                  href={data.href}
-                >
-                  <img src={`/images/${data.icon}.png`} alt={data.alt} />
-                </a>
-              ))
-            )}
+            <h3 className="footer_container__element_emails__title">Email</h3>
+          </div>
+
+          <div className="footer_container__element_email__tile">
+            <h4 className="footer_container__element_email__tile_title">
+              Fro Information And Support:
+            </h4>
+            <a
+              className="footer_container__element_email__tile_email"
+              href="mailto:hello@assetmantle.one"
+            >
+              hello@assetmantle.one
+            </a>
+          </div>
+
+          <div className="footer_container__element_email__tile">
+            <h4 className="footer_container__element_email__tile_title">
+              For Collaboration And Interests
+            </h4>
+            <a
+              className="footer_container__element_email__tile_email"
+              href="mailto:communication@assetmantle.one"
+            >
+              communication@assetmantle.one
+            </a>
+          </div>
+
+          <div className="footer_container__element_social">
+            <h3 className="footer_container__element_social__title">
+              {DATA.social.h3}
+            </h3>
+            <div className="footer_container__element_social__icons">
+              {React.Children.toArray(
+                DATA.social.links.map((data) => (
+                  <a
+                    className="footer_container__element_social__icons_icon"
+                    href={data.href}
+                  >
+                    <img src={`/images/${data.icon}.png`} alt={data.alt} />
+                  </a>
+                ))
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="footer_container">
-        <div className="footer_container__element">
-          <p>
-            {DATA.left.link_1.text}
-            <a
-              href={DATA.left.link_1.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DATA.left.link_1.btnTr}
-            </a>
-          </p>
-          <p>
-            {DATA.left.link_2.text}
-            <a
-              href={DATA.left.link_2.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DATA.left.link_2.btnTr}
-            </a>
-          </p>
-        </div>
-        <div className="footer_container__element">
-          <p>
-            <a
-              href={DATA.right.link1.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DATA.right.link1.text}
-            </a>
-          </p>
-          <p>
-            <a
-              href={DATA.right.link2.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DATA.right.link2.text}
-            </a>
-          </p>
+        <div className="footer_container__element_2">
+          <div className="footer_container__element_2__subscribe">
+            <h3 className="footer_container__element_2__subscribe_title">
+              Join our Whitelist
+            </h3>
+            <p className="footer_container__element_2__subscribe_label">
+              Your Email ID
+            </p>
+            <form className="footer_container__element_2__subscribe_form">
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+          <div className="footer_container__element_2__links">
+            <p className="footer_container__element_2__links_link">
+              Spotted something wrong?&nbsp;
+              <button>Bug Bounty</button>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              Have something in mind?&nbsp;
+              <button>Suggest Feature</button>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              Want to know what we're upto?&nbsp;
+              <a
+                href="http://blog.assetmantle.one/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              Want to know more?&nbsp;
+              <a
+                href="https://docs.assetmantle.one/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Docs
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </FooterContainer>
