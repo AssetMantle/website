@@ -80,7 +80,7 @@ const BSS = styled.div`
   background: transparent;
   border: 2px solid var(--yellow);
   border-radius: 12px;
-  padding: 10px 31px 12px;
+  padding: 8px 31px 10px;
   cursor: pointer;
   a {
     color: var(--yellow);
