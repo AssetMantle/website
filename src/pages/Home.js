@@ -13,7 +13,7 @@ export default function Home() {
       <section className="section_1">
         <div className="section_1__left">
           <div className="section_1__left_box">
-            <img src="/images/unsplash_LpbyDENbQQg.png" alt="preview" />
+            <img src="/images/hero_NFT_image.png" alt="preview" />
             <div className="section_1__left_box__details">
               <img
                 src="/images/profile.png"
@@ -59,7 +59,9 @@ export default function Home() {
         </div>
       </section>
       <section className="section_3">
-        <h2>Become a part of the booming NFT community*</h2>
+        <h2>
+          Become a part of the booming NFT community<a href="#Source">*</a>
+        </h2>
         <div className="section_3_element_con">
           <div className="section_3__element">
             <img
@@ -180,6 +182,19 @@ export default function Home() {
         {/* <p className="am_diff__link">
           {DATA.amDif.p_l2} <a href={DATA.amDif.href}>{DATA.amDif.link}</a>
         </p> */}
+      </section>
+      <section className="section_source">
+        <span id="Source"></span>
+        <p>
+          *Source:{" "}
+          <a
+            href="https://www.statista.com/statistics/1235228/nft-art-monthly-sales-volume/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.statista.com/statistics/1235228/nft-art-monthly-sales-volume/
+          </a>
+        </p>
       </section>
     </HomeContainer>
   );
