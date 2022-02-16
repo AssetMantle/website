@@ -163,6 +163,10 @@ export const HomeContainer = styled.main`
         font: var(--h2);
         color: var(--gray);
         text-align: center;
+        a {
+          color: var(--yellow);
+          text-decoration: none;
+        }
       }
       @media (max-width: 768px) {
         padding: 50px 40px;
@@ -209,7 +213,6 @@ export const HomeContainer = styled.main`
           text-align: center;
           margin-bottom: auto;
           max-width: 225px;
-          text-transform: lowercase;
           @media (max-width: 768px) {
             font: var(--h3);
           }
@@ -414,6 +417,34 @@ export const HomeContainer = styled.main`
           display: flex;
           margin-top: auto;
           margin-bottom: 0;
+        }
+      }
+    }
+    &_source {
+      padding: 20px 92px 120px;
+      position: relative;
+      @media (max-width: 768px) {
+        padding: 10px 40px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 10px 20px 40px;
+      }
+      span {
+        position: absolute;
+        top: -150px;
+        @media (max-width: 548px) {
+          top: -120px;
+        }
+      }
+      p {
+        font: 600 var(--p-m);
+        color: var(--gray-deep);
+        text-align: right;
+        max-width: 100%;
+        a {
+          color: var(--gray-deep);
+          text-decoration: none;
+          word-break: break-all;
         }
       }
     }
