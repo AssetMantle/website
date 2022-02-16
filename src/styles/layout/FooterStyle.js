@@ -69,6 +69,7 @@ export const FooterContainer = styled.footer`
           padding: 20px 0;
           &_title {
             margin: 0;
+            text-transform: capitalize;
           }
           &_email {
             font: var(--p-m);
@@ -90,6 +91,9 @@ export const FooterContainer = styled.footer`
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 23px;
+            @media (max-width: 768px) {
+              width: 80%;
+            }
             img {
               width: 50px;
               height: 50px;
@@ -135,6 +139,7 @@ export const FooterContainer = styled.footer`
                 display: flex;
                 @media (max-width: 768px) {
                   flex-direction: column;
+                  gap: 10px;
                 }
               }
               input {
@@ -187,6 +192,7 @@ export const FooterContainer = styled.footer`
                 }
                 @media (max-width: 768px) {
                   width: 100%;
+                  margin-top: 10px;
                 }
               }
               &__message {
@@ -203,12 +209,17 @@ export const FooterContainer = styled.footer`
               padding: 12px 0;
               font: var(--p-m);
               color: var(--gray-deep);
+              display: flex;
+              @media (max-width: 768px) {
+                flex-direction: column;
+              }
               &__button {
                 font: var(--p-m);
                 background-color: transparent;
                 border: none;
                 outline: none;
                 color: var(--yellow);
+                width: max-content;
                 span:last-child {
                   display: none;
                 }

@@ -36,7 +36,7 @@ const Footer = () => {
 
           <div className="footer_container__element_email__tile">
             <h4 className="footer_container__element_email__tile_title">
-              Fro Information And Support:
+              For Information And Support:
             </h4>
             <a
               className="footer_container__element_email__tile_email"
