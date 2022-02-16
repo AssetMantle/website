@@ -48,6 +48,8 @@ export const HomeContainer = styled.main`
           img {
             width: 100%;
             border-radius: 16px;
+            box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.25),
+              inset 4px 4px 8px rgba(255, 255, 255, 0.25);
           }
           &__details {
             padding-top: 37.11px;
@@ -57,6 +59,8 @@ export const HomeContainer = styled.main`
             img {
               width: 74.14px;
               height: 74.14px;
+              border-radius: 12px;
+              box-shadow: none;
             }
             &_data {
               display: grid;
@@ -67,6 +71,7 @@ export const HomeContainer = styled.main`
                 margin: 0;
               }
               p {
+                font: var(--p-s);
                 color: var(--gray-deep);
                 margin: 0;
               }
@@ -140,10 +145,12 @@ export const HomeContainer = styled.main`
           h2 {
             font: var(--h2);
             color: var(--gray);
+            margin-bottom: 8px;
           }
           p {
             color: var(--gray-deep);
             font: var(--p-l);
+            margin-bottom: 20px;
           }
         }
       }
@@ -202,14 +209,9 @@ export const HomeContainer = styled.main`
           text-align: center;
           margin-bottom: auto;
           max-width: 225px;
-
+          text-transform: lowercase;
           @media (max-width: 768px) {
             font: var(--h3);
-          }
-        }
-        &:nth-child(2) {
-          h2 {
-            max-width: 349px;
           }
         }
       }
@@ -269,6 +271,7 @@ export const HomeContainer = styled.main`
       h2 {
         font: var(--h2);
         color: var(--gray);
+        margin-bottom: 24px;
         @media (max-width: 548px) {
           margin-bottom: 30px;
         }
@@ -355,13 +358,13 @@ export const HomeContainer = styled.main`
             img {
               width: 102.7px;
               height: auto;
+              margin-bottom: 28px;
             }
           }
           &:nth-child(4) {
             img {
               width: 108.31px;
               height: 92px;
-              margin-bottom: 30px;
             }
           }
         }
@@ -389,6 +392,7 @@ export const HomeContainer = styled.main`
         h2 {
           font: var(--h2);
           color: var(--gray);
+          margin-bottom: 24px;
           @media (max-width: 548px) {
             margin-bottom: 30px;
           }
@@ -415,7 +419,7 @@ export const HomeContainer = styled.main`
     }
   }
   .am_diff {
-    padding: 120px 92px 70px;
+    padding: 120px 92px;
     @media (max-width: 768px) {
       padding: 100px 40px;
     }
@@ -436,7 +440,7 @@ export const HomeContainer = styled.main`
     &__element {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 80px;
       @media (max-width: 768px) {
         gap: 40px;
       }
@@ -452,6 +456,7 @@ export const HomeContainer = styled.main`
         display: grid;
         grid-template-columns: 2fr 10fr;
         gap: 23px;
+        align-items: center;
         @media (max-width: 768px) {
           align-items: flex-start;
           grid-template-columns: 1fr 11fr;
@@ -479,11 +484,13 @@ export const HomeContainer = styled.main`
           font: var(--h3);
           color: var(--gray);
           margin-bottom: 24px;
+          text-transform: capitalize;
         }
         p {
           font: var(--p-m);
           color: var(--gray-deep);
           max-width: 479px;
+          margin: 0;
         }
       }
     }

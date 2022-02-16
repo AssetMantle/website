@@ -41,6 +41,7 @@ export default function Home() {
             <ButtonTertiary
               href={DATA.section2.left.href}
               text={DATA.section2.left.a}
+              leftArrow
             />
           </div>
         </div>
@@ -52,6 +53,7 @@ export default function Home() {
             <ButtonTertiary
               href={DATA.section2.right.href}
               text={DATA.section2.right.a}
+              leftArrow
             />
           </div>
         </div>
