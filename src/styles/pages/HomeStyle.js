@@ -99,6 +99,7 @@ export const HomeContainer = styled.main`
         padding: 90px 40px 60px;
         grid-template-columns: 1fr;
         align-items: center;
+        padding-left: 20%;
         gap: 50px;
       }
       @media (max-width: 548px) {
@@ -111,7 +112,6 @@ export const HomeContainer = styled.main`
         gap: 12px;
         @media (max-width: 768px) {
           align-items: center;
-          justify-content: center;
         }
         img {
           width: 132px;
@@ -394,6 +394,7 @@ export const HomeContainer = styled.main`
           }
         }
         p {
+          font: var(--p-l);
           margin: 0;
           color: var(--gray-deep);
         }
