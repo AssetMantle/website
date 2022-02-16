@@ -9,8 +9,6 @@ const SubscribeForm = ({ status, message, onValidated }) => {
   const [disable, setDisable] = useState(true);
   let email;
 
-  console.log(status, message, onValidated, isLoading, disable);
-
   useEffect(() => {
     document.querySelector("button#submit").disabled = disable;
   }, [disable]);
@@ -52,29 +50,42 @@ const SubscribeForm = ({ status, message, onValidated }) => {
   };
   return (
     <>
-      <input
-        type="email"
-        id="email"
-        placeholder="example@gmail.com"
-        required
-        onChange={handleChange}
-        onKeyPress={onKeyPress}
-      />
-      <button id="submit" type="submit" onSubmit={!isLoading ? submit : null}>
-        Join
-      </button>
-      <div className="subscription-result">
-        {status === "error" && (
-          <div style={{ color: "red" }} className="show-message">
-            Email already subscribed.
-          </div>
-        )}
-        {status === "success" && (
-          <div style={{ color: "green" }} className="show-message">
-            Thank you for subscribing!
-          </div>
-        )}
-      </div>
+      {status === "error" && (
+        <div
+          style={{ color: "var(--yellow)" }}
+          className="footer_container__element_2__subscribe_form__message"
+        >
+          Email already subscribed.
+        </div>
+      )}
+      {status === "success" && (
+        <div
+          style={{ color: "var(--gray)" }}
+          className="footer_container__element_2__subscribe_form__message"
+        >
+          Thank you for subscribing!
+        </div>
+      )}
+      {status !== "success" && (
+        <>
+          <input
+            type="email"
+            id="email"
+            placeholder="example@gmail.com"
+            required
+            ref={(node) => (email = node)}
+            onChange={handleChange}
+            onKeyPress={onKeyPress}
+          />
+          <button
+            id="submit"
+            type="submit"
+            onClick={!isLoading ? submit : null}
+          >
+            {isLoading ? "Joining" : "Join"}
+          </button>
+        </>
+      )}
     </>
   );
 };
