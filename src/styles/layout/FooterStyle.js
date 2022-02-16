@@ -169,6 +169,14 @@ export const FooterContainer = styled.footer`
                 &:focus {
                   box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
                 }
+                &:disabled {
+                  background: var(--yellow-disabled);
+                  box-shadow: none;
+                  &:hover,
+                  &:focus {
+                    box-shadow: none;
+                  }
+                }
                 @media (max-width: 768px) {
                   position: absolute;
                   top: 120%;
@@ -185,11 +193,26 @@ export const FooterContainer = styled.footer`
               padding: 12px 0;
               font: var(--p-m);
               color: var(--gray-deep);
-              button {
+              &__button {
+                font: var(--p-m);
                 background-color: transparent;
                 border: none;
                 outline: none;
                 color: var(--yellow);
+                span:last-child {
+                  display: none;
+                }
+                &.coming {
+                  &:hover,
+                  &:focus {
+                    span:last-child {
+                      display: inline;
+                    }
+                    span:first-child {
+                      display: none;
+                    }
+                  }
+                }
               }
               a {
                 text-decoration: none;

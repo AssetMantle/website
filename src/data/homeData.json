@@ -19,7 +19,7 @@
     "right": {
       "h2": "Start Shopping",
       "p_l": "Build your collection of NFTs",
-      "a": "Mantlebuilder",
+      "a": "MantlePlace",
       "href": ""
     }
   },
@@ -57,7 +57,7 @@
     "p_l": "Create a store of your own in a few steps using Mantlebuilder or browse through the vast collection of NFTs in Mantleplace",
     "options": [
       {
-        "name": "Storebuilder",
+        "name": "MantleBuilder",
         "content": [
           {
             "img": "Group 291",
@@ -83,7 +83,7 @@
         "button": "Tell Me More"
       },
       {
-        "name": "Marketplace",
+        "name": "MantlePlace",
         "content": [
           {
             "img": "Group 291",
@@ -149,7 +149,7 @@
         "p_m": "Travel with your NFTs to different chains and show-off in many metaverses"
       },
       {
-        "img": "Group 293",
+        "img": "Group 389",
         "h3": "Negligible Minting Fee",
         "p_m": "Yes, a minting fee so low, it’s barely there. We offer lowest gas fees too."
       },

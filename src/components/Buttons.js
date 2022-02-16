@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const ButtonPrimary = ({ text, href }) => {
+export const ButtonPrimary = ({ text, href, comingSoon }) => {
   return (
-    <BPS tabIndex={`0`} role="button">
+    <BPS className={comingSoon && "coming"} tabIndex={`0`} role="button">
       <a href={href}>{text}</a>
+      {comingSoon && <span>Coming soon</span>}
     </BPS>
   );
 };
@@ -19,13 +20,31 @@ const BPS = styled.div`
   border-radius: 12px;
   padding: 10px 43px 12px;
   transition: all ease-in-out 100ms;
+  cursor: pointer;
   a {
     color: var(--dark-m);
     text-decoration: none;
   }
+  span {
+    display: none;
+  }
   &:hover,
   &:focus {
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+  }
+  &.coming {
+    span {
+      display: none;
+    }
+    &:hover,
+    &:focus {
+      span {
+        display: inline;
+      }
+      a {
+        display: none;
+      }
+    }
   }
 `;
 
@@ -45,10 +64,11 @@ const BPDS = styled(BPS)`
   }
 `;
 
-export const ButtonSecondary = ({ text, href }) => {
+export const ButtonSecondary = ({ text, href, comingSoon }) => {
   return (
-    <BSS tabIndex={`0`} role="button">
+    <BSS className={comingSoon && "coming"} tabIndex={`0`} role="button">
       <a href={href}>{text}</a>
+      {comingSoon && <span>Coming soon</span>}
     </BSS>
   );
 };
@@ -58,17 +78,33 @@ const BSS = styled.div`
   color: var(--yellow);
   background: transparent;
   border: 2px solid var(--yellow);
-  /* box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
-    inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942; */
   border-radius: 12px;
   padding: 10px 31px 12px;
+  cursor: pointer;
   a {
     color: var(--yellow);
     text-decoration: none;
   }
+  span {
+    display: none;
+  }
   &:hover,
   &:focus {
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+  }
+  &.coming {
+    span {
+      display: none;
+    }
+    &:hover,
+    &:focus {
+      span {
+        display: inline;
+      }
+      a {
+        display: none;
+      }
+    }
   }
 `;
 
