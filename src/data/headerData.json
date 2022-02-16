@@ -4,13 +4,13 @@
       "visibility": false
     },
     "primary": {
-      "visibility": false,
-      "text": "Storebuilder",
+      "visibility": true,
+      "text": "MantleBuilder",
       "href": ""
     },
     "secondary": {
-      "visibility": false,
-      "text": "Marketplace",
+      "visibility": true,
+      "text": "MantlePlace",
       "href": ""
     }
   },
