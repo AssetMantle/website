@@ -17,17 +17,31 @@ export default function Nav() {
               DATA.navItems.normal.map((data) => (
                 <>
                   {data.visibility && (
-                    <NavLink
-                      to={data.href}
-                      className={location.pathname === data.href && "active"}
-                    >
-                      {data.text}{" "}
-                      {data.icon === "down-fill" && (
-                        <span>
-                          <BsFillCaretDownFill />
-                        </span>
+                    <>
+                      {data.href.charAt(0) === "/" ? (
+                        <NavLink
+                          to={data.href}
+                          className={
+                            location.pathname === data.href && "active"
+                          }
+                        >
+                          {data.text}{" "}
+                          {data.icon === "down-fill" && (
+                            <span>
+                              <BsFillCaretDownFill />
+                            </span>
+                          )}
+                        </NavLink>
+                      ) : (
+                        <NavLinkA
+                          href={data.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {data.text}
+                        </NavLinkA>
                       )}
-                    </NavLink>
+                    </>
                   )}
                 </>
               ))
@@ -99,6 +113,31 @@ const NavContainer = styled.div`
 `;
 
 const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 4px;
+  font: 600 var(--p-xl);
+  color: var(--gray);
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  gap: 10px;
+  span {
+    color: var(--yellow);
+    margin-top: 10px;
+  }
+  @media (max-width: 548px) {
+    font: 600 var(--p-l);
+  }
+  &.active {
+    border-bottom: 3px solid var(--yellow);
+  }
+  &:hover {
+    color: var(--gray);
+    text-decoration: none;
+  }
+`;
+const NavLinkA = styled.a`
   display: flex;
   align-items: center;
   width: max-content;
