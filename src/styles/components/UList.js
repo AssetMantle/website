@@ -14,11 +14,9 @@ const Container = styled.ul`
     position: relative;
     list-style-type: none;
     color: var(--gray-deep);
-    font: var(--p-s);
-    line-height: 24px;
-    padding: 8px 0;
+    font: var(--p-m);
+    padding: 12px 0;
     padding-left: 25px;
-    line-height: 90%;
     &:before {
       content: "";
       width: 20px;

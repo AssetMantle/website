@@ -80,7 +80,11 @@ function Header({ theme = false, setTheme }) {
           onClick={() => setNavToggler(!navToggler)}
           onKeyPress={(e) => e.key === "Enter" && setNavToggler(!navToggler)}
         >
-          <div className={`toggler_btn ${!navToggler ? "" : "active"}`}></div>
+          {navToggler ? (
+            <img src="/images/icons/close.png" alt="close" />
+          ) : (
+            <img src="/images/icons/hm menu.png" alt="hamburger" />
+          )}
         </NavIcon>
       </div>
       {navToggler && <Nav />}

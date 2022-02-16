@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BsArrowRight } from "react-icons/bs";
 
 export const ButtonPrimary = ({ text, href, comingSoon }) => {
   return (
@@ -79,7 +80,7 @@ const BSS = styled.div`
   background: transparent;
   border: 2px solid var(--yellow);
   border-radius: 12px;
-  padding: 10px 31px 12px;
+  padding: 8px 31px 10px;
   cursor: pointer;
   a {
     color: var(--yellow);
@@ -126,17 +127,21 @@ const BSDS = styled(BSS)`
   }
 `;
 
-export const ButtonTertiary = ({ text, href }) => {
-  return <BTS href={href}>{text}</BTS>;
+export const ButtonTertiary = ({ text, href, leftArrow }) => {
+  return (
+    <BTS href={href}>
+      {text} {leftArrow && <BsArrowRight />}
+    </BTS>
+  );
 };
 
 const BTS = styled.a`
   font: 600 var(--p-m);
   color: var(--yellow);
-  a {
-    color: var(--yellow);
-    text-decoration: none;
-  }
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const ButtonTertiaryDisabled = ({ text, href }) => {

@@ -69,6 +69,7 @@ export const FooterContainer = styled.footer`
           padding: 20px 0;
           &_title {
             margin: 0;
+            text-transform: capitalize;
           }
           &_email {
             font: var(--p-m);
@@ -90,6 +91,9 @@ export const FooterContainer = styled.footer`
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 23px;
+            @media (max-width: 768px) {
+              width: 80%;
+            }
             img {
               width: 50px;
               height: 50px;
@@ -120,7 +124,7 @@ export const FooterContainer = styled.footer`
             }
             &_form {
               background-color: transparent;
-              width: max-content;
+              width: 100%;
               display: flex;
               flex-direction: column;
               @media (max-width: 768px) {
@@ -135,6 +139,7 @@ export const FooterContainer = styled.footer`
                 display: flex;
                 @media (max-width: 768px) {
                   flex-direction: column;
+                  gap: 10px;
                 }
               }
               input {
@@ -146,7 +151,7 @@ export const FooterContainer = styled.footer`
                 /* border: none; */
                 outline: none;
                 padding: 0 15px;
-                width: max-content;
+                width: 60%;
                 flex: 1;
                 padding: 12px 16px;
                 @media (max-width: 768px) {
@@ -166,10 +171,11 @@ export const FooterContainer = styled.footer`
                   inset -4px -4px 8px rgba(0, 0, 0, 0.25),
                   inset 4px 4px 8px #ffc942;
                 border-radius: 12px;
-                padding: 10px 43px 12px;
+                padding: 12px 43px 14px;
                 transition: all ease-in-out 100ms;
                 border: none;
                 outline: none;
+                width: 40%;
                 &:hover,
                 &:focus {
                   box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
@@ -187,6 +193,7 @@ export const FooterContainer = styled.footer`
                 }
                 @media (max-width: 768px) {
                   width: 100%;
+                  margin-top: 10px;
                 }
               }
               &__message {
@@ -203,12 +210,17 @@ export const FooterContainer = styled.footer`
               padding: 12px 0;
               font: var(--p-m);
               color: var(--gray-deep);
+              display: flex;
+              @media (max-width: 768px) {
+                flex-direction: column;
+              }
               &__button {
                 font: var(--p-m);
                 background-color: transparent;
                 border: none;
                 outline: none;
                 color: var(--yellow);
+                width: max-content;
                 span:last-child {
                   display: none;
                 }

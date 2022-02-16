@@ -22,40 +22,40 @@
         "href": "/"
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "About",
         "href": ""
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "What's an NFT",
         "href": ""
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "Who it's for",
         "href": "",
         "icon": "down-fill"
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "Pricing",
         "href": ""
       },
       {
         "visibility": true,
         "text": "Support",
-        "href": ""
+        "href": "mailto:hello@assetmantle.one"
       },
       {
         "visibility": true,
         "text": "Documents",
-        "href": ""
+        "href": "https://docs.assetmantle.one/"
       },
       {
         "visibility": true,
         "text": "Explorer",
-        "href": ""
+        "href": "https://test-mantle-1.explorer.persistence.one"
       }
     ],
     "spacial": [
@@ -63,7 +63,7 @@
         "visibility": true,
         "disable": true,
         "target": "blank",
-        "text": "Mantlebuilder",
+        "text": "MantleBuilder",
         "instruction": "(Coming Soon)",
         "href": "",
         "icon": "external-link"

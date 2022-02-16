@@ -17,17 +17,31 @@ export default function Nav() {
               DATA.navItems.normal.map((data) => (
                 <>
                   {data.visibility && (
-                    <NavLink
-                      to={data.href}
-                      className={location.pathname === data.href && "active"}
-                    >
-                      {data.text}{" "}
-                      {data.icon === "down-fill" && (
-                        <span>
-                          <BsFillCaretDownFill />
-                        </span>
+                    <>
+                      {data.href.charAt(0) === "/" ? (
+                        <NavLink
+                          to={data.href}
+                          className={
+                            location.pathname === data.href && "active"
+                          }
+                        >
+                          {data.text}{" "}
+                          {data.icon === "down-fill" && (
+                            <span>
+                              <BsFillCaretDownFill />
+                            </span>
+                          )}
+                        </NavLink>
+                      ) : (
+                        <NavLinkA
+                          href={data.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {data.text}
+                        </NavLinkA>
                       )}
-                    </NavLink>
+                    </>
                   )}
                 </>
               ))
@@ -73,7 +87,7 @@ const NavContainer = styled.div`
   .nav__container {
     position: relative;
     height: 100%;
-    width: min(88%, 468px);
+    width: min(70%, 468px);
     background-color: var(--dark);
     padding: 62px 80px;
     @media (max-width: 548px) {
@@ -99,15 +113,46 @@ const NavContainer = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  display: inline;
+  display: flex;
+  align-items: center;
   width: max-content;
   padding: 4px;
   font: 600 var(--p-xl);
   color: var(--gray);
   border-bottom: 3px solid transparent;
   text-decoration: none;
+  gap: 10px;
   span {
     color: var(--yellow);
+    margin-top: 10px;
+  }
+  @media (max-width: 548px) {
+    font: 600 var(--p-l);
+  }
+  &.active {
+    border-bottom: 3px solid var(--yellow);
+  }
+  &:hover {
+    color: var(--gray);
+    text-decoration: none;
+  }
+`;
+const NavLinkA = styled.a`
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 4px;
+  font: 600 var(--p-xl);
+  color: var(--gray);
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  gap: 10px;
+  span {
+    color: var(--yellow);
+    margin-top: 10px;
+  }
+  @media (max-width: 548px) {
+    font: 600 var(--p-l);
   }
   &.active {
     border-bottom: 3px solid var(--yellow);
@@ -128,9 +173,15 @@ const NavLinkExt = styled(Link)`
   color: var(--gray);
   border-bottom: 3px solid transparent;
   text-decoration: none;
+  @media (max-width: 548px) {
+    font: 600 var(--p-xs);
+  }
   span {
     font: 600 var(--p-xl);
     color: var(--yellow);
+    @media (max-width: 548px) {
+      font: 600 var(--p-l);
+    }
   }
   &.disabled {
     color: var(--gray-deep);
