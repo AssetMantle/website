@@ -13,7 +13,7 @@
     "left": {
       "h2": "Build a Store",
       "p_l": "Fully customizable store builder",
-      "a": "Mantlebuilder",
+      "a": "MantleBuilder",
       "href": ""
     },
     "right": {
@@ -30,7 +30,7 @@
     },
     "middle": {
       "img": "Group 334",
-      "h2": "35.6 million+ Total sales"
+      "h2": "35.6 million+ Total Sales"
     },
     "right": {
       "img": "Group 335",
@@ -42,19 +42,19 @@
       "h2": "What is AssetMantle?",
       "p_l": "AssetMantle is a one-of-a-kind platform to facilitate commerce for your NFTs.",
       "list": [
-        "Sign up, Mint, and Start Selling in under 5 minutes!",
+        "Sign up, mint, and start selling in 5 minutes or less!",
         "Option to turn anything into an NFT (AssetMantle supports various formats and kinds).",
-        "Royalty splits make Creative collaborations much easy.",
+        "Royalty splits make creative collaborations easier.",
         "'Trade Room' for accessible communication between creators and collectors.",
-        "Integrates Analytics for Improved marketing.",
-        "Batch Listing and Minting.",
-        "Auctions and Secondary Sales."
+        "Integrated analytics for improved marketing.",
+        "Batch listing and minting.",
+        "Auctions and secondary sales."
       ]
     }
   },
   "section5": {
     "h2": "How it works",
-    "p_l": "Create a store of your own in a few steps using Mantlebuilder or browse through the vast collection of NFTs in Mantleplace",
+    "p_l": "Create a store of your own in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
     "options": [
       {
         "name": "MantleBuilder",
@@ -103,7 +103,7 @@
   "section6": {
     "h2": "I’m sold, let’s do this!",
     "p_l": "Join the AssetMantle community today.",
-    "bp": "Notify me!",
+    "bp": "Sign Up",
     "href": "https://forms.office.com/r/YSH0dhMLwB"
   },
   "section7": {
