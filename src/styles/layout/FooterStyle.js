@@ -122,14 +122,20 @@ export const FooterContainer = styled.footer`
               background-color: transparent;
               width: max-content;
               display: flex;
+              flex-direction: column;
               @media (max-width: 768px) {
                 width: 90%;
-                flex-direction: column;
                 gap: 10px;
               }
 
               @media (max-width: 548px) {
                 width: 100%;
+              }
+              &__field {
+                display: flex;
+                @media (max-width: 768px) {
+                  flex-direction: column;
+                }
               }
               input {
                 font: var(--input);
@@ -142,9 +148,9 @@ export const FooterContainer = styled.footer`
                 padding: 0 15px;
                 width: max-content;
                 flex: 1;
+                padding: 12px 16px;
                 @media (max-width: 768px) {
                   width: 100%;
-                  padding: 12px 16px;
                 }
                 /* @media (max-width: 548px) {
                   width: 60%;
@@ -184,7 +190,7 @@ export const FooterContainer = styled.footer`
                 }
               }
               &__message {
-                margin-top: 24px;
+                margin: 24px 0;
                 font: var(--p-m);
               }
             }
