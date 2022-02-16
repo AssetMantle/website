@@ -126,7 +126,7 @@ const Footer = () => {
             <p className="footer_container__element_2__links_link">
               Have something in mind?&nbsp;
               <button className="footer_container__element_2__links_link__button coming">
-                <span>Suggest Feature</span>
+                <span>Suggest a Feature</span>
                 <span>Coming soon</span>
               </button>
             </p>
