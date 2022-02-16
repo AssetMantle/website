@@ -14,7 +14,10 @@ export default function Home() {
         <div className="section_1__left">
           <div className="section_1__left_box">
             <img src="/images/hero_NFT_image.png" alt="preview" />
-            <div className="section_1__left_box__details">
+            <div className="section_1__left_box__details2">
+              <h3>Coming soon!</h3>
+            </div>
+            {/* <div className="section_1__left_box__details">
               <img
                 src="/images/profile.png"
                 alt="profile"
@@ -24,7 +27,7 @@ export default function Home() {
                 <h4>{DATA.section1.left.name}</h4>
                 <p>{DATA.section1.left.eth}</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="section_1__right">

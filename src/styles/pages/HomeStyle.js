@@ -34,12 +34,13 @@ export const HomeContainer = styled.main`
       &__left {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
+        width: 100%;
         &_box {
           background-color: var(--dark-m);
-          padding: 25.41px;
+          padding: 25px;
           border-radius: 16px;
-          width: min(100%, 376.01px);
+          width: min(100%, 375px);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
             inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #303030;
           @media (max-width: 548px) {
@@ -48,8 +49,9 @@ export const HomeContainer = styled.main`
           img {
             width: 100%;
             border-radius: 16px;
-            box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.25),
-              inset 4px 4px 8px rgba(255, 255, 255, 0.25);
+            /* box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.3),
+              inset 4px 4px 8px rgba(136, 136, 136, 0.25); */
+            filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
           }
           &__details {
             padding-top: 37.11px;
@@ -75,6 +77,14 @@ export const HomeContainer = styled.main`
                 color: var(--gray-deep);
                 margin: 0;
               }
+            }
+          }
+          &__details2 {
+            padding: 30px 0 15px;
+            h3 {
+              font: var(--h3);
+              color: var(--gray);
+              text-align: center;
             }
           }
         }
