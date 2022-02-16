@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   max-width: 1440px;
+  background-color: var(--dark);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -11,10 +12,13 @@ const HeaderContainer = styled.header`
   top: 0px;
   left: 0;
   right: 0;
-  padding: 62px 92px;
+  padding: 20px 92px 20px;
   z-index: 300;
+  @media (max-width: 768px) {
+    padding: 19px 40px;
+  }
   @media (max-width: 548px) {
-    padding: 40px 20px;
+    padding: 19px 20px;
   }
   .header {
     &__left {
@@ -79,50 +83,8 @@ const HeaderContainer = styled.header`
 export const NavIcon = styled.div`
   z-index: 100;
   margin: 15px 20px;
-  width: 20px;
-  height: 22px;
-  .toggler {
-    &_btn {
-      margin: 10px 0;
-      height: 2px;
-      width: 32px;
-      background: var(--yellow-gradient-bg);
-      position: relative;
-      transition: all cubic-bezier(0.67, -0.62, 0, 1.53) 300ms;
-      &::before {
-        position: absolute;
-        top: -10px;
-        right: 0;
-        height: 2px;
-        width: 32px;
-        background: var(--yellow-gradient-bg);
-        content: "";
-      }
-      &::after {
-        position: absolute;
-        bottom: -10px;
-        right: 0;
-        height: 2px;
-        width: 32px;
-        background: var(--yellow-gradient-bg);
-        content: "";
-      }
-      &.active {
-        transform: rotate(90deg);
-        background: transparent;
-        &::before {
-          transform: rotate(45deg);
-          top: 0;
-          width: 32px;
-        }
-        &::after {
-          transform: rotate(-45deg);
-          top: 0;
-          width: 32px;
-        }
-      }
-    }
-  }
+  /* width: 20px;
+  height: 22px; */
 `;
 
 export default HeaderContainer;
