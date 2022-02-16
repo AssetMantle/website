@@ -9,16 +9,15 @@ import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
-console.log(mailURl);
 
 const Footer = () => {
-  const [email, setEmail] = useState();
+  // const [email, setEmail] = useState();
   const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(email);
+  // };
 
   return (
     <FooterContainer>
@@ -89,9 +88,9 @@ const Footer = () => {
             <p className="footer_container__element_2__subscribe_label">
               Your Email ID
             </p>
-            {/* <div className="footer_container__element_2__subscribe_form">
+            <div className="footer_container__element_2__subscribe_form">
               <MailchimpSubscribe
-                url={`https://one.us20.list-manage.com/subscribe/post?u=37c5b698f25664907f640640b&amp;id=11dfe43af3`}
+                url={mailURl}
                 render={({ subscribe, status, message }) => (
                   <SubscribeForm
                     status={status}
@@ -100,8 +99,8 @@ const Footer = () => {
                   />
                 )}
               />
-            </div> */}
-            <form
+            </div>
+            {/* <form
               className="footer_container__element_2__subscribe_form"
               onSubmit={handleSubmit}
             >
@@ -114,7 +113,7 @@ const Footer = () => {
               <button type="submit" onSubmit={(e) => e.preventDefault}>
                 Join
               </button>
-            </form>
+            </form> */}
           </div>
           <div className="footer_container__element_2__links">
             <p className="footer_container__element_2__links_link">
