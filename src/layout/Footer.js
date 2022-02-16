@@ -1,8 +1,15 @@
 import React from "react";
-import { FooterContainer } from "../styles/layout/FooterStyle";
-import DATA from "../data/footerData.json";
 import { useState } from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+
+import { FooterContainer } from "../styles/layout/FooterStyle";
+
+import DATA from "../data/footerData.json";
 import BugBountyModal from "../components/BugBountyModal";
+import SubscribeForm from "../components/SubscribeForm";
+
+const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
+console.log(mailURl);
 
 const Footer = () => {
   const [email, setEmail] = useState();
@@ -35,6 +42,8 @@ const Footer = () => {
             <a
               className="footer_container__element_email__tile_email"
               href="mailto:hello@assetmantle.one"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               hello@assetmantle.one
             </a>
@@ -46,9 +55,11 @@ const Footer = () => {
             </h4>
             <a
               className="footer_container__element_email__tile_email"
-              href="mailto:communication@assetmantle.one"
+              href="mailto:communications@assetmantle.one"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              communication@assetmantle.one
+              communications@assetmantle.one
             </a>
           </div>
 
@@ -78,6 +89,18 @@ const Footer = () => {
             <p className="footer_container__element_2__subscribe_label">
               Your Email ID
             </p>
+            {/* <div className="footer_container__element_2__subscribe_form">
+              <MailchimpSubscribe
+                url={`https://one.us20.list-manage.com/subscribe/post?u=37c5b698f25664907f640640b&amp;id=11dfe43af3`}
+                render={({ subscribe, status, message }) => (
+                  <SubscribeForm
+                    status={status}
+                    message={message}
+                    onValidated={(formData) => subscribe(formData)}
+                  />
+                )}
+              />
+            </div> */}
             <form
               className="footer_container__element_2__subscribe_form"
               onSubmit={handleSubmit}
@@ -96,13 +119,20 @@ const Footer = () => {
           <div className="footer_container__element_2__links">
             <p className="footer_container__element_2__links_link">
               Spotted something wrong?&nbsp;
-              <button onClick={() => setBugBountyModalStat(true)}>
-                Bug Bounty
+              <button
+                className="footer_container__element_2__links_link__button coming"
+                onClick={() => setBugBountyModalStat(true)}
+              >
+                <span>Bug Bounty</span>
+                <span>Coming soon</span>
               </button>
             </p>
             <p className="footer_container__element_2__links_link">
               Have something in mind?&nbsp;
-              <button>Suggest Feature</button>
+              <button className="footer_container__element_2__links_link__button coming">
+                <span>Suggest Feature</span>
+                <span>Coming soon</span>
+              </button>
             </p>
             <p className="footer_container__element_2__links_link">
               Want to know what we're upto?&nbsp;
