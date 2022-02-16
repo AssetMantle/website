@@ -38,7 +38,7 @@ const HeaderContainer = styled.header`
         align-items: center;
         justify-content: center;
         gap: 61.5px;
-        @media (max-width: 768px) {
+        @media (max-width: 852px) {
           display: none;
         }
         &_theme__toggler {
