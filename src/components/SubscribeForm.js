@@ -4,13 +4,15 @@ function simulateNetworkRequest() {
   return new Promise((resolve) => setTimeout(resolve, 500));
 }
 
-const SubscribeForm = ({ status, message, onValidated }) => {
+const SubscribeForm = ({ status = "success", message, onValidated }) => {
   const [isLoading, setLoading] = useState(false);
   const [disable, setDisable] = useState(true);
   let email;
 
   useEffect(() => {
-    document.querySelector("button#submit").disabled = disable;
+    if (document.querySelector("button#submit")) {
+      document.querySelector("button#submit").disabled = disable;
+    }
   }, [disable]);
 
   const onKeyPress = (e) => {
@@ -68,22 +70,27 @@ const SubscribeForm = ({ status, message, onValidated }) => {
       )}
       {status !== "success" && (
         <>
-          <input
-            type="email"
-            id="email"
-            placeholder="example@gmail.com"
-            required
-            ref={(node) => (email = node)}
-            onChange={handleChange}
-            onKeyPress={onKeyPress}
-          />
-          <button
-            id="submit"
-            type="submit"
-            onClick={!isLoading ? submit : null}
-          >
-            {isLoading ? "Joining" : "Join"}
-          </button>
+          <p className="footer_container__element_2__subscribe_label">
+            Your Email ID
+          </p>
+          <div className="footer_container__element_2__subscribe_form__fields">
+            <input
+              type="email"
+              id="email"
+              placeholder="example@gmail.com"
+              required
+              ref={(node) => (email = node)}
+              onChange={handleChange}
+              onKeyPress={onKeyPress}
+            />
+            <button
+              id="submit"
+              type="submit"
+              onClick={!isLoading ? submit : null}
+            >
+              {isLoading ? "Joining" : "Join"}
+            </button>
+          </div>
         </>
       )}
     </>

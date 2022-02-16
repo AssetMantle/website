@@ -85,9 +85,6 @@ const Footer = () => {
             <h3 className="footer_container__element_2__subscribe_title">
               Join our Whitelist
             </h3>
-            <p className="footer_container__element_2__subscribe_label">
-              Your Email ID
-            </p>
             <div className="footer_container__element_2__subscribe_form">
               <MailchimpSubscribe
                 url={mailURl}
