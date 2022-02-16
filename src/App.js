@@ -21,9 +21,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="app-nav">
-        <Header theme={theme} setTheme={setTheme} />
-      </div>
+      <Header theme={theme} setTheme={setTheme} />
 
       <Switch>
         {routes.map((route) => {
