@@ -72,6 +72,8 @@ const Footer = () => {
                   <a
                     className="footer_container__element_social__icons_icon"
                     href={data.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <img src={`/images/${data.icon}.png`} alt={data.alt} />
                   </a>
@@ -148,6 +150,16 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 Docs
+              </a>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              Interested in transaction activities?&nbsp;
+              <a
+                href="https://test-mantle-1.explorer.persistence.one"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explorer
               </a>
             </p>
           </div>

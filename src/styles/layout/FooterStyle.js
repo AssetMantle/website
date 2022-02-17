@@ -135,8 +135,9 @@ export const FooterContainer = styled.footer`
               @media (max-width: 548px) {
                 width: 100%;
               }
-              &__field {
+              &__fields {
                 display: flex;
+                gap: 24px;
                 @media (max-width: 768px) {
                   flex-direction: column;
                   gap: 10px;
@@ -148,10 +149,9 @@ export const FooterContainer = styled.footer`
                 background-color: transparent;
                 border: 2px solid var(--gray-deep);
                 border-radius: 12px;
-                /* border: none; */
                 outline: none;
                 padding: 0 15px;
-                width: 60%;
+                width: 59%;
                 flex: 1;
                 padding: 12px 16px;
                 @media (max-width: 768px) {
@@ -175,7 +175,7 @@ export const FooterContainer = styled.footer`
                 transition: all ease-in-out 100ms;
                 border: none;
                 outline: none;
-                width: 40%;
+                width: 39%;
                 &:hover,
                 &:focus {
                   box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
