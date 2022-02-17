@@ -133,10 +133,15 @@ const BSDS = styled(BSS)`
 
 export const ButtonTertiary = ({ text, href, leftArrow, comingSoon }) => {
   return (
-    <BTS className={comingSoon && "coming"} href={href}>
-      <span>{text}</span>
+    <BTS
+      className={comingSoon && "coming"}
+      href={href}
+      onClick={(e) => comingSoon && e.preventDefault()}
+    >
+      <span>
+        {text} {leftArrow && <BsArrowRight />}
+      </span>
       {comingSoon && <span className="casas">Coming soon</span>}{" "}
-      {leftArrow && <BsArrowRight />}
     </BTS>
   );
 };
@@ -145,9 +150,11 @@ const BTS = styled.a`
   font: 600 var(--p-m);
   color: var(--yellow);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
   span.casas {
     display: none;
   }
