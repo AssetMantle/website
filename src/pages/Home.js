@@ -37,7 +37,7 @@ export default function Home() {
       </section>
       <section className="section_2">
         <div className="section_2__element">
-          <img src="/images/Group 151.png" alt="" />
+          <img src="/images/Group151.png" alt="" />
           <div className="section_2__element_details">
             <h2>{DATA.section2.left.h2}</h2>
             <p>{DATA.section2.left.p_l}</p>
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
         <div className="section_2__element">
-          <img src="/images/Group 249.png" alt="" />
+          <img src="/images/Group249.png" alt="" />
           <div className="section_2__element_details">
             <h2>{DATA.section2.right.h2}</h2>
             <p>{DATA.section2.right.p_l}</p>
@@ -96,7 +96,7 @@ export default function Home() {
           <UList data={DATA.section4.left.list} />
         </div>
         <div className="section_4__element">
-          <img src="/images/Group 289.png" alt="" />
+          <img src="/images/Group289.png" alt="" />
         </div>
       </section>
       <section className="section_5">

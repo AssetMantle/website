@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HomeContainer = styled.main`
   max-width: 1440px;
   margin: 0 auto;
-  background-image: url("/images/bg assets.svg");
+  background-image: url("/images/bg_assets.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   min-height: 100vh;

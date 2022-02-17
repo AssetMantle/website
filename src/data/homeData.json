@@ -25,15 +25,15 @@
   },
   "section3": {
     "left": {
-      "img": "Group 345",
+      "img": "Group345",
       "h2": "22 billion+ Sales in USD"
     },
     "middle": {
-      "img": "Group 334",
+      "img": "Group334",
       "h2": "35.6 million+ Total Sales"
     },
     "right": {
-      "img": "Group 335",
+      "img": "Group335",
       "h2": "3 million+ Active Wallets"
     }
   },
@@ -60,22 +60,22 @@
         "name": "MantleBuilder",
         "content": [
           {
-            "img": "Group 291",
+            "img": "Group291",
             "h3": "Create Account",
             "p_m": "Simple account creation process using an email ID and password"
           },
           {
-            "img": "Group 250",
+            "img": "Group250",
             "h3": "Create Store",
             "p_m": "Choose from a variety of templates or start from scratch"
           },
           {
-            "img": "Group 290",
+            "img": "Group290",
             "h3": "Publish",
             "p_m": "Ready to sell in just a couple of days "
           },
           {
-            "img": "Group 251",
+            "img": "Group251",
             "h3": "Sell",
             "p_m": "Name your price and your sale mechanism "
           }
@@ -86,12 +86,12 @@
         "name": "MantlePlace",
         "content": [
           {
-            "img": "Group 291",
+            "img": "Group291",
             "h3": "Create Account",
             "p_m": "Simple account creation process using an email ID and password"
           },
           {
-            "img": "Group 250",
+            "img": "Group250",
             "h3": "Buy/Sell",
             "p_m": "Buy someone else’s or list your own NFTs"
           }
@@ -144,22 +144,22 @@
     "p_l": "AssetMantle brings never before seen features that enhance the experience of buying and selling NFTs",
     "contents": [
       {
-        "img": "Group 254",
+        "img": "Group254",
         "h3": "Multi-chain access",
         "p_m": "Travel with your NFTs to different chains and show-off in many metaverses"
       },
       {
-        "img": "Group 389",
+        "img": "Group389",
         "h3": "Negligible Minting Fee",
         "p_m": "Yes, a minting fee so low, it’s barely there. We offer lowest gas fees too."
       },
       {
-        "img": "Group 252",
+        "img": "Group252",
         "h3": "Multiple payment modes",
         "p_m": "We support traditional debit/ credit, tokens and fiat"
       },
       {
-        "img": "Group 253",
+        "img": "Group253",
         "h3": "Complete customization",
         "p_m": "Build your brand storefront with our plug-and-play technology with full royalty percentage control"
       }
