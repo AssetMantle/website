@@ -36,6 +36,13 @@ export const HomeContainer = styled.main`
         align-items: center;
         justify-content: center;
         width: 100%;
+        &_box2 {
+          img {
+            width: 456px;
+            height: 456px;
+            filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+          }
+        }
         &_box {
           background-color: var(--dark-m);
           padding: 25px;
