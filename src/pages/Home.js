@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <HomeContainer>
-      {/* <img src="/images/bg assets.svg" alt="" className="background" /> */}
       <section className="section_1">
         <div className="section_1__left">
           <div className="section_1__left_box2">
