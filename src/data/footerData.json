@@ -3,6 +3,11 @@
     "h3": "Social Media",
     "links": [
       {
+        "icon": "Group283",
+        "alt": " Twitter link",
+        "href": "https://twitter.com/AssetMantle"
+      },
+      {
         "icon": "Group286",
         "alt": "Discord link",
         "href": "https://discord.gg/BSdBQ4495d"
@@ -16,11 +21,6 @@
         "icon": "Group284",
         "alt": "Telegram link",
         "href": "https://t.me/assetmantlechat"
-      },
-      {
-        "icon": "Group283",
-        "alt": " Twitter link",
-        "href": "https://twitter.com/AssetMantle"
       },
       {
         "icon": "gitHub_icon",

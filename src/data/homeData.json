@@ -54,7 +54,7 @@
   },
   "section5": {
     "h2": "How it works",
-    "p_l": "Create a store of your own in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
+    "p_l": "Create your own store in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
     "options": [
       {
         "name": "MantleBuilder",
@@ -72,7 +72,7 @@
           {
             "img": "Group290",
             "h3": "Publish",
-            "p_m": "Ready to sell in just a couple of days "
+            "p_m": "Ready to sell in 5 minutes or less"
           },
           {
             "img": "Group251",
@@ -91,9 +91,9 @@
             "p_m": "Simple account creation process using an email ID and password"
           },
           {
-            "img": "Group250",
+            "img": "Group251",
             "h3": "Buy/Sell",
-            "p_m": "Buy someone else’s or list your own NFTs"
+            "p_m": "Buy NFTs created by world-renowned artists or list your own"
           }
         ],
         "button": "Tell Me More"
