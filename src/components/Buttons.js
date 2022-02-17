@@ -1,14 +1,20 @@
 import styled from "styled-components";
 import { BsArrowRight } from "react-icons/bs";
 
-export const ButtonPrimary = ({ text, href, comingSoon }) => {
+export const ButtonPrimary = ({ text, href, comingSoon, targetBlank }) => {
   return (
     <BPS
       className={`btn__primary ${comingSoon && "coming"}`}
       tabIndex={`0`}
       role="button"
     >
-      <a href={href}>{text}</a>
+      <a
+        href={href}
+        target={targetBlank && "_blank"}
+        rel={targetBlank && "noopener noreferrer"}
+      >
+        {text}
+      </a>
       {comingSoon && <span>Coming soon</span>}
     </BPS>
   );
@@ -131,7 +137,13 @@ const BSDS = styled(BSS)`
   }
 `;
 
-export const ButtonTertiary = ({ text, href, leftArrow, comingSoon }) => {
+export const ButtonTertiary = ({
+  text,
+  href,
+  leftArrow,
+  comingSoon,
+  targetBlank,
+}) => {
   return (
     <BTS
       className={comingSoon && "coming"}

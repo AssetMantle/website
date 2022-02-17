@@ -264,6 +264,16 @@ export const HomeContainer = styled.main`
             font: var(--h3);
           }
         }
+        &:nth-child(2) {
+          h2 {
+            margin-top: 14px;
+          }
+        }
+        &:nth-child(3) {
+          h2 {
+            margin-top: 8px;
+          }
+        }
       }
     }
     &_4 {

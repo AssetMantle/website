@@ -166,7 +166,11 @@ export default function Home() {
           <h2>{DATA.section6.h2}</h2>
           <p>{DATA.section6.p_l}</p>
         </div>
-        <ButtonPrimary text={DATA.section6.bp} href={DATA.section6.href} />
+        <ButtonPrimary
+          text={DATA.section6.bp}
+          href={DATA.section6.href}
+          targetBlank={true}
+        />
       </section>
       {/* <section className="section_7">
         <div className="section_7__element">
