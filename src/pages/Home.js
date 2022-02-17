@@ -32,6 +32,7 @@ export default function Home() {
             </div>
           </div> */}
         </div>
+        <div className="gap"></div>
         <div className="section_1__right">
           <h1 dangerouslySetInnerHTML={{ __html: DATA.section1.right.h1 }}></h1>
           <p>{DATA.section1.right.p}</p>
@@ -73,21 +74,30 @@ export default function Home() {
               src={`/images/${DATA.section3.left.img}.png`}
               alt="world icon"
             />
-            <h2>{DATA.section3.left.h2}</h2>
+            <h2>
+              22 billion+
+              <br /> Sales in USD
+            </h2>
           </div>
           <div className="section_3__element">
             <img
               src={`/images/${DATA.section3.middle.img}.png`}
               alt="world icon"
             />
-            <h2>{DATA.section3.middle.h2}</h2>
+            <h2>
+              35.6 million+
+              <br /> Total Sales
+            </h2>
           </div>
           <div className="section_3__element">
             <img
               src={`/images/${DATA.section3.right.img}.png`}
               alt="world icon"
             />
-            <h2>{DATA.section3.right.h2}</h2>
+            <h2>
+              3 million+
+              <br /> Active Wallets
+            </h2>
           </div>
         </div>
       </section>
