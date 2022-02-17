@@ -3,7 +3,11 @@ import { BsArrowRight } from "react-icons/bs";
 
 export const ButtonPrimary = ({ text, href, comingSoon }) => {
   return (
-    <BPS className={comingSoon && "coming"} tabIndex={`0`} role="button">
+    <BPS
+      className={`btn__primary ${comingSoon && "coming"}`}
+      tabIndex={`0`}
+      role="button"
+    >
       <a href={href}>{text}</a>
       {comingSoon && <span>Coming soon</span>}
     </BPS>
