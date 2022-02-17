@@ -83,7 +83,7 @@ function Header({ theme = false, setTheme }) {
           {navToggler ? (
             <img src="/images/icons/close.png" alt="close" />
           ) : (
-            <img src="/images/icons/hm menu.png" alt="hamburger" />
+            <img src="/images/icons/hm_menu.png" alt="hamburger" />
           )}
         </NavIcon>
       </div>

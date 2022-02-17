@@ -17,13 +17,17 @@ export const HomeContainer = styled.main`
   .section {
     &_1 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 6fr 1fr 9fr;
       align-items: center;
       justify-items: flex-start;
       padding: 85px 92px;
       @media (max-width: 768px) {
         padding: 55px 32px 0;
-        gap: 30px;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        .gap {
+          display: none;
+        }
       }
       @media (max-width: 548px) {
         display: flex;
@@ -34,13 +38,24 @@ export const HomeContainer = styled.main`
       &__left {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
         &_box2 {
           img {
             width: 456px;
             height: 456px;
             filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+            @media (max-width: 768px) {
+              width: 320px;
+              height: 320px;
+              aspect-ratio: 1/1 !important;
+            }
+            @media (max-width: 548px) {
+              width: 92vw;
+              height: 92vw;
+            }
+            @media (max-width: 350px) {
+            }
           }
         }
         &_box {
@@ -99,15 +114,21 @@ export const HomeContainer = styled.main`
       &__right {
         display: grid;
         gap: 40px;
-        max-width: 615px;
+        max-width: 695px;
         h1 {
           font: var(--h1);
           color: var(--gray);
           margin: 0;
+          @media (max-width: 768px) {
+            font: var(--h2);
+          }
         }
         p {
           color: var(--gray-deep);
-          font: var(--p-l);
+          font: var(--p-xl);
+          @media (max-width: 768px) {
+            font: var(--p-l);
+          }
         }
       }
     }
@@ -159,6 +180,9 @@ export const HomeContainer = styled.main`
           }
         }
         &_details {
+          @media (max-width: 548) {
+            text-align: center;
+          }
           h2 {
             font: var(--h2);
             color: var(--gray);
@@ -168,6 +192,12 @@ export const HomeContainer = styled.main`
             color: var(--gray-deep);
             font: var(--p-l);
             margin-bottom: 20px;
+          }
+          & > a {
+            @media (max-width: 548px) {
+              align-items: center;
+              justify-content: center;
+            }
           }
         }
       }
@@ -321,7 +351,9 @@ export const HomeContainer = styled.main`
               margin: 0 auto;
               width: max-content;
               cursor: pointer;
+              opacity: 0.5;
               &.active {
+                opacity: 1;
                 border-bottom: 3px solid var(--yellow);
               }
             }
@@ -421,6 +453,12 @@ export const HomeContainer = styled.main`
           font: var(--p-l);
           margin: 0;
           color: var(--gray-deep);
+        }
+      }
+      .btn__primary {
+        @media (max-width: 548px) {
+          width: 100%;
+          text-align: center;
         }
       }
     }
