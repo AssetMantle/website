@@ -48,6 +48,7 @@ export default function Home() {
               href={DATA.section2.left.href}
               text={DATA.section2.left.a}
               leftArrow
+              comingSoon={true}
             />
           </div>
         </div>
@@ -60,6 +61,7 @@ export default function Home() {
               href={DATA.section2.right.href}
               text={DATA.section2.right.a}
               leftArrow
+              comingSoon={true}
             />
           </div>
         </div>
@@ -203,11 +205,11 @@ export default function Home() {
         <p>
           *Source:{" "}
           <a
-            href="https://www.statista.com/statistics/1235228/nft-art-monthly-sales-volume/"
+            href="https://nonfungible.com/market/history"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://www.statista.com/statistics/1235228/nft-art-monthly-sales-volume/
+            NFT Market History
           </a>
         </p>
       </section>

@@ -131,10 +131,12 @@ const BSDS = styled(BSS)`
   }
 `;
 
-export const ButtonTertiary = ({ text, href, leftArrow }) => {
+export const ButtonTertiary = ({ text, href, leftArrow, comingSoon }) => {
   return (
-    <BTS href={href}>
-      {text} {leftArrow && <BsArrowRight />}
+    <BTS className={comingSoon && "coming"} href={href}>
+      <span>{text}</span>
+      {comingSoon && <span className="casas">Coming soon</span>}{" "}
+      {leftArrow && <BsArrowRight />}
     </BTS>
   );
 };
@@ -146,6 +148,23 @@ const BTS = styled.a`
   display: flex;
   align-items: center;
   gap: 10px;
+  span.casas {
+    display: none;
+  }
+  &.coming {
+    span.casas {
+      display: none;
+    }
+    &:hover,
+    &:focus {
+      span.casas {
+        display: flex;
+      }
+      span:first-child {
+        display: none;
+      }
+    }
+  }
 `;
 
 export const ButtonTertiaryDisabled = ({ text, href }) => {
