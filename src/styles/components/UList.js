@@ -10,12 +10,14 @@ export default function UList({ data }) {
 }
 
 const Container = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   li {
     position: relative;
     list-style-type: none;
     color: var(--gray-deep);
     font: var(--p-m);
-    padding: 12px 0;
     padding-left: 25px;
     &:before {
       content: "";
@@ -23,6 +25,7 @@ const Container = styled.ul`
       height: 20px;
       position: absolute;
       left: 0;
+      top: 5px;
       background-image: url("/images/icons/list.svg");
       background-position: center;
       background-repeat: no-repeat;
