@@ -112,15 +112,15 @@
       "h2": "I need some convincing",
       "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
-    "rightButton": "Take a Tour"
+    "btnS": "Take a Tour"
   },
   "section8": {
     "h2": "Getting started with AssetMantle",
     "p_m": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "options": [
       {
-        "img": "",
-        "name": "Artist",
+        "img": "Group265",
+        "name": "Creator",
         "h2": "how does AssetMantle help you",
         "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
         "list": [
@@ -131,11 +131,14 @@
           "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil",
           "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
         ],
-        "button": "Tell Me More"
+        "button": "Tell Me More",
+        "href": ""
       },
       {
-        "img": "",
-        "name": "NFT Collector"
+        "img": "Group266",
+        "name": "Collector",
+        "button": "Tell Me More",
+        "href": ""
       }
     ]
   },
@@ -167,5 +170,90 @@
     "p_l2": "Curious about our story? Check out ",
     "link": "Our Roadmap",
     "href": ""
+  },
+  "stores": {
+    "h2": "Our Stores",
+    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "h3": "Featured Stores"
+  },
+  "wNFT": {
+    "h2": "Hold on, what’s an NFT?",
+    "p_l": "A non-fungible token (NFT) is a unique and non-interchangeable unit of data stored on a digital ledger (blockchain). NFTs can be associated with reproducible digital files such as photos, videos, and audio. NFTs use a digital ledger to provide a public certificate of authenticity or proof of ownership, but it does not restrict the sharing or copying of the underlying digital file.",
+    "h3": "NFTs come in various forms such as:"
+  },
+  "pricing": {
+    "h2": "Pricing",
+    "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "currencies": [
+      {
+        "name": "Ethereum",
+        "value": "$250 USD "
+      },
+      {
+        "name": "Solana",
+        "value": "$2.5 USD"
+      },
+      {
+        "name": "Polygon",
+        "value": "$5 USD"
+      }
+    ],
+    "h2_name": "AssetMantle",
+    "h2_value_y": "$0.000001* USD"
+  },
+  "testimonials": {
+    "h2": "Testimonials",
+    "pl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "data": [
+      {
+        "pm6": "Lorem ipsum dolor",
+        "pm": "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+        "img": "Mask Group",
+        "namepl6": "User long name",
+        "psd": "Dolor sit amet"
+      },
+      {
+        "pm6": "Lorem ipsum dolor",
+        "pm": "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+        "img": "Mask Group",
+        "namepl6": "User long name",
+        "psd": "Dolor sit amet"
+      }
+    ]
+  },
+  "faq": {
+    "h2": "FAQ",
+    "pl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "qas": [
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      }
+    ]
+  },
+  "source": {
+    "name": "*Source: ",
+    "text": "NFT Market History",
+    "link": "https://nonfungible.com/market/history"
   }
 }
