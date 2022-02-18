@@ -1,11 +1,16 @@
 import { HomeContainer } from "../styles/pages/HomeStyle.js";
 import DATA from "../data/homeData.json";
-import { ButtonPrimary, ButtonTertiary } from "../components/Buttons.js";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonTertiary,
+} from "../components/Buttons.js";
 import UList from "../styles/components/UList.js";
 import React, { useState } from "react";
 
 export default function Home() {
   const [section5, setSection5] = useState(DATA.section5.options[0].name);
+  const [section8, setSection8] = useState(0);
 
   return (
     <HomeContainer>
@@ -172,18 +177,69 @@ export default function Home() {
           targetBlank={true}
         />
       </section>
-      {/* <section className="section_7">
+      <section className="section_7">
         <div className="section_7__element">
-          <img src={`/image/${DATA.section7.leftImg}.png`} alt="" />
+          <img
+            src={`/images/${DATA.section7.leftImg}.png`}
+            alt="message button"
+          />
         </div>
         <div className="section_7__element">
           <h2>{DATA.section7.mid.h2}</h2>
           <p>{DATA.section7.mid.p_l}</p>
         </div>
         <div className="section_7__element">
-          <ButtonSecondary text={DATA.section7.rightButton} />
+          <ButtonSecondary text={DATA.section7.btnS} />
         </div>
-      </section> */}
+      </section>
+      <section className="section_8">
+        <h2>{DATA.section8.h2}</h2>
+        <p>{DATA.section8.p_m}</p>
+        <div className="section_8__element">
+          <div className="section_8__element_title">
+            <div
+              className="section_8__element_title__option"
+              onClick={() => setSection8(0)}
+            >
+              <div className="section_8__element_title__option_img">
+                <img
+                  src={`/images/${DATA.section8.options[0].img}.png`}
+                  alt=""
+                />
+              </div>
+              <h3 className={section8 === 0 && "active"}>
+                {DATA.section8.options[0].name}
+              </h3>
+            </div>
+            <div
+              className="section_8__element_title__option"
+              onClick={() => setSection8(1)}
+            >
+              <div className="section_8__element_title__option_img">
+                <img
+                  src={`/images/${DATA.section8.options[1].img}.png`}
+                  alt=""
+                />
+              </div>
+              <h3 className={section8 === 1 && "active"}>
+                {DATA.section8.options[1].name}
+              </h3>
+            </div>
+          </div>
+          <div className="section_8__element_body">
+            {section8 === 0 && (
+              <>
+                <h2>{DATA.section8.options[0].h2}</h2>
+                <p>{DATA.section8.options[0].p_l}</p>
+                <UList className="" data={DATA.section8.options[0].list} />
+              </>
+            )}
+          </div>
+          <div className="section_8__element_button">
+            <ButtonSecondary text={DATA.section8.options[section8].button} />
+          </div>
+        </div>
+      </section>
       <section className="am_diff">
         <h2>{DATA.amDif.h2}</h2>
         <p>{DATA.amDif.p_l}</p>
@@ -203,6 +259,106 @@ export default function Home() {
         {/* <p className="am_diff__link">
           {DATA.amDif.p_l2} <a href={DATA.amDif.href}>{DATA.amDif.link}</a>
         </p> */}
+      </section>
+      <section className="section_stores">
+        <h2>Our Stores</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <h3>Featured Stores</h3>
+        <div className="section_stores__element">
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+        </div>
+        <h3>New Stores</h3>
+        <div className="section_stores__element">
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+        </div>
+        <h3>Popular Stores</h3>
+        <div className="section_stores__element">
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+          <div className="section_stores__element_card">
+            <img src={`/images/profile.png`} alt="profile" />
+            <div className="section_stores__element_card__details">
+              <h3>Enim Ad</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section_w__nft">
+        <h2>Hold on, what’s an NFT?</h2>
+        <p>
+          A non-fungible token (NFT) is a unique and non-interchangeable unit of
+          data stored on a digital ledger (blockchain). NFTs can be associated
+          with reproducible digital files such as photos, videos, and audio.
+          NFTs use a digital ledger to provide a public certificate of
+          authenticity or proof of ownership, but it does not restrict the
+          sharing or copying of the underlying digital file.
+        </p>
+        <h3>NFTs come in various forms such as:</h3>
       </section>
       <section className="section_source">
         <span id="Source"></span>
