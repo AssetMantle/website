@@ -7,7 +7,7 @@ import "./styles/App.css";
 import Header from "./layout/Header";
 import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
-import Home from "./pages/Home";
+import Home from "./pages/Home/";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
