@@ -1,41 +1,14 @@
 {
-  "section1": {
-    "left": {
-      "name": "Enim Ad",
-      "eth": "Coming soon"
-    },
-    "right": {
-      "h1": "Create, Own,<br />Discover, Collect.",
-      "p": "Your one stop shop for NFTs. A community first platform for creators and collectors."
-    }
+  "hero": {
+    "visibility": true
   },
-  "section2": {
-    "left": {
-      "h2": "Build a Store",
-      "p_l": "Fully customizable store builder",
-      "a": "MantleBuilder",
-      "href": ""
-    },
-    "right": {
-      "h2": "Start Shopping",
-      "p_l": "Build your collection of NFTs",
-      "a": "MantlePlace",
-      "href": ""
-    }
+  "services": {
+    "visibility": true,
+    "leftHref": "",
+    "rightHref": ""
   },
-  "section3": {
-    "left": {
-      "img": "Group345",
-      "h2": "22 billion+ Sales in USD"
-    },
-    "middle": {
-      "img": "Group334",
-      "h2": "35.6 million+ Total Sales"
-    },
-    "right": {
-      "img": "Group335",
-      "h2": "3 million+ Active Wallets"
-    }
+  "overview": {
+    "visibility": true
   },
   "section4": {
     "left": {
