@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 export const ButtonPrimary = ({ text, href, comingSoon, targetBlank }) => {
   return (
     <BPS
-      className={`btn__primary ${comingSoon && "coming"}`}
+      className={`btn__primary ${comingSoon ? "coming" : undefined}`}
       tabIndex={`0`}
       role="button"
     >
@@ -77,7 +77,11 @@ const BPDS = styled(BPS)`
 
 export const ButtonSecondary = ({ text, href, comingSoon }) => {
   return (
-    <BSS className={comingSoon && "coming"} tabIndex={`0`} role="button">
+    <BSS
+      className={comingSoon ? "coming" : undefined}
+      tabIndex={`0`}
+      role="button"
+    >
       <a href={href}>{text}</a>
       {comingSoon && <span>Coming soon</span>}
     </BSS>
@@ -92,6 +96,7 @@ const BSS = styled.div`
   border-radius: 12px;
   padding: 8px 31px 10px;
   cursor: pointer;
+  width: max-content;
   a {
     color: var(--yellow);
     text-decoration: none;
@@ -146,7 +151,7 @@ export const ButtonTertiary = ({
 }) => {
   return (
     <BTS
-      className={comingSoon && "coming"}
+      className={comingSoon ? "coming" : undefined}
       href={href}
       onClick={(e) => comingSoon && e.preventDefault()}
     >
