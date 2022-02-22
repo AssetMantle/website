@@ -5,6 +5,7 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { FooterContainer } from "../styles/layout/FooterStyle";
 
 import DATA from "../data/footerData.json";
+
 import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
 
@@ -27,7 +28,7 @@ const Footer = () => {
         <div className="footer_container__element">
           <div className="footer_container__element_emails">
             <img
-              src="/images/email_icon.png"
+              src="/images/icons/email_icon.png"
               alt="email icon"
               className="footer_container__element_emails__icon"
             />
@@ -67,18 +68,22 @@ const Footer = () => {
               {DATA.social.h3}
             </h3>
             <div className="footer_container__element_social__icons">
-              {React.Children.toArray(
-                DATA.social.links.map((data) => (
-                  <a
-                    className="footer_container__element_social__icons_icon"
-                    href={data.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img src={`/images/${data.icon}.png`} alt={data.alt} />
-                  </a>
-                ))
-              )}
+              {DATA.social.links &&
+                React.Children.toArray(
+                  DATA.social.links.map((data) => (
+                    <a
+                      className="footer_container__element_social__icons_icon"
+                      href={data.href && data.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`/images/icons/${data.icon && data.icon}.png`}
+                        alt={data.alt && data.alt}
+                      />
+                    </a>
+                  ))
+                )}
             </div>
           </div>
         </div>
