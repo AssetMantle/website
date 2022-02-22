@@ -4,14 +4,14 @@ import DATA from "../../data/homeData.json";
 
 const IAmSold = () => {
   return (
-    <section className="section_6">
-      <div className="section_6__element">
-        <h2>{DATA.section6.h2}</h2>
-        <p>{DATA.section6.p_l}</p>
+    <section className="section_iAmSold">
+      <div className="section_iAmSold__element">
+        <h2>I’m sold, let’s do this!</h2>
+        <p>Join the AssetMantle community today.</p>
       </div>
       <ButtonPrimary
-        text={DATA.section6.bp}
-        href={DATA.section6.href}
+        text="Sign Up"
+        href={DATA.iAmSold.href && DATA.iAmSold.href}
         targetBlank={true}
       />
     </section>

@@ -3,6 +3,8 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
+import DATA from "../../data/homeData.json";
+
 import { ButtonSecondary } from "../../components/Buttons";
 
 const WhatIsNFT = () => {
@@ -38,12 +40,14 @@ const WhatIsNFT = () => {
       <section className="section_w__nft">
         <h2>Hold on, what’s an NFT?</h2>
         <p>
-          A non-fungible token (NFT) is a unique and non-interchangeable unit of
-          data stored on a digital ledger (blockchain). NFTs can be associated
-          with reproducible digital files such as photos, videos, and audio.
-          NFTs use a digital ledger to provide a public certificate of
-          authenticity or proof of ownership, but it does not restrict the
-          sharing or copying of the underlying digital file.
+          What is an NFT? Why is it relevant? NFT stands for non-fungible token.
+          It’s the digital equivalent of owning cool things in the physical
+          world, like sexy sneakers or a Van Gogh. Like them, NFTs are unique,
+          non-interchangeable units of data stored on the blockchain. They are
+          photos, videos, or audio. They provide public proof of authenticity or
+          ownership. But that does not restrict the sharing or copying of the
+          digital file. Many consider NFTs to be the future of owning, flaunting
+          and sharing things on the net!
         </p>
         <h3>NFTs come in various forms such as:</h3>
       </section>
@@ -72,6 +76,9 @@ const WhatIsNFT = () => {
               },
               548: {
                 perPage: 4,
+              },
+              410: {
+                perPage: 3,
               },
             },
             autoScroll: {
@@ -125,6 +132,9 @@ const WhatIsNFT = () => {
               548: {
                 perPage: 4,
               },
+              410: {
+                perPage: 3,
+              },
             },
             autoScroll: {
               speed: 2,
@@ -154,7 +164,10 @@ const WhatIsNFT = () => {
         </Splide>
       </section>
       <section className="section_w__nft section_w__nft_button">
-        <ButtonSecondary text="Tell me more" />
+        <ButtonSecondary
+          text="Tell me more"
+          href={DATA.wNFT.href && DATA.wNFT.href}
+        />
       </section>
     </>
   );

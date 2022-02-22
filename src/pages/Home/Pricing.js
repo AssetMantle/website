@@ -1,14 +1,14 @@
 import React from "react";
+
+import DATA from "../../data/homeData.json";
+
 import { ButtonSecondary } from "../../components/Buttons";
 
 const Pricing = () => {
   return (
     <section className="section_pricing">
       <h2>Pricing</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <p>We bring you the most affordable, flexible pricing options.</p>
       <div className="section_pricing__body">
         <div className="section_pricing__body_element__left">
           <div className="section_pricing__body_element__left_content">
@@ -36,7 +36,10 @@ const Pricing = () => {
         </div>
       </div>
       <div className="section_pricing__button">
-        <ButtonSecondary text="Tell me more" />
+        <ButtonSecondary
+          text="Tell me more"
+          href={DATA.pricing.href && DATA.pricing.href}
+        />
       </div>
     </section>
   );

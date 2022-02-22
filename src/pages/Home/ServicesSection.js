@@ -11,7 +11,7 @@ const ServicesSection = () => {
           <h2>Build a Store</h2>
           <p>Fully customizable store builder</p>
           <ButtonTertiary
-            href={DATA.services.leftHref}
+            href={DATA.services.leftHref && DATA.services.leftHref}
             text="MantleBuilder"
             leftArrow
             comingSoon={true}
@@ -24,7 +24,7 @@ const ServicesSection = () => {
           <h2>Start Shopping</h2>
           <p>Build your collection of NFTs</p>
           <ButtonTertiary
-            href={DATA.services.rightHref}
+            href={DATA.services.rightHref && DATA.services.rightHref}
             text="MantlePlace"
             leftArrow
             comingSoon={true}

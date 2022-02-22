@@ -19,19 +19,26 @@ const Testimonial = () => {
       namePl6: "User long name",
       psd: "Dolor sit amet",
     },
+    {
+      pm6: "Lorem ipsum dolor",
+      pm: "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+      img: "Mask Group",
+      namePl6: "User long name",
+      psd: "Dolor sit amet",
+    },
   ];
 
   return (
     <section className="section_testimonial">
-      <h2>Testimonials</h2>
+      <h2>Hear what people have to say </h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        People who have tried AssetMantle are rocking it, whether they are
+        creators or collectors
       </p>
       <div className="section_testimonial_slick">
         <Splide
           options={{
-            type: "loop",
+            type: "slide",
             pagination: false,
             perPage: 2,
             perMove: 1,
