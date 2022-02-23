@@ -855,6 +855,17 @@ export const HomeContainer = styled.main`
             padding-top: 16px;
             display: none;
             gap: 8px;
+            @media only screen and (max-width: 548px) {
+              display: flex;
+            }
+            &_image {
+              /* width: 48px; */
+              img {
+                /* width: 100%; */
+                aspect-ratio: 1/1;
+                margin: auto;
+              }
+            }
             &_details {
               display: flex;
               flex-direction: column;
