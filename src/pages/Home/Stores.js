@@ -42,7 +42,9 @@ const Stores = () => {
                 <img src="/images/landing/store/4.png" alt="" />
               </div>
               <div className="section_stores__element_card__profile">
-                <img src="/images/landing/store/profile.png" alt="" />
+                <div className="section_stores__element_card__profile_image">
+                  <img src="/images/landing/store/profile.png" alt="" />
+                </div>
                 <div className="section_stores__element_card__profile_details">
                   <h4>Lorem ipsum dolor sit </h4>
                   <p>
