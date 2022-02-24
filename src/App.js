@@ -8,6 +8,7 @@ import Header from "./layout/Header";
 import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
 import Home from "./pages/Home/";
+import { HeaderSecondary } from "./layout/HeaderSecondary";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -19,9 +20,12 @@ const App = () => {
     },
   ];
 
+  const HEADER = 1;
+
   return (
     <div className="app">
-      <Header theme={theme} setTheme={setTheme} />
+      {HEADER === 0 && <Header theme={theme} setTheme={setTheme} />}
+      {HEADER === 1 && <HeaderSecondary theme={theme} setTheme={setTheme} />}
 
       <Switch>
         {routes.map((route) => {
