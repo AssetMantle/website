@@ -4,23 +4,18 @@ import { BsArrowRight } from "react-icons/bs";
 export const ButtonPrimary = ({ text, href, comingSoon, targetBlank }) => {
   return (
     <BPS
+      href={href}
       className={`btn__primary ${comingSoon ? "coming" : undefined}`}
-      tabIndex={`0`}
-      role="button"
+      target={targetBlank && "_blank"}
+      rel={targetBlank && "noopener noreferrer"}
     >
-      <a
-        href={href}
-        target={targetBlank && "_blank"}
-        rel={targetBlank && "noopener noreferrer"}
-      >
-        {text}
-      </a>
-      {comingSoon && <span>Coming soon</span>}
+      <span>{text}</span>
+      {comingSoon && <span className="upcoming">Coming soon</span>}
     </BPS>
   );
 };
 
-const BPS = styled.div`
+const BPS = styled.a`
   display: inline;
   font: 600 var(--p-m);
   color: var(--dark-m);
@@ -32,11 +27,9 @@ const BPS = styled.div`
   padding: 10px 43px 12px;
   transition: all ease-in-out 100ms;
   cursor: pointer;
-  a {
-    color: var(--dark-m);
-    text-decoration: none;
-  }
-  span {
+  color: var(--dark-m);
+  text-decoration: none;
+  span.upcoming {
     display: none;
   }
   &:hover,
@@ -44,16 +37,16 @@ const BPS = styled.div`
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
   }
   &.coming {
-    span {
+    span.upcoming {
       display: none;
     }
     &:hover,
     &:focus {
       span {
-        display: inline;
-      }
-      a {
         display: none;
+      }
+      span.upcoming {
+        display: inline;
       }
     }
   }
@@ -77,18 +70,14 @@ const BPDS = styled(BPS)`
 
 export const ButtonSecondary = ({ text, href, comingSoon }) => {
   return (
-    <BSS
-      className={comingSoon ? "coming" : undefined}
-      tabIndex={`0`}
-      role="button"
-    >
-      <a href={href}>{text}</a>
-      {comingSoon && <span>Coming soon</span>}
+    <BSS className={comingSoon ? "coming" : undefined} href={href}>
+      <span>{text}</span>
+      {comingSoon && <span className="upcoming">Coming soon</span>}
     </BSS>
   );
 };
 
-const BSS = styled.div`
+const BSS = styled.a`
   font: 600 var(--p-m);
   color: var(--yellow);
   background: transparent;
@@ -97,11 +86,9 @@ const BSS = styled.div`
   padding: 8px 31px 10px;
   cursor: pointer;
   width: max-content;
-  a {
-    color: var(--yellow);
-    text-decoration: none;
-  }
-  span {
+  color: var(--yellow);
+  text-decoration: none;
+  span.upcoming {
     display: none;
   }
   &:hover,
@@ -109,16 +96,16 @@ const BSS = styled.div`
     box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
   }
   &.coming {
-    span {
+    span.upcoming {
       display: none;
     }
     &:hover,
     &:focus {
       span {
-        display: inline;
-      }
-      a {
         display: none;
+      }
+      span.upcoming {
+        display: inline;
       }
     }
   }
@@ -150,16 +137,33 @@ export const ButtonTertiary = ({
   targetBlank,
 }) => {
   return (
-    <BTS
-      className={comingSoon ? "coming" : undefined}
-      href={href}
-      onClick={(e) => comingSoon && e.preventDefault()}
-    >
-      <span>
-        {text} {leftArrow && <BsArrowRight />}
-      </span>
-      {comingSoon && <span className="casas">Coming soon</span>}{" "}
-    </BTS>
+    <>
+      {targetBlank ? (
+        <BTS
+          className={comingSoon ? "coming" : undefined}
+          href={href}
+          onClick={(e) => comingSoon && e.preventDefault()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>
+            {text} {leftArrow && <BsArrowRight />}
+          </span>
+          {comingSoon && <span className="casas">Coming soon</span>}{" "}
+        </BTS>
+      ) : (
+        <BTS
+          className={comingSoon ? "coming" : undefined}
+          href={href}
+          onClick={(e) => comingSoon && e.preventDefault()}
+        >
+          <span>
+            {text} {leftArrow && <BsArrowRight />}
+          </span>
+          {comingSoon && <span className="casas">Coming soon</span>}{" "}
+        </BTS>
+      )}
+    </>
   );
 };
 
@@ -194,7 +198,7 @@ const BTS = styled.a`
 export const ButtonTertiaryDisabled = ({ text, href }) => {
   return (
     <BTDS tabIndex={`0`} role="button" aria-disabled>
-      <a href={href}>{text}</a>
+      {text}
     </BTDS>
   );
 };
