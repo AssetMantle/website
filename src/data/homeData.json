@@ -78,8 +78,7 @@
     "href": ""
   },
   "amDif": {
-    "h2": "The AssetMantle Difference",
-    "p_l": "AssetMantle brings never seen before features that enhance the experience of buying and selling NFTs.",
+    "visibility": true,
     "contents": [
       {
         "img": "multi_chain",
