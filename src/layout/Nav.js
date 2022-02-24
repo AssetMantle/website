@@ -96,8 +96,8 @@ const NavContainer = styled.div`
     &_box {
       height: 100%;
       overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 29px;
       -ms-overflow-style: none;
       scrollbar-width: none;
