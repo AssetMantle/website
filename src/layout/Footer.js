@@ -8,12 +8,14 @@ import DATA from "../data/footerData.json";
 
 import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
+import { RequestAFeature } from "../components/RequestAFeature";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 const Footer = () => {
   // const [email, setEmail] = useState();
   const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
+  const [suggestFeatureModalStat, setSuggestFeatureModalStat] = useState(false);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -123,18 +125,25 @@ const Footer = () => {
             <p className="footer_container__element_2__links_link">
               Spotted something wrong?&nbsp;
               <button
-                className="footer_container__element_2__links_link__button coming"
+                className="footer_container__element_2__links_link__button"
                 onClick={() => setBugBountyModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setBugBountyModalStat(true)
+                }
               >
-                <span>Bug Bounty</span>
-                <span>Coming soon</span>
+                Bug Bounty
               </button>
             </p>
             <p className="footer_container__element_2__links_link">
               Have something in mind?&nbsp;
-              <button className="footer_container__element_2__links_link__button coming">
-                <span>Suggest a Feature</span>
-                <span>Coming soon</span>
+              <button
+                className="footer_container__element_2__links_link__button"
+                onClick={() => setSuggestFeatureModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setSuggestFeatureModalStat(true)
+                }
+              >
+                Suggest a Feature
               </button>
             </p>
             <p className="footer_container__element_2__links_link">
@@ -170,8 +179,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {bugBountyModalStat === "" && (
+      {bugBountyModalStat === true && (
         <BugBountyModal closeModal={setBugBountyModalStat} />
+      )}
+      {suggestFeatureModalStat === true && (
+        <RequestAFeature closeModal={setSuggestFeatureModalStat} />
       )}
     </FooterContainer>
   );
