@@ -283,6 +283,7 @@ export const HomeContainer = styled.main`
       }
     }
     &_WhatIsAssetMantle {
+      position: relative;
       padding: 60px 92px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -293,6 +294,10 @@ export const HomeContainer = styled.main`
         grid-template-columns: 1fr;
         padding: 120px 20px;
         gap: 50px;
+      }
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       &__element {
         &:nth-child(1) {
@@ -330,6 +335,11 @@ export const HomeContainer = styled.main`
       }
       @media (max-width: 548px) {
         padding: 50px 20px;
+      }
+      position: relative;
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       h2 {
         font: var(--h2);
@@ -444,20 +454,21 @@ export const HomeContainer = styled.main`
       padding: 60px 92px;
       display: flex;
       flex-direction: row;
-      align-items: flex-end;
+      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: no-wrap;
       gap: 50px;
       margin: 60px 0;
       @media (max-width: 768px) {
         padding: 60px 40px;
       }
       @media (max-width: 548px) {
+        flex-wrap: wrap;
         padding: 60px 28px;
       }
       &__element {
         &:nth-child(1) {
-          max-width: 936px;
+          width: min(936px, 100%);
         }
         h2 {
           font: var(--h2);
@@ -471,6 +482,20 @@ export const HomeContainer = styled.main`
           font: var(--p-l);
           margin: 0;
           color: var(--gray-deep);
+        }
+        &.bu {
+          @media (max-width: 548px) {
+            width: 100%;
+            text-align: center;
+          }
+          & > a {
+            width: max-content;
+            display: inline-block;
+            @media (max-width: 548px) {
+              width: 100%;
+              text-align: center;
+            }
+          }
         }
       }
       .btn__primary {
@@ -521,7 +546,11 @@ export const HomeContainer = styled.main`
         &:last-child {
           display: flex;
           margin: auto;
-          & > div {
+          @media (max-width: 548px) {
+            width: 100%;
+            text-align: center;
+          }
+          & > a {
             width: 166.02px;
             height: max-content;
             margin: auto 0;
@@ -543,6 +572,11 @@ export const HomeContainer = styled.main`
       }
       @media (max-width: 548px) {
         padding: 60px 28px;
+      }
+      position: relative;
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       h2 {
         font: var(--h2);
@@ -628,7 +662,7 @@ export const HomeContainer = styled.main`
           display: grid;
           place-items: center;
           padding-top: 80px;
-          & > div {
+          & > a {
             @media (max-width: 548px) {
               width: 100%;
               text-align: center;
@@ -644,6 +678,11 @@ export const HomeContainer = styled.main`
       }
       @media (max-width: 548px) {
         padding: 60px 20px;
+      }
+      position: relative;
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       h2 {
         font: var(--h2);
@@ -739,6 +778,11 @@ export const HomeContainer = styled.main`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
+        &__link_span {
+          position: absolute;
+          top: -150px;
+        }
         h2 {
           font: var(--h2);
           color: var(--gray);
@@ -755,7 +799,7 @@ export const HomeContainer = styled.main`
           }
         }
         &.bu {
-          & > div {
+          & > a {
             @media (max-width: 548px) {
               width: 100%;
               text-align: center;
@@ -787,6 +831,13 @@ export const HomeContainer = styled.main`
         font: var(--h3);
         color: var(--gray);
         margin: 40px 0;
+        &.section_stores__title {
+          position: relative;
+          span {
+            position: absolute;
+            top: -150px;
+          }
+        }
       }
       &__element {
         /* display: grid; */
@@ -829,65 +880,6 @@ export const HomeContainer = styled.main`
             }
           }
         }
-        &_card {
-          padding: 16px;
-          display: grid;
-          width: min(100%, 374px);
-          background-color: var(--dark-m);
-          box-shadow: var(--dark-shadow);
-          border-radius: 12px;
-          margin: auto;
-          &__viewer {
-            img {
-              width: 100%;
-            }
-          }
-          &__grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            padding-top: 16px;
-            img {
-              width: 100%;
-            }
-          }
-          &__profile {
-            padding-top: 16px;
-            display: none;
-            gap: 8px;
-            @media only screen and (max-width: 548px) {
-              display: flex;
-            }
-            &_image {
-              /* width: 48px; */
-              img {
-                /* width: 100%; */
-                aspect-ratio: 1/1;
-                margin: auto;
-              }
-            }
-            &_details {
-              display: flex;
-              flex-direction: column;
-              gap: 4px;
-              h4 {
-                font: var(--h4);
-                color: var(--gray);
-              }
-              p {
-                font: var(--p-s);
-                color: var(--gray-deep);
-                margin: 0;
-              }
-            }
-          }
-          &:hover,
-          &:focus {
-            .section_stores__element_card__profile {
-              display: flex;
-            }
-          }
-        }
       }
     }
     &_w__nft {
@@ -897,6 +889,11 @@ export const HomeContainer = styled.main`
       }
       @media (max-width: 548px) {
         padding: 80px 28px 0px;
+      }
+      position: relative;
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       h2 {
         font: var(--h2);
@@ -926,7 +923,7 @@ export const HomeContainer = styled.main`
         @media (max-width: 548px) {
           padding: 50px 20px 60px;
         }
-        & > div {
+        & > a {
           @media (max-width: 548px) {
             width: 100%;
             text-align: center;
@@ -946,6 +943,11 @@ export const HomeContainer = styled.main`
       }
       @media (max-width: 548px) {
         padding: 60px 28px;
+      }
+      position: relative;
+      &__link_span {
+        position: absolute;
+        top: -150px;
       }
       h2 {
         font: var(--h2);
@@ -1004,7 +1006,7 @@ export const HomeContainer = styled.main`
         align-items: center;
         justify-content: center;
         margin-top: 80px;
-        & > div {
+        & > a {
           @media (max-width: 548px) {
             width: 100%;
             text-align: center;
@@ -1056,55 +1058,6 @@ export const HomeContainer = styled.main`
             }
             svg {
               opacity: 0;
-            }
-          }
-        }
-        &__option {
-          padding: 40px;
-          border-radius: 12px;
-          background-color: var(--dark-m);
-          box-shadow: var(--dark-shadow);
-          max-width: 536px;
-          margin: auto;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          p {
-            margin: 0;
-            &.testimonial {
-              &_title {
-                font: 600 var(--p-m);
-                margin-bottom: 8px;
-              }
-              &_details {
-                font: var(--p-m);
-                margin-bottom: 33px;
-              }
-              &_owner {
-                display: flex;
-                gap: 16px;
-                &__element {
-                  img {
-                    width: 44px;
-                    height: 44px;
-                  }
-                  &_name {
-                    font: 600 var(--p-l);
-                    margin-bottom: 4px;
-                  }
-                  &_details {
-                    font: 600 var(--p-s);
-                  }
-                }
-              }
-            }
-          }
-          .testimonial_owner {
-            display: flex;
-            gap: 16px;
-            img {
-              width: 52px;
-              height: 52px;
             }
           }
         }
