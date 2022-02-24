@@ -33,6 +33,7 @@ const HeaderContainer = styled.header`
       display: flex;
       align-items: center;
       justify-content: flex-end;
+
       &_second__nav {
         display: flex;
         align-items: center;
@@ -74,6 +75,7 @@ const HeaderContainer = styled.header`
           justify-content: center;
           gap: 24px;
           padding-left: 37px;
+          padding-right: 24px;
         }
       }
     }
@@ -82,9 +84,17 @@ const HeaderContainer = styled.header`
 
 export const NavIcon = styled.div`
   z-index: 100;
-  margin: 15px 20px;
-  /* width: 20px;
-  height: 22px; */
+  margin: auto;
+  display: grid;
+  place-items: center;
+  img {
+    width: 32px;
+    height: 22px;
+    &[alt="close"] {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;
 
 export default HeaderContainer;
