@@ -7,6 +7,7 @@ import { ButtonSecondary } from "../../components/Buttons";
 const Pricing = () => {
   return (
     <section className="section_pricing">
+      <span className="section_pricing__link_span" id="pricing"></span>
       <h2>Pricing</h2>
       <p>We bring you the most affordable, flexible pricing options.</p>
       <div className="section_pricing__body">

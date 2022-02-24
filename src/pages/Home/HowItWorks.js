@@ -5,6 +5,7 @@ const HowItWorks = () => {
   const [option, setOption] = useState(DATA.howItWorks.options[0].name);
   return (
     <section className="section_howItWorks">
+      <span className="section_howItWorks__link_span" id="how_it_works"></span>
       <h2>How it works</h2>
       <p>
         Create your own store in a few steps using MantleBuilder or browse

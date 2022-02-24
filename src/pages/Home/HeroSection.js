@@ -1,9 +1,9 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import "../../translations/i18n";
 
 function HeroSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   return (
     <section className="section_hero">

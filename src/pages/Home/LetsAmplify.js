@@ -13,11 +13,13 @@ const LetsAmplify = () => {
           digital assets.
         </p>
       </div>
-      <ButtonPrimary
-        text="Create a Store"
-        href={DATA.LetsAmplify.href && DATA.LetsAmplify.href}
-        targetBlank={true}
-      />
+      <div className="section_letsAmplify__element bu">
+        <ButtonPrimary
+          text="Create a Store"
+          href={DATA.LetsAmplify.href && DATA.LetsAmplify.href}
+          targetBlank={true}
+        />
+      </div>
     </section>
   );
 };

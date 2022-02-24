@@ -15,6 +15,10 @@ const WhatIsAssetMantle = () => {
   return (
     <section className="section_WhatIsAssetMantle">
       <div className="section_WhatIsAssetMantle__element">
+        <span
+          className="section_WhatIsAssetMantle__link_span"
+          id="what_is_assetMantle"
+        ></span>
         <h2>What is AssetMantle?</h2>
         <p>
           AssetMantle is a one-of-a-kind platform to facilitate commerce for

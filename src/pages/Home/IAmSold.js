@@ -9,11 +9,13 @@ const IAmSold = () => {
         <h2>I’m sold, let’s do this!</h2>
         <p>Join the AssetMantle community today.</p>
       </div>
-      <ButtonPrimary
-        text="Sign Up"
-        href={DATA.iAmSold.href && DATA.iAmSold.href}
-        targetBlank={true}
-      />
+      <div className="section_iAmSold__element bu">
+        <ButtonPrimary
+          text="Sign Up"
+          href={DATA.iAmSold.href && DATA.iAmSold.href}
+          targetBlank={true}
+        />
+      </div>
     </section>
   );
 };

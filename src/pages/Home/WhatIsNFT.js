@@ -38,6 +38,7 @@ const WhatIsNFT = () => {
   return (
     <>
       <section className="section_w__nft">
+        <span className="section_w__nft__link_span" id="whats_an_NFT"></span>
         <h2>Hold on, what’s an NFT?</h2>
         <p>
           What is an NFT? Why is it relevant? NFT stands for non-fungible token.

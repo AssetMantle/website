@@ -6,6 +6,10 @@ const RoadMap = () => {
   return (
     <section className="section_roadMap">
       <div className="section_roadMap__element">
+        <span
+          className="section_roadMap__element__link_span"
+          id="how_does_assetMantle_help_you"
+        ></span>
         <img src="/images/landing/section/roadmap.png" alt="" />
       </div>
       <div className="section_roadMap__element">

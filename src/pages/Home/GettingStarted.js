@@ -28,6 +28,10 @@ const GettingStarted = () => {
 
   return (
     <section className="section_gettingStarted">
+      <span
+        className="section_gettingStarted__link_span"
+        id="getting_started"
+      ></span>
       <h2>Getting started with AssetMantle</h2>
       <p>
         Our plug and play technology makes it super easy for you to build,

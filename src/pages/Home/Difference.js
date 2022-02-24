@@ -4,6 +4,10 @@ import DATA from "../../data/homeData.json";
 const Difference = () => {
   return (
     <section className="section__am_diff">
+      <span
+        className="section__am_diff__link_span"
+        id="the_assetMantle_difference"
+      ></span>
       <h2>The AssetMantle Difference</h2>
       <p>
         AssetMantle brings you never-before features that enhance the experience
