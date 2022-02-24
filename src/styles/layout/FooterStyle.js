@@ -5,6 +5,7 @@ export const FooterContainer = styled.footer`
   background-color: var(--dark-m);
   max-width: 1440px;
   margin: auto;
+  margin-top: 60px;
   @media (max-width: 768px) {
     padding: 60px 40px;
   }
