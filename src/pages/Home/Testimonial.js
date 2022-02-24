@@ -2,29 +2,33 @@ import React from "react";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { TestimonialBox } from "../../components/TestimonialBox";
 
 const Testimonial = () => {
   const DaTa = [
     {
-      pm6: "Lorem ipsum dolor",
-      pm: "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
-      img: "Mask Group",
-      namePl6: "User long name",
-      psd: "Dolor sit amet",
+      title: "Lorem ipsum dolor",
+      details:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+      profileImage: "/images/landing/prof_img.png",
+      name: "User long name",
+      description: "Dolor sit amet",
     },
     {
-      pm6: "Lorem ipsum dolor",
-      pm: "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
-      img: "Mask Group",
-      namePl6: "User long name",
-      psd: "Dolor sit amet",
+      title: "Lorem ipsum dolor",
+      details:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+      profileImage: "/images/landing/prof_img.png",
+      name: "User long name",
+      description: "Dolor sit amet",
     },
     {
-      pm6: "Lorem ipsum dolor",
-      pm: "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
-      img: "Mask Group",
-      namePl6: "User long name",
-      psd: "Dolor sit amet",
+      title: "Lorem ipsum dolor",
+      details:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”",
+      profileImage: "/images/landing/prof_img.png",
+      name: "User long name",
+      description: "Dolor sit amet",
     },
   ];
 
@@ -55,23 +59,13 @@ const Testimonial = () => {
           {React.Children.toArray(
             DaTa.map((data) => (
               <SplideSlide>
-                <div className="section_testimonial_slick__option">
-                  <p className="testimonial_title">{data.pm6}</p>
-                  <p className="testimonial_details">{data.pm}</p>
-                  <div className="testimonial_owner">
-                    <div className="testimonial_owner__element">
-                      <img src={`/images/landing/prof_img.png`} alt="" />
-                    </div>
-                    <div className="testimonial_owner__element">
-                      <p className="testimonial_owner__element_name">
-                        {data.namePl6}
-                      </p>
-                      <p className="testimonial_owner__element_details">
-                        {data.psd}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <TestimonialBox
+                  title={data.title}
+                  details={data.details}
+                  profileImage={data.profileImage}
+                  name={data.name}
+                  description={data.description}
+                />
               </SplideSlide>
             ))
           )}
