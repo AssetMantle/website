@@ -1,9 +1,9 @@
 import React from "react";
-// import { useTranslation } from "react-i18next";
-import "../../translations/i18n";
+import { useTranslation } from "react-i18next";
+// import "../../translations/i18n";
 
 function HeroSection() {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <section className="section_hero">
@@ -34,15 +34,11 @@ function HeroSection() {
       <div className="gap"></div>
       <div className="section_hero__right">
         <h1>
-          {/* {t("ah")} */}
-          Create, Own,
+          {t("HERO_TITLE_LINE1")}
           <br />
-          Discover, Collect.
+          {t("HERO_TITLE_LINE2")}
         </h1>
-        <p>
-          Your one stop shop for NFTs. A community first platform for creators
-          and collectors.
-        </p>
+        <p>{t("HERO_BODY")}</p>
       </div>
     </section>
   );

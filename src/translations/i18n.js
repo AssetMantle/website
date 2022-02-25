@@ -2,21 +2,28 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import { TRANSLATIONS_EN } from "./en/translations";
-import { TRANSLATIONS_BN } from "./bn/translation";
+import English from "./en/translations";
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    // we init with resources
     resources: {
-      en: {
-        translations: TRANSLATIONS_EN,
-      },
-      bn: {
-        translations: TRANSLATIONS_BN,
-      },
+      English: English,
+    },
+    fallbackLng: "English",
+    debug: true,
+
+    // have a common namespace used around the full app
+    ns: ["translations"],
+    defaultNS: "translations",
+
+    keySeparator: false, // we use content as keys
+
+    interpolation: {
+      escapeValue: false,
     },
   });
 
-// i18n.changeLanguage("bn");
+export default i18n;
