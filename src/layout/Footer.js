@@ -5,14 +5,17 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { FooterContainer } from "../styles/layout/FooterStyle";
 
 import DATA from "../data/footerData.json";
+
 import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
+import { RequestAFeature } from "../components/RequestAFeature";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 const Footer = () => {
   // const [email, setEmail] = useState();
   const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
+  const [suggestFeatureModalStat, setSuggestFeatureModalStat] = useState(false);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -27,7 +30,7 @@ const Footer = () => {
         <div className="footer_container__element">
           <div className="footer_container__element_emails">
             <img
-              src="/images/email_icon.png"
+              src="/images/icons/email_icon.png"
               alt="email icon"
               className="footer_container__element_emails__icon"
             />
@@ -67,18 +70,22 @@ const Footer = () => {
               {DATA.social.h3}
             </h3>
             <div className="footer_container__element_social__icons">
-              {React.Children.toArray(
-                DATA.social.links.map((data) => (
-                  <a
-                    className="footer_container__element_social__icons_icon"
-                    href={data.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img src={`/images/${data.icon}.png`} alt={data.alt} />
-                  </a>
-                ))
-              )}
+              {DATA.social.links &&
+                React.Children.toArray(
+                  DATA.social.links.map((data) => (
+                    <a
+                      className="footer_container__element_social__icons_icon"
+                      href={data.href && data.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`/images/icons/${data.icon && data.icon}.png`}
+                        alt={data.alt && data.alt}
+                      />
+                    </a>
+                  ))
+                )}
             </div>
           </div>
         </div>
@@ -118,18 +125,25 @@ const Footer = () => {
             <p className="footer_container__element_2__links_link">
               Spotted something wrong?&nbsp;
               <button
-                className="footer_container__element_2__links_link__button coming"
+                className="footer_container__element_2__links_link__button"
                 onClick={() => setBugBountyModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setBugBountyModalStat(true)
+                }
               >
-                <span>Bug Bounty</span>
-                <span>Coming soon</span>
+                Bug Bounty
               </button>
             </p>
             <p className="footer_container__element_2__links_link">
               Have something in mind?&nbsp;
-              <button className="footer_container__element_2__links_link__button coming">
-                <span>Suggest a Feature</span>
-                <span>Coming soon</span>
+              <button
+                className="footer_container__element_2__links_link__button"
+                onClick={() => setSuggestFeatureModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setSuggestFeatureModalStat(true)
+                }
+              >
+                Suggest a Feature
               </button>
             </p>
             <p className="footer_container__element_2__links_link">
@@ -165,8 +179,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {bugBountyModalStat === "" && (
+      {bugBountyModalStat === true && (
         <BugBountyModal closeModal={setBugBountyModalStat} />
+      )}
+      {suggestFeatureModalStat === true && (
+        <RequestAFeature closeModal={setSuggestFeatureModalStat} />
       )}
     </FooterContainer>
   );
