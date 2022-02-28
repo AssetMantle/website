@@ -9,6 +9,7 @@ import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
 import Home from "./pages/Home/";
 import { HeaderSecondary } from "./layout/HeaderSecondary";
+import Pricing from "./pages/Pricing";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -17,6 +18,10 @@ const App = () => {
     {
       component: Home,
       path: "/",
+    },
+    {
+      component: Pricing,
+      path: "/pricing",
     },
   ];
 
