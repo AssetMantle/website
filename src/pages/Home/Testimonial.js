@@ -3,8 +3,11 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { TestimonialBox } from "../../components/TestimonialBox";
+import { useTranslation } from "react-i18next";
 
 const Testimonial = () => {
+  const { t } = useTranslation();
+
   const DaTa = [
     {
       title: "Lorem ipsum dolor",
@@ -34,11 +37,8 @@ const Testimonial = () => {
 
   return (
     <section className="section_testimonial">
-      <h2>Hear what people have to say </h2>
-      <p>
-        People who have tried AssetMantle are rocking it, whether they are
-        creators or collectors
-      </p>
+      <h2>{t("TESTIMONIALS_TITLE")}</h2>
+      <p>{t("TESTIMONIALS_DESCRIPTION")}</p>
       <div className="section_testimonial_slick">
         <Splide
           options={{

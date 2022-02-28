@@ -1,31 +1,38 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Overview = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_overview">
       <h2>
-        Become a part of the booming NFT community<a href="#Source">*</a>
+        {t("OVERVIEW_TITLE")}
+        <a href="#Source">*</a>
       </h2>
       <div className="section_overview_element_con">
         <div className="section_overview__element">
           <img src={`/images/landing/section/sold.png`} alt="world icon" />
           <h2>
-            22 billion+
-            <br /> Sales in USD
+            {t("OVERVIEW_1_TITLE")}
+            <br />
+            {t("OVERVIEW_1_TITLE_2")}
           </h2>
         </div>
         <div className="section_overview__element">
           <img src={`/images/landing/section/cart.png`} alt="world icon" />
           <h2>
-            35.6 million+
-            <br /> Total Sales
+            {t("OVERVIEW_2_TITLE")}
+            <br />
+            {t("OVERVIEW_2_TITLE_2")}
           </h2>
         </div>
         <div className="section_overview__element">
           <img src={`/images/landing/section/wallet.png`} alt="world icon" />
           <h2>
-            3 million+
-            <br /> Active Wallets
+            {t("OVERVIEW_3_TITLE")}
+            <br />
+            {t("OVERVIEW_3_TITLE_2")}
           </h2>
         </div>
       </div>

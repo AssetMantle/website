@@ -3,8 +3,11 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { StoreBox } from "../../components/StoreBox";
+import { useTranslation } from "react-i18next";
 
 const Stores = () => {
+  const { t } = useTranslation();
+
   const featuredStore = [
     {
       viewerImage: "/images/landing/store/1.png",
@@ -101,7 +104,7 @@ const Stores = () => {
       imageGrid: [
         "/images/landing/store/6.png",
         "/images/landing/store/7.png",
-        // "/images/landing/store/8.png",
+        "/images/landing/store/8.png",
       ],
       profileImage: "/images/landing/store/profile.png",
       name: "Lorem ipsum dolor sit",
@@ -141,13 +144,10 @@ const Stores = () => {
 
   return (
     <section className="section_stores">
-      <h2>Our Stores</h2>
-      <p>
-        Discover an awesome range of NFTs from games, art, collectibles, and
-        more. Get ready to raise those digital envy meters!
-      </p>
+      <h2>{t("STORES_TITLE")}</h2>
+      <p>{t("STORES_DESCRIPTION")}</p>
       <h3 className="section_stores__title">
-        Featured Stores{" "}
+        {t("STORES_STORE_1")}
         <span
           className="section_stores__title__link_span"
           id="featured_stores"
@@ -173,7 +173,7 @@ const Stores = () => {
         </Splide>
       </div>
       <h3 className="section_stores__title">
-        New Stores{" "}
+        {t("STORES_STORE_2")}
         <span
           className="section_stores__title__link_span"
           id="new_stores"
@@ -199,7 +199,7 @@ const Stores = () => {
         </Splide>
       </div>
       <h3 className="section_stores__title">
-        Popular Stores{" "}
+        {t("STORES_STORE_3")}
         <span
           className="section_stores__title__link_span"
           id="popular_stores"

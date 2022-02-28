@@ -5,25 +5,29 @@ import DATA from "../../data/homeData.json";
 import { ButtonSecondary } from "../../components/Buttons";
 import UList from "../../styles/components/UList";
 
+import { useTranslation } from "react-i18next";
+
 const GettingStarted = () => {
+  const { t } = useTranslation();
+
   const [option, setOption] = useState(0);
 
   const List1 = [
-    `No more delays. Our plug and play technology empowers you to mint and sell with enhanced speed.`,
-    `No more limits. Create and buy any kind of NFT from our wide range. Plus its all seamlessly interoperable with any platform/chain.`,
-    `No more generic looks. Enjoy complete customization with the drag and drop interface of our plug and play technology.`,
-    `No more invisibility. Boost your personal brand with pubic listings, artist shoutouts, audience engagement, and journey sharing.`,
-    `No more paying extra. Get near-zero gas fees, mint for free, and get financial autonomy by controlling payment types and royalties.`,
-    `No more snags. When in doubt, just reach out to a vibrant community of experts, influncers, and like-minded enthusiasts.`,
+    t("GETTING_STARTED_LIST_1_LI_1"),
+    t("GETTING_STARTED_LIST_1_LI_2"),
+    t("GETTING_STARTED_LIST_1_LI_3"),
+    t("GETTING_STARTED_LIST_1_LI_4"),
+    t("GETTING_STARTED_LIST_1_LI_5"),
+    t("GETTING_STARTED_LIST_1_LI_6"),
   ];
 
   const List2 = [
-    `Browse and indulge in a wide, exciting range of NFTs including audio, video and text`,
-    `Get 100% proof of ownership of what you buy that sits on the secure blockchain`,
-    `High degree of authenticity ensures your NFTs will be immune to removals or fraud`,
-    `It’s so easy for you to transfer and trade NFTs with other enthusiasts`,
-    `Access global markets and find the coolest NFTs with no agents or commissions`,
-    `It’s super convenient because you get digital files that offer permanent storage and easy sharing and exchange`,
+    t("GETTING_STARTED_LIST_2_LI_1"),
+    t("GETTING_STARTED_LIST_2_LI_2"),
+    t("GETTING_STARTED_LIST_2_LI_3"),
+    t("GETTING_STARTED_LIST_2_LI_4"),
+    t("GETTING_STARTED_LIST_2_LI_5"),
+    t("GETTING_STARTED_LIST_2_LI_6"),
   ];
 
   return (
@@ -32,12 +36,8 @@ const GettingStarted = () => {
         className="section_gettingStarted__link_span"
         id="getting_started"
       ></span>
-      <h2>Getting started with AssetMantle</h2>
-      <p>
-        Our plug and play technology makes it super easy for you to build,
-        launch, promote and buy NFTs. Just choose your preference and let’s
-        amplify your NFT game.
-      </p>
+      <h2>{t("GETTING_STARTED_TITLE")}</h2>
+      <p>{t("GETTING_STARTED_DESCRIPTION")}</p>
       <div className="section_gettingStarted__element">
         <div className="section_gettingStarted__element_title">
           <div
@@ -47,7 +47,9 @@ const GettingStarted = () => {
             <div className="section_gettingStarted__element_title__option_img">
               <img src={`/images/landing/section/paintingImg.png`} alt="" />
             </div>
-            <h3 className={option === 0 ? "active" : undefined}>Creator</h3>
+            <h3 className={option === 0 ? "active" : undefined}>
+              {t("GETTING_STARTED_LIST_1_TITLE")}
+            </h3>
           </div>
           <div
             className="section_gettingStarted__element_title__option"
@@ -56,12 +58,14 @@ const GettingStarted = () => {
             <div className="section_gettingStarted__element_title__option_img">
               <img src={`/images/landing/section/collector.png`} alt="" />
             </div>
-            <h3 className={option === 1 ? "active" : undefined}>Collector</h3>
+            <h3 className={option === 1 ? "active" : undefined}>
+              {t("GETTING_STARTED_LIST_2_TITLE")}
+            </h3>
           </div>
         </div>
         <div className="section_gettingStarted__element_body">
-          <h2>how does AssetMantle help you</h2>
-          <p>We amplify your NFT game by plugging every gap!</p>
+          <h2>{t("GETTING_STARTED_BODY_TITLE")}</h2>
+          <p>{t("GETTING_STARTED_BODY_DESCRIPTION")}</p>
           {option === 0 ? (
             <UList data={List1} />
           ) : (
@@ -70,7 +74,7 @@ const GettingStarted = () => {
         </div>
         <div className="section_gettingStarted__element_button">
           <ButtonSecondary
-            text="Tell Me More"
+            text={t("TELL_ME_MORE")}
             href={DATA.gettingStarted.href && DATA.gettingStarted.href}
           />
         </div>

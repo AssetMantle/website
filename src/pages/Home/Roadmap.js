@@ -1,8 +1,11 @@
 import React from "react";
 import DATA from "../../data/homeData.json";
 import { ButtonSecondary } from "../../components/Buttons";
+import { useTranslation } from "react-i18next";
 
 const RoadMap = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_roadMap">
       <div className="section_roadMap__element">
@@ -13,12 +16,12 @@ const RoadMap = () => {
         <img src="/images/landing/section/roadmap.png" alt="" />
       </div>
       <div className="section_roadMap__element">
-        <h2>Want to know more about our journey?</h2>
-        <p>Check out our roadmap</p>
+        <h2>{t("ROADMAP_TITLE")}</h2>
+        <p>{t("ROADMAP_DESCRIPTION")}</p>
       </div>
       <div className="section_roadMap__element bu">
         <ButtonSecondary
-          text="Roadmap"
+          text={t("ROADMAP_BUTTON_TEXT")}
           href={DATA.RoadMap.href && DATA.RoadMap.href}
         />
       </div>

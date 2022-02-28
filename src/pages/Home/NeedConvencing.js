@@ -4,7 +4,11 @@ import DATA from "../../data/homeData.json";
 
 import { ButtonSecondary } from "../../components/Buttons";
 
+import { useTranslation } from "react-i18next";
+
 const NeedConvencing = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_convincing">
       <div className="section_convincing__element">
@@ -14,15 +18,12 @@ const NeedConvencing = () => {
         />
       </div>
       <div className="section_convincing__element">
-        <h2>Um, i need some convincing!</h2>
-        <p>
-          No sweat. It’s a new space and we understand you have questions. Let’s
-          take a digital walk and answer them!
-        </p>
+        <h2>{t("NEED_CONVENING_TITLE")}</h2>
+        <p>{t("NEED_CONVENING_DESCRIPTION")}</p>
       </div>
       <div className="section_convincing__element">
         <ButtonSecondary
-          text="Take a Tour"
+          text={t("TAKE_A_TOUR")}
           href={DATA.convincing.href && DATA.convincing.href}
         />
       </div>

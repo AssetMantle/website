@@ -1,18 +1,21 @@
 import React from "react";
 import { ButtonTertiary } from "../../components/Buttons";
 import DATA from "../../data/homeData.json";
+import { useTranslation } from "react-i18next";
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_services">
       <div className="section_services__element">
         <img src="/images/landing/section/bricks.png" alt="" />
         <div className="section_services__element_details">
-          <h2>Build a Store</h2>
-          <p>Fully customizable store builder</p>
+          <h2>{t("SERVICES_1_TITLE")}</h2>
+          <p>{t("SERVICES_1_DESCRIPTION")}</p>
           <ButtonTertiary
             href={DATA.services.leftHref && DATA.services.leftHref}
-            text="MantleBuilder"
+            text={t("SERVICES_1_BUTTONTEXT")}
             leftArrow
             comingSoon={true}
           />
@@ -21,11 +24,11 @@ const ServicesSection = () => {
       <div className="section_services__element">
         <img src="/images/landing/section/bags.png" alt="" />
         <div className="section_services__element_details">
-          <h2>Start Shopping</h2>
-          <p>Build your collection of NFTs</p>
+          <h2>{t("SERVICES_2_TITLE")}</h2>
+          <p>{t("SERVICES_2_DESCRIPTION")}</p>
           <ButtonTertiary
             href={DATA.services.rightHref && DATA.services.rightHref}
-            text="MantlePlace"
+            text={t("SERVICES_2_BUTTONTEXT")}
             leftArrow
             comingSoon={true}
           />

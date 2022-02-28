@@ -1,15 +1,18 @@
 import React from "react";
 import UList from "../../styles/components/UList";
+import { useTranslation } from "react-i18next";
 
 const WhatIsAssetMantle = () => {
+  const { t } = useTranslation();
+
   const data = [
-    "Sign up, mint, and start selling in 5 minutes or less!",
-    "Option to turn anything into an NFT (AssetMantle supports various formats and kinds).",
-    "Royalty splits make creative collaborations easier.",
-    "'Trade Room' for accessible communication between creators and collectors.",
-    "Integrated analytics for improved marketing.",
-    "Batch listing and minting.",
-    "Auctions and secondary sales.",
+    t("WHAT_IS_ASSETMANTLE_LI_1"),
+    t("WHAT_IS_ASSETMANTLE_LI_2"),
+    t("WHAT_IS_ASSETMANTLE_LI_3"),
+    t("WHAT_IS_ASSETMANTLE_LI_4"),
+    t("WHAT_IS_ASSETMANTLE_LI_5"),
+    t("WHAT_IS_ASSETMANTLE_LI_6"),
+    t("WHAT_IS_ASSETMANTLE_LI_7"),
   ];
 
   return (

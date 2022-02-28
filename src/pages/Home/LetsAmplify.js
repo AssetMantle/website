@@ -1,21 +1,20 @@
 import React from "react";
 import { ButtonPrimary } from "../../components/Buttons";
 import DATA from "../../data/homeData.json";
+import { useTranslation } from "react-i18next";
 
 const LetsAmplify = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_letsAmplify">
       <div className="section_letsAmplify__element">
-        <h2>Ok, let’s amplify my NFT game, people!</h2>
-        <p>
-          Yay. You’ve just taken the first step to enhancing your life in the
-          metaverse. Let’s get started and help you create, sell, and buy your
-          digital assets.
-        </p>
+        <h2>{t("LET_AMPLIFY_TITLE")}</h2>
+        <p>{t("LET_AMPLIFY_DESCRIPTION")}</p>
       </div>
       <div className="section_letsAmplify__element bu">
         <ButtonPrimary
-          text="Create a Store"
+          text={t("CREATE_A_STORE")}
           href={DATA.LetsAmplify.href && DATA.LetsAmplify.href}
           targetBlank={true}
         />

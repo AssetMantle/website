@@ -3,42 +3,45 @@ import React from "react";
 import DATA from "../../data/homeData.json";
 
 import { ButtonSecondary } from "../../components/Buttons";
+import { useTranslation } from "react-i18next";
 
 const Pricing = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="section_pricing">
       <span className="section_pricing__link_span" id="pricing"></span>
-      <h2>Pricing</h2>
-      <p>We bring you the most affordable, flexible pricing options.</p>
+      <h2>{t("PRICING_TITLE")}</h2>
+      <p>{t("PRICING_DESCRIPTION")}</p>
       <div className="section_pricing__body">
         <div className="section_pricing__body_element__left">
           <div className="section_pricing__body_element__left_content">
-            Ethereum
+            {t("PRICING_CURRENCY_NAME_1")}
           </div>
           <div className="section_pricing__body_element__left_content">
-            $250 USD
+            {t("PRICING_CURRENCY_VALUE_1")}
           </div>
           <div className="section_pricing__body_element__left_content">
-            Solana
+            {t("PRICING_CURRENCY_NAME_2")}
           </div>
           <div className="section_pricing__body_element__left_content">
-            $2.5 USD
+            {t("PRICING_CURRENCY_VALUE_2")}
           </div>
           <div className="section_pricing__body_element__left_content">
-            Polygon
+            {t("PRICING_CURRENCY_NAME_3")}
           </div>
           <div className="section_pricing__body_element__left_content">
-            $5 USD
+            {t("PRICING_CURRENCY_VALUE_3")}
           </div>
         </div>
         <div className="section_pricing__body_element__right">
-          <h1>AssetMantle</h1>
-          <h1>$0.000001* USD</h1>
+          <h1>{t("PRICING_NAME")}</h1>
+          <h1>{t("PRICING_VALUE")}</h1>
         </div>
       </div>
       <div className="section_pricing__button">
         <ButtonSecondary
-          text="Tell me more"
+          text={t("TELL_ME_MORE")}
           href={DATA.pricing.href && DATA.pricing.href}
         />
       </div>
