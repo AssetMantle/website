@@ -170,6 +170,44 @@ const English = {
     LOWEST_TRANSACTION_COSTS_DESCRIPTION:
       pricingData.lowestTransactionCosts.description,
 
+    // Jump Right In section
+    JUMP_RIGHT_IN_TITLE: pricingData.jumpRightIn.title,
+    JUMP_RIGHT_IN_DESCRIPTION: pricingData.jumpRightIn.description,
+
+    // Get Paid section
+    GET_PAID_TITLE: pricingData.getPaid.title,
+    GET_PAID_DESCRIPTION: pricingData.getPaid.description,
+    GET_PAID_LIST_1_OPTION_1: pricingData.getPaid.list[0],
+    GET_PAID_LIST_1_OPTION_2: pricingData.getPaid.list[1],
+    GET_PAID_LIST_1_OPTION_3: pricingData.getPaid.list[2],
+    GET_PAID_LIST_1_OPTION_4: pricingData.getPaid.list[3],
+    GET_PAID_LIST_1_OPTION_5: pricingData.getPaid.list[4],
+    GET_PAID_LIST_1_OPTION_6: pricingData.getPaid.list[5],
+    GET_PAID_TITLE_2: pricingData.getPaid.h3,
+    GET_PAID_DESCRIPTION_2: pricingData.getPaid.pl2,
+    GET_PAID_LIST_2_OPTION_1_TITLE: pricingData.getPaid.list2[0].title,
+    GET_PAID_LIST_2_OPTION_1_DESCRIPTION:
+      pricingData.getPaid.list2[0].description,
+    GET_PAID_LIST_2_OPTION_2_TITLE: pricingData.getPaid.list2[1].title,
+    GET_PAID_LIST_2_OPTION_2_DESCRIPTION:
+      pricingData.getPaid.list2[1].description,
+    GET_PAID_LIST_2_OPTION_3_TITLE: pricingData.getPaid.list2[2].title,
+    GET_PAID_LIST_2_OPTION_3_DESCRIPTION:
+      pricingData.getPaid.list2[2].description,
+    GET_PAID_LIST_2_OPTION_4_TITLE: pricingData.getPaid.list2[3].title,
+    GET_PAID_LIST_2_OPTION_4_DESCRIPTION:
+      pricingData.getPaid.list2[3].description,
+
+    // Accepted Currencies section
+    ACCEPTED_CURRENCIES_TITLE: pricingData.acceptedCurrencies.title,
+    ACCEPTED_CURRENCIES_DESCRIPTION: pricingData.acceptedCurrencies.description,
+    ACCEPTED_CURRENCIES_LIST_1: pricingData.acceptedCurrencies.list[0],
+    ACCEPTED_CURRENCIES_LIST_2: pricingData.acceptedCurrencies.list[1],
+    ACCEPTED_CURRENCIES_LIST_3: pricingData.acceptedCurrencies.list[2],
+    ACCEPTED_CURRENCIES_LIST_4: pricingData.acceptedCurrencies.list[3],
+    ACCEPTED_CURRENCIES_LIST_5: pricingData.acceptedCurrencies.list[4],
+    ACCEPTED_CURRENCIES_LIST_6: pricingData.acceptedCurrencies.list[5],
+
     // Commons
     TELL_ME_MORE: "Tell me more",
     SIGN_UP: "Sign up",
