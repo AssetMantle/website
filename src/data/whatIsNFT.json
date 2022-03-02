@@ -1,0 +1,171 @@
+{
+  "whatIsNFT": {
+    "visibility": true,
+    "title": "what is an NFT?",
+    "description": "Non-Fungible Tokens are the digital equivalent of owning cool things in the physical world, like sexy sneakers or a Van Gogh. Like them, NFTs are unique, non-interchangeable units of data stored on the blockchain. They are photos, videos, or audio. They provide public proof of authenticity or ownership. But that does not restrict the sharing or copying of the digital file. Welcome to the future of owning, flaunting and sharing things on the net!"
+  },
+  "valueProps": {
+    "visibility": true,
+    "title": "the value props",
+    "description": "AssetMantle is a one-of-a-kind platform to facilitate commerce for your NFTs.",
+    "list": [
+      {
+        "title": "fast and Cost-Effective",
+        "body": "Asset Mantle reduces time and cost to mind and set up a store with plug and play tech and low minting and transaction fees."
+      },
+      {
+        "title": "Creative freedom",
+        "body": "Create and buy any kind of NFT from our wide range. Plus it’s all seamlessly interoperable with any platform/chain."
+      },
+      {
+        "title": "Customize and conquer",
+        "body": "Get complete customization with our plug and play tech, and build your visibility with our public listings."
+      },
+      {
+        "title": "Leverage a strong community",
+        "body": "We’re not just an NFT marketplace. You can tap into a vibrant community of experts, influencers, and like-minded NFT geeks."
+      }
+    ]
+  },
+  "realWorldAssets": {
+    "visibility": true,
+    "title": "what are real world asset NFTS?",
+    "description": "A real world asset NFT is a token that authorizes the bearer as the virtual owner of a physical good. It’s also called rwANFt.",
+    "list": [
+      "NFTs in real estate can increase speed and cost-efficiency where they would otherwise be many stakeholders and processes.",
+      "Programmable art that uniquely combines creatvity and technology can lead to many limited edition artwork pieces.",
+      "Smart contract tech helps musicians transfer copyrights to NFTs, ensuring they receive royalties whenever their music is played.",
+      "In gaming ecosystems, players can unlock specific in-game products that can be traded in-game or sold for real-world money.",
+      "Collectible NFTs are one-of-a-kind digital kittens that users may breed to produce even more one-of-a-kind kittens."
+    ]
+  },
+  "USDSpent": {
+    "visibility": true,
+    "title": "total USD spent on NFTs",
+    "description": "NFTs are growing in popularity. Sales amounted to more than 2.4$ Bn in the first 6 months of 2021. People are spending thousands on digital assets because 1) they believe in the tech and see long-term value, and 2) owning NFTs creates social status in the crypto community like a Rolex or a Lamborghini does in real life.",
+    "options": [
+      {
+        "name": "1 week",
+        "image": "",
+        "text": "NFT sales are growing exponentially."
+      },
+      {
+        "name": "1 month",
+        "image": "",
+        "text": "NFT sales are growing exponentially."
+      },
+      {
+        "name": "3 months",
+        "image": "",
+        "text": "NFT sales are growing exponentially."
+      },
+      {
+        "name": "1 year",
+        "image": "",
+        "text": "NFT sales are growing exponentially."
+      },
+      {
+        "name": "all time",
+        "image": "",
+        "text": "NFT sales are growing exponentially."
+      }
+    ],
+    "description2": "NFT sales are growing exponentially."
+  },
+  "letsAmplify": {
+    "visibility": true
+  },
+  "howItWorks": {
+    "visibility": true,
+    "title": "How it works",
+    "description": "Whatever your need in the NFT value chain, we make it simple and fuss free.",
+    "options": [
+      {
+        "image": "",
+        "title": "Create Account",
+        "body": "It takes just 5 mins to create an account"
+      },
+      {
+        "image": "",
+        "title": "Create Store",
+        "body": "Make a fully customized store that captures your brand"
+      },
+      {
+        "image": "",
+        "title": "Publish",
+        "body": "Publish quickly and go live"
+      },
+      {
+        "image": "",
+        "title": "Sell",
+        "body": "Start buying and selling those digital assets"
+      }
+    ],
+    "button": "Tell me more",
+    "href": ""
+  },
+  "lowCostMint": {
+    "visibility": true
+  },
+  "mintYourNFT": {
+    "visibility": true,
+    "title": "how to mint your NFT?",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "list": [
+      {
+        "title": "Method 1",
+        "body": "We offer the standard way of minting, if that’s what you prefer"
+      },
+      {
+        "title": "Method 2",
+        "body": "Another option is mint one NFT"
+      },
+      {
+        "title": "Method 3",
+        "body": "The third option is batch minting that saves time and money. We’re working on it and will bring it out soon."
+      },
+      {
+        "title": "Method 4",
+        "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      }
+    ]
+  },
+  "preMintNFT": {
+    "visibility": true,
+    "title": "now pre-mint NFTs from other platforms!",
+    "description": "This is a new and exciting possibility that creates more flexibility. Stay tuned.",
+    "button": "Coming Soon!",
+    "href": ""
+  },
+  "communityGuidelines": {
+    "visibility": true,
+    "title": "Community guidelines",
+    "description": "Our rigorous, vibrant community ensures that convenience, safety, and privacy are always important for creators and collectors.",
+    "options": [
+      {
+        "title": "Guideline 1",
+        "body": "AssetMantle will have curators and moderators who will screen the NFTs for inappropriate content"
+      },
+      {
+        "title": "Guideline 2",
+        "body": "No restrictions on the kind of content created but everything will be screened"
+      },
+      {
+        "title": "Guideline 3",
+        "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "Guideline 4",
+        "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "Guideline 5",
+        "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "Guideline 6",
+        "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      }
+    ]
+  }
+}
