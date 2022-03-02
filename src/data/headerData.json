@@ -38,9 +38,9 @@
         "icon": "down-fill"
       },
       {
-        "visibility": false,
+        "visibility": true,
         "text": "Pricing",
-        "href": ""
+        "href": "/pricing"
       },
       {
         "visibility": true,
