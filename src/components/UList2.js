@@ -38,18 +38,18 @@ const Container = styled.ul`
       background-repeat: no-repeat;
       background-size: contain;
     }
-    &.list___2_li {
-      &__title {
-        font: var(--h3);
-        color: var(--gray);
-        margin: 0;
-        margin-bottom: 12px;
-      }
-      &__body {
-        font: var(--p-m);
-        color: var(--gray-deep);
-        margin: 0;
-      }
+    h3 {
+      font: var(--h3);
+      color: var(--gray);
+      text-transform: capitalize;
+      margin: 0;
+      margin-bottom: 12px;
+    }
+    p {
+      font: var(--p-m);
+      color: var(--gray-deep);
+      margin: 0;
+      margin-bottom: 15px;
     }
   }
 `;
