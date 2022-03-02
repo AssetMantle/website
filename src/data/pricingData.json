@@ -16,17 +16,19 @@
     "title": "Lowest Transaction costs across networks",
     "description": "There are two parts to NFT costs. The first is setting up.  The second is transaction costs. The latter is where you can end up paying a lot more than you need to. With AssetMantle, we keep transaction costs to a minimum. And we’ve been doing that across networks for years."
   },
-  "jumpRightin": {
+  "jumpRightIn": {
     "visibility": true,
-    "h2": "This works, let’s jump right in!",
-    "pl": "That’s great. Let’s take you through store creation and ace your NFT game.",
-    "text": "Create a Store",
+    "title": "This works, let’s jump right in!",
+    "description": "That’s great. Let’s take you through store creation and ace your NFT game.",
     "href": ""
+  },
+  "convincing": {
+    "visibility": true
   },
   "getPaid": {
     "visibility": true,
-    "h2": "but wait, how do I get paid?",
-    "pl": "We’re glad you asked. We’ve got you covered.",
+    "title": "But wait, how do I get paid?",
+    "description": "We’re glad you asked. We’ve got you covered.",
     "list": [
       "AssetMantle will levy a nominal royalty fee which will go into a community pool",
       "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
@@ -39,27 +41,30 @@
     "pl2": "We know your needs can be dynamic. That’s why we have a wide and flexible range.",
     "list2": [
       {
-        "h3": "auctioning",
-        "li": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+        "title": "auctioning",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
       },
       {
-        "h3": "Fixed Price",
-        "li": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+        "title": "Fixed Price",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
       },
       {
-        "h3": "Change price at any time",
-        "li": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+        "title": "Change price at any time",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
       },
       {
-        "h3": "others",
-        "li": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+        "title": "others",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
       }
     ]
   },
-  "accepted": {
+  "letsAmplify": {
+    "visibility": true
+  },
+  "acceptedCurrencies": {
     "visibility": true,
-    "h2": "accepted currencies",
-    "pl": "We accept a range of currencies, making transactions simple and seamless",
+    "title": "Accepted Currencies",
+    "description": "We accept a range of currencies, making transactions simple and seamless",
     "list": [
       "ATOM",
       "XPRT",

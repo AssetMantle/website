@@ -1,5 +1,6 @@
 import homeData from "../../data/homeData.json";
 import pricingData from "../../data/pricingData.json";
+import whatIsNFTData from "../../data/whatIsNFT.json";
 
 const English = {
   translations: {
@@ -169,6 +170,79 @@ const English = {
     LOWEST_TRANSACTION_COSTS_TITLE: pricingData.lowestTransactionCosts.title,
     LOWEST_TRANSACTION_COSTS_DESCRIPTION:
       pricingData.lowestTransactionCosts.description,
+
+    // Jump Right In section
+    JUMP_RIGHT_IN_TITLE: pricingData.jumpRightIn.title,
+    JUMP_RIGHT_IN_DESCRIPTION: pricingData.jumpRightIn.description,
+
+    // Get Paid section
+    GET_PAID_TITLE: pricingData.getPaid.title,
+    GET_PAID_DESCRIPTION: pricingData.getPaid.description,
+    GET_PAID_LIST_1_OPTION_1: pricingData.getPaid.list[0],
+    GET_PAID_LIST_1_OPTION_2: pricingData.getPaid.list[1],
+    GET_PAID_LIST_1_OPTION_3: pricingData.getPaid.list[2],
+    GET_PAID_LIST_1_OPTION_4: pricingData.getPaid.list[3],
+    GET_PAID_LIST_1_OPTION_5: pricingData.getPaid.list[4],
+    GET_PAID_LIST_1_OPTION_6: pricingData.getPaid.list[5],
+    GET_PAID_TITLE_2: pricingData.getPaid.h3,
+    GET_PAID_DESCRIPTION_2: pricingData.getPaid.pl2,
+    GET_PAID_LIST_2_OPTION_1_TITLE: pricingData.getPaid.list2[0].title,
+    GET_PAID_LIST_2_OPTION_1_DESCRIPTION:
+      pricingData.getPaid.list2[0].description,
+    GET_PAID_LIST_2_OPTION_2_TITLE: pricingData.getPaid.list2[1].title,
+    GET_PAID_LIST_2_OPTION_2_DESCRIPTION:
+      pricingData.getPaid.list2[1].description,
+    GET_PAID_LIST_2_OPTION_3_TITLE: pricingData.getPaid.list2[2].title,
+    GET_PAID_LIST_2_OPTION_3_DESCRIPTION:
+      pricingData.getPaid.list2[2].description,
+    GET_PAID_LIST_2_OPTION_4_TITLE: pricingData.getPaid.list2[3].title,
+    GET_PAID_LIST_2_OPTION_4_DESCRIPTION:
+      pricingData.getPaid.list2[3].description,
+
+    // Accepted Currencies section
+    ACCEPTED_CURRENCIES_TITLE: pricingData.acceptedCurrencies.title,
+    ACCEPTED_CURRENCIES_DESCRIPTION: pricingData.acceptedCurrencies.description,
+    ACCEPTED_CURRENCIES_LIST_1: pricingData.acceptedCurrencies.list[0],
+    ACCEPTED_CURRENCIES_LIST_2: pricingData.acceptedCurrencies.list[1],
+    ACCEPTED_CURRENCIES_LIST_3: pricingData.acceptedCurrencies.list[2],
+    ACCEPTED_CURRENCIES_LIST_4: pricingData.acceptedCurrencies.list[3],
+    ACCEPTED_CURRENCIES_LIST_5: pricingData.acceptedCurrencies.list[4],
+    ACCEPTED_CURRENCIES_LIST_6: pricingData.acceptedCurrencies.list[5],
+
+    // What is an NFT section
+    WHAT_IS_AN_NFT_PAGE_TITLE: whatIsNFTData.whatIsNFT.title,
+    WHAT_IS_AN_NFT_PAGE_DESCRIPTION: whatIsNFTData.whatIsNFT.description,
+
+    // Value Props section
+    VALUE_PROPS_TITLE: whatIsNFTData.valueProps.title,
+    VALUE_PROPS_DESCRIPTION: whatIsNFTData.valueProps.description,
+    VALUE_PROPS_LIST_1_TITLE: whatIsNFTData.valueProps.list[0].title,
+    VALUE_PROPS_LIST_1_DESCRIPTION: whatIsNFTData.valueProps.list[0].body,
+    VALUE_PROPS_LIST_2_TITLE: whatIsNFTData.valueProps.list[1].title,
+    VALUE_PROPS_LIST_2_DESCRIPTION: whatIsNFTData.valueProps.list[1].body,
+    VALUE_PROPS_LIST_3_TITLE: whatIsNFTData.valueProps.list[2].title,
+    VALUE_PROPS_LIST_3_DESCRIPTION: whatIsNFTData.valueProps.list[2].body,
+    VALUE_PROPS_LIST_4_TITLE: whatIsNFTData.valueProps.list[3].title,
+    VALUE_PROPS_LIST_4_DESCRIPTION: whatIsNFTData.valueProps.list[3].body,
+
+    // Real Worlds Assets section
+    REAL_WORLDS_ASSETS_TITLE: whatIsNFTData.realWorldAssets.title,
+    REAL_WORLDS_ASSETS_DESCRIPTION: whatIsNFTData.realWorldAssets.description,
+    REAL_WORLDS_ASSETS_LIST_1: whatIsNFTData.realWorldAssets.list[0],
+    REAL_WORLDS_ASSETS_LIST_2: whatIsNFTData.realWorldAssets.list[1],
+    REAL_WORLDS_ASSETS_LIST_3: whatIsNFTData.realWorldAssets.list[2],
+    REAL_WORLDS_ASSETS_LIST_4: whatIsNFTData.realWorldAssets.list[3],
+    REAL_WORLDS_ASSETS_LIST_5: whatIsNFTData.realWorldAssets.list[4],
+
+    // USD Spent on NFTs section
+    USD_SPENT_ON_NFT_TITLE: whatIsNFTData.USDSpent.title,
+    USD_SPENT_ON_NFT_DESCRIPTION: whatIsNFTData.USDSpent.description,
+    USD_SPENT_ON_NFT_LIST_1: whatIsNFTData.USDSpent.options[0].name,
+    USD_SPENT_ON_NFT_LIST_2: whatIsNFTData.USDSpent.options[1].name,
+    USD_SPENT_ON_NFT_LIST_3: whatIsNFTData.USDSpent.options[2].name,
+    USD_SPENT_ON_NFT_LIST_4: whatIsNFTData.USDSpent.options[3].name,
+    USD_SPENT_ON_NFT_LIST_5: whatIsNFTData.USDSpent.options[4].name,
+    USD_SPENT_ON_NFT_DESCRIPTION2: whatIsNFTData.USDSpent.description2,
 
     // Commons
     TELL_ME_MORE: "Tell me more",

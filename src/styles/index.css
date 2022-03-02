@@ -41,7 +41,7 @@
   --h2: bold 32px/120% "Inter", sans-serif;
   --h3: bold 28px/120% "Inter", sans-serif;
   --h4: bold 20px/120% "Inter", sans-serif;
-  --h5: bold 28px/120% "Inter", sans-serif;
+  --h5: bold 18px/120% "Inter", sans-serif;
 
   --p-xl: 32px/120% "Lato", sans-serif;
   --p-l: 24px/120% "Lato", sans-serif;
@@ -52,4 +52,28 @@
 
   --label: 600 18px/120% "Inter", sans-serif;
   --input: 18px/120% "Lato", sans-serif;
+}
+
+h1 {
+  font: var(--h1);
+}
+
+h2 {
+  font: var(--h2);
+}
+
+h3 {
+  font: var(--h3);
+}
+
+h4 {
+  font: var(--h4);
+}
+
+h5 {
+  font: var(--h5);
+}
+
+h6 {
+  font: var(--h6);
 }

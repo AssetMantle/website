@@ -1,5 +1,5 @@
 import React from "react";
-import UList from "../../styles/components/UList";
+import UList from "../../components/UList";
 import { useTranslation } from "react-i18next";
 
 const WhatIsAssetMantle = () => {
