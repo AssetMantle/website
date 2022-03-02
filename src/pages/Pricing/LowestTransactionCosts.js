@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function LowestTransictionCosts() {
+export default function LowestTransactionCosts() {
   const { t } = useTranslation();
 
   return (
