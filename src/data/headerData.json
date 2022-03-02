@@ -24,12 +24,12 @@
       {
         "visibility": false,
         "text": "About",
-        "href": ""
+        "href": "/about"
       },
       {
-        "visibility": false,
+        "visibility": true,
         "text": "What's an NFT",
-        "href": ""
+        "href": "/whats-an-nft"
       },
       {
         "visibility": false,
