@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DATA from "../../data/homeData.json";
 
 import { ButtonSecondary } from "../../components/Buttons";
-import UList from "../../styles/components/UList";
+import UList from "../../components/UList";
 
 import { useTranslation } from "react-i18next";
 
