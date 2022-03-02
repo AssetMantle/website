@@ -5,11 +5,14 @@ import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 import "./styles/App.css";
 
 import Header from "./layout/Header";
-import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
-import Home from "./pages/Home/";
+
 import { HeaderSecondary } from "./layout/HeaderSecondary";
+
+import RouteNotFound from "./components/RouteNotFound";
+import Home from "./pages/Home/";
 import Pricing from "./pages/Pricing";
+import WhatsAnNFT from "./pages/WhatsAnNFT";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -21,6 +24,14 @@ const App = () => {
     setHeader(location.pathname === "/" ? 1 : 0);
   }, [location.pathname]);
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname]);
+
   const routes = [
     {
       component: Home,
@@ -29,6 +40,10 @@ const App = () => {
     {
       component: Pricing,
       path: "/pricing",
+    },
+    {
+      component: WhatsAnNFT,
+      path: "/whats-an-nft",
     },
   ];
 
