@@ -77,3 +77,7 @@ h5 {
 h6 {
   font: var(--h6);
 }
+
+body {
+  scroll-behavior: smooth;
+}
