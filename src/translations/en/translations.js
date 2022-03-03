@@ -244,11 +244,52 @@ const English = {
     USD_SPENT_ON_NFT_LIST_5: whatIsNFTData.USDSpent.options[4].name,
     USD_SPENT_ON_NFT_DESCRIPTION2: whatIsNFTData.USDSpent.description2,
 
+    // Mint Your NFTs section
+    MINT_YOUR_NFT_TITLE: whatIsNFTData.mintYourNFT.title,
+    MINT_YOUR_NFT_DESCRIPTION: whatIsNFTData.mintYourNFT.description,
+    MINT_YOUR_NFT_LIST_1: whatIsNFTData.mintYourNFT.list[0],
+    MINT_YOUR_NFT_LIST_2: whatIsNFTData.mintYourNFT.list[1],
+    MINT_YOUR_NFT_LIST_3: whatIsNFTData.mintYourNFT.list[2],
+
+    // Pre Mint NFTs section
+    PRE_MINT_NFT_TITLE: whatIsNFTData.preMintNFT.title,
+    PRE_MINT_NFT_DESCRIPTION: whatIsNFTData.preMintNFT.description,
+
+    // Community Guidelines section
+    COMMUNITY_GUIDELINES_TITLE: whatIsNFTData.communityGuidelines.title,
+    COMMUNITY_GUIDELINES_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.description,
+    COMMUNITY_GUIDELINES_LIST_1_NAME:
+      whatIsNFTData.communityGuidelines.options[0].title,
+    COMMUNITY_GUIDELINES_LIST_1_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[0].body,
+    COMMUNITY_GUIDELINES_LIST_2_NAME:
+      whatIsNFTData.communityGuidelines.options[1].title,
+    COMMUNITY_GUIDELINES_LIST_2_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[1].body,
+    COMMUNITY_GUIDELINES_LIST_3_NAME:
+      whatIsNFTData.communityGuidelines.options[2].title,
+    COMMUNITY_GUIDELINES_LIST_3_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[2].body,
+    COMMUNITY_GUIDELINES_LIST_4_NAME:
+      whatIsNFTData.communityGuidelines.options[3].title,
+    COMMUNITY_GUIDELINES_LIST_4_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[3].body,
+    COMMUNITY_GUIDELINES_LIST_5_NAME:
+      whatIsNFTData.communityGuidelines.options[4].title,
+    COMMUNITY_GUIDELINES_LIST_5_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[4].body,
+    COMMUNITY_GUIDELINES_LIST_6_NAME:
+      whatIsNFTData.communityGuidelines.options[5].title,
+    COMMUNITY_GUIDELINES_LIST_6_DESCRIPTION:
+      whatIsNFTData.communityGuidelines.options[5].body,
+
     // Commons
     TELL_ME_MORE: "Tell me more",
     SIGN_UP: "Sign up",
     TAKE_A_TOUR: "Take a tour",
     CREATE_A_STORE: "Create A Store",
+    COMING_SOON: "Coming Soon",
   },
 };
 
