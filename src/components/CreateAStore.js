@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "./Buttons";
-import { useTranslation } from "react-i18next";
+import { ButtonPrimary, ButtonSecondary, ButtonTertiary } from "./Buttons";
 
-export default function CreateAStore({ title, description, text, href }) {
-  const { t } = useTranslation();
-
+export default function CreateAStore({
+  title,
+  description,
+  button,
+  buttonText,
+  href,
+  targetBlank,
+}) {
   return (
     <Container className="section_letsAmplify">
       <div className="section_letsAmplify__element">
@@ -12,7 +16,25 @@ export default function CreateAStore({ title, description, text, href }) {
         <p>{description}</p>
       </div>
       <div className="section_letsAmplify__element bu">
-        <ButtonPrimary text={text} href={href} targetBlank={true} />
+        {button === "bp" ? (
+          <ButtonPrimary
+            text={buttonText}
+            href={href}
+            targetBlank={targetBlank}
+          />
+        ) : button === "bs" ? (
+          <ButtonSecondary
+            text={buttonText}
+            href={href}
+            targetBlank={targetBlank}
+          />
+        ) : button === "bt" ? (
+          <ButtonTertiary
+            text={buttonText}
+            href={href}
+            targetBlank={targetBlank}
+          />
+        ) : undefined}
       </div>
     </Container>
   );
@@ -40,6 +62,7 @@ const Container = styled.section`
       width: min(936px, 100%);
     }
     h2 {
+      text-transform: capitalize;
       font: var(--h2);
       color: var(--gray);
       margin-bottom: 24px;
