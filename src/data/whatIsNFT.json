@@ -111,7 +111,7 @@
     "visibility": true,
     "title": "how to mint your NFT?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "list": [
+    "options": [
       {
         "title": "Method 1",
         "body": "We offer the standard way of minting, if that’s what you prefer"
@@ -128,6 +128,11 @@
         "title": "Method 4",
         "body": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
       }
+    ],
+    "list": [
+      "We offer the standard way of minting, if that’s what you prefer",
+      "Another option is mint one NFT",
+      "The third option is batch minting that saves time and money. We’re working on it and will bring it out soon."
     ]
   },
   "preMintNFT": {
