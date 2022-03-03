@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ButtonPrimary, ButtonSecondary } from "../components/Buttons";
 
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
@@ -9,6 +9,12 @@ import DATA from "../data/headerData.json";
 
 function Header({ theme = false, setTheme }) {
   const [navToggler, setNavToggler] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setNavToggler(false);
+  }, [location.pathname]);
 
   return (
     <HeaderContainer>
