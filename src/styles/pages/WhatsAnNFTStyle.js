@@ -322,5 +322,66 @@ export const WhatsAnNFTContainer = styled.main`
         }
       }
     }
+    &_mintYourNFT {
+      padding: 60px 92px;
+      @media (max-width: 768px) {
+        padding: 60px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 40px 20px;
+      }
+      h2 {
+        color: var(--gray);
+        text-transform: capitalize;
+        margin-bottom: 24px;
+      }
+      p {
+        font: var(--p-l);
+        color: var(--gray-deep);
+        max-width: 936px;
+        margin-bottom: 60px;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        @media (max-width: 548px) {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+    &_communityGuidelines {
+      padding: 60px 92px;
+      margin-bottom: 100px;
+      @media (max-width: 768px) {
+        padding: 60px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 40px 20px;
+        margin-bottom: 60px;
+      }
+      h2 {
+        color: var(--gray);
+        text-transform: capitalize;
+        margin-bottom: 24px;
+      }
+      p {
+        font: var(--p-l);
+        color: var(--gray-deep);
+        max-width: 936px;
+        margin-bottom: 60px;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        @media (max-width: 548px) {
+          grid-template-columns: 1fr;
+        }
+        p {
+          margin-bottom: 15px;
+        }
+      }
+    }
   }
 `;

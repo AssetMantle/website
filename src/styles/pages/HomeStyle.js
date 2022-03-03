@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.main`
   max-width: 1440px;
+  scroll-behavior: smooth;
   margin: 0 auto;
   background-image: url("/images/bg/bg_assets.svg");
   background-size: 100%;
