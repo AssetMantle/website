@@ -32,10 +32,32 @@
         "href": "/whats-an-nft"
       },
       {
-        "visibility": false,
+        "visibility": true,
+        "type": "dropdown",
         "text": "Who it's for",
-        "href": "",
-        "icon": "down-fill"
+        "icon": "down-fill",
+        "options": [
+          {
+            "visibility": false,
+            "text": "Artist",
+            "href": ""
+          },
+          {
+            "visibility": true,
+            "text": "NFT Collectors",
+            "href": ""
+          },
+          {
+            "visibility": true,
+            "text": "NFT Traders",
+            "href": ""
+          },
+          {
+            "visibility": true,
+            "text": "Artist Managers",
+            "href": ""
+          }
+        ]
       },
       {
         "visibility": true,
