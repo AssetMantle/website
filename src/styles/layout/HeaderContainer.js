@@ -41,9 +41,27 @@ const HeaderContainer = styled.header`
   .header {
     &__left {
       img {
-        .logo {
-          height: 42px;
-          width: auto;
+        height: 42px;
+        width: auto;
+      }
+      &.airdrop {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        img {
+          @media (max-width: 385px) {
+            height: 28px;
+            width: auto;
+          }
+        }
+        h2 {
+          color: var(--gray);
+          @media (max-width: 500px) {
+            font-size: 20px;
+          }
+          @media (max-width: 385px) {
+            font-size: 16px;
+          }
         }
       }
     }
@@ -94,6 +112,21 @@ const HeaderContainer = styled.header`
           gap: 24px;
           padding-left: 37px;
           padding-right: 24px;
+        }
+      }
+      &_one {
+        a {
+          font: var(--p-l);
+          color: var(--yellow);
+          text-decoration: none;
+          @media (max-width: 576px) {
+            display: none;
+          }
+        }
+        .toggler {
+          @media (min-width: 577px) {
+            display: none;
+          }
         }
       }
     }
