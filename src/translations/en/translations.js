@@ -1,6 +1,7 @@
 import homeData from "../../data/homeData.json";
 import pricingData from "../../data/pricingData.json";
 import whatIsNFTData from "../../data/whatIsNFT.json";
+import airDropData from "../../data/airdropData.json";
 
 const English = {
   translations: {
@@ -284,12 +285,52 @@ const English = {
     COMMUNITY_GUIDELINES_LIST_6_DESCRIPTION:
       whatIsNFTData.communityGuidelines.options[5].body,
 
+    // AirDrop page
+    // hero section
+    AIRDROP_HERO_TITLE: airDropData.hero.title,
+    AIRDROP_HERO_DESCRIPTION: airDropData.hero.details,
+
+    // wallets section
+    AIRDROP_WALLETS_OPTION_1_TITLE: airDropData.wallets.option_1.title,
+    AIRDROP_WALLETS_OPTION_2_TITLE: airDropData.wallets.option_2.title,
+    AIRDROP_WALLETS_OPTION_2_PLACEHOLDER:
+      airDropData.wallets.option_2.placeholder,
+
+    // drops section
+    AIRDROP_DROPS_DROP_1_TITLE: airDropData.drops[0].title,
+    AIRDROP_DROPS_DROP_1_LABEL: airDropData.drops[0].label,
+    AIRDROP_DROPS_DROP_1_DETAILS: airDropData.drops[0].details,
+    AIRDROP_DROPS_DROP_1_KEY: airDropData.drops[0].key,
+    AIRDROP_DROPS_DROP_1_VALUE: airDropData.drops[0].value,
+    AIRDROP_DROPS_DROP_2_TITLE: airDropData.drops[1].title,
+    AIRDROP_DROPS_DROP_2_LABEL: airDropData.drops[1].label,
+    AIRDROP_DROPS_DROP_2_DETAILS: airDropData.drops[1].details,
+    AIRDROP_DROPS_DROP_2_KEY: airDropData.drops[1].key,
+    AIRDROP_DROPS_DROP_2_VALUE: airDropData.drops[1].value,
+    AIRDROP_DROPS_DROP_3_TITLE: airDropData.drops[2].title,
+    AIRDROP_DROPS_DROP_3_LABEL: airDropData.drops[2].label,
+    AIRDROP_DROPS_DROP_3_DETAILS: airDropData.drops[2].details,
+    AIRDROP_DROPS_DROP_3_KEY: airDropData.drops[2].key,
+    AIRDROP_DROPS_DROP_3_VALUE: airDropData.drops[2].value,
+    AIRDROP_DROPS_DROP_4_TITLE: airDropData.drops[3].title,
+    AIRDROP_DROPS_DROP_4_LABEL: airDropData.drops[3].label,
+    AIRDROP_DROPS_DROP_4_DETAILS: airDropData.drops[3].details,
+    AIRDROP_DROPS_DROP_4_KEY: airDropData.drops[3].key,
+    AIRDROP_DROPS_DROP_4_VALUE: airDropData.drops[3].value,
+
     // Commons
+
+    AIRDROP: "Airdrop",
+
     TELL_ME_MORE: "Tell me more",
     SIGN_UP: "Sign up",
     TAKE_A_TOUR: "Take a tour",
     CREATE_A_STORE: "Create A Store",
     COMING_SOON: "Coming Soon",
+    AND: "and",
+    OR: "or",
+    CONNECT: "Connect",
+    CHECK_ELIGIBILITY: "Check Eligibility",
   },
 };
 
