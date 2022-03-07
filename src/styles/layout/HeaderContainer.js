@@ -12,8 +12,26 @@ const HeaderContainer = styled.header`
   top: 0px;
   left: 0;
   right: 0;
-  padding: 20px 92px 20px;
   z-index: 300;
+  transition: all 0.15s ease-in-out;
+  &.padding_1 {
+    padding: 60px 92px;
+    @media (max-width: 768px) {
+      padding: 20px 40px;
+    }
+    @media (max-width: 548px) {
+      padding: 20px 20px;
+    }
+  }
+  &.padding_2 {
+    padding: 20px 92px;
+    @media (max-width: 768px) {
+      padding: 20px 40px;
+    }
+    @media (max-width: 548px) {
+      padding: 20px 20px;
+    }
+  }
   @media (max-width: 768px) {
     padding: 19px 40px;
   }
