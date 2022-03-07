@@ -8,12 +8,13 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
 import { HeaderSecondary } from "./layout/HeaderSecondary";
+import AirdropHeader from "./layout/AirdropHeader";
 
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import Pricing from "./pages/Pricing";
 import WhatsAnNFT from "./pages/WhatsAnNFT";
-import AirdropHeader from "./layout/AirdropHeader";
+import Airdrop from "./pages/Airdrop";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -51,6 +52,10 @@ const App = () => {
     {
       component: WhatsAnNFT,
       path: "/whats-an-nft",
+    },
+    {
+      component: Airdrop,
+      path: "/airdrop/",
     },
   ];
 
