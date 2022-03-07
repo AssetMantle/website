@@ -13,6 +13,7 @@ import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import Pricing from "./pages/Pricing";
 import WhatsAnNFT from "./pages/WhatsAnNFT";
+import AirdropHeader from "./layout/AirdropHeader";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -21,7 +22,13 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    setHeader(location.pathname === "/" ? 1 : 0);
+    setHeader(
+      location.pathname === "/"
+        ? 1
+        : location.pathname.includes("airdrop")
+        ? 2
+        : 0
+    );
   }, [location.pathname]);
 
   useEffect(() => {
@@ -49,9 +56,13 @@ const App = () => {
 
   return (
     <div className="app">
-      {header === 0 && <Header theme={theme} setTheme={setTheme} />}
-      {header === 1 && <HeaderSecondary theme={theme} setTheme={setTheme} />}
-
+      {
+        {
+          0: <Header theme={theme} setTheme={setTheme} />,
+          1: <HeaderSecondary theme={theme} setTheme={setTheme} />,
+          2: <AirdropHeader />,
+        }[header]
+      }
       <Switch>
         {routes.map((route) => {
           return (
