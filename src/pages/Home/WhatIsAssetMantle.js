@@ -30,7 +30,10 @@ const WhatIsAssetMantle = () => {
         <UList data={data} />
       </div>
       <div className="section_WhatIsAssetMantle__element">
-        <img src="/images/landing/section/spiral_of_nft.png" alt="" />
+        <img
+          src="/images/landing/section/spiral_of_nft.png"
+          alt="spiral illustration of all kind of NFT"
+        />
       </div>
     </section>
   );

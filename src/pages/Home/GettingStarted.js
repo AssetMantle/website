@@ -45,7 +45,10 @@ const GettingStarted = () => {
             onClick={() => setOption(0)}
           >
             <div className="section_gettingStarted__element_title__option_img">
-              <img src={`/images/landing/section/paintingImg.png`} alt="" />
+              <img
+                src={`/images/landing/section/paintingImg.png`}
+                alt="painting illustration"
+              />
             </div>
             <h3 className={option === 0 ? "active" : undefined}>
               {t("GETTING_STARTED_LIST_1_TITLE")}
@@ -56,7 +59,10 @@ const GettingStarted = () => {
             onClick={() => setOption(1)}
           >
             <div className="section_gettingStarted__element_title__option_img">
-              <img src={`/images/landing/section/collector.png`} alt="" />
+              <img
+                src={`/images/landing/section/collector.png`}
+                alt="collector illustration"
+              />
             </div>
             <h3 className={option === 1 ? "active" : undefined}>
               {t("GETTING_STARTED_LIST_2_TITLE")}

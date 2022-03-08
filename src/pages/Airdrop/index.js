@@ -37,7 +37,10 @@ export default function Airdrop() {
         </div>
         <div className="section_hero__element">
           <div className="section_hero__element_image__con">
-            <img src="/images/airdrop/coins.png" alt="" />
+            <img
+              src="/images/airdrop/coins.png"
+              alt="double coin illustration"
+            />
           </div>
         </div>
       </section>
@@ -45,11 +48,11 @@ export default function Airdrop() {
         <p>{t("AIRDROP_WALLETS_OPTION_1_TITLE")}</p>
         <div className="section_wallets__buttons">
           <div className="section_wallets__buttons_button">
-            <img src="/images/airdrop/Kepler.png" alt="" />
+            <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
             <span>{t("CONNECT")} Kepler</span>
           </div>
           <div className="section_wallets__buttons_button">
-            <img src="/images/airdrop/MetaMask.png" alt="" />
+            <img src="/images/airdrop/MetaMask.png" alt="Metamask icon" />
             <span>{t("CONNECT")} Metamask</span>
           </div>
         </div>
