@@ -318,6 +318,26 @@ const English = {
     AIRDROP_DROPS_DROP_4_KEY: airDropData.drops[3].key,
     AIRDROP_DROPS_DROP_4_VALUE: airDropData.drops[3].value,
 
+    // Allocation section
+    AIRDROP_ALLOCATION_TITLE: airDropData.allocation.title,
+    AIRDROP_ALLOCATION_KEY: airDropData.allocation.key,
+    AIRDROP_ALLOCATION_VALUE: airDropData.allocation.value,
+
+    //  Allocation by network section
+    AIRDROP_ALLOCATION_BY_NETWORK_TITLE: airDropData.allocationByNetwork.title,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY:
+      airDropData.allocationByNetwork.options[0].key,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE:
+      airDropData.allocationByNetwork.options[0].value,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY:
+      airDropData.allocationByNetwork.options[1].key,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE:
+      airDropData.allocationByNetwork.options[1].value,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY:
+      airDropData.allocationByNetwork.options[2].key,
+    AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE:
+      airDropData.allocationByNetwork.options[2].value,
+
     // Commons
 
     AIRDROP: "Airdrop",
