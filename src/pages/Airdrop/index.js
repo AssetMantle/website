@@ -10,19 +10,22 @@ export default function Airdrop() {
   console.log(wallet, inputWallet);
 
   const [eligibility, setEligibility] = useState();
+  const [showCalculator, setShowCalculator] = useState(false);
 
   useEffect(() => {
     setWallet(inputWallet);
   }, [inputWallet]);
 
   const handleClick = () => {
-    wallet &&
+    if (wallet) {
       setEligibility({
         stakeDrop: { eligible: true },
         liquidityProviders: { eligible: false },
         NFTOwners: { eligible: true },
         MantleReservesForCreators: { eligible: true },
       });
+      setShowCalculator(true);
+    }
   };
 
   return (
@@ -147,6 +150,43 @@ export default function Airdrop() {
           )}
         </div>
       </section>
+      {showCalculator && (
+        <>
+          <section className="section_allocation">
+            <h3>{t("AIRDROP_ALLOCATION_TITLE")}</h3>
+            <div className="section_allocation__element">
+              <div className="section_allocation__element_left">
+                <img
+                  src="/images/airdrop/dark.png"
+                  alt="coin illustration dark"
+                />
+                <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
+              </div>
+              <p>{t("AIRDROP_ALLOCATION_VALUE")}</p>
+            </div>
+          </section>
+          <section className="section_allocation_by_network">
+            <h4 className="section_allocation_by_network__title">
+              {t("AIRDROP_ALLOCATION_BY_NETWORK_TITLE")}
+            </h4>
+            <div className="section_allocation_by_network__element">
+              <div className="section_allocation_by_network__element_option">
+                <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
+                <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE")}</p>
+              </div>
+              <div className="section_allocation_by_network__element_option">
+                <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
+                <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE")}</p>
+              </div>
+              <div className="section_allocation_by_network__element_option">
+                <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
+                <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+      <div className="section_gap"></div>
     </AirdropContainer>
   );
 }
