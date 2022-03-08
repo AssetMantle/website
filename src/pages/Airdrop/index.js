@@ -37,8 +37,7 @@ export default function Airdrop() {
         </div>
         <div className="section_hero__element">
           <div className="section_hero__element_image__con">
-            <img src="/images/airdrop/light.png" alt="" />
-            <img src="/images/airdrop/dark_1.png" alt="" />
+            <img src="/images/airdrop/coins.png" alt="" />
           </div>
         </div>
       </section>

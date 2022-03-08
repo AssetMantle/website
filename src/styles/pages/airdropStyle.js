@@ -21,9 +21,9 @@ export const AirdropContainer = styled.main`
       grid-template-columns: 3fr 2fr;
       align-items: center;
       gap: 70px;
-      padding: 138px 92px 60px;
+      padding: 138px 0 60px 92px;
       @media (max-width: 768px) {
-        padding: 100px 40px 60px;
+        padding: 100px 0px 60px 40px;
       }
       @media (max-width: 548px) {
         padding: 60px 20px;
@@ -46,11 +46,6 @@ export const AirdropContainer = styled.main`
           img {
             width: 100%;
             height: auto;
-            &:nth-child(2) {
-              position: absolute;
-              top: 60px;
-              right: 60px;
-            }
           }
         }
       }
