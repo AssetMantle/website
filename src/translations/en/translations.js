@@ -350,6 +350,8 @@ const English = {
     AND: "and",
     OR: "or",
     CONNECT: "Connect",
+    CONNECTING: "Connecting...",
+    CONNECTED: "Connected",
     CHECK_ELIGIBILITY: "Check Eligibility",
   },
 };
