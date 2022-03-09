@@ -86,6 +86,7 @@ export const AirdropContainer = styled.main`
           justify-content: center;
           font: 600 var(--p-m);
           color: var(--dark-m);
+          cursor: pointer;
           img {
             height: 26.25px;
           }
@@ -100,6 +101,15 @@ export const AirdropContainer = styled.main`
         align-items: center;
         gap: 16px;
         width: min(964px, 100%);
+        &:not(:last-child) {
+          padding-bottom: 24px;
+          button {
+            display: none;
+          }
+          .section_wallets__form_input img {
+            opacity: 0;
+          }
+        }
         @media (max-width: 651px) {
           flex-direction: column;
         }
@@ -113,6 +123,7 @@ export const AirdropContainer = styled.main`
           align-items: center;
           justify-content: space-between;
           font: var(--input);
+          max-width: min(697.969px, 100%);
           @media (max-width: 651px) {
             width: 100%;
           }
