@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,8 +11,15 @@ import DATA from "../data/headerData.json";
 export const HeaderSecondary = ({ theme = false, setTheme }) => {
   const [navToggler, setNavToggler] = useState(false);
 
+  const [padding, setPadding] = useState("padding_1");
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY !== 0 ? setPadding("padding_2") : setPadding("padding_1");
+    });
+  }, []);
+
   return (
-    <HeaderContainer>
+    <HeaderContainer className={padding}>
       <div className="header__left">
         <Link to="/">
           <img

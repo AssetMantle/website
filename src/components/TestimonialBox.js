@@ -14,7 +14,7 @@ export const TestimonialBox = ({
       <p className="testimonial_details">{details}</p>
       <div className="testimonial_owner">
         <div className="testimonial_owner__element">
-          <img src={profileImage} alt="" />
+          <img src={profileImage} alt={name} />
         </div>
         <div className="testimonial_owner__element">
           <p className="testimonial_owner__element_name">{name}</p>

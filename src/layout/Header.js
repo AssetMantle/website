@@ -10,6 +10,13 @@ import DATA from "../data/headerData.json";
 function Header({ theme = false, setTheme }) {
   const [navToggler, setNavToggler] = useState(false);
 
+  const [padding, setPadding] = useState("padding_1");
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY !== 0 ? setPadding("padding_2") : setPadding("padding_1");
+    });
+  }, []);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -17,7 +24,7 @@ function Header({ theme = false, setTheme }) {
   }, [location.pathname]);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className={padding}>
       <div className="header__left">
         <Link to="/">
           <img

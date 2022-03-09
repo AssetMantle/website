@@ -12,12 +12,12 @@ export const StoreBox = ({
   return (
     <Container className="section_stores__element_card" tabIndex="0">
       <div className="section_stores__element_card__viewer">
-        <img src={viewerImage} alt="" />
+        <img src={viewerImage} alt="nft preview" />
       </div>
       <div className="section_stores__element_card__grid">
-        <img src={gridImage1} alt="" />
-        <img src={gridImage2} alt="" />
-        <img src={gridImage3} alt="" />
+        <img src={gridImage1} alt="nft preview" />
+        <img src={gridImage2} alt="nft preview" />
+        <img src={gridImage3} alt="nft preview" />
       </div>
       <div className="section_stores__element_card__profile">
         <div className="section_stores__element_card__profile_image">

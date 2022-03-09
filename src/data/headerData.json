@@ -33,9 +33,31 @@
       },
       {
         "visibility": false,
+        "type": "dropdown",
         "text": "Who it's for",
-        "href": "",
-        "icon": "down-fill"
+        "icon": "down-fill",
+        "options": [
+          {
+            "visibility": false,
+            "text": "Artist",
+            "href": ""
+          },
+          {
+            "visibility": false,
+            "text": "NFT Collectors",
+            "href": ""
+          },
+          {
+            "visibility": false,
+            "text": "NFT Traders",
+            "href": ""
+          },
+          {
+            "visibility": false,
+            "text": "Artist Managers",
+            "href": ""
+          }
+        ]
       },
       {
         "visibility": true,

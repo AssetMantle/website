@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import DATA from "../data/headerData.json";
@@ -7,6 +7,7 @@ import { CgArrowTopRight } from "react-icons/cg";
 
 export default function Nav() {
   const location = useLocation();
+  const [details, setDetails] = useState(false);
 
   return (
     <NavContainer>
@@ -18,20 +19,52 @@ export default function Nav() {
                 <>
                   {data.visibility && (
                     <>
-                      {data.href.charAt(0) === "/" ? (
+                      {data.href && data.href.charAt(0) === "/" ? (
                         <NavLink
                           to={data.href}
                           className={
                             location.pathname === data.href && "active"
                           }
                         >
-                          {data.text}{" "}
-                          {data.icon === "down-fill" && (
-                            <span>
-                              <BsFillCaretDownFill />
-                            </span>
-                          )}
+                          {data.text}
                         </NavLink>
+                      ) : data.href === undefined || data.href === null ? (
+                        <NavDetails
+                          onClick={() => setDetails(!details)}
+                          className={
+                            location.pathname === data.href && "active"
+                          }
+                        >
+                          <div className="title">
+                            {data.text}{" "}
+                            {data.icon === "down-fill" && (
+                              <span className={details ? "active" : undefined}>
+                                <BsFillCaretDownFill />
+                              </span>
+                            )}
+                          </div>
+                          <div
+                            className={`details_link ${
+                              details ? "active" : undefined
+                            }`}
+                          >
+                            {data.options.map((data) => (
+                              <>
+                                {data.visibility && (
+                                  <NavLink
+                                    to={data.href}
+                                    className={
+                                      location.pathname === data.href &&
+                                      "active"
+                                    }
+                                  >
+                                    {data.text}
+                                  </NavLink>
+                                )}
+                              </>
+                            ))}
+                          </div>
+                        </NavDetails>
                       ) : (
                         <NavLinkA
                           href={data.href}
@@ -90,6 +123,9 @@ const NavContainer = styled.div`
     width: min(70%, 468px);
     background-color: var(--dark);
     padding: 62px 80px;
+    @media (min-width: 1440px) {
+      margin-right: calc((100vw - 1440px) / 2);
+    }
     @media (max-width: 548px) {
       padding: 62px 20px 60px 40px;
     }
@@ -160,6 +196,56 @@ const NavLinkA = styled.a`
   &:hover {
     color: var(--gray);
     text-decoration: none;
+  }
+`;
+
+const NavDetails = styled.div`
+  .title {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: 4px;
+    font: 600 var(--p-xl);
+    color: var(--gray);
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    gap: 10px;
+    span {
+      color: var(--yellow);
+      /* margin-top: 10px; */
+      display: flex;
+      height: 100%;
+      align-items: center;
+      transform: rotate(0deg);
+      transition: all 0.3s ease-in-out;
+      &.active {
+        transform: rotate(180deg);
+      }
+    }
+    @media (max-width: 548px) {
+      font: 600 var(--p-l);
+    }
+    &.active {
+      border-bottom: 3px solid var(--yellow);
+    }
+    &:hover {
+      color: var(--gray);
+      text-decoration: none;
+    }
+  }
+  .details_link {
+    display: none;
+    flex-direction: column;
+    a {
+      padding-left: 30px;
+      padding-top: 14.5px;
+      &:not(:last-child) {
+        padding-bottom: 14.5px;
+      }
+    }
+    &.active {
+      display: flex;
+    }
   }
 `;
 

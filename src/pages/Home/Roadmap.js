@@ -13,7 +13,10 @@ const RoadMap = () => {
           className="section_roadMap__element__link_span"
           id="how_does_assetMantle_help_you"
         ></span>
-        <img src="/images/landing/section/roadmap.png" alt="" />
+        <img
+          src="/images/landing/section/roadmap.png"
+          alt="roadmap illustration"
+        />
       </div>
       <div className="section_roadMap__element">
         <h2>{t("ROADMAP_TITLE")}</h2>
