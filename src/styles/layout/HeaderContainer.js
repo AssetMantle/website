@@ -141,6 +141,7 @@ export const NavIcon = styled.div`
   img {
     width: 32px;
     height: 22px;
+    z-index: 100;
     &[alt="close"] {
       width: 16px;
       height: 16px;

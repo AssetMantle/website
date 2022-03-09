@@ -16,9 +16,6 @@ export const HeaderSecondary = ({ theme = false, setTheme }) => {
     window.addEventListener("scroll", () => {
       window.scrollY !== 0 ? setPadding("padding_2") : setPadding("padding_1");
     });
-    window.removeEventListener("scroll", () => {
-      window.scrollY !== 0 ? setPadding("padding_2") : setPadding("padding_1");
-    });
   }, []);
 
   return (
