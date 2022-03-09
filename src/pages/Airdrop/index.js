@@ -1,20 +1,90 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import { AirdropContainer } from "../../styles/pages/airdropStyle";
+
+const chainIDs = require("../../data/chain.json");
+const chainID = "cosmoshub-4";
 
 export default function Airdrop() {
   const { t } = useTranslation();
 
-  const [wallet, setWallet] = useState();
+  const [walletAccount, setWalletAccount] = useState("");
+  const [keplrWalletAccount, setKeplrWalletAccount] = useState([]);
+  const [wallet, setWallet] = useState([]);
   const [inputWallet, setInputWallet] = useState();
-  console.log(wallet, inputWallet);
+  var AllWallets =
+    wallet &&
+    [...new Set(wallet)].filter((el) => {
+      return el !== null && typeof el !== undefined && el !== "";
+    });
+
+  const [MetaMaskConnectionState, setMetaMaskConnectionState] = useState(0);
+  const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
 
   const [eligibility, setEligibility] = useState();
   const [showCalculator, setShowCalculator] = useState(false);
 
   useEffect(() => {
-    setWallet(inputWallet);
-  }, [inputWallet]);
+    setWallet([...wallet, walletAccount, ...keplrWalletAccount]);
+  }, [walletAccount, keplrWalletAccount]);
+
+  const handleMetamaskConnect = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      console.log("Connecting MetaMask...");
+      setMetaMaskConnectionState(1);
+
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      const account = accounts[0];
+
+      console.log("Account: ", account);
+      setMetaMaskConnectionState(2);
+      setWalletAccount(account);
+    } else {
+      window.alert("Please install MetaMask to move forward with the task.");
+    }
+  };
+
+  const handleKeplrConnect = async () => {
+    if (window.keplr) {
+      setKeplrConnectionState(1);
+      let offlineSigner = window.keplr.getOfflineSigner(chainID);
+      let accounts = await offlineSigner.getAccounts();
+      const account = accounts[0].address;
+      console.log("Account: ", account);
+      // keplr addresses array
+
+      const _chainIDArray = JSON.parse(chainIDs);
+      _chainIDArray.forEach(function (number) {
+        const addressK = window.keplr.getKey(number).then(
+          (result) => {
+            // console.log(result.bech32Address);
+            // keplrWalletAddresses.push(result.bech32Address);
+            setKeplrWalletAccount([
+              ...keplrWalletAccount,
+              result.bech32Address,
+            ]);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+        console.log(addressK);
+      });
+      // ends
+      setKeplrWalletAccount([...keplrWalletAccount, account]);
+      setKeplrConnectionState(2);
+    } else {
+      window.alert("Please install Keplr to move forward with the task.");
+    }
+  };
+
+  const handleAddInputField = () => {
+    setWallet([...wallet, inputWallet]);
+    document.querySelector("#inputWalletAddress").value = "";
+  };
 
   const handleClick = () => {
     if (wallet) {
@@ -47,25 +117,62 @@ export default function Airdrop() {
       <section className="section_wallets">
         <p>{t("AIRDROP_WALLETS_OPTION_1_TITLE")}</p>
         <div className="section_wallets__buttons">
-          <div className="section_wallets__buttons_button">
+          <div
+            className="section_wallets__buttons_button"
+            onClick={handleKeplrConnect}
+          >
             <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-            <span>{t("CONNECT")} Kepler</span>
+            <span>{`${
+              { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                KeplrConnectionState
+              ]
+            } Kepler`}</span>
           </div>
-          <div className="section_wallets__buttons_button">
+          <div
+            className="section_wallets__buttons_button"
+            onClick={handleMetamaskConnect}
+          >
             <img src="/images/airdrop/MetaMask.png" alt="Metamask icon" />
-            <span>{t("CONNECT")} Metamask</span>
+            <span>{`${
+              { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                MetaMaskConnectionState
+              ]
+            } Metamask`}</span>
           </div>
         </div>
         <p>{t("OR")}</p>
         <p>{t("AIRDROP_WALLETS_OPTION_2_TITLE")}</p>
+        {AllWallets &&
+          React.Children.toArray(
+            AllWallets.map((data) => (
+              <div className="section_wallets__form">
+                <div className="section_wallets__form_input">
+                  <input
+                    type="text"
+                    value={data}
+                    onChange={(e) =>
+                      (AllWallets[AllWallets.indexOf(data)] = e.target.value)
+                    }
+                    placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
+                  />
+                  <img src="/images/airdrop/plus.png" alt="add" />
+                </div>
+              </div>
+            ))
+          )}
         <div className="section_wallets__form">
           <div className="section_wallets__form_input">
             <input
               type="text"
+              id="inputWalletAddress"
               onChange={(e) => setInputWallet(e.target.value)}
               placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
             />
-            <img src="/images/airdrop/plus.png" alt="add" />
+            <img
+              onClick={handleAddInputField}
+              src="/images/airdrop/plus.png"
+              alt="add"
+            />
           </div>
           <button onClick={handleClick}>{t("CHECK_ELIGIBILITY")}</button>
         </div>
