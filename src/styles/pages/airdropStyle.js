@@ -192,6 +192,28 @@ export const AirdropContainer = styled.main`
           gap: 24px;
           color: var(--gray);
           padding-bottom: 8px;
+          a {
+            color: var(--gray);
+            text-decoration: none;
+            &:hover {
+              color: var(--yellow);
+            }
+          }
+          h3 {
+            span {
+              &:nth-child(2) {
+                display: none;
+              }
+            }
+            &:hover {
+              span:nth-child(1) {
+                display: none;
+              }
+              span:nth-child(2) {
+                display: inline-block;
+              }
+            }
+          }
         }
         &_title + p {
           padding-bottom: 40px;

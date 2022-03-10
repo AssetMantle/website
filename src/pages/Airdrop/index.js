@@ -180,7 +180,9 @@ export default function Airdrop() {
       <section className="section_drops">
         <div className="section_drops__drop">
           <div className="section_drops__drop_title">
-            <h3>{t("AIRDROP_DROPS_DROP_1_TITLE")}</h3>
+            <a href="/stakedrop" target="_blank" rel="noopener noreferrer">
+              <h3>{t("AIRDROP_DROPS_DROP_1_TITLE")}</h3>
+            </a>
             <h5>{t("AIRDROP_DROPS_DROP_1_LABEL")}</h5>
           </div>
           <p>{t("AIRDROP_DROPS_DROP_1_DETAILS")}</p>
@@ -240,7 +242,10 @@ export default function Airdrop() {
         </div>
         <div className="section_drops__drop">
           <div className="section_drops__drop_title">
-            <h3>{t("AIRDROP_DROPS_DROP_4_TITLE")}</h3>
+            <h3>
+              <span>{t("AIRDROP_DROPS_DROP_4_TITLE")}</span>
+              <span>{t("COMING_SOON")}</span>
+            </h3>
             <h5>{t("AIRDROP_DROPS_DROP_4_LABEL")}</h5>
           </div>
           <p>{t("AIRDROP_DROPS_DROP_4_DETAILS")}</p>
