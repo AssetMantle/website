@@ -8,30 +8,35 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
 import { HeaderSecondary } from "./layout/HeaderSecondary";
-import AirdropHeader from "./layout/AirdropHeader";
+import HeaderASAO from "./layout/HeaderASAO";
 
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import Pricing from "./pages/Pricing";
 import WhatsAnNFT from "./pages/WhatsAnNFT";
 import Airdrop from "./pages/Airdrop";
+import StakeDrop from "./pages/StakeDrop";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
+  // taking header to show from useEffect
   const [header, setHeader] = useState(1);
 
   const location = useLocation();
 
+  // changing header
   useEffect(() => {
     setHeader(
       location.pathname === "/"
         ? 1
-        : location.pathname.includes("airdrop")
+        : location.pathname.includes("airdrop") ||
+          location.pathname.includes("stakedrop")
         ? 2
         : 0
     );
   }, [location.pathname]);
 
+  // scrolling to top on every page change
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -55,7 +60,11 @@ const App = () => {
     },
     {
       component: Airdrop,
-      path: "/airdrop/",
+      path: "/airdrop",
+    },
+    {
+      component: StakeDrop,
+      path: "/stakedrop",
     },
   ];
 
@@ -65,7 +74,7 @@ const App = () => {
         {
           0: <Header theme={theme} setTheme={setTheme} />,
           1: <HeaderSecondary theme={theme} setTheme={setTheme} />,
-          2: <AirdropHeader />,
+          2: <HeaderASAO />,
         }[header]
       }
       <Switch>
