@@ -2,6 +2,7 @@ import homeData from "../../data/homeData.json";
 import pricingData from "../../data/pricingData.json";
 import whatIsNFTData from "../../data/whatIsNFT.json";
 import airDropData from "../../data/airdropData.json";
+import stakeDropData from "../../data/stakeDropData.json";
 
 const English = {
   translations: {
@@ -351,6 +352,58 @@ const English = {
     AIRDROP_NFT_OWNERS_DESCRIPTION: airDropData.NFTOwners.description,
     AIRDROP_NFT_OWNERS_KEY: airDropData.NFTOwners.key,
     AIRDROP_NFT_OWNERS_VALUE: airDropData.NFTOwners.value,
+
+    // StakeDrop Page
+    // Intro section
+    STAKEDROP_INTRO_TITLE: stakeDropData.intro.title,
+    STAKEDROP_INTRO_SUB_TITLE: stakeDropData.intro.sub_title,
+    STAKEDROP_INTRO_DESCRIPTION: stakeDropData.intro.description,
+    STAKEDROP_INTRO_BUTTON_1: stakeDropData.intro.buttons[0].text,
+    STAKEDROP_INTRO_BUTTON_2: stakeDropData.intro.buttons[1].text,
+
+    // what is stakedrop section
+    STAKEDROP_WHAT_IS_STAKEDROP_TITLE: stakeDropData.whatIs.title,
+    STAKEDROP_WHAT_IS_STAKEDROP_DESCRIPTION: stakeDropData.whatIs.description,
+    STAKEDROP_WHAT_IS_STAKEDROP_LI_1: stakeDropData.whatIs.list[0],
+    STAKEDROP_WHAT_IS_STAKEDROP_LI_2: stakeDropData.whatIs.list[1],
+    STAKEDROP_WHAT_IS_STAKEDROP_LI_3: stakeDropData.whatIs.list[2],
+    STAKEDROP_WHAT_IS_STAKEDROP_LI_4: stakeDropData.whatIs.list[3],
+
+    // how it works section
+    STAKEDROP_HOW_IT_WORKS_TITLE: stakeDropData.howItWorks.title,
+    STAKEDROP_HOW_IT_WORKS_DESCRIPTION: stakeDropData.howItWorks.description,
+    STAKEDROP_HOW_IT_WORKS_LI_1_TITLE: stakeDropData.howItWorks.steps[0].title,
+    STAKEDROP_HOW_IT_WORKS_LI_1_DESCRIPTION:
+      stakeDropData.howItWorks.steps[0].description,
+    STAKEDROP_HOW_IT_WORKS_LI_2_TITLE: stakeDropData.howItWorks.steps[1].title,
+    STAKEDROP_HOW_IT_WORKS_LI_2_DESCRIPTION:
+      stakeDropData.howItWorks.steps[1].description,
+    STAKEDROP_HOW_IT_WORKS_LI_3_TITLE: stakeDropData.howItWorks.steps[2].title,
+    STAKEDROP_HOW_IT_WORKS_LI_3_DESCRIPTION:
+      stakeDropData.howItWorks.steps[2].description,
+    STAKEDROP_HOW_IT_WORKS_LI_4_TITLE: stakeDropData.howItWorks.steps[3].title,
+    STAKEDROP_HOW_IT_WORKS_LI_4_DESCRIPTION:
+      stakeDropData.howItWorks.steps[3].description,
+
+    // explanation section
+    STAKEDROP_EXPLANATION_TITLE: stakeDropData.explanation.title,
+
+    // Available stakedrop section
+    STAKEDROP_AVAILABLE_STAKEDROP_TITLE: stakeDropData.availableStakeDrop.title,
+
+    // StakeDrop FAQ section
+    STAKEDROP_FAQ_TITLE: stakeDropData.faq.title,
+    STAKEDROP_FAQ_DESCRIPTION: stakeDropData.faq.description,
+    STAKEDROP_FAQ_QUESTION_1: stakeDropData.faq.QAs[0].q,
+    STAKEDROP_FAQ_ANSWER_1: stakeDropData.faq.QAs[0].a,
+    STAKEDROP_FAQ_QUESTION_2: stakeDropData.faq.QAs[1].q,
+    STAKEDROP_FAQ_ANSWER_2: stakeDropData.faq.QAs[1].a,
+    STAKEDROP_FAQ_QUESTION_3: stakeDropData.faq.QAs[2].q,
+    STAKEDROP_FAQ_ANSWER_3: stakeDropData.faq.QAs[2].a,
+    STAKEDROP_FAQ_QUESTION_4: stakeDropData.faq.QAs[3].q,
+    STAKEDROP_FAQ_ANSWER_4: stakeDropData.faq.QAs[3].a,
+    STAKEDROP_FAQ_QUESTION_5: stakeDropData.faq.QAs[4].q,
+    STAKEDROP_FAQ_ANSWER_5: stakeDropData.faq.QAs[4].a,
 
     // Commons [A-Z order]
 
