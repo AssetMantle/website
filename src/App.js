@@ -90,7 +90,7 @@ const App = () => {
         })}
         <Route component={RouteNotFound} />
       </Switch>
-      <Footer />
+      {location.pathname !== "/stakedrop" && <Footer />}
     </div>
   );
 };
