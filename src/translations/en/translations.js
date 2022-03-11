@@ -290,33 +290,40 @@ const English = {
     AIRDROP_HERO_TITLE: airDropData.hero.title,
     AIRDROP_HERO_DESCRIPTION: airDropData.hero.details,
 
+    // start with stakedrop section
+    AIRDROP_START_WITH_STAKEDROP_HEADING:
+      airDropData.startWithStakedrop.heading,
+    AIRDROP_START_WITH_STAKEDROP_TITLE: airDropData.startWithStakedrop.title,
+    AIRDROP_START_WITH_STAKEDROP_DESCRIPTION:
+      airDropData.startWithStakedrop.description,
+    AIRDROP_START_WITH_STAKEDROP_KEY: airDropData.startWithStakedrop.key,
+    AIRDROP_START_WITH_STAKEDROP_VALUE: airDropData.startWithStakedrop.value,
+
+    // Required Eligibility section
+    AIRDROP_REQUIRED_ELIGIBILITY_HEADING:
+      airDropData.reqEligibilityCheck.heading,
+    AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1:
+      airDropData.reqEligibilityCheck.checks[0].title,
+    AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1:
+      airDropData.reqEligibilityCheck.checks[0].description,
+    AIRDROP_REQUIRED_ELIGIBILITY_KEY_1:
+      airDropData.reqEligibilityCheck.checks[0].key,
+    AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1:
+      airDropData.reqEligibilityCheck.checks[0].value,
+    AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2:
+      airDropData.reqEligibilityCheck.checks[1].title,
+    AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2:
+      airDropData.reqEligibilityCheck.checks[1].description,
+    AIRDROP_REQUIRED_ELIGIBILITY_KEY_2:
+      airDropData.reqEligibilityCheck.checks[1].key,
+    AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2:
+      airDropData.reqEligibilityCheck.checks[1].value,
+
     // wallets section
     AIRDROP_WALLETS_OPTION_1_TITLE: airDropData.wallets.option_1.title,
     AIRDROP_WALLETS_OPTION_2_TITLE: airDropData.wallets.option_2.title,
     AIRDROP_WALLETS_OPTION_2_PLACEHOLDER:
       airDropData.wallets.option_2.placeholder,
-
-    // drops section
-    AIRDROP_DROPS_DROP_1_TITLE: airDropData.drops[0].title,
-    AIRDROP_DROPS_DROP_1_LABEL: airDropData.drops[0].label,
-    AIRDROP_DROPS_DROP_1_DETAILS: airDropData.drops[0].details,
-    AIRDROP_DROPS_DROP_1_KEY: airDropData.drops[0].key,
-    AIRDROP_DROPS_DROP_1_VALUE: airDropData.drops[0].value,
-    AIRDROP_DROPS_DROP_2_TITLE: airDropData.drops[1].title,
-    AIRDROP_DROPS_DROP_2_LABEL: airDropData.drops[1].label,
-    AIRDROP_DROPS_DROP_2_DETAILS: airDropData.drops[1].details,
-    AIRDROP_DROPS_DROP_2_KEY: airDropData.drops[1].key,
-    AIRDROP_DROPS_DROP_2_VALUE: airDropData.drops[1].value,
-    AIRDROP_DROPS_DROP_3_TITLE: airDropData.drops[2].title,
-    AIRDROP_DROPS_DROP_3_LABEL: airDropData.drops[2].label,
-    AIRDROP_DROPS_DROP_3_DETAILS: airDropData.drops[2].details,
-    AIRDROP_DROPS_DROP_3_KEY: airDropData.drops[2].key,
-    AIRDROP_DROPS_DROP_3_VALUE: airDropData.drops[2].value,
-    AIRDROP_DROPS_DROP_4_TITLE: airDropData.drops[3].title,
-    AIRDROP_DROPS_DROP_4_LABEL: airDropData.drops[3].label,
-    AIRDROP_DROPS_DROP_4_DETAILS: airDropData.drops[3].details,
-    AIRDROP_DROPS_DROP_4_KEY: airDropData.drops[3].key,
-    AIRDROP_DROPS_DROP_4_VALUE: airDropData.drops[3].value,
 
     // Allocation section
     AIRDROP_ALLOCATION_TITLE: airDropData.allocation.title,
@@ -338,21 +345,29 @@ const English = {
     AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE:
       airDropData.allocationByNetwork.options[2].value,
 
-    // Commons
+    // Airdrop NFTOwners section
+    AIRDROP_NFT_OWNERS_HEADING: airDropData.NFTOwners.heading,
+    AIRDROP_NFT_OWNERS_TITLE: airDropData.NFTOwners.title,
+    AIRDROP_NFT_OWNERS_DESCRIPTION: airDropData.NFTOwners.description,
+    AIRDROP_NFT_OWNERS_KEY: airDropData.NFTOwners.key,
+    AIRDROP_NFT_OWNERS_VALUE: airDropData.NFTOwners.value,
+
+    // Commons [A-Z order]
 
     AIRDROP: "Airdrop",
-
-    TELL_ME_MORE: "Tell me more",
-    SIGN_UP: "Sign up",
-    TAKE_A_TOUR: "Take a tour",
-    CREATE_A_STORE: "Create A Store",
-    COMING_SOON: "Coming Soon",
     AND: "and",
-    OR: "or",
+    CHECK_ELIGIBILITY: "Check Eligibility",
+    COMING_SOON: "Coming Soon",
     CONNECT: "Connect",
     CONNECTING: "Connecting...",
     CONNECTED: "Connected",
-    CHECK_ELIGIBILITY: "Check Eligibility",
+    CREATE_A_STORE: "Create A Store",
+    LETS_GO: "Let's go",
+    NOTIFY_ME: "Notify Me",
+    OR: "or",
+    SIGN_UP: "Sign up",
+    TAKE_A_TOUR: "Take a tour",
+    TELL_ME_MORE: "Tell me more",
   },
 };
 
