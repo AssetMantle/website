@@ -21,7 +21,7 @@ export const AirdropContainer = styled.main`
       grid-template-columns: 3fr 2fr;
       align-items: center;
       gap: 70px;
-      padding: 138px 0 60px 92px;
+      padding: 120px 0 60px 92px;
       @media (max-width: 768px) {
         padding: 100px 0px 60px 40px;
       }
@@ -50,13 +50,106 @@ export const AirdropContainer = styled.main`
         }
       }
     }
-    &_wallets {
-      padding: 60px 92px;
+    &_drop {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px 92px;
       @media (max-width: 768px) {
-        padding: 60px 40px;
+        padding: 40px 40px;
+      }
+      @media (max-width: 650px) {
+        padding: 40px 20px;
+      }
+      &__heading {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        h3 {
+          font-size: 24px;
+          color: var(--gray);
+        }
+        hr {
+          flex: 1;
+          min-width: 50px;
+        }
+      }
+      &__element {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        h3 {
+          color: var(--gray);
+          & + p {
+            font: 600 var(--p-m);
+            color: var(--gray-deep);
+          }
+        }
+        &_value {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          p {
+            font: var(--p-m);
+            color: var(--gray-deep);
+          }
+          h4 {
+            color: var(--gray);
+          }
+        }
+      }
+      &__button {
+        display: flex;
+        a {
+          display: inline;
+          font: 600 var(--p-m);
+          color: var(--dark-m);
+          text-transform: capitalize;
+          background: var(--yellow-gradient-bg);
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+            inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
+          border-radius: 12px;
+          padding: 10px 74px 12px;
+          transition: all ease-in-out 100ms;
+          cursor: pointer;
+          color: var(--dark-m);
+          text-decoration: none;
+          &:hover,
+          &:focus {
+            box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+          }
+        }
+        &.two {
+          padding-bottom: 80px;
+          a {
+            font: 600 var(--p-m);
+            color: var(--yellow);
+            background: transparent;
+            border: 2px solid var(--yellow);
+            border-radius: 12px;
+            padding: 8px 63px 10px;
+            cursor: pointer;
+            width: max-content;
+            color: var(--yellow);
+            text-decoration: none;
+            box-shadow: none;
+            &:hover,
+            &:focus {
+              box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+            }
+          }
+        }
+      }
+    }
+    &_wallets {
+      padding: 60px 92px 10px;
+      @media (max-width: 768px) {
+        padding: 60px 40px 10px;
       }
       @media (max-width: 548px) {
-        padding: 60px 20px;
+        padding: 60px 20px 10px;
       }
       p {
         color: var(--gray-deep);
@@ -164,97 +257,13 @@ export const AirdropContainer = styled.main`
         }
       }
     }
-    &_drops {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      padding: 60px 92px;
-      @media (max-width: 768px) {
-        padding: 60px 40px;
-      }
-      @media (max-width: 650px) {
-        padding: 60px 20px;
-        grid-template-columns: 1fr;
-      }
-      &__drop {
-        padding: 40px;
-        border-radius: 12px;
-        background: var(--dark-s);
-        box-shadow: var(--dark-shadow);
-        position: relative;
-        @media (max-width: 548px) {
-          padding: 24px 20px;
-        }
-        &_title {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 24px;
-          color: var(--gray);
-          padding-bottom: 8px;
-          a {
-            color: var(--gray);
-            text-decoration: none;
-            &:hover {
-              color: var(--yellow);
-            }
-          }
-          h3 {
-            span {
-              &:nth-child(2) {
-                display: none;
-              }
-            }
-            &:hover {
-              span:nth-child(1) {
-                display: none;
-              }
-              span:nth-child(2) {
-                display: inline-block;
-              }
-            }
-          }
-        }
-        &_title + p {
-          padding-bottom: 40px;
-        }
-        p {
-          font: var(--p-m);
-          color: var(--gray-deep);
-          font-weight: 600;
-        }
-        &_value {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          flex-wrap: wrap;
-          h4 {
-            color: var(--yellow);
-            white-space: nowrap;
-          }
-        }
-        img {
-          position: absolute;
-          height: 53px;
-          width: 53px;
-          bottom: 26px;
-          right: 26px;
-          @media (max-width: 548px) {
-            height: 40px;
-            width: 40px;
-            bottom: 16px;
-            right: 20px;
-          }
-        }
-      }
-    }
     &_allocation {
-      padding: 60px 92px;
+      padding: 20px 92px 40px;
       @media (max-width: 768px) {
-        padding: 60px 40px;
+        padding: 20px 40px 40px;
       }
       @media (max-width: 650px) {
-        padding: 60px 20px;
+        padding: 20px 20px 40px;
       }
       h3 {
         color: var(--gray);
@@ -284,12 +293,12 @@ export const AirdropContainer = styled.main`
       }
     }
     &_allocation_by_network {
-      padding: 60px 92px;
+      padding: 40px 92px;
       @media (max-width: 768px) {
-        padding: 60px 40px;
+        padding: 40px 40px;
       }
       @media (max-width: 650px) {
-        padding: 60px 20px;
+        padding: 40px 20px;
       }
       &__title {
         color: var(--gray-deep);
@@ -307,6 +316,7 @@ export const AirdropContainer = styled.main`
           padding: 24px 40px;
           @media (max-width: 548px) {
             padding: 24px 20px;
+            flex-direction: column;
           }
           &:not(:last-child) {
             border-bottom: 1px solid var(--dark-xs);
@@ -320,9 +330,6 @@ export const AirdropContainer = styled.main`
           }
         }
       }
-    }
-    &_gap {
-      height: 60px;
     }
   }
 `;
