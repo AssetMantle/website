@@ -3,13 +3,14 @@ import { useTranslation } from "react-i18next";
 
 import { AirdropContainer } from "../../styles/pages/airdropStyle";
 
+import airDropData from "../../data/airdropData.json";
+
 const chainIDs = require("../../data/chain.json");
 const chainID = "cosmoshub-4";
 
 export default function Airdrop() {
   const { t } = useTranslation();
 
-  const [walletAccount, setWalletAccount] = useState("");
   const [keplrWalletAccount, setKeplrWalletAccount] = useState([]);
   const [wallet, setWallet] = useState([]);
   const [inputWallet, setInputWallet] = useState();
@@ -22,12 +23,13 @@ export default function Airdrop() {
   const [MetaMaskConnectionState, setMetaMaskConnectionState] = useState(0);
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
 
-  const [eligibility, setEligibility] = useState();
+  const [eligibilityDATA, setEligibilityDATA] = useState();
+  console.log("eligibilityDATA", eligibilityDATA);
   const [showCalculator, setShowCalculator] = useState(false);
 
   useEffect(() => {
-    setWallet([...wallet, walletAccount, ...keplrWalletAccount]);
-  }, [walletAccount, keplrWalletAccount]);
+    setWallet([...wallet, ...keplrWalletAccount]);
+  }, [keplrWalletAccount]);
 
   const handleMetamaskConnect = async () => {
     if (typeof window.ethereum !== "undefined") {
@@ -41,7 +43,7 @@ export default function Airdrop() {
 
       console.log("Account: ", account);
       setMetaMaskConnectionState(2);
-      setWalletAccount(account);
+      setWallet([...wallet, account]);
     } else {
       window.alert("Please install MetaMask to move forward with the task.");
     }
@@ -88,7 +90,7 @@ export default function Airdrop() {
 
   const handleClick = () => {
     if (wallet) {
-      setEligibility({
+      setEligibilityDATA({
         stakeDrop: { eligible: true },
         liquidityProviders: { eligible: false },
         NFTOwners: { eligible: true },
@@ -111,6 +113,55 @@ export default function Airdrop() {
               src="/images/airdrop/coins.png"
               alt="double coin illustration"
             />
+          </div>
+        </div>
+      </section>
+      <section className="section_drop">
+        <div className="section_drop__heading">
+          <h3>{t("AIRDROP_START_WITH_STAKEDROP_HEADING")}</h3>
+          <hr />
+        </div>
+        <div className="section_drop__element">
+          <h3>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h3>
+          <p>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</p>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_START_WITH_STAKEDROP_KEY")}</p>
+            <h4>{t("AIRDROP_START_WITH_STAKEDROP_VALUE")}</h4>
+          </div>
+        </div>
+        <div className="section_drop__button">
+          <a
+            href={
+              airDropData.startWithStakedrop.href !== null ||
+              airDropData.startWithStakedrop.href !== undefined ||
+              airDropData.startWithStakedrop.href !== ""
+                ? airDropData.startWithStakedrop.href
+                : undefined
+            }
+          >
+            {t("LETS_GO")}
+          </a>
+        </div>
+      </section>
+      <section className="section_drop">
+        <div className="section_drop__heading">
+          <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_HEADING")}</h3>
+          <hr />
+        </div>
+        <div className="section_drop__element">
+          <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1")}</h3>
+          <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</p>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_KEY_1")}</p>
+            <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1")}</h4>
+          </div>
+        </div>
+        <div className="section_drop__element">
+          <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2")}</h3>
+          <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2")}</p>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_KEY_2")}</p>
+            <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2")}</h4>
           </div>
         </div>
       </section>
@@ -177,93 +228,6 @@ export default function Airdrop() {
           <button onClick={handleClick}>{t("CHECK_ELIGIBILITY")}</button>
         </div>
       </section>
-      <section className="section_drops">
-        <div className="section_drops__drop">
-          <div className="section_drops__drop_title">
-            <a href="/stakedrop" target="_blank" rel="noopener noreferrer">
-              <h3>{t("AIRDROP_DROPS_DROP_1_TITLE")}</h3>
-            </a>
-            <h5>{t("AIRDROP_DROPS_DROP_1_LABEL")}</h5>
-          </div>
-          <p>{t("AIRDROP_DROPS_DROP_1_DETAILS")}</p>
-          <div className="section_drops__drop_value">
-            <p>{t("AIRDROP_DROPS_DROP_1_KEY")}</p>
-            <h4>{t("AIRDROP_DROPS_DROP_1_VALUE")}</h4>
-          </div>
-          {eligibility && (
-            <>
-              {eligibility.stakeDrop.eligible ? (
-                <img src="/images/airdrop/right.svg" alt="eligible" />
-              ) : (
-                <img src="/images/airdrop/wrong.svg" alt="not eligible" />
-              )}
-            </>
-          )}
-        </div>
-        <div className="section_drops__drop">
-          <div className="section_drops__drop_title">
-            <h3>{t("AIRDROP_DROPS_DROP_2_TITLE")}</h3>
-            <h5>{t("AIRDROP_DROPS_DROP_2_LABEL")}</h5>
-          </div>
-          <p>{t("AIRDROP_DROPS_DROP_2_DETAILS")}</p>
-          <div className="section_drops__drop_value">
-            <p>{t("AIRDROP_DROPS_DROP_2_KEY")}</p>
-            <h4>{t("AIRDROP_DROPS_DROP_2_VALUE")}</h4>
-          </div>
-          {eligibility && (
-            <>
-              {eligibility.liquidityProviders.eligible ? (
-                <img src="/images/airdrop/right.svg" alt="eligible" />
-              ) : (
-                <img src="/images/airdrop/wrong.svg" alt="not eligible" />
-              )}
-            </>
-          )}
-        </div>
-        <div className="section_drops__drop">
-          <div className="section_drops__drop_title">
-            <h3>{t("AIRDROP_DROPS_DROP_3_TITLE")}</h3>
-            <h5>{t("AIRDROP_DROPS_DROP_3_LABEL")}</h5>
-          </div>
-          <p>{t("AIRDROP_DROPS_DROP_3_DETAILS")}</p>
-          <div className="section_drops__drop_value">
-            <p>{t("AIRDROP_DROPS_DROP_3_KEY")}</p>
-            <h4>{t("AIRDROP_DROPS_DROP_3_VALUE")}</h4>
-          </div>
-          {eligibility && (
-            <>
-              {eligibility.NFTOwners.eligible ? (
-                <img src="/images/airdrop/right.svg" alt="eligible" />
-              ) : (
-                <img src="/images/airdrop/wrong.svg" alt="not eligible" />
-              )}
-            </>
-          )}
-        </div>
-        <div className="section_drops__drop">
-          <div className="section_drops__drop_title">
-            <h3>
-              <span>{t("AIRDROP_DROPS_DROP_4_TITLE")}</span>
-              <span>{t("COMING_SOON")}</span>
-            </h3>
-            <h5>{t("AIRDROP_DROPS_DROP_4_LABEL")}</h5>
-          </div>
-          <p>{t("AIRDROP_DROPS_DROP_4_DETAILS")}</p>
-          <div className="section_drops__drop_value">
-            <p>{t("AIRDROP_DROPS_DROP_4_KEY")}</p>
-            <h4>{t("AIRDROP_DROPS_DROP_4_VALUE")}</h4>
-          </div>
-          {eligibility && (
-            <>
-              {eligibility.MantleReservesForCreators.eligible ? (
-                <img src="/images/airdrop/right.svg" alt="eligible" />
-              ) : (
-                <img src="/images/airdrop/wrong.svg" alt="not eligible" />
-              )}
-            </>
-          )}
-        </div>
-      </section>
       {showCalculator && (
         <>
           <section className="section_allocation">
@@ -300,7 +264,33 @@ export default function Airdrop() {
           </section>
         </>
       )}
-      <div className="section_gap"></div>
+      <section className="section_drop">
+        <div className="section_drop__heading">
+          <h3>{t("AIRDROP_START_WITH_STAKEDROP_HEADING")}</h3>
+          <hr />
+        </div>
+        <div className="section_drop__element">
+          <h3>{t("AIRDROP_NFT_OWNERS_HEADING")}</h3>
+          <p>{t("AIRDROP_NFT_OWNERS_TITLE")}</p>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_NFT_OWNERS_DESCRIPTION")}</p>
+            <h4>{t("AIRDROP_NFT_OWNERS_KEY")}</h4>
+          </div>
+        </div>
+        <div className="section_drop__button two">
+          <a
+            href={
+              airDropData.NFTOwners.href !== null ||
+              airDropData.NFTOwners.href !== undefined ||
+              airDropData.NFTOwners.href !== ""
+                ? airDropData.NFTOwners.href
+                : undefined
+            }
+          >
+            {t("NOTIFY_ME")}
+          </a>
+        </div>
+      </section>
     </AirdropContainer>
   );
 }
