@@ -1,0 +1,125 @@
+{
+  "intro": {
+    "title": "AssetMantle Stakedrop",
+    "sub_title": "Stake your tokens and earn free $MNTL",
+    "description": "Stakers will be rewarded with $MNTL tokens for their contribution in securing some of the most prominent Proof-of-Stake networks",
+    "buttons": [
+      {
+        "text": "9.000.000 $MNTL",
+        "href": ""
+      },
+      {
+        "text": "6 NETWORKS",
+        "href": ""
+      }
+    ]
+  },
+  "whatIs": {
+    "title": "What is Stakedrop?",
+    "description": "StakeDrop is a token distribution mechanism that allows token holders of some of the most prominent Proof-of-Stake networks to get exposure to MNTL tokens (AssetMantle tokens).",
+    "list": [
+      "We will be distributing 9,000,000 MNTL tokens to participants of StakeDrop across all the seven different campaigns",
+      "To participate in StakeDrop, you need to stake your tokens with any active validator (on-chain staking) and send a magic transaction to the wallet address provided by us.",
+      "All on-chain staking wallets are supported.",
+      "There are two rewards pools per campaign. All participants are rewarded through the Network Rewards Pool."
+    ]
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "description": "Get MNTL tokens in a few simple steps",
+    "steps": [
+      {
+        "title": "Step 1: Get Staking",
+        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. "
+      },
+      {
+        "title": "Step 2: Register Wallet with Magic Transaction",
+        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+      },
+      {
+        "title": "Step 3: Recipient Address Listed on the Website",
+        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+      },
+      {
+        "title": "Step 4: Earn Rewards",
+        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+      }
+    ]
+  },
+  "explanation": {
+    "title": "Here’s an explainer video:"
+  },
+  "availableStakeDrop": {
+    "title": "Available StakeDrops",
+    "drops": [
+      {
+        "name": "Cosmos (ATOM)",
+        "value": "2,000,000 $MNTL",
+        "date": "15 March",
+        "start": "Start Height: 9758001",
+        "end": "End Height: 9758001"
+      },
+      {
+        "name": "Persistence (XPRT)",
+        "value": "1,000,000 $MNTL",
+        "date": "18 March",
+        "start": "Start Height: 5270461",
+        "end": "End Height: 5371260"
+      },
+      {
+        "name": "Terra (LUNA)",
+        "value": "2,000,000 $MNTL",
+        "date": "22 March",
+        "start": "Start Height: 6944601",
+        "end": "End Height: 7034730"
+      },
+      {
+        "name": "Comdex (CMDX)",
+        "value": "1,000,000 $MNTL",
+        "date": "25 March",
+        "start": "Start Height: 1760491",
+        "end": "End Height: 1860000"
+      },
+      {
+        "name": "Juno (JUNO)",
+        "value": "2,000,000 $MNTL",
+        "date": "29 March",
+        "start": "Start Height: 2484181",
+        "end": "End Height: 2580810"
+      },
+      {
+        "name": "Stargaze (STAR)",
+        "value": "1,000,000 $MNTL",
+        "date": "1 April",
+        "start": "Start Height: 2252511",
+        "end": "End Height: 2350260"
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "QAs": [
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      },
+      {
+        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+      }
+    ]
+  }
+}

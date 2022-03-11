@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
 
-export default function AirdropHeader() {
+export default function HeaderASAO() {
   const [navToggler, setNavToggler] = useState(false);
 
   const [padding, setPadding] = useState("padding_1");
@@ -16,14 +16,28 @@ export default function AirdropHeader() {
   return (
     <HeaderContainer className={padding}>
       <div className="header__left airdrop">
-        <Link to="/airdrop">
+        <Link
+          to={
+            window.location.pathname === "/airdrop"
+              ? "/airdrop"
+              : window.location.pathname === "/stakedrop"
+              ? "/stakedrop"
+              : undefined
+          }
+        >
           <img
             src="/images/icons/logo.svg"
             alt="AssetMantle"
             className="AssetMantle.one"
           />
         </Link>
-        <h2 className="airdrop_text">Airdrop</h2>
+        <h2 className="airdrop_text">
+          {window.location.pathname === "/airdrop"
+            ? "Airdrop"
+            : window.location.pathname === "/stakedrop"
+            ? "Stakedrop"
+            : undefined}
+        </h2>
       </div>
       <div className="header__right ">
         <div className="header__right_one">
