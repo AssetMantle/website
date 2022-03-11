@@ -3,11 +3,37 @@
     "title": "$MNTL Airdrop",
     "details": "Total supply at genesis - 300,000,000 Airdrop - 20% - 60,000,000"
   },
+  "startWithStakedrop": {
+    "heading": "Get Started Now",
+    "title": "StakeDrop",
+    "description": "ATOM, TERRA, JUNO, CMDX, XPRT, STARS",
+    "key": "Allocation:",
+    "value": "$MNTL 9,000,000 ",
+    "text": "Lets Go",
+    "href": "/stakedrop"
+  },
+  "reqEligibilityCheck": {
+    "heading": "Requires Eligibility Check",
+    "checks": [
+      {
+        "title": "Liquidity Providers",
+        "description": "OSMO LPs, Juno LPs, XPRT, UST",
+        "key": "Allocation:",
+        "value": "$MNTL 30,000,000"
+      },
+      {
+        "title": "OpenSea NFT Community",
+        "description": "OpenSea Active NFT Users ",
+        "key": "Allocation:",
+        "value": "$MNTL 30,000,000"
+      }
+    ]
+  },
   "wallets": {
     "option_1": {
-      "title":"Connect your wallet to check eligibility.",
-      "button_1":"Connect Kepler",
-      "button_2":"Connect Metamask"
+      "title": "Connect your wallet to check eligibility.",
+      "button_1": "Connect Kepler",
+      "button_2": "Connect Metamask"
     },
     "option_2": {
       "title": "Enter your wallet address to check eligibility.",
@@ -15,43 +41,13 @@
       "button": "Check Eligibility"
     }
   },
-  "drops": [
-    {
-      "title": "StakeDrop",
-      "label": "Drop 1",
-      "details": "ATOM, TERRA, JUNO, CMDX, XPRT, STARS",
-      "key": "Allocation: ",
-      "value": "$MNTL 9,000,000 "
-    },
-    {
-      "title": "Liquidity Providers",
-      "label": "Drop 2",
-      "details": "OSMO LPs, Juno LPs, XPRT, UST",
-      "key": "Allocation: ",
-      "value": "$MNTL 30,000,000"
-    },
-    {
-      "title": "NFT Owners",
-      "label": "Drop 3",
-      "details": "OpenSea Active NFT Users",
-      "key": "Allocation: ",
-      "value": "$MNTL 9,000,000 "
-    },
-    {
-      "title": "Mantle Reserves for Creators ",
-      "label": "Drop 4",
-      "details": "Community treasury",
-      "key": "Allocation: ",
-      "value": "$MNTL 12,000,000 "
-    }
-  ],
   "allocation": {
     "title": "Total Airdrop Allocation",
     "key": "MNTL",
     "value": "0.0000"
   },
   "allocationByNetwork": {
-    "title":"Allocation by Network",
+    "title": "Allocation by Network",
     "options": [
       {
         "key": "Secret Network:",
@@ -66,5 +62,14 @@
         "value": "0.000 $MNTL"
       }
     ]
+  },
+  "NFTOwners": {
+    "heading": "Coming Soon",
+    "title": "NFT Owners",
+    "description": "OpenSea Active NFT Users ",
+    "key": "Allocation:",
+    "value": "$MNTL 30,000,000",
+    "text": "Notify Me",
+    "href": ""
   }
 }
