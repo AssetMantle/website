@@ -91,6 +91,10 @@ export const StakeDropContainer = styled.main`
         @media (max-width: 548px) {
           grid-template-columns: 1fr;
         }
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
     &_howItWorks {
