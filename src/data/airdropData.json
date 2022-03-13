@@ -32,8 +32,8 @@
   "wallets": {
     "option_1": {
       "title": "Connect your wallet to check eligibility.",
-      "button_1": "Connect Kepler",
-      "button_2": "Connect Metamask"
+      "button_1": "Connect Keplr",
+      "button_2": "Connect MetaMask"
     },
     "option_2": {
       "title": "Enter your wallet address to check eligibility.",
@@ -43,7 +43,7 @@
   },
   "allocation": {
     "title": "Total Airdrop Allocation",
-    "key": "MNTL",
+    "key": "$MNTL",
     "value": "0.0000"
   },
   "allocationByNetwork": {
