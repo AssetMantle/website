@@ -283,6 +283,10 @@ export default function Airdrop() {
             </h4>
             <div className="section_allocation_by_network__element">
               <div className="section_allocation_by_network__element_option">
+                <h4>Pools</h4>
+                <p>Liquidity Provided</p>
+              </div>
+              <div className="section_allocation_by_network__element_option">
                 <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
                 <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE")}</p>
               </div>

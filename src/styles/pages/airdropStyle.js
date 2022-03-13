@@ -333,8 +333,17 @@ export const AirdropContainer = styled.main`
             color: var(--gray);
           }
           p {
-            font: var(--p-m);
-            color: var(--gray-deep);
+            font: 600 var(--p-m);
+            color: var(--gray);
+          }
+          &:first-child {
+            h4 {
+              color: var(--gray-deep);
+            }
+            p {
+              font: var(--p-m);
+              color: var(--gray-deep);
+            }
           }
         }
       }
