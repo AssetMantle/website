@@ -122,25 +122,27 @@ export default function Airdrop() {
           <hr />
         </div>
         <div className="section_drop__element">
-          <h3>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h3>
-          <p>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</p>
+          <div className="section_drop__element_details">
+            <h3>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h3>
+            <p>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</p>
+          </div>
           <div className="section_drop__element_value">
             <p>{t("AIRDROP_START_WITH_STAKEDROP_KEY")}</p>
             <h4>{t("AIRDROP_START_WITH_STAKEDROP_VALUE")}</h4>
           </div>
-        </div>
-        <div className="section_drop__button">
-          <a
-            href={
-              airDropData.startWithStakedrop.href !== null ||
-              airDropData.startWithStakedrop.href !== undefined ||
-              airDropData.startWithStakedrop.href !== ""
-                ? airDropData.startWithStakedrop.href
-                : undefined
-            }
-          >
-            {t("LETS_GO")}
-          </a>
+          <div className="section_drop__button">
+            <a
+              href={
+                airDropData.startWithStakedrop.href !== null ||
+                airDropData.startWithStakedrop.href !== undefined ||
+                airDropData.startWithStakedrop.href !== ""
+                  ? airDropData.startWithStakedrop.href
+                  : undefined
+              }
+            >
+              {t("LETS_GO")}
+            </a>
+          </div>
         </div>
       </section>
       <section className="section_drop">
@@ -149,24 +151,55 @@ export default function Airdrop() {
           <hr />
         </div>
         <div className="section_drop__element">
-          <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1")}</h3>
-          <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</p>
+          <div className="section_drop__element_details">
+            <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1")}</h3>
+            <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</p>
+          </div>
           <div className="section_drop__element_value">
             <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_KEY_1")}</p>
             <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1")}</h4>
           </div>
+          <div className="section_wallets__buttons">
+            <div
+              className="section_wallets__buttons_button"
+              onClick={handleKeplrConnect}
+            >
+              <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+              <span>{`${
+                { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                  KeplrConnectionState
+                ]
+              } Kepler`}</span>
+            </div>
+          </div>
         </div>
         <div className="section_drop__element">
-          <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2")}</h3>
-          <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2")}</p>
+          <div className="section_drop__element_details">
+            <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2")}</h3>
+            <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2")}</p>
+          </div>
           <div className="section_drop__element_value">
             <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_KEY_2")}</p>
             <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2")}</h4>
           </div>
+          <div className="section_wallets__buttons">
+            <div
+              className="section_wallets__buttons_button"
+              onClick={handleMetamaskConnect}
+            >
+              <img src="/images/airdrop/MetaMask.png" alt="Metamask icon" />
+              <span>{`${
+                { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                  MetaMaskConnectionState
+                ]
+              } Metamask`}</span>
+            </div>
+          </div>
         </div>
       </section>
       <section className="section_wallets">
-        <p>{t("AIRDROP_WALLETS_OPTION_1_TITLE")}</p>
+        <>
+          {/* <p>{t("AIRDROP_WALLETS_OPTION_1_TITLE")}</p>
         <div className="section_wallets__buttons">
           <div
             className="section_wallets__buttons_button"
@@ -190,7 +223,8 @@ export default function Airdrop() {
               ]
             } Metamask`}</span>
           </div>
-        </div>
+        </div> */}
+        </>
         <p>{t("OR")}</p>
         <p>{t("AIRDROP_WALLETS_OPTION_2_TITLE")}</p>
         {AllWallets &&
@@ -266,29 +300,31 @@ export default function Airdrop() {
       )}
       <section className="section_drop">
         <div className="section_drop__heading">
-          <h3>{t("AIRDROP_START_WITH_STAKEDROP_HEADING")}</h3>
+          <h3>{t("AIRDROP_NFT_OWNERS_HEADING")}</h3>
           <hr />
         </div>
         <div className="section_drop__element">
-          <h3>{t("AIRDROP_NFT_OWNERS_HEADING")}</h3>
-          <p>{t("AIRDROP_NFT_OWNERS_TITLE")}</p>
-          <div className="section_drop__element_value">
+          <div className="section_drop__element_details">
+            <h3>{t("AIRDROP_NFT_OWNERS_TITLE")}</h3>
             <p>{t("AIRDROP_NFT_OWNERS_DESCRIPTION")}</p>
-            <h4>{t("AIRDROP_NFT_OWNERS_KEY")}</h4>
           </div>
-        </div>
-        <div className="section_drop__button two">
-          <a
-            href={
-              airDropData.NFTOwners.href !== null ||
-              airDropData.NFTOwners.href !== undefined ||
-              airDropData.NFTOwners.href !== ""
-                ? airDropData.NFTOwners.href
-                : undefined
-            }
-          >
-            {t("NOTIFY_ME")}
-          </a>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_NFT_OWNERS_KEY")}</p>
+            <h4>{t("AIRDROP_NFT_OWNERS_VALUE")}</h4>
+          </div>
+          <div className="section_drop__button two">
+            <a
+              href={
+                airDropData.NFTOwners.href !== null ||
+                airDropData.NFTOwners.href !== undefined ||
+                airDropData.NFTOwners.href !== ""
+                  ? airDropData.NFTOwners.href
+                  : undefined
+              }
+            >
+              {t("NOTIFY_ME")}
+            </a>
+          </div>
         </div>
       </section>
     </AirdropContainer>
