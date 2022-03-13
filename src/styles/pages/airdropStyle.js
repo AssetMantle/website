@@ -80,11 +80,14 @@ export const AirdropContainer = styled.main`
         justify-content: space-between;
         gap: 24px;
         flex-wrap: wrap;
-        h3 {
-          color: var(--gray);
-          & + p {
-            font: 600 var(--p-m);
-            color: var(--gray-deep);
+        &_details {
+          h3 {
+            color: var(--gray);
+            padding-bottom: 8px;
+            & + p {
+              font: 600 var(--p-m);
+              color: var(--gray-deep);
+            }
           }
         }
         &_value {
@@ -103,6 +106,8 @@ export const AirdropContainer = styled.main`
       &__button {
         display: flex;
         a {
+          width: 296px;
+          margin: auto 0;
           display: inline;
           font: 600 var(--p-m);
           color: var(--dark-m);
@@ -116,13 +121,16 @@ export const AirdropContainer = styled.main`
           cursor: pointer;
           color: var(--dark-m);
           text-decoration: none;
+          text-align: center;
           &:hover,
           &:focus {
             box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
           }
+          @media (max-width: 548px) {
+            width: 100%;
+          }
         }
         &.two {
-          padding-bottom: 80px;
           a {
             font: 600 var(--p-m);
             color: var(--yellow);
@@ -131,7 +139,6 @@ export const AirdropContainer = styled.main`
             border-radius: 12px;
             padding: 8px 63px 10px;
             cursor: pointer;
-            width: max-content;
             color: var(--yellow);
             text-decoration: none;
             box-shadow: none;
@@ -144,12 +151,12 @@ export const AirdropContainer = styled.main`
       }
     }
     &_wallets {
-      padding: 60px 92px 10px;
+      padding: 0px 92px 10px;
       @media (max-width: 768px) {
-        padding: 60px 40px 10px;
+        padding: 0px 40px 10px;
       }
       @media (max-width: 548px) {
-        padding: 60px 20px 10px;
+        padding: 0px 20px 10px;
       }
       p {
         color: var(--gray-deep);
@@ -168,6 +175,7 @@ export const AirdropContainer = styled.main`
           flex-direction: column;
         }
         &_button {
+          width: 296px;
           border-radius: 12px;
           background: var(--yellow-gradient-bg);
           box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
