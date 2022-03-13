@@ -1,0 +1,32 @@
+{
+  "cosmos": {
+    "prefix": "cosmos",
+    "chainId": "cosmoshub-4",
+    "denom": "uatom",
+    "rpc": "https://cosmoshub.validator.network/"
+  },
+  "osmosis": {
+    "prefix": "osmo",
+    "denom": "uosmo",
+    "chainId": "osmosis-1",
+    "rpc": ""
+  },
+  "persistence": {
+    "prefix": "persistence",
+    "denom": "uxprt",
+    "chainId": "core-1",
+    "rpc": "https://rpc.persistence.one"
+  },
+  "assetMantle": {
+    "prefix": "cosmo",
+    "denom": "stake",
+    "chainId": "test",
+    "rpc": "http://localhost:26657"
+  },
+  "comdex": {
+    "prefix": "comdex",
+    "denom": "ucmdx",
+    "chainId": "",
+    "rpc": "https://rpc.comdex.one/"
+  }
+}
