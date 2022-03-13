@@ -25,7 +25,7 @@
         "title": "OpenSea NFT Community",
         "description": "OpenSea Active NFT Users ",
         "key": "Allocation:",
-        "value": "$MNTL 30,000,000"
+        "value": "$MNTL 9,000,000"
       }
     ]
   },
@@ -65,10 +65,10 @@
   },
   "NFTOwners": {
     "heading": "Coming Soon",
-    "title": "NFT Owners",
+    "title": "OpenSea ETH NFT Users",
     "description": "OpenSea Active NFT Users ",
     "key": "Allocation:",
-    "value": "$MNTL 30,000,000",
+    "value": "$MNTL 12,000,000",
     "text": "Notify Me",
     "href": ""
   }
