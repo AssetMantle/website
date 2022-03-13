@@ -390,6 +390,56 @@ const English = {
 
     // Available stakedrop section
     STAKEDROP_AVAILABLE_STAKEDROP_TITLE: stakeDropData.availableStakeDrop.title,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_1_NAME:
+      stakeDropData.availableStakeDrop.drops[0].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_1_DATE:
+      stakeDropData.availableStakeDrop.drops[0].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_1_START:
+      stakeDropData.availableStakeDrop.drops[0].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_1_END:
+      stakeDropData.availableStakeDrop.drops[0].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_2_NAME:
+      stakeDropData.availableStakeDrop.drops[1].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_2_DATE:
+      stakeDropData.availableStakeDrop.drops[1].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_2_START:
+      stakeDropData.availableStakeDrop.drops[1].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_2_END:
+      stakeDropData.availableStakeDrop.drops[1].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_3_NAME:
+      stakeDropData.availableStakeDrop.drops[2].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_3_DATE:
+      stakeDropData.availableStakeDrop.drops[2].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_3_START:
+      stakeDropData.availableStakeDrop.drops[2].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_3_END:
+      stakeDropData.availableStakeDrop.drops[2].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_4_NAME:
+      stakeDropData.availableStakeDrop.drops[3].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_4_DATE:
+      stakeDropData.availableStakeDrop.drops[3].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_4_START:
+      stakeDropData.availableStakeDrop.drops[3].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_4_END:
+      stakeDropData.availableStakeDrop.drops[3].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_5_NAME:
+      stakeDropData.availableStakeDrop.drops[4].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_5_DATE:
+      stakeDropData.availableStakeDrop.drops[4].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_5_START:
+      stakeDropData.availableStakeDrop.drops[4].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_5_END:
+      stakeDropData.availableStakeDrop.drops[4].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_6_NAME:
+      stakeDropData.availableStakeDrop.drops[5].name,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_6_DATE:
+      stakeDropData.availableStakeDrop.drops[5].date,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_6_START:
+      stakeDropData.availableStakeDrop.drops[5].start,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_6_END:
+      stakeDropData.availableStakeDrop.drops[5].end,
+    STAKEDROP_AVAILABLE_STAKEDROP_DROP_COMPLETED_TEXT:
+      stakeDropData.availableStakeDrop.completedText,
 
     // StakeDrop FAQ section
     STAKEDROP_FAQ_TITLE: stakeDropData.faq.title,
@@ -410,17 +460,21 @@ const English = {
     AIRDROP: "Airdrop",
     AND: "and",
     CHECK_ELIGIBILITY: "Check Eligibility",
+    CLAIM: "Claim",
     COMING_SOON: "Coming Soon",
+    COMPLETED: "Completed",
     CONNECT: "Connect",
-    CONNECTING: "Connecting...",
     CONNECTED: "Connected",
+    CONNECTING: "Connecting...",
     CREATE_A_STORE: "Create A Store",
+    DETAILS: "Details",
     LETS_GO: "Let's go",
     NOTIFY_ME: "Notify Me",
     OR: "or",
     SIGN_UP: "Sign up",
     TAKE_A_TOUR: "Take a tour",
     TELL_ME_MORE: "Tell me more",
+    VIEW: "View",
   },
 };
 
