@@ -454,6 +454,35 @@ const English = {
     STAKEDROP_FAQ_ANSWER_4: stakeDropData.faq.QAs[3].a,
     STAKEDROP_FAQ_QUESTION_5: stakeDropData.faq.QAs[4].q,
     STAKEDROP_FAQ_ANSWER_5: stakeDropData.faq.QAs[4].a,
+    STAKEDROP_FAQ_QUESTION_6: stakeDropData.faq.QAs[5].q,
+    STAKEDROP_FAQ_ANSWER_6: stakeDropData.faq.QAs[5].a,
+    STAKEDROP_FAQ_QUESTION_7: stakeDropData.faq.QAs[6].q,
+    STAKEDROP_FAQ_ANSWER_7: stakeDropData.faq.QAs[6].a,
+    STAKEDROP_FAQ_QUESTION_8: stakeDropData.faq.QAs[7].q,
+    STAKEDROP_FAQ_ANSWER_8: stakeDropData.faq.QAs[7].a,
+    STAKEDROP_FAQ_QUESTION_9: stakeDropData.faq.QAs[8].q,
+    STAKEDROP_FAQ_ANSWER_9: stakeDropData.faq.QAs[8].a,
+
+    // StakeDrop modal
+    // Step 1 section
+    STAKEDROP_MODAL_STEP_1_TITLE: stakeDropData.modal.step1.title,
+    STAKEDROP_MODAL_STEP_1_OPTIONAL_TEXT: stakeDropData.modal.step1.optional,
+    STAKEDROP_MODAL_STEP_1_BUTTON: stakeDropData.modal.step1.text,
+
+    // Step 2 section
+    STAKEDROP_MODAL_STEP_2_TITLE: stakeDropData.modal.step2.title,
+    STAKEDROP_MODAL_STEP_2_FORM_LABEL: stakeDropData.modal.step2.label,
+    STAKEDROP_MODAL_STEP_2_FORM_PLACEHOLDER:
+      stakeDropData.modal.step2.placeholder,
+    STAKEDROP_MODAL_STEP_2_FORM_BUTTON: stakeDropData.modal.step2.text,
+    STAKEDROP_MODAL_STEP_2_Address_LABEL:
+      stakeDropData.modal.step2.addressLabel,
+    STAKEDROP_MODAL_STEP_2_Address_DATASET_1_TITLE:
+      stakeDropData.modal.step2.dataset[0].title,
+    STAKEDROP_MODAL_STEP_2_Address_DATASET_2_TITLE:
+      stakeDropData.modal.step2.dataset[1].title,
+    STAKEDROP_MODAL_STEP_2_Address_DATASET_3_TITLE:
+      stakeDropData.modal.step2.dataset[2].title,
 
     // Commons [A-Z order]
 
@@ -470,6 +499,7 @@ const English = {
     DETAILS: "Details",
     LETS_GO: "Let's go",
     NOTIFY_ME: "Notify Me",
+    ONGOING: "Ongoing",
     OR: "or",
     SIGN_UP: "Sign up",
     TAKE_A_TOUR: "Take a tour",
