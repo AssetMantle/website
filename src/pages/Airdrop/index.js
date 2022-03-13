@@ -6,7 +6,7 @@ import { AirdropContainer } from "../../styles/pages/airdropStyle";
 import airDropData from "../../data/airdropData.json";
 
 const chainIDs = require("../../data/chain.json");
-const chainID = "cosmoshub-4";
+const chainID = "osmosis-1";
 
 export default function Airdrop() {
   const { t } = useTranslation();
@@ -62,12 +62,12 @@ export default function Airdrop() {
       _chainIDArray.forEach(function (number) {
         const addressK = window.keplr.getKey(number).then(
           (result) => {
-            // console.log(result.bech32Address);
+            console.log(result.bech32Address);
             // keplrWalletAddresses.push(result.bech32Address);
-            setKeplrWalletAccount([
-              ...keplrWalletAccount,
-              result.bech32Address,
-            ]);
+            // setKeplrWalletAccount([
+            //   ...keplrWalletAccount,
+            //   result.bech32Address,
+            // ]);
           },
           (error) => {
             console.log(error);
@@ -169,7 +169,7 @@ export default function Airdrop() {
                 { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
                   KeplrConnectionState
                 ]
-              } Kepler`}</span>
+              } Keplr`}</span>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function Airdrop() {
                 { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
                   MetaMaskConnectionState
                 ]
-              } Metamask`}</span>
+              } MetaMask`}</span>
             </div>
           </div>
         </div>
@@ -225,8 +225,6 @@ export default function Airdrop() {
           </div>
         </div> */}
         </>
-        <p>{t("OR")}</p>
-        <p>{t("AIRDROP_WALLETS_OPTION_2_TITLE")}</p>
         {AllWallets &&
           React.Children.toArray(
             AllWallets.map((data) => (
@@ -245,6 +243,8 @@ export default function Airdrop() {
               </div>
             ))
           )}
+        <p>{t("OR")}</p>
+        <p>{t("AIRDROP_WALLETS_OPTION_2_TITLE")}</p>
         <div className="section_wallets__form">
           <div className="section_wallets__form_input">
             <input
