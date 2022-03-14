@@ -29,8 +29,8 @@ const App = () => {
     setHeader(
       location.pathname === "/"
         ? 1
-        : location.pathname.includes("airdrop") ||
-          location.pathname.includes("stakedrop")
+        : window.location.href.includes("airdrop") ||
+          window.location.href.includes("stakedrop")
         ? 2
         : 0
     );
@@ -90,7 +90,7 @@ const App = () => {
         })}
         <Route component={RouteNotFound} />
       </Switch>
-      {location.pathname !== "/stakedrop" && <Footer />}
+      <Footer />
     </div>
   );
 };

@@ -122,30 +122,35 @@ const Footer = () => {
             </form> */}
           </div>
           <div className="footer_container__element_2__links">
-            <p className="footer_container__element_2__links_link">
-              Spotted something wrong?&nbsp;
-              <button
-                className="footer_container__element_2__links_link__button"
-                onClick={() => setBugBountyModalStat(true)}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && setBugBountyModalStat(true)
-                }
-              >
-                Bug Bounty
-              </button>
-            </p>
-            <p className="footer_container__element_2__links_link">
-              Have something in mind?&nbsp;
-              <button
-                className="footer_container__element_2__links_link__button"
-                onClick={() => setSuggestFeatureModalStat(true)}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && setSuggestFeatureModalStat(true)
-                }
-              >
-                Suggest a Feature
-              </button>
-            </p>
+            {window.location.href.includes("airdrop") ||
+            window.location.href.includes("stakedrop") ? undefined : (
+              <>
+                <p className="footer_container__element_2__links_link">
+                  Spotted something wrong?&nbsp;
+                  <button
+                    className="footer_container__element_2__links_link__button"
+                    onClick={() => setBugBountyModalStat(true)}
+                    onKeyPress={(e) =>
+                      e.key === "Enter" && setBugBountyModalStat(true)
+                    }
+                  >
+                    Bug Bounty
+                  </button>
+                </p>
+                <p className="footer_container__element_2__links_link">
+                  Have something in mind?&nbsp;
+                  <button
+                    className="footer_container__element_2__links_link__button"
+                    onClick={() => setSuggestFeatureModalStat(true)}
+                    onKeyPress={(e) =>
+                      e.key === "Enter" && setSuggestFeatureModalStat(true)
+                    }
+                  >
+                    Suggest a Feature
+                  </button>
+                </p>
+              </>
+            )}
             <p className="footer_container__element_2__links_link">
               Want to know what we're upto?&nbsp;
               <a

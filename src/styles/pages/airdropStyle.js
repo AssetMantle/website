@@ -33,11 +33,26 @@ export const AirdropContainer = styled.main`
         h1 {
           color: var(--gray);
           padding-bottom: 40px;
+          & + p {
+            font: var(--p-xl);
+            color: var(--gray-deep);
+            max-width: 600px;
+          }
         }
-        p {
-          font: var(--p-xl);
-          color: var(--gray-deep);
-          max-width: 600px;
+        &_readBlog {
+          display: flex;
+          align-items: center;
+          padding-top: 40px;
+          gap: 8px;
+          flex-wrap: wrap;
+          font: var(--p-l);
+          &__text {
+            color: var(--gray-deep);
+          }
+          &__button {
+            color: var(--yellow);
+            text-decoration: none;
+          }
         }
         &:last-child {
           position: relative;
@@ -75,22 +90,39 @@ export const AirdropContainer = styled.main`
         }
       }
       &__element {
-        display: flex;
+        display: grid;
         align-items: center;
-        justify-content: space-between;
+        grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 1078px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 650px) {
+          grid-template-columns: 1fr;
+        }
         gap: 24px;
-        flex-wrap: wrap;
-        h3 {
-          color: var(--gray);
-          & + p {
-            font: 600 var(--p-m);
-            color: var(--gray-deep);
+        &_details {
+          h3 {
+            color: var(--gray);
+            padding-bottom: 8px;
+            & + p {
+              font: 600 var(--p-m);
+              color: var(--gray-deep);
+              width: 320px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              @media (max-width: 548px) {
+                width: 200px;
+              }
+            }
           }
         }
         &_value {
+          text-align: center;
           display: flex;
           gap: 10px;
           align-items: center;
+          justify-content: center;
           p {
             font: var(--p-m);
             color: var(--gray-deep);
@@ -100,9 +132,67 @@ export const AirdropContainer = styled.main`
           }
         }
       }
+      .sectionDropAdd {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+          &:first-child {
+            color: #9d9d9d;
+          }
+          &:last-child {
+            cursor: pointer;
+            color: var(--yellow);
+          }
+        }
+      }
+      .section_wallets__form {
+        padding: 0;
+        padding-bottom: 24px;
+        width: 100%;
+        input {
+          width: 100%;
+          padding: 12px 16px;
+          border: 1px solid var(--gray);
+          border-radius: 12px;
+          padding-left: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font: var(--input);
+          background: transparent;
+          outline: none;
+          color: var(--gray);
+          &::placeholder {
+            color: var(--gray-deep);
+          }
+        }
+      }
+      .section_allocation {
+        padding: 0;
+      }
+      .section_allocation_by_network {
+        padding: 0;
+        padding-top: 24px;
+      }
       &__button {
         display: flex;
-        a {
+        justify-content: flex-end;
+        @media (max-width: 1078px) {
+          justify-content: flex-start;
+        }
+        a,
+        button {
+          border: none;
+          outline: none;
+          width: 296px;
+          margin: auto 0;
           display: inline;
           font: 600 var(--p-m);
           color: var(--dark-m);
@@ -116,13 +206,17 @@ export const AirdropContainer = styled.main`
           cursor: pointer;
           color: var(--dark-m);
           text-decoration: none;
+          text-align: center;
           &:hover,
           &:focus {
             box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
           }
+          @media (max-width: 548px) {
+            width: 100%;
+            padding: 10px 20px 12px;
+          }
         }
         &.two {
-          padding-bottom: 80px;
           a {
             font: 600 var(--p-m);
             color: var(--yellow);
@@ -131,7 +225,6 @@ export const AirdropContainer = styled.main`
             border-radius: 12px;
             padding: 8px 63px 10px;
             cursor: pointer;
-            width: max-content;
             color: var(--yellow);
             text-decoration: none;
             box-shadow: none;
@@ -144,12 +237,12 @@ export const AirdropContainer = styled.main`
       }
     }
     &_wallets {
-      padding: 60px 92px 10px;
+      padding: 0px 92px 10px;
       @media (max-width: 768px) {
-        padding: 60px 40px 10px;
+        padding: 0px 40px 10px;
       }
       @media (max-width: 548px) {
-        padding: 60px 20px 10px;
+        padding: 0px 20px 10px;
       }
       p {
         color: var(--gray-deep);
@@ -163,11 +256,12 @@ export const AirdropContainer = styled.main`
       &__buttons {
         display: flex;
         gap: 24px;
-        padding-bottom: 24px;
+        /* padding-bottom: 24px; */
         @media (max-width: 548px) {
           flex-direction: column;
         }
         &_button {
+          width: 296px;
           border-radius: 12px;
           background: var(--yellow-gradient-bg);
           box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
@@ -325,8 +419,17 @@ export const AirdropContainer = styled.main`
             color: var(--gray);
           }
           p {
-            font: var(--p-m);
-            color: var(--gray-deep);
+            font: 600 var(--p-m);
+            color: var(--gray);
+          }
+          &:first-child {
+            h4 {
+              color: var(--gray-deep);
+            }
+            p {
+              font: var(--p-m);
+              color: var(--gray-deep);
+            }
           }
         }
       }

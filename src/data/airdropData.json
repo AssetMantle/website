@@ -1,12 +1,15 @@
 {
   "hero": {
     "title": "$MNTL Airdrop",
-    "details": "Total supply at genesis - 300,000,000 Airdrop - 20% - 60,000,000"
+    "details": "Total supply at genesis - 300,000,000 Airdrop - 20% - 60,000,000",
+    "buttonDetails": "Want to know more?",
+    "buttonText": "Read the Blog",
+    "href": "https://blog.assetmantle.one/2022/03/14/mantledrop-stakedrop-101/"
   },
   "startWithStakedrop": {
     "heading": "Get Started Now",
     "title": "StakeDrop",
-    "description": "ATOM, TERRA, JUNO, CMDX, XPRT, STARS",
+    "description": "$ATOM, $XPRT, $LUNA, $CMDX, $JUNO, $STARS",
     "key": "Allocation:",
     "value": "$MNTL 9,000,000 ",
     "text": "Lets Go",
@@ -17,7 +20,7 @@
     "checks": [
       {
         "title": "Liquidity Providers",
-        "description": "OSMO LPs, Juno LPs, XPRT, UST",
+        "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/US",
         "key": "Allocation:",
         "value": "$MNTL 30,000,000"
       },
@@ -25,15 +28,16 @@
         "title": "OpenSea NFT Community",
         "description": "OpenSea Active NFT Users ",
         "key": "Allocation:",
-        "value": "$MNTL 30,000,000"
+        "value": "$MNTL 9,000,000"
       }
-    ]
+    ],
+    "allocationTitle": "Airdrop Allocation"
   },
   "wallets": {
     "option_1": {
       "title": "Connect your wallet to check eligibility.",
-      "button_1": "Connect Kepler",
-      "button_2": "Connect Metamask"
+      "button_1": "Connect Keplr",
+      "button_2": "Connect MetaMask"
     },
     "option_2": {
       "title": "Enter your wallet address to check eligibility.",
@@ -43,33 +47,43 @@
   },
   "allocation": {
     "title": "Total Airdrop Allocation",
-    "key": "MNTL",
+    "key": "$MNTL",
     "value": "0.0000"
   },
   "allocationByNetwork": {
     "title": "Allocation by Network",
     "options": [
       {
-        "key": "Secret Network:",
-        "value": "0.000 $MNTL"
+        "key": "OSMO /ATOM",
+        "value": "0.000 USD"
       },
       {
-        "key": "Cosmos Network:",
-        "value": "0.000 $MNTL"
+        "key": "OSMO / XPRT",
+        "value": "0.000 USD"
       },
       {
-        "key": "Luna Network:",
-        "value": "0.000 $MNTL"
+        "key": "OSMO / JUNO",
+        "value": "0.000 USD"
       }
     ]
   },
   "NFTOwners": {
     "heading": "Coming Soon",
-    "title": "NFT Owners",
+    "title": "Mantle Reserves for Creators",
     "description": "OpenSea Active NFT Users ",
     "key": "Allocation:",
-    "value": "$MNTL 30,000,000",
+    "value": "$MNTL 12,000,000",
     "text": "Notify Me",
     "href": ""
+  },
+  "modal": {
+    "KeplrTitle": "Check Eligibility for Liquidity Providers",
+    "KeplrInstruction": "Get started by connecting your wallet",
+    "KeplrLabel": "Enter your wallet address",
+    "KeplrButton": "Confirm",
+    "MetaMaskTitle": "Check Eligibility for OpenSea NFT Community",
+    "MetaMaskInstruction": "Get started by connecting your wallet",
+    "MetaMaskLabel": "Enter your wallet address",
+    "MetaMaskButton": "Confirm"
   }
 }
