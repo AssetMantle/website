@@ -1,23 +1,106 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { sendCoinTx } from "./send";
+import data from "../../data/stakeDropData.json";
 
 export default function Modal({ modalTitle, closeModal }) {
   const { t } = useTranslation();
+  const DATA = data.modal;
 
-  const [address, setAddress] = useState("");
   const [ButtonText, setButtonText] = useState();
 
-  const handleClick = async () => {
+  const [address, setAddress] = useState("");
+
+  const [step2DATA, setStep2DATA] = useState({
+    totalStaked: "0.00",
+    address: "",
+    total: "0.00",
+  });
+
+  const MagicTransactionSteams = [
+    {
+      address: "cosmos142w23c7vwuxrj5p0yyg6x0vxaqxn92xrpjcdmv",
+      name: "cosmos",
+    },
+    {
+      address: "",
+      name: "",
+    },
+    {
+      address: "",
+      name: "",
+    },
+    {
+      address: "",
+      name: "",
+    },
+    {
+      address: "",
+      name: "",
+    },
+    {
+      address: "",
+      name: "",
+    },
+  ];
+
+  const handleMagicTransaction = async () => {
     const response = await sendCoinTx(
-      "cosmos142w23c7vwuxrj5p0yyg6x0vxaqxn92xrpjcdmv",
-      "cosmos",
+      MagicTransactionSteams[0].address,
+      MagicTransactionSteams[0].name,
       0.000001
     );
-    console.log(response);
+    // console.log(response);
     response === 0 ? setButtonText(0) : alert(response);
   };
+
+  const handleCheck = () => {
+    fetch()
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          var a = Number(res.globalDelegation) / 1000000;
+          var b = res.xprtAddress;
+          var c = Number(res.received) / 1000000;
+          setStep2DATA({
+            totalStaked: a,
+            address: b,
+            total: c,
+          });
+        } else {
+          setStep2DATA({
+            totalStaked: "0.010",
+            address: "",
+            total: "0.00",
+          });
+        }
+      })
+      .catch((err) => {
+        alert(err);
+        setStep2DATA({
+          totalStaked: "0.00",
+          address: "",
+          total: "0.00",
+        });
+      });
+  };
+
+  const [TotalSteaked, setTotalSteaked] = useState("--");
+  const [TotalActiveUser, setTotalActiveUser] = useState("--");
+
+  useEffect(() => {
+    fetch("https://cosmos.stakedrop.persistence.one/status")
+      .then((res) => res.json())
+      .then((res) => {
+        var a = Number(res.totalStakeDropGlobalDelegation) / 1000000;
+        var b = Number(res.worldGlobalDelegation) / 1000000;
+        setTotalSteaked(a);
+        setTotalActiveUser(b);
+      });
+  }, []);
+
+  //  time left count functions
 
   return (
     <Container>
@@ -39,7 +122,7 @@ export default function Modal({ modalTitle, closeModal }) {
             </h3>
             <button
               className="modal_container__magicTransaction_button"
-              onClick={handleClick}
+              onClick={handleMagicTransaction}
             >
               {ButtonText === 0
                 ? t("COMPLETED")
@@ -64,7 +147,10 @@ export default function Modal({ modalTitle, closeModal }) {
                   />
                 </div>
                 <div className="modal_container__step2_body__form_line_2">
-                  <button className="modal_container__step2_body__form_line_2_button">
+                  <button
+                    onClick={handleCheck}
+                    className="modal_container__step2_body__form_line_2_button"
+                  >
                     {t("STAKEDROP_MODAL_STEP_2_FORM_BUTTON")}
                   </button>
                 </div>
@@ -74,24 +160,107 @@ export default function Modal({ modalTitle, closeModal }) {
                   {t("STAKEDROP_MODAL_STEP_2_Address_LABEL")}
                 </div>
                 <div className="modal_container__step2_body__address_value">
-                  {address === "" || address === null || address === undefined
+                  {step2DATA.address === "" ||
+                  step2DATA.address === null ||
+                  step2DATA.address === undefined
                     ? "--"
-                    : address}
+                    : step2DATA.address}
                 </div>
               </div>
               <div className="modal_container__step2_body__dataSet">
                 <div className="modal_container__step2_body__dataSet_col">
-                  <div className="modal_container__step2_body__dataSet_col__label"></div>
-                  <div className="modal_container__step2_body__dataSet_col__value"></div>
+                  <p className="modal_container__step2_body__dataSet_col__label">
+                    {t("STAKEDROP_MODAL_STEP_2_Address_DATASET_1_TITLE")}
+                  </p>
+                  <h3 className="modal_container__step2_body__dataSet_col__value">
+                    {step2DATA.totalStaked}
+                  </h3>
                 </div>
                 <div className="modal_container__step2_body__dataSet_col">
-                  <div className="modal_container__step2_body__dataSet_col__label"></div>
-                  <div className="modal_container__step2_body__dataSet_col__value"></div>
+                  <p className="modal_container__step2_body__dataSet_col__label">
+                    {t("STAKEDROP_MODAL_STEP_2_Address_DATASET_3_TITLE")}
+                  </p>
+                  <h3 className="modal_container__step2_body__dataSet_col__value">
+                    {step2DATA.total}
+                  </h3>
                 </div>
-                <div className="modal_container__step2_body__dataSet_col">
-                  <div className="modal_container__step2_body__dataSet_col__label"></div>
-                  <div className="modal_container__step2_body__dataSet_col__value"></div>
-                </div>
+              </div>
+            </div>
+          </section>
+          <section className="modal_container__overview">
+            <div className="modal_container__overview_campaign dark__BG">
+              <h3 className="modal_container__overview_campaign__title">
+                {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
+              </h3>
+              <div className="modal_container__overview_campaign__option">
+                <p className="modal_container__overview_campaign__option_label                                                                                                                        ">
+                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_1_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaign__option_value">
+                  7 {t("DAYS")}
+                </h3>
+              </div>
+              <div className="modal_container__overview_campaign__option">
+                <p className="modal_container__overview_campaign__option_label                                                                                                                        ">
+                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaign__option_value">
+                  {DATA.campaign.option2.value}
+                </h3>
+              </div>
+              <div className="modal_container__overview_campaign__option">
+                <p className="modal_container__overview_campaign__option_label                                                                                                                        ">
+                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaign__option_value">
+                  {DATA.campaign.option3.value}
+                </h3>
+                <p className="modal_container__overview_campaign__option_details">
+                  {DATA.campaign.option3.details}
+                </p>
+              </div>
+              <div className="modal_container__overview_campaign__option">
+                <p className="modal_container__overview_campaign__option_label                                                                                                                        ">
+                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaign__option_value">
+                  {DATA.campaign.option4.value}
+                </h3>
+                <p className="modal_container__overview_campaign__option_details">
+                  {DATA.campaign.option4.details}
+                </p>
+              </div>
+            </div>
+            <div className="modal_container__overview_campaignStat dark__BG">
+              <h3 className="modal_container__overview_campaignStat__title">
+                {t("STAKEDROP_MODAL_CAMPAIGNSTAT_TITLE")}
+              </h3>
+              <div className="modal_container__overview_campaignStat__option">
+                <p className="modal_container__overview_campaignStat__option_label">
+                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaignStat__option_value">
+                  {DATA.campaignStat.option1.value}
+                </h3>
+              </div>
+              <div className="modal_container__overview_campaignStat__option">
+                <p className="modal_container__overview_campaignStat__option_label">
+                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaignStat__option_value">
+                  00:00:00:00
+                </h3>
+              </div>
+              <div className="modal_container__overview_campaignStat__option">
+                <p className="modal_container__overview_campaignStat__option_label">
+                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_3_TITLE")}
+                </p>
+                <h3 className="modal_container__overview_campaignStat__option_value">
+                  {TotalSteaked} ATOM
+                </h3>
+                <p className="modal_container__overview_campaign__option_details">
+                  Total Active: {TotalActiveUser}
+                </p>
               </div>
             </div>
           </section>
@@ -288,6 +457,60 @@ const Container = styled.div`
           flex-wrap: wrap;
           font: var(--p-m);
           color: var(--gray);
+        }
+        &__dataSet {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          align-items: center;
+          @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+          }
+          @media (max-width: 548px) {
+            grid-template-columns: 1fr;
+          }
+          &_col {
+            &__label {
+              font: var(--p-m);
+              color: var(--gray);
+              padding-bottom: 8px;
+            }
+            &__value {
+              color: var(--gray);
+            }
+          }
+        }
+      }
+    }
+    &__overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      @media (max-width: 548px) {
+        grid-template-columns: 1fr;
+      }
+      &_campaign,
+      &_campaignStat {
+        &__title {
+          font: var(--h3);
+          color: var(--gray);
+          padding: 40px;
+          border-bottom: 1px solid #3d3d3d;
+        }
+        &__option {
+          display: flex;
+          gap: 4px;
+          flex-direction: column;
+          color: var(--gray);
+          padding: 40px;
+          &:not(:last-child) {
+            border-bottom: 1px solid #3d3d3d;
+          }
+          &_label {
+            font: var(--p-m);
+          }
+          &_details {
+            font: 500 var(--p-l);
+          }
         }
       }
     }
