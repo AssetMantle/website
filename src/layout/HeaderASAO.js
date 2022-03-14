@@ -16,15 +16,7 @@ export default function HeaderASAO() {
   return (
     <HeaderContainer className={padding}>
       <div className="header__left airdrop">
-        <Link
-          to={
-            window.location.pathname === "/airdrop"
-              ? "/airdrop"
-              : window.location.pathname === "/stakedrop"
-              ? "/stakedrop"
-              : undefined
-          }
-        >
+        <Link to="/">
           <img
             src="/images/icons/logo.svg"
             alt="AssetMantle"
@@ -41,7 +33,7 @@ export default function HeaderASAO() {
       </div>
       <div className="header__right ">
         <div className="header__right_one">
-          <Link to="/">assetmantle.one</Link>
+          <a href="assetmantle.one">assetmantle.one</a>
           <NavIcon
             className="toggler"
             tabIndex="0"
