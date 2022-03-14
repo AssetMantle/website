@@ -290,6 +290,8 @@ const English = {
     // hero section
     AIRDROP_HERO_TITLE: airDropData.hero.title,
     AIRDROP_HERO_DESCRIPTION: airDropData.hero.details,
+    AIRDROP_HERO_READ_BLOG_TEXT: airDropData.hero.buttonDetails,
+    AIRDROP_HERO_READ_BLOG_BUTTON_TEXT: airDropData.hero.buttonText,
 
     // start with stakedrop section
     AIRDROP_START_WITH_STAKEDROP_HEADING:
@@ -319,6 +321,8 @@ const English = {
       airDropData.reqEligibilityCheck.checks[1].key,
     AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2:
       airDropData.reqEligibilityCheck.checks[1].value,
+    AIRDROP_ALLOCATION_SINGLE_TITLE:
+      airDropData.reqEligibilityCheck.allocationTitle,
 
     // wallets section
     AIRDROP_WALLETS_OPTION_1_TITLE: airDropData.wallets.option_1.title,
@@ -352,6 +356,18 @@ const English = {
     AIRDROP_NFT_OWNERS_DESCRIPTION: airDropData.NFTOwners.description,
     AIRDROP_NFT_OWNERS_KEY: airDropData.NFTOwners.key,
     AIRDROP_NFT_OWNERS_VALUE: airDropData.NFTOwners.value,
+
+    // Airdrop Modals
+    // keplr
+    AIRDROP_MODAL_KEPLR_TITLE: airDropData.modal.KeplrTitle,
+    AIRDROP_MODAL_KEPLR_INSTRUCTION: airDropData.modal.KeplrInstruction,
+    AIRDROP_MODAL_KEPLR_LABEL: airDropData.modal.KeplrLabel,
+    AIRDROP_MODAL_KEPLR_BUTTON_TEXT: airDropData.modal.KeplrButton,
+    // metamask
+    AIRDROP_MODAL_METAMASK_TITLE: airDropData.modal.MetaMaskTitle,
+    AIRDROP_MODAL_METAMASK_INSTRUCTION: airDropData.modal.MetaMaskInstruction,
+    AIRDROP_MODAL_METAMASK_LABEL: airDropData.modal.MetaMaskLabel,
+    AIRDROP_MODAL_METAMASK_BUTTON_TEXT: airDropData.modal.MetaMaskButton,
 
     // StakeDrop Page
     // Intro section
@@ -484,6 +500,28 @@ const English = {
     STAKEDROP_MODAL_STEP_2_Address_DATASET_3_TITLE:
       stakeDropData.modal.step2.dataset[2].title,
 
+    //  Stakedrop modal campaign section
+    STAKEDROP_MODAL_CAMPAIGN_TITLE: stakeDropData.modal.campaign.title,
+    STAKEDROP_MODAL_CAMPAIGN_OPTION_1_TITLE:
+      stakeDropData.modal.campaign.option1.title,
+    STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE:
+      stakeDropData.modal.campaign.option2.title,
+    STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE:
+      stakeDropData.modal.campaign.option3.title,
+    STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE:
+      stakeDropData.modal.campaign.option4.title,
+
+    // Stakedrop modal campaignStat section
+    STAKEDROP_MODAL_CAMPAIGNSTAT_TITLE: stakeDropData.modal.campaignStat.title,
+    STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE:
+      stakeDropData.modal.campaignStat.option1.title,
+    STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE:
+      stakeDropData.modal.campaignStat.option2.title,
+    STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_3_TITLE:
+      stakeDropData.modal.campaignStat.option3.title,
+    STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_4_TITLE:
+      stakeDropData.modal.campaignStat.option4.title,
+
     // Commons [A-Z order]
 
     AIRDROP: "Airdrop",
@@ -496,6 +534,8 @@ const English = {
     CONNECTED: "Connected",
     CONNECTING: "Connecting...",
     CREATE_A_STORE: "Create A Store",
+    DAY: "day",
+    DAYS: "days",
     DETAILS: "Details",
     LETS_GO: "Let's go",
     NOTIFY_ME: "Notify Me",

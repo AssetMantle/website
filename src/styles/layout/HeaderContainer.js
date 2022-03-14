@@ -47,16 +47,23 @@ const HeaderContainer = styled.header`
       &.airdrop {
         display: flex;
         gap: 8px;
-        align-items: flex-start;
+        align-items: center;
+        @media (max-width: 768px) {
+          align-items: flex-start;
+        }
         img {
-          @media (max-width: 385px) {
+          height: 56px;
+          width: auto;
+          @media (max-width: 745px) {
+            height: 40px;
+          }
+          @media (max-width: 400px) {
             height: 28px;
-            width: auto;
           }
         }
         h2 {
           color: var(--gray);
-          @media (max-width: 500px) {
+          @media (max-width: 610px) {
             font-size: 20px;
           }
           @media (max-width: 385px) {
@@ -115,6 +122,8 @@ const HeaderContainer = styled.header`
         }
       }
       &_one {
+        display: flex;
+        gap: 24px;
         a {
           font: var(--p-l);
           color: var(--yellow);
@@ -124,9 +133,9 @@ const HeaderContainer = styled.header`
           }
         }
         .toggler {
-          @media (min-width: 577px) {
+          /* @media (min-width: 577px) {
             display: none;
-          }
+          } */
         }
       }
     }
