@@ -53,46 +53,46 @@
     "title": "Available StakeDrops",
     "drops": [
       {
-        "name": "Cosmos (ATOM)",
+        "name": "Cosmos ($ATOM)",
         "value": "2,000,000 $MNTL",
         "date": "15 March",
-        "start": "Start Height: 9758001",
-        "end": "End Height: 9758001"
+        "start": "Start Height: 9758961",
+        "end": "End Height: 9839600"
       },
       {
-        "name": "Persistence (XPRT)",
+        "name": "Persistence ($XPRT)",
         "value": "1,000,000 $MNTL",
         "date": "18 March",
-        "start": "Start Height: 5270461",
-        "end": "End Height: 5371260"
+        "start": "Start Height: 5273217",
+        "end": "End Height: 5375766"
       },
       {
-        "name": "Terra (LUNA)",
+        "name": "Terra ($LUNA)",
         "value": "2,000,000 $MNTL",
         "date": "22 March",
-        "start": "Start Height: 6944601",
+        "start": "Start Height: 6946901",
         "end": "End Height: 7034730"
       },
       {
-        "name": "Comdex (CMDX)",
+        "name": "Comdex ($CMDX)",
         "value": "1,000,000 $MNTL",
         "date": "25 March",
-        "start": "Start Height: 1760491",
-        "end": "End Height: 1860000"
+        "start": "Start Height: 1762901",
+        "end": "End Height: 1863700"
       },
       {
-        "name": "Juno (JUNO)",
+        "name": "Juno ($JUNO)",
         "value": "2,000,000 $MNTL",
         "date": "29 March",
-        "start": "Start Height: 2484181",
-        "end": "End Height: 2580810"
+        "start": "Start Height: 2484509",
+        "end": "End Height: 2581276"
       },
       {
-        "name": "Stargaze (STAR)",
+        "name": "Stargaze ($STAR)",
         "value": "1,000,000 $MNTL",
         "date": "1 April",
-        "start": "Start Height: 2252511",
-        "end": "End Height: 2350260"
+        "start": "Start Height: 2247281",
+        "end": "End Height: 2343278"
       }
     ],
     "completedText": "Your Reward"
@@ -163,7 +163,7 @@
         }
       ]
     },
-    "campain": {
+    "campaign": {
       "title": "Cosmos StakeDrop Campaign",
       "option1": {
         "title": "Rewards Claim Window",
@@ -171,7 +171,7 @@
       },
       "option2": {
         "title": "Tokens to distribute",
-        "value": "1.000.000 $MNTL"
+        "value": "2,000,000 $MNTL"
       },
       "option3": {
         "title": "Start Date",
@@ -184,7 +184,7 @@
         "details": "Block Height: --"
       }
     },
-    "campainStat": {
+    "campaignStat": {
       "title": "Campaign Status",
       "option1": {
         "title": "Tokens left",
