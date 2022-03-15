@@ -1,7 +1,7 @@
 const { SigningStargateClient } = require("@cosmjs/stargate");
 
 const comdexChainID = "cosmoshub-4";
-const stakingDenom = "CMDX";
+const stakingDenom = "uatom";
 const maxGas = 250000;
 
 
