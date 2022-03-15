@@ -47,8 +47,13 @@ export default function CosmosCalculationPage() {
       "cosmos",
       0.000001
     );
-    // console.log(response);
-    response === 0 ? setIsMagicTransaction(true) : setIsMagicTransaction(false);
+    console.log(response);
+    if (response === 0) {
+      setIsMagicTransaction(true);
+    } else {
+      setIsMagicTransaction(false);
+      alert(response);
+    }
   };
 
   // calculate rewards
@@ -220,6 +225,17 @@ export default function CosmosCalculationPage() {
                 </h3>
                 <p className="section__overview_campaign__option_details">
                   {DATA.campaign.option3.details}
+                </p>
+              </div>
+              <div className="section__overview_campaign__option">
+                <p className="section__overview_campaign__option_label                                                                                                                        ">
+                  Reward Distribution Start Date
+                </p>
+                <h3 className="section__overview_campaign__option_value">
+                  {DATA.campaign.option3i.value}
+                </h3>
+                <p className="section__overview_campaign__option_details">
+                  {DATA.campaign.option3i.details}
                 </p>
               </div>
               <div className="section__overview_campaign__option">
