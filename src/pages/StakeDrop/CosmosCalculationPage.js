@@ -199,7 +199,7 @@ export default function CosmosCalculationPage() {
                   Total Staked
                 </p>
                 <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalStakedN / 1000000).toFixed(4)}
+                  {(TotalStakedN / 1000000).toFixed(4)} $ATOM
                 </h3>
               </div>
               <div className="section_calculation__result_rewards_reward">
@@ -207,7 +207,7 @@ export default function CosmosCalculationPage() {
                   Total Rewards
                 </p>
                 <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalRewardN / 1000000).toFixed(4)}
+                  {(TotalRewardN / 1000000).toFixed(4)} $MNTL
                 </h3>
               </div>
             </div>
@@ -219,14 +219,6 @@ export default function CosmosCalculationPage() {
               <h3 className="section__overview_campaign__title">
                 {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
               </h3>
-              <div className="section__overview_campaign__option">
-                <p className="section__overview_campaign__option_label                                                                                                                        ">
-                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_1_TITLE")}
-                </p>
-                <h3 className="section__overview_campaign__option_value">
-                  7 {t("DAYS")}
-                </h3>
-              </div>
               <div className="section__overview_campaign__option">
                 <p className="section__overview_campaign__option_label                                                                                                                        ">
                   {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
@@ -300,16 +292,16 @@ export default function CosmosCalculationPage() {
                 </p>
                 <h3 className="section__overview_campaignStat__option_value">
                   {CampaignStat
-                    ? Number(CampaignStat.totalStakeDropAuditDelegation) /
-                      1000000
+                    ? (Number(CampaignStat.totalStakeDropAuditDelegation) /
+                      1000000).toFixed(4)
                     : "--"}
                   {` $ATOM`}
                 </h3>
                 <p className="section__overview_campaign__option_details">
                   {`Total Active: `}
                   {CampaignStat
-                    ? Number(CampaignStat.worldGlobalDelegation) / 1000000
-                    : "--"}
+                    ? (Number(CampaignStat.worldGlobalDelegation) / 1000000).toFixed(4)
+                    : "--"} $ATOM
                 </p>
               </div>
             </div>
