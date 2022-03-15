@@ -11,7 +11,7 @@ async function getKeplrWallet(chainID) {
   } else {
     try {
       await window.keplr.enable(comdexChainID)
-      let offlineSigner = window.keplr.getOfflineSigner(chainID);
+      let offlineSigner = await window.keplr.getOfflineSignerAuto(chainID);
       let accounts = await offlineSigner.getAccounts();
       return [offlineSigner, accounts[0].address];
     } catch (e) {
