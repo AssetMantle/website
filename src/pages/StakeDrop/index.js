@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactPlayer from 'react-player';
 import { StakeDropContainer } from "../../styles/pages/stakeDropStyle";
 import { useTranslation } from "react-i18next";
 
@@ -214,7 +215,13 @@ export default function StakeDrop() {
         </section>
         <section className="section_explanation">
           <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
-          <div className="section_explanation__video"></div>
+          <div className="section_explanation__video">
+            <ReactPlayer url='/resources/Stakedrop_explained.mp4' controls={true}
+                         width='100%'
+                         height='100%'
+                         light={'/images/stakedrop/video_thumbnail.png'}
+            />
+          </div>
         </section>
         <section className="section_availableStakeDrop">
           <h2>{t("STAKEDROP_AVAILABLE_STAKEDROP_TITLE")}</h2>
