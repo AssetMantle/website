@@ -166,7 +166,11 @@ export default function CosmosCalculationPage() {
                     do this:{" "}
                     <span onClick={() => setModal(true)}>
                       Magic Transaction Guide
-                    </span>
+                    </span>{" "}
+                    <br />
+                    <br />
+                    NOTE: If you have already sent magic transaction, please
+                    wait for couple of minutes to confirm your participation.
                   </p>
                 </div>
               </div>

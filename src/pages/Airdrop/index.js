@@ -87,9 +87,8 @@ export default function Airdrop() {
           <div className="section_drop__element">
             <div className="section_drop__element_details">
               <h3>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h3>
-              <p title={t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}>
-                {t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}
-              </p>
+              <p>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</p>
+              <span>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</span>
             </div>
             <div className="section_drop__element_value">
               <p>{t("AIRDROP_START_WITH_STAKEDROP_KEY")}</p>
@@ -118,9 +117,8 @@ export default function Airdrop() {
           <div className="section_drop__element">
             <div className="section_drop__element_details">
               <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1")}</h3>
-              <p title={t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}>
-                {t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}
-              </p>
+              <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</p>
+              <span>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</span>
             </div>
             <div className="section_drop__element_value">
               <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_KEY_1")}</p>

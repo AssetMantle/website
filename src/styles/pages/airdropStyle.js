@@ -101,6 +101,7 @@ export const AirdropContainer = styled.main`
         }
         gap: 24px;
         &_details {
+          position: relative;
           h3 {
             color: var(--gray);
             padding-bottom: 8px;
@@ -114,6 +115,30 @@ export const AirdropContainer = styled.main`
               @media (max-width: 548px) {
                 width: 200px;
               }
+            }
+          }
+          p {
+            &:hover {
+              & + span {
+                display: flex;
+              }
+            }
+          }
+          span {
+            position: absolute;
+            top: 100%;
+            display: none;
+            left: 0px;
+            width: 110%;
+            padding: 10px;
+            border-radius: 12px;
+            background: var(--dark-m);
+            color: var(--gray);
+            font: 600 var(--p-s);
+            z-index: 1;
+            word-break: break-word;
+            @media (max-width: 768px) {
+              width: 90%;
             }
           }
         }
