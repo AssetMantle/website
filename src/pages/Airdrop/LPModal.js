@@ -1,17 +1,10 @@
 import { useTranslation } from "react-i18next";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function LPModal({ closeModal, setKeplr1, setKeplr2 }) {
+export default function LPModal({ closeModal, setKeplrWallet }) {
   const { t } = useTranslation();
-  const [KeplrWallet, setKeplrWallet] = useState();
   const [Input, setInput] = useState();
-  const [TypedAddress, setTypedAddress] = useState();
-
-  useEffect(() => {
-    setKeplr1(KeplrWallet);
-    setKeplr2(TypedAddress);
-  }, [KeplrWallet, TypedAddress]);
 
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const chainID = "osmosis-1";
@@ -24,30 +17,15 @@ export default function LPModal({ closeModal, setKeplr1, setKeplr2 }) {
       const account = accounts[0].address;
       setKeplrWallet(account);
       setKeplrConnectionState(2);
-      //   console.log("Account: ", account);
-      // keplr addresses array
-
-      //   const _chainIDArray = JSON.parse(chainIDs);
-      //   _chainIDArray.forEach(function (number) {
-      //     const addressK = window.keplr.getKey(number).then(
-      //       (result) => {
-      //         console.log(result.bech32Address);
-      //         // keplrWalletAddresses.push(result.bech32Address);
-      //         // setKeplrWalletAccount([
-      //         //   ...keplrWalletAccount,
-      //         //   result.bech32Address,
-      //         // ]);
-      //       },
-      //       (error) => {
-      //         console.log(error);
-      //       }
-      //     );
-      //     console.log(addressK);
-      //   });
-      // ends
+      closeModal(false);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
+  };
+
+  const handleConfirm = () => {
+    setKeplrWallet(Input);
+    closeModal(false);
   };
 
   return (
@@ -79,7 +57,7 @@ export default function LPModal({ closeModal, setKeplr1, setKeplr2 }) {
                   { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
                     KeplrConnectionState
                   ]
-                } Kepler`}</span>
+                } Keplr`}</span>
               </div>
             </div>
           </div>
@@ -94,10 +72,10 @@ export default function LPModal({ closeModal, setKeplr1, setKeplr2 }) {
                 className="modal_container__form_line2_input"
                 name="address"
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
+                placeholder="Enter Osmosis Address"
               />
               <button
-                onClick={() => setTypedAddress(Input)}
+                onClick={handleConfirm}
                 className="modal_container__form_line2_button"
               >
                 {t("AIRDROP_MODAL_KEPLR_BUTTON_TEXT")}
