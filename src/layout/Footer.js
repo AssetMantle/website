@@ -1,24 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 import { FooterContainer } from "../styles/layout/FooterStyle";
 
 import DATA from "../data/footerData.json";
-import BugBountyModal from "../components/BugBountyModal";
+
 import SubscribeForm from "../components/SubscribeForm";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 const Footer = () => {
-  // const [email, setEmail] = useState();
-  const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(email);
-  // };
-
   return (
     <FooterContainer>
       <h2 className="footer__title">Get in touch</h2>
@@ -27,7 +18,7 @@ const Footer = () => {
         <div className="footer_container__element">
           <div className="footer_container__element_emails">
             <img
-              src="/images/email_icon.png"
+              src="/images/icons/email_icon.png"
               alt="email icon"
               className="footer_container__element_emails__icon"
             />
@@ -67,18 +58,22 @@ const Footer = () => {
               {DATA.social.h3}
             </h3>
             <div className="footer_container__element_social__icons">
-              {React.Children.toArray(
-                DATA.social.links.map((data) => (
-                  <a
-                    className="footer_container__element_social__icons_icon"
-                    href={data.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img src={`/images/${data.icon}.png`} alt={data.alt} />
-                  </a>
-                ))
-              )}
+              {DATA.social.links &&
+                React.Children.toArray(
+                  DATA.social.links.map((data) => (
+                    <a
+                      className="footer_container__element_social__icons_icon"
+                      href={data.href && data.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`/images/icons/${data.icon && data.icon}.png`}
+                        alt={data.alt && data.alt}
+                      />
+                    </a>
+                  ))
+                )}
             </div>
           </div>
         </div>
@@ -116,23 +111,6 @@ const Footer = () => {
           </div>
           <div className="footer_container__element_2__links">
             <p className="footer_container__element_2__links_link">
-              Spotted something wrong?&nbsp;
-              <button
-                className="footer_container__element_2__links_link__button coming"
-                onClick={() => setBugBountyModalStat(true)}
-              >
-                <span>Bug Bounty</span>
-                <span>Coming soon</span>
-              </button>
-            </p>
-            <p className="footer_container__element_2__links_link">
-              Have something in mind?&nbsp;
-              <button className="footer_container__element_2__links_link__button coming">
-                <span>Suggest a Feature</span>
-                <span>Coming soon</span>
-              </button>
-            </p>
-            <p className="footer_container__element_2__links_link">
               Want to know what we're upto?&nbsp;
               <a
                 href="http://blog.assetmantle.one/"
@@ -165,9 +143,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {bugBountyModalStat === "" && (
-        <BugBountyModal closeModal={setBugBountyModalStat} />
-      )}
     </FooterContainer>
   );
 };

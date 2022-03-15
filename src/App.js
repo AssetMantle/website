@@ -1,28 +1,50 @@
-import React, { useState } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 
 // style
 import "./styles/App.css";
 
-import Header from "./layout/Header";
-import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
-import Home from "./pages/Home";
+
+import HeaderASAO from "./layout/HeaderASAO";
+
+import RouteNotFound from "./components/RouteNotFound";
+import Airdrop from "./pages/Airdrop";
+import StakeDrop from "./pages/StakeDrop";
+import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 
 const App = () => {
-  const [theme, setTheme] = useState(false);
+  const location = useLocation();
+
+  // changing header
+
+  // scrolling to top on every page change
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname]);
 
   const routes = [
     {
-      component: Home,
+      component: Airdrop,
       path: "/",
+    },
+    {
+      component: StakeDrop,
+      path: "/stakedrop",
+    },
+    {
+      component: CosmosCalculationPage,
+      path: "/stakedrop/cosmos",
     },
   ];
 
   return (
     <div className="app">
-      <Header theme={theme} setTheme={setTheme} />
-
+      <HeaderASAO />
       <Switch>
         {routes.map((route) => {
           return (
