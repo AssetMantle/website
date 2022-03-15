@@ -57,20 +57,20 @@ function Header({ theme = false, setTheme }) {
           <div className="header__right_second__nav_buttons">
             {DATA.headerButtons.primary.visibility && (
               <ButtonPrimary
-                text={DATA.headerButtons.primary.text}
-                href={DATA.headerButtons.primary.href}
+                text="$MNTL Airdrop"
+                href="https://airdrop.assetmantle.one/"
                 title="coming soon"
                 comingSoon={true}
               />
             )}
-            {DATA.headerButtons.secondary.visibility && (
+            {/* {DATA.headerButtons.secondary.visibility && (
               <ButtonSecondary
                 text={DATA.headerButtons.secondary.text}
                 href={DATA.headerButtons.secondary.href}
                 title="coming soon"
                 comingSoon={true}
               />
-            )}
+            )} */}
           </div>
         </div>
         <NavIcon
