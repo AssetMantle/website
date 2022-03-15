@@ -175,6 +175,19 @@ export default function StakeDrop() {
                 {t("STAKEDROP_INTRO_BUTTON_2")}
               </button>
             </div>
+            <div className="section_intro__element_readBlog">
+              <p className="section_intro__element_readBlog__text">
+                {t("AIRDROP_HERO_READ_BLOG_TEXT")}
+              </p>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://blog.assetmantle.one/2022/03/14/mantledrop-stakedrop-101/"
+                className="section_intro__element_readBlog__button"
+              >
+                {t("AIRDROP_HERO_READ_BLOG_BUTTON_TEXT")}
+              </a>
+            </div>
           </div>
           <div className="section_intro__element">
             <img

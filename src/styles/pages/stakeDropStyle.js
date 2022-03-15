@@ -64,6 +64,22 @@ export const StakeDropContainer = styled.main`
           width: 100%;
           height: auto;
         }
+
+        &_readBlog {
+          display: flex;
+          align-items: center;
+          padding-top: 40px;
+          gap: 8px;
+          flex-wrap: wrap;
+          font: var(--p-l);
+          &__text {
+            color: var(--gray-deep);
+          }
+          &__button {
+            color: var(--yellow);
+            text-decoration: none;
+          }
+        }
       }
     }
     &_whatIs {
