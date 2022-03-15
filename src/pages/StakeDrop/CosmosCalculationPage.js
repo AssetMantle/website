@@ -71,7 +71,7 @@ export default function CosmosCalculationPage() {
         if (data.success.toString() === "true") {
           console.log(data);
           setStakeAddress(data.mantleAddress);
-          setTotalStaked(data.globalDelegation);
+          setTotalStaked(data.totalStakeDropGlobalDelegation);
           setTotaReward(data.received);
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
