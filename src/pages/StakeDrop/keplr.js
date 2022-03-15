@@ -19,15 +19,18 @@ async function initializeKeplr() {
 }
 
 async function getKeplrWallet(chainID) {
-  if (!window.keplr) {
-    alert("Please install keplr extension");
-  } else {
-    try {
-      let offlineSigner = window.keplr.getOfflineSigner(chainID);
-      let accounts = await offlineSigner.getAccounts();
-      return [offlineSigner, accounts[0].address];
-    } catch (e) {
-      console.log(e);
+  window.onload = async () =>
+  {
+    if (!window.keplr) {
+      alert("Please install keplr extension");
+    } else {
+      try {
+        let offlineSigner = window.keplr.getOfflineSigner(chainID);
+        let accounts = await offlineSigner.getAccounts();
+        return [offlineSigner, accounts[0].address];
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 }
