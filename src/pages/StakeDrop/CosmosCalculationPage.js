@@ -199,7 +199,7 @@ export default function CosmosCalculationPage() {
                   Total Staked
                 </p>
                 <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalStakedN / 1000000).toFixed(4)} $ATOM
+                  {(TotalStakedN / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})} $ATOM
                 </h3>
               </div>
               <div className="section_calculation__result_rewards_reward">
@@ -207,7 +207,7 @@ export default function CosmosCalculationPage() {
                   Total Rewards
                 </p>
                 <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalRewardN / 1000000).toFixed(4)} $MNTL
+                  {(TotalRewardN / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})} $MNTL
                 </h3>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function CosmosCalculationPage() {
                 </p>
                 <h3 className="section__overview_campaignStat__option_value">
                   {CampaignStat
-                    ? 2000000 - Number(CampaignStat.totalDistributed) / 1000000
+                    ? (2000000 - Number(CampaignStat.totalDistributed) / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})
                     : "--"}
                   {` $MNTL`}
                 </h3>
@@ -293,14 +293,14 @@ export default function CosmosCalculationPage() {
                 <h3 className="section__overview_campaignStat__option_value">
                   {CampaignStat
                     ? (Number(CampaignStat.totalStakeDropAuditDelegation) /
-                      1000000).toFixed(4)
+                      1000000).toLocaleString('en-US', {maximumFractionDigits:4})
                     : "--"}
                   {` $ATOM`}
                 </h3>
                 <p className="section__overview_campaign__option_details">
                   {`Total Active: `}
                   {CampaignStat
-                    ? (Number(CampaignStat.worldGlobalDelegation) / 1000000).toFixed(4)
+                    ? (Number(CampaignStat.worldGlobalDelegation) / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})
                     : "--"} $ATOM
                 </p>
               </div>
