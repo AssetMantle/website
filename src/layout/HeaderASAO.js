@@ -24,7 +24,7 @@ export default function HeaderASAO() {
           />
         </a>
         <h2 className="airdrop_text">
-          {window.location.pathname === "/airdrop"
+          {window.location.pathname === "/"
             ? "Airdrop"
             : window.location.href.includes("stakedrop")
             ? "Stakedrop"

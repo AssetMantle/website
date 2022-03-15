@@ -21,12 +21,16 @@ export default function Nav() {
                     <>
                       {data.href && data.href.charAt(0) === "/" ? (
                         <NavLink
-                          to={data.href}
+                          to={
+                            data.text === "Home"
+                              ? "https://assetmantle.one"
+                              : data.href
+                          }
                           className={
                             location.pathname === data.href && "active"
                           }
                         >
-                          {data.text}
+                          {data.text === "Home" ? "assetmantle.one" : data.text}
                         </NavLink>
                       ) : data.href === undefined || data.href === null ? (
                         <NavDetails

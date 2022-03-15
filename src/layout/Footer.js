@@ -1,27 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 import { FooterContainer } from "../styles/layout/FooterStyle";
 
 import DATA from "../data/footerData.json";
 
-import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
-import { RequestAFeature } from "../components/RequestAFeature";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 const Footer = () => {
-  // const [email, setEmail] = useState();
-  const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
-  const [suggestFeatureModalStat, setSuggestFeatureModalStat] = useState(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(email);
-  // };
-
   return (
     <FooterContainer>
       <h2 className="footer__title">Get in touch</h2>
@@ -122,35 +110,6 @@ const Footer = () => {
             </form> */}
           </div>
           <div className="footer_container__element_2__links">
-            {window.location.href.includes("airdrop") ||
-            window.location.href.includes("stakedrop") ? undefined : (
-              <>
-                <p className="footer_container__element_2__links_link">
-                  Spotted something wrong?&nbsp;
-                  <button
-                    className="footer_container__element_2__links_link__button"
-                    onClick={() => setBugBountyModalStat(true)}
-                    onKeyPress={(e) =>
-                      e.key === "Enter" && setBugBountyModalStat(true)
-                    }
-                  >
-                    Bug Bounty
-                  </button>
-                </p>
-                <p className="footer_container__element_2__links_link">
-                  Have something in mind?&nbsp;
-                  <button
-                    className="footer_container__element_2__links_link__button"
-                    onClick={() => setSuggestFeatureModalStat(true)}
-                    onKeyPress={(e) =>
-                      e.key === "Enter" && setSuggestFeatureModalStat(true)
-                    }
-                  >
-                    Suggest a Feature
-                  </button>
-                </p>
-              </>
-            )}
             <p className="footer_container__element_2__links_link">
               Want to know what we're upto?&nbsp;
               <a
@@ -184,12 +143,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {bugBountyModalStat === true && (
-        <BugBountyModal closeModal={setBugBountyModalStat} />
-      )}
-      {suggestFeatureModalStat === true && (
-        <RequestAFeature closeModal={setSuggestFeatureModalStat} />
-      )}
     </FooterContainer>
   );
 };
