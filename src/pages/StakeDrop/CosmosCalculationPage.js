@@ -187,7 +187,7 @@ export default function CosmosCalculationPage() {
           <div className="section_calculation__result">
             <div className="section_calculation__result_address">
               <p className="section_calculation__result_address__label">
-                MNTL Address
+                $MNTL Address
               </p>
               <p className="section_calculation__result_address__value">
                 {StakeAddress !== null &&
