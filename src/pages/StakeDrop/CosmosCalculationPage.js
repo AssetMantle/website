@@ -64,7 +64,8 @@ export default function CosmosCalculationPage() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
-          setStakeAddress(data.xprtAddress);
+          console.log(data);
+          setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
         } else if (data.success.toString() === "false") {
