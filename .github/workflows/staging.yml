@@ -1,9 +1,9 @@
 ---
-name: Staging 
+name: Airdrop-Staging 
 
 on:
   push:
-    branches: [staging]
+    branches: [airdrop/master]
 
 jobs:
   deploy:
@@ -34,3 +34,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
           environment: 'staging'
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
