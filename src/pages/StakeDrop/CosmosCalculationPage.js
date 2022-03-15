@@ -166,7 +166,11 @@ export default function CosmosCalculationPage() {
                     do this:{" "}
                     <span onClick={() => setModal(true)}>
                       Magic Transaction Guide
-                    </span>
+                    </span>{" "}
+                    <br />
+                    <br />
+                    NOTE: If you have already sent magic transaction, please
+                    wait for couple of minutes to confirm your participation.
                   </p>
                 </div>
               </div>
@@ -292,7 +296,7 @@ export default function CosmosCalculationPage() {
                 </p>
                 <h3 className="section__overview_campaignStat__option_value">
                   {CampaignStat
-                    ? (Number(CampaignStat.totalStakeDropAuditDelegation) /
+                    ? (Number(CampaignStat.totalStakeDropGlobalDelegation) /
                       1000000).toLocaleString('en-US', {maximumFractionDigits:4})
                     : "--"}
                   {` $ATOM`}
