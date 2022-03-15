@@ -17,7 +17,7 @@
   "navItems": {
     "normal": [
       {
-        "visibility": true,
+        "visibility": false,
         "text": "Home",
         "href": "/"
       },
