@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "$MNTL Airdrop",
-    "details": "Total supply at genesis - 300,000,000 Airdrop - 20% - 60,000,000",
+    "details": "Total supply at genesis - 300,000,000 $MNTL Airdrop - 20%  - 60,000,000 $MNTL",
     "buttonDetails": "Want to know more?",
     "buttonText": "Read the Blog",
     "href": "https://blog.assetmantle.one/2022/03/14/mantledrop-stakedrop-101/"
@@ -11,7 +11,7 @@
     "title": "StakeDrop",
     "description": "$ATOM, $XPRT, $LUNA, $CMDX, $JUNO, $STARS",
     "key": "Allocation:",
-    "value": "$MNTL 9,000,000 ",
+    "value": "9,000,000 $MNTL",
     "text": "Lets Go",
     "href": "/stakedrop"
   },
@@ -22,13 +22,13 @@
         "title": "Liquidity Providers",
         "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/US",
         "key": "Allocation:",
-        "value": "$MNTL 30,000,000"
+        "value": "30,000,000 $MNTL"
       },
       {
         "title": "OpenSea NFT Community",
         "description": "OpenSea Active NFT Users ",
         "key": "Allocation:",
-        "value": "$MNTL 9,000,000"
+        "value": "9,000,000 $MNTL"
       }
     ],
     "allocationTitle": "Airdrop Allocation"
@@ -54,12 +54,12 @@
     "title": "Allocation by Network",
     "options": [
       {
-        "key": "OSMO /ATOM",
-        "value": "0.000 USD"
+        "key": "Osmosis LPs",
+        "value": "100 USD"
       },
       {
-        "key": "OSMO / XPRT",
-        "value": "0.000 USD"
+        "key": "OpenSea NFTs",
+        "value": "100 USD"
       },
       {
         "key": "OSMO / JUNO",
@@ -72,7 +72,7 @@
     "title": "Mantle Reserves for Creators",
     "description": "OpenSea Active NFT Users ",
     "key": "Allocation:",
-    "value": "$MNTL 12,000,000",
+    "value": "12,000,000 $MNTL",
     "text": "Notify Me",
     "href": ""
   },

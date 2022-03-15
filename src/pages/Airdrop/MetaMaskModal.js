@@ -1,21 +1,11 @@
 import { useTranslation } from "react-i18next";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function MetaMaskModal({
-  closeModal,
-  setMetaMask1,
-  setMetaMask2,
-}) {
+export default function MetaMaskModal({ closeModal, setMetaMaskWallet }) {
   const { t } = useTranslation();
-  const [MetaMaskWallet, setMetaMaskWallet] = useState();
   const [Input, setInput] = useState();
-  const [TypedAddress, setTypedAddress] = useState();
-
-  useEffect(() => {
-    setMetaMask1(MetaMaskWallet);
-    setMetaMask2(TypedAddress);
-  }, [MetaMaskWallet, TypedAddress]);
+  console.log(Input);
 
   const [MetaMaskConnectionState, setMetaMaskConnectionState] = useState(0);
 
@@ -32,9 +22,15 @@ export default function MetaMaskModal({
       // console.log("Account: ", account);
       setMetaMaskConnectionState(2);
       setMetaMaskWallet(account);
+      closeModal(false);
     } else {
       window.alert("Please install MetaMask to move forward with the task.");
     }
+  };
+
+  const handleConfirms = () => {
+    setMetaMaskWallet(Input);
+    closeModal(false);
   };
 
   return (
@@ -66,7 +62,7 @@ export default function MetaMaskModal({
                   { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
                     MetaMaskConnectionState
                   ]
-                } Metamask`}</span>
+                } MetaMask`}</span>
               </div>
             </div>
           </div>
@@ -81,10 +77,10 @@ export default function MetaMaskModal({
                 className="modal_container__form_line2_input"
                 name="address"
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
+                placeholder="Enter Valid Ethereum Address"
               />
               <button
-                onClick={() => setTypedAddress(Input)}
+                onClick={handleConfirms}
                 className="modal_container__form_line2_button"
               >
                 {t("AIRDROP_MODAL_KEPLR_BUTTON_TEXT")}

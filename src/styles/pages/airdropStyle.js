@@ -36,7 +36,7 @@ export const AirdropContainer = styled.main`
           & + p {
             font: var(--p-xl);
             color: var(--gray-deep);
-            max-width: 600px;
+            max-width: 700px;
           }
         }
         &_readBlog {
@@ -138,13 +138,17 @@ export const AirdropContainer = styled.main`
         font-weight: 400;
         font-size: 24px;
         line-height: 120%;
-        padding-bottom: 8px;
+        padding-bottom: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 768px) {
+          flex-wrap: wrap;
+        }
         span {
           &:first-child {
             color: #9d9d9d;
+            word-break: break-word;
           }
           &:last-child {
             cursor: pointer;
@@ -176,6 +180,12 @@ export const AirdropContainer = styled.main`
       }
       .section_allocation {
         padding: 0;
+        h3 {
+          a {
+            color: var(--yellow);
+            text-decoration: none;
+          }
+        }
       }
       .section_allocation_by_network {
         padding: 0;
@@ -237,13 +247,13 @@ export const AirdropContainer = styled.main`
       }
     }
     &_wallets {
-      padding: 0px 92px 10px;
+      /* padding: 0px 92px 10px;
       @media (max-width: 768px) {
         padding: 0px 40px 10px;
       }
       @media (max-width: 548px) {
         padding: 0px 20px 10px;
-      }
+      } */
       p {
         color: var(--gray-deep);
         font: var(--p-m);
@@ -387,12 +397,12 @@ export const AirdropContainer = styled.main`
       }
     }
     &_allocation_by_network {
-      padding: 40px 92px;
+      padding: 0px 92px 40px;
       @media (max-width: 768px) {
-        padding: 40px 40px;
+        padding: 0 40px 40px;
       }
       @media (max-width: 650px) {
-        padding: 40px 20px;
+        padding: 0px 20px 40px;
       }
       &__title {
         color: var(--gray-deep);

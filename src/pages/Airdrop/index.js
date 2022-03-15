@@ -14,101 +14,40 @@ export default function Airdrop() {
 
   const [LPModalStat, setLPModalStat] = useState(false);
   const [OsmoAddress, setOsmoAddress] = useState();
-  const [KeplrModalInputAddress, setKeplrModalInputAddress] = useState();
-  console.log(OsmoAddress, KeplrModalInputAddress);
+
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
   const [MetaMaskAddress, setMetaMaskAddress] = useState();
-  const [MetaMaskModalInputAddress, setMetaMaskModalInputAddress] = useState();
-  console.log(MetaMaskAddress, MetaMaskModalInputAddress);
 
-  const [MetaMaskCalculatorDATA, setMetaMaskCalculatorDATA] = useState();
-  const [TotalCalculatedDATA, setTotalCalculatedDATA] = useState();
+  const [MetaMaskCalculatedDATA, setMetaMaskCalculatedDATA] = useState();
+  console.log(KeplrCalculatedDATA, MetaMaskCalculatedDATA);
 
-  // const [wallet, setWallet] = useState([]);
-  // const [inputWallet, setInputWallet] = useState();
-  // var AllWallets =
-  //   wallet &&
-  //   [...new Set(wallet)].filter((el) => {
-  //     return el !== null && typeof el !== undefined && el !== "";
-  //   });
+  // const [Total, setTotal] = useState(0);
 
-  // const [eligibilityDATA, setEligibilityDATA] = useState();
-  // console.log("eligibilityDATA", eligibilityDATA);
-  // const [showCalculator, setShowCalculator] = useState(false);
+  useEffect(() => {
+    fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmoAddress}`)
+      .then((res) => res.json())
+      .then((data) => {
+        data.success.toString() === "true"
+          ? setKeplrCalculatedDATA(data)
+          : data.address.toString() === "undefined"
+          ? setKeplrCalculatedDATA()
+          : setKeplrCalculatedDATA(false);
+      });
+  }, [OsmoAddress]);
 
-  // const [MetaMaskConnectionState, setMetaMaskConnectionState] = useState(0);
-  // const handleMetamaskConnect = async () => {
-  //   if (typeof window.ethereum !== "undefined") {
-  //     console.log("Connecting MetaMask...");
-  //     setMetaMaskConnectionState(1);
-
-  //     const accounts = await window.ethereum.request({
-  //       method: "eth_requestAccounts",
-  //     });
-  //     const account = accounts[0];
-
-  //     console.log("Account: ", account);
-  //     setMetaMaskConnectionState(2);
-  //     setWallet([...wallet, account]);
-  //   } else {
-  //     window.alert("Please install MetaMask to move forward with the task.");
-  //   }
-  // };
-
-  // const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  // const chainID = "osmosis-1";
-  // const handleKeplrConnect = async () => {
-  //   if (window.keplr) {
-  //     setKeplrConnectionState(1);
-  //     let offlineSigner = window.keplr.getOfflineSigner(chainID);
-  //     let accounts = await offlineSigner.getAccounts();
-  //     const account = accounts[0].address;
-  //     setKeplrWallet(account);
-  //     setKeplrConnectionState(2);
-  //     //   console.log("Account: ", account);
-  //     // keplr addresses array
-
-  //     //   const _chainIDArray = JSON.parse(chainIDs);
-  //     //   _chainIDArray.forEach(function (number) {
-  //     //     const addressK = window.keplr.getKey(number).then(
-  //     //       (result) => {
-  //     //         console.log(result.bech32Address);
-  //     //         // keplrWalletAddresses.push(result.bech32Address);
-  //     //         // setKeplrWalletAccount([
-  //     //         //   ...keplrWalletAccount,
-  //     //         //   result.bech32Address,
-  //     //         // ]);
-  //     //       },
-  //     //       (error) => {
-  //     //         console.log(error);
-  //     //       }
-  //     //     );
-  //     //     console.log(addressK);
-  //     //   });
-  //     // ends
-  //   } else {
-  //     window.alert("Please install Keplr to move forward with the task.");
-  //   }
-  // };
-
-  // const handleAddInputField = () => {
-  //   setWallet([...wallet, inputWallet]);
-  //   document.querySelector("#inputWalletAddress").value = "";
-  // };
-
-  // const handleClick = () => {
-  //   if (wallet) {
-  //     setEligibilityDATA({
-  //       stakeDrop: { eligible: true },
-  //       liquidityProviders: { eligible: false },
-  //       NFTOwners: { eligible: true },
-  //       MantleReservesForCreators: { eligible: true },
-  //     });
-  //     setShowCalculator(true);
-  //   }
-  // };
+  useEffect(() => {
+    fetch(`https://airdrop-data.assetmantle.one/metaMask/${MetaMaskAddress}`)
+      .then((res) => res.json())
+      .then((data) => {
+        data.success.toString() === "true"
+          ? setMetaMaskCalculatedDATA(data)
+          : data.address.toString() === "undefined"
+          ? setMetaMaskCalculatedDATA()
+          : setMetaMaskCalculatedDATA(false);
+      });
+  }, [MetaMaskAddress]);
 
   return (
     <>
@@ -188,7 +127,7 @@ export default function Airdrop() {
               <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1")}</h4>
             </div>
             <div className="section_drop__button">
-              {OsmoAddress || KeplrModalInputAddress ? undefined : (
+              {OsmoAddress ? undefined : (
                 <button onClick={() => setLPModalStat(true)}>
                   Check Eligibility
                 </button>
@@ -196,33 +135,18 @@ export default function Airdrop() {
             </div>
           </div>
           <div className="section_drop__data">
-            {OsmoAddress || KeplrModalInputAddress ? (
+            {OsmoAddress ? (
               <div className="sectionDropAdd">
-                <span>Wallet Addresses</span>
-                <span>Edit</span>
+                <span>Wallet Address: {OsmoAddress}</span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setLPModalStat(true)}
+                >
+                  Edit
+                </span>
               </div>
             ) : undefined}
-            {OsmoAddress && (
-              <div className="section_wallets__form">
-                <input
-                  type="text"
-                  value={OsmoAddress}
-                  onChange={(e) => setOsmoAddress(e.target.value)}
-                  placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-                />
-              </div>
-            )}
-            {KeplrModalInputAddress && (
-              <div className="section_wallets__form">
-                <input
-                  type="text"
-                  value={KeplrModalInputAddress}
-                  onChange={(e) => setKeplrModalInputAddress(e.target.value)}
-                  placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-                />
-              </div>
-            )}
-            {KeplrCalculatedDATA && (
+            {KeplrCalculatedDATA && KeplrCalculatedDATA.allocation ? (
               <>
                 <section className="section_allocation">
                   <h3>{t("AIRDROP_ALLOCATION_SINGLE_TITLE")}</h3>
@@ -234,13 +158,14 @@ export default function Airdrop() {
                       />
                       <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
                     </div>
-                    <p>{t("AIRDROP_ALLOCATION_VALUE")}</p>
+                    <p>
+                      {KeplrCalculatedDATA &&
+                        KeplrCalculatedDATA.allocation &&
+                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}
+                    </p>
                   </div>
                 </section>
-                <section className="section_allocation_by_network">
-                  {/* <h4 className="section_allocation_by_network__title">
-              {t("AIRDROP_ALLOCATION_BY_NETWORK_TITLE")}
-            </h4> */}
+                {/* <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
                       <h4>Pools</h4>
@@ -259,9 +184,16 @@ export default function Airdrop() {
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                     </div>
                   </div>
-                </section>
+                </section> */}
               </>
-            )}
+            ) : KeplrCalculatedDATA === false ? (
+              <section className="section_allocation">
+                <h3>
+                  Sorry, you are not eligible. Please checkout{" "}
+                  <a href="/stakedrop">StakeDrop</a> campaign to participate
+                </h3>
+              </section>
+            ) : undefined}
           </div>
           <div className="section_drop__element">
             <div className="section_drop__element_details">
@@ -272,43 +204,26 @@ export default function Airdrop() {
               <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2")}</h4>
             </div>
             <div className="section_drop__button">
-              {!MetaMaskAddress || !MetaMaskModalInputAddress ? (
+              {MetaMaskAddress ? undefined : (
                 <button onClick={() => setMetaMaskModalStat(true)}>
                   Check Eligibility
                 </button>
-              ) : (
-                ""
               )}
             </div>
           </div>
           <div className="section_drop__data">
-            {MetaMaskAddress || MetaMaskModalInputAddress ? (
+            {MetaMaskAddress ? (
               <div className="sectionDropAdd">
-                <span>Wallet Addresses</span>
-                <span>Edit</span>
+                <span>Wallet Address: {MetaMaskAddress}</span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setMetaMaskModalStat(true)}
+                >
+                  Edit
+                </span>
               </div>
             ) : undefined}
-            {MetaMaskAddress && (
-              <div className="section_wallets__form">
-                <input
-                  type="text"
-                  value={MetaMaskAddress}
-                  onChange={(e) => setMetaMaskAddress(e.target.value)}
-                  placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-                />
-              </div>
-            )}
-            {MetaMaskModalInputAddress && (
-              <div className="section_wallets__form">
-                <input
-                  type="text"
-                  value={MetaMaskModalInputAddress}
-                  onChange={(e) => setMetaMaskModalInputAddress(e.target.value)}
-                  placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-                />
-              </div>
-            )}
-            {MetaMaskCalculatorDATA && (
+            {MetaMaskCalculatedDATA && MetaMaskCalculatedDATA.allocation ? (
               <>
                 <section className="section_allocation">
                   <h3>{t("AIRDROP_ALLOCATION_SINGLE_TITLE")}</h3>
@@ -320,13 +235,14 @@ export default function Airdrop() {
                       />
                       <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
                     </div>
-                    <p>{t("AIRDROP_ALLOCATION_VALUE")}</p>
+                    <p>
+                      {MetaMaskCalculatedDATA &&
+                        MetaMaskCalculatedDATA.allocation &&
+                        Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
+                    </p>
                   </div>
                 </section>
-                <section className="section_allocation_by_network">
-                  {/* <h4 className="section_allocation_by_network__title">
-              {t("AIRDROP_ALLOCATION_BY_NETWORK_TITLE")}
-            </h4> */}
+                {/* <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
                       <h4>Pools</h4>
@@ -345,9 +261,16 @@ export default function Airdrop() {
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                     </div>
                   </div>
-                </section>
+                </section> */}
               </>
-            )}
+            ) : MetaMaskCalculatedDATA === false ? (
+              <section className="section_allocation">
+                <h3>
+                  Sorry, you are not eligible. Please checkout{" "}
+                  <a href="/stakedrop">StakeDrop</a> campaign to participate
+                </h3>
+              </section>
+            ) : undefined}
           </div>
         </section>
         <section className="section_wallets">
@@ -415,7 +338,7 @@ export default function Airdrop() {
         </div>*/}
           </>
         </section>
-        {TotalCalculatedDATA && (
+        {KeplrCalculatedDATA || MetaMaskCalculatedDATA ? (
           <>
             <section className="section_allocation">
               <h3>{t("AIRDROP_ALLOCATION_TITLE")}</h3>
@@ -427,34 +350,56 @@ export default function Airdrop() {
                   />
                   <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
                 </div>
-                <p>{t("AIRDROP_ALLOCATION_VALUE")}</p>
+                <p>
+                  {MetaMaskCalculatedDATA &&
+                  MetaMaskCalculatedDATA.allocation &&
+                  KeplrCalculatedDATA &&
+                  KeplrCalculatedDATA.allocation
+                    ? (
+                        Number(MetaMaskCalculatedDATA.allocation) +
+                        Number(KeplrCalculatedDATA.allocation)
+                      ).toFixed(2)
+                    : MetaMaskCalculatedDATA &&
+                      MetaMaskCalculatedDATA.allocation
+                    ? Number(MetaMaskCalculatedDATA.allocation).toFixed(2)
+                    : KeplrCalculatedDATA && KeplrCalculatedDATA.allocation
+                    ? Number(KeplrCalculatedDATA.allocation).toFixed(2)
+                    : undefined}
+                </p>
               </div>
             </section>
             <section className="section_allocation_by_network">
-              {/* <h4 className="section_allocation_by_network__title">
-              {t("AIRDROP_ALLOCATION_BY_NETWORK_TITLE")}
-            </h4> */}
               <div className="section_allocation_by_network__element">
                 <div className="section_allocation_by_network__element_option">
-                  <h4>Pools</h4>
-                  <p>Liquidity Provided</p>
+                  <h4>Category</h4>
+                  <p>$MNTL Allocation</p>
                 </div>
-                <div className="section_allocation_by_network__element_option">
-                  <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
-                  <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE")}</p>
-                </div>
-                <div className="section_allocation_by_network__element_option">
-                  <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
-                  <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE")}</p>
-                </div>
-                <div className="section_allocation_by_network__element_option">
+                {KeplrCalculatedDATA && KeplrCalculatedDATA.allocation && (
+                  <div className="section_allocation_by_network__element_option">
+                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
+                    <p>
+                      {KeplrCalculatedDATA &&
+                        KeplrCalculatedDATA.allocation &&
+                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}
+                    </p>
+                  </div>
+                )}
+                {MetaMaskCalculatedDATA && MetaMaskCalculatedDATA.allocation && (
+                  <div className="section_allocation_by_network__element_option">
+                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
+                    <p>
+                      {Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
+                    </p>
+                  </div>
+                )}
+                {/* <div className="section_allocation_by_network__element_option">
                   <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                   <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                </div>
+                </div> */}
               </div>
             </section>
           </>
-        )}
+        ) : undefined}
         <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("AIRDROP_NFT_OWNERS_HEADING")}</h3>
@@ -470,7 +415,7 @@ export default function Airdrop() {
               <h4>{t("AIRDROP_NFT_OWNERS_VALUE")}</h4>
             </div>
             <div className="section_drop__button two">
-              <a
+              {/* <a
                 href={
                   airDropData.NFTOwners.href !== null ||
                   airDropData.NFTOwners.href !== undefined ||
@@ -480,22 +425,20 @@ export default function Airdrop() {
                 }
               >
                 {t("NOTIFY_ME")}
-              </a>
+              </a> */}
             </div>
           </div>
         </section>
         {LPModalStat && (
           <LPModal
             closeModal={setLPModalStat}
-            setKeplr1={setOsmoAddress}
-            setKeplr2={setKeplrModalInputAddress}
+            setKeplrWallet={setOsmoAddress}
           />
         )}
         {MetaMaskModalStat && (
           <MetaMaskModal
             closeModal={setMetaMaskModalStat}
-            setMetaMask1={setMetaMaskAddress}
-            setMetaMask2={setMetaMaskModalInputAddress}
+            setMetaMaskWallet={setMetaMaskAddress}
           />
         )}
       </AirdropContainer>
