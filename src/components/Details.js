@@ -7,7 +7,7 @@ const Details = ({ title, details }) => {
       <summary>
         {title}
         <span>
-          <img src="/images/landing/triangle.svg" alt="dropdown" />
+          <img src="/images/icons/down.svg" alt="dropdown" />
         </span>
       </summary>
       <p className="details">{details}</p>
