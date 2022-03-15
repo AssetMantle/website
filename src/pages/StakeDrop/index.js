@@ -44,7 +44,6 @@ export default function StakeDrop() {
     t("STAKEDROP_WHAT_IS_STAKEDROP_LI_1"),
     t("STAKEDROP_WHAT_IS_STAKEDROP_LI_2"),
     t("STAKEDROP_WHAT_IS_STAKEDROP_LI_3"),
-    t("STAKEDROP_WHAT_IS_STAKEDROP_LI_4"),
   ];
 
   const howItWorksLIST = [
