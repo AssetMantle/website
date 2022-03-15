@@ -34,6 +34,6 @@ jobs:
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
-          environment: 'staging'
+          environment: 'staging.airdrop'
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
