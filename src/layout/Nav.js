@@ -13,6 +13,16 @@ export default function Nav() {
     <NavContainer>
       <div className="nav__container">
         <div className="nav__container_box">
+          <NavLink to="/" className={location.pathname === "/" && "active"}>
+            Airdrop
+          </NavLink>
+          <NavLink
+            to="/stakedrop"
+            className={location.pathname === "/stakedrop" && "active"}
+          >
+            StakeDrop
+          </NavLink>
+          <NavLinkA href="https://assetmantle.one">assetmantle.one</NavLinkA>
           {DATA &&
             React.Children.toArray(
               DATA.navItems.normal.map((data) => (
@@ -21,16 +31,12 @@ export default function Nav() {
                     <>
                       {data.href && data.href.charAt(0) === "/" ? (
                         <NavLink
-                          to={
-                            data.text === "Home"
-                              ? "https://assetmantle.one"
-                              : data.href
-                          }
+                          to={data.href}
                           className={
                             location.pathname === data.href && "active"
                           }
                         >
-                          {data.text === "Home" ? "assetmantle.one" : data.text}
+                          {data.text}
                         </NavLink>
                       ) : data.href === undefined || data.href === null ? (
                         <NavDetails

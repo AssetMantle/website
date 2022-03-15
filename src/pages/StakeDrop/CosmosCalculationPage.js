@@ -80,6 +80,25 @@ export default function CosmosCalculationPage() {
       .catch((err) => console.log(err));
   };
 
+  // Time left count down
+  const [TimeLeft, setTimeLeft] = useState(0);
+  var countDownDate = new Date(2022, 2, 22, 17, 30).getTime();
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    setTimeLeft(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+    if (distance < 0) {
+      clearInterval(x);
+      setTimeLeft("EXPIRED");
+    }
+  }, 1000);
+
   return (
     <>
       <Container>
@@ -272,7 +291,7 @@ export default function CosmosCalculationPage() {
                   {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
                 </p>
                 <h3 className="section__overview_campaignStat__option_value">
-                  {/* 00:00:00:00 */}22 Mar 2022
+                  {TimeLeft}
                 </h3>
               </div>
               <div className="section__overview_campaignStat__option">
