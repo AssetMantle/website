@@ -35,8 +35,23 @@ export default function HowToModal({ address, closeModal }) {
             </strong>
           </p>
           <p>
+            <strong>CLI Users:</strong>
+            <br />
+            Please follow the following command to do the magic transaction
+          </p>
+          <p>
             <strong>
-              Note: The amount sent will be refunded back to the origin address
+              gaiad tx bank send [FROM_YOUR_ADDRESS]
+              cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr 1uatom --chain-id
+              cosmoshub-4 --fees 3000uatom --node{" "}
+              <a href="https://rpc.cosmos.network:443">
+                https://rpc.cosmos.network:443
+              </a>
+            </strong>
+          </p>
+          <p>
+            <strong>
+              Note: The amount sent will be refunded back to the origin address.
             </strong>
           </p>
           <div className="modal_container__button">
@@ -128,6 +143,10 @@ const Container = styled.div`
       strong {
         font: 600 var(--p-m);
         color: var(--gray);
+      }
+      a {
+        color: var(--yellow);
+        text-decoration: none;
       }
     }
     &__button {
