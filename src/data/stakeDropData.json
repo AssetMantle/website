@@ -1,8 +1,8 @@
 {
   "intro": {
     "title": "AssetMantle Stakedrop",
-    "sub_title": "Stake your tokens and earn free $MNTL",
-    "description": "Stakers will be rewarded with $MNTL tokens for their contribution in securing some of the most prominent Proof-of-Stake networks",
+    "sub_title": "Early access to $MNTL. Stake now!",
+    "description": "Stakers on the nominated IBC connected chains will be rewarded with $MNTL tokens",
     "buttons": [
       {
         "text": "9,000,000 $MNTL",
@@ -16,33 +16,33 @@
   },
   "whatIs": {
     "title": "What is Stakedrop?",
-    "description": "StakeDrop is a token distribution mechanism that allows token holders of some of the most prominent Proof-of-Stake networks to get exposure to $MNTL tokens (AssetMantle tokens).",
+    "description": "StakeDrop is a token distribution mechanism that allows stakers of some of the most prominent Proof-of-Stake networks to get exposure to $MNTL tokens (AssetMantle tokens).",
     "list": [
-      "We will be distributing 9,000,000 $MNTL tokens to participants of StakeDrop across all the seven different campaigns",
-      "To participate in StakeDrop, you need to stake your tokens with any active validator (on-chain staking) and send a magic transaction to the wallet address provided by us.",
-      "All on-chain staking wallets are supported.",
-      "There are two rewards pools per campaign. All participants are rewarded through the Network Rewards Pool."
+      "9,000,000 $MNTL tokens will be distributed to participants of Stakedrop across all the six different chains.",
+      "To participate in the campaign, users will need to stake their tokes with any active validator and send a magic transaction to the designated wallet address.",
+      "All on-chain staking wallets are eligible.",
+      "Test"
     ]
   },
   "howItWorks": {
     "title": "How it works",
-    "description": "Get $MNTL tokens in a few simple steps",
+    "description": "",
     "steps": [
       {
-        "title": "Step 1: Get Staking",
-        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. "
+        "title": "Step 1: Stake",
+        "description": " Stake tokens(or remain staked) with any active validator on an ongoing StakeDrop campaign chain"
       },
       {
-        "title": "Step 2: Register Wallet with Magic Transaction",
-        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+        "title": "Step 2: Send Magic transaction",
+        "description": "Send a transaction with the smallest amount of native chain token to the designated StakeDrop wallet address"
       },
       {
-        "title": "Step 3: Recipient Address Listed on the Website",
-        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+        "title": "Step 3: Confirm Participation",
+        "description": "Enter the staked wallet address on the StakeDrop campaign dashboard to confirm your participation"
       },
       {
-        "title": "Step 4: Earn Rewards",
-        "description": "Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa."
+        "title": "Step 4: Claim Tokens",
+        "description": "Answer daily quiz on the StakeDrop campaign dashboard to claim $MNTL tokens"
       }
     ]
   },
@@ -176,12 +176,12 @@
       "option3": {
         "title": "Start Date",
         "value": "15 Mar 2022",
-        "details": "Block Height: --"
+        "details": "Block Height: 9758961 "
       },
       "option4": {
         "title": "End Date",
-        "value": "15 Apr 2022",
-        "details": "Block Height: --"
+        "value": "22 Mar 2022",
+        "details": "Block Height: 9839600"
       }
     },
     "campaignStat": {
@@ -195,8 +195,8 @@
       },
       "option3": {
         "title": "Total Staked",
-        "value": "-- ATOM",
-        "details": "Total Active: 0"
+        "value": "ATOM",
+        "details": "Total Active: "
       },
       "option4": {
         "title": "Total Staked on AUDIT.one",

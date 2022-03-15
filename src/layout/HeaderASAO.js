@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
 
@@ -16,24 +16,24 @@ export default function HeaderASAO() {
   return (
     <HeaderContainer className={padding}>
       <div className="header__left airdrop">
-        <Link to="/">
+        <a href="https://assetmantle.one">
           <img
             src="/images/icons/logo.svg"
             alt="AssetMantle"
             className="AssetMantle.one"
           />
-        </Link>
+        </a>
         <h2 className="airdrop_text">
           {window.location.pathname === "/airdrop"
             ? "Airdrop"
-            : window.location.pathname === "/stakedrop"
+            : window.location.href.includes("stakedrop")
             ? "Stakedrop"
             : undefined}
         </h2>
       </div>
       <div className="header__right ">
         <div className="header__right_one">
-          <a href="assetmantle.one">assetmantle.one</a>
+          {/* <a href="assetmantle.one">assetmantle.one</a> */}
           <NavIcon
             className="toggler"
             tabIndex="0"

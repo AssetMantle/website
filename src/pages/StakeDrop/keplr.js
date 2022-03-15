@@ -12,17 +12,9 @@ const MicroFactor = 1000000;
 
 //set comdex
 async function initializeKeplr() {
-  window.onload = async () =>
-  {
-    if (!window.keplr) {
-      alert("Please install keplr extension");
-    } else {
-      if (!keplrSet) {
-        await setChain();
-        await window.keplr.enable(comdexChainID);
-        keplrSet = true;
-      }
-    }
+  if (!window.keplr) {
+    await setChain();
+    await window.keplr.enable(comdexChainID);
   }
 }
 
