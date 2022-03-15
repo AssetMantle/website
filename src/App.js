@@ -16,6 +16,7 @@ import Pricing from "./pages/Pricing";
 import WhatsAnNFT from "./pages/WhatsAnNFT";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
+import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -65,6 +66,10 @@ const App = () => {
     {
       component: StakeDrop,
       path: "/stakedrop",
+    },
+    {
+      component: CosmosCalculationPage,
+      path: "/stakedrop/cosmos",
     },
   ];
 

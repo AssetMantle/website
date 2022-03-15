@@ -13,7 +13,7 @@ const MicroFactor = 1000000;
 //set comdex
 async function initializeKeplr() {
   if (!window.keplr) {
-    alert("Please install keplr extension1");
+    alert("Please install keplr extension");
   } else {
     if (!keplrSet) {
       await setChain();

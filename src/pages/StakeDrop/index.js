@@ -5,13 +5,10 @@ import { useTranslation } from "react-i18next";
 import UList from "../../components/UList";
 import UList2 from "../../components/UList2";
 import Details from "../../components/Details";
-import Modal from "./Modal";
 
 export default function StakeDrop() {
   const { t } = useTranslation();
 
-  const [modal, setModal] = useState("");
-  const [modalStat, setModalStat] = useState(false);
   const [cosmosDropStats, setCosmosDropStats] = useState({
     isCompleted: false,
     rewardLine1: 1234,
@@ -245,15 +242,12 @@ export default function StakeDrop() {
                       src={`/images/stakedrop/${data.logo}`}
                       alt="cosmos (atom) logo"
                     />
-                    <button
-                      onClick={() => {
-                        setModal(data.name);
-                        setModalStat(true);
-                      }}
+                    <a
+                      href="/stakedrop/cosmos"
                       className="section_availableStakeDrop__body_element__title_button_normal"
                     >
                       {t("VIEW")}
-                    </button>
+                    </a>
                     <button className="section_availableStakeDrop__body_element__title_button_completed">
                       {t("DETAILS")}
                     </button>
@@ -357,7 +351,7 @@ export default function StakeDrop() {
             )}
         </section>
       </StakeDropContainer>
-      {modalStat && <Modal modalTitle={modal} closeModal={setModalStat} />}
+      {/* {modalStat && <Modal modalTitle={modal} closeModal={setModalStat} />} */}
     </>
   );
 }
