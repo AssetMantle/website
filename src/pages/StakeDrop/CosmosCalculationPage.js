@@ -71,7 +71,7 @@ export default function CosmosCalculationPage() {
         if (data.success.toString() === "true") {
           console.log(data);
           setStakeAddress(data.mantleAddress);
-          setTotalStaked(data.totalStakeDropGlobalDelegation);
+          setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
@@ -296,7 +296,7 @@ export default function CosmosCalculationPage() {
                 </p>
                 <h3 className="section__overview_campaignStat__option_value">
                   {CampaignStat
-                    ? (Number(CampaignStat.totalStakeDropAuditDelegation) /
+                    ? (Number(CampaignStat.totalStakeDropGlobalDelegation) /
                       1000000).toLocaleString('en-US', {maximumFractionDigits:4})
                     : "--"}
                   {` $ATOM`}
