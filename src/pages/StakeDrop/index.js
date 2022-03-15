@@ -216,10 +216,9 @@ export default function StakeDrop() {
         <section className="section_explanation">
           <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
           <div className="section_explanation__video">
-            <ReactPlayer url='/resources/Stakedrop_explained.mp4' controls={true}
+            <ReactPlayer url='https://youtu.be/FVOLWGemPio' controls={true}
                          width='100%'
                          height='100%'
-                         light={'/images/stakedrop/video_thumbnail.png'}
             />
           </div>
         </section>
