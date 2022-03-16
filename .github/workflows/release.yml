@@ -4,7 +4,7 @@ name: Airdrop-Main-Release
 on:
    push:
      tags:
-       - '*'
+       - 'mantleDrop/**'
 
 jobs:
   deploy:
