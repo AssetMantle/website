@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 import { StakeDropContainer } from "../../styles/pages/stakeDropStyle";
 import { useTranslation } from "react-i18next";
 
@@ -216,9 +216,11 @@ export default function StakeDrop() {
         <section className="section_explanation">
           <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
           <div className="section_explanation__video">
-            <ReactPlayer url='https://youtu.be/FVOLWGemPio' controls={true}
-                         width='100%'
-                         height='100%'
+            <ReactPlayer
+              url="https://youtu.be/FVOLWGemPio"
+              controls={true}
+              width="100%"
+              height="100%"
             />
           </div>
         </section>
