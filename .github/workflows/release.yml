@@ -1,5 +1,5 @@
 ---
-name: Release 
+name: Airdrop-Main-Release
 
 on:
   release:
@@ -27,10 +27,13 @@ jobs:
         run: yarn
       - name: Build react project
         run: yarn build
-        env: 
-          REACT_APP_MAIL_CHIMP_URL: 'https://one.us20.list-manage.com/subscribe/post?u=37c5b698f25664907f640640b&amp;id=11dfe43af3'
+        env:
+          CI: false
+          REACT_APP_MAIL_CHIMP_URL: "https://one.us20.list-manage.com/subscribe/post?u=37c5b698f25664907f640640b&amp;id=11dfe43af3"
       - name: Publish
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
-          environment: 'release'
+          environment: "airdrop"
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}

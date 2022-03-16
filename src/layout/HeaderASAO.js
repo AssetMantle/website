@@ -16,7 +16,7 @@ export default function HeaderASAO() {
   return (
     <HeaderContainer className={padding}>
       <div className="header__left airdrop">
-        <a href="https://assetmantle.one">
+        <a href="/">
           <img
             src="/images/icons/logo.svg"
             alt="AssetMantle"
