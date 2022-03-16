@@ -16,7 +16,7 @@
     "href": "/stakedrop"
   },
   "reqEligibilityCheck": {
-    "heading": "Requires Eligibility Check",
+    "heading": "Eligibility Checker",
     "checks": [
       {
         "title": "Osmomis Liquidity Providers",
