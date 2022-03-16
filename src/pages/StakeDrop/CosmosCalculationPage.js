@@ -4,12 +4,16 @@ import styled from "styled-components";
 import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
+import { BiTimeFive } from "react-icons/bi";
+import QAComponent from "./QAComponent";
 
 export default function CosmosCalculationPage() {
   const { t } = useTranslation();
   const sendingAddress = "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr";
   const DATA = data.modal;
   const [modal, setModal] = useState(false);
+  const [QuizModal, setQuizModal] = useState(false);
+  const [Quiz, setQuiz] = useState(true);
   const [Address, setAddress] = useState();
   const [MTButtonText, setMTButtonText] = useState(0);
 
@@ -54,6 +58,7 @@ export default function CosmosCalculationPage() {
     if (response === 0) {
       setIsMagicTransaction(true);
       setMTButtonText(3);
+      alert("Magic Transaction Successful");
     } else {
       setIsMagicTransaction(false);
       setMTButtonText(2);
@@ -84,6 +89,11 @@ export default function CosmosCalculationPage() {
         }
       })
       .catch((err) => console.log(err));
+    fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
+      .then((res) => res.json())
+      .then((data) =>
+        data.success.toString() === "true" ? setQuiz(true) : setQuiz(false)
+      );
   };
 
   // Time left count down
@@ -105,6 +115,37 @@ export default function CosmosCalculationPage() {
     }
   }, 1000);
 
+  // time left for quiz
+
+  const [Day, setDay] = useState(1);
+  useEffect(() => {
+    fetch("https://cosmos-stakedrop.assetmantle.one/qna")
+      .then((res) => res.json())
+      .then((data) => {
+        setDay(data.day);
+      });
+  }, []);
+  const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
+  var countDownDate2 = new Date(
+    2022,
+    2,
+    { 1: 17, 2: 18, 3: 19, 4: 20, 5: 21, 6: 22 }[Day],
+    17,
+    59
+  ).getTime();
+  var xn = setInterval(function () {
+    var now2 = new Date().getTime();
+    var distance = countDownDate2 - now2;
+    var hours2 = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    setTimeLeftQuiz(hours2 > 1 ? hours2 + "hours Left" : hours2 + "hour Left");
+    if (distance < 0) {
+      clearInterval(xn);
+      setTimeLeftQuiz("EXPIRED");
+    }
+  }, 1000);
+
   return (
     <>
       <Container>
@@ -115,220 +156,292 @@ export default function CosmosCalculationPage() {
           <img src="/images/stakedrop/back_arrow.svg" alt="back arrow" />
           <h2>Back to AssetMantle StakeDrop page</h2>
         </section>
-        <section className="section_calculation lighter_bg">
-          <h2>Calculate Your Estimated Rewards</h2>
-          <div className="section_calculation__connect">
-            <p className="section_calculation__connect_text">
-              Connect your wallet to calculate estimated rewards
-            </p>
-            <div
-              className="section_calculation__connect_button"
-              onClick={handleKeplrConnect}
-            >
-              <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-              <span>{`${
-                { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
-                  KeplrConnectionState
-                ]
-              } Keplr`}</span>
-            </div>
-          </div>
-          <div className="section_calculation__or">Or</div>
-          <div className="section_calculation__from">
-            <label
-              htmlFor="walletAddress"
-              className="section_calculation__from_label"
-            >
-              Enter your wallet address
-            </label>
-            <div className="section_calculation__from_line2">
-              <input
-                type="text"
-                name="walletAddress"
-                value={Address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="section_calculation__from_line2_input"
-                placeholder="Enter your cosmos wallet address"
-              />
-              <button
-                onClick={handleCalculate}
-                className="section_calculation__from_line2_button"
-                disabled={
-                  Address !== null && Address !== "" && Address !== undefined
-                    ? false
-                    : true
-                }
-              >
-                Calculate
-              </button>
-            </div>
-          </div>
-          {IsMagicTransaction === false && (
-            <div className="section_calculation__error">
-              <div className="section_calculation__error_element">
-                <div className="section_calculation__error_element__line1">
-                  <img src="/images/stakedrop/info.svg" alt="info icon" />
-                  <h3>You have not completed the magic transaction</h3>
+        <div className="calculate_grid">
+          <div className="left">
+            <section className="section__overview">
+              <div>
+                <div className="section__overview_campaign lighter_bg">
+                  <h3 className="section__overview_campaign__title">
+                    {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
+                  </h3>
+                  <div className="section__overview_campaign__option">
+                    <p className="section__overview_campaign__option_label                                                                                                                        ">
+                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaign__option_value">
+                      {DATA.campaign.option2.value}
+                    </h3>
+                  </div>
+                  <div className="section__overview_campaign__option">
+                    <p className="section__overview_campaign__option_label                                                                                                                        ">
+                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaign__option_value">
+                      {DATA.campaign.option3.value}
+                    </h3>
+                    <p className="section__overview_campaign__option_details">
+                      {DATA.campaign.option3.details}
+                    </p>
+                  </div>
+                  <div className="section__overview_campaign__option">
+                    <p className="section__overview_campaign__option_label                                                                                                                        ">
+                      Reward Distribution Start Date
+                    </p>
+                    <h3 className="section__overview_campaign__option_value">
+                      {DATA.campaign.option3i.value}
+                    </h3>
+                    <p className="section__overview_campaign__option_details">
+                      {DATA.campaign.option3i.details}
+                    </p>
+                  </div>
+                  <div className="section__overview_campaign__option">
+                    <p className="section__overview_campaign__option_label                                                                                                                        ">
+                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaign__option_value">
+                      {DATA.campaign.option4.value}
+                    </h3>
+                    <p className="section__overview_campaign__option_details">
+                      {DATA.campaign.option4.details}
+                    </p>
+                  </div>
                 </div>
-                <div className="section_calculation__error_element__line2">
-                  <p>
-                    You have to complete a magic transaction in order to
-                    calculate estimated rewards. Here's a quick guide on how to
-                    do this:{" "}
-                    <span onClick={() => setModal(true)}>
-                      Magic Transaction Guide
-                    </span>{" "}
-                    <br />
-                    <br />
-                    NOTE: If you have already sent magic transaction, please
-                    wait for couple of minutes to confirm your participation.
+              </div>
+              <div>
+                <div className="section__overview_campaignStat lighter_bg">
+                  <h3 className="section__overview_campaignStat__title">
+                    {t("STAKEDROP_MODAL_CAMPAIGNSTAT_TITLE")}
+                  </h3>
+                  <div className="section__overview_campaignStat__option">
+                    <p className="section__overview_campaignStat__option_label">
+                      {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaignStat__option_value">
+                      {CampaignStat
+                        ? (
+                            2000000 -
+                            Number(CampaignStat.totalDistributed) / 1000000
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : "--"}
+                      {` $MNTL`}
+                    </h3>
+                  </div>
+                  <div className="section__overview_campaignStat__option">
+                    <p className="section__overview_campaignStat__option_label">
+                      {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaignStat__option_value">
+                      {TimeLeft}
+                    </h3>
+                  </div>
+                  <div className="section__overview_campaignStat__option">
+                    <p className="section__overview_campaignStat__option_label">
+                      {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_3_TITLE")}
+                    </p>
+                    <h3 className="section__overview_campaignStat__option_value">
+                      {CampaignStat
+                        ? (
+                            Number(
+                              CampaignStat.totalStakeDropGlobalDelegation
+                            ) / 1000000
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : "--"}
+                      {` $ATOM`}
+                    </h3>
+                    <p className="section__overview_campaign__option_details">
+                      {`Total Active: `}
+                      {CampaignStat
+                        ? (
+                            Number(CampaignStat.worldGlobalDelegation) / 1000000
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : "--"}{" "}
+                      $ATOM
+                    </p>
+                  </div>
+                  <div className="section__overview_campaignStat__option">
+                    <p className="section__overview_campaignStat__option_label">
+                      Total Participants
+                    </p>
+                    <h3 className="section__overview_campaignStat__option_value">
+                      {CampaignStat
+                        ? Number(CampaignStat.numDelegators).toLocaleString(
+                            "en-US",
+                            { maximumFractionDigits: 4 }
+                          )
+                        : "--"}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div className="right">
+            <section className="section_calculation lighter_bg">
+              <h2>Calculate Your Estimated Rewards</h2>
+              <div className="section_calculation__connect">
+                <p className="section_calculation__connect_text">
+                  Connect your wallet to calculate estimated rewards
+                </p>
+                <div
+                  className="section_calculation__connect_button"
+                  onClick={handleKeplrConnect}
+                >
+                  <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+                  <span>{`${
+                    { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                      KeplrConnectionState
+                    ]
+                  } Keplr`}</span>
+                </div>
+              </div>
+              <div className="section_calculation__or">Or</div>
+              <div className="section_calculation__from">
+                <label
+                  htmlFor="walletAddress"
+                  className="section_calculation__from_label"
+                >
+                  Enter your wallet address
+                </label>
+                <div className="section_calculation__from_line2">
+                  <input
+                    type="text"
+                    name="walletAddress"
+                    value={Address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="section_calculation__from_line2_input"
+                    placeholder="Enter your cosmos wallet address"
+                  />
+                  <button
+                    onClick={handleCalculate}
+                    className="section_calculation__from_line2_button"
+                    disabled={
+                      Address !== null &&
+                      Address !== "" &&
+                      Address !== undefined
+                        ? false
+                        : true
+                    }
+                  >
+                    Calculate
+                  </button>
+                </div>
+              </div>
+              {IsMagicTransaction === false && (
+                <div className="section_calculation__error">
+                  <div className="section_calculation__error_element">
+                    <div className="section_calculation__error_element__line1">
+                      <img src="/images/stakedrop/info.svg" alt="info icon" />
+                      <h3>You have not completed the magic transaction</h3>
+                    </div>
+                    <div className="section_calculation__error_element__line2">
+                      <p>
+                        You have to complete a magic transaction in order to
+                        calculate estimated rewards. Here's a quick guide on how
+                        to do this:{" "}
+                        <span onClick={() => setModal(true)}>
+                          Magic Transaction Guide
+                        </span>{" "}
+                        <br />
+                        <br />
+                        NOTE: If you have already sent magic transaction, please
+                        wait for couple of minutes to confirm your
+                        participation.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="section_calculation__error_element">
+                    <button
+                      onClick={handleMagicTransaction}
+                      className="section_calculation__error_element__button"
+                    >
+                      {
+                        {
+                          0: "Complete Magic Transaction",
+                          1: "Processing...",
+                          2: "Failed - Retry",
+                          3: "Successful",
+                        }[MTButtonText]
+                      }
+                    </button>
+                  </div>
+                </div>
+              )}
+              <div className="section_calculation__result">
+                <div className="section_calculation__result_address">
+                  <p className="section_calculation__result_address__label">
+                    MNTL Address
+                  </p>
+                  <p className="section_calculation__result_address__value">
+                    {StakeAddress !== null &&
+                    StakeAddress !== undefined &&
+                    StakeAddress !== ""
+                      ? StakeAddress
+                      : "--"}
                   </p>
                 </div>
+                <div className="section_calculation__result_rewards">
+                  <div className="section_calculation__result_rewards_reward">
+                    <p className="section_calculation__result_rewards_reward__label">
+                      Total Staked
+                    </p>
+                    <h3 className="section_calculation__result_rewards_reward__value">
+                      {(TotalStakedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "}
+                      $ATOM
+                    </h3>
+                  </div>
+                  <div className="section_calculation__result_rewards_reward">
+                    <p className="section_calculation__result_rewards_reward__label">
+                      Total Rewards
+                    </p>
+                    <h3 className="section_calculation__result_rewards_reward__value">
+                      {(TotalRewardN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "}
+                      $MNTL
+                    </h3>
+                  </div>
+                </div>
               </div>
-              <div className="section_calculation__error_element">
-                <button
-                  onClick={handleMagicTransaction}
-                  className="section_calculation__error_element__button"
-                >
-                  {
-                    {
-                      0: "Complete Magic Transaction",
-                      1: "Processing...",
-                      2: "Failed - Retry",
-                      3: "Successful",
-                    }[MTButtonText]
-                  }
-                </button>
-              </div>
-            </div>
-          )}
-          <div className="section_calculation__result">
-            <div className="section_calculation__result_address">
-              <p className="section_calculation__result_address__label">
-                MNTL Address
-              </p>
-              <p className="section_calculation__result_address__value">
-                {StakeAddress !== null &&
-                StakeAddress !== undefined &&
-                StakeAddress !== ""
-                  ? StakeAddress
-                  : "--"}
-              </p>
-            </div>
-            <div className="section_calculation__result_rewards">
-              <div className="section_calculation__result_rewards_reward">
-                <p className="section_calculation__result_rewards_reward__label">
-                  Total Staked
+            </section>
+            <section className="section_questions">
+              <div className="section_questions__qBox">
+                <div className="section_questions__qBox_title">
+                  <h3 className="section_questions__qBox_title__name">Quiz</h3>
+                  <div className="section_questions__qBox_title__right">
+                    <span>
+                      <BiTimeFive />
+                    </span>
+                    <p>{TimeLeftQuiz}</p>
+                  </div>
+                </div>
+                <p className="section_questions__qBox_details">
+                  Participate in the quiz to receive 40% of the $MNTL rewards at
+                  the end of the campaign.
                 </p>
-                <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalStakedN / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})} $ATOM
-                </h3>
+                <div className="section_questions__qBox_button">
+                  <button onClick={() => setQuizModal(true)} disabled={Quiz}>
+                    {Quiz === true ? "Completed" : "Take the Quiz"}
+                  </button>
+                </div>
               </div>
-              <div className="section_calculation__result_rewards_reward">
-                <p className="section_calculation__result_rewards_reward__label">
-                  Total Rewards
-                </p>
-                <h3 className="section_calculation__result_rewards_reward__value">
-                  {(TotalRewardN / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})} $MNTL
-                </h3>
-              </div>
-            </div>
+            </section>
           </div>
-        </section>
-        <section className="section__overview">
-          <div>
-            <div className="section__overview_campaign lighter_bg">
-              <h3 className="section__overview_campaign__title">
-                {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
-              </h3>
-              <div className="section__overview_campaign__option">
-                <p className="section__overview_campaign__option_label                                                                                                                        ">
-                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
-                </p>
-                <h3 className="section__overview_campaign__option_value">
-                  {DATA.campaign.option2.value}
-                </h3>
-              </div>
-              <div className="section__overview_campaign__option">
-                <p className="section__overview_campaign__option_label                                                                                                                        ">
-                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE")}
-                </p>
-                <h3 className="section__overview_campaign__option_value">
-                  {DATA.campaign.option3.value}
-                </h3>
-                <p className="section__overview_campaign__option_details">
-                  {DATA.campaign.option3.details}
-                </p>
-              </div>
-              <div className="section__overview_campaign__option">
-                <p className="section__overview_campaign__option_label                                                                                                                        ">
-                  Reward Distribution Start Date
-                </p>
-                <h3 className="section__overview_campaign__option_value">
-                  {DATA.campaign.option3i.value}
-                </h3>
-                <p className="section__overview_campaign__option_details">
-                  {DATA.campaign.option3i.details}
-                </p>
-              </div>
-              <div className="section__overview_campaign__option">
-                <p className="section__overview_campaign__option_label                                                                                                                        ">
-                  {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE")}
-                </p>
-                <h3 className="section__overview_campaign__option_value">
-                  {DATA.campaign.option4.value}
-                </h3>
-                <p className="section__overview_campaign__option_details">
-                  {DATA.campaign.option4.details}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="section__overview_campaignStat lighter_bg">
-              <h3 className="section__overview_campaignStat__title">
-                {t("STAKEDROP_MODAL_CAMPAIGNSTAT_TITLE")}
-              </h3>
-              <div className="section__overview_campaignStat__option">
-                <p className="section__overview_campaignStat__option_label">
-                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
-                </p>
-                <h3 className="section__overview_campaignStat__option_value">
-                  {CampaignStat
-                    ? (2000000 - Number(CampaignStat.totalDistributed) / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})
-                    : "--"}
-                  {` $MNTL`}
-                </h3>
-              </div>
-              <div className="section__overview_campaignStat__option">
-                <p className="section__overview_campaignStat__option_label">
-                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
-                </p>
-                <h3 className="section__overview_campaignStat__option_value">
-                  {TimeLeft}
-                </h3>
-              </div>
-              <div className="section__overview_campaignStat__option">
-                <p className="section__overview_campaignStat__option_label">
-                  {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_3_TITLE")}
-                </p>
-                <h3 className="section__overview_campaignStat__option_value">
-                  {CampaignStat
-                    ? (Number(CampaignStat.totalStakeDropGlobalDelegation) /
-                      1000000).toLocaleString('en-US', {maximumFractionDigits:4})
-                    : "--"}
-                  {` $ATOM`}
-                </h3>
-                <p className="section__overview_campaign__option_details">
-                  {`Total Active: `}
-                  {CampaignStat
-                    ? (Number(CampaignStat.worldGlobalDelegation) / 1000000).toLocaleString('en-US', {maximumFractionDigits:4})
-                    : "--"} $ATOM
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
+        {QuizModal === true && (
+          <QAComponent
+            Quiz={setQuiz}
+            TimeLeftQuiz={TimeLeftQuiz}
+            closeModal={setQuizModal}
+          />
+        )}
       </Container>
       {modal === true && (
         <HowToModal closeModal={setModal} address={sendingAddress} />
@@ -359,6 +472,14 @@ const Container = styled.main`
     background: #2c2c2c;
     border-radius: 12px;
   }
+  .calculate_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    @media (max-width: 760px) {
+      grid-template-columns: 1fr;
+    }
+  }
   .section {
     &_goBack {
       display: flex;
@@ -388,7 +509,9 @@ const Container = styled.main`
         display: flex;
         align-items: center;
         gap: 24px;
-        flex-wrap: wrap;
+        @media (max-width: 768px) {
+          flex-wrap: wrap;
+        }
         &_text {
           font-family: "Lato";
           font-style: normal;
@@ -442,22 +565,21 @@ const Container = styled.main`
         }
         &_line2 {
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           gap: 24px;
+          flex-direction: column;
+          justify-content: flex-end;
           flex-wrap: wrap;
           &_input {
             flex: 1;
             border: 1px solid var(--gray);
             border-radius: 12px;
-            padding: 12px 9px;
-            padding-left: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 12px 16px;
             font: var(--input);
             background: transparent;
             outline: none;
             color: var(--gray);
+            width: 100%;
             &::placeholder {
               color: var(--gray-deep);
             }
@@ -468,7 +590,8 @@ const Container = styled.main`
             background: transparent;
             border: 2px solid var(--yellow);
             border-radius: 12px;
-            padding: 8px 63px 10px;
+            padding: 8px 83px 10px;
+
             cursor: pointer;
             color: var(--yellow);
             text-decoration: none;
@@ -477,7 +600,7 @@ const Container = styled.main`
             &:focus {
               box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
             }
-            @media (max-width: 548px) {
+            @media (max-width: 768px) {
               width: 100%;
             }
             &:disabled {
@@ -608,20 +731,203 @@ const Container = styled.main`
         }
       }
     }
-    &__overview {
-      padding-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      @media (max-width: 548px) {
-        grid-template-columns: 1fr;
+    &_questions {
+      padding: 24px 0;
+      &__qBox {
+        position: relative;
+        background-color: var(--dark-m);
+        border-radius: 12px;
+        &_title {
+          padding: 40px;
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          justify-content: space-between;
+          border-bottom: 1px solid #3d3d3d;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+          &__name {
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          &__right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            span {
+              color: var(--yellow);
+              font: var(--p-m);
+              margin: 8px 0 auto;
+            }
+            p {
+              font: var(--p-m);
+              color: var(--gray);
+            }
+          }
+        }
+        &_left,
+        &_right {
+          color: var(--yellow);
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font: var(--p-m);
+          display: flex;
+          align-items: center;
+          &:disabled {
+            color: var(--yellow-disabled);
+          }
+        }
+        &_details {
+          font: var(--p-m);
+          padding: 40px;
+          color: var(--gray);
+          max-width: 768px;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+        }
+        &_button {
+          display: flex;
+          align-items: flex-end;
+          gap: 24px;
+          justify-content: flex-end;
+          padding: 0 40px 40px;
+          @media (max-width: 548px) {
+            padding: 0 20px 20px;
+          }
+          button {
+            padding: 10px 22.5px 12px;
+            display: inline;
+            font: 600 var(--p-m);
+            color: var(--dark-m);
+            text-transform: capitalize;
+            background: var(--yellow-gradient-bg);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+              inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
+            border-radius: 12px;
+            transition: all ease-in-out 100ms;
+            cursor: pointer;
+            color: var(--dark-m);
+            text-decoration: none;
+            border: none;
+            outline: none;
+            &:hover,
+            &:focus {
+              box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+            }
+            @media (max-width: 548px) {
+              width: 100%;
+            }
+            &:disabled {
+              background: none;
+              background-color: var(--yellow-disabled) !important;
+              box-shadow: none;
+              &:hover,
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
+        }
+        &_ques {
+          font: 600 var(--p-l);
+          padding: 0px 0 24px;
+          color: var(--gray);
+          max-width: 1176px;
+          padding: 0px 40px;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+        }
+        &_ans {
+          font: var(--p-m);
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          padding: 20px 40px;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+          &__s {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            &_radio {
+              height: 24px;
+              width: 24px;
+              border-radius: 50%;
+              border: 2px solid var(--yellow);
+              position: relative;
+              cursor: pointer;
+              input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+              }
+              &.selected {
+                span {
+                  position: absolute;
+                  top: 3px;
+                  left: 3px;
+                  background-color: var(--yellow);
+                  border-radius: 50%;
+                  height: 14px;
+                  width: 14px;
+                }
+              }
+            }
+            span {
+              color: var(--gray);
+            }
+          }
+        }
+        &_footer {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          justify-content: space-between;
+          padding-top: 24px;
+          padding: 20px 40px 40px;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+          &__element {
+            display: flex;
+            align-items: center;
+            &:nth-child(2) {
+              justify-content: center;
+              gap: 24px;
+            }
+          }
+          &__dot {
+            font: var(--p-m);
+            color: var(--gray);
+            &.selected {
+              color: var(--yellow);
+            }
+          }
+        }
       }
+    }
+    &__overview {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
       &_campaign,
       &_campaignStat {
         &__title {
           font: var(--h3);
+          font-size: 24px;
           color: var(--gray);
-          padding: 40px;
+          padding: 40px 30px;
           border-bottom: 1px solid #3d3d3d;
           @media (max-width: 548px) {
             padding: 20px;
@@ -632,7 +938,7 @@ const Container = styled.main`
           gap: 4px;
           flex-direction: column;
           color: var(--gray);
-          padding: 40px;
+          padding: 40px 30px;
           @media (max-width: 548px) {
             padding: 20px;
           }
