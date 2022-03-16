@@ -105,7 +105,12 @@ export const AirdropContainer = styled.main`
           h3 {
             color: var(--gray);
             padding-bottom: 8px;
-            & + p {
+          }
+          &__hover {
+            position: relative;
+            display: flex;
+            gap: 8px;
+            p {
               font: 600 var(--p-m);
               color: var(--gray-deep);
               width: 320px;
@@ -116,11 +121,16 @@ export const AirdropContainer = styled.main`
                 width: 200px;
               }
             }
-          }
-          p {
-            &:hover {
-              & + span {
-                display: flex;
+            button {
+              color: var(--yellow);
+              background-color: transparent;
+              border: none;
+              outline: none;
+              font-size: 24px;
+              &:hover {
+                & + span {
+                  display: flex;
+                }
               }
             }
           }
