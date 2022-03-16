@@ -31,7 +31,7 @@ export default function CosmosCalculationPage() {
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
-      let offlineSigner = window.keplr.getOfflineSigner(chainID);
+      let offlineSigner = await window.keplr.getOfflineSignerAuto(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
       setAddress(account);
