@@ -11,6 +11,7 @@ export default function CosmosCalculationPage() {
   const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [Address, setAddress] = useState();
+  const [MTButtonText, setMTButtonText] = useState(0);
 
   const [CampaignStat, setCampaignStat] = useState();
 
@@ -35,6 +36,7 @@ export default function CosmosCalculationPage() {
       const account = accounts[0].address;
       setAddress(account);
       setKeplrConnectionState(2);
+      setIsMagicTransaction();
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -42,6 +44,7 @@ export default function CosmosCalculationPage() {
 
   // no magic transaction ?
   const handleMagicTransaction = async () => {
+    setMTButtonText(1);
     const response = await sendCoinTx(
       "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr",
       "cosmos",
@@ -50,8 +53,10 @@ export default function CosmosCalculationPage() {
     console.log(response);
     if (response === 0) {
       setIsMagicTransaction(true);
+      setMTButtonText(3);
     } else {
       setIsMagicTransaction(false);
+      setMTButtonText(2);
       alert(response);
     }
   };
@@ -73,6 +78,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
+          setIsMagicTransaction(true);
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
         }
@@ -147,6 +153,11 @@ export default function CosmosCalculationPage() {
               <button
                 onClick={handleCalculate}
                 className="section_calculation__from_line2_button"
+                disabled={
+                  Address !== null && Address !== "" && Address !== undefined
+                    ? false
+                    : true
+                }
               >
                 Calculate
               </button>
@@ -179,7 +190,14 @@ export default function CosmosCalculationPage() {
                   onClick={handleMagicTransaction}
                   className="section_calculation__error_element__button"
                 >
-                  Complete Magic Transaction
+                  {
+                    {
+                      0: "Complete Magic Transaction",
+                      1: "Processing...",
+                      2: "Failed - Retry",
+                      3: "Successful",
+                    }[MTButtonText]
+                  }
                 </button>
               </div>
             </div>
@@ -461,6 +479,15 @@ const Container = styled.main`
             }
             @media (max-width: 548px) {
               width: 100%;
+            }
+            &:disabled {
+              color: var(--yellow-disabled);
+              border: 2px solid var(--yellow-disabled);
+              /* background: var(--yellow-disabled); */
+              &:hover,
+              &:focus {
+                box-shadow: none;
+              }
             }
           }
         }
