@@ -2,9 +2,8 @@
 name: Airdrop-Main-Release
 
 on:
-  push:
-    tags:
-      - '**'
+   release:
+    types: [created]
 
 jobs:
   deploy:
