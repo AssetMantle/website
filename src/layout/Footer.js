@@ -133,7 +133,7 @@ const Footer = () => {
             <p className="footer_container__element_2__links_link">
               Interested in transaction activities?&nbsp;
               <a
-                href="https://test-mantle-1.explorer.persistence.one"
+                href="https://test-mantle-1.explorer.assetmantle.one/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
