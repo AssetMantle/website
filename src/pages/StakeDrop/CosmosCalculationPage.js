@@ -354,9 +354,8 @@ export default function CosmosCalculationPage() {
                         </span>{" "}
                         <br />
                         <br />
-                        NOTE: If you have already sent magic transaction, please
-                        wait for couple of minutes to confirm your
-                        participation.
+                        NOTE: If you have already sent magic transaction and received the success response, please wait for some time to confirm your participation. 
+Please do not send the magic transaction multiple times as your participation is already confirmed.
                       </p>
                     </div>
                   </div>
