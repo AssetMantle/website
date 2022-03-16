@@ -12,7 +12,7 @@ export default function LPModal({ closeModal, setKeplrWallet }) {
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
-      let offlineSigner = window.keplr.getOfflineSigner(chainID);
+      let offlineSigner = await window.keplr.getOfflineSignerAuto(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
       setKeplrWallet(account);

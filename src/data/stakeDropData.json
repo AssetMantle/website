@@ -16,7 +16,7 @@
   },
   "whatIs": {
     "title": "What is Stakedrop?",
-    "description": "StakeDrop is a token distribution mechanism that allows stakers of some of the most prominent Proof-of-Stake networks to get exposure to $MNTL tokens (AssetMantle tokens).",
+    "description": "Stakedrop is a token distribution mechanism that allows stakers of some of the most prominent Proof-of-Stake networks to get exposure to $MNTL tokens (AssetMantle tokens).",
     "list": [
       "9,000,000 $MNTL tokens will be distributed to participants of Stakedrop across all the six different chains.",
       "To participate in the campaign, users will need to stake their tokes with any active validator and send a magic transaction to the designated wallet address.",
@@ -111,7 +111,7 @@
       },
       {
         "q": "How can I participate in the AssetMantle StakeDrop?",
-        "a": "To participate in StakeDrop, you need to stake your tokens with any active validator (on-chain staking) and send a magic transaction (0.00001) to the wallet address provided by us. "
+        "a": "To participate in StakeDrop, you need to stake your tokens with any active validator (on-chain staking) and send a magic transaction (0.000001) to the wallet address provided by us. "
       },
       {
         "q": "What are the six partner networks of the StakeDrop campaign?",
@@ -123,7 +123,7 @@
       },
       {
         "q": "What is a Magic Transaction? ",
-        "a": "A small transaction of 0.00001 campaign native tokens (for Cosmos Campaign-ATOM) sent from your staking wallet (same wallet used to stake the native tokens) to a wallet address that will be provided on the AssetMantle StakeDrop website. This transaction is what enables participation in StakeDrop, and you start accumulating XPRT rewards only after you have sent this transaction. "
+        "a": "A small transaction of 0.000001 campaign native tokens (for Cosmos Campaign-ATOM) sent from your staking wallet (same wallet used to stake the native tokens) to a wallet address that will be provided on the AssetMantle StakeDrop website. This transaction is what enables participation in StakeDrop, and you start accumulating XPRT rewards only after you have sent this transaction. "
       },
       {
         "q": "Are all wallets supported? ",
