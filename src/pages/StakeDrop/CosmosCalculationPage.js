@@ -153,7 +153,7 @@ export default function CosmosCalculationPage() {
   }, 1000);
 
   //  slider value
-  const [SliderValue, setSliderValue] = useState(0);
+  const [SliderValue, setSliderValue] = useState(10);
 
   return (
     <>
@@ -486,11 +486,7 @@ export default function CosmosCalculationPage() {
                   value={SliderValue}
                   onChange={(e) =>
                     setSliderValue(
-                      e.target.value <= 0
-                        ? 0
-                        : e.target.value >= 500000
-                        ? 500000
-                        : e.target.value
+                      e.target.value >= 500000 ? 500000 : e.target.value
                     )
                   }
                 />
@@ -557,7 +553,7 @@ export default function CosmosCalculationPage() {
             Quiz={setQuiz}
             TimeLeftQuiz={TimeLeftQuiz}
             closeModal={setQuizModal}
-            address={Address}
+            address1={Address}
           />
         )}
       </Container>
