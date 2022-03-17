@@ -8,7 +8,7 @@
   },
   "startWithStakedrop": {
     "heading": "Get Started Now",
-    "title": "StakeDrop",
+    "title": "Stakedrop",
     "description": "$ATOM, $XPRT, $LUNA, $CMDX, $JUNO, $STARS",
     "key": "Allocation:",
     "value": "9,000,000 $MNTL",
@@ -16,11 +16,11 @@
     "href": "/stakedrop"
   },
   "reqEligibilityCheck": {
-    "heading": "Requires Eligibility Check",
+    "heading": "Eligibility Checker",
     "checks": [
       {
-        "title": "Liquidity Providers",
-        "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/US",
+        "title": "Osmomis Liquidity Providers",
+        "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/UST",
         "key": "Allocation:",
         "value": "30,000,000 $MNTL"
       },
@@ -77,7 +77,7 @@
     "href": ""
   },
   "modal": {
-    "KeplrTitle": "Check Eligibility for Liquidity Providers",
+    "KeplrTitle": "Check Eligibility for Osmomis Liquidity Providers",
     "KeplrInstruction": "Get started by connecting your wallet",
     "KeplrLabel": "Enter your wallet address",
     "KeplrButton": "Confirm",

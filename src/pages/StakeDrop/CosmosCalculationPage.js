@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
-import { BiTimeFive } from "react-icons/bi";
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 import QAComponent from "./QAComponent";
 
 export default function CosmosCalculationPage() {
@@ -13,7 +13,7 @@ export default function CosmosCalculationPage() {
   const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
-  const [Quiz, setQuiz] = useState(true);
+  const [Quiz, setQuiz] = useState(0);
   const [Address, setAddress] = useState();
   const [MTButtonText, setMTButtonText] = useState(0);
 
@@ -70,30 +70,36 @@ export default function CosmosCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotaReward] = useState("0.00");
+  const [TotalEstimated, setTotaEstimated] = useState("0.00");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
+  const TotalEstimatedN = Number(TotalEstimated);
 
   const handleCalculate = () => {
     fetch(`https://cosmos-stakedrop.assetmantle.one/delegator/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
-          console.log(data);
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
+          setTotaEstimated(data.estimated);
           setIsMagicTransaction(true);
+          fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
+            .then((res) => res.json())
+            .then((data) =>
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
+            );
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
+          setStakeAddress();
+          setTotalStaked("0.00");
+          setTotaReward("0.00");
+          setTotaEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
-    fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
-      .then((res) => res.json())
-      .then((data) =>
-        data.success.toString() === "true" ? setQuiz(true) : setQuiz(false)
-      );
   };
 
   // Time left count down
@@ -145,6 +151,9 @@ export default function CosmosCalculationPage() {
       setTimeLeftQuiz("EXPIRED");
     }
   }, 1000);
+
+  //  slider value
+  const [SliderValue, setSliderValue] = useState(10);
 
   return (
     <>
@@ -337,7 +346,13 @@ export default function CosmosCalculationPage() {
                   <div className="section_calculation__error_element">
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You have not completed the magic transaction</h3>
+                      <h3>
+                        {MTButtonText === 3
+                          ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
+                          : MTButtonText === 0
+                          ? "You have not completed the magic transaction"
+                          : "You have not completed the magic transaction"}
+                      </h3>
                     </div>
                     <div className="section_calculation__error_element__line2">
                       <p>
@@ -349,9 +364,11 @@ export default function CosmosCalculationPage() {
                         </span>{" "}
                         <br />
                         <br />
-                        NOTE: If you have already sent magic transaction, please
-                        wait for couple of minutes to confirm your
-                        participation.
+                        NOTE: If you have already sent magic transaction and
+                        received the success response, please wait for some time
+                        to confirm your participation. Please do not send the
+                        magic transaction multiple times as your participation
+                        is already confirmed.
                       </p>
                     </div>
                   </div>
@@ -359,6 +376,9 @@ export default function CosmosCalculationPage() {
                     <button
                       onClick={handleMagicTransaction}
                       className="section_calculation__error_element__button"
+                      disabled={
+                        MTButtonText === 0 || MTButtonText === 2 ? false : true
+                      }
                     >
                       {
                         {
@@ -408,18 +428,39 @@ export default function CosmosCalculationPage() {
                       $MNTL
                     </h3>
                   </div>
+                  <div className="section_calculation__result_rewards_reward">
+                    <p className="section_calculation__result_rewards_reward__label">
+                      Total Estimated Rewards
+                    </p>
+                    <h3 className="section_calculation__result_rewards_reward__value">
+                      {(TotalEstimatedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "}
+                      $MNTL
+                    </h3>
+                  </div>
                 </div>
               </div>
             </section>
             <section className="section_questions">
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
-                  <h3 className="section_questions__qBox_title__name">Quiz</h3>
+                  <h3 className="section_questions__qBox_title__name">
+                    {Quiz === true ? "Claim your daily rewards " : "Quiz "}
+                    {Quiz === true && (
+                      <div className="success">
+                        <BiCheckCircle /> Completed
+                      </div>
+                    )}
+                  </h3>
                   <div className="section_questions__qBox_title__right">
                     <span>
                       <BiTimeFive />
                     </span>
-                    <p>{TimeLeftQuiz}</p>
+                    <p>
+                      {TimeLeftQuiz}
+                      {Quiz === true && " to next quiz"}
+                    </p>
                   </div>
                 </div>
                 <p className="section_questions__qBox_details">
@@ -427,9 +468,81 @@ export default function CosmosCalculationPage() {
                   the end of the campaign.
                 </p>
                 <div className="section_questions__qBox_button">
-                  <button onClick={() => setQuizModal(true)} disabled={Quiz}>
+                  <button
+                    onClick={() => setQuizModal(true)}
+                    disabled={Quiz === true || Quiz === 0 ? true : false}
+                  >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
                   </button>
+                </div>
+              </div>
+            </section>
+            <section className="section_calculation lighter_bg">
+              <h2>Calculate Your Estimated Rewards</h2>
+              <div className="section_calculation__range input">
+                <p>How many $ATOM would you like to stake?</p>
+                <input
+                  type="number"
+                  value={SliderValue}
+                  onChange={(e) =>
+                    setSliderValue(
+                      e.target.value >= 500000 ? 500000 : e.target.value
+                    )
+                  }
+                />
+              </div>
+              <div className="section_calculation__range">
+                <input
+                  type="range"
+                  value={SliderValue}
+                  min={0}
+                  max={500000}
+                  step="1"
+                  onChange={(e) => setSliderValue(e.target.value)}
+                />
+              </div>
+              <div className="section_calculation__result">
+                <div className="section_calculation__result_rewards two">
+                  <div className="section_calculation__result_rewards_reward">
+                    <p className="section_calculation__result_rewards_reward__label">
+                      Stake
+                    </p>
+                    <h3 className="section_calculation__result_rewards_reward__value">
+                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "} */}
+                      {`${Number(SliderValue).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })} $ATOM`}
+                    </h3>
+                  </div>
+                  <div className="section_calculation__result_rewards_reward">
+                    <p className="section_calculation__result_rewards_reward__label">
+                      Estimated Rewards
+                    </p>
+                    <h3 className="section_calculation__result_rewards_reward__value">
+                      {CampaignStat
+                        ? ((Number(SliderValue) *
+                            (2000000 -
+                              Number(CampaignStat.totalDistributed) /
+                                1000000)) /
+                            (Number(CampaignStat.worldGlobalDelegation) /
+                              1000000) >=
+                          5000
+                            ? 5000
+                            : (Number(SliderValue) *
+                                (2000000 -
+                                  Number(CampaignStat.totalDistributed) /
+                                    1000000)) /
+                              (Number(CampaignStat.worldGlobalDelegation) /
+                                1000000)
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : 0}{" "}
+                      $MNTL
+                    </h3>
+                  </div>
                 </div>
               </div>
             </section>
@@ -440,6 +553,7 @@ export default function CosmosCalculationPage() {
             Quiz={setQuiz}
             TimeLeftQuiz={TimeLeftQuiz}
             closeModal={setQuizModal}
+            address1={Address}
           />
         )}
       </Container>
@@ -621,6 +735,7 @@ const Container = styled.main`
         background-color: #1e1e1e;
         border-radius: 12px;
         display: flex;
+        flex-direction: column;
         gap: 24px;
         flex-wrap: wrap;
         align-items: flex-start;
@@ -672,10 +787,25 @@ const Container = styled.main`
             @media (max-width: 548px) {
               width: 100%;
             }
+            &:disabled {
+              background: none;
+              background-color: var(--yellow-disabled) !important;
+              box-shadow: none;
+              &:hover,
+              &:focus {
+                box-shadow: none;
+              }
+            }
           }
           &:first-child {
             flex: 1;
             max-width: 712px;
+          }
+          &:last-child {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            width: 100%;
           }
         }
       }
@@ -707,6 +837,12 @@ const Container = styled.main`
           @media (max-width: 548px) {
             grid-template-columns: repeat(1, 1fr);
           }
+          &.two {
+            grid-template-columns: repeat(2, 1fr);
+            @media (max-width: 768px) {
+              grid-template-columns: repeat(1, 1fr);
+            }
+          }
           &_reward {
             display: flex;
             flex-direction: column;
@@ -728,6 +864,50 @@ const Container = styled.main`
               color: #c2c2c2;
             }
           }
+        }
+      }
+      &__range {
+        &.input {
+          display: flex;
+          gap: 24px;
+          padding-bottom: 40px;
+          flex-wrap: wrap;
+          align-items: center;
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+          @media (max-width: 548px) {
+            padding: 20px;
+          }
+          p {
+            font: 600 var(--p-m);
+            color: var(--gray-deep);
+          }
+          input[type="number"] {
+            padding: 12px 16px;
+            background-color: var(--dark);
+            border-radius: 12px;
+            border: none;
+            font: var(--h3);
+            color: var(--gray);
+            outline: none;
+            width: min(250px, 100%);
+            -moz-appearance: textfield;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+          /* & * {
+            @media (max-width: 548px) {
+              width: 100%;
+            }
+          } */
+        }
+        input[type="range"] {
+          width: 100%;
+          accent-color: var(--yellow);
         }
       }
     }
@@ -752,6 +932,10 @@ const Container = styled.main`
             display: flex;
             align-items: center;
             gap: 10px;
+            .success {
+              color: var(--success);
+              font: var(--p-m);
+            }
           }
           &__right {
             display: flex;
@@ -799,6 +983,22 @@ const Container = styled.main`
           padding: 0 40px 40px;
           @media (max-width: 548px) {
             padding: 0 20px 20px;
+          }
+          &.a {
+            align-items: center;
+            gap: 24px;
+            justify-content: center;
+            font: 600 var(--p-m);
+            button {
+              border-radius: 50%;
+              height: 50px;
+              width: 50px;
+              display: grid;
+              place-items: center;
+              font-size: 24px;
+              color: var(--dark-m) !important;
+              padding: 0;
+            }
           }
           button {
             padding: 10px 22.5px 12px;

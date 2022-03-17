@@ -36,6 +36,8 @@
   --gray: #c2c2c2;
   --gray-deep: #9d9d9d;
 
+  --success: #17a500;
+
   /* --------------fonts---------------------- */
   --h1: bold 40px/120% "Inter", sans-serif;
   --h2: bold 32px/120% "Inter", sans-serif;
