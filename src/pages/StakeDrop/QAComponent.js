@@ -158,11 +158,11 @@ export default function QAComponent({
                 <button>
                   <TwitterShareButton
                     title={
-                      "Just claimed my Daily Rewards by Partipating in $MNTL Stakedrop campaign Quiz. Have you?"
+                      "Just claimed my Daily Rewards by Participating in $MNTL Stakedrop campaign Quiz. Have you?"
                     }
                     url={window.location.href}
                     via={"AssetMantle"}
-                    hashtags={["$MNTL,AssetMantle"]}
+                    hashtags={["MNTL,AssetMantle"]}
                     className="share_button"
                   >
                     <AiOutlineTwitter />
