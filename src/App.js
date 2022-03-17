@@ -17,6 +17,12 @@ const App = () => {
   const location = useLocation();
 
   // changing header
+  const CURRENT_VERSION = "v0.1.3"
+  console.log(CURRENT_VERSION)
+  if (localStorage.getItem("VERSION")< CURRENT_VERSION || localStorage.getItem("VERSION") == null){
+    localStorage.clear();
+    localStorage.setItem("VERSION", CURRENT_VERSION);
+  }
 
   // scrolling to top on every page change
   useEffect(() => {
