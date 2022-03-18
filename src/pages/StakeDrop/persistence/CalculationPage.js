@@ -15,7 +15,7 @@ export default function PersistenceCalculationPage() {
   const sendingAddress = "persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde";
   // const DATA = data.modal;
   const [modal, setModal] = useState(false);
-  const [QuizModal, setQuizModal] = useState(true);
+  const [QuizModal, setQuizModal] = useState(false);
   const [Quiz, setQuiz] = useState(0);
   const [Address, setAddress] = useState();
   const [MTButtonText, setMTButtonText] = useState(0);
