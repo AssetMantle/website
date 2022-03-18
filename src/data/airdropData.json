@@ -19,7 +19,7 @@
     "heading": "Eligibility Checker",
     "checks": [
       {
-        "title": "Osmomis Liquidity Providers",
+        "title": "Osmosis Liquidity Providers",
         "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/UST",
         "key": "Allocation:",
         "value": "30,000,000 $MNTL"
