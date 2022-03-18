@@ -138,7 +138,7 @@ export default function PersistenceCalculationPage() {
   var countDownDate2 = new Date(
     2022,
     2,
-    { 1: 20, 2: 21, 3: 22, 4: 23, 5: 24, 6: 25 }[Day],
+    { 1: 19, 2: 20, 3: 21, 4: 22, 5: 23, 6: 24, 7: 25 }[Day],
     17,
     59
   ).getTime();
@@ -238,7 +238,7 @@ export default function PersistenceCalculationPage() {
                     <h3 className="section__overview_campaignStat__option_value">
                       {CampaignStat
                         ? (
-                            2000000 -
+                            1000000 -
                             Number(CampaignStat.totalDistributed) / 1000000
                           ).toLocaleString("en-US", {
                             maximumFractionDigits: 4,
@@ -468,14 +468,8 @@ export default function PersistenceCalculationPage() {
                       <BiTimeFive />
                     </span>
                     <p>
-                      {new Date().getDate() === 18 ? (
-                        "Start Date: 19 Mar 2022"
-                      ) : (
-                        <>
-                          {TimeLeftQuiz}
-                          {Quiz === true && " to next quiz"}
-                        </>
-                      )}
+                      {TimeLeftQuiz}
+                      {Quiz === true && " to next quiz"}
                     </p>
                   </div>
                 </div>
