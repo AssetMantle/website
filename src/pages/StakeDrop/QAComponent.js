@@ -16,6 +16,7 @@ export default function QAComponent({
 }) {
   // answer
   const [qArray, setqArray] = useState();
+  const [answerArray, setAnswerArray] = useState();
   const [Answer1, setAnswer1] = useState();
   const [Answer2, setAnswer2] = useState();
   const [Answer3, setAnswer3] = useState();
@@ -114,6 +115,7 @@ export default function QAComponent({
           if (data.success === true) {
             setSubmitStatus(true);
             setSubmit(countAnswer(data.qaData));
+            setAnswerArray(data.qaData.length);
             Quiz(true);
           } else {
             setSubmitStatus(false);
@@ -150,7 +152,7 @@ export default function QAComponent({
               <br />
               <br />
               <h3>
-                You answered {Submit} out of {qArray} questions correctly.
+                You answered {Submit} out of {answerArray} questions correctly.
               </h3>
               <br />
               <div className="section_questions__qBox_button a">
