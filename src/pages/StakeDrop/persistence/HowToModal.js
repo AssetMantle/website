@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { RiFileCopyLine } from "react-icons/ri";
+// import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(address);
-    alert("Copied to clipboard!");
-  };
-  const handleCopy2 = () => {
-    navigator.clipboard.writeText(
-      `persistenceCore tx bank send [FROM_YOUR_PERSISTENCE_ADDRESS] persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde 1uxprt --chain-id core-1 --fees 3000uxprt --node https://rpc.persistence.audit.one:443 --memo [YOUR_COSMOS_ADDRESS]`
-    );
-    alert("Copied to clipboard!");
-  };
+  // const handleCopy = () => {
+  //   navigator.clipboard.writeText(address);
+  //   alert("Copied to clipboard!");
+  // };
+  // const handleCopy2 = () => {
+  //   navigator.clipboard.writeText(
+  //     `persistenceCore tx bank send [FROM_YOUR_PERSISTENCE_ADDRESS] persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde 1uxprt --chain-id core-1 --fees 3000uxprt --node https://rpc.persistence.audit.one:443 --memo [YOUR_COSMOS_ADDRESS]`
+  //   );
+  //   alert("Copied to clipboard!");
+  // };
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
@@ -41,7 +41,7 @@ export default function HowToModal({ address, closeModal }) {
             <strong>
               {address}
               {"  "}
-              <RiFileCopyLine onClick={handleCopy} />
+              {/* <RiFileCopyLine onClick={handleCopy} /> */}
             </strong>
           </p>
           <p>
@@ -60,7 +60,7 @@ export default function HowToModal({ address, closeModal }) {
               </a>{" "}
               --memo [YOUR_COSMOS_ADDRESS]
               {"  "}
-              <RiFileCopyLine onClick={handleCopy2} />
+              {/* <RiFileCopyLine onClick={handleCopy2} /> */}
             </strong>
           </p>
           <p>
