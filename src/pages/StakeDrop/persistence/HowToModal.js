@@ -154,6 +154,9 @@ const Container = styled.div`
         color: var(--yellow);
         text-decoration: none;
       }
+      svg {
+        cursor: pointer;
+      }
     }
     &__button {
       display: flex;
