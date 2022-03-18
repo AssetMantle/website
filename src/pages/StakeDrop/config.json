@@ -15,7 +15,7 @@
     "prefix": "persistence",
     "denom": "uxprt",
     "chainId": "core-1",
-    "rpc": "https://rpc.persistence.one"
+    "rpc": "https://rpc.core.persistence.one/"
   },
   "assetMantle": {
     "prefix": "cosmo",

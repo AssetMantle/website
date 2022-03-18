@@ -46,4 +46,33 @@ async function sendCoinTx(toAddress, chain, amount) {
   }
 }
 
-export { sendCoinTx, getProperty };
+async function sendCoinTxWithMemo(toAddress, chain, amount) {
+  try {
+    const currentChain = getProperty(chainConfig, chain);
+    const wallet = await getKeplrWallet(currentChain.chainId);
+    const memo = (await getKeplrWallet("cosmoshub-4"))[1];
+    console.log(memo);
+    const txFee = getTxFee();
+    const msg = SendMsg(
+      wallet[1],
+      toAddress,
+      amount * MicroFactor,
+      currentChain.denom
+    );
+    const response = await Transaction(
+      wallet[0],
+      wallet[1],
+      [msg],
+      txFee,
+      // "",
+      memo,
+      currentChain.rpc
+    );
+    return response.transactionHash, response.code;
+  } catch (e) {
+    return e;
+    console.log(e);
+  }
+}
+
+export { sendCoinTx, getProperty, sendCoinTxWithMemo };

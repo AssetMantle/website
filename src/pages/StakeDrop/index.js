@@ -213,17 +213,6 @@ export default function StakeDrop() {
           <p>{t("STAKEDROP_HOW_IT_WORKS_DESCRIPTION")}</p>
           <UList2 data={howItWorksLIST}></UList2>
         </section>
-        <section className="section_explanation">
-          <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
-          <div className="section_explanation__video">
-            <ReactPlayer
-              url="https://youtu.be/FVOLWGemPio"
-              controls={true}
-              width="100%"
-              height="100%"
-            />
-          </div>
-        </section>
         <section className="section_availableStakeDrop">
           <h2>{t("STAKEDROP_AVAILABLE_STAKEDROP_TITLE")}</h2>
           <div className="section_availableStakeDrop__body">
@@ -245,7 +234,8 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed"
                       : ""
                   } ${
-                    data.name.includes("Cosmos") && !cosmosDropStats.isCompleted
+                    data.name.includes("Cosmos") ||
+                    data.name.includes("Persistence")
                       ? "active"
                       : data.name.includes("Cosmos") &&
                         cosmosDropStats.isCompleted
@@ -263,7 +253,13 @@ export default function StakeDrop() {
                       alt="cosmos (atom) logo"
                     />
                     <a
-                      href="/stakedrop/cosmos"
+                      href={
+                        data.name.includes("Cosmos")
+                          ? "/stakedrop/cosmos"
+                          : data.name.includes("Persistence")
+                          ? "/stakedrop/persistence"
+                          : ""
+                      }
                       className="section_availableStakeDrop__body_element__title_button_normal"
                     >
                       {t("VIEW")}
@@ -354,12 +350,23 @@ export default function StakeDrop() {
                       </div>
                     </div>
                     <div className="section_availableStakeDrop__body_element__claim_button">
-                      <button>{t("CLAIM")}</button>
+                      <button>Check</button>
                     </div>
                   </div>
                 </div>
               ))
             )}
+          </div>
+        </section>
+        <section className="section_explanation">
+          <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
+          <div className="section_explanation__video">
+            <ReactPlayer
+              url="https://youtu.be/FVOLWGemPio"
+              controls={true}
+              width="100%"
+              height="100%"
+            />
           </div>
         </section>
         <section className="section_faq">
