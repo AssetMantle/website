@@ -53,7 +53,7 @@ export default function PersistenceCalculationPage() {
   const handleMagicTransaction = async () => {
     setMTButtonText(1);
     const response = await sendCoinTxWithMemo(
-      "persistence16ex84fp94gq3ey2p9vp73rfkt2xp2xkwyn8faw",
+      "persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde",
       "persistence",
       0.000001
     );
