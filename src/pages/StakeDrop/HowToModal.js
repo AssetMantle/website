@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { RiFileCopyLine } from "react-icons/ri";
+// import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(address);
-    alert("Copied to clipboard!");
-  };
-  const handleCopy2 = () => {
-    navigator.clipboard.writeText(
-      `gaiad tx bank send [FROM_YOUR_ADDRESS] cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr 1uatom --chain-id cosmoshub-4 --fees 3000uatom --node https://rpc.cosmos.network:443`
-    );
-    alert("Copied to clipboard!");
-  };
+  // const handleCopy = () => {
+  //   navigator.clipboard.writeText(address);
+  //   alert("Copied to clipboard!");
+  // };
+  // const handleCopy2 = () => {
+  //   navigator.clipboard.writeText(
+  //     `gaiad tx bank send [FROM_YOUR_ADDRESS] cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr 1uatom --chain-id cosmoshub-4 --fees 3000uatom --node https://rpc.cosmos.network:443`
+  //   );
+  //   alert("Copied to clipboard!");
+  // };
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
@@ -37,7 +37,7 @@ export default function HowToModal({ address, closeModal }) {
             <strong>
               {address}
               {"  "}
-              <RiFileCopyLine onClick={handleCopy} />
+              {/* <RiFileCopyLine onClick={handleCopy} /> */}
             </strong>
           </p>
           <p>
@@ -54,7 +54,7 @@ export default function HowToModal({ address, closeModal }) {
                 https://rpc.cosmos.network:443
               </a>
               {"  "}
-              <RiFileCopyLine onClick={handleCopy2} />
+              {/* <RiFileCopyLine onClick={handleCopy2} /> */}
             </strong>
           </p>
           <p>
