@@ -368,10 +368,10 @@ export const StakeDropContainer = styled.main`
             }
           }
           &.completed {
-            border-color: var(--yellow);
+            border-color: var(--success);
             .section_availableStakeDrop__body_element__stat {
               display: inline-block;
-              color: var(--yellow);
+              color: var(--success);
               font: var(--p-m);
               position: absolute;
               top: -15px;
