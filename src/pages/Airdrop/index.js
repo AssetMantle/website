@@ -174,26 +174,36 @@ export default function Airdrop() {
                     </p>
                   </div>
                 </section>
-                {/* <section className="section_allocation_by_network">
+                <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Pools</h4>
-                      <p>Liquidity Provided</p>
+                      <h4>Liquidity Provided</h4>
+                      <p>Value (in USD)</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE")}</p>
+                      <h4>Locked</h4>
+                      <p>
+                        $
+                        {KeplrCalculatedDATA &&
+                          KeplrCalculatedDATA.allocation &&
+                          Number(KeplrCalculatedDATA.locked).toFixed(2)}
+                      </p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE")}</p>
+                      <h4>Unlocked</h4>
+                      <p>
+                        $
+                        {KeplrCalculatedDATA &&
+                          KeplrCalculatedDATA.allocation &&
+                          Number(KeplrCalculatedDATA.unlocked).toFixed(2)}
+                      </p>
                     </div>
-                    <div className="section_allocation_by_network__element_option">
+                    {/* <div className="section_allocation_by_network__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                    </div>
+                    </div> */}
                   </div>
-                </section> */}
+                </section>
               </>
             ) : KeplrCalculatedDATA === false ? (
               <section className="section_allocation">
@@ -251,26 +261,32 @@ export default function Airdrop() {
                     </p>
                   </div>
                 </section>
-                {/* <section className="section_allocation_by_network">
+                <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Pools</h4>
-                      <p>Liquidity Provided</p>
+                      <h4>Transaction Type</h4>
+                      <p>Volume Traded (ETH)</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_VALUE")}</p>
+                      <h4>Buy / Sell</h4>
+                      <p>
+                        {MetaMaskCalculatedDATA &&
+                          MetaMaskCalculatedDATA.allocation &&
+                          Number(MetaMaskCalculatedDATA.volumeTraded).toFixed(
+                            2
+                          )}
+                      </p>
                     </div>
-                    <div className="section_allocation_by_network__element_option">
+                    {/* <div className="section_allocation_by_network__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE")}</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                    </div>
+                    </div> */}
                   </div>
-                </section> */}
+                </section>
               </>
             ) : MetaMaskCalculatedDATA === false ? (
               <section className="section_allocation">

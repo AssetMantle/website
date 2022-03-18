@@ -46,7 +46,7 @@ export default function MetaMaskModal({ closeModal, setMetaMaskWallet }) {
         </div>
         <div className="modal_container">
           <h2 className="modal_container__title">
-            {t("AIRDROP_MODAL_KEPLR_TITLE")}
+            {t("AIRDROP_MODAL_METAMASK_TITLE")}
           </h2>
           <div className="modal_container__connect">
             <p className="modal_container__connect_instruction">
