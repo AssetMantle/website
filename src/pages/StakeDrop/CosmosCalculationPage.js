@@ -446,7 +446,7 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    {Quiz === true ? "Claim your daily rewards " : "Quiz "}
+                    Claim your daily rewards
                     {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
