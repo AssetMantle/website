@@ -12,6 +12,7 @@ import RouteNotFound from "./components/RouteNotFound";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
+import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
 
 const App = () => {
   const location = useLocation();
@@ -39,6 +40,10 @@ const App = () => {
     {
       component: CosmosCalculationPage,
       path: "/stakedrop/cosmos",
+    },
+    {
+      component: PersistenceCalculationPage,
+      path: "/stakedrop/persistence",
     },
   ];
 
