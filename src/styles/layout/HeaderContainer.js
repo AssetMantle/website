@@ -147,6 +147,7 @@ export const NavIcon = styled.div`
   margin: auto;
   display: grid;
   place-items: center;
+  cursor:pointer;
   img {
     width: 32px;
     height: 22px;
