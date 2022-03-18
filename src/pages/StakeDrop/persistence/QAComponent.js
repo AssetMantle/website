@@ -61,7 +61,7 @@ export default function QAComponent({
   //   const handleSubmit = () => {
   //     console.log(Answer1, Answer2, Answer3);
   //   };
-  const chainID = "cosmoshub-4";
+  const chainID = "core-1";
   const numToT = ["", "a", "b", "c", "d"];
   // const data = `${Q1.QId}_${numToT[Answer1]},${Q2.QId}_${numToT[Answer2]},${Q3.QId}_${numToT[Answer3]}`;
   // const data = "ques1Id_ans1Id,ques2Id_ans2Id"

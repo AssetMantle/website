@@ -18,7 +18,7 @@ const App = () => {
   const location = useLocation();
 
   // changing header
-  const CURRENT_VERSION = "v0.1.4"
+  const CURRENT_VERSION = "v0.1.5"
   console.log(CURRENT_VERSION)
   if (localStorage.getItem("VERSION")< CURRENT_VERSION || localStorage.getItem("VERSION") == null){
     localStorage.clear();
