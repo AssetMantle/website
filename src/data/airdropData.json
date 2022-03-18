@@ -25,7 +25,7 @@
         "value": "30,000,000 $MNTL"
       },
       {
-        "title": "OpenSea NFT Community",
+        "title": "OpenSea NFT users",
         "description": "OpenSea Active NFT Users ",
         "key": "Allocation:",
         "value": "9,000,000 $MNTL"
@@ -81,7 +81,7 @@
     "KeplrInstruction": "Get started by connecting your wallet",
     "KeplrLabel": "Enter your wallet address",
     "KeplrButton": "Confirm",
-    "MetaMaskTitle": "Check Eligibility for OpenSea NFT Community",
+    "MetaMaskTitle": "Check Eligibility for OpenSea NFT users",
     "MetaMaskInstruction": "Get started by connecting your wallet",
     "MetaMaskLabel": "Enter your wallet address",
     "MetaMaskButton": "Confirm"
