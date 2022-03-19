@@ -533,7 +533,7 @@ export default function PersistenceCalculationPage() {
                     <h3 className="section_calculation__result_rewards_reward__value">
                       {CampaignStat
                         ? ((Number(SliderValue) *
-                            (2000000 -
+                            (1000000 -
                               Number(CampaignStat.totalDistributed) /
                                 1000000)) /
                             (Number(CampaignStat.worldGlobalDelegation) /
