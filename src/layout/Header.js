@@ -59,8 +59,6 @@ function Header({ theme = false, setTheme }) {
               <ButtonPrimary
                 text="$MNTL Airdrop"
                 href="https://airdrop.assetmantle.one/"
-                title="coming soon"
-                comingSoon={true}
               />
             )}
             {/* {DATA.headerButtons.secondary.visibility && (
