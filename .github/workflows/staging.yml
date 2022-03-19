@@ -35,3 +35,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
           environment: 'staging'
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
