@@ -459,7 +459,7 @@ export default function CosmosCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && " to next quiz"}
+                      {Quiz === true && TimeLeft !== "EXPIRED" ? " to next quiz": ""}
                     </p>
                   </div>
                 </div>
