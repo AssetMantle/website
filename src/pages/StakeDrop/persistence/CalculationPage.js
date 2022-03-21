@@ -106,7 +106,7 @@ export default function PersistenceCalculationPage() {
   };
 
   // Time left count down
-  const [TimeLeft, setTimeLeft] = useState(0);
+  const [TimeLeft, setTimeLeft] = useState(1);
   var countDownDate = new Date(2022, 2, 25, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
