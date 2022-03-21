@@ -133,7 +133,7 @@ export default function PersistenceCalculationPage() {
       .then((data) => {
         setDay(data.day);
       });
-  }, []);
+  }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
   var countDownDate2 = new Date(
     2022,
