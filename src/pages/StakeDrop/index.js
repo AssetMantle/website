@@ -362,7 +362,7 @@ export default function StakeDrop() {
           <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
           <div className="section_explanation__video">
             <ReactPlayer
-              url="https://youtu.be/FVOLWGemPio"
+              url="https://youtu.be/Mo5GxFWG12w"
               controls={true}
               width="100%"
               height="100%"
