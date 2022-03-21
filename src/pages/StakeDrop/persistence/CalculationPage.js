@@ -128,7 +128,7 @@ export default function PersistenceCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch("https://persistence-stakedrop.assetmantle.one/qna")
+    fetch(`https://persistence-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         setDay(data.day);
@@ -469,7 +469,7 @@ export default function PersistenceCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !=== "EXPIRED" ?" to next quiz":""}
+                      {Quiz === true && TimeLeft !== "EXPIRED" ?" to next quiz":""}
                     </p>
                   </div>
                 </div>
