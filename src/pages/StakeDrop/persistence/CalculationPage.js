@@ -469,7 +469,7 @@ export default function PersistenceCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && " to next quiz"}
+                      {Quiz === true && TimeLeft !=== "EXPIRED" ?" to next quiz"}
                     </p>
                   </div>
                 </div>
@@ -541,7 +541,7 @@ export default function PersistenceCalculationPage() {
                           5000
                             ? 5000
                             : (Number(SliderValue) *
-                                (2000000 -
+                                (1000000 -
                                   Number(CampaignStat.totalDistributed) /
                                     1000000)) /
                               (Number(CampaignStat.worldGlobalDelegation) /
