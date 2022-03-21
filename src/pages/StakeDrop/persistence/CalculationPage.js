@@ -469,7 +469,7 @@ export default function PersistenceCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !=== "EXPIRED" ?" to next quiz"}
+                      {Quiz === true && TimeLeft !=== "EXPIRED" ?" to next quiz":""}
                     </p>
                   </div>
                 </div>
