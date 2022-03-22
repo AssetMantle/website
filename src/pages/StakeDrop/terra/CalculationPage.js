@@ -113,7 +113,7 @@ export default function TerraCalculationPage() {
 
   // Time left count down
   const [TimeLeft, setTimeLeft] = useState(1);
-  var countDownDate = new Date(2022, 2, 25, 17, 30).getTime();
+  var countDownDate = new Date(2022, 2, 29, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
     var distance = countDownDate - now;
