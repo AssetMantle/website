@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { StakeDropContainer } from "../../styles/pages/stakeDropStyle";
 import { useTranslation } from "react-i18next";
@@ -10,11 +10,76 @@ import Details from "../../components/Details";
 export default function StakeDrop() {
   const { t } = useTranslation();
 
+  function countAnswer(data) {
+    var counter = 0;
+    data.forEach((dd) => {
+      if (dd.correct) {
+        counter++;
+      }
+    });
+    return counter;
+  }
+
+  // checking calculating cosmos reward
   const [cosmosDropStats, setCosmosDropStats] = useState({
     isCompleted: true,
-    rewardLine1: 1234,
-    rewardLine2: 12345,
+    rewardLine1: "--",
+    rewardLine2: 0,
   });
+  const [cosmosCorrectAnswers, setCosmosCorrectAnswers] = useState();
+  const [CosmosCheckingState, setCosmosCheckingState] = useState(0);
+  const [CosmosAddress, setCosmosAddress] = useState(0);
+  const cosmosChainID = "cosmoshub-4";
+  const handleCosmosConnect = async () => {
+    if (window.keplr) {
+      setCosmosCheckingState(1);
+      let offlineSigner = window.keplr.getOfflineSigner(cosmosChainID);
+      let accounts = await offlineSigner.getAccounts();
+      const account = accounts[0].address;
+      setCosmosAddress(account);
+      setCosmosCheckingState(2);
+    } else {
+      window.alert("Please install Keplr to move forward with the task.");
+      setCosmosCheckingState(5);
+    }
+  };
+
+  useEffect(() => {
+    if (CosmosCheckingState === 2) {
+      setCosmosCheckingState(3);
+      fetch(
+        `https://cosmos-stakedrop.assetmantle.one/delegator/${CosmosAddress}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success.toString() === "true") {
+            setCosmosDropStats({
+              isCompleted: true,
+              // rewardLine1: data.received,
+              rewardLine1: 5,
+            });
+            setCosmosCheckingState(3);
+            fetch(
+              `https://cosmos-stakedrop.assetmantle.one/qna/${CosmosAddress}`
+            )
+              .then((res) => res.json())
+              .then((data) => {
+                setCosmosCorrectAnswers(countAnswer(data.qaData));
+                setCosmosCheckingState(4);
+              });
+          } else if (data.success.toString() === "false") {
+            setCosmosCheckingState(4);
+            setCosmosDropStats({
+              isCompleted: true,
+              rewardLine1: "You didn't participated in this campaign!",
+            });
+          } else {
+            setCosmosCheckingState(5);
+          }
+        });
+    }
+  }, [CosmosCheckingState, CosmosAddress]);
+
   const [persistenceDropStats, setPersistenceDropStats] = useState({
     isCompleted: false,
     rewardLine1: 1234,
@@ -236,7 +301,8 @@ export default function StakeDrop() {
                   } ${
                     data.name.includes("Terra") ||
                     data.name.includes("Persistence")
-                      ? "active" : "comingSoon"
+                      ? "active"
+                      : "comingSoon"
                   }`} //remove the last logic
                 >
                   <div className="section_availableStakeDrop__body_element__stat">
@@ -260,9 +326,26 @@ export default function StakeDrop() {
                     >
                       {t("VIEW")}
                     </a>
-                    <button className="section_availableStakeDrop__body_element__title_button_completed">
+                    <a
+                      href={
+                        data.name.includes("Cosmos")
+                          ? "/stakedrop/cosmos"
+                          : data.name.includes("Persistence")
+                          ? "/stakedrop/persistence"
+                          : data.name.includes("Terra")
+                          ? "/stakedrop/terra"
+                          : data.name.includes("Comdex")
+                          ? "/stakedrop/comdex"
+                          : data.name.includes("Juno")
+                          ? "/stakedrop/juno"
+                          : data.name.includes("Stargaze")
+                          ? "/stakedrop/stargaze"
+                          : ""
+                      }
+                      className="section_availableStakeDrop__body_element__title_button_completed"
+                    >
                       {t("DETAILS")}
-                    </button>
+                    </a>
                     <button className="section_availableStakeDrop__body_element__title_button_coming_soon">
                       {t("COMING_SOON")}
                     </button>
@@ -313,22 +396,45 @@ export default function StakeDrop() {
                           )}
                         </p>
                         <p>
-                          {data.name.includes("Cosmos")
-                            ? cosmosDropStats.rewardLine1
-                            : data.name.includes("Persistence")
-                            ? persistenceDropStats.rewardLine1
-                            : data.name.includes("Terra")
-                            ? terraDropStats.rewardLine1
-                            : data.name.includes("Comdex")
-                            ? comdexDropStats.rewardLine1
-                            : data.name.includes("Juno")
-                            ? junoDropStats.rewardLine1
-                            : data.name.includes("Stargaze")
-                            ? stargazeDropStats.rewardLine1
-                            : ""}{" "}
+                          {isNaN(
+                            Number(
+                              data.name.includes("Cosmos")
+                                ? cosmosDropStats.rewardLine1
+                                : data.name.includes("Persistence")
+                                ? persistenceDropStats.rewardLine1
+                                : data.name.includes("Terra")
+                                ? terraDropStats.rewardLine1
+                                : data.name.includes("Comdex")
+                                ? comdexDropStats.rewardLine1
+                                : data.name.includes("Juno")
+                                ? junoDropStats.rewardLine1
+                                : data.name.includes("Stargaze")
+                                ? stargazeDropStats.rewardLine1
+                                : 0
+                            ) *
+                              (0.6 + (0.4 * cosmosCorrectAnswers) / 18)
+                          )
+                            ? 0
+                            : Number(
+                                data.name.includes("Cosmos")
+                                  ? cosmosDropStats.rewardLine1
+                                  : data.name.includes("Persistence")
+                                  ? persistenceDropStats.rewardLine1
+                                  : data.name.includes("Terra")
+                                  ? terraDropStats.rewardLine1
+                                  : data.name.includes("Comdex")
+                                  ? comdexDropStats.rewardLine1
+                                  : data.name.includes("Juno")
+                                  ? junoDropStats.rewardLine1
+                                  : data.name.includes("Stargaze")
+                                  ? stargazeDropStats.rewardLine1
+                                  : 0
+                              ) *
+                              (0.6 + (0.4 * cosmosCorrectAnswers) / 18)}{" "}
+                          {/* {cosmosCorrectAnswers} */}
                           $MNTL
                         </p>
-                        <p>
+                        {/* <p>
                           {data.name.includes("Cosmos")
                             ? cosmosDropStats.rewardLine2
                             : data.name.includes("Persistence")
@@ -342,11 +448,39 @@ export default function StakeDrop() {
                             : data.name.includes("Stargaze")
                             ? stargazeDropStats.rewardLine2
                             : ""}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                     <div className="section_availableStakeDrop__body_element__claim_button">
-                      <button>Check</button>
+                      <button
+                        onClick={handleCosmosConnect}
+                        disabled={
+                          CosmosCheckingState === 0 || CosmosCheckingState === 4
+                            ? false
+                            : true
+                        }
+                      >
+                        {data.name.includes("Cosmos")
+                          ? {
+                              0: "Check",
+                              1: "Connecting Wallet",
+                              2: "Wallet Connected",
+                              3: "Calculating Rewards",
+                              4: "Calculated",
+                              5: "Failed - Retry",
+                            }[CosmosCheckingState]
+                          : // : data.name.includes("Persistence")
+                            // ? persistenceDropStats.rewardLine2
+                            // : data.name.includes("Terra")
+                            // ? terraDropStats.rewardLine2
+                            // : data.name.includes("Comdex")
+                            // ? comdexDropStats.rewardLine2
+                            // : data.name.includes("Juno")
+                            // ? junoDropStats.rewardLine2
+                            // : data.name.includes("Stargaze")
+                            // ? stargazeDropStats.rewardLine2
+                            ""}
+                      </button>
                     </div>
                   </div>
                 </div>

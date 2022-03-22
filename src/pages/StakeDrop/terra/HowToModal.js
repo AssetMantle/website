@@ -52,8 +52,7 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             <strong>
-              terrad tx bank send [FROM_YOUR_TERRA_ADDRESS]
-              {address} 1uluna
+              terrad tx bank send [FROM_YOUR_TERRA_ADDRESS] {address} 1uluna
               --chain-id columbus-5 --fees 3000uluna --node{" "}
               <a href="https://rpc-columbus.keplr.app">
                 https://rpc-columbus.keplr.app

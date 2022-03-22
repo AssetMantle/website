@@ -71,10 +71,22 @@ export default function CosmosCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotaReward] = useState("0.00");
   const [TotalEstimated, setTotaEstimated] = useState("0.00");
+  const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
+
+  function countAnswer(data) {
+    var counter = 0;
+    data.forEach((dd) => {
+      if (dd.correct) {
+        counter++;
+      }
+    });
+
+    return counter;
+  }
 
   const handleCalculate = () => {
     fetch(`https://cosmos-stakedrop.assetmantle.one/delegator/${Address}`)
@@ -88,9 +100,10 @@ export default function CosmosCalculationPage() {
           setIsMagicTransaction(true);
           fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) =>
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
-            );
+            .then((data) => {
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
+              setTotalCorrect(countAnswer(data.qaData));
+            });
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
@@ -117,7 +130,7 @@ export default function CosmosCalculationPage() {
     setTimeLeft(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
     if (distance < 0) {
       clearInterval(x);
-      setTimeLeft("EXPIRED");
+      setTimeLeft("Concluded");
     }
   }, 1000);
 
@@ -226,15 +239,7 @@ export default function CosmosCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {CampaignStat
-                        ? (
-                            2000000 -
-                            Number(CampaignStat.totalDistributed) / 1000000
-                          ).toLocaleString("en-US", {
-                            maximumFractionDigits: 4,
-                          })
-                        : "--"}
-                      {` $MNTL`}
+                      0{` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -346,15 +351,9 @@ export default function CosmosCalculationPage() {
                   <div className="section_calculation__error_element">
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>
-                        {MTButtonText === 3
-                          ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
-                          : MTButtonText === 0
-                          ? "You have not completed the magic transaction"
-                          : "You have not completed the magic transaction"}
-                      </h3>
+                      <h3>You didn't participated in this campaign!</h3>
                     </div>
-                    <div className="section_calculation__error_element__line2">
+                    {/* <div className="section_calculation__error_element__line2">
                       <p>
                         You have to complete a magic transaction in order to
                         calculate estimated rewards. Here's a quick guide on how
@@ -370,10 +369,10 @@ export default function CosmosCalculationPage() {
                         magic transaction multiple times as your participation
                         is already confirmed.
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="section_calculation__error_element">
-                    <button
+                    {/* <button
                       onClick={handleMagicTransaction}
                       className="section_calculation__error_element__button"
                       disabled={
@@ -388,7 +387,7 @@ export default function CosmosCalculationPage() {
                           3: "Successful",
                         }[MTButtonText]
                       }
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               )}
@@ -446,7 +445,7 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Claim your daily rewards
+                    Quiz result
                     {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
@@ -457,27 +456,23 @@ export default function CosmosCalculationPage() {
                     <span>
                       <BiTimeFive />
                     </span>
-                    <p>
-                      {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED" ? " to next quiz": ""}
-                    </p>
+                    <p>EXPIRED</p>
                   </div>
                 </div>
                 <p className="section_questions__qBox_details">
-                  Participate in the quiz to receive 40% of the $MNTL rewards at
-                  the end of the campaign.
+                  You scored {TotalCorrect} out of 18.
                 </p>
                 <div className="section_questions__qBox_button">
-                  <button
+                  {/* <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
                   >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </section>
-            <section className="section_calculation lighter_bg">
+            {/* <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
                 <p>How many $ATOM would you like to stake?</p>
@@ -508,9 +503,7 @@ export default function CosmosCalculationPage() {
                       Stake
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
-                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
-                      })}{" "} */}
+                      
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })} $ATOM`}
@@ -545,7 +538,7 @@ export default function CosmosCalculationPage() {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
           </div>
         </div>
         {QuizModal === true && (
