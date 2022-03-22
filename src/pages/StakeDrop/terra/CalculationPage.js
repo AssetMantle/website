@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { sendCoinTx } from "./send";
-import data from "../../data/stakeDropData.json";
-import HowToModal from "./HowToModal";
-import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
-import QAComponent from "./QAComponent";
 
-export default function CosmosCalculationPage() {
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
+
+// import data from "../../../data/stakeDropData.json";
+import campaignData from "../../../data/campaignData.json";
+import { sendCoinTxWithMemo } from "../send";
+import HowToModal from "./HowToModal";
+import QAComponent from "./QAComponent";
+import {initializeKeplrForTera} from "../terraKeplr";
+
+export default function TerraCalculationPage() {
   const { t } = useTranslation();
-  const sendingAddress = "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr";
-  const DATA = data.modal;
+  const sendingAddress = "terra180fwz2e8vgqk29u357vkl5rs520jlf5w2untrd";
+  // const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
   const [Quiz, setQuiz] = useState(0);
@@ -22,19 +26,24 @@ export default function CosmosCalculationPage() {
   const [IsMagicTransaction, setIsMagicTransaction] = useState();
 
   useEffect(() => {
-    fetch("https://cosmos-stakedrop.assetmantle.one/status")
+    fetch("https://terra-stakedrop.assetmantle.one/status")
       .then((res) => res.json())
       .then((res) => setCampaignStat(res))
       .catch((err) => console.log(err));
   }, []);
-  // https://cosmos-stakedrop.assetmantle.one/status
+  // https://terra-stakedrop.assetmantle.one/status
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainID = "cosmoshub-4";
+  const chainID = "columbus-5";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
+      try {
+        await initializeKeplrForTera();
+      } catch (e){
+        console.log(e)
+      }
       let offlineSigner = window.keplr.getOfflineSigner(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
@@ -49,9 +58,9 @@ export default function CosmosCalculationPage() {
   // no magic transaction ?
   const handleMagicTransaction = async () => {
     setMTButtonText(1);
-    const response = await sendCoinTx(
-      "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr",
-      "cosmos",
+    const response = await sendCoinTxWithMemo(
+      sendingAddress,
+      "terra",
       0.000001
     );
     console.log(response);
@@ -77,7 +86,7 @@ export default function CosmosCalculationPage() {
   const TotalEstimatedN = Number(TotalEstimated);
 
   const handleCalculate = () => {
-    fetch(`https://cosmos-stakedrop.assetmantle.one/delegator/${Address}`)
+    fetch(`https://terra-stakedrop.assetmantle.one/delegator/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
@@ -86,7 +95,7 @@ export default function CosmosCalculationPage() {
           setTotaReward(data.received);
           setTotaEstimated(data.estimated);
           setIsMagicTransaction(true);
-          fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
+          fetch(`https://terra-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
             .then((data) =>
               data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
@@ -103,8 +112,8 @@ export default function CosmosCalculationPage() {
   };
 
   // Time left count down
-  const [TimeLeft, setTimeLeft] = useState(0);
-  var countDownDate = new Date(2022, 2, 22, 17, 30).getTime();
+  const [TimeLeft, setTimeLeft] = useState(1);
+  var countDownDate = new Date(2022, 2, 29, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
     var distance = countDownDate - now;
@@ -125,17 +134,17 @@ export default function CosmosCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch("https://cosmos-stakedrop.assetmantle.one/qna")
+    fetch(`https://terra-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         setDay(data.day);
       });
-  }, []);
+  }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
   var countDownDate2 = new Date(
     2022,
     2,
-    { 1: 17, 2: 18, 3: 19, 4: 20, 5: 21, 6: 22 }[Day],
+    { 1: 23, 2: 24, 3: 25, 4: 25, 5: 27, 6: 28, 7: 29 }[Day],
     17,
     59
   ).getTime();
@@ -171,47 +180,54 @@ export default function CosmosCalculationPage() {
               <div>
                 <div className="section__overview_campaign lighter_bg">
                   <h3 className="section__overview_campaign__title">
-                    {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
+                    {campaignData.terra.dataTable1.title}
                   </h3>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
                       {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option2.value}
+                      {Number(
+                        campaignData.terra.dataTable1.op1Value
+                      ).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "}
+                      $MNTL
                     </h3>
                   </div>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE")}
+                      {campaignData.terra.dataTable1.op2Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option3.value}
+                      {campaignData.terra.dataTable1.op2Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option3.details}
+                      {campaignData.terra.dataTable1.op2Description}
                     </p>
                   </div>
+                  <>
+                    <div className="section__overview_campaign__option">
+                      <p className="section__overview_campaign__option_label                                                                                                                        ">
+                        {campaignData.terra.dataTable1.op3Key}
+                      </p>
+                      <h3 className="section__overview_campaign__option_value">
+                        {campaignData.terra.dataTable1.op3Value}
+                      </h3>
+                      <p className="section__overview_campaign__option_details">
+                        {campaignData.terra.dataTable1.op3Description}
+                      </p>
+                    </div>
+                  </>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      Reward Distribution Start Date
+                      {campaignData.terra.dataTable1.op4Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option3i.value}
+                      {campaignData.terra.dataTable1.op4Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option3i.details}
-                    </p>
-                  </div>
-                  <div className="section__overview_campaign__option">
-                    <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE")}
-                    </p>
-                    <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option4.value}
-                    </h3>
-                    <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option4.details}
+                      {campaignData.terra.dataTable1.op4Description}
                     </p>
                   </div>
                 </div>
@@ -259,7 +275,7 @@ export default function CosmosCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}
-                      {` $ATOM`}
+                      {` $LUNA`}
                     </h3>
                     <p className="section__overview_campaign__option_details">
                       {`Total Active: `}
@@ -270,7 +286,7 @@ export default function CosmosCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}{" "}
-                      $ATOM
+                      $LUNA
                     </p>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -414,7 +430,7 @@ export default function CosmosCalculationPage() {
                       {(TotalStakedN / 1000000).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
-                      $ATOM
+                      $LUNA
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -459,7 +475,7 @@ export default function CosmosCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED" ? " to next quiz": ""}
+                      {Quiz === true && TimeLeft !== "EXPIRED" ?" to next quiz":""}
                     </p>
                   </div>
                 </div>
@@ -480,7 +496,7 @@ export default function CosmosCalculationPage() {
             <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
-                <p>How many $ATOM would you like to stake?</p>
+                <p>How many $LUNA would you like to stake?</p>
                 <input
                   type="number"
                   value={SliderValue}
@@ -513,7 +529,7 @@ export default function CosmosCalculationPage() {
                       })}{" "} */}
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
-                      })} $ATOM`}
+                      })} $LUNA`}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">

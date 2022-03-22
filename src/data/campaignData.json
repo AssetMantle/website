@@ -15,5 +15,23 @@
       "op4Value": "25 Mar 2022",
       "op4Description": "Block Height: 5375766"
     }
+  },
+  "terra": {
+    "currency": "$LUNA",
+    "dataTable1": {
+      "title": "Terra StakeDrop Campaign",
+      "op1Key": "Tokens to distribute",
+      "op1Value": "2000000",
+      "op2Key": "Magic Transaction Start Date",
+      "op2Value": "22 Mar 2022",
+      "op2Description": "Block Height: 6946901",
+      "op3Key": "Reward Distribution Start Date",
+      "op3Value": "22 Mar 2022",
+      "op3Description": "Block Height: 6946901",
+      "op4Key": "End Date",
+      "op4Value": "29 Mar 2022",
+      "op4Description": "Block Height: 7038530"
+    }
   }
+
 }

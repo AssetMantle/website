@@ -38,7 +38,7 @@ export default function QAComponent({
   const [questionShow, setQuestionShow] = useState(0);
 
   useEffect(() => {
-    fetch(`https://persistence-stakedrop.assetmantle.one/qna/${address1}`)
+    fetch(`https://terra-stakedrop.assetmantle.one/qna/${address1}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.qnaSet.length === 3) {
@@ -61,7 +61,7 @@ export default function QAComponent({
   //   const handleSubmit = () => {
   //     console.log(Answer1, Answer2, Answer3);
   //   };
-  const chainID = "core-1";
+  const chainID = "columbus-5";
   const numToT = ["", "a", "b", "c", "d"];
   // const data = `${Q1.QId}_${numToT[Answer1]},${Q2.QId}_${numToT[Answer2]},${Q3.QId}_${numToT[Answer3]}`;
   // const data = "ques1Id_ans1Id,ques2Id_ans2Id"
@@ -83,7 +83,7 @@ export default function QAComponent({
     );
 
     const res = await fetch(
-      "https://persistence-stakedrop.assetmantle.one/qna",
+      "https://terra-stakedrop.assetmantle.one/qna",
       {
         method: "POST",
         headers: {
@@ -112,7 +112,7 @@ export default function QAComponent({
   useEffect(() => {
     SubmitResponse &&
       SubmitResponse.status === 200 &&
-      fetch(`https://persistence-stakedrop.assetmantle.one/qna/${address}`)
+      fetch(`https://terra-stakedrop.assetmantle.one/qna/${address}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success === true) {

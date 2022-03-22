@@ -106,7 +106,7 @@ export default function PersistenceCalculationPage() {
   };
 
   // Time left count down
-  const [TimeLeft, setTimeLeft] = useState(0);
+  const [TimeLeft, setTimeLeft] = useState(1);
   var countDownDate = new Date(2022, 2, 25, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
@@ -128,12 +128,12 @@ export default function PersistenceCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch("https://persistence-stakedrop.assetmantle.one/qna")
+    fetch(`https://persistence-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         setDay(data.day);
       });
-  }, []);
+  }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
   var countDownDate2 = new Date(
     2022,
@@ -469,7 +469,7 @@ export default function PersistenceCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && " to next quiz"}
+                      {Quiz === true && TimeLeft !== "EXPIRED" ?" to next quiz":""}
                     </p>
                   </div>
                 </div>
@@ -533,7 +533,7 @@ export default function PersistenceCalculationPage() {
                     <h3 className="section_calculation__result_rewards_reward__value">
                       {CampaignStat
                         ? ((Number(SliderValue) *
-                            (2000000 -
+                            (1000000 -
                               Number(CampaignStat.totalDistributed) /
                                 1000000)) /
                             (Number(CampaignStat.worldGlobalDelegation) /
@@ -541,7 +541,7 @@ export default function PersistenceCalculationPage() {
                           5000
                             ? 5000
                             : (Number(SliderValue) *
-                                (2000000 -
+                                (1000000 -
                                   Number(CampaignStat.totalDistributed) /
                                     1000000)) /
                               (Number(CampaignStat.worldGlobalDelegation) /

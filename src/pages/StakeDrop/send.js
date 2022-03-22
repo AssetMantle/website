@@ -51,7 +51,6 @@ async function sendCoinTxWithMemo(toAddress, chain, amount) {
     const currentChain = getProperty(chainConfig, chain);
     const wallet = await getKeplrWallet(currentChain.chainId);
     const memo = (await getKeplrWallet("cosmoshub-4"))[1];
-    console.log(memo);
     const txFee = getTxFee();
     const msg = SendMsg(
       wallet[1],

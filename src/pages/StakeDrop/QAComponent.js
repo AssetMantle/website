@@ -115,7 +115,7 @@ export default function QAComponent({
           if (data.success === true) {
             setSubmitStatus(true);
             setSubmit(countAnswer(data.qaData));
-            setAnswerArray(data.qaData.length);
+            setAnswerArray((data.day * 3));
             Quiz(true);
           } else {
             setSubmitStatus(false);
