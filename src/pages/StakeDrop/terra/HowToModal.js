@@ -45,6 +45,12 @@ export default function HowToModal({ address, closeModal }) {
             </strong>
           </p>
           <p>
+            <strong>Terra Station Users:</strong>
+            <br />
+            To the recipient address ( as mentioned above) send 0.000001 $LUNA
+            and mention your cosmos address in the memo field.
+          </p>
+          <p>
             <strong>CLI Users:</strong>
             <br />
             Please follow the following command to do the magic transaction.
