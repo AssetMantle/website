@@ -19,9 +19,19 @@ const App = () => {
   const location = useLocation();
 
   // changing header
-  const CURRENT_VERSION = "v0.1.10"
-  console.log(CURRENT_VERSION)
-  if (localStorage.getItem("VERSION")< CURRENT_VERSION || localStorage.getItem("VERSION") == null){
+  function compareVersion(currentVersion,version) {
+    let currentVersionList = currentVersion.split("v")
+    let current =  currentVersionList[1].split(".")
+    let versionList = version.split("v")
+    let oldVersion =  versionList[1].split(".")
+    if (current[0]*1000+current[1]*100+current[2]*10 > oldVersion[0]*1000+oldVersion[1]*100+oldVersion[2]*10){
+      return true
+    } else {
+      return false
+    }
+  }
+  const CURRENT_VERSION = "v0.1.9"
+  if (compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION")) || localStorage.getItem("VERSION") == null){
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
   }
