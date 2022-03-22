@@ -356,6 +356,51 @@ export const StakeDropContainer = styled.main`
               }
             }
           }
+          &.completed2 {
+            border-color: var(--success);
+            .section_availableStakeDrop__body_element__stat {
+              display: inline-block;
+              color: var(--success);
+              font: var(--p-m);
+              position: absolute;
+              top: -15px;
+              right: 40px;
+              z-index: 1;
+              &::before {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                height: 43%;
+                width: 120%;
+                background: var(--dark);
+                right: -10%;
+                z-index: 0;
+              }
+              span {
+                &:nth-child(1) {
+                  z-index: 1;
+                  position: relative;
+                  width: 100%;
+                }
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+            .section_availableStakeDrop__body_element__title {
+              &_button {
+                &_normal {
+                  display: none;
+                }
+                &_coming_soon {
+                  display: none;
+                }
+                &_completed {
+                  display: inline;
+                }
+              }
+            }
+          }
           &.comingSoon {
             .section_availableStakeDrop__body_element__title_button_completed {
               display: none;
