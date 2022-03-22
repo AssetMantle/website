@@ -78,8 +78,8 @@ export default function TerraCalculationPage() {
   // calculate rewards
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
-  const [TotalReward, setTotaReward] = useState("0.00");
-  const [TotalEstimated, setTotaEstimated] = useState("0.00");
+  const [TotalReward, setTotalReward] = useState("0.00");
+  const [TotalEstimated, setTotalEstimated] = useState("0.00");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
@@ -92,8 +92,8 @@ export default function TerraCalculationPage() {
         if (data.success.toString() === "true") {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
-          setTotaReward(data.received);
-          setTotaEstimated(data.estimated);
+          setTotalReward(data.received);
+          setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://terra-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -104,8 +104,8 @@ export default function TerraCalculationPage() {
           setIsMagicTransaction(false);
           setStakeAddress();
           setTotalStaked("0.00");
-          setTotaReward("0.00");
-          setTotaEstimated("0.00");
+          setTotalReward("0.00");
+          setTotalEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
