@@ -75,29 +75,34 @@ export default function QAComponent({
     const keplrAccount = await window.keplr.getOfflineSignerAuto(chainID);
     const accounts = await keplrAccount.getAccounts();
     setAddress(accounts[0].address);
-    const pub = await window.keplr.getKey(chainID);
-    const keplrSign = await window.keplr.signArbitrary(
-      chainID,
-      accounts[0].address,
-      data
-    );
+    if(address !== accounts[0].address){
+      alert(`Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`)
+      setSubmitResponse("res");
+    } else {
+      const pub = await window.keplr.getKey(chainID);
+      const keplrSign = await window.keplr.signArbitrary(
+          chainID,
+          accounts[0].address,
+          data
+      );
+      const res = await fetch(
+          "https://terra-stakedrop.assetmantle.one/qna",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              signedData: data,
+              signature: keplrSign.signature,
+              publicKey: pub.pubKey,
+            }),
+          }
+      );
+      setSubmitResponse(res);
+    }
 
-    const res = await fetch(
-      "https://terra-stakedrop.assetmantle.one/qna",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          signedData: data,
-          signature: keplrSign.signature,
-          publicKey: pub.pubKey,
-        }),
-      }
-    );
-    setSubmitResponse(res);
   };
   function countAnswer(data) {
     var counter = 0;
