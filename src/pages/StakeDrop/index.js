@@ -290,7 +290,7 @@ export default function StakeDrop() {
                 <div
                   className={`section_availableStakeDrop__body_element ${
                     data.name.includes("Cosmos")
-                      ? cosmosDropStats.isCompleted && "completed"
+                      ? cosmosDropStats.isCompleted && "completed2"
                       : data.name.includes("Persistence")
                       ? persistenceDropStats.isCompleted && "completed"
                       : data.name.includes("Terra")
@@ -350,9 +350,18 @@ export default function StakeDrop() {
                     >
                       {t("DETAILS")}
                     </a>
-                    <button className="section_availableStakeDrop__body_element__title_button_coming_soon">
-                      {t("COMING_SOON")}
-                    </button>
+                    <a
+                      href={
+                        data.name.includes("Cosmos") ? "/stakedrop/cosmos" : ""
+                      }
+                      className="section_availableStakeDrop__body_element__title_button_coming_soon"
+                    >
+                      {data.name.includes("Cosmos")
+                        ? "View"
+                        : // : data.name.includes("Persistence")
+                          // ? "/stakedrop/persistence"
+                          t("COMING_SOON")}
+                    </a>
                   </div>
                   <div className="section_availableStakeDrop__body_element__body">
                     <p>{data.name}</p>

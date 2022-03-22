@@ -351,7 +351,7 @@ export default function CosmosCalculationPage() {
                   <div className="section_calculation__error_element">
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You didn't participated in this campaign!</h3>
+                      <h3>You didn't participate in this campaign!</h3>
                     </div>
                     {/* <div className="section_calculation__error_element__line2">
                       <p>
