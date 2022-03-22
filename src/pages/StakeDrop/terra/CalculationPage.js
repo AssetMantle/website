@@ -9,7 +9,7 @@ import campaignData from "../../../data/campaignData.json";
 import { sendCoinTxWithMemo } from "../send";
 import HowToModal from "./HowToModal";
 import QAComponent from "./QAComponent";
-import {initializeKeplrForTera} from "../terraKeplr";
+import { initializeKeplrForTera } from "../terraKeplr";
 
 export default function TerraCalculationPage() {
   const { t } = useTranslation();
@@ -41,8 +41,8 @@ export default function TerraCalculationPage() {
       setKeplrConnectionState(1);
       try {
         await initializeKeplrForTera();
-      } catch (e){
-        console.log(e)
+      } catch (e) {
+        console.log(e);
       }
       let offlineSigner = window.keplr.getOfflineSigner(chainID);
       let accounts = await offlineSigner.getAccounts();
@@ -340,7 +340,7 @@ export default function TerraCalculationPage() {
                     value={Address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="section_calculation__from_line2_input"
-                    placeholder="Enter your cosmos wallet address"
+                    placeholder="Enter your terra wallet address"
                   />
                   <button
                     onClick={handleCalculate}
@@ -475,7 +475,9 @@ export default function TerraCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED" ?" to next quiz":""}
+                      {Quiz === true && TimeLeft !== "EXPIRED"
+                        ? " to next quiz"
+                        : ""}
                     </p>
                   </div>
                 </div>
