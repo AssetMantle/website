@@ -334,7 +334,7 @@ export default function PersistenceCalculationPage() {
                     value={Address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="section_calculation__from_line2_input"
-                    placeholder="Enter your cosmos wallet address"
+                    placeholder="Enter your persistence wallet address"
                   />
                   <button
                     onClick={handleCalculate}
@@ -469,7 +469,9 @@ export default function PersistenceCalculationPage() {
                     </span>
                     <p>
                       {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED" ?" to next quiz":""}
+                      {Quiz === true && TimeLeft !== "EXPIRED"
+                        ? " to next quiz"
+                        : ""}
                     </p>
                   </div>
                 </div>
