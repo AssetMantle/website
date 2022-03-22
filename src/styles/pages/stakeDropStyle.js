@@ -356,6 +356,17 @@ export const StakeDropContainer = styled.main`
               }
             }
           }
+          &.comingSoon {
+            .section_availableStakeDrop__body_element__title_button_completed {
+              display: none;
+            }
+            .section_availableStakeDrop__body_element__title_button_normal {
+              display: none;
+            }
+            .section_availableStakeDrop__body_element__title_button_coming_soon {
+              display: inline-block;
+            }
+          }
           &.completed2 {
             border-color: var(--success);
             .section_availableStakeDrop__body_element__stat {
@@ -390,26 +401,15 @@ export const StakeDropContainer = styled.main`
             .section_availableStakeDrop__body_element__title {
               &_button {
                 &_normal {
-                  display: none;
+                  display: inline;
                 }
                 &_coming_soon {
                   display: none;
                 }
                 &_completed {
-                  display: inline;
+                  display: none;
                 }
               }
-            }
-          }
-          &.comingSoon {
-            .section_availableStakeDrop__body_element__title_button_completed {
-              display: none;
-            }
-            .section_availableStakeDrop__body_element__title_button_normal {
-              display: none;
-            }
-            .section_availableStakeDrop__body_element__title_button_coming_soon {
-              display: inline-block;
             }
           }
           &.completed {
