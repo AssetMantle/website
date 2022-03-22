@@ -13,6 +13,7 @@ import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
+import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 
 const App = () => {
   const location = useLocation();
@@ -50,6 +51,10 @@ const App = () => {
     {
       component: PersistenceCalculationPage,
       path: "/stakedrop/persistence",
+    },
+    {
+      component: TerraCalculationPage,
+      path: "/stakedrop/terra",
     },
   ];
 
