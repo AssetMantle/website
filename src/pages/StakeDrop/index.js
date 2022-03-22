@@ -320,7 +320,9 @@ export default function StakeDrop() {
                     />
                     <a
                       href={
-                        data.name.includes("Terra")
+                        data.name.includes("Cosmos")
+                          ? "/stakedrop/cosmos"
+                          : data.name.includes("Terra")
                           ? "/stakedrop/terra"
                           : data.name.includes("Persistence")
                           ? "/stakedrop/persistence"
@@ -350,18 +352,9 @@ export default function StakeDrop() {
                     >
                       {t("DETAILS")}
                     </a>
-                    <a
-                      href={
-                        data.name.includes("Cosmos") ? "/stakedrop/cosmos" : ""
-                      }
-                      className="section_availableStakeDrop__body_element__title_button_coming_soon"
-                    >
-                      {data.name.includes("Cosmos")
-                        ? "View"
-                        : // : data.name.includes("Persistence")
-                          // ? "/stakedrop/persistence"
-                          t("COMING_SOON")}
-                    </a>
+                    <button className="section_availableStakeDrop__body_element__title_button_coming_soon">
+                      {t("COMING_SOON")}
+                    </button>
                   </div>
                   <div className="section_availableStakeDrop__body_element__body">
                     <p>{data.name}</p>
