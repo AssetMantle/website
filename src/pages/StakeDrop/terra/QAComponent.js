@@ -76,9 +76,8 @@ export default function QAComponent({
     const keplrAccount = await window.keplr.getOfflineSignerAuto(chainID);
     const accounts = await keplrAccount.getAccounts();
     setAddress(accounts[0].address);
-    if(address !== accounts[0].address){
+    if(address1 !== accounts[0].address){
       alert(`Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`)
-      setSubmitResponse("res");
       setSubmitButtonStat(2)
     } else {
       const pub = await window.keplr.getKey(chainID);
