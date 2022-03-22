@@ -17,6 +17,12 @@
     "chainId": "core-1",
     "rpc": "https://rpc.core.persistence.one/"
   },
+  "terra": {
+    "prefix": "terra",
+    "denom": "uluna",
+    "chainId": "columbus-5",
+    "rpc": "https://rpc-columbus.keplr.app"
+  },
   "assetMantle": {
     "prefix": "cosmo",
     "denom": "stake",

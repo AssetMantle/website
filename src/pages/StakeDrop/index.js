@@ -11,7 +11,7 @@ export default function StakeDrop() {
   const { t } = useTranslation();
 
   const [cosmosDropStats, setCosmosDropStats] = useState({
-    isCompleted: false,
+    isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
   });
@@ -234,13 +234,9 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed"
                       : ""
                   } ${
-                    data.name.includes("Cosmos") ||
+                    data.name.includes("Terra") ||
                     data.name.includes("Persistence")
-                      ? "active"
-                      : data.name.includes("Cosmos") &&
-                        cosmosDropStats.isCompleted
-                      ? ""
-                      : "comingSoon"
+                      ? "active" : "comingSoon"
                   }`} //remove the last logic
                 >
                   <div className="section_availableStakeDrop__body_element__stat">
@@ -254,8 +250,8 @@ export default function StakeDrop() {
                     />
                     <a
                       href={
-                        data.name.includes("Cosmos")
-                          ? "/stakedrop/cosmos"
+                        data.name.includes("Terra")
+                          ? "/stakedrop/terra"
                           : data.name.includes("Persistence")
                           ? "/stakedrop/persistence"
                           : ""
