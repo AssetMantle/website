@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import UList from "../../components/UList";
 import UList2 from "../../components/UList2";
 import Details from "../../components/Details";
+import { calculateFee } from "@cosmjs/stargate";
 
 export default function StakeDrop() {
   const { t } = useTranslation();
@@ -55,8 +56,7 @@ export default function StakeDrop() {
           if (data.success.toString() === "true") {
             setCosmosDropStats({
               isCompleted: true,
-              // rewardLine1: data.received,
-              rewardLine1: 5,
+              rewardLine1: data.received,
             });
             setCosmosCheckingState(3);
             fetch(
@@ -71,7 +71,7 @@ export default function StakeDrop() {
             setCosmosCheckingState(4);
             setCosmosDropStats({
               isCompleted: true,
-              rewardLine1: "You didn't participated in this campaign!",
+              rewardLine1: "You didn't participate in this campaign!",
             });
           } else {
             setCosmosCheckingState(5);
@@ -79,6 +79,10 @@ export default function StakeDrop() {
         });
     }
   }, [CosmosCheckingState, CosmosAddress]);
+
+  const cosmosCalculation =
+    Number(cosmosDropStats.rewardLine1) *
+    (0.6 + (0.4 * cosmosCorrectAnswers) / 18);
 
   const [persistenceDropStats, setPersistenceDropStats] = useState({
     isCompleted: false,
@@ -396,43 +400,15 @@ export default function StakeDrop() {
                           )}
                         </p>
                         <p>
-                          {isNaN(
-                            Number(
-                              data.name.includes("Cosmos")
-                                ? cosmosDropStats.rewardLine1
-                                : data.name.includes("Persistence")
-                                ? persistenceDropStats.rewardLine1
-                                : data.name.includes("Terra")
-                                ? terraDropStats.rewardLine1
-                                : data.name.includes("Comdex")
-                                ? comdexDropStats.rewardLine1
-                                : data.name.includes("Juno")
-                                ? junoDropStats.rewardLine1
-                                : data.name.includes("Stargaze")
-                                ? stargazeDropStats.rewardLine1
-                                : 0
-                            ) *
-                              (0.6 + (0.4 * cosmosCorrectAnswers) / 18)
-                          )
-                            ? 0
-                            : Number(
-                                data.name.includes("Cosmos")
-                                  ? cosmosDropStats.rewardLine1
-                                  : data.name.includes("Persistence")
-                                  ? persistenceDropStats.rewardLine1
-                                  : data.name.includes("Terra")
-                                  ? terraDropStats.rewardLine1
-                                  : data.name.includes("Comdex")
-                                  ? comdexDropStats.rewardLine1
-                                  : data.name.includes("Juno")
-                                  ? junoDropStats.rewardLine1
-                                  : data.name.includes("Stargaze")
-                                  ? stargazeDropStats.rewardLine1
-                                  : 0
-                              ) *
-                              (0.6 + (0.4 * cosmosCorrectAnswers) / 18)}{" "}
+                          {data.name.includes("Cosmos")
+                            ? cosmosDropStats.rewardLine1 !==
+                              "You didn't participate in this campaign!"
+                              ? isNaN(cosmosCalculation)
+                                ? `0 $MNTL`
+                                : `${cosmosCalculation} $MNTL`
+                              : "You didn't participate in this campaign!"
+                            : undefined}{" "}
                           {/* {cosmosCorrectAnswers} */}
-                          $MNTL
                         </p>
                         {/* <p>
                           {data.name.includes("Cosmos")
