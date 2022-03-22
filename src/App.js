@@ -30,9 +30,11 @@ const App = () => {
       return false
     }
   }
-  const CURRENT_VERSION = "v0.2.0"
-  if (compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION")) || localStorage.getItem("VERSION") == null){
+  const CURRENT_VERSION = "v0.2.1"
+  if (localStorage.getItem("VERSION") == null || compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION"))){
     localStorage.clear();
+    localStorage.setItem("VERSION", CURRENT_VERSION);
+  } else {
     localStorage.setItem("VERSION", CURRENT_VERSION);
   }
 
