@@ -79,7 +79,7 @@ export default function QAComponent({
     if(address !== accounts[0].address){
       alert(`Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`)
       setSubmitResponse("res");
-      setSubmitButtonStat(0)
+      setSubmitButtonStat(2)
     } else {
       const pub = await window.keplr.getKey(chainID);
       const keplrSign = await window.keplr.signArbitrary(
@@ -963,8 +963,8 @@ export default function QAComponent({
                 {qArray === 3 ? (
                   <button
                     onClick={handleSubmit}
-                    disabled={SubmitButtonStat === 2 ? true:false}
                     disabled={Answer1 && Answer2 && Answer3 ? false : true}
+                    disabled={SubmitButtonStat === 2 ? true:false}
                   >
                     Submit
                   </button>
@@ -981,6 +981,7 @@ export default function QAComponent({
                         ? false
                         : true
                     }
+                    disabled={SubmitButtonStat === 2 ? true:false}
                   >
                     Submit
                   </button>
