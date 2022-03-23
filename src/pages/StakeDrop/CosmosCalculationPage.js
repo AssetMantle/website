@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { sendCoinTx } from "./send";
+// import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
 import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
@@ -15,7 +15,7 @@ export default function CosmosCalculationPage() {
   const [QuizModal, setQuizModal] = useState(false);
   const [Quiz, setQuiz] = useState(0);
   const [Address, setAddress] = useState();
-  const [MTButtonText, setMTButtonText] = useState(0);
+  // const [MTButtonText, setMTButtonText] = useState(0);
 
   const [CampaignStat, setCampaignStat] = useState();
 
@@ -47,24 +47,24 @@ export default function CosmosCalculationPage() {
   };
 
   // no magic transaction ?
-  const handleMagicTransaction = async () => {
-    setMTButtonText(1);
-    const response = await sendCoinTx(
-      "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr",
-      "cosmos",
-      0.000001
-    );
-    console.log(response);
-    if (response === 0) {
-      setIsMagicTransaction(true);
-      setMTButtonText(3);
-      alert("Magic Transaction Successful");
-    } else {
-      setIsMagicTransaction(false);
-      setMTButtonText(2);
-      alert(response);
-    }
-  };
+  // const handleMagicTransaction = async () => {
+  //   setMTButtonText(1);
+  //   const response = await sendCoinTx(
+  //     "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr",
+  //     "cosmos",
+  //     0.000001
+  //   );
+  //   console.log(response);
+  //   if (response === 0) {
+  //     setIsMagicTransaction(true);
+  //     setMTButtonText(3);
+  //     alert("Magic Transaction Successful");
+  //   } else {
+  //     setIsMagicTransaction(false);
+  //     setMTButtonText(2);
+  //     alert(response);
+  //   }
+  // };
 
   // calculate rewards
   const [StakeAddress, setStakeAddress] = useState();
@@ -166,7 +166,7 @@ export default function CosmosCalculationPage() {
   }, 1000);
 
   //  slider value
-  const [SliderValue, setSliderValue] = useState(10);
+  // const [SliderValue, setSliderValue] = useState(10);
 
   return (
     <>

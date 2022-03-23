@@ -2,29 +2,10 @@ import styled from "styled-components";
 // import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
-  // const handleCopy = () => {
-  //   navigator.clipboard.writeText(address);
-  //   alert("Copied to clipboard!");
-  // };
-  // const handleCopy2 = () => {
-  //   navigator.clipboard.writeText(
-  //     `gaiad tx bank send [FROM_YOUR_ADDRESS] cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr 1uatom --chain-id cosmoshub-4 --fees 3000uatom --node https://rpc.cosmos.network:443`
-  //   );
-  //   alert("Copied to clipboard!");
-  // };
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div className="modal__sc">
-        <>
-          {/* <div
-              className="modal__sc_close"
-              onClick={() => closeModal(false)}
-              onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
-              >
-              <img src="/images/icons/close.png" alt="close" />
-            </div> */}
-        </>
         <div className="modal_container">
           <h2 className="modal_container__title">
             Magic Transaction Guide (Cosmos StakeDrop Campaign)
@@ -34,11 +15,7 @@ export default function HowToModal({ address, closeModal }) {
             <strong>0.000001 $ATOM</strong> to the following address:
           </p>
           <p>
-            <strong>
-              {address}
-              {"  "}
-              {/* <RiFileCopyLine onClick={handleCopy} /> */}
-            </strong>
+            <strong>{address}</strong>
           </p>
           <p>
             <strong>CLI Users:</strong>
