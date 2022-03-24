@@ -82,21 +82,18 @@ export default function QAComponent({
       data
     );
 
-    const res = await fetch(
-      "https://terra-stakedrop.assetmantle.one/qna",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          signedData: data,
-          signature: keplrSign.signature,
-          publicKey: pub.pubKey,
-        }),
-      }
-    );
+    const res = await fetch("https://terra-stakedrop.assetmantle.one/qna", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        signedData: data,
+        signature: keplrSign.signature,
+        publicKey: pub.pubKey,
+      }),
+    });
     setSubmitResponse(res);
   };
   function countAnswer(data) {
@@ -118,7 +115,7 @@ export default function QAComponent({
           if (data.success === true) {
             setSubmitStatus(true);
             setSubmit(countAnswer(data.qaData));
-            setTotalQs(data.day *3);
+            setTotalQs(data.day * 3);
             Quiz(true);
           } else {
             setSubmitStatus(false);
@@ -163,7 +160,7 @@ export default function QAComponent({
                 <button>
                   <TwitterShareButton
                     title={
-                      "Just claimed my Daily Rewards by Participating in $MNTL Stakedrop campaign Quiz. Have you?"
+                      "Just claimed my Daily Rewards by Participating in $MNTL StakeDrop campaign Quiz. Have you?"
                     }
                     url={window.location.href}
                     via={"AssetMantle"}

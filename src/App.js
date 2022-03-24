@@ -11,17 +11,22 @@ import HeaderASAO from "./layout/HeaderASAO";
 import RouteNotFound from "./components/RouteNotFound";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
+
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
 import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
+import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 
 const App = () => {
   const location = useLocation();
 
   // changing header
-  const CURRENT_VERSION = "v0.1.5"
-  console.log(CURRENT_VERSION)
-  if (localStorage.getItem("VERSION")< CURRENT_VERSION || localStorage.getItem("VERSION") == null){
+  const CURRENT_VERSION = "v0.1.5";
+  console.log(CURRENT_VERSION);
+  if (
+    localStorage.getItem("VERSION") < CURRENT_VERSION ||
+    localStorage.getItem("VERSION") == null
+  ) {
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
   }
@@ -55,6 +60,10 @@ const App = () => {
     {
       component: TerraCalculationPage,
       path: "/stakedrop/terra",
+    },
+    {
+      component: ComdexCalculationPage,
+      path: "/stakedrop/comdex",
     },
   ];
 

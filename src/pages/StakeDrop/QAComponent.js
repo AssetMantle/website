@@ -115,7 +115,7 @@ export default function QAComponent({
           if (data.success === true) {
             setSubmitStatus(true);
             setSubmit(countAnswer(data.qaData));
-            setAnswerArray((data.day * 3));
+            setAnswerArray(data.day * 3);
             Quiz(true);
           } else {
             setSubmitStatus(false);
@@ -160,7 +160,7 @@ export default function QAComponent({
                 <button>
                   <TwitterShareButton
                     title={
-                      "Just claimed my Daily Rewards by Participating in $MNTL Stakedrop campaign Quiz. Have you?"
+                      "Just claimed my Daily Rewards by Participating in $MNTL StakeDrop campaign Quiz. Have you?"
                     }
                     url={window.location.href}
                     via={"AssetMantle"}
