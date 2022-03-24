@@ -69,12 +69,10 @@ export default function CosmosCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotaReward] = useState("0.00");
-  const [TotalEstimated, setTotaEstimated] = useState("0.00");
   const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
-  const TotalEstimatedN = Number(TotalEstimated);
 
   function countAnswer(data) {
     var counter = 0;
@@ -95,7 +93,6 @@ export default function CosmosCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
-          setTotaEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -108,7 +105,6 @@ export default function CosmosCalculationPage() {
           setStakeAddress();
           setTotalStaked("0.00");
           setTotaReward("0.00");
-          setTotaEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
