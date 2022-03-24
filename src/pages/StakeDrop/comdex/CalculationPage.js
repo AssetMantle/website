@@ -1,40 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-// import { sendCoinTx } from "./send";
-import data from "../../data/stakeDropData.json";
-import HowToModal from "./HowToModal";
-import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
-import QAComponent from "./QAComponent";
 
-export default function CosmosCalculationPage() {
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
+
+// import data from "../../../data/stakeDropData.json";
+import campaignData from "../../../data/campaignData.json";
+import { sendCoinTx } from "../send";
+import HowToModal from "./HowToModal";
+import QAComponent from "./QAComponent";
+import { initializeKeplrForComdex } from "./comdexKeplr";
+
+export default function ComdexCalculationPage() {
   const { t } = useTranslation();
-  const sendingAddress = "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr";
-  const DATA = data.modal;
+  const sendingAddress = "comdex1dsuar2ztnqevefxlnalmaetxca3gr0fpjhd7l5";
+  // const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
   const [Quiz, setQuiz] = useState(0);
   const [Address, setAddress] = useState();
-  // const [MTButtonText, setMTButtonText] = useState(0);
+  const [MTButtonText, setMTButtonText] = useState(0);
 
   const [CampaignStat, setCampaignStat] = useState();
 
   const [IsMagicTransaction, setIsMagicTransaction] = useState();
 
   useEffect(() => {
-    fetch("https://cosmos-stakedrop.assetmantle.one/status")
+    fetch("https://comdex-stakedrop.assetmantle.one/status")
       .then((res) => res.json())
       .then((res) => setCampaignStat(res))
       .catch((err) => console.log(err));
   }, []);
-  // https://cosmos-stakedrop.assetmantle.one/status
+  // https://comdex-stakedrop.assetmantle.one/status
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainID = "cosmoshub-4";
+  const chainID = "comdex-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
+      try {
+        await initializeKeplrForComdex();
+      } catch (e) {
+        console.log(e);
+      }
       let offlineSigner = window.keplr.getOfflineSigner(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
@@ -47,77 +56,60 @@ export default function CosmosCalculationPage() {
   };
 
   // no magic transaction ?
-  // const handleMagicTransaction = async () => {
-  //   setMTButtonText(1);
-  //   const response = await sendCoinTx(
-  //     "cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr",
-  //     "cosmos",
-  //     0.000001
-  //   );
-  //   console.log(response);
-  //   if (response === 0) {
-  //     setIsMagicTransaction(true);
-  //     setMTButtonText(3);
-  //     alert("Magic Transaction Successful");
-  //   } else {
-  //     setIsMagicTransaction(false);
-  //     setMTButtonText(2);
-  //     alert(response);
-  //   }
-  // };
+  const handleMagicTransaction = async () => {
+    setMTButtonText(1);
+    const response = await sendCoinTx(sendingAddress, "comdex", 0.000001);
+    console.log(response);
+    if (response === 0) {
+      setIsMagicTransaction(true);
+      setMTButtonText(3);
+      alert("Magic Transaction Successful");
+    } else {
+      setIsMagicTransaction(false);
+      setMTButtonText(2);
+      alert(response);
+    }
+  };
 
   // calculate rewards
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
-  const [TotalReward, setTotaReward] = useState("0.00");
-  const [TotalEstimated, setTotaEstimated] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState("--");
+  const [TotalReward, setTotalReward] = useState("0.00");
+  const [TotalEstimated, setTotalEstimated] = useState("0.00");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
 
-  function countAnswer(data) {
-    var counter = 0;
-    data.forEach((dd) => {
-      if (dd.correct) {
-        counter++;
-      }
-    });
-
-    return counter;
-  }
-
   const handleCalculate = () => {
-    fetch(`https://cosmos-stakedrop.assetmantle.one/delegator/${Address}`)
+    fetch(`https://comdex-stakedrop.assetmantle.one/delegator/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
-          setTotaReward(data.received);
-          setTotaEstimated(data.estimated);
+          setTotalReward(data.received);
+          setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
-          fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
+          fetch(`https://comdex-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) => {
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
-              setTotalCorrect(countAnswer(data.qaData));
-            });
+            .then((data) =>
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
+            );
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
           setTotalStaked("0.00");
-          setTotaReward("0.00");
-          setTotaEstimated("0.00");
+          setTotalReward("0.00");
+          setTotalEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
   };
 
   // Time left count down
-  const [TimeLeft, setTimeLeft] = useState(0);
-  var countDownDate = new Date(2022, 2, 22, 17, 30).getTime();
+  const [TimeLeft, setTimeLeft] = useState(1);
+  var countDownDate = new Date(2022, 3, 1, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
     var distance = countDownDate - now;
@@ -130,7 +122,7 @@ export default function CosmosCalculationPage() {
     setTimeLeft(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
     if (distance < 0) {
       clearInterval(x);
-      setTimeLeft("Concluded");
+      setTimeLeft("EXPIRED");
     }
   }, 1000);
 
@@ -138,17 +130,17 @@ export default function CosmosCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch("https://cosmos-stakedrop.assetmantle.one/qna")
+    fetch(`https://comdex-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         setDay(data.day);
       });
-  }, []);
+  }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
   var countDownDate2 = new Date(
     2022,
-    2,
-    { 1: 17, 2: 18, 3: 19, 4: 20, 5: 21, 6: 22 }[Day],
+    { 1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 3 }[Day],
+    { 1: 26, 2: 27, 3: 28, 4: 29, 5: 30, 6: 31, 7: 1 }[Day],
     17,
     59
   ).getTime();
@@ -166,7 +158,7 @@ export default function CosmosCalculationPage() {
   }, 1000);
 
   //  slider value
-  // const [SliderValue, setSliderValue] = useState(10);
+  const [SliderValue, setSliderValue] = useState(10);
 
   return (
     <>
@@ -184,47 +176,54 @@ export default function CosmosCalculationPage() {
               <div>
                 <div className="section__overview_campaign lighter_bg">
                   <h3 className="section__overview_campaign__title">
-                    {t("STAKEDROP_MODAL_CAMPAIGN_TITLE")}
+                    {campaignData.comdex.dataTable1.title}
                   </h3>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
                       {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option2.value}
+                      {Number(
+                        campaignData.comdex.dataTable1.op1Value
+                      ).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "}
+                      $MNTL
                     </h3>
                   </div>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_3_TITLE")}
+                      {campaignData.comdex.dataTable1.op2Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option3.value}
+                      {campaignData.comdex.dataTable1.op2Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option3.details}
+                      {campaignData.comdex.dataTable1.op2Description}
                     </p>
                   </div>
+                  <>
+                    <div className="section__overview_campaign__option">
+                      <p className="section__overview_campaign__option_label                                                                                                                        ">
+                        {campaignData.comdex.dataTable1.op3Key}
+                      </p>
+                      <h3 className="section__overview_campaign__option_value">
+                        {campaignData.comdex.dataTable1.op3Value}
+                      </h3>
+                      <p className="section__overview_campaign__option_details">
+                        {campaignData.comdex.dataTable1.op3Description}
+                      </p>
+                    </div>
+                  </>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      Reward Distribution Start Date
+                      {campaignData.comdex.dataTable1.op4Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option3i.value}
+                      {campaignData.comdex.dataTable1.op4Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option3i.details}
-                    </p>
-                  </div>
-                  <div className="section__overview_campaign__option">
-                    <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {t("STAKEDROP_MODAL_CAMPAIGN_OPTION_4_TITLE")}
-                    </p>
-                    <h3 className="section__overview_campaign__option_value">
-                      {DATA.campaign.option4.value}
-                    </h3>
-                    <p className="section__overview_campaign__option_details">
-                      {DATA.campaign.option4.details}
+                      {campaignData.comdex.dataTable1.op4Description}
                     </p>
                   </div>
                 </div>
@@ -239,7 +238,15 @@ export default function CosmosCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      0{` $MNTL`}
+                      {CampaignStat
+                        ? (
+                            Number(campaignData.comdex.dataTable1.op1Value) -
+                            Number(CampaignStat.totalDistributed) / 1000000
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : "--"}
+                      {` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -264,7 +271,7 @@ export default function CosmosCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}
-                      {` $ATOM`}
+                      {` ${campaignData.comdex.currency}`}
                     </h3>
                     <p className="section__overview_campaign__option_details">
                       {`Total Active: `}
@@ -275,7 +282,7 @@ export default function CosmosCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}{" "}
-                      $ATOM
+                      {campaignData.comdex.currency}
                     </p>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -329,7 +336,7 @@ export default function CosmosCalculationPage() {
                     value={Address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="section_calculation__from_line2_input"
-                    placeholder="Enter your cosmos wallet address"
+                    placeholder="Enter your comdex wallet address"
                   />
                   <button
                     onClick={handleCalculate}
@@ -351,9 +358,15 @@ export default function CosmosCalculationPage() {
                   <div className="section_calculation__error_element">
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You didn't participate in this campaign!</h3>
+                      <h3>
+                        {MTButtonText === 3
+                          ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
+                          : MTButtonText === 0
+                          ? "You have not completed the magic transaction"
+                          : "You have not completed the magic transaction"}
+                      </h3>
                     </div>
-                    {/* <div className="section_calculation__error_element__line2">
+                    <div className="section_calculation__error_element__line2">
                       <p>
                         You have to complete a magic transaction in order to
                         calculate estimated rewards. Here's a quick guide on how
@@ -369,10 +382,10 @@ export default function CosmosCalculationPage() {
                         magic transaction multiple times as your participation
                         is already confirmed.
                       </p>
-                    </div> */}
+                    </div>
                   </div>
                   <div className="section_calculation__error_element">
-                    {/* <button
+                    <button
                       onClick={handleMagicTransaction}
                       className="section_calculation__error_element__button"
                       disabled={
@@ -387,7 +400,7 @@ export default function CosmosCalculationPage() {
                           3: "Successful",
                         }[MTButtonText]
                       }
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               )}
@@ -413,7 +426,7 @@ export default function CosmosCalculationPage() {
                       {(TotalStakedN / 1000000).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
-                      $ATOM
+                      {campaignData.comdex.currency}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -445,7 +458,7 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz result
+                    Claim your daily rewards
                     {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
@@ -456,26 +469,35 @@ export default function CosmosCalculationPage() {
                     <span>
                       <BiTimeFive />
                     </span>
-                    <p>EXPIRED</p>
+                    <p>
+                      {TimeLeftQuiz}
+                      {Quiz === true && TimeLeft !== "EXPIRED"
+                        ? " to next quiz"
+                        : ""}
+                    </p>
                   </div>
                 </div>
                 <p className="section_questions__qBox_details">
-                  You scored {TotalCorrect} out of 18.
+                  Participate in the quiz to receive 40% of the $MNTL rewards at
+                  the end of the campaign.
                 </p>
                 <div className="section_questions__qBox_button">
-                  {/* <button
+                  <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
                   >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
-                  </button> */}
+                  </button>
                 </div>
               </div>
             </section>
-            {/* <section className="section_calculation lighter_bg">
+            <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
-                <p>How many $ATOM would you like to stake?</p>
+                <p>
+                  How many {campaignData.comdex.currency} would you like to
+                  stake?
+                </p>
                 <input
                   type="number"
                   value={SliderValue}
@@ -503,10 +525,12 @@ export default function CosmosCalculationPage() {
                       Stake
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
-                      
+                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "} */}
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
-                      })} $ATOM`}
+                      })} ${campaignData.comdex.currency}`}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -516,7 +540,7 @@ export default function CosmosCalculationPage() {
                     <h3 className="section_calculation__result_rewards_reward__value">
                       {CampaignStat
                         ? ((Number(SliderValue) *
-                            (2000000 -
+                            (Number(campaignData.comdex.dataTable1.op1Value) -
                               Number(CampaignStat.totalDistributed) /
                                 1000000)) /
                             (Number(CampaignStat.worldGlobalDelegation) /
@@ -524,7 +548,9 @@ export default function CosmosCalculationPage() {
                           5000
                             ? 5000
                             : (Number(SliderValue) *
-                                (2000000 -
+                                (Number(
+                                  campaignData.comdex.dataTable1.op1Value
+                                ) -
                                   Number(CampaignStat.totalDistributed) /
                                     1000000)) /
                               (Number(CampaignStat.worldGlobalDelegation) /
@@ -538,7 +564,7 @@ export default function CosmosCalculationPage() {
                   </div>
                 </div>
               </div>
-            </section> */}
+            </section>
           </div>
         </div>
         {QuizModal === true && (

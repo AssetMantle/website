@@ -11,9 +11,11 @@ import HeaderASAO from "./layout/HeaderASAO";
 import RouteNotFound from "./components/RouteNotFound";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
+
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
 import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
+import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 
 const App = () => {
   const location = useLocation();
@@ -32,6 +34,7 @@ const App = () => {
   }
   const CURRENT_VERSION = "v0.2.1"
   if (localStorage.getItem("VERSION") == null || compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION"))){
+
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
   } else {
@@ -67,6 +70,10 @@ const App = () => {
     {
       component: TerraCalculationPage,
       path: "/stakedrop/terra",
+    },
+    {
+      component: ComdexCalculationPage,
+      path: "/stakedrop/comdex",
     },
   ];
 

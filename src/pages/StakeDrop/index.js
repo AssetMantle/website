@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import UList from "../../components/UList";
 import UList2 from "../../components/UList2";
 import Details from "../../components/Details";
-import { calculateFee } from "@cosmjs/stargate";
+// import { calculateFee } from "@cosmjs/stargate";
 
 export default function StakeDrop() {
   const { t } = useTranslation();
@@ -85,7 +85,7 @@ export default function StakeDrop() {
     (0.6 + (0.4 * cosmosCorrectAnswers) / 18);
 
   const [persistenceDropStats, setPersistenceDropStats] = useState({
-    isCompleted: false,
+    isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
   });
@@ -292,7 +292,7 @@ export default function StakeDrop() {
                     data.name.includes("Cosmos")
                       ? cosmosDropStats.isCompleted && "completed2"
                       : data.name.includes("Persistence")
-                      ? persistenceDropStats.isCompleted && "completed"
+                      ? persistenceDropStats.isCompleted && "completed2"
                       : data.name.includes("Terra")
                       ? terraDropStats.isCompleted && "completed"
                       : data.name.includes("Comdex")
@@ -303,8 +303,7 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed"
                       : ""
                   } ${
-                    data.name.includes("Terra") ||
-                    data.name.includes("Persistence")
+                    data.name.includes("Terra") || data.name.includes("Comdex")
                       ? "active"
                       : "comingSoon"
                   }`} //remove the last logic
@@ -326,6 +325,12 @@ export default function StakeDrop() {
                           ? "/stakedrop/terra"
                           : data.name.includes("Persistence")
                           ? "/stakedrop/persistence"
+                          : data.name.includes("Comdex")
+                          ? "/stakedrop/comdex"
+                          : data.name.includes("Juno")
+                          ? "/stakedrop/juno"
+                          : data.name.includes("Stargaze")
+                          ? "/stakedrop/stargaze"
                           : ""
                       }
                       className="section_availableStakeDrop__body_element__title_button_normal"

@@ -34,12 +34,11 @@ export default function QAComponent({
   const [SubmitStatus, setSubmitStatus] = useState(false);
   const [SubmitResponse, setSubmitResponse] = useState();
   const [address, setAddress] = useState();
-  const [SubmitButtonStat, setSubmitButtonStat] = useState("");
 
   const [questionShow, setQuestionShow] = useState(0);
 
   useEffect(() => {
-    fetch(`https://terra-stakedrop.assetmantle.one/qna/${address1}`)
+    fetch(`https://comdex-stakedrop.assetmantle.one/qna/${address1}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.qnaSet.length === 3) {
@@ -62,7 +61,7 @@ export default function QAComponent({
   //   const handleSubmit = () => {
   //     console.log(Answer1, Answer2, Answer3);
   //   };
-  const chainID = "columbus-5";
+  const chainID = "comdex-1";
   const numToT = ["", "a", "b", "c", "d"];
   // const data = `${Q1.QId}_${numToT[Answer1]},${Q2.QId}_${numToT[Answer2]},${Q3.QId}_${numToT[Answer3]}`;
   // const data = "ques1Id_ans1Id,ques2Id_ans2Id"
@@ -76,35 +75,14 @@ export default function QAComponent({
     const keplrAccount = await window.keplr.getOfflineSignerAuto(chainID);
     const accounts = await keplrAccount.getAccounts();
     setAddress(accounts[0].address);
-    if(address1 !== accounts[0].address){
-      alert(`Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`)
-      setSubmitButtonStat(2)
-    } else {
-      const pub = await window.keplr.getKey(chainID);
-      const keplrSign = await window.keplr.signArbitrary(
-          chainID,
-          accounts[0].address,
-          data
-      );
-      const res = await fetch(
-          "https://terra-stakedrop.assetmantle.one/qna",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              signedData: data,
-              signature: keplrSign.signature,
-              publicKey: pub.pubKey,
-            }),
-          }
-      );
-      setSubmitResponse(res);
-    }
+    const pub = await window.keplr.getKey(chainID);
+    const keplrSign = await window.keplr.signArbitrary(
+      chainID,
+      accounts[0].address,
+      data
+    );
 
-    const res = await fetch("https://terra-stakedrop.assetmantle.one/qna", {
+    const res = await fetch("https://comdex-stakedrop.assetmantle.one/qna", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -118,7 +96,6 @@ export default function QAComponent({
     });
     setSubmitResponse(res);
   };
-  
   function countAnswer(data) {
     var counter = 0;
     data.forEach((dd) => {
@@ -132,7 +109,7 @@ export default function QAComponent({
   useEffect(() => {
     SubmitResponse &&
       SubmitResponse.status === 200 &&
-      fetch(`https://terra-stakedrop.assetmantle.one/qna/${address}`)
+      fetch(`https://comdex-stakedrop.assetmantle.one/qna/${address}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success === true) {
@@ -977,7 +954,6 @@ export default function QAComponent({
                   <button
                     onClick={handleSubmit}
                     disabled={Answer1 && Answer2 && Answer3 ? false : true}
-                    disabled={SubmitButtonStat === 2 ? true:false}
                   >
                     Submit
                   </button>
@@ -994,7 +970,6 @@ export default function QAComponent({
                         ? false
                         : true
                     }
-                    disabled={SubmitButtonStat === 2 ? true:false}
                   >
                     Submit
                   </button>

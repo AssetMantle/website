@@ -2,33 +2,60 @@ import styled from "styled-components";
 // import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
+  // const handleCopy = () => {
+  //   navigator.clipboard.writeText(address);
+  //   alert("Copied to clipboard!");
+  // };
+  // const handleCopy2 = () => {
+  //   navigator.clipboard.writeText(
+  //     `persistenceCore tx bank send [FROM_YOUR_PERSISTENCE_ADDRESS] persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde 1uxprt --chain-id core-1 --fees 3000uxprt --node https://rpc.persistence.audit.one:443 --memo [YOUR_COSMOS_ADDRESS]`
+  //   );
+  //   alert("Copied to clipboard!");
+  // };
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div className="modal__sc">
+        <>
+          {/* <div
+              className="modal__sc_close"
+              onClick={() => closeModal(false)}
+              onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
+              >
+              <img src="/images/icons/close.png" alt="close" />
+            </div> */}
+        </>
         <div className="modal_container">
           <h2 className="modal_container__title">
-            Magic Transaction Guide (Cosmos StakeDrop Campaign)
+            Magic Transaction Guide (Comdex StakeDrop Campaign)
           </h2>
           <p>
+            Magic Transaction needs to be sent only once for confirming your
+            participation in the campaign.
+          </p>
+          <p>
             To begin your participation in StakeDrop Campaign, please send{" "}
-            <strong>0.000001 $ATOM</strong> to the following address:
-          </p>
-          <p>
-            <strong>{address}</strong>
-          </p>
-          <p>
-            <strong>CLI Users:</strong>
-            <br />
-            Please follow the following command to do the magic transaction
+            <strong>0.000001 $CMDX</strong> to the following address:{" "}
           </p>
           <p>
             <strong>
-              gaiad tx bank send [FROM_YOUR_ADDRESS]
-              cosmos1dsuar2ztnqevefxlnalmaetxca3gr0fp4c0uxr 1uatom --chain-id
-              cosmoshub-4 --fees 3000uatom --node{" "}
-              <a href="https://rpc.cosmos.network:443">
-                https://rpc.cosmos.network:443
+              {address}
+              {"  "}
+              {/* <RiFileCopyLine onClick={handleCopy} /> */}
+            </strong>
+          </p>
+
+          <p>
+            <strong>CLI Users:</strong>
+            <br />
+            Please follow the following command to do the magic transaction.
+          </p>
+          <p>
+            <strong>
+              comdex tx bank send [FROM_YOUR_COMDEX_ADDRESS] {address} 1ucmdx
+              --chain-id comdex-1 --fees 3000ucmdx --node{" "}
+              <a href="https://rpc.comdex.one:443">
+                https://rpc.comdex.one:443
               </a>
               {"  "}
               {/* <RiFileCopyLine onClick={handleCopy2} /> */}
@@ -36,7 +63,7 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             <strong>
-              Note: The amount sent will be refunded back to the origin address.
+              Note: The amount sent will be refunded back to the origin address
             </strong>
           </p>
           <div className="modal_container__button">
@@ -79,7 +106,7 @@ const Container = styled.div`
     z-index: 1;
   }
   .modal__sc {
-    max-height: 100%;
+    height: 100%;
     position: relative;
     z-index: 3;
     background-color: var(--dark-xs);

@@ -32,7 +32,7 @@
   "comdex": {
     "prefix": "comdex",
     "denom": "ucmdx",
-    "chainId": "",
+    "chainId": "comdex-1",
     "rpc": "https://rpc.comdex.one/"
   }
 }

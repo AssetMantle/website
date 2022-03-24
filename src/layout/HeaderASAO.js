@@ -27,7 +27,7 @@ export default function HeaderASAO() {
           {window.location.pathname === "/"
             ? "Airdrop"
             : window.location.href.includes("stakedrop")
-            ? "Stakedrop"
+            ? "StakeDrop"
             : undefined}
         </h2>
       </div>
