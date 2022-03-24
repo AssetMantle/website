@@ -76,49 +76,34 @@ export default function QAComponent({
     const keplrAccount = await window.keplr.getOfflineSignerAuto(chainID);
     const accounts = await keplrAccount.getAccounts();
     setAddress(accounts[0].address);
-    if(address1 !== accounts[0].address){
-      alert(`Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`)
-      setSubmitButtonStat(2)
+    if (address1 !== accounts[0].address) {
+      alert(
+        `Address mismatch:- Expecting address ${address1} got ${accounts[0].address}. Please Ensure that you use the same address to perform magix tx and submit the quiz.`
+      );
+      setSubmitButtonStat(2);
     } else {
       const pub = await window.keplr.getKey(chainID);
       const keplrSign = await window.keplr.signArbitrary(
-          chainID,
-          accounts[0].address,
-          data
+        chainID,
+        accounts[0].address,
+        data
       );
-      const res = await fetch(
-          "https://terra-stakedrop.assetmantle.one/qna",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              signedData: data,
-              signature: keplrSign.signature,
-              publicKey: pub.pubKey,
-            }),
-          }
-      );
+      const res = await fetch("https://terra-stakedrop.assetmantle.one/qna", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          signedData: data,
+          signature: keplrSign.signature,
+          publicKey: pub.pubKey,
+        }),
+      });
       setSubmitResponse(res);
     }
-
-    const res = await fetch("https://terra-stakedrop.assetmantle.one/qna", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        signedData: data,
-        signature: keplrSign.signature,
-        publicKey: pub.pubKey,
-      }),
-    });
-    setSubmitResponse(res);
   };
-  
+
   function countAnswer(data) {
     var counter = 0;
     data.forEach((dd) => {
@@ -976,8 +961,11 @@ export default function QAComponent({
                 {qArray === 3 ? (
                   <button
                     onClick={handleSubmit}
-                    disabled={Answer1 && Answer2 && Answer3 ? false : true}
-                    disabled={SubmitButtonStat === 2 ? true:false}
+                    disabled={
+                      Answer1 && Answer2 && Answer3 && SubmitButtonStat !== 2
+                        ? false
+                        : true
+                    }
                   >
                     Submit
                   </button>
@@ -990,11 +978,11 @@ export default function QAComponent({
                       Answer3 &&
                       Answer4 &&
                       Answer5 &&
-                      Answer6
+                      Answer6 &&
+                      SubmitButtonStat !== 2
                         ? false
                         : true
                     }
-                    disabled={SubmitButtonStat === 2 ? true:false}
                   >
                     Submit
                   </button>
