@@ -37,8 +37,7 @@ const App = () => {
 
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
-  } else {
-    localStorage.setItem("VERSION", CURRENT_VERSION);
+    window.location.reload();
   }
 
   // scrolling to top on every page change
