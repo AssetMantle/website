@@ -32,13 +32,12 @@ const App = () => {
       return false
     }
   }
-  const CURRENT_VERSION = "v0.2.1"
+  const CURRENT_VERSION = "v0.2.2"
   if (localStorage.getItem("VERSION") == null || compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION"))){
 
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
-  } else {
-    localStorage.setItem("VERSION", CURRENT_VERSION);
+    window.location.reload();
   }
 
   // scrolling to top on every page change

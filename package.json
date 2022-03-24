@@ -22,7 +22,7 @@
     "react-player": "^2.9.0",
     "react-scripts": "4.0.3",
     "react-share": "^4.4.0",
-    "styled-components": "^5.3.3",
+    "styled-components": "^5.3.5",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
