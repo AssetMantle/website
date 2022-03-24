@@ -4,6 +4,7 @@ import styled from "styled-components";
 // import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 import QAComponent from "./QAComponent";
 
 export default function CosmosCalculationPage() {
@@ -69,10 +70,12 @@ export default function CosmosCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotaReward] = useState("0.00");
+  const [TotalEstimated, setTotaEstimated] = useState("0.00");
   const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
+  const TotalEstimatedN = Number(TotalEstimated);
 
   function countAnswer(data) {
     var counter = 0;
@@ -93,6 +96,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
+          setTotaEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -105,6 +109,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress();
           setTotalStaked("0.00");
           setTotaReward("0.00");
+          setTotaEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
@@ -162,9 +167,6 @@ export default function CosmosCalculationPage() {
 
   //  slider value
   // const [SliderValue, setSliderValue] = useState(10);
-
-  const reward = 0.6 * TotalRewardN;
-  const totalReward = (0.4 * Number(TotalCorrect) * TotalRewardN) / 18;
 
   return (
     <>
@@ -415,7 +417,7 @@ export default function CosmosCalculationPage() {
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -423,10 +425,10 @@ export default function CosmosCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Estimated Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -434,7 +436,7 @@ export default function CosmosCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -443,52 +445,23 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Rewards
-                    {/* {Quiz === true && (
+                    Quiz result
+                    {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )} */}
+                    )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    {/* <span>
+                    <span>
                       <BiTimeFive />
                     </span>
-                    <p>EXPIRED</p> */}
+                    <p>EXPIRED</p>
                   </div>
                 </div>
-                {/* <p className="section_questions__qBox_details">
+                <p className="section_questions__qBox_details">
                   You scored {TotalCorrect} out of 18.
-                </p> */}
-                <section className="section_allocation_by_network">
-                  <div className="section_allocation_by_network__element">
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>Reward:</h4>
-                      <p>
-                        {reward}
-                        {` $MNTL`}
-                      </p>
-                    </div>
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>
-                        Bonus Reward: <br />
-                        (You scored {TotalCorrect} out of 18 in quiz.)
-                      </h4>
-                      <p>{totalReward} $MNTL</p>
-                    </div>
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>Total Reward:</h4>
-                      <p>
-                        {reward + totalReward}
-                        {` $MNTL`}
-                      </p>
-                    </div>
-                    {/* <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                    </div> */}
-                  </div>
-                </section>
+                </p>
                 <div className="section_questions__qBox_button">
                   {/* <button
                     onClick={() => setQuizModal(true)}
@@ -993,51 +966,6 @@ const Container = styled.main`
           max-width: 768px;
           @media (max-width: 548px) {
             padding: 20px;
-          }
-        }
-        .section_allocation_by_network {
-          padding: 0px 40px;
-          @media (max-width: 650px) {
-            padding: 0px 20px;
-          }
-          &__title {
-            color: var(--gray-deep);
-            padding-bottom: 16px;
-          }
-          &__element {
-            background-color: var(--dark-s);
-            box-shadow: var(--dark-shadow);
-            border-radius: 12px;
-            &_option {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 24px;
-              padding: 24px 40px;
-              @media (max-width: 548px) {
-                padding: 24px 20px;
-                flex-direction: column;
-              }
-              &:not(:last-child) {
-                border-bottom: 1px solid var(--dark-xs);
-              }
-              h4 {
-                color: var(--gray);
-              }
-              p {
-                font: 600 var(--p-m);
-                color: var(--gray);
-              }
-              &:first-child {
-                h4 {
-                  color: var(--gray-deep);
-                }
-                p {
-                  font: var(--p-m);
-                  color: var(--gray-deep);
-                }
-              }
-            }
           }
         }
         &_button {
