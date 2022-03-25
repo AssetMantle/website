@@ -472,10 +472,7 @@ You scored {TotalCorrect} out of 18 in quiz. for
                         {` $MNTL`}
                       </p>
                     </div>
-                    {/* <div className="section_reward_table__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                    </div> */}
+                    
                   </div>
                 </section>*/}
                 {/* <div className="section_questions__qBox_button">
