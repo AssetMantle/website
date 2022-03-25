@@ -458,7 +458,7 @@ export default function ComdexCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Claim your daily rewards
+                    OPTIONAL (Quiz)
                     {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
@@ -478,8 +478,12 @@ export default function ComdexCalculationPage() {
                   </div>
                 </div>
                 <p className="section_questions__qBox_details">
-                  Participate in the quiz to receive 40% of the $MNTL rewards at
-                  the end of the campaign.
+                  The objective of this quiz is to spread more awareness about
+                  AssetMantle and it's product offerings. Please Note that as
+                  per the community feedbacks, we have decided to keep the quiz
+                  optional and the participants of the campaign will receive the
+                  total rewards as per the distribution independent of the quiz
+                  participation.
                 </p>
                 <div className="section_questions__qBox_button">
                   <button
