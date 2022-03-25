@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import "../../../styles/pages/campaignTable.css";
 
 import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 
@@ -73,12 +74,10 @@ export default function PersistenceCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
-  const [TotalEstimated, setTotalEstimated] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState("--");
+  const [TotalCorrect, setTotalCorrect] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
-  const TotalEstimatedN = Number(TotalEstimated);
 
   function countAnswer(data) {
     var counter = 0;
@@ -488,7 +487,7 @@ export default function PersistenceCalculationPage() {
                     )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    <span>
+                    {* <span>
                       <BiTimeFive />
                     </span>
                     <p>
@@ -496,20 +495,56 @@ export default function PersistenceCalculationPage() {
                       {Quiz === true && TimeLeft !== "EXPIRED"
                         ? " to next quiz"
                         : ""}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
-                <p className="section_questions__qBox_details">
-                  You scored {TotalCorrect} out of 18.
-                </p>
-                <div className="section_questions__qBox_button">
-                  {/* <button
+                <section className="section_reward_table">
+                  <div className="section_reward_table__element">
+                    <div className="section_reward_table__element_option">
+                      <h4>Reward:</h4>
+                      <p>
+                        {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}
+                        {` $MNTL`}
+                      </p>
+                    </div>
+                    <div className="section_reward_table__element_option">
+                      <h4>
+                        Bonus Reward: <br />
+                        (You scored {TotalCorrect} out of 21 in quiz. for
+                        persistance)
+                      </h4>
+                      <p>
+                        {totalReward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}{" "}
+                        $MNTL
+                      </p>
+                    </div>
+                    <div className="section_reward_table__element_option">
+                      <h4>Total Reward:</h4>
+                      <p>
+                        {(reward + totalReward).toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}
+                        {` $MNTL`}
+                      </p>
+                    </div>
+                    {/* <div className="section_reward_table__element_option">
+                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
+                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
+                    </div> */}
+                  </div>
+                </section>
+                {/* <div className="section_questions__qBox_button">
+                  <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
                   >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
-                  </button> */}
-                </div>
+                  </button>
+                </div> */}
               </div>
             </section>
             <>
