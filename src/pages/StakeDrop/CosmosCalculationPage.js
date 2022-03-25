@@ -431,7 +431,7 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Reward
+                    Quiz Result
                   </h3>
                   <div className="section_questions__qBox_title__right"></div>
                 </div>
