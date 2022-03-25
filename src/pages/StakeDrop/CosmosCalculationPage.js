@@ -5,6 +5,7 @@ import "../../styles/pages/campaignTable.css";
 // import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 import QAComponent from "./QAComponent";
 
 export default function CosmosCalculationPage() {
@@ -94,6 +95,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
+          setTotaEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -106,6 +108,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress();
           setTotalStaked("0.00");
           setTotaReward("0.00");
+          setTotaEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
@@ -163,9 +166,6 @@ export default function CosmosCalculationPage() {
 
   //  slider value
   // const [SliderValue, setSliderValue] = useState(10);
-
-  const reward = 0.6 * TotalRewardN;
-  const totalReward = (0.4 * Number(TotalCorrect) * TotalRewardN) / 18;
 
   return (
     <>
@@ -416,7 +416,7 @@ export default function CosmosCalculationPage() {
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -424,10 +424,10 @@ export default function CosmosCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Estimated Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -435,7 +435,7 @@ export default function CosmosCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -444,18 +444,18 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Rewards
-                    {/* {Quiz === true && (
+                    Quiz result
+                    {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )} */}
+                    )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    {/* <span>
+                    <span>
                       <BiTimeFive />
                     </span>
-                    <p>EXPIRED</p> */}
+                    <p>EXPIRED</p>
                   </div>
                 </div>
                 {/* <p className="section_questions__qBox_details">

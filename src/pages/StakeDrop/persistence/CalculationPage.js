@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import "../../../styles/pages/campaignTable.css";
 
+import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
+
 // import data from "../../../data/stakeDropData.json";
 import campaignData from "../../../data/campaignData.json";
 import { sendCoinTxWithMemo } from "../send";
@@ -96,6 +98,7 @@ export default function PersistenceCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotalReward(data.received);
+          setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://persistence-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -108,6 +111,7 @@ export default function PersistenceCalculationPage() {
           setStakeAddress();
           setTotalStaked("0.00");
           setTotalReward("0.00");
+          setTotalEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
@@ -165,9 +169,6 @@ export default function PersistenceCalculationPage() {
 
   //  slider value
   // const [SliderValue, setSliderValue] = useState(10);
-
-  const reward = 0.6 * TotalRewardN;
-  const totalReward = (0.4 * Number(TotalCorrect) * TotalRewardN) / 21;
 
   return (
     <>
@@ -450,7 +451,7 @@ export default function PersistenceCalculationPage() {
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -458,10 +459,10 @@ export default function PersistenceCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
-                    {/* <p className="section_calculation__result_rewards_reward__label">
+                    <p className="section_calculation__result_rewards_reward__label">
                       Total Estimated Rewards
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
@@ -469,7 +470,7 @@ export default function PersistenceCalculationPage() {
                         maximumFractionDigits: 4,
                       })}{" "}
                       $MNTL
-                    </h3> */}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -478,15 +479,15 @@ export default function PersistenceCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Reward
-                    {/* {Quiz === true && (
+                    Quiz result
+                    {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )} */}
+                    )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    {/* <span>
+                    {* <span>
                       <BiTimeFive />
                     </span>
                     <p>
@@ -497,7 +498,6 @@ export default function PersistenceCalculationPage() {
                     </p> */}
                   </div>
                 </div>
-
                 <section className="section_reward_table">
                   <div className="section_reward_table__element">
                     <div className="section_reward_table__element_option">
