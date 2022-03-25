@@ -74,7 +74,7 @@ export default function PersistenceCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState(0);
+  const [TotalCorrect, setTotalCorrect] = useState("--");
   const [TotalEstimated, setTotalEstimated] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
@@ -502,8 +502,7 @@ export default function PersistenceCalculationPage() {
                         Bonus Reward: <br />
                         (*/}
 <p className="section_questions__qBox_details">
-You scored {TotalCorrect} out of 21 in quiz. for
-                        cosmos
+You scored {TotalCorrect} out of 21 in quiz.
 </p>
 {/*)
                       </h4>
