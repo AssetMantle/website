@@ -435,7 +435,7 @@ export default function CosmosCalculationPage() {
                   </h3>
                   <div className="section_questions__qBox_title__right"></div>
                 </div>
-                <section className="section_reward_table">
+                {/*<section className="section_reward_table">
                   <div className="section_reward_table__element">
                     <div className="section_reward_table__element_option">
                       <h4>Reward:</h4>
@@ -449,8 +449,12 @@ export default function CosmosCalculationPage() {
                     <div className="section_reward_table__element_option">
                       <h4>
                         Bonus Reward: <br />
-                        (You scored {TotalCorrect} out of 18 in quiz. for
-                        cosmos)
+                        (*/}
+<p className="section_questions__qBox_details">
+You scored {TotalCorrect} out of 18 in quiz. for
+                        cosmos
+</p>
+{/*)
                       </h4>
                       <p>
                         {totalReward.toLocaleString("en-US", {
@@ -468,12 +472,9 @@ export default function CosmosCalculationPage() {
                         {` $MNTL`}
                       </p>
                     </div>
-                    {/* <div className="section_reward_table__element_option">
-                      <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
-                      <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
-                    </div> */}
+                    
                   </div>
-                </section>
+                </section>*/}
                 {/* <div className="section_questions__qBox_button">
                   <button
                     onClick={() => setQuizModal(true)}
