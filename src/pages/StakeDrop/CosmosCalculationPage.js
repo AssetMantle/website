@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import "../../styles/pages/campaignTable.css";
+
 // import { sendCoinTx } from "./send";
 import data from "../../data/stakeDropData.json";
 import HowToModal from "./HowToModal";
-import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
+// import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 import QAComponent from "./QAComponent";
 
 export default function CosmosCalculationPage() {
@@ -72,9 +73,11 @@ export default function CosmosCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotaReward] = useState("0.00");
   const [TotalCorrect, setTotalCorrect] = useState(0);
+  const [TotalEstimated, setTotalEstimated] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
+  const TotalEstimatedN = Number(TotalEstimated);
 
   function countAnswer(data) {
     var counter = 0;
@@ -95,7 +98,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress(data.mantleAddress);
           setTotalStaked(data.globalDelegation);
           setTotaReward(data.received);
-          setTotaEstimated(data.estimated);
+          setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
           fetch(`https://cosmos-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
@@ -108,7 +111,7 @@ export default function CosmosCalculationPage() {
           setStakeAddress();
           setTotalStaked("0.00");
           setTotaReward("0.00");
-          setTotaEstimated("0.00");
+          setTotalEstimated("0.00");
         }
       })
       .catch((err) => console.log(err));
@@ -164,8 +167,9 @@ export default function CosmosCalculationPage() {
     }
   }, 1000);
 
-  //  slider value
-  // const [SliderValue, setSliderValue] = useState(10);
+  // reward calculation
+  const reward = 0.6 * TotalRewardN;
+  const totalReward = (0.4 * Number(TotalCorrect) * TotalRewardN) / 18;
 
   return (
     <>
@@ -370,24 +374,7 @@ export default function CosmosCalculationPage() {
                       </p>
                     </div> */}
                   </div>
-                  <div className="section_calculation__error_element">
-                    {/* <button
-                      onClick={handleMagicTransaction}
-                      className="section_calculation__error_element__button"
-                      disabled={
-                        MTButtonText === 0 || MTButtonText === 2 ? false : true
-                      }
-                    >
-                      {
-                        {
-                          0: "Complete Magic Transaction",
-                          1: "Processing...",
-                          2: "Failed - Retry",
-                          3: "Successful",
-                        }[MTButtonText]
-                      }
-                    </button> */}
-                  </div>
+                  <div className="section_calculation__error_element"></div>
                 </div>
               )}
               <div className="section_calculation__result">
@@ -444,23 +431,10 @@ export default function CosmosCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz result
-                    {Quiz === true && (
-                      <div className="success">
-                        <BiCheckCircle /> Completed
-                      </div>
-                    )}
+                    Reward
                   </h3>
-                  <div className="section_questions__qBox_title__right">
-                    <span>
-                      <BiTimeFive />
-                    </span>
-                    <p>EXPIRED</p>
-                  </div>
+                  <div className="section_questions__qBox_title__right"></div>
                 </div>
-                {/* <p className="section_questions__qBox_details">
-                  You scored {TotalCorrect} out of 18.
-                </p> */}
                 <section className="section_reward_table">
                   <div className="section_reward_table__element">
                     <div className="section_reward_table__element_option">
