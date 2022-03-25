@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import "../../../styles/pages/campaignTable.css";
 
-import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
+// import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 
 // import data from "../../../data/stakeDropData.json";
 import campaignData from "../../../data/campaignData.json";
@@ -75,9 +75,11 @@ export default function PersistenceCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
   const [TotalCorrect, setTotalCorrect] = useState(0);
+  const [TotalEstimated, setTotalEstimated] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
+  const TotalEstimatedN = Number(TotalEstimated);
 
   function countAnswer(data) {
     var counter = 0;
@@ -167,8 +169,9 @@ export default function PersistenceCalculationPage() {
     }
   }, 1000);
 
-  //  slider value
-  // const [SliderValue, setSliderValue] = useState(10);
+  // reward calculation
+  const reward = 0.6 * TotalRewardN;
+  const totalReward = (0.4 * Number(TotalCorrect) * TotalRewardN) / 21;
 
   return (
     <>
@@ -479,24 +482,9 @@ export default function PersistenceCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz result
-                    {Quiz === true && (
-                      <div className="success">
-                        <BiCheckCircle /> Completed
-                      </div>
-                    )}
+                    Reward
                   </h3>
-                  <div className="section_questions__qBox_title__right">
-                    {* <span>
-                      <BiTimeFive />
-                    </span>
-                    <p>
-                      {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED"
-                        ? " to next quiz"
-                        : ""}
-                    </p> */}
-                  </div>
+                  <div className="section_questions__qBox_title__right"></div>
                 </div>
                 <section className="section_reward_table">
                   <div className="section_reward_table__element">
