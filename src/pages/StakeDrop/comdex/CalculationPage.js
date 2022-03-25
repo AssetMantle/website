@@ -458,7 +458,7 @@ export default function ComdexCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    OPTIONAL (Quiz)
+                    Quiz <span>(Optional)</span>
                     {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
@@ -477,14 +477,6 @@ export default function ComdexCalculationPage() {
                     </p>
                   </div>
                 </div>
-                <p className="section_questions__qBox_details">
-                  The objective of this quiz is to spread more awareness about
-                  AssetMantle and it's product offerings. Please Note that as
-                  per the community feedbacks, we have decided to keep the quiz
-                  optional and the participants of the campaign will receive the
-                  total rewards as per the distribution independent of the quiz
-                  participation.
-                </p>
                 <div className="section_questions__qBox_button">
                   <button
                     onClick={() => setQuizModal(true)}
@@ -493,6 +485,14 @@ export default function ComdexCalculationPage() {
                     {Quiz === true ? "Completed" : "Take the Quiz"}
                   </button>
                 </div>
+                <p className="section_questions__qBox_details">
+                  The objective of this quiz is to spread more awareness about
+                  AssetMantle and it's product offerings. Please Note that as
+                  per the community feedbacks, we have decided to keep the quiz
+                  optional and the participants of the campaign will receive the
+                  total rewards as per the distribution independent of the quiz
+                  participation.
+                </p>
               </div>
             </section>
             <section className="section_calculation lighter_bg">
@@ -955,6 +955,10 @@ const Container = styled.main`
             display: flex;
             align-items: center;
             gap: 10px;
+            span {
+              font: var(--h4);
+              color: var(--gray-deep);
+            }
             .success {
               color: var(--success);
               font: var(--p-m);
@@ -990,22 +994,23 @@ const Container = styled.main`
           }
         }
         &_details {
-          font: var(--p-m);
+          font: var(--p-s);
           padding: 40px;
-          color: var(--gray);
-          max-width: 768px;
+          color: var(--gray-deep);
+          /* max-width: 768px; */
+          text-align: justify;
           @media (max-width: 548px) {
             padding: 20px;
           }
         }
         &_button {
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           gap: 24px;
-          justify-content: flex-end;
-          padding: 0 40px 40px;
+          justify-content: center;
+          padding: 40px 40px 0px;
           @media (max-width: 548px) {
-            padding: 0 20px 20px;
+            padding: 20px 20px 0px;
           }
           &.a {
             align-items: center;
