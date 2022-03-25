@@ -482,7 +482,7 @@ export default function PersistenceCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Reward
+                    Quiz Result
                   </h3>
                   <div className="section_questions__qBox_title__right"></div>
                 </div>
@@ -502,7 +502,7 @@ export default function PersistenceCalculationPage() {
                         Bonus Reward: <br />
                         (*/}
 <p className="section_questions__qBox_details">
-You scored {TotalCorrect} out of 18 in quiz. for
+You scored {TotalCorrect} out of 21 in quiz. for
                         cosmos
 </p>
 {/*)
