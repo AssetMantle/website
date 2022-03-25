@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import "../../../styles/pages/campaignTable.css";
 
 // import data from "../../../data/stakeDropData.json";
 import campaignData from "../../../data/campaignData.json";
@@ -71,7 +72,7 @@ export default function PersistenceCalculationPage() {
   const [StakeAddress, setStakeAddress] = useState();
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState("--");
+  const [TotalCorrect, setTotalCorrect] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
@@ -497,43 +498,53 @@ export default function PersistenceCalculationPage() {
                   </div>
                 </div>
 
-                <section className="section_allocation_by_network">
-                  <div className="section_allocation_by_network__element">
-                    <div className="section_allocation_by_network__element_option">
+                <section className="section_reward_table">
+                  <div className="section_reward_table__element">
+                    <div className="section_reward_table__element_option">
                       <h4>Reward:</h4>
                       <p>
-                        {reward}
+                        {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}
                         {` $MNTL`}
                       </p>
                     </div>
-                    <div className="section_allocation_by_network__element_option">
+                    <div className="section_reward_table__element_option">
                       <h4>
                         Bonus Reward: <br />
-                        (You scored {TotalCorrect} out of 21 in quiz.)
+                        (You scored {TotalCorrect} out of 21 in quiz. for
+                        persistance)
                       </h4>
-                      <p>{totalReward} $MNTL</p>
+                      <p>
+                        {totalReward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}{" "}
+                        $MNTL
+                      </p>
                     </div>
-                    <div className="section_allocation_by_network__element_option">
+                    <div className="section_reward_table__element_option">
                       <h4>Total Reward:</h4>
                       <p>
-                        {reward + totalReward}
+                        {(reward + totalReward).toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })}
                         {` $MNTL`}
                       </p>
                     </div>
-                    {/* <div className="section_allocation_by_network__element_option">
+                    {/* <div className="section_reward_table__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                     </div> */}
                   </div>
                 </section>
-                <div className="section_questions__qBox_button">
-                  {/* <button
+                {/* <div className="section_questions__qBox_button">
+                  <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
                   >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
-                  </button> */}
-                </div>
+                  </button>
+                </div> */}
               </div>
             </section>
             <>
@@ -1032,51 +1043,6 @@ const Container = styled.main`
           max-width: 768px;
           @media (max-width: 548px) {
             padding: 20px;
-          }
-        }
-        .section_allocation_by_network {
-          padding: 0px 40px;
-          @media (max-width: 650px) {
-            padding: 0px 20px;
-          }
-          &__title {
-            color: var(--gray-deep);
-            padding-bottom: 16px;
-          }
-          &__element {
-            background-color: var(--dark-s);
-            box-shadow: var(--dark-shadow);
-            border-radius: 12px;
-            &_option {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 24px;
-              padding: 24px 40px;
-              @media (max-width: 548px) {
-                padding: 24px 20px;
-                flex-direction: column;
-              }
-              &:not(:last-child) {
-                border-bottom: 1px solid var(--dark-xs);
-              }
-              h4 {
-                color: var(--gray);
-              }
-              p {
-                font: 600 var(--p-m);
-                color: var(--gray);
-              }
-              &:first-child {
-                h4 {
-                  color: var(--gray-deep);
-                }
-                p {
-                  font: var(--p-m);
-                  color: var(--gray-deep);
-                }
-              }
-            }
           }
         }
         &_button {
