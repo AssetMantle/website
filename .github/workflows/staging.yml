@@ -25,6 +25,10 @@ jobs:
           ssh://git@github.com/
       - name: Install dependencies
         run: yarn
+      - name: Set env
+        run: echo "VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+      - name: Check env
+        run: echo $VERSION
       - name: Build react project
         run: yarn build
         env:
