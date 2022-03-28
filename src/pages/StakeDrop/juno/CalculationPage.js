@@ -6,14 +6,14 @@ import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
 
 // import data from "../../../data/stakeDropData.json";
 import campaignData from "../../../data/campaignData.json";
-import { sendCoinTxWithMemo } from "../send";
+import { sendCoinTx } from "../send";
 import HowToModal from "./HowToModal";
 import QAComponent from "./QAComponent";
-import { initializeKeplrForTera } from "../terraKeplr";
+import { initializeKeplrForComdex } from "./comdexKeplr";
 
-export default function TerraCalculationPage() {
+export default function JunoCalculationPage() {
   const { t } = useTranslation();
-  const sendingAddress = "terra180fwz2e8vgqk29u357vkl5rs520jlf5w2untrd";
+  const sendingAddress = "comdex1dsuar2ztnqevefxlnalmaetxca3gr0fpjhd7l5";
   // const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
@@ -26,21 +26,21 @@ export default function TerraCalculationPage() {
   const [IsMagicTransaction, setIsMagicTransaction] = useState();
 
   useEffect(() => {
-    fetch("https://terra-stakedrop.assetmantle.one/status")
+    fetch("https://juno-stakedrop.assetmantle.one/status")
       .then((res) => res.json())
       .then((res) => setCampaignStat(res))
       .catch((err) => console.log(err));
   }, []);
-  // https://terra-stakedrop.assetmantle.one/status
+  // https://juno-stakedrop.assetmantle.one/status
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainID = "columbus-5";
+  const chainID = "comdex-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
       try {
-        await initializeKeplrForTera();
+        await initializeKeplrForComdex();
       } catch (e) {
         console.log(e);
       }
@@ -58,11 +58,7 @@ export default function TerraCalculationPage() {
   // no magic transaction ?
   const handleMagicTransaction = async () => {
     setMTButtonText(1);
-    const response = await sendCoinTxWithMemo(
-      sendingAddress,
-      "terra",
-      0.000001
-    );
+    const response = await sendCoinTx(sendingAddress, "comdex", 0.000001);
     console.log(response);
     if (response === 0) {
       setIsMagicTransaction(true);
@@ -80,25 +76,13 @@ export default function TerraCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
   const [TotalEstimated, setTotalEstimated] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState(0);
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
 
-  function countAnswer(data) {
-    var counter = 0;
-    data.forEach((dd) => {
-      if (dd.correct) {
-        counter++;
-      }
-    });
-
-    return counter;
-  }
-
   const handleCalculate = () => {
-    fetch(`https://terra-stakedrop.assetmantle.one/delegator/${Address}`)
+    fetch(`https://juno-stakedrop.assetmantle.one/delegator/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
@@ -107,12 +91,11 @@ export default function TerraCalculationPage() {
           setTotalReward(data.received);
           setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
-          fetch(`https://terra-stakedrop.assetmantle.one/qna/${Address}`)
+          fetch(`https://juno-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) => {
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
-              setTotalCorrect(countAnswer(data.qaData));
-            });
+            .then((data) =>
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
+            );
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
@@ -126,7 +109,7 @@ export default function TerraCalculationPage() {
 
   // Time left count down
   const [TimeLeft, setTimeLeft] = useState(1);
-  var countDownDate = new Date(2022, 2, 29, 17, 30).getTime();
+  var countDownDate = new Date(2022, 3, 5, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
     var distance = countDownDate - now;
@@ -147,7 +130,7 @@ export default function TerraCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch(`https://terra-stakedrop.assetmantle.one/qna/${Address}`)
+    fetch(`https://juno-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         setDay(data.day);
@@ -156,8 +139,8 @@ export default function TerraCalculationPage() {
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
   var countDownDate2 = new Date(
     2022,
-    2,
-    { 1: 23, 2: 24, 3: 25, 4: 25, 5: 27, 6: 28, 7: 29 }[Day],
+    { 1: 2, 2: 2, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3 }[Day],
+    { 1: 30, 2: 31, 3: 1, 4: 2, 5: 3, 6: 4, 7: 5 }[Day],
     17,
     59
   ).getTime();
@@ -173,6 +156,9 @@ export default function TerraCalculationPage() {
       setTimeLeftQuiz("EXPIRED");
     }
   }, 1000);
+
+  //  slider value
+  const [SliderValue, setSliderValue] = useState(10);
 
   return (
     <>
@@ -190,7 +176,7 @@ export default function TerraCalculationPage() {
               <div>
                 <div className="section__overview_campaign lighter_bg">
                   <h3 className="section__overview_campaign__title">
-                    {campaignData.terra.dataTable1.title}
+                    {campaignData.juno.dataTable1.title}
                   </h3>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
@@ -198,7 +184,7 @@ export default function TerraCalculationPage() {
                     </p>
                     <h3 className="section__overview_campaign__option_value">
                       {Number(
-                        campaignData.terra.dataTable1.op1Value
+                        campaignData.juno.dataTable1.op1Value
                       ).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
@@ -207,37 +193,37 @@ export default function TerraCalculationPage() {
                   </div>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {campaignData.terra.dataTable1.op2Key}
+                      {campaignData.juno.dataTable1.op2Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {campaignData.terra.dataTable1.op2Value}
+                      {campaignData.juno.dataTable1.op2Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {campaignData.terra.dataTable1.op2Description}
+                      {campaignData.juno.dataTable1.op2Description}
                     </p>
                   </div>
                   <>
                     <div className="section__overview_campaign__option">
                       <p className="section__overview_campaign__option_label                                                                                                                        ">
-                        {campaignData.terra.dataTable1.op3Key}
+                        {campaignData.juno.dataTable1.op3Key}
                       </p>
                       <h3 className="section__overview_campaign__option_value">
-                        {campaignData.terra.dataTable1.op3Value}
+                        {campaignData.juno.dataTable1.op3Value}
                       </h3>
                       <p className="section__overview_campaign__option_details">
-                        {campaignData.terra.dataTable1.op3Description}
+                        {campaignData.juno.dataTable1.op3Description}
                       </p>
                     </div>
                   </>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {campaignData.terra.dataTable1.op4Key}
+                      {campaignData.juno.dataTable1.op4Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {campaignData.terra.dataTable1.op4Value}
+                      {campaignData.juno.dataTable1.op4Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {campaignData.terra.dataTable1.op4Description}
+                      {campaignData.juno.dataTable1.op4Description}
                     </p>
                   </div>
                 </div>
@@ -252,7 +238,15 @@ export default function TerraCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      0{` $MNTL`}
+                      {CampaignStat
+                        ? (
+                            Number(campaignData.juno.dataTable1.op1Value) -
+                            Number(CampaignStat.totalDistributed) / 1000000
+                          ).toLocaleString("en-US", {
+                            maximumFractionDigits: 4,
+                          })
+                        : "--"}
+                      {` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -260,8 +254,7 @@ export default function TerraCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {/* {TimeLeft} */}
-                      Concluded
+                      {TimeLeft}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -278,7 +271,7 @@ export default function TerraCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}
-                      {` $LUNA`}
+                      {` ${campaignData.juno.currency}`}
                     </h3>
                     <p className="section__overview_campaign__option_details">
                       {`Total Active: `}
@@ -289,7 +282,7 @@ export default function TerraCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}{" "}
-                      $LUNA
+                      {campaignData.juno.currency}
                     </p>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -343,7 +336,7 @@ export default function TerraCalculationPage() {
                     value={Address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="section_calculation__from_line2_input"
-                    placeholder="Enter your terra wallet address"
+                    placeholder="Enter your juno wallet address"
                   />
                   <button
                     onClick={handleCalculate}
@@ -360,7 +353,7 @@ export default function TerraCalculationPage() {
                   </button>
                 </div>
               </div>
-              {IsMagicTransaction === 1 && (
+              {IsMagicTransaction === false && (
                 <div className="section_calculation__error">
                   <div className="section_calculation__error_element">
                     <div className="section_calculation__error_element__line1">
@@ -411,17 +404,6 @@ export default function TerraCalculationPage() {
                   </div>
                 </div>
               )}
-              {IsMagicTransaction === false && (
-                <div className="section_calculation__error">
-                  <div className="section_calculation__error_element">
-                    <div className="section_calculation__error_element__line1">
-                      <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You didn't participate in this campaign!</h3>
-                    </div>
-                  </div>
-                  <div></div>
-                </div>
-              )}
               <div className="section_calculation__result">
                 <div className="section_calculation__result_address">
                   <p className="section_calculation__result_address__label">
@@ -444,7 +426,7 @@ export default function TerraCalculationPage() {
                       {(TotalStakedN / 1000000).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
-                      $LUNA
+                      {campaignData.juno.currency}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -495,31 +477,30 @@ export default function TerraCalculationPage() {
                     </p>
                   </div>
                 </div>
-                {/* <div className="section_questions__qBox_button">
+                <div className="section_questions__qBox_button">
                   <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
                   >
                     {Quiz === true ? "Completed" : "Take the Quiz"}
                   </button>
-                </div> */}
-                {/* <p className="section_questions__qBox_details">
+                </div>
+                <p className="section_questions__qBox_details">
                   The objective of this quiz is to spread more awareness about
                   AssetMantle and it's product offerings. Please Note that as
                   per the community feedbacks, we have decided to keep the quiz
                   optional and the participants of the campaign will receive the
                   total rewards as per the distribution independent of the quiz
                   participation.
-                </p> */}
-                <p className="section_questions__qBox_details">
-                  You scored {TotalCorrect} out of 21 in quiz. for Terra.
                 </p>
               </div>
             </section>
-            {/* <section className="section_calculation lighter_bg">
+            <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
-                <p>How many $LUNA would you like to stake?</p>
+                <p>
+                  How many {campaignData.juno.currency} would you like to stake?
+                </p>
                 <input
                   type="number"
                   value={SliderValue}
@@ -547,9 +528,12 @@ export default function TerraCalculationPage() {
                       Stake
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
+                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "} */}
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
-                      })} $LUNA`}
+                      })} ${campaignData.juno.currency}`}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -559,7 +543,7 @@ export default function TerraCalculationPage() {
                     <h3 className="section_calculation__result_rewards_reward__value">
                       {CampaignStat
                         ? ((Number(SliderValue) *
-                            (2000000 -
+                            (Number(campaignData.juno.dataTable1.op1Value) -
                               Number(CampaignStat.totalDistributed) /
                                 1000000)) /
                             (Number(CampaignStat.worldGlobalDelegation) /
@@ -567,7 +551,7 @@ export default function TerraCalculationPage() {
                           5000
                             ? 5000
                             : (Number(SliderValue) *
-                                (2000000 -
+                                (Number(campaignData.juno.dataTable1.op1Value) -
                                   Number(CampaignStat.totalDistributed) /
                                     1000000)) /
                               (Number(CampaignStat.worldGlobalDelegation) /
@@ -581,7 +565,7 @@ export default function TerraCalculationPage() {
                   </div>
                 </div>
               </div>
-            </section> */}
+            </section>
           </div>
         </div>
         {QuizModal === true && (

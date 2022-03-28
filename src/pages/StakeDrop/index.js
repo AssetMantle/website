@@ -90,7 +90,7 @@ export default function StakeDrop() {
     rewardLine2: 12345,
   });
   const [terraDropStats, setTerraDropStats] = useState({
-    isCompleted: false,
+    isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
   });
@@ -294,7 +294,7 @@ export default function StakeDrop() {
                       : data.name.includes("Persistence")
                       ? persistenceDropStats.isCompleted && "completed2"
                       : data.name.includes("Terra")
-                      ? terraDropStats.isCompleted && "completed"
+                      ? terraDropStats.isCompleted && "completed2"
                       : data.name.includes("Comdex")
                       ? comdexDropStats.isCompleted && "completed"
                       : data.name.includes("Juno")
@@ -303,7 +303,7 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed"
                       : ""
                   } ${
-                    data.name.includes("Terra") || data.name.includes("Comdex")
+                    data.name.includes("Juno") || data.name.includes("Comdex")
                       ? "active"
                       : "comingSoon"
                   }`} //remove the last logic
