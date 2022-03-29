@@ -16,25 +16,31 @@ import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
 import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
+import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
 
 const App = () => {
   const location = useLocation();
 
   // changing header
-  function compareVersion(currentVersion,version) {
-    let currentVersionList = currentVersion.split("v")
-    let current =  currentVersionList[1].split(".")
-    let versionList = version.split("v")
-    let oldVersion =  versionList[1].split(".")
-    if (current[0]*1000+current[1]*100+current[2]*10 > oldVersion[0]*1000+oldVersion[1]*100+oldVersion[2]*10){
-      return true
+  function compareVersion(currentVersion, version) {
+    let currentVersionList = currentVersion.split("v");
+    let current = currentVersionList[1].split(".");
+    let versionList = version.split("v");
+    let oldVersion = versionList[1].split(".");
+    if (
+      current[0] * 1000 + current[1] * 100 + current[2] * 10 >
+      oldVersion[0] * 1000 + oldVersion[1] * 100 + oldVersion[2] * 10
+    ) {
+      return true;
     } else {
-      return false
+      return false;
     }
   }
-  const CURRENT_VERSION = "v0.2.2"
-  if (localStorage.getItem("VERSION") == null || compareVersion(CURRENT_VERSION,localStorage.getItem("VERSION"))){
-
+  const CURRENT_VERSION = "v0.2.2";
+  if (
+    localStorage.getItem("VERSION") == null ||
+    compareVersion(CURRENT_VERSION, localStorage.getItem("VERSION"))
+  ) {
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
     window.location.reload();
@@ -73,6 +79,10 @@ const App = () => {
     {
       component: ComdexCalculationPage,
       path: "/stakedrop/comdex",
+    },
+    {
+      component: JunoCalculationPage,
+      path: "/stakedrop/juno",
     },
   ];
 
