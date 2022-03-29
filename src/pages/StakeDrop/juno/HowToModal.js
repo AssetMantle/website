@@ -1,4 +1,4 @@
-Fimport styled from "styled-components";
+import styled from "styled-components";
 // import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
