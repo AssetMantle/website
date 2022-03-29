@@ -1,4 +1,4 @@
-import styled from "styled-components";
+Fimport styled from "styled-components";
 // import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
@@ -16,7 +16,7 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             To begin your participation in StakeDrop Campaign, please send{" "}
-            <strong>0.000001 $CMDX</strong> to the following address:{" "}
+            <strong>0.000001 $JUNO</strong> to the following address:{" "}
           </p>
           <p>
             <strong>
