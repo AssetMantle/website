@@ -127,7 +127,7 @@ export default function JunoCalculationPage() {
     fetch(`https://juno-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
-        setDay(data.day);
+        data.success === true ? setDay(data.day) : setDay(7);
       });
   }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
@@ -136,7 +136,7 @@ export default function JunoCalculationPage() {
     { 1: 2, 2: 2, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3 }[Day],
     { 1: 30, 2: 31, 3: 1, 4: 2, 5: 3, 6: 4, 7: 5 }[Day],
     17,
-    59
+    30
   ).getTime();
   var xn = setInterval(function () {
     var now2 = new Date().getTime();
@@ -144,7 +144,15 @@ export default function JunoCalculationPage() {
     var hours2 = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    setTimeLeftQuiz(hours2 > 1 ? hours2 + "hours Left" : hours2 + "hour Left");
+    setTimeLeftQuiz(
+      hours2 > 1
+        ? hours2 + "hours Left"
+        : hours2 === 0
+        ? `${24} hour Left`
+        : isNaN(hours2)
+        ? `-- hour Left`
+        : hours2 + "hour Left"
+    );
     if (distance < 0) {
       clearInterval(xn);
       setTimeLeftQuiz("EXPIRED");

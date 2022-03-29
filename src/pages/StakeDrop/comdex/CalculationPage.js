@@ -150,7 +150,15 @@ export default function ComdexCalculationPage() {
     var hours2 = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    setTimeLeftQuiz(hours2 > 1 ? hours2 + "hours Left" : hours2 + "hour Left");
+    setTimeLeftQuiz(
+      hours2 > 1
+        ? hours2 + "hours Left"
+        : hours2 === 0
+        ? `${24} hour Left`
+        : isNaN(hours2)
+        ? `-- hour Left`
+        : hours2 + "hour Left"
+    );
     if (distance < 0) {
       clearInterval(xn);
       setTimeLeftQuiz("EXPIRED");

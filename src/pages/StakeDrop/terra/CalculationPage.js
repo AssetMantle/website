@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
-import { BiTimeFive, BiCheckCircle } from "react-icons/bi";
-
 // import data from "../../../data/stakeDropData.json";
 import campaignData from "../../../data/campaignData.json";
 import { sendCoinTxWithMemo } from "../send";
@@ -476,14 +474,14 @@ export default function TerraCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz <span>(Optional)</span>
-                    {Quiz === true && (
+                    Quiz Result
+                    {/* {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )}
+                    )} */}
                   </h3>
-                  <div className="section_questions__qBox_title__right">
+                  {/* <div className="section_questions__qBox_title__right">
                     <span>
                       <BiTimeFive />
                     </span>
@@ -493,7 +491,7 @@ export default function TerraCalculationPage() {
                         ? " to next quiz"
                         : ""}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
                 {/* <div className="section_questions__qBox_button">
                   <button
@@ -1007,9 +1005,9 @@ const Container = styled.main`
           }
         }
         &_details {
-          font: var(--p-s);
+          font: var(--p-m);
           padding: 40px;
-          color: var(--gray-deep);
+          color: var(--gray);
           /* max-width: 768px; */
           text-align: justify;
           @media (max-width: 548px) {
