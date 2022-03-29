@@ -2,29 +2,10 @@ import styled from "styled-components";
 // import { RiFileCopyLine } from "react-icons/ri";
 
 export default function HowToModal({ address, closeModal }) {
-  // const handleCopy = () => {
-  //   navigator.clipboard.writeText(address);
-  //   alert("Copied to clipboard!");
-  // };
-  // const handleCopy2 = () => {
-  //   navigator.clipboard.writeText(
-  //     `persistenceCore tx bank send [FROM_YOUR_PERSISTENCE_ADDRESS] persistence1muxl7jkupqq95l6lpfewxjf3nsgmaepgcvgyde 1uxprt --chain-id core-1 --fees 3000uxprt --node https://rpc.persistence.audit.one:443 --memo [YOUR_COSMOS_ADDRESS]`
-  //   );
-  //   alert("Copied to clipboard!");
-  // };
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div className="modal__sc">
-        <>
-          {/* <div
-              className="modal__sc_close"
-              onClick={() => closeModal(false)}
-              onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
-              >
-              <img src="/images/icons/close.png" alt="close" />
-            </div> */}
-        </>
         <div className="modal_container">
           <h2 className="modal_container__title">
             Magic Transaction Guide (Juno StakeDrop Campaign)
@@ -52,10 +33,10 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             <strong>
-              comdex tx bank send [FROM_YOUR_JUNO_ADDRESS] {address} 1ucmdx
-              --chain-id comdex-1 --fees 3000ucmdx --node{" "}
-              <a href="https://rpc.comdex.one:443">
-                https://rpc.comdex.one:443
+              junod tx bank send [FROM_YOUR_JUNO_ADDRESS] {address} 1ujuno
+              --chain-id juno-1 --fees 3000ujuno --node{" "}
+              <a href="https://rpc.juno.omniflix.co:443">
+                https://rpc.juno.omniflix.co:443
               </a>
               {"  "}
               {/* <RiFileCopyLine onClick={handleCopy2} /> */}
@@ -63,7 +44,7 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             <strong>
-              Note: The amount sent will be refunded back to the origin address
+              Note: The amount sent will be refunded back to the origin address.
             </strong>
           </p>
           <div className="modal_container__button">

@@ -9,11 +9,10 @@ import campaignData from "../../../data/campaignData.json";
 import { sendCoinTx } from "../send";
 import HowToModal from "./HowToModal";
 import QAComponent from "./QAComponent";
-import { initializeKeplrForComdex } from "./comdexKeplr";
 
 export default function JunoCalculationPage() {
   const { t } = useTranslation();
-  const sendingAddress = "comdex1dsuar2ztnqevefxlnalmaetxca3gr0fpjhd7l5";
+  const sendingAddress = "juno1dsuar2ztnqevefxlnalmaetxca3gr0fpr2v8pl";
   // const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
@@ -35,15 +34,10 @@ export default function JunoCalculationPage() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainID = "comdex-1";
+  const chainID = "juno-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
-      try {
-        await initializeKeplrForComdex();
-      } catch (e) {
-        console.log(e);
-      }
       let offlineSigner = window.keplr.getOfflineSigner(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
@@ -58,7 +52,7 @@ export default function JunoCalculationPage() {
   // no magic transaction ?
   const handleMagicTransaction = async () => {
     setMTButtonText(1);
-    const response = await sendCoinTx(sendingAddress, "comdex", 0.000001);
+    const response = await sendCoinTx(sendingAddress, "juno", 0.000001);
     console.log(response);
     if (response === 0) {
       setIsMagicTransaction(true);
