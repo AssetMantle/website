@@ -148,7 +148,7 @@ export default function JunoCalculationPage() {
       hours2 > 1
         ? hours2 + "hours Left"
         : hours2 === 0
-        ? `${24} hour Left`
+        ? `${24} hours Left`
         : isNaN(hours2)
         ? `-- hour Left`
         : hours2 + "hour Left"
