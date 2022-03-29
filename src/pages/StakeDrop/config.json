@@ -29,6 +29,12 @@
     "chainId": "test",
     "rpc": "http://localhost:26657"
   },
+  "juno": {
+    "prefix": "juno",
+    "denom": "ujuno",
+    "chainId": "juno-1",
+    "rpc": "https://rpc.juno.omniflix.co/"
+  },
   "comdex": {
     "prefix": "comdex",
     "denom": "ucmdx",
