@@ -113,7 +113,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="section_right">
+      {/* <section className="section_right">
         <h2 className="section_right__title">
           what are my rights as an NFT store owner?
         </h2>
@@ -170,7 +170,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="section_VP">
         <div className="section_VP__element">
           <div className="section_VP__element_group">
