@@ -2,7 +2,7 @@ export const teamMemberData = [
   {
     image: "deepanshu.webp",
     name: "Deepanshu Tripathi",
-    designation: "Product Growth & Strategy",
+    designation: "Founder, Core - Product Planning & Implementation​",
     designationType: "Founding",
     social: [
       {
@@ -22,7 +22,7 @@ export const teamMemberData = [
   {
     image: "abhinav.webp",
     name: "Abhinav Kumar",
-    designation: "Technical Lead",
+    designation: "Co-Founder, Core - Product Planning & Implementation​",
     designationType: "Founding",
     social: [
       {
@@ -42,7 +42,7 @@ export const teamMemberData = [
   {
     image: "naman.webp",
     name: "Naman Kabra",
-    designation: "Product Lead - Business & Strategy",
+    designation: "Core - Business Development & Growth​",
     designationType: "Founding",
     social: [
       {
@@ -62,7 +62,7 @@ export const teamMemberData = [
   {
     image: "prabhav.webp",
     name: "Prabhav Varambally",
-    designation: "Operation Lead",
+    designation: "Core - Product Marketing and Communications​",
     designationType: "Founding",
     social: [
       {
@@ -82,7 +82,7 @@ export const teamMemberData = [
   {
     image: "sachin.webp",
     name: "Sachin Matta",
-    designation: "Product Growth & Strategy",
+    designation: "Core - Product Marketing and Communications​",
     designationType: "Founding",
     social: [
       {
@@ -102,7 +102,7 @@ export const teamMemberData = [
   {
     image: "ankit.webp",
     name: "Ankit Kumar",
-    designation: "Technical Lead",
+    designation: "Blockchain Developer",
     designationType: "Founding",
     social: [
       {
@@ -122,7 +122,7 @@ export const teamMemberData = [
   {
     image: "pratik.webp",
     name: "Pratik Balar",
-    designation: "Product Lead - Business & Strategy",
+    designation: "DevOps & Infrastructure​",
     designationType: "Founding",
     social: [
       {
@@ -146,7 +146,7 @@ export const teamMemberData = [
   {
     image: "sarvagya.webp",
     name: "Sarvagya Sagar",
-    designation: "DevSecOps",
+    designation: "Research and DevSecOps​",
     designationType: "Founding",
     social: [
       {
@@ -170,7 +170,7 @@ export const teamMemberData = [
   {
     image: "rozaan.webp",
     name: "Rozaan Peter",
-    designation: "Product Design Lead",
+    designation: "Product Design",
     designationType: "Design",
     social: [
       {
@@ -212,7 +212,7 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "sharan.webp",
+    image: "",
     name: "Sharan Grandigae",
     designation: "Design Lead",
     designationType: "Developer",
@@ -220,7 +220,7 @@ export const teamMemberData = [
   {
     image: "sarin.webp",
     name: "Sarin Venugopal",
-    designation: "Marketing & Operations",
+    designation: "Product Marketing & Operations",
     designationType: "Developer",
     social: [
       {
@@ -256,7 +256,7 @@ export const teamMemberData = [
   {
     image: "",
     name: "Jagdish Chudasama",
-    designation: "Front-end Developer",
+    designation: "UI/UX Developer​",
     designationType: "Developer",
     social: [
       {
@@ -305,14 +305,8 @@ export const teamMemberData = [
   },
   {
     image: "",
-    name: "Aditya Nalini",
-    designation: "NFT Strategist",
-    designationType: "Developer",
-  },
-  {
-    image: "",
     name: "Rohit Sharma",
-    designation: "Growth & Strategy",
+    designation: "Communications and Integrations",
     designationType: "Developer",
     social: [
       {
@@ -328,19 +322,25 @@ export const teamMemberData = [
   {
     image: "",
     name: "Sohail Arora",
-    designation: "Integration & Strategy",
+    designation: "Integrations and Strategy",
     designationType: "Developer",
   },
   {
     image: "",
     name: "Minal Vishwanath",
-    designation: "Team Marketing",
+    designation: "Product Marketing and PR Strategist",
+    designationType: "Developer",
+  },
+  {
+    image: "",
+    name: "Aditya Nalini",
+    designation: "NFT Strategist",
     designationType: "Developer",
   },
   {
     image: "prachi.webp",
     name: "Prachi",
-    designation: "Experience Designer",
+    designation: "Product Design",
     designationType: "Developer",
     social: [
       {
