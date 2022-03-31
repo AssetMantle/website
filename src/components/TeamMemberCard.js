@@ -18,35 +18,37 @@ export default function TeamMemberCard({
       <p className="teamMemberCard_designation">{position}</p>
       {Array.isArray(social) && social.length !== 0 && (
         <div className="teamMemberCard_social">
-          {social.map((data) => (
-            <>
-              {data.icon === "LinkedIn" && (
-                <a href={data.href} target="_blank" rel="noopener noreferrer">
-                  <GrLinkedinOption />
-                </a>
-              )}
-              {data.icon === "Github" && (
-                <a href={data.href} target="_blank" rel="noopener noreferrer">
-                  <GrGithub />
-                </a>
-              )}
-              {data.icon === "Twitter" && (
-                <a href={data.href} target="_blank" rel="noopener noreferrer">
-                  <GrTwitter />
-                </a>
-              )}
-              {data.icon === "Behance" && (
-                <a href={data.href} target="_blank" rel="noopener noreferrer">
-                  <BsBehance />
-                </a>
-              )}
-              {data.icon === "Website" && (
-                <a href={data.href} target="_blank" rel="noopener noreferrer">
-                  <BsGlobe2 />
-                </a>
-              )}
-            </>
-          ))}
+          {React.Children.toArray(
+            social.map((data) => (
+              <>
+                {data.icon === "LinkedIn" && (
+                  <a href={data.href} target="_blank" rel="noopener noreferrer">
+                    <GrLinkedinOption />
+                  </a>
+                )}
+                {data.icon === "Github" && (
+                  <a href={data.href} target="_blank" rel="noopener noreferrer">
+                    <GrGithub />
+                  </a>
+                )}
+                {data.icon === "Twitter" && (
+                  <a href={data.href} target="_blank" rel="noopener noreferrer">
+                    <GrTwitter />
+                  </a>
+                )}
+                {data.icon === "Behance" && (
+                  <a href={data.href} target="_blank" rel="noopener noreferrer">
+                    <BsBehance />
+                  </a>
+                )}
+                {data.icon === "Website" && (
+                  <a href={data.href} target="_blank" rel="noopener noreferrer">
+                    <BsGlobe2 />
+                  </a>
+                )}
+              </>
+            ))
+          )}
         </div>
       )}
     </Container>
