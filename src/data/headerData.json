@@ -22,9 +22,9 @@
         "href": "/"
       },
       {
-        "visibility": false,
+        "visibility": true,
         "text": "About",
-        "href": ""
+        "href": "/about"
       },
       {
         "visibility": false,
