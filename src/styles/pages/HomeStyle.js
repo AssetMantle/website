@@ -485,6 +485,46 @@ export const HomeContainer = styled.main`
         }
       }
     }
+    &_team {
+      padding: 60px 92px;
+      @media (max-width: 768px) {
+        padding: 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 20px;
+      }
+      h2 {
+        font: var(--h2);
+        color: var(--gray);
+        margin-bottom: 24px;
+        text-transform: capitalize;
+        + p {
+          font: var(--p-l);
+          color: var(--gray-deep);
+          margin-bottom: 24px;
+          max-width: 935px;
+        }
+      }
+      h3 {
+        font: var(--h3);
+        color: var(--gray);
+        padding: 24px 0;
+      }
+      &__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 24px 0;
+      }
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0 0;
+      }
+    }
     &_source {
       padding: 20px 92px 120px;
       position: relative;

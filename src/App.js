@@ -5,9 +5,11 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import "./styles/App.css";
 
 import Header from "./layout/Header";
-import RouteNotFound from "./components/RouteNotFound";
 import Footer from "./layout/Footer";
+
+import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -16,6 +18,10 @@ const App = () => {
     {
       component: Home,
       path: "/",
+    },
+    {
+      component: About,
+      path: "/about",
     },
   ];
 
