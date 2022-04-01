@@ -23,25 +23,9 @@ const App = () => {
   const location = useLocation();
 
   // changing header
-  function compareVersion(currentVersion, version) {
-    let currentVersionList = currentVersion.split("v");
-    let current = currentVersionList[1].split(".");
-    let versionList = version.split("v");
-    let oldVersion = versionList[1].split(".");
-    if (
-      current[0] * 1000 + current[1] * 100 + current[2] * 10 >
-      oldVersion[0] * 1000 + oldVersion[1] * 100 + oldVersion[2] * 10
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  const CURRENT_VERSION = "v0.2.3";
-  if (
-    localStorage.getItem("VERSION") == null ||
-    compareVersion(CURRENT_VERSION, localStorage.getItem("VERSION"))
-  ) {
+  const CURRENT_VERSION = process.env.REACT_APP_VERSION
+  if (localStorage.getItem("VERSION") !== CURRENT_VERSION){
+
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
     window.location.reload();
