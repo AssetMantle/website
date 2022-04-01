@@ -326,8 +326,8 @@ export const teamMemberData = [
     designationType: "Developer",
   },
   {
-    image: "",
-    name: "Minal Vishwanath",
+    image: "mrinal.webp",
+    name: "Mrinal Vishwanath",
     designation: "Product Marketing and PR Strategist",
     designationType: "Developer",
   },
