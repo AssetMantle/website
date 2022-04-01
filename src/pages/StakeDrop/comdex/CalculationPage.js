@@ -76,10 +76,22 @@ export default function ComdexCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
   const [TotalEstimated, setTotalEstimated] = useState("0.00");
+  const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
+
+  function countAnswer(data) {
+    var counter = 0;
+    data.forEach((dd) => {
+      if (dd.correct) {
+        counter++;
+      }
+    });
+
+    return counter;
+  }
 
   const handleCalculate = () => {
     fetch(`https://comdex-stakedrop.assetmantle.one/delegator/${Address}`)
@@ -93,9 +105,10 @@ export default function ComdexCalculationPage() {
           setIsMagicTransaction(true);
           fetch(`https://comdex-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) =>
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
-            );
+            .then((data) => {
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
+              setTotalCorrect(countAnswer(data.qaData));
+            });
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
@@ -246,15 +259,15 @@ export default function ComdexCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {CampaignStat
+                      {/* {CampaignStat
                         ? (
                             Number(campaignData.comdex.dataTable1.op1Value) -
                             Number(CampaignStat.totalDistributed) / 1000000
                           ).toLocaleString("en-US", {
                             maximumFractionDigits: 4,
                           })
-                        : "--"}
-                      {` $MNTL`}
+                        : "--"} */}
+                      0{` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -262,7 +275,7 @@ export default function ComdexCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {TimeLeft}
+                      {/* {TimeLeft} */}Concluded
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -367,14 +380,15 @@ export default function ComdexCalculationPage() {
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
                       <h3>
-                        {MTButtonText === 3
+                        {/* {MTButtonText === 3
                           ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
                           : MTButtonText === 0
                           ? "You have not completed the magic transaction"
-                          : "You have not completed the magic transaction"}
+                          : "You have not completed the magic transaction"} */}
+                        You didn't participate in this campaign!
                       </h3>
                     </div>
-                    <div className="section_calculation__error_element__line2">
+                    {/* <div className="section_calculation__error_element__line2">
                       <p>
                         You have to complete a magic transaction in order to
                         calculate estimated rewards. Here's a quick guide on how
@@ -390,9 +404,9 @@ export default function ComdexCalculationPage() {
                         magic transaction multiple times as your participation
                         is already confirmed.
                       </p>
-                    </div>
+                    </div> */}
                   </div>
-                  <div className="section_calculation__error_element">
+                  {/* <div className="section_calculation__error_element">
                     <button
                       onClick={handleMagicTransaction}
                       className="section_calculation__error_element__button"
@@ -409,7 +423,7 @@ export default function ComdexCalculationPage() {
                         }[MTButtonText]
                       }
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               )}
               <div className="section_calculation__result">
@@ -466,15 +480,15 @@ export default function ComdexCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz <span>(Optional)</span>
-                    {Quiz === true && (
+                    Quiz Result
+                    {/* {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )}
+                    )} */}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    <span>
+                    {/* <span>
                       <BiTimeFive />
                     </span>
                     <p>
@@ -482,10 +496,10 @@ export default function ComdexCalculationPage() {
                       {Quiz === true && TimeLeft !== "EXPIRED"
                         ? " to next quiz"
                         : ""}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
-                <div className="section_questions__qBox_button">
+                {/* <div className="section_questions__qBox_button">
                   <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
@@ -500,10 +514,13 @@ export default function ComdexCalculationPage() {
                   optional and the participants of the campaign will receive the
                   total rewards as per the distribution independent of the quiz
                   participation.
+                </p> */}
+                <p className="section_questions__qBox_details">
+                  You scored {TotalCorrect} out of 21 in quiz.
                 </p>
               </div>
             </section>
-            <section className="section_calculation lighter_bg">
+            {/* <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
                 <p>
@@ -537,9 +554,6 @@ export default function ComdexCalculationPage() {
                       Stake
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
-                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
-                      })}{" "} */}
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })} ${campaignData.comdex.currency}`}
@@ -576,7 +590,7 @@ export default function ComdexCalculationPage() {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
           </div>
         </div>
         {QuizModal === true && (
@@ -1002,9 +1016,9 @@ const Container = styled.main`
           }
         }
         &_details {
-          font: var(--p-s);
+          font: var(--p-m);
           padding: 40px;
-          color: var(--gray-deep);
+          color: var(--gray);
           /* max-width: 768px; */
           text-align: justify;
           @media (max-width: 548px) {
