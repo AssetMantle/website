@@ -33,8 +33,8 @@ export default function HowToModal({ address, closeModal }) {
           </p>
           <p>
             <strong>
-              starsd tx bank send [FROM_YOUR_STARGAZE_ADDRESS]
-              {address} 1ustars --chain-id stargaze-1 --fees 3000ustars --node
+              starsd tx bank send [FROM_YOUR_STARGAZE_ADDRESS] {address} 1ustars
+              --chain-id stargaze-1 --fees 3000ustars --node
               <a href="https://rpc.stargaze-apis.com:443">
                 https://rpc.stargaze-apis.com:443
               </a>
