@@ -62,7 +62,7 @@ export const teamMemberData = [
   {
     image: "prabhav.webp",
     name: "Prabhav Varambally",
-    designation: "Core - Product Marketing and Communications​",
+    designation: "Core - Business Operations & Strategy​",
     designationType: "Founding",
     social: [
       {
@@ -139,7 +139,7 @@ export const teamMemberData = [
       },
       {
         icon: "Website",
-        href: "https://blog.pratikb.in/",
+        href: "https://pratikb.in/",
       },
     ],
   },
