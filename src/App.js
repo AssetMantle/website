@@ -17,6 +17,7 @@ import PersistenceCalculationPage from "./pages/StakeDrop/persistence/Calculatio
 import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
+import StargazeCalculationPage from "./pages/StakeDrop/stargaze/CalculationPage";
 
 const App = () => {
   const location = useLocation();
@@ -83,6 +84,10 @@ const App = () => {
     {
       component: JunoCalculationPage,
       path: "/stakedrop/juno",
+    },
+    {
+      component: StargazeCalculationPage,
+      path: "/stakedrop/stargaze",
     },
   ];
 
