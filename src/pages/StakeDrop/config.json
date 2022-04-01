@@ -40,5 +40,11 @@
     "denom": "ucmdx",
     "chainId": "comdex-1",
     "rpc": "https://rpc.comdex.one/"
+  },
+  "stargaze": {
+    "prefix": "stars",
+    "denom": "ustars",
+    "chainId": "stargaze-1",
+    "rpc": "https://rpc.stargaze-apis.com:443"
   }
 }

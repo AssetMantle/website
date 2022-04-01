@@ -75,13 +75,13 @@
       "op1Value": "1000000",
       "op2Key": "Magic Transaction Start Date",
       "op2Value": "1 Apr 2022",
-      "op2Description": "Block Height: 2247281",
+      "op2Description": "Block Height: 2252501",
       "op3Key": "Reward Distribution Start Date",
       "op3Value": "1 Apr 2022",
-      "op3Description": "Block Height: 2247281",
+      "op3Description": "Block Height: 2252501",
       "op4Key": "End Date",
       "op4Value": "8 Apr 2022",
-      "op4Description": "Block Height: 2343278"
+      "op4Description": "Block Height: 2350990"
     }
   }
 }

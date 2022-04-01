@@ -9,11 +9,10 @@ import campaignData from "../../../data/campaignData.json";
 import { sendCoinTx } from "../send";
 import HowToModal from "./HowToModal";
 import QAComponent from "./QAComponent";
-import { initializeKeplrForComdex } from "./comdexKeplr";
 
-export default function ComdexCalculationPage() {
+export default function StargazeCalculationPage() {
   const { t } = useTranslation();
-  const sendingAddress = "comdex1dsuar2ztnqevefxlnalmaetxca3gr0fpjhd7l5";
+  const sendingAddress = "stars1dsuar2ztnqevefxlnalmaetxca3gr0fppycpdj";
   // const DATA = data.modal;
   const [modal, setModal] = useState(false);
   const [QuizModal, setQuizModal] = useState(false);
@@ -26,24 +25,19 @@ export default function ComdexCalculationPage() {
   const [IsMagicTransaction, setIsMagicTransaction] = useState();
 
   useEffect(() => {
-    fetch("https://comdex-stakedrop.assetmantle.one/status")
+    fetch("https://stargaze-stakedrop.assetmantle.one/status")
       .then((res) => res.json())
       .then((res) => setCampaignStat(res))
       .catch((err) => console.log(err));
   }, []);
-  // https://comdex-stakedrop.assetmantle.one/status
+  // https://stargaze-stakedrop.assetmantle.one/status
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainID = "comdex-1";
+  const chainID = "stargaze-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
-      try {
-        await initializeKeplrForComdex();
-      } catch (e) {
-        console.log(e);
-      }
       let offlineSigner = window.keplr.getOfflineSigner(chainID);
       let accounts = await offlineSigner.getAccounts();
       const account = accounts[0].address;
@@ -58,7 +52,7 @@ export default function ComdexCalculationPage() {
   // no magic transaction ?
   const handleMagicTransaction = async () => {
     setMTButtonText(1);
-    const response = await sendCoinTx(sendingAddress, "comdex", 0.000001);
+    const response = await sendCoinTx(sendingAddress, "stargaze", 0.000001);
     console.log(response);
     if (response === 0) {
       setIsMagicTransaction(true);
@@ -76,25 +70,13 @@ export default function ComdexCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
   const [TotalEstimated, setTotalEstimated] = useState("0.00");
-  const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
 
-  function countAnswer(data) {
-    var counter = 0;
-    data.forEach((dd) => {
-      if (dd.correct) {
-        counter++;
-      }
-    });
-
-    return counter;
-  }
-
   const handleCalculate = () => {
-    fetch(`https://comdex-stakedrop.assetmantle.one/delegator/${Address}`)
+    fetch(`https://stargaze-stakedrop.assetmantle.one/delegator/${Address}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success.toString() === "true") {
@@ -103,12 +85,11 @@ export default function ComdexCalculationPage() {
           setTotalReward(data.received);
           setTotalEstimated(data.estimated);
           setIsMagicTransaction(true);
-          fetch(`https://comdex-stakedrop.assetmantle.one/qna/${Address}`)
+          fetch(`https://stargaze-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) => {
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
-              setTotalCorrect(countAnswer(data.qaData));
-            });
+            .then((data) =>
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
+            );
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
@@ -122,7 +103,7 @@ export default function ComdexCalculationPage() {
 
   // Time left count down
   const [TimeLeft, setTimeLeft] = useState(1);
-  var countDownDate = new Date(2022, 3, 1, 17, 30).getTime();
+  var countDownDate = new Date(2022, 3, 5, 17, 30).getTime();
   var x = setInterval(function () {
     var now = new Date().getTime();
     var distance = countDownDate - now;
@@ -143,20 +124,14 @@ export default function ComdexCalculationPage() {
 
   const [Day, setDay] = useState(1);
   useEffect(() => {
-    fetch(`https://comdex-stakedrop.assetmantle.one/qna/${Address}`)
+    fetch(`https://stargaze-stakedrop.assetmantle.one/qna/${Address}`)
       .then((res) => res.json())
       .then((data) => {
-        setDay(data.day);
+        data.success === true ? setDay(data.day) : setDay(7);
       });
   }, [Address]);
   const [TimeLeftQuiz, setTimeLeftQuiz] = useState("EXPIRED");
-  var countDownDate2 = new Date(
-    2022,
-    { 1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 3 }[Day],
-    { 1: 26, 2: 27, 3: 28, 4: 29, 5: 30, 6: 31, 7: 1 }[Day],
-    17,
-    59
-  ).getTime();
+  var countDownDate2 = new Date(2022, 3, Day + 1, 17, 30).getTime();
   var xn = setInterval(function () {
     var now2 = new Date().getTime();
     var distance = countDownDate2 - now2;
@@ -197,7 +172,7 @@ export default function ComdexCalculationPage() {
               <div>
                 <div className="section__overview_campaign lighter_bg">
                   <h3 className="section__overview_campaign__title">
-                    {campaignData.comdex.dataTable1.title}
+                    {campaignData.stargaze.dataTable1.title}
                   </h3>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
@@ -205,7 +180,7 @@ export default function ComdexCalculationPage() {
                     </p>
                     <h3 className="section__overview_campaign__option_value">
                       {Number(
-                        campaignData.comdex.dataTable1.op1Value
+                        campaignData.stargaze.dataTable1.op1Value
                       ).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
@@ -214,37 +189,37 @@ export default function ComdexCalculationPage() {
                   </div>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {campaignData.comdex.dataTable1.op2Key}
+                      {campaignData.stargaze.dataTable1.op2Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {campaignData.comdex.dataTable1.op2Value}
+                      {campaignData.stargaze.dataTable1.op2Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {campaignData.comdex.dataTable1.op2Description}
+                      {campaignData.stargaze.dataTable1.op2Description}
                     </p>
                   </div>
                   <>
                     <div className="section__overview_campaign__option">
                       <p className="section__overview_campaign__option_label                                                                                                                        ">
-                        {campaignData.comdex.dataTable1.op3Key}
+                        {campaignData.stargaze.dataTable1.op3Key}
                       </p>
                       <h3 className="section__overview_campaign__option_value">
-                        {campaignData.comdex.dataTable1.op3Value}
+                        {campaignData.stargaze.dataTable1.op3Value}
                       </h3>
                       <p className="section__overview_campaign__option_details">
-                        {campaignData.comdex.dataTable1.op3Description}
+                        {campaignData.stargaze.dataTable1.op3Description}
                       </p>
                     </div>
                   </>
                   <div className="section__overview_campaign__option">
                     <p className="section__overview_campaign__option_label                                                                                                                        ">
-                      {campaignData.comdex.dataTable1.op4Key}
+                      {campaignData.stargaze.dataTable1.op4Key}
                     </p>
                     <h3 className="section__overview_campaign__option_value">
-                      {campaignData.comdex.dataTable1.op4Value}
+                      {campaignData.stargaze.dataTable1.op4Value}
                     </h3>
                     <p className="section__overview_campaign__option_details">
-                      {campaignData.comdex.dataTable1.op4Description}
+                      {campaignData.stargaze.dataTable1.op4Description}
                     </p>
                   </div>
                 </div>
@@ -259,15 +234,15 @@ export default function ComdexCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {/* {CampaignStat
+                      {CampaignStat
                         ? (
-                            Number(campaignData.comdex.dataTable1.op1Value) -
+                            Number(campaignData.stargaze.dataTable1.op1Value) -
                             Number(CampaignStat.totalDistributed) / 1000000
                           ).toLocaleString("en-US", {
                             maximumFractionDigits: 4,
                           })
-                        : "--"} */}
-                      0{` $MNTL`}
+                        : "--"}
+                      {` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -275,7 +250,7 @@ export default function ComdexCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {/* {TimeLeft} */}Concluded
+                      {TimeLeft}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -292,7 +267,7 @@ export default function ComdexCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}
-                      {` ${campaignData.comdex.currency}`}
+                      {` ${campaignData.stargaze.currency}`}
                     </h3>
                     <p className="section__overview_campaign__option_details">
                       {`Total Active: `}
@@ -303,7 +278,7 @@ export default function ComdexCalculationPage() {
                             maximumFractionDigits: 4,
                           })
                         : "--"}{" "}
-                      {campaignData.comdex.currency}
+                      {campaignData.stargaze.currency}
                     </p>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -357,7 +332,7 @@ export default function ComdexCalculationPage() {
                     value={Address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="section_calculation__from_line2_input"
-                    placeholder="Enter your comdex wallet address"
+                    placeholder="Enter your stargaze wallet address"
                   />
                   <button
                     onClick={handleCalculate}
@@ -380,15 +355,14 @@ export default function ComdexCalculationPage() {
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
                       <h3>
-                        {/* {MTButtonText === 3
+                        {MTButtonText === 3
                           ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
                           : MTButtonText === 0
                           ? "You have not completed the magic transaction"
-                          : "You have not completed the magic transaction"} */}
-                        You didn't participate in this campaign!
+                          : "You have not completed the magic transaction"}
                       </h3>
                     </div>
-                    {/* <div className="section_calculation__error_element__line2">
+                    <div className="section_calculation__error_element__line2">
                       <p>
                         You have to complete a magic transaction in order to
                         calculate estimated rewards. Here's a quick guide on how
@@ -404,9 +378,9 @@ export default function ComdexCalculationPage() {
                         magic transaction multiple times as your participation
                         is already confirmed.
                       </p>
-                    </div> */}
+                    </div>
                   </div>
-                  {/* <div className="section_calculation__error_element">
+                  <div className="section_calculation__error_element">
                     <button
                       onClick={handleMagicTransaction}
                       className="section_calculation__error_element__button"
@@ -423,7 +397,7 @@ export default function ComdexCalculationPage() {
                         }[MTButtonText]
                       }
                     </button>
-                  </div> */}
+                  </div>
                 </div>
               )}
               <div className="section_calculation__result">
@@ -448,7 +422,7 @@ export default function ComdexCalculationPage() {
                       {(TotalStakedN / 1000000).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "}
-                      {campaignData.comdex.currency}
+                      {campaignData.stargaze.currency}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -480,15 +454,15 @@ export default function ComdexCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz Result
-                    {/* {Quiz === true && (
+                    Quiz <span>(Optional)</span>
+                    {Quiz === true && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
-                    )} */}
+                    )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    {/* <span>
+                    <span>
                       <BiTimeFive />
                     </span>
                     <p>
@@ -496,10 +470,10 @@ export default function ComdexCalculationPage() {
                       {Quiz === true && TimeLeft !== "EXPIRED"
                         ? " to next quiz"
                         : ""}
-                    </p> */}
+                    </p>
                   </div>
                 </div>
-                {/* <div className="section_questions__qBox_button">
+                <div className="section_questions__qBox_button">
                   <button
                     onClick={() => setQuizModal(true)}
                     disabled={Quiz === true || Quiz === 0 ? true : false}
@@ -514,17 +488,14 @@ export default function ComdexCalculationPage() {
                   optional and the participants of the campaign will receive the
                   total rewards as per the distribution independent of the quiz
                   participation.
-                </p> */}
-                <p className="section_questions__qBox_details">
-                  You scored {TotalCorrect} out of 21 in quiz.
                 </p>
               </div>
             </section>
-            {/* <section className="section_calculation lighter_bg">
+            <section className="section_calculation lighter_bg">
               <h2>Calculate Your Estimated Rewards</h2>
               <div className="section_calculation__range input">
                 <p>
-                  How many {campaignData.comdex.currency} would you like to
+                  How many {campaignData.stargaze.currency} would you like to
                   stake?
                 </p>
                 <input
@@ -554,9 +525,12 @@ export default function ComdexCalculationPage() {
                       Stake
                     </p>
                     <h3 className="section_calculation__result_rewards_reward__value">
+                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}{" "} */}
                       {`${Number(SliderValue).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
-                      })} ${campaignData.comdex.currency}`}
+                      })} ${campaignData.stargaze.currency}`}
                     </h3>
                   </div>
                   <div className="section_calculation__result_rewards_reward">
@@ -566,7 +540,7 @@ export default function ComdexCalculationPage() {
                     <h3 className="section_calculation__result_rewards_reward__value">
                       {CampaignStat
                         ? ((Number(SliderValue) *
-                            (Number(campaignData.comdex.dataTable1.op1Value) -
+                            (Number(campaignData.stargaze.dataTable1.op1Value) -
                               Number(CampaignStat.totalDistributed) /
                                 1000000)) /
                             (Number(CampaignStat.worldGlobalDelegation) /
@@ -575,7 +549,7 @@ export default function ComdexCalculationPage() {
                             ? 5000
                             : (Number(SliderValue) *
                                 (Number(
-                                  campaignData.comdex.dataTable1.op1Value
+                                  campaignData.stargaze.dataTable1.op1Value
                                 ) -
                                   Number(CampaignStat.totalDistributed) /
                                     1000000)) /
@@ -590,7 +564,7 @@ export default function ComdexCalculationPage() {
                   </div>
                 </div>
               </div>
-            </section> */}
+            </section>
           </div>
         </div>
         {QuizModal === true && (
@@ -1016,9 +990,9 @@ const Container = styled.main`
           }
         }
         &_details {
-          font: var(--p-m);
+          font: var(--p-s);
           padding: 40px;
-          color: var(--gray);
+          color: var(--gray-deep);
           /* max-width: 768px; */
           text-align: justify;
           @media (max-width: 548px) {
