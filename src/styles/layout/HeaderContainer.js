@@ -4,9 +4,6 @@ const HeaderContainer = styled.header`
   max-width: 1440px;
   background-color: var(--dark);
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
@@ -14,22 +11,39 @@ const HeaderContainer = styled.header`
   right: 0;
   z-index: 300;
   transition: all 0.15s ease-in-out;
-  &.padding_1 {
-    padding: 60px 92px;
-    @media (max-width: 768px) {
-      padding: 20px 40px;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .banner {
+      position: absolute;
+      top: 90%;
+      padding: 10px 0px;
+      text-align: center;
+      left: 0;
+      right: 0;
+      font: var(--p-m);
+      color: var(--yellow);
+      background-color: var(--dark-m);
     }
-    @media (max-width: 548px) {
-      padding: 20px 20px;
+    &.padding_1 {
+      padding: 60px 92px;
+      @media (max-width: 768px) {
+        padding: 20px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 20px 20px;
+      }
     }
-  }
-  &.padding_2 {
-    padding: 20px 92px;
-    @media (max-width: 768px) {
-      padding: 20px 40px;
-    }
-    @media (max-width: 548px) {
-      padding: 20px 20px;
+    &.padding_2 {
+      padding: 20px 92px;
+      @media (max-width: 768px) {
+        padding: 20px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 20px 20px;
+      }
     }
   }
   @media (max-width: 768px) {
@@ -147,7 +161,7 @@ export const NavIcon = styled.div`
   margin: auto;
   display: grid;
   place-items: center;
-  cursor:pointer;
+  cursor: pointer;
   img {
     width: 32px;
     height: 22px;
