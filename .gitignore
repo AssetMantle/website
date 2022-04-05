@@ -10,4 +10,5 @@ faucet/node_modules
 
 #  files
 package-lock.json
+.env.local
 yarn.lock
