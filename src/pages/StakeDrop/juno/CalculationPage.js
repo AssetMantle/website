@@ -375,11 +375,13 @@ export default function JunoCalculationPage() {
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
                       <h3>
-                        {a === false && MTButtonText === 3
-                          ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
-                          : MTButtonText === 0
-                          ? "You have not completed the magic transaction"
-                          : "You have not completed the magic transaction"}
+                        {a === false
+                          ? MTButtonText === 3
+                            ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
+                            : MTButtonText === 0
+                            ? "You have not completed the magic transaction"
+                            : "You have not completed the magic transaction"
+                          : ""}
                         You didn't participate in this campaign!
                       </h3>
                     </div>
@@ -403,8 +405,8 @@ export default function JunoCalculationPage() {
                       </div>
                     )}
                   </div>
-                    <div className="section_calculation__error_element">
-                  {a === false && (
+                  <div className="section_calculation__error_element">
+                    {a === false && (
                       <button
                         onClick={handleMagicTransaction}
                         className="section_calculation__error_element__button"
@@ -422,9 +424,9 @@ export default function JunoCalculationPage() {
                             3: "Successful",
                           }[MTButtonText]
                         }
-                      </button>)}
-                    </div>
-                  
+                      </button>
+                    )}
+                  </div>
                 </div>
               )}
               <div className="section_calculation__result">
@@ -795,7 +797,7 @@ const Container = styled.main`
         border-radius: 12px;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 0px;
         flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
@@ -804,7 +806,7 @@ const Container = styled.main`
             display: flex;
             align-items: center;
             gap: 16px;
-            padding-bottom: 12px;
+            /* padding-bottom: 12px; */
             h3 {
               color: var(--gray);
             }
