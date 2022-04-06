@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import campaignData from "../../../data/campaignData.json";
 import { initializeKeplrForComdex } from "../comdex/comdexKeplr";
+import { initializeKeplrForTera } from "../terraKeplr";
 
 export default function MantleDropClaim() {
   const { t } = useTranslation();
@@ -12,23 +13,89 @@ export default function MantleDropClaim() {
 
   //   address
   const [InputAddress, setInputAddress] = useState("");
+  const [CosmosAddress, setCosmosAddress] = useState("");
+  const [PersistenceAddress, setPersistenceAddress] = useState("");
+  const [TerraAddress, setTerraAddress] = useState("");
   const [ComdexAddress, setComdexAddress] = useState("");
+  const [JunoAddress, setJunoAddress] = useState("");
+  const [StargazeAddress, setStargazeAddress] = useState("");
+  const [OsmoAddress, setOsmoAddress] = useState("");
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
+  const cosmosChainID = "cosmoshub-4";
+  const persistenceChainID = "core-1";
+  const terraChainID = "columbus-5";
   const comdexChainID = "comdex-1";
+  const junoChainID = "juno-1";
+  const stargazeChainID = "stargaze-1";
+  const osmoChainID = "osmosis-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
+
+      // taking cosmos address
+      let cosmosOfflineSigner = window.keplr.getOfflineSigner(cosmosChainID);
+      let cosmosAccounts = await cosmosOfflineSigner.getAccounts();
+      const cosmosAccount = cosmosAccounts[0].address;
+      setCosmosAddress(cosmosAccount);
+      // taking cosmos address ends
+
+      // taking persistence address
+      let persistenceOfflineSigner =
+        window.keplr.getOfflineSigner(persistenceChainID);
+      let persistenceAccounts = await persistenceOfflineSigner.getAccounts();
+      const persistenceAccount = persistenceAccounts[0].address;
+      setPersistenceAddress(persistenceAccount);
+      // taking persistence address ends
+
+      // taking terra address
+      try {
+        await initializeKeplrForTera();
+      } catch (e) {
+        console.log(e);
+      }
+      let terraOfflineSigner = window.keplr.getOfflineSigner(terraChainID);
+      let terraAccounts = await terraOfflineSigner.getAccounts();
+      const terraAccount = terraAccounts[0].address;
+      setTerraAddress(terraAccount);
+      // taking terra address ends
+
+      // taking comdex address
       try {
         await initializeKeplrForComdex();
       } catch (e) {
         console.log(e);
       }
-      let offlineSigner = window.keplr.getOfflineSigner(comdexChainID);
-      let accounts = await offlineSigner.getAccounts();
-      const account = accounts[0].address;
-      setComdexAddress(account);
+      let comdexOfflineSigner = window.keplr.getOfflineSigner(comdexChainID);
+      let comdexAccounts = await comdexOfflineSigner.getAccounts();
+      const comdexAccount = comdexAccounts[0].address;
+      setComdexAddress(comdexAccount);
+      //  taking comdex address end
+
+      // taking juno address
+      let junoOfflineSigner = window.keplr.getOfflineSigner(junoChainID);
+      let junoAccounts = await junoOfflineSigner.getAccounts();
+      const junoAccount = junoAccounts[0].address;
+      setJunoAddress(junoAccount);
+      // taking juno address ends
+
+      // taking stargaze address
+      let stargazeOfflineSigner =
+        window.keplr.getOfflineSigner(stargazeChainID);
+      let stargazeAccounts = await stargazeOfflineSigner.getAccounts();
+      const stargazeAccount = stargazeAccounts[0].address;
+      setStargazeAddress(stargazeAccount);
+      // taking stargaze address ends
+
+      // taking osmo address
+      let osmoOfflineSigner = window.keplr.getOfflineSigner(osmoChainID);
+      let osmoAccounts = await osmoOfflineSigner.getAccounts();
+      const osmoAccount = osmoAccounts[0].address;
+      setOsmoAddress(osmoAccount);
+      // taking osmo address ends
+
+      // took necessary addresses
       setKeplrConnectionState(2);
       setParticipated();
     } else {
@@ -206,7 +273,7 @@ export default function MantleDropClaim() {
                   value={InputAddress}
                   onChange={(e) => setInputAddress(e.target.value)}
                   className="section_calculation__from_line2_input"
-                  placeholder="Enter your comdex wallet address"
+                  placeholder="Enter your wallet address"
                 />
                 <button
                   //   onClick={handleCalculate}
@@ -328,35 +395,158 @@ export default function MantleDropClaim() {
           </section>
           <section className="section_reward_table">
             <div className="section_reward_table__element">
-              <div className="section_reward_table__element_option">
-                <h4>Reward:</h4>
-                <p>
-                  {/* {reward.toLocaleString("en-US", {
+              {CosmosAddress ||
+              PersistenceAddress ||
+              TerraAddress ||
+              ComdexAddress ||
+              JunoAddress ||
+              StargazeAddress ||
+              OsmoAddress ||
+              InputAddress ? (
+                <div className="section_reward_table__element_option">
+                  <h4>Address</h4>
+                  <p>Reward</p>
+                </div>
+              ) : (
+                ""
+              )}
+              {CosmosAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {CosmosAddress.substring(0, 5)}...
+                    {CosmosAddress.substring(CosmosAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
                           maximumFractionDigits: 4,
                         })} */}
-                  --
-                  {` $MNTL`}
-                </p>
-              </div>
-              <div className="section_reward_table__element_option">
-                <h4>Bonus Reward:</h4>
-                <p>
-                  {/* {totalReward.toLocaleString("en-US", {
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {PersistenceAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {PersistenceAddress.substring(0, 5)}...
+                    {PersistenceAddress.substring(
+                      PersistenceAddress.length - 5
+                    )}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
                           maximumFractionDigits: 4,
                         })} */}
-                  -- $MNTL
-                </p>
-              </div>
-              <div className="section_reward_table__element_option">
-                <h4>Total Reward:</h4>
-                <p>
-                  {/* {(reward + totalReward).toLocaleString("en-US", {
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {TerraAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {TerraAddress.substring(0, 5)}...
+                    {TerraAddress.substring(TerraAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
                           maximumFractionDigits: 4,
                         })} */}
-                  --
-                  {` $MNTL`}
-                </p>
-              </div>
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {ComdexAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {ComdexAddress.substring(0, 5)}...
+                    {ComdexAddress.substring(ComdexAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} */}
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {JunoAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {JunoAddress.substring(0, 5)}...
+                    {JunoAddress.substring(JunoAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} */}
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {StargazeAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {StargazeAddress.substring(0, 5)}...
+                    {StargazeAddress.substring(StargazeAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} */}
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {OsmoAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {OsmoAddress.substring(0, 5)}...
+                    {OsmoAddress.substring(OsmoAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} */}
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {InputAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {InputAddress.substring(0, 5)}...
+                    {InputAddress.substring(InputAddress.length - 5)}
+                  </h4>
+                  <p>
+                    {/* {reward.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} */}
+                    --
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {CosmosAddress ||
+              PersistenceAddress ||
+              TerraAddress ||
+              ComdexAddress ||
+              JunoAddress ||
+              StargazeAddress ||
+              OsmoAddress ||
+              InputAddress ? (
+                <div className="section_reward_table__element_option">
+                  <h4>Total Rewards:</h4>
+                  <p>--{` $MNTL`}</p>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </section>
         </div>
@@ -709,217 +899,6 @@ const Container = styled.main`
         input[type="range"] {
           width: 100%;
           accent-color: var(--yellow);
-        }
-      }
-    }
-    &_questions {
-      padding: 24px 0;
-      &__qBox {
-        position: relative;
-        background-color: var(--dark-m);
-        border-radius: 12px;
-        &_title {
-          padding: 40px;
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          justify-content: space-between;
-          border-bottom: 1px solid #3d3d3d;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          &__name {
-            color: var(--gray);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            span {
-              font: var(--h4);
-              color: var(--gray-deep);
-            }
-            .success {
-              color: var(--success);
-              font: var(--p-m);
-            }
-          }
-          &__right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            justify-content: center;
-            span {
-              color: var(--yellow);
-              font: var(--p-m);
-              margin: 8px 0 auto;
-            }
-            p {
-              font: var(--p-m);
-              color: var(--gray);
-            }
-          }
-        }
-        &_left,
-        &_right {
-          color: var(--yellow);
-          background-color: transparent;
-          border: none;
-          outline: none;
-          font: var(--p-m);
-          display: flex;
-          align-items: center;
-          &:disabled {
-            color: var(--yellow-disabled);
-          }
-        }
-        &_details {
-          font: var(--p-m);
-          padding: 40px;
-          color: var(--gray);
-          /* max-width: 768px; */
-          text-align: justify;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-        }
-        &_button {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          justify-content: center;
-          padding: 40px 40px 0px;
-          @media (max-width: 548px) {
-            padding: 20px 20px 0px;
-          }
-          &.a {
-            align-items: center;
-            gap: 24px;
-            justify-content: center;
-            font: 600 var(--p-m);
-            button {
-              border-radius: 50%;
-              height: 50px;
-              width: 50px;
-              display: grid;
-              place-items: center;
-              font-size: 24px;
-              color: var(--dark-m) !important;
-              padding: 0;
-            }
-          }
-          button {
-            padding: 10px 22.5px 12px;
-            display: inline;
-            font: 600 var(--p-m);
-            color: var(--dark-m);
-            text-transform: capitalize;
-            background: var(--yellow-gradient-bg);
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
-              inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
-            border-radius: 12px;
-            transition: all ease-in-out 100ms;
-            cursor: pointer;
-            color: var(--dark-m);
-            text-decoration: none;
-            border: none;
-            outline: none;
-            &:hover,
-            &:focus {
-              box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
-            }
-            @media (max-width: 548px) {
-              width: 100%;
-            }
-            &:disabled {
-              background: none;
-              background-color: var(--yellow-disabled) !important;
-              box-shadow: none;
-              &:hover,
-              &:focus {
-                box-shadow: none;
-              }
-            }
-          }
-        }
-        &_ques {
-          font: 600 var(--p-l);
-          padding: 0px 0 24px;
-          color: var(--gray);
-          max-width: 1176px;
-          padding: 0px 40px;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-        }
-        &_ans {
-          font: var(--p-m);
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-          padding: 20px 40px;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          &__s {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            &_radio {
-              height: 24px;
-              width: 24px;
-              border-radius: 50%;
-              border: 2px solid var(--yellow);
-              position: relative;
-              cursor: pointer;
-              input {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-              }
-              &.selected {
-                span {
-                  position: absolute;
-                  top: 3px;
-                  left: 3px;
-                  background-color: var(--yellow);
-                  border-radius: 50%;
-                  height: 14px;
-                  width: 14px;
-                }
-              }
-            }
-            span {
-              color: var(--gray);
-            }
-          }
-        }
-        &_footer {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          justify-content: space-between;
-          padding-top: 24px;
-          padding: 20px 40px 40px;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          &__element {
-            display: flex;
-            align-items: center;
-            &:nth-child(2) {
-              justify-content: center;
-              gap: 24px;
-            }
-          }
-          &__dot {
-            font: var(--p-m);
-            color: var(--gray);
-            &.selected {
-              color: var(--yellow);
-            }
-          }
         }
       }
     }

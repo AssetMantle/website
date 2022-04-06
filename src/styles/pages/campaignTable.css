@@ -1,5 +1,7 @@
 .section_reward_table {
-  padding: 5px;
+  padding-top: 24px;
+  width: 100%;
+  overflow-x: auto;
 }
 /* @media (max-width: 650px) {
   .section_reward_table {
@@ -14,6 +16,8 @@
   background-color: var(--dark-s);
   box-shadow: var(--dark-shadow);
   border-radius: 12px;
+  /* width: 100%;
+  overflow-x: auto; */
 }
 .section_reward_table__element_option {
   display: flex;
@@ -22,16 +26,16 @@
   gap: 24px;
   padding: 24px 40px;
 }
-@media (max-width: 930px) {
+/* @media (max-width: 930px) {
   .section_reward_table__element_option {
     flex-wrap: wrap;
   }
-}
+} */
 @media (max-width: 768px) {
   .section_reward_table__element_option {
-    text-align: center;
+    /* text-align: center;
+    flex-direction: column; */
     padding: 24px 20px;
-    flex-direction: column;
   }
 }
 .section_reward_table__element_option:not(:last-child) {
