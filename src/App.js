@@ -18,14 +18,14 @@ import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
 import StargazeCalculationPage from "./pages/StakeDrop/stargaze/CalculationPage";
+import MantleDropClaim from "./pages/StakeDrop/claim/MantleDropClaim";
 
 const App = () => {
   const location = useLocation();
 
   // changing header
-  const CURRENT_VERSION = process.env.REACT_APP_VERSION
-  if (localStorage.getItem("VERSION") !== CURRENT_VERSION){
-
+  const CURRENT_VERSION = process.env.REACT_APP_VERSION;
+  if (localStorage.getItem("VERSION") !== CURRENT_VERSION) {
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
     window.location.reload();
@@ -72,6 +72,10 @@ const App = () => {
     {
       component: StargazeCalculationPage,
       path: "/stakedrop/stargaze",
+    },
+    {
+      component: MantleDropClaim,
+      path: "/stakedrop/claim",
     },
   ];
 
