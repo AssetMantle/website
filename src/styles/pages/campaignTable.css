@@ -16,11 +16,17 @@
   background-color: var(--dark-s);
   box-shadow: var(--dark-shadow);
   border-radius: 12px;
-  /* width: 100%;
-  overflow-x: auto; */
+  width: 100%;
+  /* overflow-x: auto; */
+}
+@media (max-width: 1024px) {
+  .section_reward_table__element {
+    width: max-content;
+  }
 }
 .section_reward_table__element_option {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
