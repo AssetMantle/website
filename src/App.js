@@ -19,6 +19,7 @@ import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
 import StargazeCalculationPage from "./pages/StakeDrop/stargaze/CalculationPage";
 import MantleDropClaim from "./pages/StakeDrop/claim/MantleDropClaim";
+import OsmosisClaimPage from "./pages/StakeDrop/claim/OsmosisClaimPage";
 
 const App = () => {
   const location = useLocation();
@@ -76,6 +77,10 @@ const App = () => {
     {
       component: MantleDropClaim,
       path: "/stakedrop/claim",
+    },
+    {
+      component: OsmosisClaimPage,
+      path: "/osmosis-claim",
     },
   ];
 
