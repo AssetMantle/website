@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
 
+const a = "s"; // don't change this value
+
 export default function HeaderASAO() {
   const [navToggler, setNavToggler] = useState(false);
 
@@ -52,6 +54,7 @@ export default function HeaderASAO() {
             </NavIcon>
           </div>
         </div>
+        {a === false && <>
         {window.location.pathname.includes("cosmos") ||
         window.location.pathname.includes("comdex") ||
         window.location.pathname.includes("juno") ||
@@ -67,6 +70,7 @@ export default function HeaderASAO() {
         ) : (
           ""
         )}
+        </>}
       </div>
       {navToggler && <Nav />}
     </HeaderContainer>
