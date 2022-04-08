@@ -105,7 +105,7 @@ export default function StakeDrop() {
     rewardLine2: 12345,
   });
   const [stargazeDropStats, setStargazeDropStats] = useState({
-    isCompleted: false,
+    isCompleted: true,
     rewardLine1: 124,
     rewardLine2: 85748983,
   });
@@ -303,7 +303,7 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed2"
                       : ""
                   } ${
-                    data.name.includes("Juni") || data.name.includes("Stargaze")
+                    data.name.includes("Junoe") || data.name.includes("Stargazes")
                       ? "active"
                       : "comingSoon"
                   }`} //remove the last logic
