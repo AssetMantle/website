@@ -180,6 +180,10 @@ const Container = styled.main`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
+      @media (max-width: 548px) {
+        flex-direction: column;
+      }
       &__button {
         width: 296px;
         border-radius: 12px;
@@ -259,6 +263,9 @@ const Container = styled.main`
         .section_overview__element:hover {
           background: var(--yellow-gradient-bg);
           color: var(--dark-m);
+          p {
+            color: var(--dark-m);
+          }
         }
       }
     }
@@ -279,6 +286,10 @@ const Container = styled.main`
           background-color: var(--dark-m);
           padding: 24px 20px;
           border-radius: 12px;
+          gap: 10px;
+          @media (max-width: 548px) {
+            flex-wrap: wrap;
+          }
           &__title {
             p {
               font: var(--p-s);
