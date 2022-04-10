@@ -5,11 +5,15 @@ import styled from "styled-components";
 // import campaignData from "../../../data/campaignData.json";
 import { initializeKeplrForComdex } from "../comdex/comdexKeplr";
 import { initializeKeplrForTera } from "../terraKeplr";
+import TAndCModal from "./TAndCModal";
 
 export default function MantleDropClaim() {
   const { t } = useTranslation();
 
   const [Participated, setParticipated] = useState();
+
+  const [TAndC, setTAndC] = useState(false);
+
   const [InputError, setInputError] = useState();
 
   //   address
@@ -58,7 +62,7 @@ export default function MantleDropClaim() {
     mantleAddress: "",
   });
   const [OsmoCampaignData, setOsmoCampaignData] = useState({
-    address: OsmoAddress,
+    address: "",
     allocation: 0,
   });
 
@@ -242,8 +246,17 @@ export default function MantleDropClaim() {
       // taking osmo address ends
 
       // took necessary addresses
+      setParticipated(
+        !CosmosCampaignData.mantleAddress &&
+          !PersistenceCampaignData.mantleAddress &&
+          !TerraCampaignData.mantleAddress &&
+          !ComdexCampaignData.mantleAddress &&
+          !JunoCampaignData.mantleAddress &&
+          !StargazeCampaignData.mantleAddress &&
+          !OsmoCampaignData.address &&
+          false
+      );
       setKeplrConnectionState(2);
-      setParticipated();
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -260,6 +273,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -279,6 +293,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -296,6 +311,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -315,6 +331,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -332,6 +349,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -351,6 +369,7 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
               delegator: InputAddress,
@@ -368,9 +387,10 @@ export default function MantleDropClaim() {
             setInputError();
             setInputCampaignData(data);
           } else if (data.success.toString() === "false") {
+            setParticipated(false);
             setInputError();
             setInputCampaignData({
-              address: InputAddress,
+              address: "",
               allocation: 0,
             });
           }
@@ -399,456 +419,486 @@ export default function MantleDropClaim() {
   };
 
   return (
-    <Container>
-      <section className="section_goBack" onClick={() => window.history.back()}>
-        <img src="/images/stakedrop/back_arrow.svg" alt="back arrow" />
-        <h2>Back to AssetMantle StakeDrop page</h2>
-      </section>
-      <section className="section_calculation lighter_bg">
-        <h2>Calculate Your Estimated Rewards</h2>
-        <div className="section_calculation__connect">
-          <p className="section_calculation__connect_text">
-            Connect your wallet to calculate estimated rewards
-          </p>
-          <button
-            className="section_calculation__connect_button"
-            onClick={handleKeplrConnect}
-            disabled={
-              InputAddress !== null &&
-              InputAddress !== undefined &&
-              InputAddress !== ""
-                ? true
-                : false
-            }
-          >
-            <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-            <span>{`${
-              { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
-                KeplrConnectionState
-              ]
-            } Keplr`}</span>
-          </button>
-        </div>
-        <div className="section_calculation__or">Or</div>
-        <div className="section_calculation__from">
-          <label
-            htmlFor="walletAddress"
-            className="section_calculation__from_label"
-          >
-            Enter your wallet address
-          </label>
-          <div className="section_calculation__from_line2">
-            <input
-              type="text"
-              name="walletAddress"
-              value={InputAddress}
-              className="section_calculation__from_line2_input"
-              readOnly={
-                CosmosAddress ||
-                PersistenceAddress ||
-                TerraAddress ||
-                ComdexAddress ||
-                JunoAddress ||
-                StargazeAddress ||
-                OsmoAddress
+    <>
+      <Container>
+        <section
+          className="section_goBack"
+          onClick={() => window.history.back()}
+        >
+          <img src="/images/stakedrop/back_arrow.svg" alt="back arrow" />
+          <h2>Back to AssetMantle StakeDrop page</h2>
+        </section>
+        <section className="section_calculation lighter_bg">
+          <h2>Calculate Your Estimated Rewards</h2>
+          <div className="section_calculation__connect">
+            <p className="section_calculation__connect_text">
+              Connect your wallet to calculate estimated rewards
+            </p>
+            <button
+              className="section_calculation__connect_button"
+              onClick={handleKeplrConnect}
+              disabled={
+                InputAddress !== null &&
+                InputAddress !== undefined &&
+                InputAddress !== ""
                   ? true
                   : false
               }
-              onChange={(e) =>
-                CosmosAddress ||
-                PersistenceAddress ||
-                TerraAddress ||
-                ComdexAddress ||
-                JunoAddress ||
-                StargazeAddress ||
-                OsmoAddress
-                  ? setInputAddress()
-                  : handleInputChange(e)
-              }
-              placeholder="Enter your wallet address"
-            />
-            <button
-              onClick={InputCalculate}
-              className="section_calculation__from_line2_button"
-              disabled={
-                InputAddress !== null &&
-                InputAddress !== "" &&
-                InputAddress !== undefined
-                  ? false
-                  : true
-              }
             >
-              Calculate
+              <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+              <span>{`${
+                { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
+                  KeplrConnectionState
+                ]
+              } Keplr`}</span>
             </button>
           </div>
-        </div>
-        {Participated === false && (
-          <div className="section_calculation__error">
-            <div className="section_calculation__error_element">
-              <div className="section_calculation__error_element__line1">
-                <img src="/images/stakedrop/info.svg" alt="info icon" />
-                <h3>You didn't participate in this campaign!</h3>
-              </div>
+          <div className="section_calculation__or">Or</div>
+          <div className="section_calculation__from">
+            <label
+              htmlFor="walletAddress"
+              className="section_calculation__from_label"
+            >
+              Enter your wallet address
+            </label>
+            <div className="section_calculation__from_line2">
+              <input
+                type="text"
+                name="walletAddress"
+                value={InputAddress}
+                className="section_calculation__from_line2_input"
+                readOnly={
+                  CosmosAddress ||
+                  PersistenceAddress ||
+                  TerraAddress ||
+                  ComdexAddress ||
+                  JunoAddress ||
+                  StargazeAddress ||
+                  OsmoAddress
+                    ? true
+                    : false
+                }
+                onChange={(e) =>
+                  CosmosAddress ||
+                  PersistenceAddress ||
+                  TerraAddress ||
+                  ComdexAddress ||
+                  JunoAddress ||
+                  StargazeAddress ||
+                  OsmoAddress
+                    ? setInputAddress()
+                    : handleInputChange(e)
+                }
+                placeholder="Enter your wallet address"
+              />
+              <button
+                onClick={InputCalculate}
+                className="section_calculation__from_line2_button"
+                disabled={
+                  InputAddress !== null &&
+                  InputAddress !== "" &&
+                  InputAddress !== undefined
+                    ? false
+                    : true
+                }
+              >
+                Calculate
+              </button>
             </div>
           </div>
-        )}
-        {InputError && (
-          <div className="section_calculation__error">
-            <div className="section_calculation__error_element">
+          {Participated === false && (
+            <div className="section_calculation__error">
+              <div className="section_calculation__error_element__line1">
+                <img src="/images/stakedrop/info.svg" alt="info icon" />
+                <h3>You didn't participate in the campaigns!</h3>
+              </div>
+            </div>
+          )}
+          {InputError && (
+            <div className="section_calculation__error">
               <div className="section_calculation__error_element__line1">
                 <img src="/images/stakedrop/info.svg" alt="info icon" />
                 <h3>{InputError}</h3>
               </div>
             </div>
-          </div>
+          )}
+        </section>
+        {Participated !== false && (
+          <section className="section_reward_table">
+            <div className="section_reward_table__element">
+              <>
+                {CosmosAddress ||
+                PersistenceAddress ||
+                TerraAddress ||
+                ComdexAddress ||
+                JunoAddress ||
+                StargazeAddress ||
+                OsmoAddress ||
+                InputCampaignData.delegator ||
+                InputCampaignData.address ? (
+                  <div className="section_reward_table__element_option">
+                    <h4>Campaign</h4>
+                    <h4>Address</h4>
+                    <h4>MNTL Address</h4>
+                    <p>Reward</p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+              {CosmosAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Cosmos</h4>
+                  <h4>
+                    {CosmosAddress.substring(0, 5)}...
+                    {CosmosAddress.substring(CosmosAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {CosmosCampaignData.mantleAddress
+                      ? `${CosmosCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${CosmosCampaignData.mantleAddress.substring(
+                          CosmosCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {CosmosCampaignData.received
+                      ? CosmosCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {PersistenceAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Persistence</h4>
+                  <h4>
+                    {PersistenceAddress.substring(0, 5)}...
+                    {PersistenceAddress.substring(
+                      PersistenceAddress.length - 5
+                    )}
+                  </h4>
+                  <h4>
+                    {PersistenceCampaignData.mantleAddress
+                      ? `${PersistenceCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${PersistenceCampaignData.mantleAddress.substring(
+                          PersistenceCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {PersistenceCampaignData.received
+                      ? PersistenceCampaignData.received.toLocaleString(
+                          "en-US",
+                          {
+                            maximumFractionDigits: 4,
+                          }
+                        )
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {TerraAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Terra</h4>
+                  <h4>
+                    {TerraAddress.substring(0, 5)}...
+                    {TerraAddress.substring(TerraAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {TerraCampaignData.mantleAddress
+                      ? `${TerraCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${TerraCampaignData.mantleAddress.substring(
+                          TerraCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {TerraCampaignData.received
+                      ? TerraCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {ComdexAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Comdex</h4>
+                  <h4>
+                    {ComdexAddress.substring(0, 5)}...
+                    {ComdexAddress.substring(ComdexAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {ComdexCampaignData.mantleAddress
+                      ? `${ComdexCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${ComdexCampaignData.mantleAddress.substring(
+                          ComdexCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {ComdexCampaignData.received
+                      ? ComdexCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {JunoAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Juno</h4>
+                  <h4>
+                    {JunoAddress.substring(0, 5)}...
+                    {JunoAddress.substring(JunoAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {JunoCampaignData.mantleAddress
+                      ? `${JunoCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${JunoCampaignData.mantleAddress.substring(
+                          JunoCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {JunoCampaignData.received
+                      ? JunoCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {StargazeAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Stargaze</h4>
+                  <h4>
+                    {StargazeAddress.substring(0, 5)}...
+                    {StargazeAddress.substring(StargazeAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {StargazeCampaignData.mantleAddress
+                      ? `${StargazeCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${StargazeCampaignData.mantleAddress.substring(
+                          StargazeCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {StargazeCampaignData.received
+                      ? StargazeCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {OsmoAddress && (
+                <div className="section_reward_table__element_option">
+                  <h4>Osmosis</h4>
+                  <h4>
+                    {OsmoAddress.substring(0, 5)}...
+                    {OsmoAddress.substring(OsmoAddress.length - 5)}
+                  </h4>
+                  <h4>
+                    {OsmoCampaignData.address
+                      ? `${OsmoCampaignData.address.substring(
+                          0,
+                          5
+                        )}...${OsmoCampaignData.address.substring(
+                          OsmoCampaignData.address.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {OsmoCampaignData.allocation
+                      ? OsmoCampaignData.allocation.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              )}
+              {InputCampaignData.delegator ? (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {InputAddress.includes("cosmos")
+                      ? "Cosmos"
+                      : InputAddress.includes("persistence")
+                      ? "Persistence"
+                      : InputAddress.includes("terra")
+                      ? "Terra"
+                      : InputAddress.includes("comdex")
+                      ? "Comdex"
+                      : InputAddress.includes("juno")
+                      ? "Juno"
+                      : InputAddress.includes("stars")
+                      ? "Stargaze"
+                      : InputAddress.includes("osmo")
+                      ? "Osmosis"
+                      : "Failed to detect"}{" "}
+                    Campaign
+                  </h4>
+                  <h4>
+                    {InputCampaignData.delegator.substring(0, 5)}...
+                    {InputCampaignData.delegator.substring(
+                      InputCampaignData.delegator.length - 5
+                    )}
+                  </h4>
+                  <h4>
+                    {InputCampaignData.mantleAddress
+                      ? `${InputCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${InputCampaignData.mantleAddress.substring(
+                          InputCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {InputCampaignData.received
+                      ? InputCampaignData.received.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              ) : InputCampaignData.address ? (
+                <div className="section_reward_table__element_option">
+                  <h4>
+                    {InputAddress.includes("cosmos")
+                      ? "Cosmos"
+                      : InputAddress.includes("persistence")
+                      ? "Persistence"
+                      : InputAddress.includes("terra")
+                      ? "Terra"
+                      : InputAddress.includes("comdex")
+                      ? "Comdex"
+                      : InputAddress.includes("juno")
+                      ? "Juno"
+                      : InputAddress.includes("stars")
+                      ? "Stargaze"
+                      : InputAddress.includes("osmo")
+                      ? "Osmosis"
+                      : "Failed to detect"}{" "}
+                    Campaign
+                  </h4>
+                  <h4>
+                    {InputCampaignData.address.substring(0, 5)}...
+                    {InputCampaignData.address.substring(
+                      InputCampaignData.address.length - 5
+                    )}
+                  </h4>
+                  <h4>
+                    {InputCampaignData.mantleAddress
+                      ? `${InputCampaignData.mantleAddress.substring(
+                          0,
+                          5
+                        )}...${InputCampaignData.mantleAddress.substring(
+                          InputCampaignData.mantleAddress.length - 5
+                        )}`
+                      : "--"}
+                  </h4>
+                  <p>
+                    {InputCampaignData.allocation
+                      ? InputCampaignData.allocation.toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })
+                      : "--"}
+
+                    {` $MNTL`}
+                  </p>
+                </div>
+              ) : null}
+              <>
+                {CosmosAddress ||
+                PersistenceAddress ||
+                TerraAddress ||
+                ComdexAddress ||
+                JunoAddress ||
+                StargazeAddress ||
+                OsmoAddress ? (
+                  <div className="section_reward_table__element_option">
+                    <h4>Total Rewards:</h4>
+                    <span></span>
+                    <span></span>
+                    <p>
+                      {(
+                        CosmosCampaignData.received +
+                        PersistenceCampaignData.received +
+                        TerraCampaignData.received +
+                        ComdexCampaignData.received +
+                        JunoCampaignData.received +
+                        StargazeCampaignData.received +
+                        OsmoCampaignData.allocation +
+                        InputCampaignData.received
+                      ).toLocaleString("en-US", {
+                        maximumFractionDigits: 4,
+                      })}
+                      {` $MNTL`}
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            </div>
+          </section>
         )}
-      </section>
-      <section className="section_reward_table">
-        <div className="section_reward_table__element">
-          <>
-            {CosmosAddress ||
-            PersistenceAddress ||
-            TerraAddress ||
-            ComdexAddress ||
-            JunoAddress ||
-            StargazeAddress ||
-            OsmoAddress ||
-            InputCampaignData.delegator ||
-            InputCampaignData.address ? (
-              <div className="section_reward_table__element_option">
-                <h4>Campaign</h4>
-                <h4>Address</h4>
-                <h4>MNTL Address</h4>
-                <p>Reward</p>
-              </div>
-            ) : (
-              ""
-            )}
-          </>
-          {CosmosAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Cosmos Campaign</h4>
-              <h4>
-                {CosmosAddress.substring(0, 5)}...
-                {CosmosAddress.substring(CosmosAddress.length - 5)}
-              </h4>
-              <h4>
-                {CosmosCampaignData.mantleAddress
-                  ? `${CosmosCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${CosmosCampaignData.mantleAddress.substring(
-                      CosmosCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {CosmosCampaignData.received
-                  ? CosmosCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
 
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {PersistenceAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Persistence Campaign</h4>
-              <h4>
-                {PersistenceAddress.substring(0, 5)}...
-                {PersistenceAddress.substring(PersistenceAddress.length - 5)}
-              </h4>
-              <h4>
-                {PersistenceCampaignData.mantleAddress
-                  ? `${PersistenceCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${PersistenceCampaignData.mantleAddress.substring(
-                      PersistenceCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {PersistenceCampaignData.received
-                  ? PersistenceCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {TerraAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Terra Campaign</h4>
-              <h4>
-                {TerraAddress.substring(0, 5)}...
-                {TerraAddress.substring(TerraAddress.length - 5)}
-              </h4>
-              <h4>
-                {TerraCampaignData.mantleAddress
-                  ? `${TerraCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${TerraCampaignData.mantleAddress.substring(
-                      TerraCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {TerraCampaignData.received
-                  ? TerraCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {ComdexAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Comdex Campaign</h4>
-              <h4>
-                {ComdexAddress.substring(0, 5)}...
-                {ComdexAddress.substring(ComdexAddress.length - 5)}
-              </h4>
-              <h4>
-                {ComdexCampaignData.mantleAddress
-                  ? `${ComdexCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${ComdexCampaignData.mantleAddress.substring(
-                      ComdexCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {ComdexCampaignData.received
-                  ? ComdexCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {JunoAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Juno Campaign</h4>
-              <h4>
-                {JunoAddress.substring(0, 5)}...
-                {JunoAddress.substring(JunoAddress.length - 5)}
-              </h4>
-              <h4>
-                {JunoCampaignData.mantleAddress
-                  ? `${JunoCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${JunoCampaignData.mantleAddress.substring(
-                      JunoCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {JunoCampaignData.received
-                  ? JunoCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {StargazeAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Stargaze Campaign</h4>
-              <h4>
-                {StargazeAddress.substring(0, 5)}...
-                {StargazeAddress.substring(StargazeAddress.length - 5)}
-              </h4>
-              <h4>
-                {StargazeCampaignData.mantleAddress
-                  ? `${StargazeCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${StargazeCampaignData.mantleAddress.substring(
-                      StargazeCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {StargazeCampaignData.received
-                  ? StargazeCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {OsmoAddress && (
-            <div className="section_reward_table__element_option">
-              <h4>Osmosis Campaign</h4>
-              <h4>
-                {OsmoAddress.substring(0, 5)}...
-                {OsmoAddress.substring(OsmoAddress.length - 5)}
-              </h4>
-              <h4>
-                {OsmoCampaignData.address
-                  ? `${OsmoCampaignData.address.substring(
-                      0,
-                      5
-                    )}...${OsmoCampaignData.address.substring(
-                      OsmoCampaignData.address.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {OsmoCampaignData.allocation
-                  ? OsmoCampaignData.allocation.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          )}
-          {InputCampaignData.delegator ? (
-            <div className="section_reward_table__element_option">
-              <h4>
-                {InputAddress.includes("cosmos")
-                  ? "Cosmos"
-                  : InputAddress.includes("persistence")
-                  ? "Persistence"
-                  : InputAddress.includes("terra")
-                  ? "Terra"
-                  : InputAddress.includes("comdex")
-                  ? "Comdex"
-                  : InputAddress.includes("juno")
-                  ? "Juno"
-                  : InputAddress.includes("stars")
-                  ? "Stargaze"
-                  : InputAddress.includes("osmo")
-                  ? "Osmosis"
-                  : "Failed to detect"}{" "}
-                Campaign
-              </h4>
-              <h4>
-                {InputCampaignData.delegator.substring(0, 5)}...
-                {InputCampaignData.delegator.substring(
-                  InputCampaignData.delegator.length - 5
-                )}
-              </h4>
-              <h4>
-                {InputCampaignData.mantleAddress
-                  ? `${InputCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${InputCampaignData.mantleAddress.substring(
-                      InputCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {InputCampaignData.received
-                  ? InputCampaignData.received.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          ) : InputCampaignData.address ? (
-            <div className="section_reward_table__element_option">
-              <h4>
-                {InputAddress.includes("cosmos")
-                  ? "Cosmos"
-                  : InputAddress.includes("persistence")
-                  ? "Persistence"
-                  : InputAddress.includes("terra")
-                  ? "Terra"
-                  : InputAddress.includes("comdex")
-                  ? "Comdex"
-                  : InputAddress.includes("juno")
-                  ? "Juno"
-                  : InputAddress.includes("stars")
-                  ? "Stargaze"
-                  : InputAddress.includes("osmo")
-                  ? "Osmosis"
-                  : "Failed to detect"}{" "}
-                Campaign
-              </h4>
-              <h4>
-                {InputCampaignData.address.substring(0, 5)}...
-                {InputCampaignData.address.substring(
-                  InputCampaignData.address.length - 5
-                )}
-              </h4>
-              <h4>
-                {InputCampaignData.mantleAddress
-                  ? `${InputCampaignData.mantleAddress.substring(
-                      0,
-                      5
-                    )}...${InputCampaignData.mantleAddress.substring(
-                      InputCampaignData.mantleAddress.length - 5
-                    )}`
-                  : "--"}
-              </h4>
-              <p>
-                {InputCampaignData.allocation
-                  ? InputCampaignData.allocation.toLocaleString("en-US", {
-                      maximumFractionDigits: 4,
-                    })
-                  : "--"}
-
-                {` $MNTL`}
-              </p>
-            </div>
-          ) : null}
-          <>
-            {CosmosAddress ||
-            PersistenceAddress ||
-            TerraAddress ||
-            ComdexAddress ||
-            JunoAddress ||
-            StargazeAddress ||
-            OsmoAddress ? (
-              <div className="section_reward_table__element_option">
-                <h4>Total Rewards:</h4>
-                <span></span>
-                <span></span>
-                <p>
-                  {(
-                    CosmosCampaignData.received +
-                    PersistenceCampaignData.received +
-                    TerraCampaignData.received +
-                    ComdexCampaignData.received +
-                    JunoCampaignData.received +
-                    StargazeCampaignData.received +
-                    OsmoCampaignData.allocation +
-                    InputCampaignData.received
-                  ).toLocaleString("en-US", {
-                    maximumFractionDigits: 4,
-                  })}
-                  {` $MNTL`}
-                </p>
-              </div>
-            ) : (
-              ""
-            )}
-          </>
-        </div>
-      </section>
-    </Container>
+        <section className="section_claimButton">
+          <button
+            onClick={() => setTAndC(true)}
+            disabled={
+              CosmosAddress ||
+              PersistenceAddress ||
+              TerraAddress ||
+              ComdexAddress ||
+              JunoAddress ||
+              StargazeAddress ||
+              OsmoAddress ||
+              InputCampaignData.delegator ||
+              InputCampaignData.address
+                ? false
+                : true
+            }
+          >
+            Claim
+          </button>
+        </section>
+      </Container>
+      {TAndC && <TAndCModal closeModal={setTAndC} />}
+    </>
   );
 }
 
@@ -1120,141 +1170,42 @@ const Container = styled.main`
           }
         }
       }
-      &__result {
-        padding-top: 40px;
-        &_address {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          flex-wrap: wrap;
-          padding-bottom: 40px;
-          &__label,
-          &__value {
-            font-family: "Lato";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 24px;
-            color: #c2c2c2;
-          }
-        }
-        &_rewards {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          @media (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          @media (max-width: 548px) {
-            grid-template-columns: repeat(1, 1fr);
-          }
-          &.two {
-            grid-template-columns: repeat(2, 1fr);
-            @media (max-width: 768px) {
-              grid-template-columns: repeat(1, 1fr);
-            }
-          }
-          &_reward {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            &__label {
-              font-family: "Lato";
-              font-style: normal;
-              font-weight: 400;
-              font-size: 20px;
-              line-height: 24px;
-              color: #c2c2c2;
-            }
-            &__value {
-              font-family: "Lato";
-              font-style: normal;
-              font-weight: 800;
-              font-size: 28px;
-              line-height: 34px;
-              color: #c2c2c2;
-            }
-          }
-        }
-      }
-      &__range {
-        &.input {
-          display: flex;
-          gap: 24px;
-          padding-bottom: 40px;
-          flex-wrap: wrap;
-          align-items: center;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          p {
-            font: 600 var(--p-m);
-            color: var(--gray-deep);
-          }
-          input[type="number"] {
-            padding: 12px 16px;
-            background-color: var(--dark);
-            border-radius: 12px;
-            border: none;
-            font: var(--h3);
-            color: var(--gray);
-            outline: none;
-            width: min(250px, 100%);
-            -moz-appearance: textfield;
-            &::-webkit-outer-spin-button,
-            &::-webkit-inner-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
-            }
-          }
-          /* & * {
-            @media (max-width: 548px) {
-              width: 100%;
-            }
-          } */
-        }
-        input[type="range"] {
-          width: 100%;
-          accent-color: var(--yellow);
-        }
-      }
     }
-    &__overview {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      &_campaign,
-      &_campaignStat {
-        &__title {
-          font: var(--h3);
-          font-size: 24px;
-          color: var(--gray);
-          padding: 40px 30px;
-          border-bottom: 1px solid #3d3d3d;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
+    &_claimButton {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 24px;
+      button {
+        padding: 10px 22.5px 12px;
+        display: inline;
+        font: 600 var(--p-m);
+        color: var(--dark-m);
+        text-transform: capitalize;
+        background: var(--yellow-gradient-bg);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+          inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
+        border-radius: 12px;
+        transition: all ease-in-out 100ms;
+        cursor: pointer;
+        color: var(--dark-m);
+        text-decoration: none;
+        border: none;
+        outline: none;
+        &:hover,
+        &:focus {
+          box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
         }
-        &__option {
-          display: flex;
-          gap: 4px;
-          flex-direction: column;
-          color: var(--gray);
-          padding: 40px 30px;
-          @media (max-width: 548px) {
-            padding: 20px;
-          }
-          &:not(:last-child) {
-            border-bottom: 1px solid #3d3d3d;
-          }
-          &_label {
-            font: var(--p-m);
-          }
-          &_details {
-            font: 500 var(--p-l);
+        @media (max-width: 548px) {
+          width: 100%;
+        }
+        &:disabled {
+          background: none;
+          background-color: var(--yellow-disabled) !important;
+          box-shadow: none;
+          &:hover,
+          &:focus {
+            box-shadow: none;
           }
         }
       }
