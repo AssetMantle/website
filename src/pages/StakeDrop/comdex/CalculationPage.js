@@ -781,7 +781,7 @@ const Container = styled.main`
         border-radius: 12px;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 0px;
         flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
@@ -790,7 +790,7 @@ const Container = styled.main`
             display: flex;
             align-items: center;
             gap: 16px;
-            padding-bottom: 12px;
+            /* padding-bottom: 12px; */
             h3 {
               color: var(--gray);
             }

@@ -10,6 +10,8 @@ import { sendCoinTx } from "../send";
 import HowToModal from "./HowToModal";
 import QAComponent from "./QAComponent";
 
+const a = "s"; // don't change this value
+
 export default function StargazeCalculationPage() {
   const { t } = useTranslation();
   const sendingAddress = "stars1dsuar2ztnqevefxlnalmaetxca3gr0fppycpdj";
@@ -70,10 +72,21 @@ export default function StargazeCalculationPage() {
   const [TotalStaked, setTotalStaked] = useState("0.00");
   const [TotalReward, setTotalReward] = useState("0.00");
   const [TotalEstimated, setTotalEstimated] = useState("0.00");
+  const [TotalCorrect, setTotalCorrect] = useState("--");
 
   const TotalStakedN = Number(TotalStaked);
   const TotalRewardN = Number(TotalReward);
   const TotalEstimatedN = Number(TotalEstimated);
+
+  function countAnswer(data) {
+    var counter = 0;
+    data.forEach((dd) => {
+      if (dd.correct) {
+        counter++;
+      }
+    });
+    return counter;
+  }
 
   const handleCalculate = () => {
     fetch(`https://stargaze-stakedrop.assetmantle.one/delegator/${Address}`)
@@ -87,9 +100,10 @@ export default function StargazeCalculationPage() {
           setIsMagicTransaction(true);
           fetch(`https://stargaze-stakedrop.assetmantle.one/qna/${Address}`)
             .then((res) => res.json())
-            .then((data) =>
-              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false)
-            );
+            .then((data) => {
+              data.qnaSet.length === 0 ? setQuiz(true) : setQuiz(false);
+              setTotalCorrect(countAnswer(data.qaData));
+            });
         } else if (data.success.toString() === "false") {
           setIsMagicTransaction(false);
           setStakeAddress();
@@ -234,15 +248,15 @@ export default function StargazeCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_1_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {CampaignStat
+                      {a === false && CampaignStat
                         ? (
-                            Number(campaignData.stargaze.dataTable1.op1Value) -
+                            Number(campaignData.juno.dataTable1.op1Value) -
                             Number(CampaignStat.totalDistributed) / 1000000
                           ).toLocaleString("en-US", {
                             maximumFractionDigits: 4,
                           })
-                        : "--"}
-                      {` $MNTL`}
+                        : ""}
+                      0{` $MNTL`}
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -250,7 +264,7 @@ export default function StargazeCalculationPage() {
                       {t("STAKEDROP_MODAL_CAMPAIGNSTAT_OPTION_2_TITLE")}
                     </p>
                     <h3 className="section__overview_campaignStat__option_value">
-                      {TimeLeft}
+                      {a === false && TimeLeft}Concluded
                     </h3>
                   </div>
                   <div className="section__overview_campaignStat__option">
@@ -355,48 +369,57 @@ export default function StargazeCalculationPage() {
                     <div className="section_calculation__error_element__line1">
                       <img src="/images/stakedrop/info.svg" alt="info icon" />
                       <h3>
-                        {MTButtonText === 3
-                          ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
-                          : MTButtonText === 0
-                          ? "You have not completed the magic transaction"
-                          : "You have not completed the magic transaction"}
+                        {a === false
+                          ? MTButtonText === 3
+                            ? "You have successfully submitted the magic transaction. Please wait for some time to show your estimated rewards."
+                            : MTButtonText === 0
+                            ? "You have not completed the magic transaction"
+                            : "You have not completed the magic transaction"
+                          : ""}
+                        You didn't participate in this campaign!
                       </h3>
                     </div>
-                    <div className="section_calculation__error_element__line2">
-                      <p>
-                        You have to complete a magic transaction in order to
-                        calculate estimated rewards. Here's a quick guide on how
-                        to do this:{" "}
-                        <span onClick={() => setModal(true)}>
-                          Magic Transaction Guide
-                        </span>{" "}
-                        <br />
-                        <br />
-                        NOTE: If you have already sent magic transaction and
-                        received the success response, please wait for some time
-                        to confirm your participation. Please do not send the
-                        magic transaction multiple times as your participation
-                        is already confirmed.
-                      </p>
-                    </div>
+                    {a === false && (
+                      <div className="section_calculation__error_element__line2">
+                        <p>
+                          You have to complete a magic transaction in order to
+                          calculate estimated rewards. Here's a quick guide on
+                          how to do this:{" "}
+                          <span onClick={() => setModal(true)}>
+                            Magic Transaction Guide
+                          </span>{" "}
+                          <br />
+                          <br />
+                          NOTE: If you have already sent magic transaction and
+                          received the success response, please wait for some
+                          time to confirm your participation. Please do not send
+                          the magic transaction multiple times as your
+                          participation is already confirmed.
+                        </p>
+                      </div>
+                    )}
                   </div>
                   <div className="section_calculation__error_element">
-                    <button
-                      onClick={handleMagicTransaction}
-                      className="section_calculation__error_element__button"
-                      disabled={
-                        MTButtonText === 0 || MTButtonText === 2 ? false : true
-                      }
-                    >
-                      {
+                    {a === false && (
+                      <button
+                        onClick={handleMagicTransaction}
+                        className="section_calculation__error_element__button"
+                        disabled={
+                          MTButtonText === 0 || MTButtonText === 2
+                            ? false
+                            : true
+                        }
+                      >
                         {
-                          0: "Complete Magic Transaction",
-                          1: "Processing...",
-                          2: "Failed - Retry",
-                          3: "Successful",
-                        }[MTButtonText]
-                      }
-                    </button>
+                          {
+                            0: "Complete Magic Transaction",
+                            1: "Processing...",
+                            2: "Failed - Retry",
+                            3: "Successful",
+                          }[MTButtonText]
+                        }
+                      </button>
+                    )}
                   </div>
                 </div>
               )}
@@ -454,117 +477,130 @@ export default function StargazeCalculationPage() {
               <div className="section_questions__qBox">
                 <div className="section_questions__qBox_title">
                   <h3 className="section_questions__qBox_title__name">
-                    Quiz <span>(Optional)</span>
-                    {Quiz === true && (
+                    Quiz Result
+                    {Quiz === 1 && (
                       <div className="success">
                         <BiCheckCircle /> Completed
                       </div>
                     )}
                   </h3>
                   <div className="section_questions__qBox_title__right">
-                    <span>
-                      <BiTimeFive />
-                    </span>
-                    <p>
-                      {TimeLeftQuiz}
-                      {Quiz === true && TimeLeft !== "EXPIRED"
-                        ? " to next quiz"
-                        : ""}
-                    </p>
+                    {a === false && (
+                      <>
+                        <span>
+                          <BiTimeFive />
+                        </span>
+                        <p>
+                          {TimeLeftQuiz}
+                          {Quiz === true && TimeLeft !== "EXPIRED"
+                            ? " to next quiz"
+                            : ""}
+                        </p>
+                      </>
+                    )}
                   </div>
                 </div>
-                <div className="section_questions__qBox_button">
-                  <button
-                    onClick={() => setQuizModal(true)}
-                    disabled={Quiz === true || Quiz === 0 ? true : false}
-                  >
-                    {Quiz === true ? "Completed" : "Take the Quiz"}
-                  </button>
-                </div>
+                {a === false && (
+                  <>
+                    <div className="section_questions__qBox_button">
+                      <button
+                        onClick={() => setQuizModal(true)}
+                        disabled={Quiz === true || Quiz === 0 ? true : false}
+                      >
+                        {Quiz === true ? "Completed" : "Take the Quiz"}
+                      </button>
+                    </div>
+                    <p className="section_questions__qBox_details">
+                      The objective of this quiz is to spread more awareness
+                      about AssetMantle and it's product offerings. Please Note
+                      that as per the community feedbacks, we have decided to
+                      keep the quiz optional and the participants of the
+                      campaign will receive the total rewards as per the
+                      distribution independent of the quiz participation.
+                    </p>
+                  </>
+                )}
                 <p className="section_questions__qBox_details">
-                  The objective of this quiz is to spread more awareness about
-                  AssetMantle and it's product offerings. Please Note that as
-                  per the community feedbacks, we have decided to keep the quiz
-                  optional and the participants of the campaign will receive the
-                  total rewards as per the distribution independent of the quiz
-                  participation.
+                  You scored {TotalCorrect} out of 21 in quiz.
                 </p>
               </div>
             </section>
-            <section className="section_calculation lighter_bg">
-              <h2>Calculate Your Estimated Rewards</h2>
-              <div className="section_calculation__range input">
-                <p>
-                  How many {campaignData.stargaze.currency} would you like to
-                  stake?
-                </p>
-                <input
-                  type="number"
-                  value={SliderValue}
-                  onChange={(e) =>
-                    setSliderValue(
-                      e.target.value >= 500000 ? 500000 : e.target.value
-                    )
-                  }
-                />
-              </div>
-              <div className="section_calculation__range">
-                <input
-                  type="range"
-                  value={SliderValue}
-                  min={0}
-                  max={500000}
-                  step="1"
-                  onChange={(e) => setSliderValue(e.target.value)}
-                />
-              </div>
-              <div className="section_calculation__result">
-                <div className="section_calculation__result_rewards two">
-                  <div className="section_calculation__result_rewards_reward">
-                    <p className="section_calculation__result_rewards_reward__label">
-                      Stake
-                    </p>
-                    <h3 className="section_calculation__result_rewards_reward__value">
-                      {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
+            {a === false && (
+              <section className="section_calculation lighter_bg">
+                <h2>Calculate Your Estimated Rewards</h2>
+                <div className="section_calculation__range input">
+                  <p>
+                    How many {campaignData.juno.currency} would you like to
+                    stake?
+                  </p>
+                  <input
+                    type="number"
+                    value={SliderValue}
+                    onChange={(e) =>
+                      setSliderValue(
+                        e.target.value >= 500000 ? 500000 : e.target.value
+                      )
+                    }
+                  />
+                </div>
+                <div className="section_calculation__range">
+                  <input
+                    type="range"
+                    value={SliderValue}
+                    min={0}
+                    max={500000}
+                    step="1"
+                    onChange={(e) => setSliderValue(e.target.value)}
+                  />
+                </div>
+                <div className="section_calculation__result">
+                  <div className="section_calculation__result_rewards two">
+                    <div className="section_calculation__result_rewards_reward">
+                      <p className="section_calculation__result_rewards_reward__label">
+                        Stake
+                      </p>
+                      <h3 className="section_calculation__result_rewards_reward__value">
+                        {/* {(TotalStakedN / 1000000).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}{" "} */}
-                      {`${Number(SliderValue).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
-                      })} ${campaignData.stargaze.currency}`}
-                    </h3>
-                  </div>
-                  <div className="section_calculation__result_rewards_reward">
-                    <p className="section_calculation__result_rewards_reward__label">
-                      Estimated Rewards
-                    </p>
-                    <h3 className="section_calculation__result_rewards_reward__value">
-                      {CampaignStat
-                        ? ((Number(SliderValue) *
-                            (Number(campaignData.stargaze.dataTable1.op1Value) -
-                              Number(CampaignStat.totalDistributed) /
-                                1000000)) /
-                            (Number(CampaignStat.worldGlobalDelegation) /
-                              1000000) >=
-                          5000
-                            ? 5000
-                            : (Number(SliderValue) *
-                                (Number(
-                                  campaignData.stargaze.dataTable1.op1Value
-                                ) -
-                                  Number(CampaignStat.totalDistributed) /
-                                    1000000)) /
+                        {`${Number(SliderValue).toLocaleString("en-US", {
+                          maximumFractionDigits: 4,
+                        })} ${campaignData.juno.currency}`}
+                      </h3>
+                    </div>
+                    <div className="section_calculation__result_rewards_reward">
+                      <p className="section_calculation__result_rewards_reward__label">
+                        Estimated Rewards
+                      </p>
+                      <h3 className="section_calculation__result_rewards_reward__value">
+                        {CampaignStat
+                          ? ((Number(SliderValue) *
+                              (Number(campaignData.juno.dataTable1.op1Value) -
+                                Number(CampaignStat.totalDistributed) /
+                                  1000000)) /
                               (Number(CampaignStat.worldGlobalDelegation) /
-                                1000000)
-                          ).toLocaleString("en-US", {
-                            maximumFractionDigits: 4,
-                          })
-                        : 0}{" "}
-                      $MNTL
-                    </h3>
+                                1000000) >=
+                            5000
+                              ? 5000
+                              : (Number(SliderValue) *
+                                  (Number(
+                                    campaignData.juno.dataTable1.op1Value
+                                  ) -
+                                    Number(CampaignStat.totalDistributed) /
+                                      1000000)) /
+                                (Number(CampaignStat.worldGlobalDelegation) /
+                                  1000000)
+                            ).toLocaleString("en-US", {
+                              maximumFractionDigits: 4,
+                            })
+                          : 0}{" "}
+                        $MNTL
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            )}
           </div>
         </div>
         {QuizModal === true && (
@@ -755,7 +791,7 @@ const Container = styled.main`
         border-radius: 12px;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 0px;
         flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
@@ -764,7 +800,7 @@ const Container = styled.main`
             display: flex;
             align-items: center;
             gap: 16px;
-            padding-bottom: 12px;
+            /* padding-bottom: 12px; */
             h3 {
               color: var(--gray);
             }
