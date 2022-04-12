@@ -3,10 +3,12 @@ import { useTranslation } from "react-i18next";
 
 import { AirdropContainer } from "../../styles/pages/airdropStyle";
 
+import { HiOutlineInformationCircle } from "react-icons/hi";
+
 import airDropData from "../../data/airdropData.json";
 import LPModal from "./LPModal";
 import MetaMaskModal from "./MetaMaskModal";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import TAndCModal from "../claim/TAndCModal"
 
 // const chainIDs = require("../../data/chain.json");
 
@@ -17,6 +19,7 @@ export default function Airdrop() {
   const [OsmoAddress, setOsmoAddress] = useState();
 
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
+  const [TAndC, setTAndC] = useState(false);
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
   const [MetaMaskAddress, setMetaMaskAddress] = useState();
@@ -136,7 +139,9 @@ export default function Airdrop() {
               <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1")}</h4>
             </div>
             <div className="section_drop__button">
-              {OsmoAddress ? undefined : (
+              {OsmoAddress ? KeplrCalculatedDATA && KeplrCalculatedDATA.allocation && <button onClick={() => setTAndC(true)}>
+                  Claim
+                </button> : (
                 <button onClick={() => setLPModalStat(true)}>
                   Check Eligibility
                 </button>
@@ -466,6 +471,7 @@ export default function Airdrop() {
             setMetaMaskWallet={setMetaMaskAddress}
           />
         )}
+        {TAndC === true && (<TAndCModal closeModal={setTAndC} />)}
       </AirdropContainer>
     </>
   );

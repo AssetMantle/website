@@ -11,6 +11,7 @@ import HeaderASAO from "./layout/HeaderASAO";
 import RouteNotFound from "./components/RouteNotFound";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
+import OsmosisClaimPage from "./pages/claim/OsmosisClaimPage";
 
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
@@ -18,8 +19,6 @@ import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
 import StargazeCalculationPage from "./pages/StakeDrop/stargaze/CalculationPage";
-import MantleDropClaim from "./pages/StakeDrop/claim/MantleDropClaim";
-import OsmosisClaimPage from "./pages/StakeDrop/claim/OsmosisClaimPage";
 
 const App = () => {
   const location = useLocation();
@@ -73,10 +72,6 @@ const App = () => {
     {
       component: StargazeCalculationPage,
       path: "/stakedrop/stargaze",
-    },
-    {
-      component: MantleDropClaim,
-      path: "/stakedrop/claim",
     },
     {
       component: OsmosisClaimPage,

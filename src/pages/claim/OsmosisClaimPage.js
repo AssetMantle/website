@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { MdDone } from "react-icons/md";
+
 export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
   const [Bar, setBar] = useState(60);
+
+  console.log(MdDone)
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -66,21 +70,21 @@ export default function OsmosisClaimPage() {
       <section className="section_overview">
         <div className="section_overview__element">
           <p>Claimed</p>
-          <h4>0 / -- STARS</h4>
+          <h4>0 / -- OSMO</h4>
         </div>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
           <div className="section_overview__element">
             <p>STARS Staking APR</p>
             <h4>105.27%</h4>
           </div>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
           <div className="section_overview__element">
             <p>STARS/OSMO LP APR</p>
             <h4>201.35%</h4>
           </div>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
           <div className="section_overview__element">
             <p>STARS/ATOM LP APR</p>
             <h4>256.15%</h4>
@@ -93,8 +97,8 @@ export default function OsmosisClaimPage() {
         <div className="section_mission__container">
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
-              <p>Mission #</p>
-              <h4>MissionName</h4>
+              <p>Mission #1</p>
+              <h4>Claim initial 20%</h4>
             </div>
             <button
               disabled={true}
@@ -102,35 +106,38 @@ export default function OsmosisClaimPage() {
             >
               Claim
             </button>
+            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
-              <p>Mission #</p>
-              <h4>MissionName</h4>
+              <p>Mission #2</p>
+              <h4>Stake some OSMO (20%)</h4>
             </div>
             <button
               disabled={true}
               className="section_mission__container_mission__button"
             >
-              Claim
+              Stake
             </button>
+            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
-              <p>Mission #</p>
-              <h4>MissionName</h4>
+              <p>Mission #3</p>
+              <h4>Vote on a governance proposal (20%)</h4>
             </div>
             <button
               disabled={true}
               className="section_mission__container_mission__button"
             >
-              Claim
+              Vote
             </button>
+            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
-              <p>Mission #</p>
-              <h4>MissionName</h4>
+              <p>Mission #4</p>
+              <h4>Mint an NFT (20%)</h4>
             </div>
             <button
               disabled={true}
@@ -138,11 +145,12 @@ export default function OsmosisClaimPage() {
             >
               Claim
             </button>
+            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
-              <p>Mission #</p>
-              <h4>MissionName</h4>
+              <p>Mission #5</p>
+              <h4>Bid on an NFT (20%) - Available when Marketplace launches</h4>
             </div>
             <button
               disabled={true}
@@ -150,6 +158,7 @@ export default function OsmosisClaimPage() {
             >
               Claim
             </button>
+            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
         </div>
       </section>
@@ -257,16 +266,16 @@ const Container = styled.main`
         h4 {
           font: var(--h4);
         }
-      }
-      a {
-        text-decoration: none;
-        .section_overview__element:hover {
+        &:hover {
           background: var(--yellow-gradient-bg);
           color: var(--dark-m);
           p {
             color: var(--dark-m);
           }
         }
+      }
+      a {
+        text-decoration: none;
       }
     }
     &_mission {
@@ -276,8 +285,10 @@ const Container = styled.main`
         padding: 24px 0;
       }
       &__container {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 12px;
         &_mission {
           display: flex;
@@ -287,6 +298,8 @@ const Container = styled.main`
           padding: 24px 20px;
           border-radius: 12px;
           gap: 10px;
+          width: min(100%,410.66px);
+          min-height: 147.19px;
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
@@ -329,6 +342,10 @@ const Container = styled.main`
                 box-shadow: none;
               }
             }
+          }
+          &__done {
+            color: var(--success);
+            font: var(--h3);
           }
         }
       }

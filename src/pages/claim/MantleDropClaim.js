@@ -3,16 +3,13 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 // import campaignData from "../../../data/campaignData.json";
-import { initializeKeplrForComdex } from "../comdex/comdexKeplr";
-import { initializeKeplrForTera } from "../terraKeplr";
-import TAndCModal from "./TAndCModal";
+import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
+import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
 
 export default function MantleDropClaim() {
   const { t } = useTranslation();
 
   const [Participated, setParticipated] = useState();
-
-  const [TAndC, setTAndC] = useState(false);
 
   const [InputError, setInputError] = useState();
 
@@ -24,7 +21,6 @@ export default function MantleDropClaim() {
   const [ComdexAddress, setComdexAddress] = useState("");
   const [JunoAddress, setJunoAddress] = useState("");
   const [StargazeAddress, setStargazeAddress] = useState("");
-  const [OsmoAddress, setOsmoAddress] = useState("");
 
   const [InputCampaignData, setInputCampaignData] = useState({
     delegator: "",
@@ -61,10 +57,7 @@ export default function MantleDropClaim() {
     received: 0,
     mantleAddress: "",
   });
-  const [OsmoCampaignData, setOsmoCampaignData] = useState({
-    address: "",
-    allocation: 0,
-  });
+  
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -74,7 +67,7 @@ export default function MantleDropClaim() {
   const comdexChainID = "comdex-1";
   const junoChainID = "juno-1";
   const stargazeChainID = "stargaze-1";
-  const osmoChainID = "osmosis-1";
+  
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
@@ -225,37 +218,8 @@ export default function MantleDropClaim() {
         .catch((err) => console.log(err));
       // taking stargaze address ends
 
-      // taking osmo address
-      let osmoOfflineSigner = window.keplr.getOfflineSigner(osmoChainID);
-      let osmoAccounts = await osmoOfflineSigner.getAccounts();
-      const osmoAccount = osmoAccounts[0].address;
-      setOsmoAddress(osmoAccount);
-      fetch(`https://airdrop-data.assetmantle.one/keplr/${osmoAccount}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setOsmoCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setOsmoCampaignData({
-              address: "",
-              allocation: 0,
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking osmo address ends
-
       // took necessary addresses
-      setParticipated(
-        !CosmosCampaignData.mantleAddress &&
-          !PersistenceCampaignData.mantleAddress &&
-          !TerraCampaignData.mantleAddress &&
-          !ComdexCampaignData.mantleAddress &&
-          !JunoCampaignData.mantleAddress &&
-          !StargazeCampaignData.mantleAddress &&
-          !OsmoCampaignData.address &&
-          false
-      );
+      
       setKeplrConnectionState(2);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
@@ -379,23 +343,6 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
-    } else if (InputAddress.includes("osmo")) {
-      fetch(`https://airdrop-data.assetmantle.one/keplr/${InputAddress}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setInputError();
-            setInputCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setParticipated(false);
-            setInputError();
-            setInputCampaignData({
-              address: "",
-              allocation: 0,
-            });
-          }
-        })
-        .catch((err) => console.log(err));
     } else {
       setInputError();
       setInputCampaignData({
@@ -421,19 +368,13 @@ export default function MantleDropClaim() {
   return (
     <>
       <Container>
-        <section
-          className="section_goBack"
-          onClick={() => window.history.back()}
-        >
-          <img src="/images/stakedrop/back_arrow.svg" alt="back arrow" />
-          <h2>Back to AssetMantle StakeDrop page</h2>
-        </section>
         <section className="section_calculation lighter_bg">
-          <h2>Calculate Your Estimated Rewards</h2>
+          <h2>Participated in the StakeDrop Campaign?</h2>
+          <h3>Check your $MNTL Allocation</h3>
           <div className="section_calculation__connect">
-            <p className="section_calculation__connect_text">
-              Connect your wallet to calculate estimated rewards
-            </p>
+            {/* <p className="section_calculation__connect_text">
+              Connect your wallet
+            </p> */}
             <button
               className="section_calculation__connect_button"
               onClick={handleKeplrConnect}
@@ -473,8 +414,7 @@ export default function MantleDropClaim() {
                   TerraAddress ||
                   ComdexAddress ||
                   JunoAddress ||
-                  StargazeAddress ||
-                  OsmoAddress
+                  StargazeAddress
                     ? true
                     : false
                 }
@@ -484,8 +424,7 @@ export default function MantleDropClaim() {
                   TerraAddress ||
                   ComdexAddress ||
                   JunoAddress ||
-                  StargazeAddress ||
-                  OsmoAddress
+                  StargazeAddress
                     ? setInputAddress()
                     : handleInputChange(e)
                 }
@@ -533,14 +472,12 @@ export default function MantleDropClaim() {
                 ComdexAddress ||
                 JunoAddress ||
                 StargazeAddress ||
-                OsmoAddress ||
-                InputCampaignData.delegator ||
-                InputCampaignData.address ? (
+                InputCampaignData.delegator ? (
                   <div className="section_reward_table__element_option">
                     <h4>Campaign</h4>
                     <h4>Address</h4>
-                    <h4>MNTL Address</h4>
-                    <p>Reward</p>
+                    <h4>$MNTL Address</h4>
+                    <p>Rewards ($MNTL)</p>
                   </div>
                 ) : (
                   ""
@@ -569,8 +506,6 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
@@ -602,8 +537,6 @@ export default function MantleDropClaim() {
                           }
                         )
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
@@ -630,8 +563,6 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
@@ -658,8 +589,6 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
@@ -686,8 +615,6 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
@@ -714,40 +641,10 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
               )}
-              {OsmoAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Osmosis</h4>
-                  <h4>
-                    {OsmoAddress.substring(0, 5)}...
-                    {OsmoAddress.substring(OsmoAddress.length - 5)}
-                  </h4>
-                  <h4>
-                    {OsmoCampaignData.address
-                      ? `${OsmoCampaignData.address.substring(
-                          0,
-                          5
-                        )}...${OsmoCampaignData.address.substring(
-                          OsmoCampaignData.address.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
-                  <p>
-                    {OsmoCampaignData.allocation
-                      ? OsmoCampaignData.allocation.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
-                      : "--"}
-
-                    {` $MNTL`}
-                  </p>
-                </div>
-              )}
-              {InputCampaignData.delegator ? (
+              {InputCampaignData.delegator && (
                 <div className="section_reward_table__element_option">
                   <h4>
                     {InputAddress.includes("cosmos")
@@ -762,10 +659,7 @@ export default function MantleDropClaim() {
                       ? "Juno"
                       : InputAddress.includes("stars")
                       ? "Stargaze"
-                      : InputAddress.includes("osmo")
-                      ? "Osmosis"
-                      : "Failed to detect"}{" "}
-                    Campaign
+                      : "Failed to detect"}                    
                   </h4>
                   <h4>
                     {InputCampaignData.delegator.substring(0, 5)}...
@@ -789,79 +683,32 @@ export default function MantleDropClaim() {
                           maximumFractionDigits: 4,
                         })
                       : "--"}
-
-                    {` $MNTL`}
                   </p>
                 </div>
-              ) : InputCampaignData.address ? (
-                <div className="section_reward_table__element_option">
-                  <h4>
-                    {InputAddress.includes("cosmos")
-                      ? "Cosmos"
-                      : InputAddress.includes("persistence")
-                      ? "Persistence"
-                      : InputAddress.includes("terra")
-                      ? "Terra"
-                      : InputAddress.includes("comdex")
-                      ? "Comdex"
-                      : InputAddress.includes("juno")
-                      ? "Juno"
-                      : InputAddress.includes("stars")
-                      ? "Stargaze"
-                      : InputAddress.includes("osmo")
-                      ? "Osmosis"
-                      : "Failed to detect"}{" "}
-                    Campaign
-                  </h4>
-                  <h4>
-                    {InputCampaignData.address.substring(0, 5)}...
-                    {InputCampaignData.address.substring(
-                      InputCampaignData.address.length - 5
-                    )}
-                  </h4>
-                  <h4>
-                    {InputCampaignData.mantleAddress
-                      ? `${InputCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${InputCampaignData.mantleAddress.substring(
-                          InputCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
-                  <p>
-                    {InputCampaignData.allocation
-                      ? InputCampaignData.allocation.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
-                      : "--"}
-
-                    {` $MNTL`}
-                  </p>
-                </div>
-              ) : null}
+              )}
               <>
                 {CosmosAddress ||
                 PersistenceAddress ||
                 TerraAddress ||
                 ComdexAddress ||
                 JunoAddress ||
-                StargazeAddress ||
-                OsmoAddress ? (
+                StargazeAddress  ? (
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     <span></span>
                     <span></span>
                     <p>
+                      <img
+                        src="/images/airdrop/dark.png"
+                        alt="coin illustration dark"
+                      />{" "}
                       {(
                         CosmosCampaignData.received +
                         PersistenceCampaignData.received +
                         TerraCampaignData.received +
                         ComdexCampaignData.received +
                         JunoCampaignData.received +
-                        StargazeCampaignData.received +
-                        OsmoCampaignData.allocation +
-                        InputCampaignData.received
+                        StargazeCampaignData.received
                       ).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}
@@ -875,29 +722,7 @@ export default function MantleDropClaim() {
             </div>
           </section>
         )}
-
-        <section className="section_claimButton">
-          <button
-            onClick={() => setTAndC(true)}
-            disabled={
-              CosmosAddress ||
-              PersistenceAddress ||
-              TerraAddress ||
-              ComdexAddress ||
-              JunoAddress ||
-              StargazeAddress ||
-              OsmoAddress ||
-              InputCampaignData.delegator ||
-              InputCampaignData.address
-                ? false
-                : true
-            }
-          >
-            Claim
-          </button>
-        </section>
       </Container>
-      {TAndC && <TAndCModal closeModal={setTAndC} />}
     </>
   );
 }
@@ -910,14 +735,14 @@ const Container = styled.main`
   background-size: 100vw auto;
   background-repeat: no-repeat;
   z-index: 1;
-  padding: 120px 92px;
+  padding: 20px 92px 80px;
   @media (max-width: 768px) {
     background-image: url("/images/bg/tab_bg_assets.svg");
-    padding: 80px 40px;
+    padding: 20px 40px 60px;
   }
   @media (max-width: 548px) {
     background-image: url("/images/bg/m_bg_assets.svg");
-    padding: 80px 20px;
+    padding: 20px 20px 40px;
   }
   .lighter_bg {
     background: #2c2c2c;
@@ -932,21 +757,6 @@ const Container = styled.main`
   //   }
   // }
   .section {
-    &_goBack {
-      display: flex;
-      align-items: center;
-      gap: 39.25px;
-      padding-bottom: 80px;
-      cursor: pointer;
-
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 120%;
-      text-transform: capitalize;
-      color: #c2c2c2;
-    }
     &_calculation {
       padding: 40px;
       @media (max-width: 548px) {
@@ -954,7 +764,10 @@ const Container = styled.main`
       }
       h2 {
         color: var(--gray);
-        padding-bottom: 80px;
+        padding-bottom: 12px;
+      }h3 {
+        color: var(--gray);
+        padding-bottom: 40px;
       }
       &__connect {
         display: flex;
@@ -1167,45 +980,6 @@ const Container = styled.main`
             align-items: flex-end;
             justify-content: flex-end;
             width: 100%;
-          }
-        }
-      }
-    }
-    &_claimButton {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-top: 24px;
-      button {
-        padding: 10px 22.5px 12px;
-        display: inline;
-        font: 600 var(--p-m);
-        color: var(--dark-m);
-        text-transform: capitalize;
-        background: var(--yellow-gradient-bg);
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
-          inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
-        border-radius: 12px;
-        transition: all ease-in-out 100ms;
-        cursor: pointer;
-        color: var(--dark-m);
-        text-decoration: none;
-        border: none;
-        outline: none;
-        &:hover,
-        &:focus {
-          box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
-        }
-        @media (max-width: 548px) {
-          width: 100%;
-        }
-        &:disabled {
-          background: none;
-          background-color: var(--yellow-disabled) !important;
-          box-shadow: none;
-          &:hover,
-          &:focus {
-            box-shadow: none;
           }
         }
       }

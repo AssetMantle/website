@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export default function TAndCModal({ closeModal }) {
   return (
+    <>
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div className="modal__sc">
@@ -68,7 +69,6 @@ export default function TAndCModal({ closeModal }) {
               nostrum similique, totam impedit beatae doloremque itaque eos? Sit
               autem numquam ipsam nesciunt obcaecati!
             </p>
-          </div>
           <div className="modal_container__button">
             <button
               className="modal_container__button_close"
@@ -80,9 +80,11 @@ export default function TAndCModal({ closeModal }) {
               Accept And Continue
             </a>
           </div>
+          </div>
         </div>
       </div>
     </Container>
+    </>
   );
 }
 
