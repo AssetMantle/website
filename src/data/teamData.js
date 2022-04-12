@@ -168,27 +168,19 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "rozaan.webp",
-    name: "Rozaan Peter",
-    designation: "Product Design",
-    designationType: "Design",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/rozann-p-28636589",
-      },
-    ],
-  },
-  {
     image: "namaha.webp",
     name: "Namaha Shetty",
-    designation: "UI/UX",
+    designation: "UI/UX Designer",
     designationType: "Design",
     social: [
       {
         icon: "Website",
         href: "www.namahashetty.com",
       },
+      {
+        icon: "LinkedIn",
+        href: "https://www.linkedin.com/in/namahashetty/",
+      }
     ],
   },
   {
@@ -210,12 +202,6 @@ export const teamMemberData = [
         href: "https://www.behance.net/sohiharman",
       },
     ],
-  },
-  {
-    image: "",
-    name: "Sharan Grandigae",
-    designation: "Design Lead",
-    designationType: "Developer",
   },
   {
     image: "sarin.webp",
@@ -254,7 +240,7 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "",
+    image: "jagdish.webp",
     name: "Jagdish Chudasama",
     designation: "UI/UX Developer​",
     designationType: "Developer",
@@ -278,7 +264,7 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "",
+    image: "sankrit.webp",
     name: "Sankrit K",
     designation: "Content Writer",
     designationType: "Developer",
@@ -304,7 +290,7 @@ export const teamMemberData = [
   {
     image: "",
     name: "Rohit Sharma",
-    designation: "Communications and Integrations",
+    designation: "Creators Communications and Integrations",
     designationType: "Developer",
     social: [
       {
@@ -320,7 +306,7 @@ export const teamMemberData = [
   {
     image: "",
     name: "Sohail Arora",
-    designation: "Integrations and Strategy",
+    designation: "Creators Integrations and Strategy",
     designationType: "Developer",
   },
   {
@@ -333,24 +319,6 @@ export const teamMemberData = [
     image: "",
     name: "Aditya Nalini",
     designation: "NFT Strategist",
-    designationType: "Developer",
-  },
-  {
-    image: "prachi.webp",
-    name: "Prachi",
-    designation: "Product Design",
-    designationType: "Developer",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/prachi-kashyap3/",
-      },
-    ],
-  },
-  {
-    image: "",
-    name: "Arun R",
-    designation: "Visual Design",
     designationType: "Developer",
   },
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 import { AboutContainer } from "../styles/pages/AboutContainer";
-import { BsFillCaretRightFill } from "react-icons/bs";
+// import { BsFillCaretRightFill } from "react-icons/bs";
 import TeamMemberCard from "../components/TeamMemberCard";
 import { teamMemberData } from "../data/teamData";
 
@@ -9,30 +9,23 @@ export default function About() {
     <AboutContainer>
       <section className="section_hero">
         <div className="section_hero__element">
-          <h1 className="section_hero__element_title">
-            who is AssetMantle for?
-          </h1>
+          <h1 className="section_hero__element_title">What is AssetMantle ?</h1>
           <p className="section_hero__element_details">
-            If you believe in NFTs and are eager to buy the best or sell in a
-            smart, seamless manner, AssetMantle is for you. We are a
-            community-first platform for creators and collectors.
-          </p>
-          <p className="section_hero__element_details">
-            The NFT market is new-age and exciting. But it’s also intricate and
-            dynamic. AssetMantle helps you truly AMPLIFY your collection and
-            commerce. With the advantage of choice, flexibility, affordability,
-            and security.
+            AssetMantle is a one-stop NFT framework that empowers and
+            incentivizes creators and their communities to build, innovate, and
+            transact independently, and securely on the blockchain via
+            MantlePlace and MantleBuilder.
           </p>
         </div>
-        <div className="section_hero__element"></div>
+        <div className="section_hero__element">
+          <img src="/images/about/hero.png" alt="token illustration" />
+        </div>
       </section>
       <section className="section_whyBetter">
-        <h2>why is AssetMantle better?</h2>
-        <p>
-          There are many NFT marketplaces. AssetMantle gives you unique
-          benefits.
-        </p>
-        <ul className="section_whyBetter__list">
+        <h2>Vision Of AssetMantle</h2>
+        <p>The vision is to build an open-source community-driven framework that also contributes to interNFT metadata standardization and Mantle modules for modular, interoperable, composable, and decomposable NFT integration in metaverses,  games, and art.</p>
+        <div className="section_whyBetter__image"><img src="/images/about/vision.png" alt="" /></div>
+        {/* <ul className="section_whyBetter__list">
           <li>
             <span className="li">
               <BsFillCaretRightFill />
@@ -81,9 +74,9 @@ export default function About() {
               </span>
             </p>
           </li>
-        </ul>
+        </ul> */}
       </section>
-      <section className="section_whyStore">
+      {/* <section className="section_whyStore">
         <h2 className="section_whyStore__title">
           why should I build my own NFT store?
         </h2>
@@ -112,7 +105,7 @@ export default function About() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <section className="section_right">
         <h2 className="section_right__title">
           what are my rights as an NFT store owner?
@@ -171,7 +164,7 @@ export default function About() {
           </div>
         </div>
       </section> */}
-      <section className="section_VP">
+      {/* <section className="section_VP">
         <div className="section_VP__element">
           <div className="section_VP__element_group">
             <h2>Our Vision</h2>
@@ -200,16 +193,13 @@ export default function About() {
             <a href="/roadmap">Check out our roadmap</a>
           </p>
         </div>
-      </section>
+      </section> */}
       <section className="section_team" id="team">
-        <h2>The team</h2>
+        <h2>The Mantle team</h2>
         <p>
-          We are backed by a stellar team. That includes founders with vision,
-          engineers with the best ideas to execute that vision, customer
-          behavior experts to keep the delight quotient always high, and new-age
-          thinkers and advisors who push us to keep raising the bar.{" "}
+        The Mantle team consists of some of the best minds in their respective fields.
         </p>
-        <h3>Team</h3>
+        {/* <h3>Team</h3> */}
         <div className="section_team__container">
           {Array.isArray(teamMemberData) &&
             teamMemberData.length !== 0 &&
