@@ -273,9 +273,7 @@ export const teamMemberData = [
       },
       {
         icon: "Website",
-        href: `https://www.youtube.com/c/DaftCreation
-        https://www.instagram.com/daftcreation01/
-        https://codepen.io/DaftCreation`,
+        href: `https://chudasamajd.github.io/chudasamajd`,
       },
     ],
   },
