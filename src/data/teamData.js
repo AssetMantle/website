@@ -240,7 +240,7 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "",
+    image: "jagdish.webp",
     name: "Jagdish Chudasama",
     designation: "UI/UX Developer​",
     designationType: "Developer",
@@ -266,7 +266,7 @@ export const teamMemberData = [
     ],
   },
   {
-    image: "",
+    image: "sankrit.webp",
     name: "Sankrit K",
     designation: "Content Writer",
     designationType: "Developer",

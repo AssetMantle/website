@@ -5,7 +5,7 @@ export const HomeContainer = styled.main`
   margin: 0 auto;
   background-image: url("/images/bg_assets.svg");
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat repeat;
   min-height: 100vh;
   z-index: 1;
   @media (max-width: 768px) {

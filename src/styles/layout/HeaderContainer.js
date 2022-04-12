@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   max-width: 1440px;
-  background-color: var(--dark);
+  background-color: var(--darkT);
   margin: 0 auto;
   display: flex;
   align-items: center;

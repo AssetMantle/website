@@ -5,7 +5,7 @@ export const AboutContainer = styled.main`
   margin: 0 auto;
   background-image: url("/images/bg_assets.svg");
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat repeat;
   min-height: 100vh;
   z-index: 1;
   @media (max-width: 768px) {
@@ -16,14 +16,14 @@ export const AboutContainer = styled.main`
   }
   .section {
     &_hero {
-      padding: 60px 92px 30px;
+      padding: 0px 92px 0px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       justify-content: center;
       gap: 30px;
       @media (max-width: 768px) {
-        padding: 40px;
+        padding: 20px 40px;
         grid-template-columns: 2fr 1fr;
       }
       @media (max-width: 548px) {
@@ -33,15 +33,26 @@ export const AboutContainer = styled.main`
       &__element {
         &_title {
           font: var(--h1);
-          color: var(--gray);
+          color: var(--yellow);
           padding: 12px 0;
           text-transform: capitalize;
+          @media (max-width: 548px) {
+            font: var(--h2);
+          }
         }
         &_details {
           font: var(--p-l);
           color: var(--gray-deep);
           padding: 12px 0;
           text-align: justify;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          transform: translateX(30px);
+          @media (max-width: 548px) {
+            transform: translateX(0);
+          }
         }
       }
     }
@@ -55,7 +66,7 @@ export const AboutContainer = styled.main`
       }
       h2 {
         font: var(--h2);
-        color: var(--gray);
+        color: var(--yellow);
         margin-bottom: 24px;
         text-transform: capitalize;
       }
@@ -63,6 +74,23 @@ export const AboutContainer = styled.main`
         font: var(--p-l);
         color: var(--gray-deep);
         margin-bottom: 24px;
+        max-width: 1096px;
+      }
+      &__image {
+        width: 100%;
+        padding-top: 24px;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        img {
+          height: auto;
+          @media (min-width: 1025px) {
+            width: 100%;
+          }
+        }
       }
       &__list {
         display: grid;
@@ -269,7 +297,7 @@ export const AboutContainer = styled.main`
       }
       h2 {
         font: var(--h2);
-        color: var(--gray);
+        color: var(--yellow);
         margin-bottom: 24px;
         text-transform: capitalize;
         + p {
