@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const TableData = ({
@@ -16,13 +16,11 @@ const TableData = ({
   };
   return (
     <div className="table__element_option">
-      <h4>{index + 1}</h4>
       <h4>
         <img src={image} alt={name} />
         {name}
       </h4>
-      <h4>{votingPower}</h4>
-      <h4>{commission}</h4>
+      <h4>{commission}%</h4>
       <button onClick={handleClick}>Manage</button>
     </div>
   );
@@ -34,7 +32,7 @@ const Modal = ({
   name = "Jon dao",
   website = "--",
   commission = 0,
-  description = "",
+  description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni rem libero similique consequuntur ipsa debitis repudiandae, exercitationem hic culpa.",
 }) => {
   return (
     <ModalContainer>
@@ -56,7 +54,7 @@ const Modal = ({
               </div>
               <div className="modal_container__body_persona_line1__details">
                 <h2>{name}</h2>
-                <p>Commission - {commission}</p>
+                <p>Commission - {commission}%</p>
               </div>
             </div>
             <div className="modal_container__body_persona_body">
@@ -78,24 +76,58 @@ const Modal = ({
 };
 
 export default function OsmosisStakePage() {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] = useState(0);
+  const [data, setData] = useState();
+
+  console.log(data && data[modalDataIndex].description.moniker);
+
+  useEffect(() => {
+    fetch("https://rest.test-mantle-1.assetmantle.one/staking/validators")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result && data.result.length !== 0) {
+          setData(data.result);
+        }
+      });
+  }, []);
   return (
     <>
       <Container>
         <div className="table__title">Active Validators</div>
         <div className="table__element">
           <div className="table__element_option">
-            <h4>Rank</h4>
             <h4>Name</h4>
-            <h4>Voting Power</h4>
             <h4>Commission</h4>
             <p></p>
           </div>
-          <TableData openModal={setModal} modalDataIndex={setModalDataIndex} />
+          {data &&
+            React.Children.toArray(
+              data.map((d, i) => (
+                <TableData
+                  index={i}
+                  image="/images/airdrop/dark.png"
+                  name={d.description.moniker}
+                  votingPower={0}
+                  commission={d.commission.commission_rates.rate * 100}
+                  openModal={setModal}
+                  modalDataIndex={setModalDataIndex}
+                />
+              ))
+            )}
         </div>
       </Container>
-      {modal && <Modal closeModal={setModal} data index={modalDataIndex} />}
+      {modal && (
+        <Modal
+          closeModal={setModal}
+          name={data && data[modalDataIndex].description.moniker}
+          website={data && data[modalDataIndex].description.website}
+          description={data && data[modalDataIndex].description.details}
+          commission={
+            data && data[modalDataIndex].commission.commission_rates.rate * 100
+          }
+        />
+      )}
     </>
   );
 }
@@ -122,8 +154,9 @@ const Container = styled.main`
   }
   .table {
     &__title {
+        font: var(--p-m);
       color: var(--gray-deep);
-      padding-bottom: 16px;
+      padding-bottom: 24px;
     }
     &__element {
       background-color: var(--dark-s);
@@ -135,7 +168,7 @@ const Container = styled.main`
       }
       &_option {
         display: grid;
-        grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
+        grid-template-columns: 2fr 2fr 2fr;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
@@ -149,7 +182,7 @@ const Container = styled.main`
         }
         h4 {
           color: var(--gray);
-          &:nth-child(2) {
+          &:nth-child(1) {
             text-align: left;
             display: flex;
             align-items: center;
@@ -293,7 +326,7 @@ const ModalContainer = styled.div`
         display: none;
       }
       &_persona {
-        &_line {
+        &_line1 {
           display: flex;
           align-items: center;
           gap: 24px;
@@ -308,64 +341,78 @@ const ModalContainer = styled.div`
               height: auto;
             }
           }
+          &__details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            h2 {
+              color: var(--gray);
+              padding: 0;
+            }
+            p {
+              font: var(--p-m);
+              padding: 0;
+              color: var(--gray-deep);
+            }
+          }
         }
-      }
-    }
-    ol {
-      list-style-position: inside;
-    }
-    li {
-      font: 600 var(--p-m);
-      color: var(--gray);
-    }
-    h3 {
-      color: var(--yellow);
-      text-align: center;
-    }
-    p {
-      font: var(--p-m);
-      color: var(--gray);
-      padding: 12px 0;
-      max-width: 934px;
-      strong {
-        font: 600 var(--p-m);
-        color: var(--gray);
-      }
-      a {
-        color: var(--yellow);
-        text-decoration: none;
-      }
-      svg {
-        cursor: pointer;
-      }
-    }
-    &__button {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 24px;
-      &_close {
-        padding: 10px 22.5px 12px;
-        display: inline;
-        font: 600 var(--p-m);
-        color: var(--dark-m);
-        text-transform: capitalize;
-        background: var(--yellow-gradient-bg);
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
-          inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
-        border-radius: 12px;
-        transition: all ease-in-out 100ms;
-        cursor: pointer;
-        color: var(--dark-m);
-        text-decoration: none;
-        border: none;
-        outline: none;
-        &:hover,
-        &:focus {
-          box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+        &_body {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          padding-top: 24px;
+          h4 {
+            color: var(--gray);
+          }
+          a {
+            color: var(--yellow);
+            text-decoration: none;
+          }
+          p {
+            font: var(--p-m);
+            color: var(--gray-deep);
+          }
         }
-        @media (max-width: 548px) {
-          width: 100%;
+        &_button {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 24px;
+          flex-wrap: wrap;
+          padding: 24px 5px 5px 0;
+          button {
+            padding: 10px 22.5px 12px;
+            display: inline;
+            font: 600 var(--p-m);
+            color: var(--dark-m);
+            text-transform: capitalize;
+            background: var(--yellow-gradient-bg);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+              inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
+            border-radius: 12px;
+            transition: all ease-in-out 100ms;
+            cursor: pointer;
+            color: var(--dark-m);
+            text-decoration: none;
+            border: none;
+            outline: none;
+            &:hover,
+            &:focus {
+              box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+            }
+            @media (max-width: 548px) {
+              width: 100%;
+            }
+            &:disabled {
+              background: none;
+              background-color: var(--yellow-disabled) !important;
+              box-shadow: none;
+              &:hover,
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
         }
       }
     }

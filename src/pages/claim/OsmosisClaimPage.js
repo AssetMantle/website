@@ -130,12 +130,12 @@ export default function OsmosisClaimPage() {
               <p>Mission #2</p>
               <h4>Staking (10%)</h4>
             </div>
-            <button
+            <a href="/osmosis-claim/stake"
               disabled={true}
               className="section_mission__container_mission__button"
             >
               Stake
-            </button>
+            </a>
             {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
           <div className="section_mission__container_mission">
