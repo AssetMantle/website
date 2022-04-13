@@ -7,7 +7,7 @@ export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
   const [Bar, setBar] = useState(60);
 
-  console.log(MdDone)
+  console.log(Address);
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -45,7 +45,7 @@ export default function OsmosisClaimPage() {
   return (
     <Container>
       <section className="section_title">
-        <h1>Airdrop</h1>
+        <h1>$MNTL Airdrop for Osmosis Liquidity Providers.</h1>
         <button className="section_title__button" onClick={handleKeplrConnect}>
           {`${
             {
@@ -72,22 +72,39 @@ export default function OsmosisClaimPage() {
           <p>Claimed</p>
           <h4>0 / -- OSMO</h4>
         </div>
-        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
+        <a
+          href="a"
+          onClick={(e) => e.preventDefault()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="section_overview__element">
-            <p>STARS Staking APR</p>
+            <p>$MNTL Staking APR</p>
             <h4>105.27%</h4>
           </div>
         </a>
-        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
+        <a
+          href="a"
+          onClick={(e) => e.preventDefault()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="section_overview__element">
-            <p>STARS/OSMO LP APR</p>
-            <h4>201.35%</h4>
+            {/* <p>STARS/OSMO LP APR</p>
+            <h4>201.35%</h4> */}
+            <h4>Coming soon.</h4>
           </div>
         </a>
-        <a href="a" onClick={e=>e.preventDefault()} target="_blank" rel="noopener noreferrer">
+        <a
+          href="a"
+          onClick={(e) => e.preventDefault()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="section_overview__element">
-            <p>STARS/ATOM LP APR</p>
-            <h4>256.15%</h4>
+            {/* <p>STARS/ATOM LP APR</p>
+            <h4>256.15%</h4> */}
+            <h4>Coming soon.</h4>
           </div>
         </a>
       </section>
@@ -98,20 +115,20 @@ export default function OsmosisClaimPage() {
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
               <p>Mission #1</p>
-              <h4>Claim initial 20%</h4>
+              <h4>Initial claim (30%)</h4>
             </div>
-            <button
+            {/* <button
               disabled={true}
               className="section_mission__container_mission__button"
             >
               Claim
-            </button>
-            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
+            </button> */}
+            <div className="section_mission__container_mission__done"><MdDone/></div>
           </div>
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
               <p>Mission #2</p>
-              <h4>Stake some OSMO (20%)</h4>
+              <h4>Staking (10%)</h4>
             </div>
             <button
               disabled={true}
@@ -124,7 +141,7 @@ export default function OsmosisClaimPage() {
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
               <p>Mission #3</p>
-              <h4>Vote on a governance proposal (20%)</h4>
+              <h4>Vote on a governance proposal (10%)</h4>
             </div>
             <button
               disabled={true}
@@ -137,7 +154,7 @@ export default function OsmosisClaimPage() {
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
               <p>Mission #4</p>
-              <h4>Mint an NFT (20%)</h4>
+              <h4>Liquidity Pool creation (20%)</h4>
             </div>
             <button
               disabled={true}
@@ -150,7 +167,7 @@ export default function OsmosisClaimPage() {
           <div className="section_mission__container_mission">
             <div className="section_mission__container_mission__title">
               <p>Mission #5</p>
-              <h4>Bid on an NFT (20%) - Available when Marketplace launches</h4>
+              <h4>Mint an NFT on MantlePlace (30%)</h4>
             </div>
             <button
               disabled={true}
@@ -161,6 +178,35 @@ export default function OsmosisClaimPage() {
             {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
         </div>
+      </section>
+
+      <section className="section_data">
+        <h4>
+          The amount of allocated $MNTL tokens can be calculated as follows:
+        </h4>
+        <div className="section_data__formula">
+          <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var> <var>(</var><var>1</var> <var>-</var> <var>e</var>
+          <sup><var>p</var></sup><var>)</var>
+        </div>
+        <div className="section_data__exp_formula">
+          <p>where;</p>
+          <br />
+          <div className="section_data__exp_formula__var">
+            <p>
+              <var>x</var> <var>=</var> <var>$</var> value of locked tokens
+            </p>
+            <p>
+              <var>y</var> <var>=</var> <var>$</var> value of unlocked tokens
+            </p>
+            <p>
+              <var>z</var> <var>=</var> <var>1.25</var> <var>*</var> <var>x</var> <var>+</var> <var>y</var>
+            </p>
+            <p>
+              <var>p</var> <var>=</var> <var>(</var><var>-z</var><var>/</var><var>100</var><var>)</var>
+            </p>
+          </div>
+        </div>
+        
       </section>
     </Container>
   );
@@ -189,6 +235,7 @@ const Container = styled.main`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 24px;
       @media (max-width: 548px) {
         flex-direction: column;
@@ -258,6 +305,10 @@ const Container = styled.main`
         border-radius: 12px;
         text-decoration: none;
         color: var(--gray);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         p {
           font: var(--p-s);
           color: var(--gray-deep);
@@ -298,7 +349,7 @@ const Container = styled.main`
           padding: 24px 20px;
           border-radius: 12px;
           gap: 10px;
-          width: min(100%,410.66px);
+          width: min(100%, 410.66px);
           min-height: 147.19px;
           @media (max-width: 548px) {
             flex-wrap: wrap;
@@ -348,6 +399,20 @@ const Container = styled.main`
             font: var(--h3);
           }
         }
+      }
+    }
+    &_data {
+      color: var(--gray);
+      font-size: 24px;
+      h4 {
+        font: var(--h4);
+        padding: 40px 0 24px;
+      }
+      var {
+        color: var(--yellow);
+      }
+      &__formula {
+        text-align: center;
       }
     }
   }
