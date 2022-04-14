@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { MdDone } from "react-icons/md";
+// import { MdDone } from "react-icons/md";
+import OsmosisStakeModal from "./OsmosisStake";
 
 export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
   const [Bar, setBar] = useState(60);
-
-  console.log(Address);
+  const [StakeModal, setStakeModal] = useState(false);
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -43,172 +43,200 @@ export default function OsmosisClaimPage() {
   `;
 
   return (
-    <Container>
-      <section className="section_title">
-        <h1>$MNTL Airdrop for Osmosis Liquidity Providers.</h1>
-        <button className="section_title__button" onClick={handleKeplrConnect}>
-          {`${
-            {
-              0: "Connect Wallet",
-              1: "Connecting Wallet",
-              2: "Wallet Connected",
-            }[KeplrConnectionState]
-          }`}
-        </button>
-      </section>
+    <>
+      <Container>
+        <section className="section_title">
+          <h1>$MNTL Airdrop for Osmosis Liquidity Providers.</h1>
+          <button
+            className="section_title__button"
+            onClick={handleKeplrConnect}
+          >
+            {`${
+              {
+                0: "Connect Wallet",
+                1: "Connecting Wallet",
+                2: "Wallet Connected",
+              }[KeplrConnectionState]
+            }`}
+          </button>
+        </section>
 
-      <section className="section_progress">
-        <div className="section_progress__line_1">
-          <h2>Your Progress</h2>
-          <p>{Bar}%</p>
-        </div>
-        <BarContainer>
-          <div className="section_progress__line_2__bar"></div>
-        </BarContainer>
-      </section>
-
-      <section className="section_overview">
-        <div className="section_overview__element">
-          <p>Claimed</p>
-          <h4>0 / -- OSMO</h4>
-        </div>
-        <a
-          href="a"
-          onClick={(e) => e.preventDefault()}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="section_overview__element">
-            <p>$MNTL Staking APR</p>
-            <h4>105.27%</h4>
+        <section className="section_progress">
+          <div className="section_progress__line_1">
+            <h2>Your Progress</h2>
+            <p>{Bar}%</p>
           </div>
-        </a>
-        <a
-          href="a"
-          onClick={(e) => e.preventDefault()}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <BarContainer>
+            <div className="section_progress__line_2__bar"></div>
+          </BarContainer>
+        </section>
+
+        <section className="section_overview">
           <div className="section_overview__element">
-            {/* <p>STARS/OSMO LP APR</p>
+            <p>Claimed</p>
+            <h4>0 / -- OSMO</h4>
+          </div>
+          <a
+            href="a"
+            onClick={(e) => e.preventDefault()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="section_overview__element">
+              <p>$MNTL Staking APR</p>
+              <h4>105.27%</h4>
+            </div>
+          </a>
+          <a
+            href="a"
+            onClick={(e) => e.preventDefault()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="section_overview__element">
+              {/* <p>STARS/OSMO LP APR</p>
             <h4>201.35%</h4> */}
-            <h4>Coming soon.</h4>
-          </div>
-        </a>
-        <a
-          href="a"
-          onClick={(e) => e.preventDefault()}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="section_overview__element">
-            {/* <p>STARS/ATOM LP APR</p>
+              <h4>Coming soon.</h4>
+            </div>
+          </a>
+          <a
+            href="a"
+            onClick={(e) => e.preventDefault()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="section_overview__element">
+              {/* <p>STARS/ATOM LP APR</p>
             <h4>256.15%</h4> */}
-            <h4>Coming soon.</h4>
-          </div>
-        </a>
-      </section>
+              <h4>Coming soon.</h4>
+            </div>
+          </a>
+        </section>
 
-      <section className="section_mission">
-        <h2>My Missions</h2>
-        <div className="section_mission__container">
-          <div className="section_mission__container_mission">
-            <div className="section_mission__container_mission__title">
-              <p>Mission #1</p>
-              <h4>Initial claim (30%)</h4>
+        <section className="section_mission">
+          <h2>My Missions</h2>
+          <div className="section_mission__container">
+            <div className="section_mission__container_mission">
+              {" "}
+              {/* add " completed" class to mark completed */}
+              <div className="section_mission__container_mission__title">
+                <p>Mission #1</p>
+                <h4>Initial claim (30%)</h4>
+              </div>
+              <button
+                disabled={true}
+                className="section_mission__container_mission__button"
+              >
+                Claim
+              </button>
+              {/* <div className="section_mission__container_mission__done">
+                <MdDone />
+              </div> */}
             </div>
-            {/* <button
-              disabled={true}
-              className="section_mission__container_mission__button"
-            >
-              Claim
-            </button> */}
-            <div className="section_mission__container_mission__done"><MdDone/></div>
-          </div>
-          <div className="section_mission__container_mission">
-            <div className="section_mission__container_mission__title">
-              <p>Mission #2</p>
-              <h4>Staking (10%)</h4>
+            <div className="section_mission__container_mission">
+              <div className="section_mission__container_mission__title">
+                <p>Mission #2</p>
+                <h4>Staking (10%)</h4>
+              </div>
+              <button
+                disabled={Address ? false : true}
+                className="section_mission__container_mission__button"
+                onClick={() => setStakeModal(true)}
+              >
+                Stake
+              </button>
+              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
-            <a href="/osmosis-claim/stake"
-              disabled={true}
-              className="section_mission__container_mission__button"
-            >
-              Stake
-            </a>
-            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
-          </div>
-          <div className="section_mission__container_mission">
-            <div className="section_mission__container_mission__title">
-              <p>Mission #3</p>
-              <h4>Vote on a governance proposal (10%)</h4>
+            <div className="section_mission__container_mission">
+              <div className="section_mission__container_mission__title">
+                <p>Mission #3</p>
+                <h4>Vote on a governance proposal (10%)</h4>
+              </div>
+              <button
+                disabled={true}
+                className="section_mission__container_mission__button"
+              >
+                Vote
+              </button>
+              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
-            <button
-              disabled={true}
-              className="section_mission__container_mission__button"
-            >
-              Vote
-            </button>
-            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
-          </div>
-          <div className="section_mission__container_mission">
-            <div className="section_mission__container_mission__title">
-              <p>Mission #4</p>
-              <h4>Liquidity Pool creation (20%)</h4>
+            <div className="section_mission__container_mission">
+              <div className="section_mission__container_mission__title">
+                <p>Mission #4</p>
+                <h4>Provide liquidity to Mantle ($MNTL) pools (20%)</h4>
+              </div>
+              <button
+                disabled={true}
+                className="section_mission__container_mission__button"
+              >
+                Claim
+              </button>
+              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
-            <button
-              disabled={true}
-              className="section_mission__container_mission__button"
-            >
-              Claim
-            </button>
-            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
-          </div>
-          <div className="section_mission__container_mission">
-            <div className="section_mission__container_mission__title">
-              <p>Mission #5</p>
-              <h4>Mint an NFT on MantlePlace (30%)</h4>
+            <div className="section_mission__container_mission">
+              <div className="section_mission__container_mission__title">
+                <p>Mission #5</p>
+                <h4>Mint an NFT on MantlePlace (30%)</h4>
+              </div>
+              <button
+                disabled={true}
+                className="section_mission__container_mission__button"
+              >
+                Claim
+              </button>
+              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
-            <button
-              disabled={true}
-              className="section_mission__container_mission__button"
-            >
-              Claim
-            </button>
-            {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section_data">
-        <h4>
-          The amount of allocated $MNTL tokens can be calculated as follows:
-        </h4>
-        <div className="section_data__formula">
-          <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var> <var>(</var><var>1</var> <var>-</var> <var>e</var>
-          <sup><var>p</var></sup><var>)</var>
-        </div>
-        <div className="section_data__exp_formula">
-          <p>where;</p>
-          <br />
-          <div className="section_data__exp_formula__var">
-            <p>
-              <var>x</var> <var>=</var> <var>$</var> value of locked tokens
-            </p>
-            <p>
-              <var>y</var> <var>=</var> <var>$</var> value of unlocked tokens
-            </p>
-            <p>
-              <var>z</var> <var>=</var> <var>1.25</var> <var>*</var> <var>x</var> <var>+</var> <var>y</var>
-            </p>
-            <p>
-              <var>p</var> <var>=</var> <var>(</var><var>-z</var><var>/</var><var>100</var><var>)</var>
-            </p>
+        <section className="section_data">
+          <div className="section_data__con">
+            <h4>
+              The amount of allocated $MNTL tokens can be calculated as follows:
+            </h4>
+            <div className="section_data__formula">
+              <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var>{" "}
+              <var>(</var>
+              <var>1</var> <var>-</var> <var>e</var>
+              <sup>
+                <var>p</var>
+              </sup>
+              <var>)</var>
+            </div>
+            <div className="section_data__exp_formula">
+              <p>where;</p>
+              <br />
+              <div className="section_data__exp_formula__var">
+                <p>
+                  <var>x</var> <var>=</var> <var>$</var> value of locked tokens
+                  in pools (Bonded)
+                </p>
+                <p>
+                  <var>y</var> <var>=</var> <var>$</var> value of unlocked
+                  tokens in pools (Unbonded)
+                </p>
+                <p>
+                  <var>z</var> <var>=</var> <var>1.25</var> <var>*</var>{" "}
+                  <var>x</var> <var>+</var> <var>y</var>
+                </p>
+                <p>
+                  <var>p</var> <var>=</var> <var>(</var>
+                  <var>-z</var>
+                  <var>/</var>
+                  <var>100</var>
+                  <var>)</var>
+                </p>
+              </div>
+            </div>
+            <br />
+            <h4>Maximum Allocation per wallet -> 750 $MNTL</h4>
           </div>
-        </div>
-        
-      </section>
-    </Container>
+        </section>
+      </Container>
+      {StakeModal && (
+        <OsmosisStakeModal closeModal={setStakeModal} address={Address} />
+      )}
+    </>
   );
 }
 
@@ -354,6 +382,33 @@ const Container = styled.main`
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
+          &.completed {
+            border: 2px solid var(--success);
+            position: relative;
+            &::after {
+              content: "Completed";
+              color: var(--success);
+              font: 600 var(--p-s);
+              position: absolute;
+              right: 15px;
+              top: -12px;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              height: 10px;
+              width: 85px;
+              background: var(--dark-m);
+              top: -2px;
+              right: 13px;
+            }
+            .section_mission__container_mission__button {
+              opacity: 0;
+            }
+            .section_mission__container_mission__done {
+              opacity: 0;
+            }
+          }
           &__title {
             p {
               font: var(--p-s);
@@ -402,11 +457,17 @@ const Container = styled.main`
       }
     }
     &_data {
-      color: var(--gray);
-      font-size: 24px;
+      padding-top: 40px;
+      &__con {
+        color: var(--gray);
+        font-size: 24px;
+        background: var(--dark-m);
+        border-radius: 12px;
+        padding: 24px;
+      }
       h4 {
         font: var(--h4);
-        padding: 40px 0 24px;
+        /* padding: 40px 0 24px; */
       }
       var {
         color: var(--yellow);

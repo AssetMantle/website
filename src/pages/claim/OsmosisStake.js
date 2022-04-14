@@ -5,7 +5,6 @@ const TableData = ({
   index = 0,
   image = "/images/airdrop/dark.png",
   name = "Jon dao",
-  votingPower = 0,
   commission = 0,
   openModal,
   modalDataIndex,
@@ -20,62 +19,133 @@ const TableData = ({
         <img src={image} alt={name} />
         {name}
       </h4>
-      <h4>{commission}%</h4>
-      <button onClick={handleClick}>Manage</button>
+      <h4>
+        {(Number(commission) * 100).toLocaleString("en-US", {
+          maximumFractionDigits: 2,
+        })}
+        %
+      </h4>
+      <div className="button_con">
+        <button onClick={handleClick}>Delegate</button>
+      </div>
     </div>
   );
 };
 
-const Modal = ({
+const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
+  return (
+    <StakeListContainer>
+      <div className="table__title">Active Validators</div>
+      <div className="table__element">
+        <div className="table__element_option">
+          <h4>Name</h4>
+          <h4>Commission</h4>
+          <p></p>
+        </div>
+        {data &&
+          React.Children.toArray(
+            data.map((d, i) => (
+              <TableData
+                index={i}
+                image="/images/airdrop/dark.png"
+                name={d.description.moniker}
+                votingPower={0}
+                commission={d.commission.commission_rates.rate}
+                openModal={Modal}
+                modalDataIndex={ModalDataIndex}
+              />
+            ))
+          )}
+      </div>
+    </StakeListContainer>
+  );
+};
+
+// this function is handling the delegate amount 
+const OsmosisStakeForm = ({
   closeModal,
   image = "/images/airdrop/dark.png",
   name = "Jon dao",
   website = "--",
   commission = 0,
-  description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni rem libero similique consequuntur ipsa debitis repudiandae, exercitationem hic culpa.",
+  description = "Not assigned.",
+  address // osmosis address
 }) => {
+  const [Amount, setAmount] = useState();
+
+  // this function is handling the max button click
+  const handleMax = () => {
+    console.log("max button clicked");
+  }
+  
+  // this function is handling the delegate button click
+  const handleDelegate = () => {
+    console.log("delegate button clicked");
+  }
+
   return (
-    <ModalContainer>
-      <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
-      <div className="modal__sc">
-        <div
-          className="modal__sc_close"
-          onClick={() => closeModal(false)}
-          onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
-        >
-          <img src="/images/icons/close.png" alt="close" />
+    <StakeFormContainer>
+      <div className="modal_container__body">
+        <div className="modal_container__body_persona_line1">
+          <div className="modal_container__body_persona_line1__image">
+            <img src={image} alt={name} />
+          </div>
+          <div className="modal_container__body_persona_line1__details">
+            <h2>{name}</h2>
+            <p>
+              Commission -
+              {(Number(commission) * 100).toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+              })}
+              %
+            </p>
+          </div>
         </div>
-        <div className="modal_container">
-          {/* <h2 className="modal_container__title">Eligible Pools</h2> */}
-          <div className="modal_container__body">
-            <div className="modal_container__body_persona_line1">
-              <div className="modal_container__body_persona_line1__image">
-                <img src={image} alt={name} />
-              </div>
-              <div className="modal_container__body_persona_line1__details">
-                <h2>{name}</h2>
-                <p>Commission - {commission}%</p>
-              </div>
+        <div className="modal_container__body_persona_body">
+          <h5>Website</h5>
+          <a href={website} target="_blank" rel="noopener noreferrer">
+            {website}
+          </a>
+          <h5>Description</h5>
+          <p>{description}</p>
+        </div>
+        <div className="modal_container__body_persona_form">
+          <div className="modal_container__body_persona_form__overview">
+            <div className="modal_container__body_persona_form__overview_element">
+              <h5>My Delegation</h5>
+              <p>102 OSMO</p>
             </div>
-            <div className="modal_container__body_persona_body">
-              <h4>Website</h4>
-              <a href={website} target="_blank" rel="noopener noreferrer">
-                {website}
-              </a>
-              <h4>Description</h4>
-              <p>{description}</p>
+            <div className="modal_container__body_persona_form__overview_element">
+              <h5>Available balance</h5>
+              <p>1232 OSMO</p>
             </div>
-            <div className="modal_container__body_persona_button">
-              <button>Delegate</button>
+          </div>
+          <div className="modal_container__body_persona_form__con">
+            <label htmlFor="amount">Amount to Delegate</label>
+            <div className="modal_container__body_persona_form__con_input">
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                value={Amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              <button onClick={handleMax}>max</button>
+              <span>OSMO</span>
             </div>
           </div>
         </div>
+        <div className="modal_container__body_persona_button">
+          <button onClick={() => closeModal(false)}>Back</button>
+          <button onClick={handleDelegate}>Delegate</button>
+        </div>
       </div>
-    </ModalContainer>
+    </StakeFormContainer>
   );
 };
 
-export default function OsmosisStakePage() {
+// below function is just fetching the table data and changing between the two the table and  the delegate form
+export default function OsmosisStakeModal({ closeModal, address }) {
   const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] = useState(0);
   const [data, setData] = useState();
@@ -91,70 +161,58 @@ export default function OsmosisStakePage() {
         }
       });
   }, []);
+
   return (
-    <>
-      <Container>
-        <div className="table__title">Active Validators</div>
-        <div className="table__element">
-          <div className="table__element_option">
-            <h4>Name</h4>
-            <h4>Commission</h4>
-            <p></p>
-          </div>
-          {data &&
-            React.Children.toArray(
-              data.map((d, i) => (
-                <TableData
-                  index={i}
-                  image="/images/airdrop/dark.png"
-                  name={d.description.moniker}
-                  votingPower={0}
-                  commission={d.commission.commission_rates.rate * 100}
-                  openModal={setModal}
-                  modalDataIndex={setModalDataIndex}
-                />
-              ))
-            )}
+    <Container>
+      <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
+      <div className={`modal__sc ${!modal ? "sec" : ""}`}>
+        <div
+          className="modal__sc_close"
+          onClick={() => closeModal(false)}
+          onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
+        >
+          <img src="/images/icons/close.png" alt="close" />
         </div>
-      </Container>
-      {modal && (
-        <Modal
-          closeModal={setModal}
-          name={data && data[modalDataIndex].description.moniker}
-          website={data && data[modalDataIndex].description.website}
-          description={data && data[modalDataIndex].description.details}
-          commission={
-            data && data[modalDataIndex].commission.commission_rates.rate * 100
-          }
-        />
-      )}
-    </>
+        <div className="modal_container">
+          {/* <h2 className="modal_container__title">Eligible Pools</h2> */}
+          {modal ? (
+            <OsmosisStakeForm
+              closeModal={setModal}
+              name={data && data[modalDataIndex].description.moniker}
+              website={data && data[modalDataIndex].description.website}
+              description={data && data[modalDataIndex].description.details}
+              commission={
+                data && data[modalDataIndex].commission.commission_rates.rate
+              }
+              address={address}
+            />
+          ) : (
+            <OsmosisStakeList
+              data={data}
+              Modal={setModal}
+              ModalDataIndex={setModalDataIndex}
+            />
+          )}
+        </div>
+      </div>
+      {/* </div> */}
+    </Container>
   );
 }
 
-const Container = styled.main`
-  max-width: 1440px;
-  scroll-behavior: smooth;
-  margin: 0 auto;
-  background-image: url("/images/bg/bg_assets.svg");
-  background-size: 100vw auto;
-  background-repeat: no-repeat;
-  z-index: 1;
-  padding: 20px 92px;
+// everything below is for styling using styled-components
+const StakeListContainer = styled.div`
   color: var(--gray);
   width: 100%;
-  overflow-x: auto;
-  @media (max-width: 768px) {
-    background-image: url("/images/bg/tab_bg_assets.svg");
-    padding: 80px 40px;
-  }
-  @media (max-width: 548px) {
-    background-image: url("/images/bg/m_bg_assets.svg");
-    padding: 80px 20px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
   .table {
     &__title {
-        font: var(--p-m);
+      font: var(--p-m);
       color: var(--gray-deep);
       padding-bottom: 24px;
     }
@@ -196,36 +254,38 @@ const Container = styled.main`
           align-items: center;
           justify-content: center;
         }
-        button {
-          padding: 10px 22.5px 12px;
-          display: inline;
-          font: 600 var(--p-m);
-          color: var(--dark-m);
-          text-transform: capitalize;
-          background: var(--yellow-gradient-bg);
-          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
-            inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
-          border-radius: 12px;
-          transition: all ease-in-out 100ms;
-          cursor: pointer;
-          color: var(--dark-m);
-          text-decoration: none;
-          border: none;
-          outline: none;
-          &:hover,
-          &:focus {
-            box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
-          }
-          @media (max-width: 548px) {
-            width: 100%;
-          }
-          &:disabled {
-            background: none;
-            background-color: var(--yellow-disabled) !important;
-            box-shadow: none;
+        .button_con {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          button {
+            padding: 10px 22.5px 12px;
+            display: inline;
+            font: 600 var(--p-m);
+            color: var(--dark-m);
+            text-transform: capitalize;
+            background: var(--yellow-gradient-bg);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+              inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
+            border-radius: 12px;
+            transition: all ease-in-out 100ms;
+            cursor: pointer;
+            color: var(--dark-m);
+            text-decoration: none;
+            border: none;
+            outline: none;
             &:hover,
             &:focus {
+              box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+            }
+            &:disabled {
+              background: none;
+              background-color: var(--yellow-disabled) !important;
               box-shadow: none;
+              &:hover,
+              &:focus {
+                box-shadow: none;
+              }
             }
           }
         }
@@ -244,72 +304,8 @@ const Container = styled.main`
   }
 `;
 
-const ModalContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 500;
-  background-color: hsla(0, 0%, 6%, 0.5);
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  .modal___fo_bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  .modal__sc {
-    width: min(100%, 550px);
-    position: relative;
-    z-index: 3;
-    background-color: var(--dark-xs);
-    padding: 40px;
-    border-radius: 20px;
-    @media (max-width: 548px) {
-      padding: 20px;
-      height: 100%;
-    }
-    @media (max-width: 548px) {
-      height: 100%;
-    }
-    &_close {
-      font: var(--h2);
-      color: var(--yellow);
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      @media (max-width: 548px) {
-        top: 10px;
-        right: 20px;
-      }
-      img {
-        width: 16px;
-        height: 16px;
-      }
-    }
-  }
+const StakeFormContainer = styled.div`
   .modal_container {
-    z-index: 7;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
     &__title {
       font: var(--h2);
       color: var(--gray);
@@ -344,14 +340,15 @@ const ModalContainer = styled.div`
           &__details {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 2px;
             h2 {
+              font: var(--h3);
               color: var(--gray);
               padding: 0;
             }
             p {
-              font: var(--p-m);
-              padding: 0;
+              font: var(--p-s);
+              padding: 0 !important;
               color: var(--gray-deep);
             }
           }
@@ -359,18 +356,92 @@ const ModalContainer = styled.div`
         &_body {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 12px;
           padding-top: 24px;
-          h4 {
+          h5 {
             color: var(--gray);
           }
           a {
             color: var(--yellow);
             text-decoration: none;
+            font: var(--p-s);
           }
           p {
-            font: var(--p-m);
+            font: var(--p-s);
             color: var(--gray-deep);
+          }
+        }
+        &_form {
+          padding-top: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          &__overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            &_element {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              h5 {
+                color: var(--gray);
+              }
+              p {
+                font: var(--p-m);
+                color: var(--yellow);
+              }
+            }
+          }
+          &__con {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            label {
+              font: var(--h5);
+              color: var(--gray);
+            }
+            &_input {
+              display: flex;
+              width: 100%;
+              border: 1px solid var(--gray);
+              border-radius: 6px;
+              align-items: center;
+              input {
+                flex: 1;
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 8px 12px;
+                background-color: transparent;
+                color: var(--yellow);
+                font: var(--p-s);
+                -moz-appearance: textfield;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+              }
+              button {
+                margin: 6px;
+                padding: 2px 8px;
+                border: none;
+                border-radius: 6px;
+                background: var(--yellow-gradient-bg);
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+                  inset -4px -4px 8px rgba(0, 0, 0, 0.25),
+                  inset 4px 4px 8px #ffc942;
+                font: 600 var(--p-xs);
+              }
+              span{
+                border-left: 1px solid var(--gray);
+                color: var(--gray);
+                padding:8px 12px;
+                font: 600 var(--p-s);
+              }
+            }
           }
         }
         &_button {
@@ -415,6 +486,81 @@ const ModalContainer = styled.div`
           }
         }
       }
+    }
+  }
+`;
+
+const Container = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 500;
+  background-color: hsla(0, 0%, 6%, 0.5);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  .modal___fo_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .modal__sc {
+    position: relative;
+    z-index: 3;
+    background-color: var(--dark-m);
+    padding: 40px;
+    border-radius: 20px;
+    width: min(100%, 550px);
+    transition: all ease-in-out 500ms;
+    @media (max-width: 548px) {
+      padding: 20px;
+      height: 100%;
+    }
+    @media (max-width: 548px) {
+      height: 100%;
+    }
+    &.sec {
+      width: max-content;
+      max-width: 100%;
+      height: 100%;
+    }
+    &_close {
+      font: var(--h2);
+      color: var(--yellow);
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      @media (max-width: 548px) {
+        top: 10px;
+        right: 20px;
+      }
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  .modal_container {
+    z-index: 7;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 `;

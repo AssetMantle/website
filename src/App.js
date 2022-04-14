@@ -19,7 +19,6 @@ import TerraCalculationPage from "./pages/StakeDrop/terra/CalculationPage";
 import ComdexCalculationPage from "./pages/StakeDrop/comdex/CalculationPage";
 import JunoCalculationPage from "./pages/StakeDrop/juno/CalculationPage";
 import StargazeCalculationPage from "./pages/StakeDrop/stargaze/CalculationPage";
-import OsmosisStakePage from "./pages/claim/OsmosisStake";
 
 const App = () => {
   const location = useLocation();
@@ -77,10 +76,6 @@ const App = () => {
     {
       component: OsmosisClaimPage,
       path: "/osmosis-claim",
-    },
-    {
-      component: OsmosisStakePage,
-      path: "/osmosis-claim/stake",
     },
   ];
 
