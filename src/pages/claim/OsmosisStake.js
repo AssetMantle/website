@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {getKeplrWallet, getOsmosBalance, getValidators} from "./keplr";
-import {delegateCoinTx} from "./utils/blockchainTransactions";
+import { getKeplrWallet, getOsmosBalance, getValidators } from "./keplr";
+import { delegateCoinTx } from "./utils/blockchainTransactions";
+import config from "./config.json";
 
 const TableData = ({
   index = 0,
@@ -37,30 +38,38 @@ const TableData = ({
 const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
   return (
     <StakeListContainer>
-      { data ? <>
-        <div className="table__title">Active Validators</div>
-        <div className="table__element">
-          <div className="table__element_option">
-            <h4>Name</h4>
-            <h4>Commission</h4>
-            <p></p>
+      {data ? (
+        <>
+          <div className="table__title">Active Validators</div>
+          <div className="table__element">
+            <div className="table__element_option">
+              <h4>Name</h4>
+              <h4>Commission</h4>
+              <p></p>
+            </div>
+            {data &&
+              React.Children.toArray(
+                data.map((d, i) => (
+                  <TableData
+                    index={i}
+                    image="/images/airdrop/dark.png"
+                    name={d.description.moniker}
+                    votingPower={0}
+                    commission={d.commission.commissionRates.rate}
+                    openModal={Modal}
+                    modalDataIndex={ModalDataIndex}
+                  />
+                ))
+              )}
           </div>
-          {data &&
-            React.Children.toArray(
-              data.map((d, i) => (
-                <TableData
-                  index={i}
-                  image="/images/airdrop/dark.png"
-                  name={d.description.moniker}
-                  votingPower={0}
-                  commission={d.commission.commissionRates.rate}
-                  openModal={Modal}
-                  modalDataIndex={ModalDataIndex}
-                />
-              ))
-            )}
-        </div>
-      </> : <img className="loadingImage" alt={"Loading Image"} src="images/stakedrop/loader.svg"/>}
+        </>
+      ) : (
+        <img
+          className="loadingImage"
+          alt={"spinning loading indicator"}
+          src="images/stakedrop/loader.svg"
+        />
+      )}
     </StakeListContainer>
   );
 };
@@ -73,36 +82,41 @@ const OsmosisStakeForm = ({
   website = "--",
   commission = 0,
   description = "Not assigned.",
-  address // osmosis address
+  address, // osmosis address
+  delegationState,
 }) => {
   const [Amount, setAmount] = useState("");
   const [availableAmount, setAvailableAmount] = useState("");
-  const [DelegatedAmount,setDelegatedAmount] = useState("");
+  const [DelegatedAmount, setDelegatedAmount] = useState("");
   const [currentValidator, setCurrentValidator] = useState("");
 
   // Get balance
-  useEffect(async () =>{
-    const account = await getKeplrWallet("mantle-1");
-    console.log("Account: ",account);
-    const balance= await getOsmosBalance(account,address);
-    console.log(balance.balance,balance.delegatedBalance);
-    setAvailableAmount(balance.balance);
-    setDelegatedAmount(balance.delegatedBalance);
-    setCurrentValidator(address);
+  useEffect(() => {
+    const bs = async () => {
+      const account = await getKeplrWallet("mantle-1");
+      console.log("Account: ", account);
+      const balance = await getOsmosBalance(account, address);
+      console.log(balance.balance, balance.delegatedBalance);
+      setAvailableAmount(balance.balance);
+      setDelegatedAmount(balance.delegatedBalance);
+      setCurrentValidator(address);
+    };
+    return bs();
   });
 
   // this function is handling the max button click
   const handleMax = () => {
     setAmount(availableAmount);
     console.log("max button clicked");
-  }
-  
+  };
+
   // this function is handling the delegate button click
   const handleDelegate = async (data) => {
     console.log(data);
-    const response = await delegateCoinTx(this, currentValidator, Amount)
-    console.log("SUCCESS: ",response);
-  }
+    const response = await delegateCoinTx(this, currentValidator, Amount);
+    console.log("SUCCESS: ", response);
+    delegationState(response);
+  };
 
   return (
     <StakeFormContainer>
@@ -168,26 +182,29 @@ const OsmosisStakeForm = ({
 // below function is just fetching the table data and changing between the two the table and  the delegate form
 export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
   const [modal, setModal] = useState(false);
-  const [modalDataIndex, setModalDataIndex] =  useState(0);
+  const [modalDataIndex, setModalDataIndex] = useState(0);
   const [data, setData] = useState(null);
+  const [Delegated, setDelegated] = useState();
 
-  console.log(data && data[modalDataIndex].description.moniker);
-
-  useEffect(async () => {
-    await getValidators()
-      .then((data) => {
+  useEffect(() => {
+    const ds = async () => {
+      await getValidators().then((data) => {
         if (data.length !== 0) {
           console.log(data);
 
           setData(data);
-        };
-      })
+        }
+      });
+    };
+    return ds();
   }, []);
 
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
-      <div className={`modal__sc ${!modal ? "sec" : ""} ${!data ? "loading": ""}`}>
+      <div
+        className={`modal__sc ${!modal ? "sec" : ""} ${!data || Delegated ? "loading" : ""}`}
+      >
         <div
           className="modal__sc_close"
           onClick={() => closeModal(false)}
@@ -197,23 +214,43 @@ export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
         </div>
         <div className="modal_container">
           {/* <h2 className="modal_container__title">Eligible Pools</h2> */}
-          {modal ? (
-            <OsmosisStakeForm
-              closeModal={setModal}
-              name={data && data[modalDataIndex].description.moniker}
-              website={data && data[modalDataIndex].description.website}
-              description={data && data[modalDataIndex].description.details}
-              commission={
-                data && data[modalDataIndex].commission.commissionRates.rate
-              }
-              address={data && data[modalDataIndex].operatorAddress}
-            />
+          {Delegated ? (
+            Delegated.transactionHash && (
+              <Success className="delegated">
+                <img src="/images/icons/success.png" alt="" />
+                <h2>Transaction Successful</h2>
+                <p>Tx Hash:</p>
+                <a
+                  href={`${config.websiteURL}/${Delegated.transactionHash}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {Delegated.transactionHash}
+                </a>
+              </Success>
+            )
           ) : (
-            <OsmosisStakeList
-              data={data}
-              Modal={setModal}
-              ModalDataIndex={setModalDataIndex}
-            />
+            <>
+              {modal ? (
+                <OsmosisStakeForm
+                  closeModal={setModal}
+                  name={data && data[modalDataIndex].description.moniker}
+                  website={data && data[modalDataIndex].description.website}
+                  description={data && data[modalDataIndex].description.details}
+                  commission={
+                    data && data[modalDataIndex].commission.commissionRates.rate
+                  }
+                  address={data && data[modalDataIndex].operatorAddress}
+                  delegationState={setDelegated}
+                />
+              ) : (
+                <OsmosisStakeList
+                  data={data}
+                  Modal={setModal}
+                  ModalDataIndex={setModalDataIndex}
+                />
+              )}
+            </>
           )}
         </div>
       </div>
@@ -230,8 +267,8 @@ const StakeListContainer = styled.div`
   overflow: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-contents: center;
+  /* align-items: center;
+  justify-content: center; */
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -481,10 +518,10 @@ const StakeFormContainer = styled.div`
                   box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
                 }
               }
-              span{
+              span {
                 border-left: 1px solid var(--gray);
                 color: var(--gray);
-                padding:8px 12px;
+                padding: 8px 12px;
                 font: 600 var(--p-s);
               }
             }
@@ -532,6 +569,34 @@ const StakeFormContainer = styled.div`
           }
         }
       }
+    }
+  }
+`;
+
+const Success = styled.div`
+  &.delegated {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    img {
+      width: min(100%, 200px);
+      height: auto;
+    }
+    h2 {
+      color: var(--success);
+    }
+    p { 
+      font: var(--p-m);
+      color: var(--gray);
+    }
+    a {
+      font: var(--p-m);
+      color: var(--yellow);
+      text-decoration: none;
     }
   }
 `;
@@ -584,13 +649,13 @@ const Container = styled.div`
     &.loading {
       display: flex;
       align-items: center;
-      justify-contents: center;
-      width: min(500px,100%);
-      height: min(500px,100%);
+      justify-content: center;
+      width: min(500px, 100%);
+      height: min(500px, 100%);
       .modal_container {
         width: 100%;
         height: 100%;
-      } 
+      }
     }
     &_close {
       font: var(--h2);

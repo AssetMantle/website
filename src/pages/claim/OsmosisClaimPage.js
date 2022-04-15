@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // import { MdDone } from "react-icons/md";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import OsmosisStakeModal from "./OsmosisStake";
 const config = require('./config.json')
 
@@ -254,7 +255,7 @@ export default function OsmosisClaimPage() {
               </div>
             </div>
             <br />
-            <h4>Maximum Allocation per wallet -> 750 $MNTL</h4>
+            <h4>Maximum Allocation per wallet < AiOutlineArrowRight /> 750 $MNTL</h4>
           </div>
         </section>
       </Container>
