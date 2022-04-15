@@ -89,6 +89,7 @@ const OsmosisStakeForm = ({
   const [availableAmount, setAvailableAmount] = useState("");
   const [DelegatedAmount, setDelegatedAmount] = useState("");
   const [currentValidator, setCurrentValidator] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   // Get balance
   useEffect(() => {
@@ -112,7 +113,7 @@ const OsmosisStakeForm = ({
 
   // this function is handling the delegate button click
   const handleDelegate = async (data) => {
-    console.log(data);
+    setClicked(true);
     const response = await delegateCoinTx(this, currentValidator, Amount);
     console.log("SUCCESS: ", response);
     delegationState(response);
@@ -157,7 +158,7 @@ const OsmosisStakeForm = ({
           </div>
           <div className="modal_container__body_persona_form__con">
             <label htmlFor="amount">Amount to Delegate</label>
-            <div className="modal_container__body_persona_form__con_input">
+            <div className={`modal_container__body_persona_form__con_input ${Amount>availableAmount || Amount <0.000001 ? "error":""}`}>
               <input
                 type="number"
                 name="amount"
@@ -166,13 +167,14 @@ const OsmosisStakeForm = ({
                 onChange={(e) => setAmount(e.target.value)}
               />
               <button onClick={handleMax}>max</button>
-              <span>OSMO</span>
+              <span>$MNTL</span>
             </div>
           </div>
+          {Amount>availableAmount || Amount <0.000001 ? <div className="modal_container__body_persona_form__error">Insufficient Balance</div> : null}
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount<0.000001 ? true : false}>Delegate</button>
+          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount <0.000001 || clicked ? true : false}>Delegate</button>
         </div>
       </div>
     </StakeFormContainer>
@@ -523,7 +525,18 @@ const StakeFormContainer = styled.div`
                 padding: 8px 12px;
                 font: 600 var(--p-s);
               }
+              &.error {
+                border: 1px solid red;
+                span {
+                  border-color: red;
+                }
+              }
             }
+          }
+          &__error {
+            color: red;
+            font: var(--p-s);
+            text-align: center;
           }
         }
         &_button {
@@ -665,6 +678,7 @@ const Container = styled.div`
       position: absolute;
       top: 20px;
       right: 30px;
+      cursor: pointer;
       @media (max-width: 548px) {
         top: 10px;
         right: 20px;
