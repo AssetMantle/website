@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import {getKeplrWallet, getOsmosBalance, getValidators} from "./keplr";
 
 const TableData = ({
   index = 0,
   image = "/images/airdrop/dark.png",
-  name = "Jon dao",
+  name = "",
   commission = 0,
   openModal,
   modalDataIndex,
@@ -35,52 +36,67 @@ const TableData = ({
 const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
   return (
     <StakeListContainer>
-      <div className="table__title">Active Validators</div>
-      <div className="table__element">
-        <div className="table__element_option">
-          <h4>Name</h4>
-          <h4>Commission</h4>
-          <p></p>
+      { data ? <>
+        <div className="table__title">Active Validators</div>
+        <div className="table__element">
+          <div className="table__element_option">
+            <h4>Name</h4>
+            <h4>Commission</h4>
+            <p></p>
+          </div>
+          {data &&
+            React.Children.toArray(
+              data.map((d, i) => (
+                <TableData
+                  index={i}
+                  image="/images/airdrop/dark.png"
+                  name={d.description.moniker}
+                  votingPower={0}
+                  commission={d.commission.commissionRates.rate}
+                  openModal={Modal}
+                  modalDataIndex={ModalDataIndex}
+                />
+              ))
+            )}
         </div>
-        {data &&
-          React.Children.toArray(
-            data.map((d, i) => (
-              <TableData
-                index={i}
-                image="/images/airdrop/dark.png"
-                name={d.description.moniker}
-                votingPower={0}
-                commission={d.commission.commission_rates.rate}
-                openModal={Modal}
-                modalDataIndex={ModalDataIndex}
-              />
-            ))
-          )}
-      </div>
+      </> : <img className="loadingImage" alt={"Loading Image"} src="images/stakedrop/loader.svg"/>}
     </StakeListContainer>
   );
 };
 
-// this function is handling the delegate amount 
+// this function is handling the delegate amount
 const OsmosisStakeForm = ({
   closeModal,
   image = "/images/airdrop/dark.png",
-  name = "Jon dao",
+  name = "",
   website = "--",
   commission = 0,
   description = "Not assigned.",
   address // osmosis address
 }) => {
-  const [Amount, setAmount] = useState();
+  const [Amount, setAmount] = useState("");
+  const [availableAmount, setAvailableAmount] = useState("");
+  const [DelegatedAmount,setDelegatedAmount] = useState("");
+
+  // Get balance
+  useEffect(async () =>{
+    const account = await getKeplrWallet("mantle-1");
+    console.log("Account: ",account);
+    const balance= await getOsmosBalance("https://rpc-testchain.assetmantle.one",account,address);
+    console.log(balance.balance,balance.delegatedBalance);
+    setAvailableAmount(balance.balance);
+    setDelegatedAmount(balance.delegatedBalance);
+  });
 
   // this function is handling the max button click
   const handleMax = () => {
+    setAmount(availableAmount);
     console.log("max button clicked");
   }
   
   // this function is handling the delegate button click
-  const handleDelegate = () => {
-    console.log("delegate button clicked");
+  const handleDelegate = (validatorAddress) => {
+    console.log("delegate button clicked",validatorAddress);
   }
 
   return (
@@ -113,11 +129,11 @@ const OsmosisStakeForm = ({
           <div className="modal_container__body_persona_form__overview">
             <div className="modal_container__body_persona_form__overview_element">
               <h5>My Delegation</h5>
-              <p>102 OSMO</p>
+              <p>{DelegatedAmount} $MNTL</p>
             </div>
             <div className="modal_container__body_persona_form__overview_element">
               <h5>Available balance</h5>
-              <p>1232 OSMO</p>
+              <p>{availableAmount} $MNTL</p>
             </div>
           </div>
           <div className="modal_container__body_persona_form__con">
@@ -137,7 +153,7 @@ const OsmosisStakeForm = ({
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate}>Delegate</button>
+          <button onClick={handleDelegate(address)}>Delegate</button>
         </div>
       </div>
     </StakeFormContainer>
@@ -145,27 +161,29 @@ const OsmosisStakeForm = ({
 };
 
 // below function is just fetching the table data and changing between the two the table and  the delegate form
-export default function OsmosisStakeModal({ closeModal, address }) {
+export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
   const [modal, setModal] = useState(false);
-  const [modalDataIndex, setModalDataIndex] = useState(0);
-  const [data, setData] = useState();
+  const [modalDataIndex, setModalDataIndex] =  useState(0);
+  // const [currentValidator, setCurrentValidator] = useState("");
+  const [data, setData] = useState(null);
 
   console.log(data && data[modalDataIndex].description.moniker);
 
-  useEffect(() => {
-    fetch("https://rest.test-mantle-1.assetmantle.one/staking/validators")
-      .then((res) => res.json())
+  useEffect(async () => {
+    await getValidators()
       .then((data) => {
-        if (data.result && data.result.length !== 0) {
-          setData(data.result);
-        }
-      });
+        if (data.length !== 0) {
+          console.log(data);
+
+          setData(data);
+        };
+      })
   }, []);
 
   return (
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
-      <div className={`modal__sc ${!modal ? "sec" : ""}`}>
+      <div className={`modal__sc ${!modal ? "sec" : ""} ${!data ? "loading": ""}`}>
         <div
           className="modal__sc_close"
           onClick={() => closeModal(false)}
@@ -182,9 +200,9 @@ export default function OsmosisStakeModal({ closeModal, address }) {
               website={data && data[modalDataIndex].description.website}
               description={data && data[modalDataIndex].description.details}
               commission={
-                data && data[modalDataIndex].commission.commission_rates.rate
+                data && data[modalDataIndex].commission.commissionRates.rate
               }
-              address={address}
+              address={data && data[modalDataIndex].operatorAddress}
             />
           ) : (
             <OsmosisStakeList
@@ -204,11 +222,30 @@ export default function OsmosisStakeModal({ closeModal, address }) {
 const StakeListContainer = styled.div`
   color: var(--gray);
   width: 100%;
+  height: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-contents: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+  .loadingImage {
+    margin: auto;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: loading-spin infinite 20s linear;
+    }
+    @keyframes loading-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   }
   .table {
     &__title {
@@ -434,6 +471,11 @@ const StakeFormContainer = styled.div`
                   inset -4px -4px 8px rgba(0, 0, 0, 0.25),
                   inset 4px 4px 8px #ffc942;
                 font: 600 var(--p-xs);
+                cursor: pointer;
+                &:hover,
+                &:focus {
+                  box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+                }
               }
               span{
                 border-left: 1px solid var(--gray);
@@ -534,6 +576,17 @@ const Container = styled.div`
       width: max-content;
       max-width: 100%;
       height: 100%;
+    }
+    &.loading {
+      display: flex;
+      align-items: center;
+      justify-contents: center;
+      width: min(500px,100%);
+      height: min(500px,100%);
+      .modal_container {
+        width: 100%;
+        height: 100%;
+      } 
     }
     &_close {
       font: var(--h2);
