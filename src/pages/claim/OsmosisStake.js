@@ -184,7 +184,7 @@ export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
   const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] = useState(0);
   const [data, setData] = useState(null);
-  const [Delegated, setDelegated] = useState({transactionHash:"aklsalskajskajkokjfdjhdfkdfkmdfskmdkjjkdfkdslksdkjsdhjdsjkjijoadijdjkvdkjdjhaijkoadokmdsmkfmdjifkdkdlkdkslsdkdksk"});
+  const [Delegated, setDelegated] = useState();
 
   useEffect(() => {
     const ds = async () => {
