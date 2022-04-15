@@ -1,0 +1,10 @@
+{
+  "mainNetChainID":"mantle-1",
+  "chainName": "AssetMantle",
+  "coinName": "MNTL",
+  "coinDenom": "umntl",
+  "addressPrefix": "mantle",
+  "restAPI": "https://rest-testchain.assetmantle.one",
+  "tendermintRPC": "https://rpc-testchain.assetmantle.one",
+  "websiteURL": "http://localhost:3000"
+}

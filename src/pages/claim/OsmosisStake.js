@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {getKeplrWallet, getOsmosBalance, getValidators} from "./keplr";
+import {delegateCoinTx} from "./utils/blockchainTransactions";
 
 const TableData = ({
   index = 0,
@@ -77,15 +78,17 @@ const OsmosisStakeForm = ({
   const [Amount, setAmount] = useState("");
   const [availableAmount, setAvailableAmount] = useState("");
   const [DelegatedAmount,setDelegatedAmount] = useState("");
+  const [currentValidator, setCurrentValidator] = useState("");
 
   // Get balance
   useEffect(async () =>{
     const account = await getKeplrWallet("mantle-1");
     console.log("Account: ",account);
-    const balance= await getOsmosBalance("https://rpc-testchain.assetmantle.one",account,address);
+    const balance= await getOsmosBalance(account,address);
     console.log(balance.balance,balance.delegatedBalance);
     setAvailableAmount(balance.balance);
     setDelegatedAmount(balance.delegatedBalance);
+    setCurrentValidator(address);
   });
 
   // this function is handling the max button click
@@ -95,8 +98,10 @@ const OsmosisStakeForm = ({
   }
   
   // this function is handling the delegate button click
-  const handleDelegate = (validatorAddress) => {
-    console.log("delegate button clicked",validatorAddress);
+  const handleDelegate = async (data) => {
+    console.log(data);
+    const response = await delegateCoinTx(this, currentValidator, Amount)
+    console.log("SUCCESS: ",response);
   }
 
   return (
@@ -153,7 +158,7 @@ const OsmosisStakeForm = ({
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate(address)}>Delegate</button>
+          <button onClick={handleDelegate}>Delegate</button>
         </div>
       </div>
     </StakeFormContainer>
@@ -164,7 +169,6 @@ const OsmosisStakeForm = ({
 export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
   const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] =  useState(0);
-  // const [currentValidator, setCurrentValidator] = useState("");
   const [data, setData] = useState(null);
 
   console.log(data && data[modalDataIndex].description.moniker);

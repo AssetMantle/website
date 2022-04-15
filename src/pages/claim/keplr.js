@@ -4,10 +4,11 @@ import {createProtobufRpcClient, QueryClient} from "@cosmjs/stargate";
 import Long from "long";
 
 const { SigningStargateClient } = require("@cosmjs/stargate");
+const config = require("./config.json");
 
-const tendermintRPCURL = "https://rpc-testchain.assetmantle.one";
-const osmosisChainID = "mantle-1";
-const stakingDenom = "umntl";
+const tendermintRPCURL = config.tendermintRPC;
+const osmosisChainID = config.mainNetChainID;
+const stakingDenom = config.coinDenom;
 const maxGas = 250000;
 const MicroFactor = 1000000;
 
@@ -28,9 +29,9 @@ async function getKeplrWallet(chainID) {
     }
 }
 
-async function getOsmosBalance(rpcEndpoint,wallet,validatorAddress){
+async function getOsmosBalance(wallet,validatorAddress){
     const client = await SigningStargateClient.connect(
-        rpcEndpoint,
+        tendermintRPCURL,
     );
     const balance = await client.getBalance(wallet[1],"umntl");
     const delegatedBalance = await client.getDelegation(wallet[1],validatorAddress);
