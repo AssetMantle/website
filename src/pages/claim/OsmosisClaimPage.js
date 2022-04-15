@@ -149,7 +149,7 @@ export default function OsmosisClaimPage() {
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={false}
+                disabled={Address ? false : true}
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
