@@ -57,7 +57,6 @@ export default function MantleDropClaim() {
     received: 0,
     mantleAddress: "",
   });
-  
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -67,7 +66,7 @@ export default function MantleDropClaim() {
   const comdexChainID = "comdex-1";
   const junoChainID = "juno-1";
   const stargazeChainID = "stargaze-1";
-  
+
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
@@ -137,7 +136,7 @@ export default function MantleDropClaim() {
           } else if (data.success.toString() === "false") {
             setTerraCampaignData({
               delegator: "",
-              received: 0,
+              received: 200,
               mantleAddress: "",
             });
           }
@@ -219,7 +218,7 @@ export default function MantleDropClaim() {
       // taking stargaze address ends
 
       // took necessary addresses
-      
+
       setKeplrConnectionState(2);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
@@ -365,6 +364,15 @@ export default function MantleDropClaim() {
     setInputAddress(e.target.value);
   };
 
+  const division = (value) => {
+    let result;
+    let p = Number(value) / 1000000;
+    result = p.toLocaleString("en-US", {
+      maximumFractionDigits: 4,
+    });
+    return result;
+  };
+
   return (
     <>
       <Container>
@@ -502,9 +510,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {CosmosCampaignData.received
-                      ? CosmosCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(CosmosCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -530,12 +536,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {PersistenceCampaignData.received
-                      ? PersistenceCampaignData.received.toLocaleString(
-                          "en-US",
-                          {
-                            maximumFractionDigits: 4,
-                          }
-                        )
+                      ? division(PersistenceCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -559,9 +560,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {TerraCampaignData.received
-                      ? TerraCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(TerraCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -585,9 +584,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {ComdexCampaignData.received
-                      ? ComdexCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(ComdexCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -611,9 +608,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {JunoCampaignData.received
-                      ? JunoCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(JunoCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -637,9 +632,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {StargazeCampaignData.received
-                      ? StargazeCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(StargazeCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -659,7 +652,7 @@ export default function MantleDropClaim() {
                       ? "Juno"
                       : InputAddress.includes("stars")
                       ? "Stargaze"
-                      : "Failed to detect"}                    
+                      : "Failed to detect"}
                   </h4>
                   <h4>
                     {InputCampaignData.delegator.substring(0, 5)}...
@@ -679,9 +672,7 @@ export default function MantleDropClaim() {
                   </h4>
                   <p>
                     {InputCampaignData.received
-                      ? InputCampaignData.received.toLocaleString("en-US", {
-                          maximumFractionDigits: 4,
-                        })
+                      ? division(InputCampaignData.received)
                       : "--"}
                   </p>
                 </div>
@@ -692,7 +683,7 @@ export default function MantleDropClaim() {
                 TerraAddress ||
                 ComdexAddress ||
                 JunoAddress ||
-                StargazeAddress  ? (
+                StargazeAddress ? (
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     <span></span>
@@ -703,12 +694,13 @@ export default function MantleDropClaim() {
                         alt="coin illustration dark"
                       />{" "}
                       {(
-                        CosmosCampaignData.received +
-                        PersistenceCampaignData.received +
-                        TerraCampaignData.received +
-                        ComdexCampaignData.received +
-                        JunoCampaignData.received +
-                        StargazeCampaignData.received
+                        (CosmosCampaignData.received +
+                          PersistenceCampaignData.received +
+                          TerraCampaignData.received +
+                          ComdexCampaignData.received +
+                          JunoCampaignData.received +
+                          StargazeCampaignData.received) /
+                        1000000
                       ).toLocaleString("en-US", {
                         maximumFractionDigits: 4,
                       })}
@@ -765,7 +757,8 @@ const Container = styled.main`
       h2 {
         color: var(--gray);
         padding-bottom: 12px;
-      }h3 {
+      }
+      h3 {
         color: var(--gray);
         padding-bottom: 40px;
       }

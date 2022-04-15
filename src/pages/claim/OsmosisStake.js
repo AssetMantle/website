@@ -85,7 +85,7 @@ const OsmosisStakeForm = ({
   address, // osmosis address
   delegationState,
 }) => {
-  const [Amount, setAmount] = useState(0);
+  const [Amount, setAmount] = useState();
   const [availableAmount, setAvailableAmount] = useState("");
   const [DelegatedAmount, setDelegatedAmount] = useState("");
   const [currentValidator, setCurrentValidator] = useState("");
@@ -158,7 +158,15 @@ const OsmosisStakeForm = ({
           </div>
           <div className="modal_container__body_persona_form__con">
             <label htmlFor="amount">Amount to Delegate</label>
-            <div className={`modal_container__body_persona_form__con_input ${Amount>availableAmount || Amount <= -1 ? "error":""}`}>
+            <div
+              className={`modal_container__body_persona_form__con_input ${
+                Amount !== null || Amount !== undefined || Amount !== ""
+                  ? Amount > availableAmount || Amount <= -1
+                    ? "error"
+                    : ""
+                  : ""
+              }`}
+            >
               <input
                 type="number"
                 name="amount"
@@ -170,11 +178,31 @@ const OsmosisStakeForm = ({
               <span>$MNTL</span>
             </div>
           </div>
-          {Amount>availableAmount || Amount <= -1 ? <div className="modal_container__body_persona_form__error">Insufficient Balance</div> : null}
+          {Amount !== null || Amount !== undefined || Amount !== "" ? (
+            Amount > availableAmount || Amount <= -1 ? (
+              <div className="modal_container__body_persona_form__error">
+                Insufficient Balance
+              </div>
+            ) : Amount < 0.000001 ? (
+              <div className="modal_container__body_persona_form__error">
+                Enter a valid amount. <br />
+                Minimum: 0.000001
+              </div>
+            ) : null
+          ) : null}
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount <=-1 || clicked ? true : false}>Delegate</button>
+          <button
+            onClick={handleDelegate}
+            disabled={
+              Amount > availableAmount || Amount < 0.000001 || clicked
+                ? true
+                : false
+            }
+          >
+            Delegate
+          </button>
         </div>
       </div>
     </StakeFormContainer>
@@ -204,7 +232,9 @@ export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
     <Container>
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div
-        className={`modal__sc ${!modal ? "sec" : ""} ${!data || Delegated ? "loading" : ""}`}
+        className={`modal__sc ${!modal ? "sec" : ""} ${
+          !data || Delegated ? "loading" : ""
+        }`}
       >
         <div
           className="modal__sc_close"
@@ -536,7 +566,7 @@ const StakeFormContainer = styled.div`
           &__error {
             color: red;
             font: var(--p-s);
-            text-align: center;
+            text-align: left;
           }
         }
         &_button {
@@ -602,7 +632,7 @@ const Success = styled.div`
     h2 {
       color: var(--success);
     }
-    p { 
+    p {
       font: var(--p-m);
       color: var(--gray);
     }
