@@ -158,7 +158,7 @@ const OsmosisStakeForm = ({
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate}>Delegate</button>
+          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount<0.000001 ? true : false}>Delegate</button>
         </div>
       </div>
     </StakeFormContainer>

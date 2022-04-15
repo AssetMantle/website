@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // import { MdDone } from "react-icons/md";
 import OsmosisStakeModal from "./OsmosisStake";
+const config = require('./config.json')
 
 export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
@@ -11,7 +12,7 @@ export default function OsmosisClaimPage() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainId = "osmosis-1";
+  const chainId = config.mainNetChainID;
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
@@ -24,6 +25,29 @@ export default function OsmosisClaimPage() {
       window.alert("Please install Keplr to move forward with the task.");
     }
   };
+
+  const handleClaimInitial = async () => {
+    const data = "INITIAL_CLAIM";
+    const pub = await window.keplr.getKey(config.mainNetChainID);
+    const keplrSign = await window.keplr.signArbitrary(
+        config.mainNetChainID,
+        Address,
+        data
+    );
+    const res = await fetch("https://cosmos-sakedrop.assetmantle.one/qna", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        signedData: data,
+        signature: keplrSign.signature,
+        publicKey: pub.pubKey,
+      }),
+    });
+     console.log("Claimed Initial!..",res);
+  }
 
   // connect bar
 
@@ -124,7 +148,8 @@ export default function OsmosisClaimPage() {
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={true}
+                disabled={false}
+                onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
                 Claim
