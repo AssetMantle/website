@@ -158,7 +158,7 @@ const OsmosisStakeForm = ({
           </div>
           <div className="modal_container__body_persona_form__con">
             <label htmlFor="amount">Amount to Delegate</label>
-            <div className={`modal_container__body_persona_form__con_input ${Amount>availableAmount || Amount < -1 ? "error":""}`}>
+            <div className={`modal_container__body_persona_form__con_input ${Amount>availableAmount || Amount <= -1 ? "error":""}`}>
               <input
                 type="number"
                 name="amount"
@@ -170,11 +170,11 @@ const OsmosisStakeForm = ({
               <span>$MNTL</span>
             </div>
           </div>
-          {Amount>availableAmount || Amount < -1 ? <div className="modal_container__body_persona_form__error">Insufficient Balance</div> : null}
+          {Amount>availableAmount || Amount <= -1 ? <div className="modal_container__body_persona_form__error">Insufficient Balance</div> : null}
         </div>
         <div className="modal_container__body_persona_button">
           <button onClick={() => closeModal(false)}>Back</button>
-          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount <-1 || clicked ? true : false}>Delegate</button>
+          <button onClick={handleDelegate} disabled={Amount>availableAmount || Amount <=-1 || clicked ? true : false}>Delegate</button>
         </div>
       </div>
     </StakeFormContainer>
