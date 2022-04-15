@@ -184,14 +184,13 @@ export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
   const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] = useState(0);
   const [data, setData] = useState(null);
-  const [Delegated, setDelegated] = useState();
+  const [Delegated, setDelegated] = useState({transactionHash:"aklsalskajskajkokjfdjhdfkdfkmdfskmdkjjkdfkdslksdkjsdhjdsjkjijoadijdjkvdkjdjhaijkoadokmdsmkfmdjifkdkdlkdkslsdkdksk"});
 
   useEffect(() => {
     const ds = async () => {
       await getValidators().then((data) => {
         if (data.length !== 0) {
           console.log(data);
-
           setData(data);
         }
       });
@@ -582,6 +581,7 @@ const Success = styled.div`
     justify-content: center;
     text-align: center;
     gap: 12px;
+    max-width: 100%;
     img {
       width: min(100%, 200px);
       height: auto;
@@ -597,6 +597,8 @@ const Success = styled.div`
       font: var(--p-m);
       color: var(--yellow);
       text-decoration: none;
+      max-width: 100%;
+      word-wrap: break-word;
     }
   }
 `;
