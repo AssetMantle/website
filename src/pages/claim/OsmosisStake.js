@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { getKeplrWallet, getOsmosBalance, getValidators } from "./keplr";
+import { getKeplrWallet, getOsmosBalance, getValidators } from "./utils/keplr";
 import { delegateCoinTx } from "./utils/blockchainTransactions";
 import config from "./config.json";
 
@@ -94,7 +94,7 @@ const OsmosisStakeForm = ({
   // Get balance
   useEffect(() => {
     const bs = async () => {
-      const account = await getKeplrWallet("mantle-1");
+      const account = await getKeplrWallet();
       console.log("Account: ", account);
       const balance = await getOsmosBalance(account, address);
       console.log(balance.balance, balance.delegatedBalance);

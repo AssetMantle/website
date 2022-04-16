@@ -4,6 +4,7 @@ import styled from "styled-components";
 // import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import OsmosisStakeModal from "./OsmosisStake";
+import {getKeplrWallet} from "./utils/keplr";
 const config = require('./config.json')
 
 export default function OsmosisClaimPage() {
@@ -16,10 +17,9 @@ export default function OsmosisClaimPage() {
   const chainId = config.mainNetChainID;
   const handleKeplrConnect = async () => {
     if (window.keplr) {
+      const [offlineSigner, account] = await getKeplrWallet();
+      console.log("Account: ", account);
       setKeplrConnectionState(1);
-      let offlineSigner = window.keplr.getOfflineSigner(chainId);
-      let accounts = await offlineSigner.getAccounts();
-      const account = accounts[0].address;
       setAddress(account);
       setKeplrConnectionState(2);
     } else {

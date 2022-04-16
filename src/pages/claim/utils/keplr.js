@@ -1,6 +1,8 @@
 import config from "../config.json";
 import {createProtobufRpcClient, QueryClient, setupGovExtension, SigningStargateClient} from "@cosmjs/stargate";
 import {Tendermint34Client} from "@cosmjs/tendermint-rpc";
+import {QueryClientImpl} from "cosmjs-types/cosmos/staking/v1beta1/query";
+import Long from "long";
 
 const restAPI = config.restAPI;
 const tendermintRPC = config.tendermintRPC;
@@ -40,6 +42,48 @@ async function getKeplrWallet() {
             console.log(e)
         }
     }
+}
+
+async function getOsmosBalance(wallet,validatorAddress){
+    const client = await SigningStargateClient.connect(
+        tendermintRPC,
+    );
+    const balance = await client.getBalance(wallet[1],"umntl");
+    const delegatedBalance = await client.getDelegation(wallet[1],validatorAddress);
+    return {
+        'balance': (balance.amount/MicroFactor),
+        'delegatedBalance': (delegatedBalance.amount/MicroFactor)};
+}
+
+async function RpcClient() {
+    const tendermintClient = await Tendermint34Client.connect(tendermintRPC);
+    const queryClient = new QueryClient(tendermintClient);
+    return createProtobufRpcClient(queryClient);
+}
+
+async function getValidators(){
+
+    const rpcClient = await RpcClient();
+
+    const stakingQueryService = new QueryClientImpl(rpcClient);
+
+    let key = new Uint8Array();
+    let validators = [];
+
+    do {
+        const response = await stakingQueryService.Validators({
+            status: false,
+            pagination: {
+                key: key,
+                offset: Long.fromNumber(0, true),
+                limit: Long.fromNumber(0, true),
+                countTotal: true
+            }
+        });
+        key = response.pagination.nextKey;
+        validators.push(...response.validators);
+    } while (key.length !== 0);
+    return validators;
 }
 
 async function Transaction(wallet, signerAddress, msgs, fee, memo = "") {
@@ -82,7 +126,7 @@ async function setChain() {
         currencies: [
             {
                 coinDenom: config.coinDenom,
-                coinMinimalDenom: config.coinMinimalDenom,
+                coinMinimalDenom: config.coinDenom,
                 coinDecimals: 6,
                 coinGeckoId: "cosmos",
             },
@@ -90,14 +134,14 @@ async function setChain() {
         feeCurrencies: [
             {
                 coinDenom: config.coinDenom,
-                coinMinimalDenom: config.coinMinimalDenom,
+                coinMinimalDenom: config.coinDenom,
                 coinDecimals: 6,
                 coinGeckoId: "cosmos",
             },
         ],
         stakeCurrency: {
             coinDenom: config.coinDenom,
-            coinMinimalDenom: config.coinMinimalDenom,
+            coinMinimalDenom: config.coinDenom,
             coinDecimals: 6,
             coinGeckoId: "cosmos",
         },
@@ -111,4 +155,4 @@ async function setChain() {
 
 }
 
-export {getTxFee, getKeplrWallet, signArbitrary, Transaction, MicroFactor, coinDenom, getQueryClient}
+export {getTxFee, getKeplrWallet, signArbitrary, Transaction, MicroFactor, coinDenom, getQueryClient,getOsmosBalance, getValidators,initializeKeplr}
