@@ -136,7 +136,7 @@ export default function MantleDropClaim() {
           } else if (data.success.toString() === "false") {
             setTerraCampaignData({
               delegator: "",
-              received: 200,
+              received: 0,
               mantleAddress: "",
             });
           }
