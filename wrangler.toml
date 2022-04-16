@@ -1,6 +1,6 @@
 name = "assetmantle-airdrop"
 type = "webpack"
-zone_id = '56f80f9b92647da8867be957889b2281'
+zone_id = '4d52f36b396dad8cddd83b3d5e0fbda4'
 usage_model = ''
 compatibility_flags = []
 workers_dev = true
