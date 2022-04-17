@@ -5,12 +5,17 @@ import styled from "styled-components";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import OsmosisStakeModal from "./OsmosisStake";
 import {getKeplrWallet} from "./utils/keplr";
-const config = require('./config.json')
+const config = require('./config.json');
 
 export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
   const [Bar, setBar] = useState(60);
   const [StakeModal, setStakeModal] = useState(false);
+  const [Response, setResponse] = useState({
+    success: false,
+    address: "",
+    message: "Not eligible",
+  });
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
@@ -22,6 +27,22 @@ export default function OsmosisClaimPage() {
       setKeplrConnectionState(1);
       setAddress(account);
       setKeplrConnectionState(2);
+
+      // fetching data from backend
+      fetch(`https://airdrop-data.assetmantle.one/keplr/${account}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success.toString() === "true") {
+            setResponse(data);
+          } else {
+            setResponse({
+              success: false,
+              address: account,
+              message: "Not eligible",
+            });
+          }
+        })
+        .catch((err) => console.log(err));
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -31,9 +52,9 @@ export default function OsmosisClaimPage() {
     const data = "INITIAL_CLAIM";
     const pub = await window.keplr.getKey(config.mainNetChainID);
     const keplrSign = await window.keplr.signArbitrary(
-        config.mainNetChainID,
-        Address,
-        data
+      config.mainNetChainID,
+      Address,
+      data
     );
     const res = await fetch("https://cosmos-sakedrop.assetmantle.one/qna", {
       method: "POST",
@@ -47,8 +68,8 @@ export default function OsmosisClaimPage() {
         publicKey: pub.pubKey,
       }),
     });
-     console.log("Claimed Initial!..",res);
-  }
+    console.log("Claimed Initial!..", res);
+  };
 
   // connect bar
 
@@ -99,7 +120,7 @@ export default function OsmosisClaimPage() {
         <section className="section_overview">
           <div className="section_overview__element">
             <p>Claimed</p>
-            <h4>0 / -- OSMO</h4>
+            <h4>0 / {Response && Response.allocation ? Response.allocation : "--"} $MNTL</h4>
           </div>
           <a
             href="a"
@@ -255,7 +276,9 @@ export default function OsmosisClaimPage() {
               </div>
             </div>
             <br />
-            <h4>Maximum Allocation per wallet < AiOutlineArrowRight /> 750 $MNTL</h4>
+            <h4>
+              Maximum Allocation per wallet <AiOutlineArrowRight /> 750 $MNTL
+            </h4>
           </div>
         </section>
       </Container>

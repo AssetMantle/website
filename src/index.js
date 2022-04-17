@@ -9,6 +9,7 @@ import "./translations/i18n";
 import App from "./App";
 
 import "./styles/index.css";
+import "./styles/common.css";
 
 ReactDOM.render(
   <React.StrictMode>

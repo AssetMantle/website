@@ -87,7 +87,7 @@ export default function Airdrop() {
         </section>
         <section className="section_drop">
           <div className="section_drop__heading">
-            <h3>{t("AIRDROP_START_WITH_STAKEDROP_HEADING")}</h3>
+            <h3>{t("COMPLETED")}</h3>
             <hr />
           </div>
           <div className="section_drop__element">
@@ -115,7 +115,7 @@ export default function Airdrop() {
                     : undefined
                 }
               >
-                {t("LETS_GO")}
+                {t("CHECK_NOW")}
               </a>
             </div>
           </div>
@@ -189,11 +189,11 @@ export default function Airdrop() {
                 <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Liquidity Provided</h4>
+                      <h4>Total Liquidity Provided to eligible pools as on the snapshot date(15th Feb,2022)</h4>
                       <p>Value (in USD)</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Locked</h4>
+                      <h4>Locked / Bonded</h4>
                       <p>
                         $
                         {KeplrCalculatedDATA &&
@@ -202,7 +202,7 @@ export default function Airdrop() {
                       </p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Unlocked</h4>
+                      <h4>Unlocked / Unbonded</h4>
                       <p>
                         $
                         {KeplrCalculatedDATA &&
@@ -219,9 +219,8 @@ export default function Airdrop() {
               </>
             ) : KeplrCalculatedDATA === false ? (
               <section className="section_allocation">
-                <h3>
-                  Sorry, you are not eligible. Please checkout{" "}
-                  <a href="/stakedrop">StakeDrop</a> campaign to participate
+                <h3 className="error-t">
+                  Sorry, you are not eligible.
                 </h3>
               </section>
             ) : undefined}
@@ -302,9 +301,8 @@ export default function Airdrop() {
               </>
             ) : MetaMaskCalculatedDATA === false ? (
               <section className="section_allocation">
-                <h3>
-                  Sorry, you are not eligible. Please checkout{" "}
-                  <a href="/stakedrop">StakeDrop</a> campaign to participate
+                <h3 className="error-t">
+                  Sorry, you are not eligible.
                 </h3>
               </section>
             ) : undefined}

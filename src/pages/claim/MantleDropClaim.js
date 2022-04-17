@@ -740,17 +740,16 @@ const Container = styled.main`
     background: #2c2c2c;
     border-radius: 12px;
   }
-  // .calculate_grid {
-  //   display: grid;
-  //   grid-template-columns: 1fr 2fr;
-  //   gap: 24px;
-  //   @media (max-width: 760px) {
-  //     grid-template-columns: 1fr;
-  //   }
-  // }
   .section {
     &_calculation {
+      position: relative;
       padding: 40px;
+      @media (min-width: 768px) {
+        background-image: url("/images/airdrop/tokens-s.png");
+        background-size: auto 300px;
+        background-repeat: no-repeat;
+      background-position: top right;
+      }
       @media (max-width: 548px) {
         padding: 20px;
       }
