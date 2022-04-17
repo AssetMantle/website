@@ -1,5 +1,7 @@
 .section_reward_table {
-  padding: 5px;
+  padding-top: 24px;
+  width: 100%;
+  overflow-x: auto;
 }
 /* @media (max-width: 650px) {
   .section_reward_table {
@@ -14,24 +16,32 @@
   background-color: var(--dark-s);
   box-shadow: var(--dark-shadow);
   border-radius: 12px;
+  width: 100%;
+  /* overflow-x: auto; */
+}
+@media (max-width: 1024px) {
+  .section_reward_table__element {
+    width: max-content;
+  }
 }
 .section_reward_table__element_option {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 24px 40px;
 }
-@media (max-width: 930px) {
+/* @media (max-width: 930px) {
   .section_reward_table__element_option {
     flex-wrap: wrap;
   }
-}
+} */
 @media (max-width: 768px) {
   .section_reward_table__element_option {
-    text-align: center;
+    /* text-align: center;
+    flex-direction: column; */
     padding: 24px 20px;
-    flex-direction: column;
   }
 }
 .section_reward_table__element_option:not(:last-child) {
@@ -43,11 +53,25 @@
 .section_reward_table__element_option p {
   font: 600 var(--p-m);
   color: var(--gray);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .section_reward_table__element_option:first-child h4 {
   color: var(--gray-deep);
 }
 .section_reward_table__element_option:first-child p {
-  font: var(--p-m);
+  font: var(--h4);
   color: var(--gray-deep);
+  text-align: center;
+}
+
+.section_reward_table__element_option:last-child h4 {
+  color: var(--yellow);
+}
+.section_reward_table__element_option:last-child p {
+  font: var(--h4);
+  color: var(--yellow);
+  text-align: center;
 }

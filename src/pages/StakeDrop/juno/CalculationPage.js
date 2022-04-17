@@ -405,8 +405,8 @@ export default function JunoCalculationPage() {
                       </div>
                     )}
                   </div>
-                  <div className="section_calculation__error_element">
-                    {a === false && (
+                  {a === false && (
+                    <div className="section_calculation__error_element">
                       <button
                         onClick={handleMagicTransaction}
                         className="section_calculation__error_element__button"
@@ -425,8 +425,8 @@ export default function JunoCalculationPage() {
                           }[MTButtonText]
                         }
                       </button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               )}
               <div className="section_calculation__result">

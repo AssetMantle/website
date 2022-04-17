@@ -127,6 +127,7 @@ export const AirdropContainer = styled.main`
               border: none;
               outline: none;
               font-size: 24px;
+              cursor: pointer;
               &:hover {
                 & + span {
                   display: flex;

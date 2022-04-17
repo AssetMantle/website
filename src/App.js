@@ -11,6 +11,7 @@ import HeaderASAO from "./layout/HeaderASAO";
 import RouteNotFound from "./components/RouteNotFound";
 import Airdrop from "./pages/Airdrop";
 import StakeDrop from "./pages/StakeDrop";
+import OsmosisClaimPage from "./pages/claim/OsmosisClaimPage";
 
 import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 import PersistenceCalculationPage from "./pages/StakeDrop/persistence/CalculationPage";
@@ -23,9 +24,8 @@ const App = () => {
   const location = useLocation();
 
   // changing header
-  const CURRENT_VERSION = process.env.REACT_APP_VERSION
-  if (localStorage.getItem("VERSION") !== CURRENT_VERSION){
-
+  const CURRENT_VERSION = process.env.REACT_APP_VERSION;
+  if (localStorage.getItem("VERSION") !== CURRENT_VERSION) {
     localStorage.clear();
     localStorage.setItem("VERSION", CURRENT_VERSION);
     window.location.reload();
@@ -72,6 +72,10 @@ const App = () => {
     {
       component: StargazeCalculationPage,
       path: "/stakedrop/stargaze",
+    },
+    {
+      component: OsmosisClaimPage,
+      path: "/osmosis-claim",
     },
   ];
 

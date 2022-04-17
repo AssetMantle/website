@@ -3,10 +3,13 @@ import { useTranslation } from "react-i18next";
 
 import { AirdropContainer } from "../../styles/pages/airdropStyle";
 
+import { HiOutlineInformationCircle } from "react-icons/hi";
+
 import airDropData from "../../data/airdropData.json";
 import LPModal from "./LPModal";
 import MetaMaskModal from "./MetaMaskModal";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import TAndCModal from "../claim/TAndCModal";
+import OsmoIModal from "./OsmoIModal";
 
 // const chainIDs = require("../../data/chain.json");
 
@@ -17,12 +20,14 @@ export default function Airdrop() {
   const [OsmoAddress, setOsmoAddress] = useState();
 
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
+  const [TAndC, setTAndC] = useState(false);
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
   const [MetaMaskAddress, setMetaMaskAddress] = useState();
 
   const [MetaMaskCalculatedDATA, setMetaMaskCalculatedDATA] = useState();
-  console.log(KeplrCalculatedDATA, MetaMaskCalculatedDATA);
+
+  const [OsmoIModalState, setOsmoIModalState] = useState(false);
 
   // const [Total, setTotal] = useState(0);
 
@@ -125,10 +130,12 @@ export default function Airdrop() {
               <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_1")}</h3>
               <div className="section_drop__element_details__hover">
                 <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</p>
-                <button>
+                <button onClick={() => setOsmoIModalState(true)}>
                   <HiOutlineInformationCircle />
                 </button>
-                <span>{t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}</span>
+                {/* <span>
+                  {t("AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_1")}
+                  </span> */}
               </div>
             </div>
             <div className="section_drop__element_value">
@@ -136,7 +143,12 @@ export default function Airdrop() {
               <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1")}</h4>
             </div>
             <div className="section_drop__button">
-              {OsmoAddress ? undefined : (
+              {OsmoAddress ? (
+                KeplrCalculatedDATA &&
+                KeplrCalculatedDATA.allocation && (
+                  <button onClick={() => setTAndC(true)}>Claim</button>
+                )
+              ) : (
                 <button onClick={() => setLPModalStat(true)}>
                   Check Eligibility
                 </button>
@@ -466,6 +478,8 @@ export default function Airdrop() {
             setMetaMaskWallet={setMetaMaskAddress}
           />
         )}
+        {TAndC === true && <TAndCModal closeModal={setTAndC} />}
+        {OsmoIModalState && <OsmoIModal closeModal={setOsmoIModalState} />}
       </AirdropContainer>
     </>
   );

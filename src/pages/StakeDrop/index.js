@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React 
+// , { useEffect, useState }
+ from "react";
 import ReactPlayer from "react-player";
 import { StakeDropContainer } from "../../styles/pages/stakeDropStyle";
 import { useTranslation } from "react-i18next";
@@ -6,109 +8,44 @@ import { useTranslation } from "react-i18next";
 import UList from "../../components/UList";
 import UList2 from "../../components/UList2";
 import Details from "../../components/Details";
+import MantleDropClaim from "../claim/MantleDropClaim";
 // import { calculateFee } from "@cosmjs/stargate";
 
 export default function StakeDrop() {
   const { t } = useTranslation();
 
-  function countAnswer(data) {
-    var counter = 0;
-    data.forEach((dd) => {
-      if (dd.correct) {
-        counter++;
-      }
-    });
-    return counter;
-  }
-
   // checking calculating cosmos reward
-  const [cosmosDropStats, setCosmosDropStats] = useState({
+  const cosmosDropStats={
     isCompleted: true,
     rewardLine1: "--",
     rewardLine2: 0,
-  });
-  const [cosmosCorrectAnswers, setCosmosCorrectAnswers] = useState();
-  const [CosmosCheckingState, setCosmosCheckingState] = useState(0);
-  const [CosmosAddress, setCosmosAddress] = useState(0);
-  const cosmosChainID = "cosmoshub-4";
-  const handleCosmosConnect = async () => {
-    if (window.keplr) {
-      setCosmosCheckingState(1);
-      let offlineSigner = window.keplr.getOfflineSigner(cosmosChainID);
-      let accounts = await offlineSigner.getAccounts();
-      const account = accounts[0].address;
-      setCosmosAddress(account);
-      setCosmosCheckingState(2);
-    } else {
-      window.alert("Please install Keplr to move forward with the task.");
-      setCosmosCheckingState(5);
-    }
   };
 
-  useEffect(() => {
-    if (CosmosCheckingState === 2) {
-      setCosmosCheckingState(3);
-      fetch(
-        `https://cosmos-stakedrop.assetmantle.one/delegator/${CosmosAddress}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setCosmosDropStats({
-              isCompleted: true,
-              rewardLine1: data.received,
-            });
-            setCosmosCheckingState(3);
-            fetch(
-              `https://cosmos-stakedrop.assetmantle.one/qna/${CosmosAddress}`
-            )
-              .then((res) => res.json())
-              .then((data) => {
-                setCosmosCorrectAnswers(countAnswer(data.qaData));
-                setCosmosCheckingState(4);
-              });
-          } else if (data.success.toString() === "false") {
-            setCosmosCheckingState(4);
-            setCosmosDropStats({
-              isCompleted: true,
-              rewardLine1: "You didn't participate in this campaign!",
-            });
-          } else {
-            setCosmosCheckingState(5);
-          }
-        });
-    }
-  }, [CosmosCheckingState, CosmosAddress]);
-
-  const cosmosCalculation =
-    Number(cosmosDropStats.rewardLine1) *
-    (0.6 + (0.4 * cosmosCorrectAnswers) / 18);
-
-  const [persistenceDropStats, setPersistenceDropStats] = useState({
+  const persistenceDropStats={
     isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
-  });
-  const [terraDropStats, setTerraDropStats] = useState({
+  };
+  const terraDropStats={
     isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
-  });
-  const [comdexDropStats, setComdexDropStats] = useState({
+  };
+  const comdexDropStats={
     isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
-  });
-  const [junoDropStats, setJunoDropStats] = useState({
+  };
+  const junoDropStats={
     isCompleted: true,
     rewardLine1: 1234,
     rewardLine2: 12345,
-  });
-  const [stargazeDropStats, setStargazeDropStats] = useState({
+  };
+  const stargazeDropStats={
     isCompleted: true,
     rewardLine1: 124,
     rewardLine2: 85748983,
-  });
+  };
 
   const whatIsLIST = [
     t("STAKEDROP_WHAT_IS_STAKEDROP_LI_1"),
@@ -266,22 +203,7 @@ export default function StakeDrop() {
             />
           </div>
         </section>
-        <section className="section_whatIs">
-          <h1>{t("STAKEDROP_WHAT_IS_STAKEDROP_TITLE")}</h1>
-          <p>{t("STAKEDROP_WHAT_IS_STAKEDROP_DESCRIPTION")}</p>
-          <div className="section_whatIs__element">
-            <img
-              src="/images/stakedrop/double_coin.png"
-              alt="double coin illustration"
-            />
-            <UList data={whatIsLIST}></UList>
-          </div>
-        </section>
-        <section className="section_howItWorks">
-          <h2>{t("STAKEDROP_HOW_IT_WORKS_TITLE")}</h2>
-          <p>{t("STAKEDROP_HOW_IT_WORKS_DESCRIPTION")}</p>
-          <UList2 data={howItWorksLIST}></UList2>
-        </section>
+        <MantleDropClaim />
         <section className="section_availableStakeDrop">
           <h2>{t("STAKEDROP_AVAILABLE_STAKEDROP_TITLE")}</h2>
           <div className="section_availableStakeDrop__body">
@@ -303,7 +225,7 @@ export default function StakeDrop() {
                       ? stargazeDropStats.isCompleted && "completed2"
                       : ""
                   } ${
-                    data.name.includes("Junoe") || data.name.includes("Stargazes")
+                    data.name.includes("Junos") || data.name.includes("Stargazes")
                       ? "active"
                       : "comingSoon"
                   }`} //remove the last logic
@@ -410,9 +332,9 @@ export default function StakeDrop() {
                           {data.name.includes("Cosmos")
                             ? cosmosDropStats.rewardLine1 !==
                               "You didn't participate in this campaign!"
-                              ? isNaN(cosmosCalculation)
+                              ? isNaN(0)
                                 ? `0 $MNTL`
-                                : `${cosmosCalculation} $MNTL`
+                                : `$0 $MNTL`
                               : "You didn't participate in this campaign!"
                             : undefined}{" "}
                           {/* {cosmosCorrectAnswers} */}
@@ -436,23 +358,10 @@ export default function StakeDrop() {
                     </div>
                     <div className="section_availableStakeDrop__body_element__claim_button">
                       <button
-                        onClick={handleCosmosConnect}
-                        disabled={
-                          CosmosCheckingState === 0 || CosmosCheckingState === 4
-                            ? false
-                            : true
-                        }
+                        
                       >
-                        {data.name.includes("Cosmos")
-                          ? {
-                              0: "Check",
-                              1: "Connecting Wallet",
-                              2: "Wallet Connected",
-                              3: "Calculating Rewards",
-                              4: "Calculated",
-                              5: "Failed - Retry",
-                            }[CosmosCheckingState]
-                          : // : data.name.includes("Persistence")
+                        Check
+                           {/* // : data.name.includes("Persistence")
                             // ? persistenceDropStats.rewardLine2
                             // : data.name.includes("Terra")
                             // ? terraDropStats.rewardLine2
@@ -462,7 +371,7 @@ export default function StakeDrop() {
                             // ? junoDropStats.rewardLine2
                             // : data.name.includes("Stargaze")
                             // ? stargazeDropStats.rewardLine2
-                            ""}
+                            ""} */}
                       </button>
                     </div>
                   </div>
@@ -470,6 +379,22 @@ export default function StakeDrop() {
               ))
             )}
           </div>
+        </section>
+        <section className="section_whatIs">
+          <h1>{t("STAKEDROP_WHAT_IS_STAKEDROP_TITLE")}</h1>
+          <p>{t("STAKEDROP_WHAT_IS_STAKEDROP_DESCRIPTION")}</p>
+          <div className="section_whatIs__element">
+            <img
+              src="/images/stakedrop/double_coin.png"
+              alt="double coin illustration"
+            />
+            <UList data={whatIsLIST}></UList>
+          </div>
+        </section>
+        <section className="section_howItWorks">
+          <h2>{t("STAKEDROP_HOW_IT_WORKS_TITLE")}</h2>
+          <p>{t("STAKEDROP_HOW_IT_WORKS_DESCRIPTION")}</p>
+          <UList2 data={howItWorksLIST}></UList2>
         </section>
         <section className="section_explanation">
           <h3>{t("STAKEDROP_EXPLANATION_TITLE")}</h3>
