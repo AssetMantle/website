@@ -77,7 +77,7 @@ const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
 // this function is handling the delegate amount
 const OsmosisStakeForm = ({
   closeModal,
-  image = "/images/airdrop/dark.png",
+  image = "/images/airdrop/dark_s.png",
   name = "",
   website = "--",
   commission = 0,
@@ -175,7 +175,7 @@ const OsmosisStakeForm = ({
                 onChange={(e) => setAmount(e.target.value)}
               />
               <button onClick={handleMax}>max</button>
-              <span>$MNTL</span>
+              <span><img src="/images/airdrop/dark_s.png" alt="token illustration dark" />$MNTL</span>
             </div>
           </div>
           {Amount !== null || Amount !== undefined || Amount !== "" ? (
@@ -554,6 +554,14 @@ const StakeFormContainer = styled.div`
                 color: var(--gray);
                 padding: 8px 12px;
                 font: 600 var(--p-s);
+                display: flex;
+                align-items: center;
+                gap:5px;
+                img {
+                  width: 16px;
+                  height: auto;
+
+                }
               }
               &.error {
                 border: 1px solid red;

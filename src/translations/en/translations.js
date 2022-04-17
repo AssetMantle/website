@@ -244,6 +244,7 @@ const English = {
     AIRDROP: "Airdrop",
     AND: "and",
     CHECK_ELIGIBILITY: "Check Eligibility",
+    CHECK_NOW: "Check Now",
     CLAIM: "Claim",
     COMING_SOON: "Coming Soon",
     COMPLETED: "Completed",
