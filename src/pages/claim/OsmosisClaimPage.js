@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
+
 import OsmosisStakeModal from "./OsmosisStake";
 import { getKeplrWallet } from "./utils/keplr";
 const config = require("./config.json");
@@ -29,8 +30,7 @@ export default function OsmosisClaimPage() {
       console.log("Account: ", account);
       setKeplrConnectionState(1);
       setAddress(account);
-      setKeplrConnectionState(2);
-
+      
       // Osmosis address
       let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
         OsmosisChainID
@@ -38,6 +38,7 @@ export default function OsmosisClaimPage() {
       let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
       const OsmosisAccount = OsmosisAccounts[0].address;
       setOsmosisAddress(OsmosisAccount);
+      setKeplrConnectionState(2);
 
       // fetching data from backend
       fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
