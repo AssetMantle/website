@@ -87,6 +87,7 @@ const HeaderContainer = styled.header`
 export const NavIcon = styled.div`
   z-index: 100;
   margin: 15px 20px;
+  cursor: pointer;
   /* width: 20px;
   height: 22px; */
 `;
