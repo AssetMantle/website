@@ -193,7 +193,9 @@ export default function OsmosisClaimPage() {
           >
             <div className="section_overview__element">
               <p>$MNTL Staking APR</p>
-              <h4>{apr}</h4>
+              <h4>{Number(apr).toLocaleString("en-US", {
+                maximumFractionDigits: 4,
+              })}</h4>
             </div>
           </a>
           <a
