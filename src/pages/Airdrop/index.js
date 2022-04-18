@@ -225,6 +225,12 @@ export default function Airdrop() {
               </section>
             ) : undefined}
           </div>
+        </section>
+        <section className="section_drop">
+          <div className="section_drop__heading">
+            <h3>{t("CHECK_NOW")}</h3>
+            <hr />
+          </div>
           <div className="section_drop__element">
             <div className="section_drop__element_details">
               <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2")}</h3>
@@ -309,69 +315,6 @@ export default function Airdrop() {
           </div>
         </section>
         <section className="section_wallets">
-          <>
-            {/* <p>{t("AIRDROP_WALLETS_OPTION_1_TITLE")}</p>
-        <div className="section_wallets__buttons">
-          <div
-            className="section_wallets__buttons_button"
-            onClick={handleKeplrConnect}
-          >
-            <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-            <span>{`${
-              { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
-                KeplrConnectionState
-              ]
-            } Kepler`}</span>
-          </div>
-          <div
-            className="section_wallets__buttons_button"
-            onClick={handleMetamaskConnect}
-          >
-            <img src="/images/airdrop/MetaMask.png" alt="Metamask icon" />
-            <span>{`${
-              { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
-                MetaMaskConnectionState
-              ]
-            } Metamask`}</span>
-          </div>
-        </div> */}
-            {/*{AllWallets &&
-          React.Children.toArray(
-            AllWallets.map((data) => (
-              <div className="section_wallets__form">
-                <div className="section_wallets__form_input">
-                  <input
-                    type="text"
-                    value={data}
-                    onChange={(e) =>
-                      (AllWallets[AllWallets.indexOf(data)] = e.target.value)
-                    }
-                    placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-                  />
-                  <img src="/images/airdrop/plus.png" alt="add" />
-                </div>
-              </div>
-            ))
-          )}
-        <p>{t("OR")}</p>
-        <p>{t("AIRDROP_WALLETS_OPTION_2_TITLE")}</p>
-        <div className="section_wallets__form">
-          <div className="section_wallets__form_input">
-            <input
-              type="text"
-              id="inputWalletAddress"
-              onChange={(e) => setInputWallet(e.target.value)}
-              placeholder={t("AIRDROP_WALLETS_OPTION_2_PLACEHOLDER")}
-            />
-            <img
-              onClick={handleAddInputField}
-              src="/images/airdrop/plus.png"
-              alt="add"
-            />
-          </div>
-          <button onClick={handleClick}>{t("CHECK_ELIGIBILITY")}</button>
-        </div>*/}
-          </>
         </section>
         {KeplrCalculatedDATA || MetaMaskCalculatedDATA ? (
           <>
