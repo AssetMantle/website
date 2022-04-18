@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ButtonPrimary,
+  // ButtonPrimary,
   ButtonSecondary
 } from "../components/Buttons";
 
@@ -58,18 +58,18 @@ function Header({ theme = false, setTheme }) {
             </div>
           )}
           <div className="header__right_second__nav_buttons">
-            {DATA.headerButtons.primary.visibility && (
-              <ButtonPrimary
+              <ButtonSecondary
                 text="MantleWallet"
                 href="https://wallet.assetmantle.one/"
               />
-            )}
-            {DATA.headerButtons.secondary.visibility && (
               <ButtonSecondary
                 text="MantleExplorer"
                 href="https://explorer.assetmantle.one/"
               />
-            )}
+              <ButtonSecondary
+                text="MantleDrop"
+                href="https://airdrop.assetmantle.one/"
+              />
           </div>
         </div>
         <NavIcon
