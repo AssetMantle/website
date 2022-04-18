@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import axios from "axios";
+
 
 // import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
@@ -9,6 +11,7 @@ import { getKeplrWallet } from "./utils/keplr";
 const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
+  const [apr,setApr] = useState(0);
   const [Address, setAddress] = useState();
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
@@ -23,6 +26,34 @@ export default function OsmosisClaimPage() {
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const MNTLchainId = config.mainNetChainID;
   const OsmosisChainID = "osmosis-1";
+
+  useEffect(async () =>{
+    const total_supply = "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
+    const imflation = "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
+    const bondedAmount = "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
+
+    function getAPR() {
+      return axios.all([
+        axios.get(total_supply),
+        axios.get(imflation),
+        axios.get(bondedAmount)
+      ]).then(axios.spread((totalSupply, inflation, bondedAmount) => {
+        totalSupply = (totalSupply.data.supply[0].amount);
+        inflation = (inflation.data.inflation);
+        bondedAmount = (bondedAmount.data.pool.bonded_tokens);
+        return((inflation * totalSupply * 100) / bondedAmount);
+      })).catch(error => {
+        return 0;
+        console.log(error);
+      });
+    }
+    async function getApr(){
+      const ap = await getAPR();
+      setApr(ap);
+    }
+    getApr()
+  })
+
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       // $MNTL address
@@ -162,11 +193,11 @@ export default function OsmosisClaimPage() {
           >
             <div className="section_overview__element">
               <p>$MNTL Staking APR</p>
-              <h4>N/A</h4>
+              <h4>{apr}</h4>
             </div>
           </a>
           <a
-            href="a"
+            href="#"
             onClick={(e) => e.preventDefault()}
             target="_blank"
             rel="noopener noreferrer"

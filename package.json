@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.26.1",
     "bootstrap": "^4.6.0",
     "cosmjs-types": "^0.4.1",
     "dotenv-cli": "^5.1.0",
