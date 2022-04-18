@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ButtonPrimary,
-  // ButtonSecondary
+  ButtonSecondary
 } from "../components/Buttons";
 
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
