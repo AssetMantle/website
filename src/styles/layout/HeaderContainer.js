@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
-  max-width: 1440px;
+  width: min(1440px, 100%);
   background-color: var(--darkT);
   margin: 0 auto;
   display: flex;
@@ -14,7 +14,8 @@ const HeaderContainer = styled.header`
   right: 0;
   padding: 20px 92px 20px;
   z-index: 300;
-  @media (max-width: 768px) {
+  overflow: hidden;
+  @media (max-width: 1024px) {
     padding: 19px 40px;
   }
   @media (max-width: 548px) {
@@ -74,6 +75,9 @@ const HeaderContainer = styled.header`
           justify-content: center;
           gap: 24px;
           padding-left: 37px;
+          @media (max-width: 1024px) {
+            gap: 12px;
+          }
         }
       }
     }

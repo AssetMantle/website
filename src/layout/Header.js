@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  ButtonPrimary,
-  ButtonSecondary
-} from "../components/Buttons";
+import { ButtonSecondary } from "../components/Buttons";
 
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
@@ -58,18 +55,18 @@ function Header({ theme = false, setTheme }) {
             </div>
           )}
           <div className="header__right_second__nav_buttons">
-            {DATA.headerButtons.primary.visibility && (
-              <ButtonPrimary
+              <ButtonSecondary
                 text="MantleWallet"
                 href="https://wallet.assetmantle.one/"
               />
-            )}
-            {DATA.headerButtons.secondary.visibility && (
               <ButtonSecondary
                 text="MantleExplorer"
                 href="https://explorer.assetmantle.one/"
               />
-            )}
+              <ButtonSecondary
+                text="MantleDrop"
+                href="https://airdrop.assetmantle.one/"
+              />
           </div>
         </div>
         <NavIcon
