@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 export default function TAndCModal({ closeModal }) {
+  const modalBody = useRef();
+  const scrollBottomButton = useRef();
+
   return (
     <>
       <Container>
@@ -13,7 +16,7 @@ export default function TAndCModal({ closeModal }) {
               <span className="yellow">ASSETMANTLE</span> AIRDROP CAMPAIGN
               PARTICIPATION TERMS AND CONDITIONS (T&Cs)
             </h2>
-            <div className="modal_container__body">
+            <div className="modal_container__body" ref={modalBody}>
               <div className="modal_container__body_dis">
                 IN THESE TERMS, WORDS AND EXPRESSIONS NOT OTHERWISE DEFINED
                 SHALL, WHERE NOT INCONSISTENT WITH THE CONTEXT, HAVE THE
@@ -1612,9 +1615,17 @@ export default function TAndCModal({ closeModal }) {
               </ol>
 
               <div className="modal_container__body_scrollDown">
-                <a href="#acceptDeny">
+                <button
+                  ref={scrollBottomButton}
+                  onClick={() =>
+                    modalBody.current.scrollTo(
+                      0,
+                      modalBody.current.scrollHeight
+                    )
+                  }
+                >
                   <AiOutlineArrowDown />
-                </a>
+                </button>
               </div>
 
               <div className="modal_container__button" id="acceptDeny">
@@ -1734,22 +1745,26 @@ const Container = styled.div`
         align-items: center;
         justify-content: center;
         margin-left: auto;
-        a {
+        button {
           color: var(--yellow);
           text-decoration: none;
           position: relative;
           padding-top: 2px;
+          background: transparent;
+          border: none;
+          outline: none;
+          font: var(--p-m);
           &::before {
             content: "Scroll to bottom";
             position: absolute;
-            top: -260%;
-            left: -700%;
+            top: -190%;
+            left: -530%;
             font: var(--p-s);
             background-color: var(--dark-s);
             padding: 12px 15px;
             border-radius: 12px;
             width: max-content;
-            display:none;
+            display: none;
           }
           &:hover {
             &::before {
