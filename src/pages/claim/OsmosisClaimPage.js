@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 // import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
+
 import OsmosisStakeModal from "./OsmosisStake";
-import {getKeplrWallet} from "./utils/keplr";
-const config = require('./config.json');
+import { getKeplrWallet } from "./utils/keplr";
+const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
   const [Address, setAddress] = useState();
-  const [Bar, setBar] = useState(60);
+  const [OsmosisAddress, setOsmosisAddress] = useState();
+  const [Bar, setBar] = useState(0);
   const [StakeModal, setStakeModal] = useState(false);
   const [Response, setResponse] = useState({
     success: false,
@@ -19,17 +21,27 @@ export default function OsmosisClaimPage() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const chainId = config.mainNetChainID;
+  const MNTLchainId = config.mainNetChainID;
+  const OsmosisChainID = "osmosis-1";
   const handleKeplrConnect = async () => {
     if (window.keplr) {
+      // $MNTL address
       const [offlineSigner, account] = await getKeplrWallet();
       console.log("Account: ", account);
       setKeplrConnectionState(1);
       setAddress(account);
+      
+      // Osmosis address
+      let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
+        OsmosisChainID
+      );
+      let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
+      const OsmosisAccount = OsmosisAccounts[0].address;
+      setOsmosisAddress(OsmosisAccount);
       setKeplrConnectionState(2);
 
       // fetching data from backend
-      fetch(`https://airdrop-data.assetmantle.one/keplr/${account}`)
+      fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success.toString() === "true") {
@@ -72,7 +84,6 @@ export default function OsmosisClaimPage() {
   };
 
   // connect bar
-
   const BarContainer = styled.div`
     width: 100%;
     height: 12px;
@@ -107,6 +118,22 @@ export default function OsmosisClaimPage() {
           </button>
         </section>
 
+        {Address && (
+          <section className="section_address">
+            <h2>Addresses:</h2>
+            <div className="section_address__address">
+              <p>
+                <strong>Osmosis: </strong><br />
+                {OsmosisAddress}
+              </p>
+              <p>
+                <strong>AssetMantle: </strong><br />
+                {Address}
+              </p>
+            </div>
+          </section>
+        )}
+
         <section className="section_progress">
           <div className="section_progress__line_1">
             <h2>Your Progress</h2>
@@ -120,7 +147,10 @@ export default function OsmosisClaimPage() {
         <section className="section_overview">
           <div className="section_overview__element">
             <p>Claimed</p>
-            <h4>0 / {Response && Response.allocation ? Response.allocation : "--"} $MNTL</h4>
+            <h4>
+              0 / {Response && Response.allocation ? Response.allocation : "--"}{" "}
+              $MNTL
+            </h4>
           </div>
           <a
             href="a"
@@ -130,7 +160,7 @@ export default function OsmosisClaimPage() {
           >
             <div className="section_overview__element">
               <p>$MNTL Staking APR</p>
-              <h4>105.27%</h4>
+              <h4>N/A</h4>
             </div>
           </a>
           <a
@@ -140,9 +170,8 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              {/* <p>STARS/OSMO LP APR</p>
-            <h4>201.35%</h4> */}
-              <h4>Coming soon.</h4>
+              <p>Total Participants</p>
+              <h4>N/A</h4>
             </div>
           </a>
           <a
@@ -152,15 +181,19 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              {/* <p>STARS/ATOM LP APR</p>
-            <h4>256.15%</h4> */}
-              <h4>Coming soon.</h4>
+              <p>Distribution Left</p>
+              <h4>
+                {Number(30000000).toLocaleString("en-US", {
+                  maximumFractionDigits: 2,
+                })}
+                {` $MNTL`}
+              </h4>
             </div>
           </a>
         </section>
 
         <section className="section_mission">
-          <h2>My Missions</h2>
+          <h2>My Missions (Coming Soon)</h2>
           <div className="section_mission__container">
             <div className="section_mission__container_mission">
               {" "}
@@ -170,7 +203,7 @@ export default function OsmosisClaimPage() {
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={Address ? false : true}
+                disabled={true}
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
@@ -186,7 +219,7 @@ export default function OsmosisClaimPage() {
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={Address ? false : true}
+                disabled={true}
                 className="section_mission__container_mission__button"
                 onClick={() => setStakeModal(true)}
               >
@@ -216,7 +249,7 @@ export default function OsmosisClaimPage() {
                 disabled={true}
                 className="section_mission__container_mission__button"
               >
-                Claim
+                Provide
               </button>
               {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
@@ -229,7 +262,7 @@ export default function OsmosisClaimPage() {
                 disabled={true}
                 className="section_mission__container_mission__button"
               >
-                Claim
+                Mint
               </button>
               {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
             </div>
@@ -276,8 +309,9 @@ export default function OsmosisClaimPage() {
               </div>
             </div>
             <br />
+            <h4>Snapshot Date <AiOutlineArrowRight /> <span>15 February, 2022</span></h4>
             <h4>
-              Maximum Allocation per wallet <AiOutlineArrowRight /> 750 $MNTL
+              Maximum Allocation per wallet <AiOutlineArrowRight /> <span>750 $MNTL</span>
             </h4>
           </div>
         </section>
@@ -352,6 +386,29 @@ const Container = styled.main`
         }
       }
     }
+    &_address {
+      padding: 24px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--gray);
+      &__address {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      p {
+        font: var(--p-m);
+        color: var(--gray-deep);
+        word-wrap: break-word;
+        strong {
+          font: 600 var(--p-m);
+          color: var(--gray);
+        }
+      }
+    }
     &_progress {
       &__line_1 {
         display: flex;
@@ -410,6 +467,7 @@ const Container = styled.main`
       h2 {
         font: var(--h2);
         color: var(--gray);
+        color: var(--yellow);
         padding: 24px 0;
       }
       &__container {
@@ -516,6 +574,9 @@ const Container = styled.main`
       }
       h4 {
         font: var(--h4);
+        span{
+          color: var(--yellow);
+        }
         /* padding: 40px 0 24px; */
       }
       var {
