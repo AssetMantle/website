@@ -148,7 +148,9 @@ export default function OsmosisClaimPage() {
           <div className="section_overview__element">
             <p>Claimed</p>
             <h4>
-              0 / {Response && Response.allocation ? Response.allocation : "--"}{" "}
+              0 / {Response && Response.allocation ? Number(Response.allocation).toLocaleString("en-US", {
+                maximumFractionDigits: 4,
+              }) : "--"}{" "}
               $MNTL
             </h4>
           </div>
