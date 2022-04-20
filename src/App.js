@@ -7,35 +7,33 @@ import "./styles/App.css";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-import { HeaderSecondary } from "./layout/HeaderSecondary";
-import HeaderASAO from "./layout/HeaderASAO";
+// import { HeaderSecondary } from "./layout/HeaderSecondary";
+// import HeaderASAO from "./layout/HeaderASAO";
 
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
+import About from "./pages/About/";
 import Pricing from "./pages/Pricing";
 import WhatsAnNFT from "./pages/WhatsAnNFT";
-import Airdrop from "./pages/Airdrop";
-import StakeDrop from "./pages/StakeDrop";
-import CosmosCalculationPage from "./pages/StakeDrop/CosmosCalculationPage";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
   // taking header to show from useEffect
-  const [header, setHeader] = useState(1);
+  // const [header, setHeader] = useState(1);
 
   const location = useLocation();
 
   // changing header
-  useEffect(() => {
-    setHeader(
-      location.pathname === "/"
-        ? 1
-        : window.location.href.includes("airdrop") ||
-          window.location.href.includes("stakedrop")
-        ? 2
-        : 0
-    );
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setHeader(
+  //     location.pathname === "/"
+  //       ? 1
+  //       : window.location.href.includes("airdrop") ||
+  //         window.location.href.includes("stakedrop")
+  //       ? 2
+  //       : 0
+  //   );
+  // }, [location.pathname]);
 
   // scrolling to top on every page change
   useEffect(() => {
@@ -60,28 +58,14 @@ const App = () => {
       path: "/whats-an-nft",
     },
     {
-      component: Airdrop,
-      path: "/airdrop",
-    },
-    {
-      component: StakeDrop,
-      path: "/stakedrop",
-    },
-    {
-      component: CosmosCalculationPage,
-      path: "/stakedrop/cosmos",
+      component: About,
+      path: "/about",
     },
   ];
 
   return (
     <div className="app">
-      {
-        {
-          0: <Header theme={theme} setTheme={setTheme} />,
-          1: <HeaderSecondary theme={theme} setTheme={setTheme} />,
-          2: <HeaderASAO />,
-        }[header]
-      }
+      <Header theme={theme} setTheme={setTheme} />
       <Switch>
         {routes.map((route) => {
           return (
