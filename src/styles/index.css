@@ -12,6 +12,7 @@
 
 :root {
   /* ------------colors----------------- */
+  --bg: rgb(4, 4, 4);
   --dark: #1e1e1e;
   --dark-m: #2c2c2c;
   --dark-s: #2e2e2e;
