@@ -24,8 +24,8 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <h2 className="footer__title">Get in touch</h2>
-      <p className="footer__details">We would love to hear from you.</p>
+      <h2 className="footer__title">Drop Us A Line</h2>
+      <p className="footer__details">Need to talk about NFTs? We would love to chat.</p>
       <div className="footer_container">
         <div className="footer_container__element">
           <div className="footer_container__element_emails">
