@@ -73,12 +73,16 @@ function Header({ theme = false, setTheme }) {
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
                         href="https://docs.assetmantle.one/AssetMantle_Whitepaper/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         Whitepaper
                       </a>
                       <a
                         href="https://docs.assetmantle.one/About_AssetMantle#what-is-assetmantle"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         What is AssetMantle
@@ -137,12 +141,16 @@ function Header({ theme = false, setTheme }) {
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
                         href="https://wallet.assetmantle.one/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         AssetMantle Wallet
                       </a>
                       <a
                         href="https://explorer.assetmantle.one/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         AssetMantle Explorer
@@ -173,6 +181,8 @@ function Header({ theme = false, setTheme }) {
                         </a>
                         <a
                           href="https://www.mintscan.io/asset-mantle"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                         >
                           Mintscan
@@ -187,6 +197,8 @@ function Header({ theme = false, setTheme }) {
                         </a>
                         <a
                           href="https://explorer.postcapitalist.io/AssetMantle"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                         >
                           Postcapitalist
@@ -206,6 +218,8 @@ function Header({ theme = false, setTheme }) {
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
                         href="https://twitter.com/AssetMantle"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -216,6 +230,8 @@ function Header({ theme = false, setTheme }) {
                       </a>
                       <a
                         href="https://discord.gg/BSdBQ4495d"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -226,6 +242,8 @@ function Header({ theme = false, setTheme }) {
                       </a>
                       <a
                         href="https://www.instagram.com/assetmantle/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -236,6 +254,8 @@ function Header({ theme = false, setTheme }) {
                       </a>
                       <a
                         href="https://t.me/assetmantlechat"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -246,6 +266,8 @@ function Header({ theme = false, setTheme }) {
                       </a>
                       <a
                         href="https://github.com/AssetMantle"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -256,6 +278,8 @@ function Header({ theme = false, setTheme }) {
                       </a>
                       <a
                         href="https://www.reddit.com/r/AssetMantle/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         <img
@@ -278,12 +302,16 @@ function Header({ theme = false, setTheme }) {
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
                         href="https://blog.assetmantle.one/2022/03/01/mntl-tokenomics-and-utility/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         Tokenomics
                       </a>
                       <a
                         href="https://airdrop.assetmantle.one/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         MantleDrop
