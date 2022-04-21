@@ -7,6 +7,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -35,6 +36,10 @@
 
   --gray: #c2c2c2;
   --gray-deep: #9d9d9d;
+
+  /* header */
+  --header-bg: rgba(4, 4, 4, 0.8);
+  --header-color: #fffdfa;
 
   /* --------------fonts---------------------- */
   --h1: bold 40px/120% "Inter", sans-serif;
