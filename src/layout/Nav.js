@@ -404,7 +404,7 @@ export default function Nav() {
 }
 
 const NavContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
