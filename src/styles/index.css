@@ -86,4 +86,17 @@ h6 {
 
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0 solid #fff;
+  border-radius: 20px;
+  background: var(--yellow);
 }
