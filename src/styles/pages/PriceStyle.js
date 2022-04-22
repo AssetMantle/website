@@ -3,17 +3,8 @@ import styled from "styled-components";
 export const PricingContainer = styled.main`
   max-width: 1440px;
   margin: 0 auto;
-  background-image: url("/images/bg/bg_assets.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
   min-height: 100vh;
   z-index: 1;
-  @media (max-width: 768px) {
-    background-image: url("/images/bg/tab_bg_assets.svg");
-  }
-  @media (max-width: 548px) {
-    background-image: url("/images/bg/m_bg_assets.svg");
-  }
   .section {
     &_amplifyNFTGame {
       display: grid;
