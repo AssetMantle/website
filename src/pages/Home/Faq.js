@@ -1,6 +1,7 @@
 import React from "react";
-import Details from "../../components/Details";
 import { useTranslation } from "react-i18next";
+import Details from "../../components/Details";
+import homeData from "../../data/homeData.json";
 
 const Faq = () => {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ const Faq = () => {
     {
       q: t("FAQ_QUESTION_3"),
       a: t("FAQ_ANSWER_3"),
+      link: homeData.faq.qas[2].link,
     },
     {
       q: t("FAQ_QUESTION_4"),
@@ -25,20 +27,36 @@ const Faq = () => {
     {
       q: t("FAQ_QUESTION_5"),
       a: t("FAQ_ANSWER_5"),
-    },
-    {
-      q: t("FAQ_QUESTION_6"),
-      a: t("FAQ_ANSWER_6"),
+      list: [
+        t("FAQ_ANSWER_5_LI_1"),
+        t("FAQ_ANSWER_5_LI_2"),
+        t("FAQ_ANSWER_5_LI_3"),
+        t("FAQ_ANSWER_5_LI_4"),
+        t("FAQ_ANSWER_5_LI_5"),
+        t("FAQ_ANSWER_5_LI_6"),
+        t("FAQ_ANSWER_5_LI_7"),
+        t("FAQ_ANSWER_5_LI_8"),
+        t("FAQ_ANSWER_5_LI_9"),
+        t("FAQ_ANSWER_5_LI_10"),
+        t("FAQ_ANSWER_5_LI_11"),
+      ],
     },
   ];
 
   return (
     <section className="section_faq">
       <h2>{t("FAQ_TITLE")}</h2>
-      <p>{t("FAQ_DESCRIPTION")}</p>
+      {/* <p>{t("FAQ_DESCRIPTION")}</p> */}
       {FAQ &&
         React.Children.toArray(
-          FAQ.map((faq) => <Details title={faq.q} details={faq.a} />)
+          FAQ.map((faq) => (
+            <Details
+              title={faq.q}
+              details={faq.a}
+              list={faq.list && faq.list}
+              link={faq.link && faq.link}
+            />
+          ))
         )}
     </section>
   );
