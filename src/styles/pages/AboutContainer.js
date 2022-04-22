@@ -3,17 +3,8 @@ import styled from "styled-components";
 export const AboutContainer = styled.main`
   max-width: 1440px;
   margin: 0 auto;
-  background-image: url("/images/bg_assets.svg");
-  background-size: 100%;
-  background-repeat: no-repeat repeat;
   min-height: 100vh;
   z-index: 1;
-  @media (max-width: 768px) {
-    background-image: url("/images/tab_bg_assets.svg");
-  }
-  @media (max-width: 548px) {
-    background-image: url("/images/m_bg_assets.svg");
-  }
   .section {
     &_hero {
       padding: 0px 92px 0px;
