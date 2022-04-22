@@ -3,28 +3,35 @@ import { AboutContainer } from "../../styles/pages/AboutContainer";
 // import { BsFillCaretRightFill } from "react-icons/bs";
 import TeamMemberCard from "../../components/TeamMemberCard";
 import { teamMemberData } from "../../data/teamData";
+import { useTranslation } from "react-i18next";
+import aboutData from "../../data/aboutData.json";
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <AboutContainer>
       <section className="section_hero">
         <div className="section_hero__element">
-          <h1 className="section_hero__element_title">What is AssetMantle ?</h1>
+          <h1 className="section_hero__element_title">
+            {t("ABOUT_HERO_TITLE")}
+          </h1>
           <p className="section_hero__element_details">
-            AssetMantle is a one-stop NFT framework that empowers and
-            incentivizes creators and their communities to build, innovate, and
-            transact independently, and securely on the blockchain via
-            MantlePlace and MantleBuilder.
+            {t("ABOUT_HERO_DESCRIPTION")}
           </p>
         </div>
         <div className="section_hero__element">
-          <img src="/images/about/hero.png" alt="token illustration" />
+          <img src={aboutData.hero.image} alt={aboutData.hero.image_alt} />
         </div>
       </section>
       <section className="section_whyBetter">
-        <h2>Vision Of AssetMantle</h2>
-        <p>The vision is to build an open-source community-driven framework that also contributes to interNFT metadata standardization and Mantle modules for modular, interoperable, composable, and decomposable NFT integration in metaverses,  games, and art.</p>
-        <div className="section_whyBetter__image"><img src="/images/about/vision.png" alt="" /></div>
+        <h2>{t("ABOUT_VISION_TITLE")}</h2>
+        <p>
+          {t("ABOUT_VISION_DESCRIPTION")}
+        </p>
+        <div className="section_whyBetter__image">
+          <img src={aboutData.vision.image} alt={aboutData.vision.image_alt} />
+        </div>
         {/* <ul className="section_whyBetter__list">
           <li>
             <span className="li">
@@ -77,9 +84,9 @@ export default function About() {
         </ul> */}
       </section>
       <section className="section_team" id="team">
-        <h2>The Mantle team</h2>
+        <h2>{t("ABOUT_VISION_TITLE")}</h2>
         <p>
-        The Mantle team consists of some of the best minds in their respective fields.
+          {t("ABOUT_TEAM_DESCRIPTION")}
         </p>
         {/* <h3>Team</h3> */}
         <div className="section_team__container">
