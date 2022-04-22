@@ -207,32 +207,42 @@
   },
   "faq": {
     "visibility": true,
-    "title": "FAQ",
-    "description": "We know you have questions. How to get started? Is it safe? Is it flexible? Read on.",
+    "title": "Frequently Asked Questions (FAQ)",
+    "description": "",
     "qas": [
       {
-        "q": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "q": "What is an NFT?",
+        "a": "NFT stands for “Non-Fungible Token”. An NFT is an immutable token on the blockchain. It is cryptographically protected and can be treated as a digital certificate of ownership on the blockchain. NFTs on AssetMantle are part of the growing Cosmos ecosystem."
       },
       {
-        "q": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "q": "What is MantlePlace?",
+        "a": "MantlePlace is the native NFT marketplace of AssetMantle. All creators on MantlePlace are verified for authenticity in an effort to minimize instances of frauds and rug pulls."
       },
       {
-        "q": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "q": "What is MantleBuilder?",
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuidler here: https://docs.assetmantle.one/MantleBuilder_Overview",
+        "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
       },
       {
-        "q": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "q": "What is IBC Protocol?",
+        "a": "IBC stands for “Inter-Blockchain Communication”. It is an open-source protocol that allows sovereign blockchains in the Cosmos ecosystem to transfer assets and information among themselves. This empowers NFT creators and collectors to utilize their NFTs across different chains and metaverses."
       },
       {
-        "q": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
-      },
-      {
-        "q": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum",
-        "a": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "q": "What makes AssetMantle special?",
+        "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features of AssetMantle include:",
+        "list": [
+          "Open-source modules",
+          "IBC protocol enabled",
+          "Support for fractional NFTs",
+          "Negligible gas fees",
+          "Ledger hardware support",
+          "InterNFT standard",
+          "IPFS storage mechanism",
+          "Cross-chain interoperability",
+          "Support for multiple asset types",
+          "Real-world asset tokenization",
+          "... and more"
+        ]
       }
     ]
   },
