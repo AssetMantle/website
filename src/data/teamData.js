@@ -316,7 +316,7 @@ export const teamMemberData = [
       designationType: "Developer",
     },
     {
-      image: "",
+      image: "aditya.webp",
       name: "Aditya Nalini",
       designation: "NFT Strategist",
       designationType: "Developer",
