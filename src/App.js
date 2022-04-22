@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 
 // style
-import "./styles/App.css";
+import AppContainer from "./styles/AppStyle";
 
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -13,8 +13,8 @@ import Footer from "./layout/Footer";
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import About from "./pages/About/";
-import Pricing from "./pages/Pricing";
-import WhatsAnNFT from "./pages/WhatsAnNFT";
+// import Pricing from "./pages/Pricing";
+// import WhatsAnNFT from "./pages/WhatsAnNFT";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
@@ -49,14 +49,14 @@ const App = () => {
       component: Home,
       path: "/",
     },
-    {
-      component: Pricing,
-      path: "/pricing",
-    },
-    {
-      component: WhatsAnNFT,
-      path: "/whats-an-nft",
-    },
+    // {
+    //   component: Pricing,
+    //   path: "/pricing",
+    // },
+    // {
+    //   component: WhatsAnNFT,
+    //   path: "/whats-an-nft",
+    // },
     {
       component: About,
       path: "/about",
@@ -64,8 +64,12 @@ const App = () => {
   ];
 
   return (
-    <div className="app">
-      <Header theme={theme} setTheme={setTheme} />
+    <AppContainer>
+      {location.pathname === "/" ? (
+        ""
+      ) : (
+        <Header theme={theme} setTheme={setTheme} />
+      )}
       <Switch>
         {routes.map((route) => {
           return (
@@ -79,8 +83,8 @@ const App = () => {
         })}
         <Route component={RouteNotFound} />
       </Switch>
-      <Footer />
-    </div>
+      {location.pathname === "/" ? "" : <Footer />}
+    </AppContainer>
   );
 };
 
