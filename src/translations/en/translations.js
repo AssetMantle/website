@@ -1,4 +1,5 @@
 import homeData from "../../data/homeData.json";
+import aboutData from "../../data/aboutData.json";
 import pricingData from "../../data/pricingData.json";
 import whatIsNFTData from "../../data/whatIsNFT.json";
 import airDropData from "../../data/airdropData.json";
@@ -150,12 +151,34 @@ const English = {
     FAQ_ANSWER_4: homeData.faq.qas[3].a,
     FAQ_QUESTION_5: homeData.faq.qas[4].q,
     FAQ_ANSWER_5: homeData.faq.qas[4].a,
-    FAQ_QUESTION_6: homeData.faq.qas[5].q,
-    FAQ_ANSWER_6: homeData.faq.qas[5].a,
+    FAQ_ANSWER_5_LI_1: homeData.faq.qas[4].list[0],
+    FAQ_ANSWER_5_LI_2: homeData.faq.qas[4].list[1],
+    FAQ_ANSWER_5_LI_3: homeData.faq.qas[4].list[2],
+    FAQ_ANSWER_5_LI_4: homeData.faq.qas[4].list[3],
+    FAQ_ANSWER_5_LI_5: homeData.faq.qas[4].list[4],
+    FAQ_ANSWER_5_LI_6: homeData.faq.qas[4].list[5],
+    FAQ_ANSWER_5_LI_7: homeData.faq.qas[4].list[6],
+    FAQ_ANSWER_5_LI_8: homeData.faq.qas[4].list[7],
+    FAQ_ANSWER_5_LI_9: homeData.faq.qas[4].list[8],
+    FAQ_ANSWER_5_LI_10: homeData.faq.qas[4].list[9],
+    FAQ_ANSWER_5_LI_11: homeData.faq.qas[4].list[10],
 
     // Source section
     SOURCE_TITLE: homeData.source.title,
     SOURCE_DESCRIPTION: homeData.source.text,
+
+    // About Page
+    // hero section
+    ABOUT_HERO_TITLE: aboutData.hero.title,
+    ABOUT_HERO_DESCRIPTION: aboutData.hero.description,
+
+    // vision section
+    ABOUT_VISION_TITLE: aboutData.vision.title,
+    ABOUT_VISION_DESCRIPTION: aboutData.vision.vision,
+
+    // team section
+    ABOUT_TEAM_TITLE: aboutData.team.title,
+    ABOUT_TEAM_DESCRIPTION: aboutData.team.description,
 
     // Pricing Page
     // Amplify your NFT game section
