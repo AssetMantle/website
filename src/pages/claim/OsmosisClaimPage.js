@@ -305,7 +305,7 @@ export default function OsmosisClaimPage() {
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={response1.success === true && response1.initialClaim.success === false ? false : true}
+                disabled={response1.initialClaim.success}
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
@@ -321,7 +321,7 @@ export default function OsmosisClaimPage() {
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={response1.success === true && response1.stake.success === false ? false : true}
+                disabled={ response1.stake.success}
                 className="section_mission__container_mission__button"
                 onClick={() => setStakeModal(true)}
               >
@@ -335,7 +335,7 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={response1.success === true && response1.vote.success === false ? false : true}
+                disabled={ response1.vote.success}
                 className="section_mission__container_mission__button"
               >
                 Vote
