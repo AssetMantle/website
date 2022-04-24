@@ -22,6 +22,25 @@ export default function OsmosisClaimPage() {
     message: "Not eligible",
   });
 
+  const [Eligible,setEligible] = useState();
+
+  const [response1,setResponse1] = useState({
+    "success": false,
+    "address": "",
+    "initialClaim": {
+      "success": false,
+      "txHash": ""
+    },
+    "stake": {
+      "success": false,
+      "txHash": ""
+    },
+    "vote": {
+      "success": false,
+      "txHash": ""
+    }
+  });
+
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const MNTLchainId = config.mainNetChainID;
@@ -86,6 +105,34 @@ export default function OsmosisClaimPage() {
           }
         })
         .catch((err) => console.log(err));
+
+    //  Fetching claim response
+      fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success.toString() === "true") {
+              setResponse1(data);
+            } else {
+              setResponse1({
+                "success": false,
+                "address": "",
+                "initialClaim": {
+                  "success": false,
+                  "txHash": ""
+                },
+                "stake": {
+                  "success": false,
+                  "txHash": ""
+                },
+                "vote": {
+                  "success": false,
+                  "txHash": ""
+                }
+              });
+              setEligible(true)
+            }
+          })
+          .catch((err) => console.log(err));
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -113,6 +160,22 @@ export default function OsmosisClaimPage() {
     });
     console.log("Claimed Initial!..", res);
   };
+
+  useEffect(
+      () => {
+        let bar = 0;
+        if (response1.success === true && response1.initialClaim.success === true) {
+          bar += 30
+        }
+        if (response1.success === true && response1.stake.success === true) {
+          bar += 10
+        }
+        if (response1.success === true && response1.vote.success === true) {
+          bar += 10
+        }
+        setBar(bar);
+      },[response1]
+  )
 
   // connect bar
   const BarContainer = styled.div`
@@ -164,6 +227,10 @@ export default function OsmosisClaimPage() {
             </div>
           </section>
         )}
+
+        {Eligible === true && (<section className="section_notEligible" >
+          You're not eligible for this mission!
+        </section>)}
 
         <section className="section_progress">
           <div className="section_progress__line_1">
@@ -228,7 +295,7 @@ export default function OsmosisClaimPage() {
         </section>
 
         <section className="section_mission">
-          <h2>My Missions (Coming Soon)</h2>
+          <h2>My Missions</h2>
           <div className="section_mission__container">
             <div className="section_mission__container_mission">
               {" "}
@@ -238,7 +305,7 @@ export default function OsmosisClaimPage() {
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={true}
+                disabled={response1.success === true && response1.initialClaim.success === false ? false : true}
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
@@ -254,7 +321,7 @@ export default function OsmosisClaimPage() {
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={true}
+                disabled={response1.success === true && response1.stake.success === false ? false : true}
                 className="section_mission__container_mission__button"
                 onClick={() => setStakeModal(true)}
               >
@@ -268,7 +335,7 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={true}
+                disabled={response1.success === true && response1.vote.success === false ? false : true}
                 className="section_mission__container_mission__button"
               >
                 Vote
@@ -460,6 +527,12 @@ const Container = styled.main`
         }
       }
     }
+    &_notEligible {
+      padding: 24px 0;
+      color: red;
+      text-align: center;
+      font: var(--p-m);
+    }
     &_overview {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -502,7 +575,6 @@ const Container = styled.main`
       h2 {
         font: var(--h2);
         color: var(--gray);
-        color: var(--yellow);
         padding: 24px 0;
       }
       &__container {
