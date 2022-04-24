@@ -175,7 +175,13 @@ const OsmosisStakeForm = ({
                 onChange={(e) => setAmount(e.target.value)}
               />
               <button onClick={handleMax}>max</button>
-              <span><img src="/images/airdrop/dark_s.png" alt="token illustration dark" />$MNTL</span>
+              <span>
+                <img
+                  src="/images/airdrop/dark_s.png"
+                  alt="token illustration dark"
+                />
+                $MNTL
+              </span>
             </div>
           </div>
           {Amount !== null || Amount !== undefined || Amount !== "" ? (
@@ -210,7 +216,7 @@ const OsmosisStakeForm = ({
 };
 
 // below function is just fetching the table data and changing between the two the table and  the delegate form
-export default function OsmosisStakeModal({ closeModal, operatorAddress }) {
+export default function OsmosisStakeModal({ closeModal, Address }) {
   const [modal, setModal] = useState(false);
   const [modalDataIndex, setModalDataIndex] = useState(0);
   const [data, setData] = useState(null);
@@ -556,11 +562,10 @@ const StakeFormContainer = styled.div`
                 font: 600 var(--p-s);
                 display: flex;
                 align-items: center;
-                gap:5px;
+                gap: 5px;
                 img {
                   width: 16px;
                   height: auto;
-
                 }
               }
               &.error {
