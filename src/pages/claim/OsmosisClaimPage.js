@@ -110,7 +110,7 @@ export default function OsmosisClaimPage() {
       fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
           .then((res) => res.json())
           .then((data) => {
-            if (data.success.toString() === "true") {
+            if (data.success) {
               setResponse1(data);
             } else {
               setResponse1({
@@ -164,13 +164,13 @@ export default function OsmosisClaimPage() {
   useEffect(
       () => {
         let bar = 0;
-        if (response1.success === true && response1.initialClaim.success === true) {
+        if (response1.initialClaim.success) {
           bar += 30
         }
-        if (response1.success === true && response1.stake.success === true) {
+        if (response1.stake.success) {
           bar += 10
         }
-        if (response1.success === true && response1.vote.success === true) {
+        if (response1.stake.success ) {
           bar += 10
         }
         setBar(bar);
