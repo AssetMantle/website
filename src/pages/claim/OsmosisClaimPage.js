@@ -11,7 +11,7 @@ const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
   const [apr, setApr] = useState(0);
-  const [Address, setAddress] = useState();
+  const [MNTLAddress, setMNTLAddress] = useState();
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
   const [StakeModal, setStakeModal] = useState(false);
@@ -88,7 +88,7 @@ export default function OsmosisClaimPage() {
       console.log("offlineSigner: ", offlineSigner);
       console.log("Account: ", account);
       setKeplrConnectionState(1);
-      setAddress(account);
+      setMNTLAddress(account);
 
       // Osmosis address
       let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
@@ -152,7 +152,7 @@ export default function OsmosisClaimPage() {
     const pub = await window.keplr.getKey(config.mainNetChainID);
     const keplrSign = await window.keplr.signArbitrary(
       config.mainNetChainID,
-      Address,
+      MNTLAddress,
       data
     );
     const res = await fetch("https://cosmos-sakedrop.assetmantle.one/qna", {
@@ -247,7 +247,7 @@ export default function OsmosisClaimPage() {
           </button>
         </section>
 
-        {Address && (
+        {MNTLAddress && (
           <section className="section_address">
             <h2>Addresses:</h2>
             <div className="section_address__address">
@@ -259,7 +259,7 @@ export default function OsmosisClaimPage() {
               <p>
                 <strong>AssetMantle: </strong>
                 <br />
-                {Address}
+                {MNTLAddress}
               </p>
             </div>
           </section>
@@ -494,7 +494,7 @@ export default function OsmosisClaimPage() {
         </section>
       </Container>
       {StakeModal && (
-        <OsmosisStakeModal closeModal={setStakeModal} address={Address} />
+        <OsmosisStakeModal closeModal={setStakeModal} address={MNTLAddress} ClaimResponse={setClaimResponse} />
       )}
     </>
   );
