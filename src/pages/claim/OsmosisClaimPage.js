@@ -49,7 +49,7 @@ export default function OsmosisClaimPage() {
   useEffect(() => async () => {
     const total_supply =
       "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
-    const imflation =
+    const inflation =
       "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
     const bondedAmount =
       "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
@@ -58,7 +58,7 @@ export default function OsmosisClaimPage() {
       return axios
         .all([
           axios.get(total_supply),
-          axios.get(imflation),
+          axios.get(inflation),
           axios.get(bondedAmount),
         ])
         .then(
