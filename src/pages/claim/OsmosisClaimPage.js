@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-
-// import { MdDone } from "react-icons/md";
+import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
@@ -11,7 +10,7 @@ import { getKeplrWallet } from "./utils/keplr";
 const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
-  const [apr,setApr] = useState(0);
+  const [apr, setApr] = useState(0);
   const [Address, setAddress] = useState();
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
@@ -22,65 +21,75 @@ export default function OsmosisClaimPage() {
     message: "Not eligible",
   });
 
-  const [Eligible,setEligible] = useState();
+  const [NotEligible, setNotEligible] = useState();
 
-  const [response1,setResponse1] = useState({
-    "success": false,
-    "address": "",
-    "initialClaim": {
-      "success": false,
-      "txHash": ""
+  const [ClaimResponse, setClaimResponse] = useState({
+    success: false,
+    address: "",
+    initialClaim: {
+      success: false,
+      txHash: "",
     },
-    "stake": {
-      "success": false,
-      "txHash": ""
+    stake: {
+      success: false,
+      txHash: "",
     },
-    "vote": {
-      "success": false,
-      "txHash": ""
-    }
+    vote: {
+      success: false,
+      txHash: "",
+    },
   });
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const MNTLchainId = config.mainNetChainID;
+  console.log(MNTLchainId);
   const OsmosisChainID = "osmosis-1";
 
-  useEffect(async () =>{
-    const total_supply = "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
-    const imflation = "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
-    const bondedAmount = "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
+  useEffect(() => async () => {
+    const total_supply =
+      "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
+    const imflation =
+      "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
+    const bondedAmount =
+      "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
 
     function getAPR() {
-      return axios.all([
-        axios.get(total_supply),
-        axios.get(imflation),
-        axios.get(bondedAmount)
-      ]).then(axios.spread((totalSupply, inflation, bondedAmount) => {
-        totalSupply = (totalSupply.data.supply[0].amount);
-        inflation = (inflation.data.inflation);
-        bondedAmount = (bondedAmount.data.pool.bonded_tokens);
-        return((inflation * totalSupply * 100) / bondedAmount);
-      })).catch(error => {
-        return 0;
-        console.log(error);
-      });
+      return axios
+        .all([
+          axios.get(total_supply),
+          axios.get(imflation),
+          axios.get(bondedAmount),
+        ])
+        .then(
+          axios.spread((totalSupply, inflation, bondedAmount) => {
+            totalSupply = totalSupply.data.supply[0].amount;
+            inflation = inflation.data.inflation;
+            bondedAmount = bondedAmount.data.pool.bonded_tokens;
+            return (inflation * totalSupply * 100) / bondedAmount;
+          })
+        )
+        .catch((error) => {
+          return 0;
+          // console.log(error);
+        });
     }
-    async function getApr(){
+    async function getApr() {
       const ap = await getAPR();
       setApr(ap);
     }
-    getApr()
-  })
+    getApr();
+  });
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       // $MNTL address
       const [offlineSigner, account] = await getKeplrWallet();
+      console.log("offlineSigner: ", offlineSigner);
       console.log("Account: ", account);
       setKeplrConnectionState(1);
       setAddress(account);
-      
+
       // Osmosis address
       let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
         OsmosisChainID
@@ -106,33 +115,33 @@ export default function OsmosisClaimPage() {
         })
         .catch((err) => console.log(err));
 
-    //  Fetching claim response
+      //  Fetching claim response
       fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
-              setResponse1(data);
-            } else {
-              setResponse1({
-                "success": false,
-                "address": "",
-                "initialClaim": {
-                  "success": false,
-                  "txHash": ""
-                },
-                "stake": {
-                  "success": false,
-                  "txHash": ""
-                },
-                "vote": {
-                  "success": false,
-                  "txHash": ""
-                }
-              });
-              setEligible(true)
-            }
-          })
-          .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setClaimResponse(data);
+          } else {
+            setClaimResponse({
+              success: true,
+              address: "",
+              initialClaim: {
+                success: false,
+                txHash: "",
+              },
+              stake: {
+                success: false,
+                txHash: "",
+              },
+              vote: {
+                success: false,
+                txHash: "",
+              },
+            });
+            setNotEligible(true);
+          }
+        })
+        .catch((err) => console.log(err));
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -159,23 +168,49 @@ export default function OsmosisClaimPage() {
       }),
     });
     console.log("Claimed Initial!..", res);
+
+    //  Fetching claim response
+    fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAddress}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setClaimResponse(data);
+        } else {
+          setClaimResponse({
+            success: false,
+            address: "",
+            initialClaim: {
+              success: false,
+              txHash: "",
+            },
+            stake: {
+              success: false,
+              txHash: "",
+            },
+            vote: {
+              success: false,
+              txHash: "",
+            },
+          });
+          setNotEligible(true);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
-  useEffect(
-      () => {
-        let bar = 0;
-        if (response1.initialClaim.success) {
-          bar += 30
-        }
-        if (response1.stake.success) {
-          bar += 10
-        }
-        if (response1.stake.success ) {
-          bar += 10
-        }
-        setBar(bar);
-      },[response1]
-  )
+  useEffect(() => {
+    let bar = 0;
+    if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
+      bar += 30;
+    }
+    if (ClaimResponse.success && ClaimResponse.stake.success) {
+      bar += 10;
+    }
+    if (ClaimResponse.success && ClaimResponse.vote.success) {
+      bar += 10;
+    }
+    setBar(bar);
+  }, [ClaimResponse]);
 
   // connect bar
   const BarContainer = styled.div`
@@ -217,20 +252,24 @@ export default function OsmosisClaimPage() {
             <h2>Addresses:</h2>
             <div className="section_address__address">
               <p>
-                <strong>Osmosis: </strong><br />
+                <strong>Osmosis: </strong>
+                <br />
                 {OsmosisAddress}
               </p>
               <p>
-                <strong>AssetMantle: </strong><br />
+                <strong>AssetMantle: </strong>
+                <br />
                 {Address}
               </p>
             </div>
           </section>
         )}
 
-        {Eligible === true && (<section className="section_notEligible" >
-          You're not eligible for this mission!
-        </section>)}
+        {NotEligible === true && (
+          <section className="section_notEligible">
+            You're not eligible for this mission!
+          </section>
+        )}
 
         <section className="section_progress">
           <div className="section_progress__line_1">
@@ -246,9 +285,12 @@ export default function OsmosisClaimPage() {
           <div className="section_overview__element">
             <p>Claimed</p>
             <h4>
-              0 / {Response && Response.allocation ? Number(Response.allocation).toLocaleString("en-US", {
-                maximumFractionDigits: 4,
-              }) : "--"}{" "}
+              0 /{" "}
+              {Response && Response.allocation
+                ? Number(Response.allocation).toLocaleString("en-US", {
+                    maximumFractionDigits: 4,
+                  })
+                : "--"}{" "}
               $MNTL
             </h4>
           </div>
@@ -260,13 +302,15 @@ export default function OsmosisClaimPage() {
           >
             <div className="section_overview__element">
               <p>$MNTL Staking APR</p>
-              <h4>{Number(apr).toLocaleString("en-US", {
-                maximumFractionDigits: 4,
-              })}</h4>
+              <h4>
+                {Number(apr).toLocaleString("en-US", {
+                  maximumFractionDigits: 4,
+                })}
+              </h4>
             </div>
           </a>
           <a
-            href="#"
+            href="a"
             onClick={(e) => e.preventDefault()}
             target="_blank"
             rel="noopener noreferrer"
@@ -297,52 +341,75 @@ export default function OsmosisClaimPage() {
         <section className="section_mission">
           <h2>My Missions</h2>
           <div className="section_mission__container">
-            <div className="section_mission__container_mission">
-              {" "}
+            <div
+              className={`section_mission__container_mission ${
+                ClaimResponse.success &&
+                ClaimResponse.initialClaim.success &&
+                "completed"
+              }`}
+            >
               {/* add " completed" class to mark completed */}
               <div className="section_mission__container_mission__title">
                 <p>Mission #1</p>
                 <h4>Initial claim (30%)</h4>
               </div>
               <button
-                disabled={response1.initialClaim.success}
+                disabled={
+                  ClaimResponse.success && ClaimResponse.initialClaim.success
+                }
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
               >
                 Claim
               </button>
-              {/* <div className="section_mission__container_mission__done">
+              <div className="section_mission__container_mission__done">
                 <MdDone />
-              </div> */}
+              </div>
             </div>
-            <div className="section_mission__container_mission">
+            <div
+              className={`section_mission__container_mission ${
+                ClaimResponse.success &&
+                ClaimResponse.stake.success &&
+                "completed"
+              }`}
+            >
               <div className="section_mission__container_mission__title">
                 <p>Mission #2</p>
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={ response1.stake.success}
+                disabled={ClaimResponse.success && ClaimResponse.stake.success}
                 className="section_mission__container_mission__button"
                 onClick={() => setStakeModal(true)}
               >
                 Stake
               </button>
-              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
+              <div className="section_mission__container_mission__done">
+                <MdDone />
+              </div>
             </div>
-            <div className="section_mission__container_mission">
+            <div
+              className={`section_mission__container_mission ${
+                ClaimResponse.success &&
+                ClaimResponse.vote.success &&
+                "completed"
+              }`}
+            >
               <div className="section_mission__container_mission__title">
                 <p>Mission #3</p>
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={ response1.vote.success}
+                disabled={ClaimResponse.success && ClaimResponse.vote.success}
                 className="section_mission__container_mission__button"
               >
                 Vote
               </button>
-              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
+              <div className="section_mission__container_mission__done">
+                <MdDone />
+              </div>
             </div>
-            <div className="section_mission__container_mission">
+            <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
                 <p>Mission #4</p>
                 <h4>Provide liquidity to Mantle ($MNTL) pools (20%)</h4>
@@ -353,9 +420,11 @@ export default function OsmosisClaimPage() {
               >
                 Provide
               </button>
-              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
+              <div className="section_mission__container_mission__done">
+                <MdDone />
+              </div>
             </div>
-            <div className="section_mission__container_mission">
+            <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
                 <p>Mission #5</p>
                 <h4>Mint an NFT on MantlePlace (30%)</h4>
@@ -366,7 +435,9 @@ export default function OsmosisClaimPage() {
               >
                 Mint
               </button>
-              {/* <div className="section_mission__container_mission__done"><MdDone/></div> */}
+              <div className="section_mission__container_mission__done">
+                <MdDone />
+              </div>
             </div>
           </div>
         </section>
@@ -411,9 +482,13 @@ export default function OsmosisClaimPage() {
               </div>
             </div>
             <br />
-            <h4>Snapshot Date <AiOutlineArrowRight /> <span>15 February, 2022</span></h4>
             <h4>
-              Maximum Allocation per wallet <AiOutlineArrowRight /> <span>750 $MNTL</span>
+              Snapshot Date <AiOutlineArrowRight />{" "}
+              <span>15 February, 2022</span>
+            </h4>
+            <h4>
+              Maximum Allocation per wallet <AiOutlineArrowRight />{" "}
+              <span>750 $MNTL</span>
             </h4>
           </div>
         </section>
@@ -511,6 +586,12 @@ const Container = styled.main`
         }
       }
     }
+    &_notEligible {
+      padding: 24px 0;
+      color: red;
+      text-align: center;
+      font: var(--p-m);
+    }
     &_progress {
       &__line_1 {
         display: flex;
@@ -526,12 +607,6 @@ const Container = styled.main`
           color: var(--gray);
         }
       }
-    }
-    &_notEligible {
-      padding: 24px 0;
-      color: red;
-      text-align: center;
-      font: var(--p-m);
     }
     &_overview {
       display: grid;
@@ -596,33 +671,6 @@ const Container = styled.main`
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
-          &.completed {
-            border: 2px solid var(--success);
-            position: relative;
-            &::after {
-              content: "Completed";
-              color: var(--success);
-              font: 600 var(--p-s);
-              position: absolute;
-              right: 15px;
-              top: -12px;
-            }
-            &::before {
-              content: "";
-              position: absolute;
-              height: 10px;
-              width: 85px;
-              background: var(--dark-m);
-              top: -2px;
-              right: 13px;
-            }
-            .section_mission__container_mission__button {
-              opacity: 0;
-            }
-            .section_mission__container_mission__done {
-              opacity: 0;
-            }
-          }
           &__title {
             p {
               font: var(--p-s);
@@ -666,6 +714,34 @@ const Container = styled.main`
           &__done {
             color: var(--success);
             font: var(--h3);
+            display: none;
+          }
+          &.completed {
+            border: 2px solid var(--success);
+            position: relative;
+            &::after {
+              content: "Completed";
+              color: var(--success);
+              font: 600 var(--p-s);
+              position: absolute;
+              right: 15px;
+              top: -12px;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              height: 10px;
+              width: 85px;
+              background: var(--dark-m);
+              top: -2px;
+              right: 13px;
+            }
+            .section_mission__container_mission__button {
+              display: none;
+            }
+            .section_mission__container_mission__done {
+              display: flex;
+            }
           }
         }
       }
@@ -681,7 +757,7 @@ const Container = styled.main`
       }
       h4 {
         font: var(--h4);
-        span{
+        span {
           color: var(--yellow);
         }
         /* padding: 40px 0 24px; */
