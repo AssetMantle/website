@@ -14,12 +14,12 @@ const English = {
     HERO_BODY: homeData.hero.pxl,
 
     // Services section
-    SERVICES_1_TITLE: homeData.services.leftTitle,
-    SERVICES_1_DESCRIPTION: homeData.services.leftDesc,
-    SERVICES_1_BUTTONTEXT: homeData.services.leftBtnText,
-    SERVICES_2_TITLE: homeData.services.rightTitle,
-    SERVICES_2_DESCRIPTION: homeData.services.rightDesc,
-    SERVICES_2_BUTTONTEXT: homeData.services.rightBtnText,
+    SERVICES_1_TITLE: homeData.services.buildTitle,
+    SERVICES_1_DESCRIPTION: homeData.services.buildDesc,
+    SERVICES_1_BUTTONTEXT: homeData.services.buildBtnText,
+    SERVICES_2_TITLE: homeData.services.shopTitle,
+    SERVICES_2_DESCRIPTION: homeData.services.shopDesc,
+    SERVICES_2_BUTTONTEXT: homeData.services.shopBtnText,
 
     // Overview section
     OVERVIEW_TITLE: homeData.overview.title,
