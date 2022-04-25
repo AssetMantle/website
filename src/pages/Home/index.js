@@ -22,27 +22,31 @@ import Testimonial from "./Testimonial.js";
 import Faq from "./Faq.js";
 import RoadMap from "./Roadmap.js";
 import Source from "./Source.js";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
 
 export default function Home() {
   return (
     <HomeContainer>
+      <Header />
       {DATA.hero.visibility && <HeroSection />}
       {DATA.services.visibility && <ServicesSection />}
       {DATA.overview.visibility && <Overview />}
       {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
       {DATA.howItWorks.visibility && <HowItWorks />}
       {DATA.iAmSold.visibility && <IAmSold />}
-      {DATA.convincing.visibility && <NeedConvencing />}
+      {/* {DATA.convincing.visibility && <NeedConvencing />} */}
       {DATA.gettingStarted.visibility && <GettingStarted />}
       {DATA.amDif.visibility && <Difference />}
       {DATA.RoadMap.visibility && <RoadMap />}
-      {DATA.stores.visibility && <Stores />}
-      {DATA.wNFT.visibility && <WhatIsNFT />}
-      {DATA.pricing.visibility && <Pricing />}
-      {DATA.LetsAmplify.visibility && <LetsAmplify />}
-      {DATA.testimonials.visibility && <Testimonial />}
+      {/* {DATA.stores.visibility && <Stores />} */}
+      {/* {DATA.wNFT.visibility && <WhatIsNFT />} */}
+      {/* {DATA.pricing.visibility && <Pricing />} */}
+      {/* {DATA.LetsAmplify.visibility && <LetsAmplify />} */}
+      {/* {DATA.testimonials.visibility && <Testimonial />} */}
       {DATA.faq.visibility && <Faq />}
       {DATA.source.visibility && <Source />}
+      <Footer />
     </HomeContainer>
   );
 }
