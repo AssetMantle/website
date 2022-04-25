@@ -1,0 +1,195 @@
+{
+  "hero": {
+    "title": "Redefining Digital Asset Ownership",
+    "description": "Multi-Chain | Open-Source | No-Code"
+  },
+  "product": [
+    {
+      "image": "shopping.png",
+      "title": "Start Shopping",
+      "details": "Explore verified NFT collections",
+      "button": {
+        "title": "MantlePlace",
+        "href": ""
+      }
+    },
+    {
+      "image": "store.png",
+      "title": "Build Your Store",
+      "details": "Fully customizable store builder",
+      "button": {
+        "title": "MantleBuilder",
+        "href": ""
+      }
+    }
+  ],
+  "overview": {
+    "title": "Be a Mantler!  Join the community",
+    "options": [
+      {
+        "image": "gas_fee.png",
+        "title": "Gas Fees As Low As $0.01"
+      },
+      {
+        "image": "collect_bucket.png",
+        "title": "Collect From 100+ Verified Creators"
+      },
+      {
+        "image": "wallet.png",
+        "title": "Transact Securely with $MNTL"
+      }
+    ]
+  },
+  "whatIsAM": {
+    "title": "What is AssetMantle ?",
+    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
+    "list": [
+      "Open-source framework",
+      " Batch and lazy minting",
+      "Creator-centric platform",
+      "Collaborations via royalty splits",
+      "Community-first approach",
+      "Real-world asset tokenization",
+      "Interchain NFTs",
+      "No-code builder"
+    ],
+    "button": {
+      "title": "Learn More",
+      "href": ""
+    }
+  },
+  "howWorks": {
+    "title": "How it works",
+    "nav": [
+      "MantlePlace",
+      "MantleBuilder"
+    ],
+    "option": [
+      {
+        "title": "MantleBuilder",
+        "description": "MantleBuilder: Create fully customizable NFT storefront.",
+        "option": [
+          {
+            "image": "create_account.png",
+            "title": "Create Account"
+          },
+          {
+            "image": "create_store.png",
+            "title": "Create Store"
+          },
+          {
+            "image": "publish.png",
+            "title": "Publish"
+          },
+          {
+            "image": "sell.png",
+            "title": "Sell"
+          }
+        ]
+      },
+      {
+        "title": "MantlePlace",
+        "description": "MantlePlace : Buy/sell on a decentralized NFT marketplace.",
+        "option": [
+          {
+            "image": "create_account.png",
+            "title": "Create Account"
+          },
+          {
+            "image": "mint.png",
+            "title": "Mint NFTs"
+          },
+          {
+            "image": "sell.png",
+            "title": "Buy/Sell"
+          },
+          {
+            "image": "engage.png",
+            "title": "Engage"
+          }
+        ]
+      }
+    ]
+  },
+  "drop": {
+    "image": "token_ills.png",
+    "title": "MantleDrop ($MNTL Airdrop)",
+    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
+    "button": {
+      "title": "Check Airdrops",
+      "href": ""
+    }
+  },
+  "helps": {
+    "title": "How Does AssetMantle Help Creators and collectors?",
+    "description": "AssetMantle helps creators and collectors tap into the true potential of NFTs.",
+    "options": [
+      {
+        "title": "AssetMantle for Creators",
+        "image": "artist.png",
+        "list": [
+          "Build without coding",
+          "Mutable and private metadata",
+          "Negligible minting fee",
+          "Support for multiple file formats",
+          "Collaborate with split royalties",
+          "Round the clock community support"
+        ]
+      },
+      {
+        "title": "AssetMantle for Collectors",
+        "image": "illustration.png",
+        "list": [
+          "Buy from verified creators",
+          "Wallet agnosticism",
+          "Resell across blockchains",
+          "Co-own rare collectibles",
+          "Connect with creators in TradeRoom",
+          "Intuitive user experience"
+        ]
+      }
+    ]
+  },
+  "AMDiff": {
+    "title": "The AssetMantle Difference",
+    "description": "Powerful features to enhance the NFT experience for all.",
+    "options": [
+      {
+        "image": "",
+        "title": "Multi-chain access",
+        "details": "Trade NFTs on other chains or show them off across metaverses!"
+      },
+      {
+        "image": "",
+        "title": "Negligible Minting Fee",
+        "details": "Enjoy negligible minting fees and gas fees in the Cosmos ecosystem."
+      },
+      {
+        "image": "Multiple payment modes",
+        "title": "",
+        "details": "Experience AssetMantle with fiat currency, coins, or stablecoins!"
+      },
+      {
+        "image": "",
+        "title": "Complete customization",
+        "details": "Build fully customized NFT marketplaces from scratch without coding."
+      }
+    ]
+  },
+  "roadMap": {
+    "title": "Want to know more about the journey?",
+    "description": "Check out the AssetMantle roadmap",
+    "button": {
+      "title": "Roadmap",
+      "href": ""
+    }
+  },
+  "whitepaper": {
+    "title": "Need To Deep Dive Into Tech?",
+    "description": "Read the AssetMantle whitepaper",
+    "button": {
+      "title": "Whitepaper",
+      "href": ""
+    }
+  }
+}

@@ -205,29 +205,44 @@
     "title": "Hear what people have to say",
     "description": "People who have tried AssetMantle are rocking it, whether they are creators or collectors"
   },
+  "team": {
+    "visibility": true,
+    "title": "Meet The Mantle Team",
+    "description": "Meet the faces behind AssetMantle",
+    "button": {
+      "visibility": true,
+      "text": "View More",
+      "href": "/about#team"
+    }
+  },
   "faq": {
     "visibility": true,
     "title": "Frequently Asked Questions (FAQ)",
     "description": "",
     "qas": [
       {
+        "id": "what-is-an-nft",
         "q": "What is an NFT?",
         "a": "NFT stands for “Non-Fungible Token”. An NFT is an immutable token on the blockchain. It is cryptographically protected and can be treated as a digital certificate of ownership on the blockchain. NFTs on AssetMantle are part of the growing Cosmos ecosystem."
       },
       {
+        "id": "what-is-mantleplace",
         "q": "What is MantlePlace?",
         "a": "MantlePlace is the native NFT marketplace of AssetMantle. All creators on MantlePlace are verified for authenticity in an effort to minimize instances of frauds and rug pulls."
       },
       {
+        "id": "what-is-mantle-builder",
         "q": "What is MantleBuilder?",
-        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuidler here: https://docs.assetmantle.one/MantleBuilder_Overview",
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder here: ",
         "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
       },
       {
+        "id": "what-is-ibc-protocol",
         "q": "What is IBC Protocol?",
         "a": "IBC stands for “Inter-Blockchain Communication”. It is an open-source protocol that allows sovereign blockchains in the Cosmos ecosystem to transfer assets and information among themselves. This empowers NFT creators and collectors to utilize their NFTs across different chains and metaverses."
       },
       {
+        "id": "what-makes-assetmsntle-special",
         "q": "What makes AssetMantle special?",
         "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features of AssetMantle include:",
         "list": [
