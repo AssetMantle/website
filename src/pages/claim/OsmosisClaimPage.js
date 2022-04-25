@@ -123,7 +123,7 @@ export default function OsmosisClaimPage() {
             setClaimResponse(data);
           } else {
             setClaimResponse({
-              success: true,
+              success: false,
               address: "",
               initialClaim: {
                 success: false,
@@ -155,7 +155,7 @@ export default function OsmosisClaimPage() {
       MNTLAddress,
       data
     );
-    const res = await fetch("https://cosmos-sakedrop.assetmantle.one/qna", {
+    const res = await fetch("https://osmosis-airdrop.assetmantle.one/claim/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -355,7 +355,7 @@ export default function OsmosisClaimPage() {
               </div>
               <button
                 disabled={
-                  ClaimResponse.success && ClaimResponse.initialClaim.success
+                  ClaimResponse.success ? ClaimResponse.initialClaim.success : true
                 }
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
@@ -378,7 +378,7 @@ export default function OsmosisClaimPage() {
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={ClaimResponse.success && ClaimResponse.stake.success}
+                disabled={ClaimResponse.success ? ClaimResponse.stake.success : true}
                 className="section_mission__container_mission__button"
                 onClick={() => setStakeModal(true)}
               >
@@ -400,7 +400,7 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={ClaimResponse.success && ClaimResponse.vote.success}
+                disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
                 className="section_mission__container_mission__button"
               >
                 Vote
