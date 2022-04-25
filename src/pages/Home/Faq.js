@@ -8,23 +8,28 @@ const Faq = () => {
 
   const FAQ = [
     {
+      id: homeData.faq.qas[0].id,
       q: t("FAQ_QUESTION_1"),
       a: t("FAQ_ANSWER_1"),
     },
     {
+      id: homeData.faq.qas[1].id,
       q: t("FAQ_QUESTION_2"),
       a: t("FAQ_ANSWER_2"),
     },
     {
+      id: homeData.faq.qas[2].id,
       q: t("FAQ_QUESTION_3"),
       a: t("FAQ_ANSWER_3"),
       link: homeData.faq.qas[2].link,
     },
     {
+      id: homeData.faq.qas[3].id,
       q: t("FAQ_QUESTION_4"),
       a: t("FAQ_ANSWER_4"),
     },
     {
+      id: homeData.faq.qas[4].id,
       q: t("FAQ_QUESTION_5"),
       a: t("FAQ_ANSWER_5"),
       list: [
@@ -51,6 +56,7 @@ const Faq = () => {
         React.Children.toArray(
           FAQ.map((faq) => (
             <Details
+              id={faq.id}
               title={faq.q}
               details={faq.a}
               list={faq.list && faq.list}
