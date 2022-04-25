@@ -6,5 +6,5 @@
   "addressPrefix": "mantle",
   "restAPI": "https://rest.assetmantle.one",
   "tendermintRPC": "https://rpc.assetmantle.one",
-  "websiteURL": "http://explorar.assetmantle.one/transactions/"
+  "websiteURL": "https://explorer.assetmantle.one/transactions/"
 }
