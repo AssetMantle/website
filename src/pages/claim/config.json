@@ -7,5 +7,5 @@
   "restAPI": "https://rest.assetmantle.one",
   "tendermintRPC": "https://rpc.assetmantle.one",
   "websiteURL": "https://explorer.assetmantle.one/transactions",
-  "claimPageClaimEndPoint": "https://osmosis-airdrop.assetmantle.one/claim/"
+  "claimPageClaimEndPoint": "https://osmosis-airdrop.assetmantle.one/"
 }
