@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import {AiFillCaretDown} from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
 
-const Details = ({ title, details, list, link }) => {
+const Details = ({ id, title, details, list, link }) => {
   return (
     <Container tabIndex="0">
+      <span className="faq__link_span" id={id}></span>
       <summary>
         {title}
         <span>
@@ -37,6 +38,10 @@ const Container = styled.details`
   color: var(--gray-deep);
   padding: 40px 0;
   position: relative;
+  .faq__link_span {
+    position: absolute;
+    top: -80px;
+  }
   summary {
     font: 600 var(--p-m);
     display: flex;
