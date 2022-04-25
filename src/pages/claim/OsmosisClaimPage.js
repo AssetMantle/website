@@ -7,6 +7,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
 import { getKeplrWallet } from "./utils/keplr";
+import {getMantleAddress} from "./utils/convertAddress";
 const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
@@ -44,8 +45,6 @@ export default function OsmosisClaimPage() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const MNTLchainId = config.mainNetChainID;
-  console.log(MNTLchainId);
   const OsmosisChainID = "osmosis-1";
 
   // Total Participant
@@ -107,21 +106,17 @@ export default function OsmosisClaimPage() {
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
-      // $MNTL address
-      const [offlineSigner, account] = await getKeplrWallet();
-      console.log("offlineSigner: ", offlineSigner);
-      console.log("Account: ", account);
-      setKeplrConnectionState(1);
-      setMNTLAddress(account);
 
       // Osmosis address
       let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
         OsmosisChainID
       );
+      setKeplrConnectionState(1);
       let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
       const OsmosisAccount = OsmosisAccounts[0].address;
       setOsmosisAddress(OsmosisAccount);
       setKeplrConnectionState(2);
+      setMNTLAddress(getMantleAddress(OsmosisAccount));
 
       // fetching data from backend
       fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
@@ -132,7 +127,7 @@ export default function OsmosisClaimPage() {
           } else {
             setResponse({
               success: false,
-              address: account,
+              address: MNTLAddress,
               message: "Not eligible",
             });
           }
@@ -191,7 +186,6 @@ export default function OsmosisClaimPage() {
         publicKey: pub.pubKey,
       }),
     });
-    console.log("Claimed Initial!..", res);
 
     //  Fetching claim response
     fetch(`${config.claimPageClaimEndPoint}${OsmosisAddress}`)
