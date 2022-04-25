@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getKeplrWallet, getOsmosBalance, getValidators } from "./utils/keplr";
 import { delegateCoinTx } from "./utils/blockchainTransactions";
 import config from "./config.json";
+const CommissionConversion = 1000000000000000000;
 
 const TableData = ({
   index = 0,
@@ -55,7 +56,7 @@ const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
                     image="/images/airdrop/dark.png"
                     name={d.description.moniker}
                     votingPower={0}
-                    commission={d.commission.commissionRates.rate}
+                    commission={d.commission.commissionRates.rate/CommissionConversion}
                     openModal={Modal}
                     modalDataIndex={ModalDataIndex}
                   />
@@ -95,9 +96,7 @@ const OsmosisStakeForm = ({
   useEffect(() => {
     const bs = async () => {
       const account = await getKeplrWallet();
-      console.log("Account: ", account);
       const balance = await getOsmosBalance(account, address);
-      console.log(balance.balance, balance.delegatedBalance);
       setAvailableAmount(balance.balance);
       setDelegatedAmount(balance.delegatedBalance);
       setCurrentValidator(address);
@@ -226,7 +225,6 @@ export default function OsmosisStakeModal({ closeModal, Address }) {
     const ds = async () => {
       await getValidators().then((data) => {
         if (data.length !== 0) {
-          console.log(data);
           setData(data);
         }
       });
@@ -275,7 +273,7 @@ export default function OsmosisStakeModal({ closeModal, Address }) {
                   website={data && data[modalDataIndex].description.website}
                   description={data && data[modalDataIndex].description.details}
                   commission={
-                    data && data[modalDataIndex].commission.commissionRates.rate
+                    data && (data[modalDataIndex].commission.commissionRates.rate/CommissionConversion)
                   }
                   address={data && data[modalDataIndex].operatorAddress}
                   delegationState={setDelegated}

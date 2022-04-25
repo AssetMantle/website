@@ -149,10 +149,10 @@ export default function OsmosisClaimPage() {
 
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
-    const pub = await window.keplr.getKey(config.mainNetChainID);
+    const pub = await window.keplr.getKey("osmosis-1");
     const keplrSign = await window.keplr.signArbitrary(
-      config.mainNetChainID,
-      MNTLAddress,
+      "osmosis-1",
+      OsmosisAddress,
       data
     );
     const res = await fetch("https://osmosis-airdrop.assetmantle.one/claim/", {
@@ -400,7 +400,7 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
+                disabled={true}
                 className="section_mission__container_mission__button"
               >
                 Vote
