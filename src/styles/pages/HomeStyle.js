@@ -4,17 +4,19 @@ export const HomeContainer = styled.main`
   max-width: 1440px;
   scroll-behavior: smooth;
   margin: 0 auto;
-  background-image: url("/images/bg/bg_assets.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
   z-index: 1;
-  @media (max-width: 768px) {
-    background-image: url("/images/bg/tab_bg_assets.svg");
+  /* scroll-snap-type: y mandatory;
+  & > section {
+    scroll-snap-align: start;
   }
-  @media (max-width: 548px) {
-    background-image: url("/images/bg/m_bg_assets.svg");
-  }
+  @media (prefers-reduced-motion: reduce) {
+    scroll-snap-type: none;
+    & > section {
+      scroll-snap-align: none;
+    }
+  } */
   .section {
     &_hero {
       display: grid;
