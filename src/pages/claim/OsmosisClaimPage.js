@@ -116,7 +116,7 @@ export default function OsmosisClaimPage() {
         .catch((err) => console.log(err));
 
       //  Fetching claim response
-      fetch(`${config.claimPageClaimEndPoint}${OsmosisAccount}`)
+      fetch(`${config.claimPageClaimEndPoint}claim/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -155,7 +155,7 @@ export default function OsmosisClaimPage() {
       OsmosisAddress,
       data
     );
-    const res = await fetch(`${config.claimPageClaimEndPoint}`, {
+    const res = await fetch(`${config.claimPageClaimEndPoint}claim/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -170,7 +170,7 @@ export default function OsmosisClaimPage() {
     console.log("Claimed Initial!..", res);
 
     //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}claim/${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
