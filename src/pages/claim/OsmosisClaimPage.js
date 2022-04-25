@@ -668,6 +668,9 @@ const Container = styled.main`
           gap: 10px;
           width: min(100%, 410.66px);
           min-height: 147.19px;
+          @media (max-width: 1017px) {
+            width: 100%;
+          }
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
