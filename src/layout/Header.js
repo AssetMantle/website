@@ -20,26 +20,25 @@ function Header({ theme = false, setTheme }) {
   const FAQ = [
     {
       id: FAQData.faq.qas[0].id,
-      question: FAQData.faq.qas[0].question,
+      question: FAQData.faq.qas[0].q,
     },
     {
       id: FAQData.faq.qas[1].id,
-      question: FAQData.faq.qas[1].question,
+      question: FAQData.faq.qas[1].q,
     },
     {
       id: FAQData.faq.qas[2].id,
-      question: FAQData.faq.qas[2].question,
+      question: FAQData.faq.qas[2].q,
     },
     {
       id: FAQData.faq.qas[3].id,
-      question: FAQData.faq.qas[3].question,
+      question: FAQData.faq.qas[3].q,
     },
     {
       id: FAQData.faq.qas[4].id,
-      question: FAQData.faq.qas[4].question,
+      question: FAQData.faq.qas[4].q,
     },
-    
-  ]
+  ];
 
   return (
     <HeaderContainer>
@@ -119,36 +118,16 @@ function Header({ theme = false, setTheme }) {
                       Faq
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
-                      <a
-                        href="#what-is-an-nft"
-                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
-                      >
-                        What is an NFT?
-                      </a>
-                      <a
-                        href="#what-is-mantleplace"
-                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
-                      >
-                        What is MantlePlace?
-                      </a>
-                      <a
-                        href="#what-is-mantle-builder"
-                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
-                      >
-                        What is MantleBuilder?
-                      </a>
-                      <a
-                        href="#what-is-ibc-protocol"
-                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
-                      >
-                        What is IBC Protocol?
-                      </a>
-                      <a
-                        href="#what-makes-assetmsntle-special"
-                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
-                      >
-                        What makes AssetMantle special?
-                      </a>
+                      {React.Children.toArray(
+                        FAQ.map((data) => (
+                          <a
+                            href={`#${data.id}`}
+                            className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                          >
+                            {data.question}
+                          </a>
+                        ))
+                      )}
                     </div>
                   </div>
                 </div>
