@@ -201,7 +201,7 @@ const OsmosisStakeForm = ({
           <button
             onClick={handleDelegate}
             disabled={
-              Amount > availableAmount || Amount < 0.000001 || clicked
+              Amount > availableAmount || Amount < 0.000001 || clicked !==1
                 ? true
                 : false
             }

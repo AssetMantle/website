@@ -15,6 +15,8 @@ export default function OsmosisClaimPage() {
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
   const [StakeModal, setStakeModal] = useState(false);
+  const [TotalParticipant, setTotalParticipant] = useState();
+  const [TotalClaimed, setTotalClaimed] = useState();
   const [Response, setResponse] = useState({
     success: false,
     address: "",
@@ -46,39 +48,61 @@ export default function OsmosisClaimPage() {
   console.log(MNTLchainId);
   const OsmosisChainID = "osmosis-1";
 
-  useEffect(() => async () => {
-    const total_supply =
+  // Total Participant
+  const totalParticipant  = config.totalUsers;
+  function getTotalUsers() {
+    return axios
+        .all([
+          axios.get(totalParticipant),
+        ])
+        .then(
+            axios.spread((totalParticipant) => {
+              setTotalParticipant(totalParticipant.data.totalList);
+              setTotalClaimed(totalParticipant.data.initialClaimList);
+              return totalParticipant.data.totalList;
+            })
+        )
+        .catch((error) => {
+          return 0;
+          // console.log(error);
+        });
+  }
+
+  const total_supply =
       "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
-    const inflation =
+  const inflation =
       "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
-    const bondedAmount =
+  const bondedAmount =
       "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
 
-    function getAPR() {
-      return axios
+  function getAPR() {
+    return axios
         .all([
           axios.get(total_supply),
           axios.get(inflation),
           axios.get(bondedAmount),
         ])
         .then(
-          axios.spread((totalSupply, inflation, bondedAmount) => {
-            totalSupply = totalSupply.data.supply[0].amount;
-            inflation = inflation.data.inflation;
-            bondedAmount = bondedAmount.data.pool.bonded_tokens;
-            return (inflation * totalSupply * 100) / bondedAmount;
-          })
+            axios.spread((totalSupply, inflation, bondedAmount) => {
+              totalSupply = totalSupply.data.supply[0].amount;
+              inflation = inflation.data.inflation;
+              bondedAmount = bondedAmount.data.pool.bonded_tokens;
+              return (inflation * totalSupply * 100) / bondedAmount;
+            })
         )
         .catch((error) => {
           return 0;
           // console.log(error);
         });
-    }
-    async function getApr() {
-      const ap = await getAPR();
-      setApr(ap);
-    }
-    getApr();
+  }
+  async function getAprTest() {
+    const ap = await getAPR();
+    setApr(ap);
+  }
+
+  useEffect(() => {
+    getAprTest();
+    getTotalUsers();
   });
 
   const handleKeplrConnect = async () => {
@@ -320,8 +344,8 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              <p>Total Participants</p>
-              <h4>N/A</h4>
+              <p>Claimed / Total Participants</p>
+              <h4>{TotalParticipant ? TotalClaimed +"/"+ TotalParticipant : "N/A"}</h4>
             </div>
           </a>
           <a
@@ -331,7 +355,7 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              <p>Distribution Left</p>
+              <p>Total Distribution</p>
               <h4>
                 {Number(30000000).toLocaleString("en-US", {
                   maximumFractionDigits: 2,
@@ -404,10 +428,10 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={true}
-                className="section_mission__container_mission__button"
-              >
-                Vote
+                disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
+                className="section_mission__container_mission__button">
+                <a style={{textDecoration: "none", color:"var(--dark-m)"}} href={"https://wallet.keplr.app/#/osmosis/governance?detailId="+config.proposalID}
+                   target="_blank">Vote</a>
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
@@ -777,4 +801,22 @@ const Container = styled.main`
       }
     }
   }
+  .vote_btn{
+  padding: 10px 22.5px 12px;
+    display: inline;
+    font: 600 var(--p-m);
+    color: var(--dark-m);
+    text-transform: capitalize;
+    background: var(--yellow-gradient-bg);
+    box-shadow: 4px 4px 8px rgb(0 0 0 / 25%), inset -4px -4px 8px rgb(0 0 0 / 25%), inset 4px 4px 8px #ffc942;
+    border-radius: 12px;
+    -webkit-transition: all ease-in-out 100ms;
+    transition: all ease-in-out 100ms;
+    cursor: pointer;
+    color: var(--dark-m);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    }
 `;
