@@ -6,6 +6,7 @@ import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
 
 import DATA from "../data/headerData.json";
+import FAQData from "../data/homeData.json";
 
 function Header({ theme = false, setTheme }) {
   const [navToggler, setNavToggler] = useState(false);
@@ -15,6 +16,30 @@ function Header({ theme = false, setTheme }) {
   useEffect(() => {
     setNavToggler(false);
   }, [location.pathname]);
+
+  const FAQ = [
+    {
+      id: FAQData.faq.qas[0].id,
+      question: FAQData.faq.qas[0].question,
+    },
+    {
+      id: FAQData.faq.qas[1].id,
+      question: FAQData.faq.qas[1].question,
+    },
+    {
+      id: FAQData.faq.qas[2].id,
+      question: FAQData.faq.qas[2].question,
+    },
+    {
+      id: FAQData.faq.qas[3].id,
+      question: FAQData.faq.qas[3].question,
+    },
+    {
+      id: FAQData.faq.qas[4].id,
+      question: FAQData.faq.qas[4].question,
+    },
+    
+  ]
 
   return (
     <HeaderContainer>
