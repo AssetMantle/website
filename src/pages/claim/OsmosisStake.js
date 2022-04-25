@@ -90,7 +90,7 @@ const OsmosisStakeForm = ({
   const [availableAmount, setAvailableAmount] = useState("");
   const [DelegatedAmount, setDelegatedAmount] = useState("");
   const [currentValidator, setCurrentValidator] = useState("");
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(1);
 
   // Get balance
   useEffect(() => {
@@ -112,7 +112,7 @@ const OsmosisStakeForm = ({
 
   // this function is handling the delegate button click
   const handleDelegate = async (data) => {
-    setClicked(true);
+    setClicked(2);
     const response = await delegateCoinTx(this, currentValidator, Amount);
     console.log("SUCCESS: ", response);
     delegationState(response);
@@ -206,7 +206,18 @@ const OsmosisStakeForm = ({
                 : false
             }
           >
-            Delegate
+            {
+              {
+                1: "Delegate",
+                2: (
+                  <img
+                    className="modal_container__body_persona_button__loadingImage"
+                    alt={"spinning loading indicator"}
+                    src="images/stakedrop/loader.svg"
+                  />
+                ),
+              }[clicked]
+            }
           </button>
         </div>
       </div>
@@ -603,12 +614,30 @@ const StakeFormContainer = styled.div`
             text-decoration: none;
             border: none;
             outline: none;
+            min-width: 126px;
+            min-height: 46px;
             &:hover,
             &:focus {
               box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
             }
             @media (max-width: 548px) {
               width: 100%;
+            }
+            .modal_container__body_persona_button__loadingImage {
+              margin: auto;
+              height: 28px;
+              width: auto;
+              @media (prefers-reduced-motion: no-preference) {
+                animation: loading-spin infinite 20s linear;
+              }
+              @keyframes loading-spin {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
             }
             &:disabled {
               background: none;
