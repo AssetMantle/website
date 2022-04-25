@@ -116,7 +116,7 @@ export default function OsmosisClaimPage() {
         .catch((err) => console.log(err));
 
       //  Fetching claim response
-      fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
+      fetch(`${config.claimPageClaimEndPoint}${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -155,7 +155,7 @@ export default function OsmosisClaimPage() {
       MNTLAddress,
       data
     );
-    const res = await fetch("https://osmosis-airdrop.assetmantle.one/claim/", {
+    const res = await fetch(`${config.claimPageClaimEndPoint}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -170,7 +170,7 @@ export default function OsmosisClaimPage() {
     console.log("Claimed Initial!..", res);
 
     //  Fetching claim response
-    fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
