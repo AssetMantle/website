@@ -116,7 +116,7 @@ export default function OsmosisClaimPage() {
         .catch((err) => console.log(err));
 
       //  Fetching claim response
-      fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
+      fetch(`${config.claimPageClaimEndPoint}${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -155,7 +155,7 @@ export default function OsmosisClaimPage() {
       OsmosisAddress,
       data
     );
-    const res = await fetch("https://osmosis-airdrop.assetmantle.one/claim/", {
+    const res = await fetch(`${config.claimPageClaimEndPoint}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -170,7 +170,7 @@ export default function OsmosisClaimPage() {
     console.log("Claimed Initial!..", res);
 
     //  Fetching claim response
-    fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -668,6 +668,9 @@ const Container = styled.main`
           gap: 10px;
           width: min(100%, 410.66px);
           min-height: 147.19px;
+          @media (max-width: 1017px) {
+            width: 100%;
+          }
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
