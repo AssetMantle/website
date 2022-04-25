@@ -4,8 +4,9 @@
   "coinName": "MNTL",
   "coinDenom": "umntl",
   "addressPrefix": "mantle",
-  "restAPI": "https://rest.assetmantle.one",
-  "tendermintRPC": "https://rpc.assetmantle.one",
+  "restAPI": "https://rest.assetmantle.one/",
+  "tendermintRPC": "https://rpc.assetmantle.one/",
   "websiteURL": "https://explorer.assetmantle.one/transactions",
-  "claimPageClaimEndPoint": "https://osmosis-airdrop.assetmantle.one/claim/"
+  "claimPageClaimEndPoint": "http://192.168.1.22:3000",
+  "proposalID": 211
 }

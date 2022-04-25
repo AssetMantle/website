@@ -1,4 +1,5 @@
 import {bech32} from "bech32";
+const atob = require('atob');
 
 function getMantleAddress(address) {
     try {

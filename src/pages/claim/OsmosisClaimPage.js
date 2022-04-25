@@ -6,8 +6,7 @@ import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
-import { getKeplrWallet } from "./utils/keplr";
-import {getMantleAddress} from "./utils/convertAddress";
+import {getMantleAddress} from "./utils/address";
 const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
@@ -48,7 +47,7 @@ export default function OsmosisClaimPage() {
   const OsmosisChainID = "osmosis-1";
 
   // Total Participant
-  const totalParticipant  = config.totalUsers;
+  const totalParticipant  = config.claimPageClaimEndPoint+"/initialclaimstatus";
   function getTotalUsers() {
     return axios
         .all([
@@ -116,7 +115,8 @@ export default function OsmosisClaimPage() {
       const OsmosisAccount = OsmosisAccounts[0].address;
       setOsmosisAddress(OsmosisAccount);
       setKeplrConnectionState(2);
-      setMNTLAddress(getMantleAddress(OsmosisAccount));
+      const mntlAddress = getMantleAddress(OsmosisAccount);
+      setMNTLAddress(mntlAddress);
 
       // fetching data from backend
       fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
@@ -127,7 +127,7 @@ export default function OsmosisClaimPage() {
           } else {
             setResponse({
               success: false,
-              address: MNTLAddress,
+              address: mntlAddress,
               message: "Not eligible",
             });
           }
@@ -135,7 +135,7 @@ export default function OsmosisClaimPage() {
         .catch((err) => console.log(err));
 
       //  Fetching claim response
-      fetch(`${config.claimPageClaimEndPoint}${OsmosisAccount}`)
+      fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -174,7 +174,7 @@ export default function OsmosisClaimPage() {
       OsmosisAddress,
       data
     );
-    const res = await fetch(`${config.claimPageClaimEndPoint}`, {
+    const res = await fetch(`${config.claimPageClaimEndPoint}/claim/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -188,7 +188,7 @@ export default function OsmosisClaimPage() {
     });
 
     //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -402,7 +402,7 @@ export default function OsmosisClaimPage() {
               <button
                 disabled={ClaimResponse.success ? ClaimResponse.stake.success : true}
                 className="section_mission__container_mission__button"
-                onClick={() => setStakeModal(true)}
+                onClick={() =>window.open("https://wallet.assetmantle.one/dashboard/staking", "_blank")}
               >
                 Stake
               </button>
@@ -423,9 +423,10 @@ export default function OsmosisClaimPage() {
               </div>
               <button
                 disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
-                className="section_mission__container_mission__button">
-                <a style={{textDecoration: "none", color:"var(--dark-m)"}} href={"https://wallet.keplr.app/#/osmosis/governance?detailId="+config.proposalID}
-                   target="_blank">Vote</a>
+                className="section_mission__container_mission__button"
+                onClick={() =>window.open("https://wallet.keplr.app/#/osmosis/governance?detailId="+config.proposalID, "_blank")}
+              >
+                Vote
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
