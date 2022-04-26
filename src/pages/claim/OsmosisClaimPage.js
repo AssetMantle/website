@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 import { MdDone } from "react-icons/md";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowRight,AiFillCaretDown,AiFillCaretUp } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
@@ -538,7 +538,7 @@ export default function OsmosisClaimPage() {
                 <span
                   onClick={() => setCalculationShowState(!CalculationShowState)}
                 >
-                  Calculation
+                  Calculation {CalculationShowState ? <AiFillCaretUp /> :<AiFillCaretDown />}
                 </span>
               </div>
             </div>
@@ -874,9 +874,15 @@ const Container = styled.main`
           flex-wrap: wrap;
           &_r {
             span {
+              display: flex;
+              align-items: center;
+              gap: 12px;
               color: var(--yellow);
               cursor: pointer;
               font: var(--p-m);
+              & > svg {
+                margin-top: 4px;
+              }
             }
           }
         }
@@ -885,7 +891,7 @@ const Container = styled.main`
         font: var(--h4);
         font-weight: 400;
         span {
-          color: var(--yellow);
+          /* color: var(--yellow); */
         }
         /* padding: 40px 0 24px; */
       }
