@@ -471,31 +471,31 @@ export default function MantleDropClaim() {
           )}
           {CosmosCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {CosmosCampaignData.mantleAddress}
+              Address: {CosmosCampaignData.mantleAddress}
             </div>
           ) : PersistenceCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {PersistenceCampaignData.mantleAddress}
+              Address: {PersistenceCampaignData.mantleAddress}
             </div>
           ) : TerraCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {TerraCampaignData.mantleAddress}
+              Address: {TerraCampaignData.mantleAddress}
             </div>
           ) : ComdexCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {ComdexCampaignData.mantleAddress}
+              Address: {ComdexCampaignData.mantleAddress}
             </div>
           ) : JunoCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {JunoCampaignData.mantleAddress}
+              Address: {JunoCampaignData.mantleAddress}
             </div>
           ) : StargazeCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {StargazeCampaignData.mantleAddress}
+              Address: {StargazeCampaignData.mantleAddress}
             </div>
           ) : InputCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
-              $MNTL Address: {InputCampaignData.mantleAddress}
+              Address: {InputCampaignData.mantleAddress}
             </div>
           ) : null}
         </section>

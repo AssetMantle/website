@@ -150,7 +150,7 @@
       "label": "Staking Address",
       "placeholder": "Staking Address",
       "text": "Calculate",
-      "addressLabel": "$MNTL Address",
+      "addressLabel": "Address",
       "dataset": [
         {
           "title": "Total Staked"
