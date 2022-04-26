@@ -245,6 +245,10 @@ export default function OsmosisClaimPage() {
     setBar(bar);
   }, [ClaimResponse]);
 
+  window.addEventListener("keplr_keystorechange", () => {
+    handleKeplrConnect();
+  },[])
+
   // connect bar
   const BarContainer = styled.div`
     width: 100%;
@@ -456,7 +460,7 @@ export default function OsmosisClaimPage() {
               </div>
               <button
                 disabled={
-                  ClaimResponse.success ? ClaimResponse.vote.success : true
+                  true
                 }
                 className="section_mission__container_mission__button"
                 onClick={() =>
@@ -660,7 +664,7 @@ const Container = styled.main`
     &_notEligible {
       margin-top: 24px;
       text-align: center;
-      font: var(--p-m);
+      font: var(--p-xl);
       color: var(--yellow);
       background: var(--dark-m);
       border-radius: 12px;
