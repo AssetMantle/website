@@ -1,4 +1,5 @@
 import airDropData from "../../data/airdropData.json";
+import osmosisData from "../../data/osmosisClaimData.json";
 import stakeDropData from "../../data/stakeDropData.json";
 
 const English = {
@@ -85,6 +86,16 @@ const English = {
     AIRDROP_MODAL_METAMASK_INSTRUCTION: airDropData.modal.MetaMaskInstruction,
     AIRDROP_MODAL_METAMASK_LABEL: airDropData.modal.MetaMaskLabel,
     AIRDROP_MODAL_METAMASK_BUTTON_TEXT: airDropData.modal.MetaMaskButton,
+
+    // Osmosis Claim Page
+    // title section
+    OSMOSIS_CLAIM_TITLE: osmosisData.title,
+    OSMOSIS_CLAIM_NOT_ELIGIBLE: osmosisData.notEligible,
+    OSMOSIS_CLAIM_YOUR_PROGRESS: osmosisData.yourProgress,
+    OSMOSIS_CLAIM_OVERVIEW_1: osmosisData.overview1,
+    OSMOSIS_CLAIM_OVERVIEW_2: osmosisData.overview2,
+    OSMOSIS_CLAIM_OVERVIEW_3: osmosisData.overview3,
+    OSMOSIS_CLAIM_OVERVIEW_4: osmosisData.overview4,
 
     // StakeDrop Page
     // Intro section
@@ -263,6 +274,7 @@ const English = {
     TAKE_A_TOUR: "Take a tour",
     TELL_ME_MORE: "Tell me more",
     VIEW: "View",
+    WALLET: "Wallet",
   },
 };
 
