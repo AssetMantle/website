@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
+import { HiOutlineInformationCircle } from "react-icons/hi";
+
 // import campaignData from "../../../data/campaignData.json";
 import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
 import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
@@ -12,6 +14,8 @@ export default function MantleDropClaim() {
   const [Participated, setParticipated] = useState();
 
   const [InputError, setInputError] = useState();
+
+  const [Modal, setModal] = useState(false);
 
   //   address
   const [InputAddress, setInputAddress] = useState("");
@@ -220,6 +224,7 @@ export default function MantleDropClaim() {
       // took necessary addresses
 
       setKeplrConnectionState(2);
+      setModal(false)
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -375,100 +380,162 @@ export default function MantleDropClaim() {
 
   return (
     <>
-      <Container>
-        <section className="section_calculation lighter_bg">
-          <h2>Participated in the StakeDrop Campaign?</h2>
-          <h3>Check your $MNTL Allocation</h3>
-          <div className="section_calculation__connect">
-            {/* <p className="section_calculation__connect_text">
-              Connect your wallet
-            </p> */}
-            <button
-              className="section_calculation__connect_button"
-              onClick={handleKeplrConnect}
-              disabled={
-                InputAddress !== null &&
-                InputAddress !== undefined &&
-                InputAddress !== ""
-                  ? true
-                  : false
-              }
-            >
-              <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-              <span>{`${
-                { 0: t("CONNECT"), 1: t("CONNECTING"), 2: t("CONNECTED") }[
-                  KeplrConnectionState
-                ]
-              } Keplr`}</span>
-            </button>
-          </div>
-          <div className="section_calculation__or">Or</div>
-          <div className="section_calculation__from">
-            <label
-              htmlFor="walletAddress"
-              className="section_calculation__from_label"
-            >
-              Enter your wallet address
-            </label>
-            <div className="section_calculation__from_line2">
-              <input
-                type="text"
-                name="walletAddress"
-                value={InputAddress}
-                className="section_calculation__from_line2_input"
-                readOnly={
-                  CosmosAddress ||
-                  PersistenceAddress ||
-                  TerraAddress ||
-                  ComdexAddress ||
-                  JunoAddress ||
-                  StargazeAddress
-                    ? true
-                    : false
-                }
-                onChange={(e) =>
-                  CosmosAddress ||
-                  PersistenceAddress ||
-                  TerraAddress ||
-                  ComdexAddress ||
-                  JunoAddress ||
-                  StargazeAddress
-                    ? setInputAddress()
-                    : handleInputChange(e)
-                }
-                placeholder="Enter your wallet address"
-              />
-              <button
-                onClick={InputCalculate}
-                className="section_calculation__from_line2_button"
-                disabled={
-                  InputAddress !== null &&
-                  InputAddress !== "" &&
-                  InputAddress !== undefined
-                    ? false
-                    : true
-                }
-              >
-                Calculate
+      <section className="section_drop">
+        <div className="section_drop__heading">
+          <h3>{t("COMPLETED")}</h3>
+          <hr />
+        </div>
+        <div className="section_drop__element">
+          <div className="section_drop__element_details">
+            <h3>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h3>
+            <div className="section_drop__element_details__hover">
+              <p>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</p>
+              <button>
+                <HiOutlineInformationCircle />
               </button>
+              <span>{t("AIRDROP_START_WITH_STAKEDROP_DESCRIPTION")}</span>
             </div>
           </div>
-          {Participated === false && (
-            <div className="section_calculation__error">
-              <div className="section_calculation__error_element__line1">
-                <img src="/images/stakedrop/info.svg" alt="info icon" />
-                <h3>You didn't participate in the campaigns!</h3>
-              </div>
+          <div className="section_drop__element_value">
+            <p>{t("AIRDROP_START_WITH_STAKEDROP_KEY")}</p>
+            <h4>{t("AIRDROP_START_WITH_STAKEDROP_VALUE")}</h4>
+          </div>
+          <div className="section_drop__button">
+            {CosmosAddress ||
+            PersistenceAddress ||
+            TerraAddress ||
+            ComdexAddress ||
+            JunoAddress ||
+            StargazeAddress ||
+            InputCampaignData.delegator ? (
+              <button className="button_2" onClick={() => setModal(true)}>
+                {t("Edit")}
+              </button>
+            ) : (
+              <button onClick={() => setModal(true)}>{t("CHECK")}</button>
+            )}
+          </div>
+        </div>
+      </section>
+      <Container>
+        {Modal && <div className="section_calculation__modal">
+          <div
+            className="section_calculation__modal___fo_bg"
+            onClick={() => setModal(false)}
+          ></div>
+          <div className="section_calculation__modal__sc">
+            <div className="section_calculation__modal_container">
+              <section className="section_calculation lighter_bg">
+                <>
+                  <div
+                    className="section_calculation__modal__sc_close"
+                    onClick={() => setModal(false)}
+                    onKeyPress={(e) => e.key === "Enter" && setModal(false)}
+                  >
+                    <img src="/images/icons/close.png" alt="close" />
+                  </div>
+                </>
+                <h2>Participated in the StakeDrop Campaign?</h2>
+                <h3>Check your $MNTL Allocation</h3>
+                <div className="section_calculation__connect">
+                  {/* <p className="section_calculation__connect_text">
+                Connect your wallet
+              </p> */}
+                  <button
+                    className="section_calculation__connect_button"
+                    onClick={handleKeplrConnect}
+                    disabled={
+                      InputAddress !== null &&
+                      InputAddress !== undefined &&
+                      InputAddress !== ""
+                        ? true
+                        : false
+                    }
+                  >
+                    <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+                    <span>{`${
+                      {
+                        0: t("CONNECT"),
+                        1: t("CONNECTING"),
+                        2: t("CONNECTED"),
+                      }[KeplrConnectionState]
+                    } Keplr`}</span>
+                  </button>
+                </div>
+                <div className="section_calculation__or">Or</div>
+                <div className="section_calculation__from">
+                  <label
+                    htmlFor="walletAddress"
+                    className="section_calculation__from_label"
+                  >
+                    Enter your wallet address
+                  </label>
+                  <div className="section_calculation__from_line2">
+                    <input
+                      type="text"
+                      name="walletAddress"
+                      value={InputAddress}
+                      className="section_calculation__from_line2_input"
+                      readOnly={
+                        CosmosAddress ||
+                        PersistenceAddress ||
+                        TerraAddress ||
+                        ComdexAddress ||
+                        JunoAddress ||
+                        StargazeAddress
+                          ? true
+                          : false
+                      }
+                      onChange={(e) =>
+                        CosmosAddress ||
+                        PersistenceAddress ||
+                        TerraAddress ||
+                        ComdexAddress ||
+                        JunoAddress ||
+                        StargazeAddress
+                          ? setInputAddress()
+                          : handleInputChange(e)
+                      }
+                      placeholder="Enter your wallet address"
+                    />
+                    <button
+                      onClick={InputCalculate}
+                      className="section_calculation__from_line2_button"
+                      disabled={
+                        InputAddress !== null &&
+                        InputAddress !== "" &&
+                        InputAddress !== undefined
+                          ? false
+                          : true
+                      }
+                    >
+                      Calculate
+                    </button>
+                  </div>
+                </div>
+                {Participated === false && (
+                  <div className="section_calculation__error">
+                    <div className="section_calculation__error_element__line1">
+                      <img src="/images/stakedrop/info.svg" alt="info icon" />
+                      <h3>You didn't participate in the campaigns!</h3>
+                    </div>
+                  </div>
+                )}
+                {InputError && (
+                  <div className="section_calculation__error">
+                    <div className="section_calculation__error_element__line1">
+                      <img src="/images/stakedrop/info.svg" alt="info icon" />
+                      <h3>{InputError}</h3>
+                    </div>
+                  </div>
+                )}
+              </section>
             </div>
-          )}
-          {InputError && (
-            <div className="section_calculation__error">
-              <div className="section_calculation__error_element__line1">
-                <img src="/images/stakedrop/info.svg" alt="info icon" />
-                <h3>{InputError}</h3>
-              </div>
-            </div>
-          )}
+          </div>
+        </div>}
+
+        {/* $MNTL Address ⬇ */}
+        <>
           {CosmosCampaignData.mantleAddress ? (
             <div className="section_calculation__address">
               $MNTL Address: {CosmosCampaignData.mantleAddress}
@@ -498,8 +565,9 @@ export default function MantleDropClaim() {
               $MNTL Address: {InputCampaignData.mantleAddress}
             </div>
           ) : null}
-        </section>
-        {Participated !== false && (
+        </>
+
+        {Participated !== false ? (
           <section className="section_reward_table">
             <div className="section_reward_table__element">
               <>
@@ -677,6 +745,13 @@ export default function MantleDropClaim() {
               </>
             </div>
           </section>
+        ) : (
+          <div className="section_calculation__error">
+            <div className="section_calculation__error_element__line1">
+              <img src="/images/stakedrop/info.svg" alt="info icon" />
+              <h3>You didn't participate in the campaigns!</h3>
+            </div>
+          </div>
         )}
       </Container>
     </>
@@ -691,23 +766,90 @@ const Container = styled.main`
   background-size: 100vw auto;
   background-repeat: no-repeat;
   z-index: 1;
-  padding: 20px 92px 80px;
+  padding: 0px 92px;
   @media (max-width: 768px) {
     background-image: url("/images/bg/tab_bg_assets.svg");
-    padding: 20px 40px 60px;
+    padding: 0px 40px;
   }
   @media (max-width: 548px) {
     background-image: url("/images/bg/m_bg_assets.svg");
-    padding: 20px 20px 40px;
+    padding: 0px 20px;
   }
   .lighter_bg {
     background: #2c2c2c;
     border-radius: 12px;
   }
   .section {
+    &_calculation__modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 500;
+      background-color: hsla(0, 0%, 6%, 0.5);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      &___fo_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      &__sc {
+        width: min(100%, 1216px);
+        position: relative;
+        z-index: 3;
+        padding: 40px;
+        border-radius: 20px;
+        height: 100%;
+        @media (max-width: 548px) {
+          padding: 20px;
+        }
+        &_close {
+          font: var(--h2);
+          color: var(--yellow);
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          @media (max-width: 548px) {
+            top: 10px;
+            right: 20px;
+          }
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+      &_container {
+        z-index: 7;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
     &_calculation {
       position: relative;
       padding: 40px;
+      width: 100%;
       @media (min-width: 768px) {
         background-image: url("/images/airdrop/tokens-s.png");
         background-size: auto 300px;
@@ -939,11 +1081,11 @@ const Container = styled.main`
           }
         }
       }
-      &__address {
-        font: var(--p-m);
-        color: var(--gray-deep);
-        word-break: break-word;
-      }
     }
+  }
+  .section_calculation__address {
+    font: var(--p-m);
+    color: var(--gray-deep);
+    word-break: break-word;
   }
 `;

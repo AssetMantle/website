@@ -257,6 +257,16 @@ export const AirdropContainer = styled.main`
           &:focus {
             box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
           }
+          &.button_2 {
+            background: transparent;
+            color: var(--yellow);
+            border: none;
+            box-shadow: none;
+            &:hover,
+            &:focus {
+              box-shadow: none;
+            }
+          }
           @media (max-width: 548px) {
             width: 100%;
             padding: 10px 20px 12px;

@@ -10,6 +10,7 @@ import LPModal from "./LPModal";
 import MetaMaskModal from "./MetaMaskModal";
 import TAndCModal from "../claim/TAndCModal";
 import OsmoIModal from "./OsmoIModal";
+import MantleDropClaim from "../claim/MantleDropClaim";
 
 // const chainIDs = require("../../data/chain.json");
 
@@ -85,7 +86,8 @@ export default function Airdrop() {
             </div>
           </div>
         </section>
-        <section className="section_drop">
+        <MantleDropClaim />
+        {/* <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("COMPLETED")}</h3>
             <hr />
@@ -119,7 +121,7 @@ export default function Airdrop() {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_HEADING")}</h3>
