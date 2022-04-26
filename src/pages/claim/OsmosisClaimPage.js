@@ -119,28 +119,6 @@ export default function OsmosisClaimPage() {
     }
   }, []);
 
-  const handleKeplrConnect = async () => {
-    if (window.keplr) {
-      // Osmosis address
-      let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
-        OsmosisChainID
-      );
-      setKeplrConnectionState(1);
-      let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
-      const OsmosisAccount = OsmosisAccounts[0].address;
-      setOsmosisAddress(OsmosisAccount);
-      setKeplrConnectionState(2);
-      const mntlAddress = getMantleAddress(OsmosisAccount);
-      setMNTLAddress(mntlAddress);
-      sessionStorage.setItem("MNTL", mntlAddress);
-      sessionStorage.setItem("OSMO", OsmosisAccount);
-
-      fetchBackendData(OsmosisAccount, mntlAddress);
-    } else {
-      window.alert("Please install Keplr to move forward with the task.");
-    }
-  };
-
   const fetchBackendData = async (OsmosisAccount, mntlAddress) => {
     // fetching data from backend
     fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
@@ -154,17 +132,17 @@ export default function OsmosisClaimPage() {
               address: mntlAddress,
               message: "Not eligible",
             });
-            setNotEligible(true);
           }
         })
         .catch((err) => console.log(err));
 
     //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
+    fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
             setClaimResponse(data);
+            setNotEligible(false);
           } else {
             setClaimResponse({
               success: false,
@@ -182,10 +160,34 @@ export default function OsmosisClaimPage() {
                 txHash: "",
               },
             });
+            setNotEligible(true);
           }
         })
         .catch((err) => console.log(err));
   }
+
+  const handleKeplrConnect = async () => {
+    if (window.keplr) {
+      // Osmosis address
+      let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
+        OsmosisChainID
+      );
+      setKeplrConnectionState(1);
+      let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
+      const OsmosisAccount = OsmosisAccounts[0].address;
+      setOsmosisAddress(OsmosisAccount);
+      setKeplrConnectionState(2);
+      const mntlAddress = getMantleAddress(OsmosisAccount);
+      setMNTLAddress(mntlAddress);
+      sessionStorage.setItem("MNTL", mntlAddress);
+      sessionStorage.setItem("OSMO", OsmosisAccount);
+
+      await fetchBackendData(OsmosisAccount, mntlAddress);
+    } else {
+      window.alert("Please install Keplr to move forward with the task.");
+    }
+  };
+
 
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
@@ -195,7 +197,7 @@ export default function OsmosisClaimPage() {
       OsmosisAddress,
       data
     );
-    const res = await fetch(`${config.claimPageClaimEndPoint}/claim/`, {
+    const res = await fetch(`${config.claimPageClaimEndPoint}/osmosis/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -209,7 +211,7 @@ export default function OsmosisClaimPage() {
     });
 
     //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -251,8 +253,10 @@ export default function OsmosisClaimPage() {
     setBar(bar);
   }, [ClaimResponse]);
 
-  window.addEventListener("keplr_keystorechange", () => {
-    handleKeplrConnect().then(r => console.log("Account Switched!"));
+  useEffect(() => {
+    window.addEventListener("keplr_keystorechange", () => {
+      handleKeplrConnect();
+    })
   },[])
 
   // connect bar
@@ -524,7 +528,7 @@ export default function OsmosisClaimPage() {
               <div className="section_data__con__shown_l">
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
-                  <span>15 February, 2022</span>
+                  <span>15<sup>th</sup> February, 2022</span>
                 </h4>
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
