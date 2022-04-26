@@ -40,11 +40,13 @@ const English = {
     WHAT_IS_ASSETMANTLE_LI_5: homeData.WhatIsAssetMantle.li5,
     WHAT_IS_ASSETMANTLE_LI_6: homeData.WhatIsAssetMantle.li6,
     WHAT_IS_ASSETMANTLE_LI_7: homeData.WhatIsAssetMantle.li7,
+    WHAT_IS_ASSETMANTLE_LI_8: homeData.WhatIsAssetMantle.li8,
 
     // HowItWorks section
     HOW_IT_WORKS_TITLE: homeData.howItWorks.title,
     HOW_IT_WORKS_DESCRIPTION: homeData.howItWorks.description,
     HOW_IT_WORKS_OPTION_1: homeData.howItWorks.options[0].name,
+    HOW_IT_WORKS_OPTION_1_DESCRIPTION: homeData.howItWorks.options[0].description,
     HOW_IT_WORKS_OPTION_1_1_TITLE: homeData.howItWorks.options[0].content[0].h3,
     HOW_IT_WORKS_OPTION_1_1_DESC: homeData.howItWorks.options[0].content[0].p_m,
     HOW_IT_WORKS_OPTION_1_2_TITLE: homeData.howItWorks.options[0].content[1].h3,
@@ -54,20 +56,20 @@ const English = {
     HOW_IT_WORKS_OPTION_1_4_TITLE: homeData.howItWorks.options[0].content[3].h3,
     HOW_IT_WORKS_OPTION_1_4_DESC: homeData.howItWorks.options[0].content[3].p_m,
     HOW_IT_WORKS_OPTION_2: homeData.howItWorks.options[1].name,
+    HOW_IT_WORKS_OPTION_2_DESCRIPTION: homeData.howItWorks.options[1].description,
     HOW_IT_WORKS_OPTION_2_1_TITLE: homeData.howItWorks.options[1].content[0].h3,
     HOW_IT_WORKS_OPTION_2_1_DESC: homeData.howItWorks.options[1].content[0].p_m,
     HOW_IT_WORKS_OPTION_2_2_TITLE: homeData.howItWorks.options[1].content[1].h3,
     HOW_IT_WORKS_OPTION_2_2_DESC: homeData.howItWorks.options[1].content[1].p_m,
     HOW_IT_WORKS_OPTION_2_3_TITLE: homeData.howItWorks.options[1].content[2].h3,
     HOW_IT_WORKS_OPTION_2_3_DESC: homeData.howItWorks.options[1].content[2].p_m,
+    HOW_IT_WORKS_OPTION_2_4_TITLE: homeData.howItWorks.options[1].content[3].h3,
+    HOW_IT_WORKS_OPTION_2_4_DESC: homeData.howItWorks.options[1].content[3].p_m,
 
-    //  I am sold section
-    I_AM_SOLD_TITLE: homeData.iAmSold.title,
-    I_AM_SOLD_DESCRIPTION: homeData.iAmSold.description,
-
-    //  Need convencing section
-    NEED_CONVENING_TITLE: homeData.convincing.title,
-    NEED_CONVENING_DESCRIPTION: homeData.convincing.description,
+    // drop section
+    DROP_TITLE: homeData.drop.title,
+    DROP_DESCRIPTION: homeData.drop.description,
+    DROP_BUTTON_TEXT: homeData.drop.button.title,
 
     // Getting Started section
     GETTING_STARTED_TITLE: homeData.gettingStarted.title,
@@ -106,37 +108,15 @@ const English = {
     ROADMAP_DESCRIPTION: homeData.RoadMap.description,
     ROADMAP_BUTTON_TEXT: homeData.RoadMap.btnText,
 
-    // Stores section
-    STORES_TITLE: homeData.stores.title,
-    STORES_DESCRIPTION: homeData.stores.description,
-    STORES_STORE_1: homeData.stores.store1,
-    STORES_STORE_2: homeData.stores.store2,
-    STORES_STORE_3: homeData.stores.store3,
+    // Whitepaper section
+    WHITEPAPER_TITLE: homeData.whitepaper.title,
+    WHITEPAPER_DESCRIPTION: homeData.whitepaper.description,
+    WHITEPAPER_BUTTON_TEXT: homeData.whitepaper.button.title,
 
-    // what’s an NFT? section
-    WHAT_IS_NFT_TITLE: homeData.wNFT.title,
-    WHAT_IS_NFT_DESCRIPTION: homeData.wNFT.description,
-    WHAT_IS_NFT_SUB_TITLE: homeData.wNFT.subTitle,
-
-    // Pricing section
-    PRICING_TITLE: homeData.pricing.title,
-    PRICING_DESCRIPTION: homeData.pricing.description,
-    PRICING_CURRENCY_NAME_1: homeData.pricing.currencies_name_1,
-    PRICING_CURRENCY_VALUE_1: homeData.pricing.currencies_value_1,
-    PRICING_CURRENCY_NAME_2: homeData.pricing.currencies_name_2,
-    PRICING_CURRENCY_VALUE_2: homeData.pricing.currencies_value_2,
-    PRICING_CURRENCY_NAME_3: homeData.pricing.currencies_name_3,
-    PRICING_CURRENCY_VALUE_3: homeData.pricing.currencies_value_3,
-    PRICING_NAME: homeData.pricing.name,
-    PRICING_VALUE: homeData.pricing.value,
-
-    // Let's Amplify section
-    LET_AMPLIFY_TITLE: homeData.LetsAmplify.title,
-    LET_AMPLIFY_DESCRIPTION: homeData.LetsAmplify.description,
-
-    //  Testimonials section
-    TESTIMONIALS_TITLE: homeData.testimonials.title,
-    TESTIMONIALS_DESCRIPTION: homeData.testimonials.description,
+    //  team section
+    TEAM_TITLE: homeData.team.title,
+    TEAM_DESCRIPTION: homeData.team.description,
+    TEAM_BUTTON: homeData.team.button.text,
 
     // FAQ section
     FAQ_TITLE: homeData.faq.title,
