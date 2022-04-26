@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { getKeplrWallet, getOsmosBalance, getValidators } from "./utils/keplr";
 import { delegateCoinTx } from "./utils/blockchainTransactions";
-import config from "./config.json";
+import config from "./config";
 const CommissionConversion = 1000000000000000000;
 
 const TableData = ({

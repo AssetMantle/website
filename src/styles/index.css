@@ -32,6 +32,8 @@
     #f5b71d 86%,
     #f2b110 100%
   );
+  --yellow-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
+  inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
 
   --gray: #c2c2c2;
   --gray-deep: #9d9d9d;

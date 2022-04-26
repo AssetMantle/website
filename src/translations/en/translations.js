@@ -1,4 +1,5 @@
 import airDropData from "../../data/airdropData.json";
+import osmosisData from "../../data/osmosisClaimData.json";
 import stakeDropData from "../../data/stakeDropData.json";
 
 const English = {
@@ -30,6 +31,9 @@ const English = {
       airDropData.reqEligibilityCheck.checks[0].key,
     AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1:
       airDropData.reqEligibilityCheck.checks[0].value,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_1: airDropData.reqEligibilityCheck.checks[0].tableTitle,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_1: airDropData.reqEligibilityCheck.checks[0].tableKey1,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1: airDropData.reqEligibilityCheck.checks[0].tableKey2,
     AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2:
       airDropData.reqEligibilityCheck.checks[1].title,
     AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2:
@@ -38,6 +42,10 @@ const English = {
       airDropData.reqEligibilityCheck.checks[1].key,
     AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2:
       airDropData.reqEligibilityCheck.checks[1].value,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_2: airDropData.reqEligibilityCheck.checks[1].tableTitle,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2: airDropData.reqEligibilityCheck.checks[1].tableKey1,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2: airDropData.reqEligibilityCheck.checks[1].tableValue1,
+      AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE: airDropData.reqEligibilityCheck.notEligible,
     AIRDROP_ALLOCATION_SINGLE_TITLE:
       airDropData.reqEligibilityCheck.allocationTitle,
 
@@ -85,6 +93,26 @@ const English = {
     AIRDROP_MODAL_METAMASK_INSTRUCTION: airDropData.modal.MetaMaskInstruction,
     AIRDROP_MODAL_METAMASK_LABEL: airDropData.modal.MetaMaskLabel,
     AIRDROP_MODAL_METAMASK_BUTTON_TEXT: airDropData.modal.MetaMaskButton,
+
+    // Osmosis Claim Page
+    // title section
+    OSMOSIS_CLAIM_TITLE: osmosisData.title,
+    OSMOSIS_CLAIM_NOT_ELIGIBLE: osmosisData.notEligible,
+    OSMOSIS_CLAIM_YOUR_PROGRESS: osmosisData.yourProgress,
+    OSMOSIS_CLAIM_OVERVIEW_1: osmosisData.overview1,
+    OSMOSIS_CLAIM_OVERVIEW_2: osmosisData.overview2,
+    OSMOSIS_CLAIM_OVERVIEW_3: osmosisData.overview3,
+    OSMOSIS_CLAIM_OVERVIEW_4: osmosisData.overview4,
+    OSMOSIS_CLAIM_MISSION_1: osmosisData.mission1,
+    OSMOSIS_CLAIM_MISSION_2: osmosisData.mission2,
+    OSMOSIS_CLAIM_MISSION_3: osmosisData.mission3,
+    OSMOSIS_CLAIM_MISSION_4: osmosisData.mission4,
+    OSMOSIS_CLAIM_MISSION_5: osmosisData.mission5,
+    OSMOSIS_CLAIM_CALCULATION_TITLE: osmosisData.calculationTitle,
+    OSMOSIS_CLAIM_CALCULATION_EXP_1: osmosisData.calculationExp1,
+    OSMOSIS_CLAIM_CALCULATION_EXP_2: osmosisData.calculationExp2,
+    OSMOSIS_CLAIM_CALCULATION_KEY_1: osmosisData.calculationKey1,
+    OSMOSIS_CLAIM_CALCULATION_KEY_2: osmosisData.calculationKey2,
 
     // StakeDrop Page
     // Intro section
@@ -243,6 +271,7 @@ const English = {
 
     AIRDROP: "Airdrop",
     AND: "and",
+    CHECK: "Check",
     CHECK_ELIGIBILITY: "Check Eligibility",
     CHECK_NOW: "Check Now",
     CLAIM: "Claim",
@@ -251,11 +280,15 @@ const English = {
     CONNECT: "Connect",
     CONNECTED: "Connected",
     CONNECTING: "Connecting...",
+    CONNECT_WALLET: "Connect Wallet",
+    CONNECTING_WALLET: "Connecting Wallet",
     CREATE_A_STORE: "Create A Store",
     DAY: "day",
     DAYS: "days",
     DETAILS: "Details",
+    EDIT: "Edit",
     LETS_GO: "Let's go",
+    MISSION: "Mission",
     NOTIFY_ME: "Notify Me",
     ONGOING: "Ongoing",
     OR: "or",
@@ -263,6 +296,8 @@ const English = {
     TAKE_A_TOUR: "Take a tour",
     TELL_ME_MORE: "Tell me more",
     VIEW: "View",
+    WALLET: "Wallet",
+    WALLET_CONNECTED: "Wallet Connected",
   },
 };
 

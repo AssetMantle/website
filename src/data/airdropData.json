@@ -17,18 +17,25 @@
   },
   "reqEligibilityCheck": {
     "heading": "Claim Now",
+    "notEligible": "Sorry, you are not eligible.",
     "checks": [
       {
         "title": "Osmosis Liquidity Providers",
         "description": "OSMO/ATOM, OSMO/XPRT, OSMO/JUNO, OSMO/STARS, OSMO/CMDX, OSMO/UST, OSMO/LUNA, OSMO/SOMM, OSMO/SCRT, LUNA/UST",
         "key": "Allocation:",
-        "value": "30,000,000 $MNTL"
+        "value": "30,000,000 $MNTL",
+        "tableTitle": "Total Liquidity Provided to eligible pools as on the snapshot date(15th Feb,2022)",
+        "tableKey1": "Locked LP / Bonded",
+        "tableKey2": "Unlocked LP / Unbonded"
       },
       {
         "title": "OpenSea NFT users",
         "description": "OpenSea Active NFT Users ",
         "key": "Allocation:",
-        "value": "9,000,000 $MNTL"
+        "value": "9,000,000 $MNTL",
+        "tableTitle": "Transaction Type",
+        "tableKey1": "Volume Traded (ETH)",
+        "tableValue1": "Buy / Sell"
       }
     ],
     "allocationTitle": "Airdrop Allocation"

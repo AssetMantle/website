@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import UList from "../../components/UList";
 import UList2 from "../../components/UList2";
 import Details from "../../components/Details";
-import MantleDropClaim from "../claim/MantleDropClaim";
+// import MantleDropClaim from "../claim/MantleDropClaim";
 // import { calculateFee } from "@cosmjs/stargate";
 
 export default function StakeDrop() {
@@ -203,7 +203,7 @@ export default function StakeDrop() {
             />
           </div>
         </section>
-        <MantleDropClaim />
+        {/* <MantleDropClaim /> */}
         <section className="section_availableStakeDrop">
           <h2>{t("STAKEDROP_AVAILABLE_STAKEDROP_TITLE")}</h2>
           <div className="section_availableStakeDrop__body">

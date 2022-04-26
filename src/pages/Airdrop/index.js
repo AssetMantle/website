@@ -10,6 +10,7 @@ import LPModal from "./LPModal";
 import MetaMaskModal from "./MetaMaskModal";
 import TAndCModal from "../claim/TAndCModal";
 import OsmoIModal from "./OsmoIModal";
+import MantleDropClaim from "../claim/MantleDropClaim";
 
 // const chainIDs = require("../../data/chain.json");
 
@@ -85,7 +86,8 @@ export default function Airdrop() {
             </div>
           </div>
         </section>
-        <section className="section_drop">
+        <MantleDropClaim />
+        {/* <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("COMPLETED")}</h3>
             <hr />
@@ -115,11 +117,11 @@ export default function Airdrop() {
                     : undefined
                 }
               >
-                {t("CHECK_NOW")}
+                {t("CHECK")}
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("AIRDROP_REQUIRED_ELIGIBILITY_HEADING")}</h3>
@@ -150,7 +152,7 @@ export default function Airdrop() {
                 )
               ) : (
                 <button onClick={() => setLPModalStat(true)}>
-                  Check Eligibility
+                  {t("CHECK")}
                 </button>
               )}
             </div>
@@ -163,7 +165,7 @@ export default function Airdrop() {
                   style={{ cursor: "pointer" }}
                   onClick={() => setLPModalStat(true)}
                 >
-                  Edit
+                  {t("EDIT")}
                 </span>
               </div>
             ) : undefined}
@@ -189,11 +191,11 @@ export default function Airdrop() {
                 <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Total Liquidity Provided to eligible pools as on the snapshot date(15th Feb,2022)</h4>
-                      <p>Value (in USD)</p>
+                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_1")}</h4>
+                      <p>Value LP (in USD)</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Locked / Bonded</h4>
+                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_1")}</h4>
                       <p>
                         $
                         {KeplrCalculatedDATA &&
@@ -202,7 +204,7 @@ export default function Airdrop() {
                       </p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Unlocked / Unbonded</h4>
+                    <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1")}</h4>
                       <p>
                         $
                         {KeplrCalculatedDATA &&
@@ -220,7 +222,7 @@ export default function Airdrop() {
             ) : KeplrCalculatedDATA === false ? (
               <section className="section_allocation">
                 <h3 className="error-t">
-                  Sorry, you are not eligible.
+                  {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
                 </h3>
               </section>
             ) : undefined}
@@ -242,7 +244,7 @@ export default function Airdrop() {
             <div className="section_drop__button">
               {MetaMaskAddress ? undefined : (
                 <button onClick={() => setMetaMaskModalStat(true)}>
-                  Check Eligibility
+                  {t("CHECK")}
                 </button>
               )}
             </div>
@@ -255,7 +257,7 @@ export default function Airdrop() {
                   style={{ cursor: "pointer" }}
                   onClick={() => setMetaMaskModalStat(true)}
                 >
-                  Edit
+                  {t("EDIT")}
                 </span>
               </div>
             ) : undefined}
@@ -281,11 +283,11 @@ export default function Airdrop() {
                 <section className="section_allocation_by_network">
                   <div className="section_allocation_by_network__element">
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Transaction Type</h4>
-                      <p>Volume Traded (ETH)</p>
+                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_2")}</h4>
+                      <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2")}</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>Buy / Sell</h4>
+                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2")}</h4>
                       <p>
                         {MetaMaskCalculatedDATA &&
                           MetaMaskCalculatedDATA.allocation &&
@@ -308,7 +310,7 @@ export default function Airdrop() {
             ) : MetaMaskCalculatedDATA === false ? (
               <section className="section_allocation">
                 <h3 className="error-t">
-                  Sorry, you are not eligible.
+                  {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
                 </h3>
               </section>
             ) : undefined}

@@ -1638,6 +1638,7 @@ export default function TAndCModal({ closeModal }) {
                 <a
                   className="modal_container__button_close"
                   href="/osmosis-claim"
+                  onClick={() => localStorage.setItem("TAndC", true)}
                 >
                   Accept And Continue
                 </a>
