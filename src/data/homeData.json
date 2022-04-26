@@ -43,6 +43,15 @@
       "href": "/about"
     }
   },
+  "drop": {
+    "image": "token_ills.png",
+    "title": "MantleDrop ($MNTL Airdrop)",
+    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
+    "button": {
+      "title": "Check Airdrops",
+      "href": ""
+    }
+  },
   "howItWorks": {
     "visibility": true,
     "title": "How it works",
@@ -101,15 +110,6 @@
         ]
       }
     ]
-  },
-  "drop": {
-    "image": "token_ills.png",
-    "title": "MantleDrop ($MNTL Airdrop)",
-    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
-    "button": {
-      "title": "Check Airdrops",
-      "href": ""
-    }
   },
   "gettingStarted": {
     "visibility": true,

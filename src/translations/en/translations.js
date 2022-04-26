@@ -42,6 +42,11 @@ const English = {
     WHAT_IS_ASSETMANTLE_LI_7: homeData.WhatIsAssetMantle.li7,
     WHAT_IS_ASSETMANTLE_LI_8: homeData.WhatIsAssetMantle.li8,
 
+    // drop section
+    DROP_TITLE: homeData.drop.title,
+    DROP_DESCRIPTION: homeData.drop.description,
+    DROP_BUTTON_TEXT: homeData.drop.button.title,
+
     // HowItWorks section
     HOW_IT_WORKS_TITLE: homeData.howItWorks.title,
     HOW_IT_WORKS_DESCRIPTION: homeData.howItWorks.description,
@@ -65,11 +70,6 @@ const English = {
     HOW_IT_WORKS_OPTION_2_3_DESC: homeData.howItWorks.options[1].content[2].p_m,
     HOW_IT_WORKS_OPTION_2_4_TITLE: homeData.howItWorks.options[1].content[3].h3,
     HOW_IT_WORKS_OPTION_2_4_DESC: homeData.howItWorks.options[1].content[3].p_m,
-
-    // drop section
-    DROP_TITLE: homeData.drop.title,
-    DROP_DESCRIPTION: homeData.drop.description,
-    DROP_BUTTON_TEXT: homeData.drop.button.title,
 
     // Getting Started section
     GETTING_STARTED_TITLE: homeData.gettingStarted.title,
@@ -142,10 +142,6 @@ const English = {
     FAQ_ANSWER_5_LI_9: homeData.faq.qas[4].list[8],
     FAQ_ANSWER_5_LI_10: homeData.faq.qas[4].list[9],
     FAQ_ANSWER_5_LI_11: homeData.faq.qas[4].list[10],
-
-    // Source section
-    SOURCE_TITLE: homeData.source.title,
-    SOURCE_DESCRIPTION: homeData.source.text,
 
     // About Page
     // hero section
