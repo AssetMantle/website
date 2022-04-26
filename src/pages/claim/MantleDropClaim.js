@@ -469,6 +469,35 @@ export default function MantleDropClaim() {
               </div>
             </div>
           )}
+          {CosmosCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {CosmosCampaignData.mantleAddress}
+            </div>
+          ) : PersistenceCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {PersistenceCampaignData.mantleAddress}
+            </div>
+          ) : TerraCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {TerraCampaignData.mantleAddress}
+            </div>
+          ) : ComdexCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {ComdexCampaignData.mantleAddress}
+            </div>
+          ) : JunoCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {JunoCampaignData.mantleAddress}
+            </div>
+          ) : StargazeCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {StargazeCampaignData.mantleAddress}
+            </div>
+          ) : InputCampaignData.mantleAddress ? (
+            <div className="section_calculation__address">
+              $MNTL Address: {InputCampaignData.mantleAddress}
+            </div>
+          ) : null}
         </section>
         {Participated !== false && (
           <section className="section_reward_table">
@@ -484,7 +513,6 @@ export default function MantleDropClaim() {
                   <div className="section_reward_table__element_option">
                     <h4>Campaign</h4>
                     <h4>Address</h4>
-                    <h4>$MNTL Address</h4>
                     <p>Rewards ($MNTL)</p>
                   </div>
                 ) : (
@@ -497,16 +525,6 @@ export default function MantleDropClaim() {
                   <h4>
                     {CosmosAddress.substring(0, 5)}...
                     {CosmosAddress.substring(CosmosAddress.length - 5)}
-                  </h4>
-                  <h4>
-                    {CosmosCampaignData.mantleAddress
-                      ? `${CosmosCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${CosmosCampaignData.mantleAddress.substring(
-                          CosmosCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
                   </h4>
                   <p>
                     {CosmosCampaignData.received
@@ -524,16 +542,7 @@ export default function MantleDropClaim() {
                       PersistenceAddress.length - 5
                     )}
                   </h4>
-                  <h4>
-                    {PersistenceCampaignData.mantleAddress
-                      ? `${PersistenceCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${PersistenceCampaignData.mantleAddress.substring(
-                          PersistenceCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {PersistenceCampaignData.received
                       ? division(PersistenceCampaignData.received)
@@ -548,16 +557,7 @@ export default function MantleDropClaim() {
                     {TerraAddress.substring(0, 5)}...
                     {TerraAddress.substring(TerraAddress.length - 5)}
                   </h4>
-                  <h4>
-                    {TerraCampaignData.mantleAddress
-                      ? `${TerraCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${TerraCampaignData.mantleAddress.substring(
-                          TerraCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {TerraCampaignData.received
                       ? division(TerraCampaignData.received)
@@ -572,16 +572,7 @@ export default function MantleDropClaim() {
                     {ComdexAddress.substring(0, 5)}...
                     {ComdexAddress.substring(ComdexAddress.length - 5)}
                   </h4>
-                  <h4>
-                    {ComdexCampaignData.mantleAddress
-                      ? `${ComdexCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${ComdexCampaignData.mantleAddress.substring(
-                          ComdexCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {ComdexCampaignData.received
                       ? division(ComdexCampaignData.received)
@@ -596,16 +587,7 @@ export default function MantleDropClaim() {
                     {JunoAddress.substring(0, 5)}...
                     {JunoAddress.substring(JunoAddress.length - 5)}
                   </h4>
-                  <h4>
-                    {JunoCampaignData.mantleAddress
-                      ? `${JunoCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${JunoCampaignData.mantleAddress.substring(
-                          JunoCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {JunoCampaignData.received
                       ? division(JunoCampaignData.received)
@@ -620,16 +602,7 @@ export default function MantleDropClaim() {
                     {StargazeAddress.substring(0, 5)}...
                     {StargazeAddress.substring(StargazeAddress.length - 5)}
                   </h4>
-                  <h4>
-                    {StargazeCampaignData.mantleAddress
-                      ? `${StargazeCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${StargazeCampaignData.mantleAddress.substring(
-                          StargazeCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {StargazeCampaignData.received
                       ? division(StargazeCampaignData.received)
@@ -660,16 +633,7 @@ export default function MantleDropClaim() {
                       InputCampaignData.delegator.length - 5
                     )}
                   </h4>
-                  <h4>
-                    {InputCampaignData.mantleAddress
-                      ? `${InputCampaignData.mantleAddress.substring(
-                          0,
-                          5
-                        )}...${InputCampaignData.mantleAddress.substring(
-                          InputCampaignData.mantleAddress.length - 5
-                        )}`
-                      : "--"}
-                  </h4>
+
                   <p>
                     {InputCampaignData.received
                       ? division(InputCampaignData.received)
@@ -687,7 +651,7 @@ export default function MantleDropClaim() {
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     <span></span>
-                    <span></span>
+                    {/* <span></span> */}
                     <p>
                       <img
                         src="/images/airdrop/dark.png"
@@ -748,7 +712,7 @@ const Container = styled.main`
         background-image: url("/images/airdrop/tokens-s.png");
         background-size: auto 300px;
         background-repeat: no-repeat;
-      background-position: top right;
+        background-position: top right;
       }
       @media (max-width: 548px) {
         padding: 20px;
@@ -974,6 +938,11 @@ const Container = styled.main`
             width: 100%;
           }
         }
+      }
+      &__address {
+        font: var(--p-m);
+        color: var(--gray-deep);
+        word-break: break-word;
       }
     }
   }
