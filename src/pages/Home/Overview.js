@@ -8,7 +8,7 @@ const Overview = () => {
     <section className="section_overview">
       <h2>
         {t("OVERVIEW_TITLE")}
-        <a href="#Source">*</a>
+        {/* <a href="#Source">*</a> */}
       </h2>
       <div className="section_overview_element_con">
         <div className="section_overview__element">
