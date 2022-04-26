@@ -31,6 +31,9 @@ const English = {
       airDropData.reqEligibilityCheck.checks[0].key,
     AIRDROP_REQUIRED_ELIGIBILITY_VALUE_1:
       airDropData.reqEligibilityCheck.checks[0].value,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_1: airDropData.reqEligibilityCheck.checks[0].tableTitle,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_1: airDropData.reqEligibilityCheck.checks[0].tableKey1,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1: airDropData.reqEligibilityCheck.checks[0].tableKey2,
     AIRDROP_REQUIRED_ELIGIBILITY_TITLE_2:
       airDropData.reqEligibilityCheck.checks[1].title,
     AIRDROP_REQUIRED_ELIGIBILITY_DESCRIPTION_2:
@@ -39,6 +42,10 @@ const English = {
       airDropData.reqEligibilityCheck.checks[1].key,
     AIRDROP_REQUIRED_ELIGIBILITY_VALUE_2:
       airDropData.reqEligibilityCheck.checks[1].value,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_2: airDropData.reqEligibilityCheck.checks[1].tableTitle,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2: airDropData.reqEligibilityCheck.checks[1].tableKey1,
+      AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2: airDropData.reqEligibilityCheck.checks[1].tableValue1,
+      AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE: airDropData.reqEligibilityCheck.notEligible,
     AIRDROP_ALLOCATION_SINGLE_TITLE:
       airDropData.reqEligibilityCheck.allocationTitle,
 
@@ -264,6 +271,7 @@ const English = {
 
     AIRDROP: "Airdrop",
     AND: "and",
+    CHECK: "Check",
     CHECK_ELIGIBILITY: "Check Eligibility",
     CHECK_NOW: "Check Now",
     CLAIM: "Claim",
@@ -278,6 +286,7 @@ const English = {
     DAY: "day",
     DAYS: "days",
     DETAILS: "Details",
+    EDIT: "Edit",
     LETS_GO: "Let's go",
     MISSION: "Mission",
     NOTIFY_ME: "Notify Me",

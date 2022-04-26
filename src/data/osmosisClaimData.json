@@ -12,8 +12,8 @@
   "mission4": "Provide liquidity to Mantle ($MNTL) pools (20%)",
   "mission5": "Mint an NFT on MantlePlace (30%)",
   "calculationTitle": "The amount of allocated $MNTL tokens can be calculated as follows:",
-  "calculationExp1": "value of locked tokens in pools (Bonded)",
-  "calculationExp2": "value of unlocked tokens in pools (Unbonded)",
+  "calculationExp1": "value of locked LP tokens (Bonded)",
+  "calculationExp2": "value of unlocked LP tokens (Unbonded)",
   "calculationKey1": "Snapshot Date",
   "calculationKey2": "Maximum Allocation per wallet"
 }

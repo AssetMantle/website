@@ -9,6 +9,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
 import {config} from "dotenv";
+import TAndCModal from "./TAndCModal";
 
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
@@ -26,6 +27,9 @@ export default function OsmosisClaimPage() {
   });
 
   const [NotEligible, setNotEligible] = useState();
+  const [TAndC, setTAndC] = useState(localStorage.getItem("TAndC") && localStorage.getItem("TAndC") === "true" ? false : true);
+
+  const [CalculationShowState, setCalculationShowState] = useState(false);
 
   const [ClaimResponse, setClaimResponse] = useState({
     success: false,
@@ -48,8 +52,7 @@ export default function OsmosisClaimPage() {
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const OsmosisChainID = "osmosis-1";
 
-
-  const totalParticipant  = config.claimPageClaimEndPoint+"/status";
+  const totalParticipant = config.claimPageClaimEndPoint + "/status";
   function getTotalUsers() {
     return axios
       .all([axios.get(totalParticipant)])
@@ -102,16 +105,19 @@ export default function OsmosisClaimPage() {
     getAprTest();
     getTotalUsers();
     try {
-      if(sessionStorage.getItem("MNTL") !== null){
+      if (sessionStorage.getItem("MNTL") !== null) {
         setMNTLAddress(sessionStorage.getItem("MNTL"));
         setOsmosisAddress(sessionStorage.getItem("OSMO"));
         setKeplrConnectionState(2);
-        fetchBackendData(sessionStorage.getItem("OSMO"),sessionStorage.getItem("MNTL"))
+        fetchBackendData(
+          sessionStorage.getItem("OSMO"),
+          sessionStorage.getItem("MNTL")
+        );
       }
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  },[]);
+  }, []);
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
@@ -126,16 +132,16 @@ export default function OsmosisClaimPage() {
       setKeplrConnectionState(2);
       const mntlAddress = getMantleAddress(OsmosisAccount);
       setMNTLAddress(mntlAddress);
-      sessionStorage.setItem("MNTL",mntlAddress);
-      sessionStorage.setItem("OSMO",OsmosisAccount)
+      sessionStorage.setItem("MNTL", mntlAddress);
+      sessionStorage.setItem("OSMO", OsmosisAccount);
 
-      fetchBackendData(OsmosisAccount,mntlAddress)
+      fetchBackendData(OsmosisAccount, mntlAddress);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
   };
 
-  const fetchBackendData = async (OsmosisAccount,mntlAddress) => {
+  const fetchBackendData = async (OsmosisAccount, mntlAddress) => {
     // fetching data from backend
     fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
         .then((res) => res.json())
@@ -326,14 +332,14 @@ export default function OsmosisClaimPage() {
                 ? Number((Response.allocation * Bar) / 100).toLocaleString(
                     "en-US",
                     {
-                      maximumFractionDigits: 4,
+                      maximumFractionDigits: 2,
                     }
                   )
                 : "0"}{" "}
               /{" "}
               {Response && Response.allocation
                 ? Number(Response.allocation).toLocaleString("en-US", {
-                    maximumFractionDigits: 4,
+                    maximumFractionDigits: 2,
                   })
                 : "--"}{" "}
               $MNTL
@@ -471,7 +477,8 @@ export default function OsmosisClaimPage() {
                   )
                 }
               >
-                Vote
+                {/*Vote*/}
+                Soon
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
@@ -486,7 +493,8 @@ export default function OsmosisClaimPage() {
                 disabled={true}
                 className="section_mission__container_mission__button"
               >
-                Provide
+                {/*Provide*/}
+                Soon
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
@@ -501,7 +509,8 @@ export default function OsmosisClaimPage() {
                 disabled={true}
                 className="section_mission__container_mission__button"
               >
-                Mint
+                {/* Mint */}
+                Soon
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
@@ -512,50 +521,65 @@ export default function OsmosisClaimPage() {
 
         <section className="section_data">
           <div className="section_data__con">
-            <h4>
-              {t("OSMOSIS_CLAIM_CALCULATION_TITLE")}
-            </h4>
-            <div className="section_data__formula">
-              <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var>{" "}
-              <var>(</var>
-              <var>1</var> <var>-</var> <var>e</var>
-              <sup>
-                <var>p</var>
-              </sup>
-              <var>)</var>
-            </div>
-            <div className="section_data__exp_formula">
-              <p>where;</p>
-              <br />
-              <div className="section_data__exp_formula__var">
-                <p>
-                  <var>x</var> <var>=</var> <var>$</var> {t("OSMOSIS_CLAIM_CALCULATION_EXP_1")}
-                </p>
-                <p>
-                  <var>y</var> <var>=</var> <var>$</var> {t("OSMOSIS_CLAIM_CALCULATION_EXP_2")}
-                </p>
-                <p>
-                  <var>z</var> <var>=</var> <var>1.25</var> <var>*</var>{" "}
-                  <var>x</var> <var>+</var> <var>y</var>
-                </p>
-                <p>
-                  <var>p</var> <var>=</var> <var>(</var>
-                  <var>-z</var>
-                  <var>/</var>
-                  <var>100</var>
-                  <var>)</var>
-                </p>
+            <div className="section_data__con__shown">
+              <div className="section_data__con__shown_l">
+                <h4>
+                  {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
+                  <span>15 February, 2022</span>
+                </h4>
+                <h4>
+                  {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
+                  <span>750 $MNTL</span>
+                </h4>
+              </div>
+              <div className="section_data__con__shown_r">
+                <span
+                  onClick={() => setCalculationShowState(!CalculationShowState)}
+                >
+                  Calculation
+                </span>
               </div>
             </div>
-            <br />
-            <h4>
-              {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
-              <span>15 February, 2022</span>
-            </h4>
-            <h4>
-             {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
-              <span>750 $MNTL</span>
-            </h4>
+            {CalculationShowState && (
+              <div className="section_data__con__hide">
+                <br/>
+                <h4>{t("OSMOSIS_CLAIM_CALCULATION_TITLE")}</h4>
+                <div className="section_data__formula">
+                  <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var>{" "}
+                  <var>(</var>
+                  <var>1</var> <var>-</var> <var>e</var>
+                  <sup>
+                    <var>p</var>
+                  </sup>
+                  <var>)</var>
+                </div>
+                <div className="section_data__exp_formula">
+                  <p>where;</p>
+                  <br />
+                  <div className="section_data__exp_formula__var">
+                    <p>
+                      <var>x</var> <var>=</var> <var>$</var>{" "}
+                      {t("OSMOSIS_CLAIM_CALCULATION_EXP_1")}
+                    </p>
+                    <p>
+                      <var>y</var> <var>=</var> <var>$</var>{" "}
+                      {t("OSMOSIS_CLAIM_CALCULATION_EXP_2")}
+                    </p>
+                    <p>
+                      <var>z</var> <var>=</var> <var>1.25</var> <var>*</var>{" "}
+                      <var>x</var> <var>+</var> <var>y</var>
+                    </p>
+                    <p>
+                      <var>p</var> <var>=</var> <var>(</var>
+                      <var>-z</var>
+                      <var>/</var>
+                      <var>100</var>
+                      <var>)</var>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </Container>
@@ -566,6 +590,8 @@ export default function OsmosisClaimPage() {
           ClaimResponse={setClaimResponse}
         />
       )}
+
+      {TAndC === true && <TAndCModal closeModal={setTAndC} />}
     </>
   );
 }
@@ -705,7 +731,7 @@ const Container = styled.main`
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         p {
           font: var(--p-s);
           color: var(--gray-deep);
@@ -837,9 +863,25 @@ const Container = styled.main`
         background: var(--dark-m);
         border-radius: 12px;
         padding: 24px;
+        transition: all ease-in-out 200ms;
+        &__shown {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
+          &_r {
+            span {
+              color: var(--yellow);
+              cursor: pointer;
+              font: var(--p-m);
+            }
+          }
+        }
       }
       h4 {
         font: var(--h4);
+        font-weight: 400;
         span {
           color: var(--yellow);
         }
