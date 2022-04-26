@@ -13,7 +13,7 @@ const config = require("./config.json");
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
   const [apr, setApr] = useState(0);
-  const [MNTLAddress, setMNTLAddress] = useState();
+  const [MNTLAddress, setMNTLAddress] = useState("");
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
   const [StakeModal, setStakeModal] = useState(false);
@@ -48,9 +48,8 @@ export default function OsmosisClaimPage() {
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const OsmosisChainID = "osmosis-1";
 
-  // Total Participant
-  const totalParticipant =
-    config.claimPageClaimEndPoint + "/initialclaimstatus";
+
+  const totalParticipant  = config.claimPageClaimEndPoint+"/status";
   function getTotalUsers() {
     return axios
       .all([axios.get(totalParticipant)])
@@ -102,7 +101,17 @@ export default function OsmosisClaimPage() {
   useEffect(() => {
     getAprTest();
     getTotalUsers();
-  });
+    try {
+      if(sessionStorage.getItem("MNTL") !== null){
+        setMNTLAddress(sessionStorage.getItem("MNTL"));
+        setOsmosisAddress(sessionStorage.getItem("OSMO"));
+        setKeplrConnectionState(2);
+        fetchBackendData(sessionStorage.getItem("OSMO"),sessionStorage.getItem("MNTL"))
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  },[]);
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
@@ -117,9 +126,18 @@ export default function OsmosisClaimPage() {
       setKeplrConnectionState(2);
       const mntlAddress = getMantleAddress(OsmosisAccount);
       setMNTLAddress(mntlAddress);
+      sessionStorage.setItem("MNTL",mntlAddress);
+      sessionStorage.setItem("OSMO",OsmosisAccount)
 
-      // fetching data from backend
-      fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
+      fetchBackendData(OsmosisAccount,mntlAddress)
+    } else {
+      window.alert("Please install Keplr to move forward with the task.");
+    }
+  };
+
+  const fetchBackendData = async (OsmosisAccount,mntlAddress) => {
+    // fetching data from backend
+    fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success.toString() === "true") {
@@ -134,8 +152,8 @@ export default function OsmosisClaimPage() {
         })
         .catch((err) => console.log(err));
 
-      //  Fetching claim response
-      fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
+    //  Fetching claim response
+    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -161,10 +179,7 @@ export default function OsmosisClaimPage() {
           }
         })
         .catch((err) => console.log(err));
-    } else {
-      window.alert("Please install Keplr to move forward with the task.");
-    }
-  };
+  }
 
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
