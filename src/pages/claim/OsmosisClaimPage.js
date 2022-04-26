@@ -10,6 +10,7 @@ import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
 import {config} from "dotenv";
 import TAndCModal from "./TAndCModal";
+import {RiFileCopyLine} from "react-icons/all";
 
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
@@ -298,16 +299,17 @@ export default function OsmosisClaimPage() {
                 <strong>Osmosis: </strong>
                 <br />
                 {OsmosisAddress}
+                 <RiFileCopyLine onClick={() =>  navigator.clipboard.writeText(OsmosisAddress)} style={{cursor:'pointer'}} />
               </p>
               <p>
                 <strong>AssetMantle: </strong>
                 <br />
                 {MNTLAddress}
+                <RiFileCopyLine onClick={() =>  navigator.clipboard.writeText(MNTLAddress)} style={{cursor:'pointer'}} />
               </p>
             </div>
           </section>
         )}
-        {console.log("test",NotEligible)}
         {NotEligible === true ? (
           <section className="section_notEligible">
             {t("OSMOSIS_CLAIM_NOT_ELIGIBLE")}
