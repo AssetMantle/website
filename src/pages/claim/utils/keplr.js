@@ -1,8 +1,8 @@
-import config from "../config.json";
 import {createProtobufRpcClient, QueryClient, setupGovExtension, SigningStargateClient} from "@cosmjs/stargate";
 import {Tendermint34Client} from "@cosmjs/tendermint-rpc";
 import {QueryClientImpl} from "cosmjs-types/cosmos/staking/v1beta1/query";
 import Long from "long";
+import {config} from "dotenv";
 
 const restAPI = config.restAPI;
 const tendermintRPC = config.tendermintRPC;

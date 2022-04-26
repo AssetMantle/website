@@ -8,7 +8,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
-const config = require("./config.json");
+import {config} from "dotenv";
 
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
@@ -148,6 +148,7 @@ export default function OsmosisClaimPage() {
               address: mntlAddress,
               message: "Not eligible",
             });
+            setNotEligible(true);
           }
         })
         .catch((err) => console.log(err));
@@ -175,7 +176,6 @@ export default function OsmosisClaimPage() {
                 txHash: "",
               },
             });
-            setNotEligible(true);
           }
         })
         .catch((err) => console.log(err));
@@ -246,7 +246,7 @@ export default function OsmosisClaimPage() {
   }, [ClaimResponse]);
 
   window.addEventListener("keplr_keystorechange", () => {
-    handleKeplrConnect();
+    handleKeplrConnect().then(r => console.log("Account Switched!"));
   },[])
 
   // connect bar
@@ -301,7 +301,7 @@ export default function OsmosisClaimPage() {
             </div>
           </section>
         )}
-
+        {console.log("test",NotEligible)}
         {NotEligible === true ? (
           <section className="section_notEligible">
             {t("OSMOSIS_CLAIM_NOT_ELIGIBLE")}
