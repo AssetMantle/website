@@ -49,10 +49,11 @@ async function getOsmosBalance(wallet,validatorAddress){
         tendermintRPC,
     );
     const balance = await client.getBalance(wallet[1],"umntl");
-    const delegatedBalance = await client.getDelegation(wallet[1],validatorAddress);
+    let delegatedBalance = await client.getDelegation(wallet[1],validatorAddress);
+    (delegatedBalance == null) ? delegatedBalance = 0 : delegatedBalance = delegatedBalance.amount
     return {
         'balance': (balance.amount/MicroFactor),
-        'delegatedBalance': (delegatedBalance.amount/MicroFactor)};
+        'delegatedBalance': (delegatedBalance/MicroFactor)};
 }
 
 async function RpcClient() {

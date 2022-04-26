@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getKeplrWallet, getOsmosBalance, getValidators } from "./utils/keplr";
 import { delegateCoinTx } from "./utils/blockchainTransactions";
 import config from "./config.json";
+const CommissionConversion = 1000000000000000000;
 
 const TableData = ({
   index = 0,
@@ -55,7 +56,7 @@ const OsmosisStakeList = ({ data, Modal, ModalDataIndex }) => {
                     image="/images/airdrop/dark.png"
                     name={d.description.moniker}
                     votingPower={0}
-                    commission={d.commission.commissionRates.rate}
+                    commission={d.commission.commissionRates.rate/CommissionConversion}
                     openModal={Modal}
                     modalDataIndex={ModalDataIndex}
                   />
@@ -89,15 +90,13 @@ const OsmosisStakeForm = ({
   const [availableAmount, setAvailableAmount] = useState("");
   const [DelegatedAmount, setDelegatedAmount] = useState("");
   const [currentValidator, setCurrentValidator] = useState("");
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(1);
 
   // Get balance
   useEffect(() => {
     const bs = async () => {
       const account = await getKeplrWallet();
-      console.log("Account: ", account);
       const balance = await getOsmosBalance(account, address);
-      console.log(balance.balance, balance.delegatedBalance);
       setAvailableAmount(balance.balance);
       setDelegatedAmount(balance.delegatedBalance);
       setCurrentValidator(address);
@@ -113,7 +112,7 @@ const OsmosisStakeForm = ({
 
   // this function is handling the delegate button click
   const handleDelegate = async (data) => {
-    setClicked(true);
+    setClicked(2);
     const response = await delegateCoinTx(this, currentValidator, Amount);
     console.log("SUCCESS: ", response);
     delegationState(response);
@@ -202,12 +201,23 @@ const OsmosisStakeForm = ({
           <button
             onClick={handleDelegate}
             disabled={
-              Amount > availableAmount || Amount < 0.000001 || clicked
+              Amount > availableAmount || Amount < 0.000001 || clicked !==1
                 ? true
                 : false
             }
           >
-            Delegate
+            {
+              {
+                1: "Delegate",
+                2: (
+                  <img
+                    className="modal_container__body_persona_button__loadingImage"
+                    alt={"spinning loading indicator"}
+                    src="images/stakedrop/loader.svg"
+                  />
+                ),
+              }[clicked]
+            }
           </button>
         </div>
       </div>
@@ -226,7 +236,6 @@ export default function OsmosisStakeModal({ closeModal, Address }) {
     const ds = async () => {
       await getValidators().then((data) => {
         if (data.length !== 0) {
-          console.log(data);
           setData(data);
         }
       });
@@ -275,7 +284,7 @@ export default function OsmosisStakeModal({ closeModal, Address }) {
                   website={data && data[modalDataIndex].description.website}
                   description={data && data[modalDataIndex].description.details}
                   commission={
-                    data && data[modalDataIndex].commission.commissionRates.rate
+                    data && (data[modalDataIndex].commission.commissionRates.rate/CommissionConversion)
                   }
                   address={data && data[modalDataIndex].operatorAddress}
                   delegationState={setDelegated}
@@ -605,12 +614,30 @@ const StakeFormContainer = styled.div`
             text-decoration: none;
             border: none;
             outline: none;
+            min-width: 126px;
+            min-height: 46px;
             &:hover,
             &:focus {
               box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
             }
             @media (max-width: 548px) {
               width: 100%;
+            }
+            .modal_container__body_persona_button__loadingImage {
+              margin: auto;
+              height: 28px;
+              width: auto;
+              @media (prefers-reduced-motion: no-preference) {
+                animation: loading-spin infinite 20s linear;
+              }
+              @keyframes loading-spin {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
             }
             &:disabled {
               background: none;

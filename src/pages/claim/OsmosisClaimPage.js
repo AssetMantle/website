@@ -6,7 +6,7 @@ import { MdDone } from "react-icons/md";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
-import { getKeplrWallet } from "./utils/keplr";
+import {getMantleAddress} from "./utils/address";
 const config = require("./config.json");
 
 export default function OsmosisClaimPage() {
@@ -15,6 +15,8 @@ export default function OsmosisClaimPage() {
   const [OsmosisAddress, setOsmosisAddress] = useState();
   const [Bar, setBar] = useState(0);
   const [StakeModal, setStakeModal] = useState(false);
+  const [TotalParticipant, setTotalParticipant] = useState();
+  const [TotalClaimed, setTotalClaimed] = useState();
   const [Response, setResponse] = useState({
     success: false,
     address: "",
@@ -42,62 +44,79 @@ export default function OsmosisClaimPage() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const MNTLchainId = config.mainNetChainID;
-  console.log(MNTLchainId);
   const OsmosisChainID = "osmosis-1";
 
-  useEffect(() => async () => {
-    const total_supply =
+  // Total Participant
+  const totalParticipant  = config.claimPageClaimEndPoint+"/initialclaimstatus";
+  function getTotalUsers() {
+    return axios
+        .all([
+          axios.get(totalParticipant),
+        ])
+        .then(
+            axios.spread((totalParticipant) => {
+              setTotalParticipant(totalParticipant.data.totalList);
+              setTotalClaimed(totalParticipant.data.initialClaimList);
+              return totalParticipant.data.totalList;
+            })
+        )
+        .catch((error) => {
+          return 0;
+          // console.log(error);
+        });
+  }
+
+  const total_supply =
       "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
-    const inflation =
+  const inflation =
       "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
-    const bondedAmount =
+  const bondedAmount =
       "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
 
-    function getAPR() {
-      return axios
+  function getAPR() {
+    return axios
         .all([
           axios.get(total_supply),
           axios.get(inflation),
           axios.get(bondedAmount),
         ])
         .then(
-          axios.spread((totalSupply, inflation, bondedAmount) => {
-            totalSupply = totalSupply.data.supply[0].amount;
-            inflation = inflation.data.inflation;
-            bondedAmount = bondedAmount.data.pool.bonded_tokens;
-            return (inflation * totalSupply * 100) / bondedAmount;
-          })
+            axios.spread((totalSupply, inflation, bondedAmount) => {
+              totalSupply = totalSupply.data.supply[0].amount;
+              inflation = inflation.data.inflation;
+              bondedAmount = bondedAmount.data.pool.bonded_tokens;
+              return (inflation * totalSupply * 100) / bondedAmount;
+            })
         )
         .catch((error) => {
           return 0;
           // console.log(error);
         });
-    }
-    async function getApr() {
-      const ap = await getAPR();
-      setApr(ap);
-    }
-    getApr();
+  }
+  async function getAprTest() {
+    const ap = await getAPR();
+    setApr(ap);
+  }
+
+  useEffect(() => {
+    getAprTest();
+    getTotalUsers();
   });
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
-      // $MNTL address
-      const [offlineSigner, account] = await getKeplrWallet();
-      console.log("offlineSigner: ", offlineSigner);
-      console.log("Account: ", account);
-      setKeplrConnectionState(1);
-      setMNTLAddress(account);
 
       // Osmosis address
       let OsmosisOfflineSigner = await window.keplr.getOfflineSignerAuto(
         OsmosisChainID
       );
+      setKeplrConnectionState(1);
       let OsmosisAccounts = await OsmosisOfflineSigner.getAccounts();
       const OsmosisAccount = OsmosisAccounts[0].address;
       setOsmosisAddress(OsmosisAccount);
       setKeplrConnectionState(2);
+      const mntlAddress = getMantleAddress(OsmosisAccount);
+      setMNTLAddress(mntlAddress);
 
       // fetching data from backend
       fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
@@ -108,7 +127,7 @@ export default function OsmosisClaimPage() {
           } else {
             setResponse({
               success: false,
-              address: account,
+              address: mntlAddress,
               message: "Not eligible",
             });
           }
@@ -116,14 +135,14 @@ export default function OsmosisClaimPage() {
         .catch((err) => console.log(err));
 
       //  Fetching claim response
-      fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAccount}`)
+      fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
             setClaimResponse(data);
           } else {
             setClaimResponse({
-              success: true,
+              success: false,
               address: "",
               initialClaim: {
                 success: false,
@@ -149,13 +168,13 @@ export default function OsmosisClaimPage() {
 
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
-    const pub = await window.keplr.getKey(config.mainNetChainID);
+    const pub = await window.keplr.getKey("osmosis-1");
     const keplrSign = await window.keplr.signArbitrary(
-      config.mainNetChainID,
-      MNTLAddress,
+      "osmosis-1",
+      OsmosisAddress,
       data
     );
-    const res = await fetch("https://cosmos-sakedrop.assetmantle.one/qna", {
+    const res = await fetch(`${config.claimPageClaimEndPoint}/claim/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -167,10 +186,9 @@ export default function OsmosisClaimPage() {
         publicKey: pub.pubKey,
       }),
     });
-    console.log("Claimed Initial!..", res);
 
     //  Fetching claim response
-    fetch(`https://osmosis-airdrop.assetmantle.one/claim/${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -285,7 +303,11 @@ export default function OsmosisClaimPage() {
           <div className="section_overview__element">
             <p>Claimed</p>
             <h4>
-              0 /{" "}
+              {Response && Response.allocation
+                  ? Number(Response.allocation * Bar/100).toLocaleString("en-US", {
+                    maximumFractionDigits: 4,
+                  })
+                  : "0"} /{" "}
               {Response && Response.allocation
                 ? Number(Response.allocation).toLocaleString("en-US", {
                     maximumFractionDigits: 4,
@@ -304,8 +326,8 @@ export default function OsmosisClaimPage() {
               <p>$MNTL Staking APR</p>
               <h4>
                 {Number(apr).toLocaleString("en-US", {
-                  maximumFractionDigits: 4,
-                })}
+                  maximumFractionDigits: 2,
+                })}%
               </h4>
             </div>
           </a>
@@ -316,8 +338,8 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              <p>Total Participants</p>
-              <h4>N/A</h4>
+              <p>Claimed / Total Participants</p>
+              <h4>{TotalParticipant ? TotalClaimed +"/"+ TotalParticipant : "N/A"}</h4>
             </div>
           </a>
           <a
@@ -327,7 +349,7 @@ export default function OsmosisClaimPage() {
             rel="noopener noreferrer"
           >
             <div className="section_overview__element">
-              <p>Distribution Left</p>
+              <p>Total Distribution</p>
               <h4>
                 {Number(30000000).toLocaleString("en-US", {
                   maximumFractionDigits: 2,
@@ -355,7 +377,7 @@ export default function OsmosisClaimPage() {
               </div>
               <button
                 disabled={
-                  ClaimResponse.success && ClaimResponse.initialClaim.success
+                  ClaimResponse.success ? ClaimResponse.initialClaim.success : true
                 }
                 onClick={handleClaimInitial}
                 className="section_mission__container_mission__button"
@@ -378,9 +400,9 @@ export default function OsmosisClaimPage() {
                 <h4>Staking (10%)</h4>
               </div>
               <button
-                disabled={ClaimResponse.success && ClaimResponse.stake.success}
+                disabled={ClaimResponse.success ? ClaimResponse.stake.success : true}
                 className="section_mission__container_mission__button"
-                onClick={() => setStakeModal(true)}
+                onClick={() =>window.open("https://wallet.assetmantle.one/dashboard/staking", "_blank")}
               >
                 Stake
               </button>
@@ -400,8 +422,9 @@ export default function OsmosisClaimPage() {
                 <h4>Vote on a governance proposal (10%)</h4>
               </div>
               <button
-                disabled={ClaimResponse.success && ClaimResponse.vote.success}
+                disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
                 className="section_mission__container_mission__button"
+                onClick={() =>window.open("https://wallet.keplr.app/#/osmosis/governance?detailId="+config.proposalID, "_blank")}
               >
                 Vote
               </button>
@@ -588,7 +611,7 @@ const Container = styled.main`
     }
     &_notEligible {
       padding: 24px 0;
-      color: red;
+      color: var(--yellow);
       text-align: center;
       font: var(--p-m);
     }
@@ -668,6 +691,9 @@ const Container = styled.main`
           gap: 10px;
           width: min(100%, 410.66px);
           min-height: 147.19px;
+          @media (max-width: 1017px) {
+            width: 100%;
+          }
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
@@ -770,4 +796,22 @@ const Container = styled.main`
       }
     }
   }
+  .vote_btn{
+  padding: 10px 22.5px 12px;
+    display: inline;
+    font: 600 var(--p-m);
+    color: var(--dark-m);
+    text-transform: capitalize;
+    background: var(--yellow-gradient-bg);
+    box-shadow: 4px 4px 8px rgb(0 0 0 / 25%), inset -4px -4px 8px rgb(0 0 0 / 25%), inset 4px 4px 8px #ffc942;
+    border-radius: 12px;
+    -webkit-transition: all ease-in-out 100ms;
+    transition: all ease-in-out 100ms;
+    cursor: pointer;
+    color: var(--dark-m);
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    }
 `;
