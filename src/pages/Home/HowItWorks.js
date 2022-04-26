@@ -1,33 +1,35 @@
 import React, { useState } from "react";
-import DATA from "../../data/homeData.json";
 import { useTranslation } from "react-i18next";
+import DATA from "../../data/homeData.json";
 
 const HowItWorks = () => {
   const { t } = useTranslation();
 
-  const [option, setOption] = useState(DATA.howItWorks.options[0].name);
+  const [option, setOption] = useState(DATA.howItWorks.options[1].name);
 
   const OPTIONS = [
     {
+      ind: DATA.howItWorks.options[0].name,
       name: t("HOW_IT_WORKS_OPTION_1"),
+      description: t("HOW_IT_WORKS_OPTION_1_DESCRIPTION"),
       content: [
         {
-          img: "create_account",
+          img: DATA.howItWorks.options[0].content[0].img,
           title: t("HOW_IT_WORKS_OPTION_1_1_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_1_1_DESC"),
         },
         {
-          img: "create_store",
+          img: DATA.howItWorks.options[0].content[1].img,
           title: t("HOW_IT_WORKS_OPTION_1_2_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_1_2_DESC"),
         },
         {
-          img: "publish",
+          img: DATA.howItWorks.options[0].content[2].img,
           title: t("HOW_IT_WORKS_OPTION_1_3_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_1_3_DESC"),
         },
         {
-          img: "sell",
+          img: DATA.howItWorks.options[0].content[3].img,
           title: t("HOW_IT_WORKS_OPTION_1_4_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_1_4_DESC"),
         },
@@ -36,22 +38,29 @@ const HowItWorks = () => {
       href: "",
     },
     {
+      ind: DATA.howItWorks.options[1].name,
       name: t("HOW_IT_WORKS_OPTION_2"),
+      description: t("HOW_IT_WORKS_OPTION_2_DESCRIPTION"),
       content: [
         {
-          img: "create_account",
+          img: DATA.howItWorks.options[1].content[0].img,
           title: t("HOW_IT_WORKS_OPTION_2_1_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_2_1_DESC"),
         },
         {
-          img: "sell",
+          img: DATA.howItWorks.options[1].content[1].img,
           title: t("HOW_IT_WORKS_OPTION_2_2_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_2_2_DESC"),
         },
         {
-          img: "engage",
+          img: DATA.howItWorks.options[1].content[2].img,
           title: t("HOW_IT_WORKS_OPTION_2_3_TITLE"),
           details: t("HOW_IT_WORKS_OPTION_2_3_DESC"),
+        },
+        {
+          img: DATA.howItWorks.options[1].content[3].img,
+          title: t("HOW_IT_WORKS_OPTION_2_4_TITLE"),
+          details: t("HOW_IT_WORKS_OPTION_2_4_DESC"),
         },
       ],
       button: t("TELL_ME_MORE"),
@@ -63,14 +72,14 @@ const HowItWorks = () => {
     <section className="section_howItWorks">
       <span className="section_howItWorks__link_span" id="how_it_works"></span>
       <h2>{t("HOW_IT_WORKS_TITLE")}</h2>
-      <p>{t("HOW_IT_WORKS_DESCRIPTION")}</p>
+      <p>{OPTIONS.filter((e) => e.ind === option)[0].description}</p>
       <div className="section_howItWorks__element one">
         <div className="section_howItWorks__element_options">
           <h3
-            className={option === "MantleBuilder" ? "active" : undefined}
-            onClick={() => setOption("MantleBuilder")}
+            className={option === OPTIONS[0].ind ? "active" : undefined}
+            onClick={() => setOption(OPTIONS[0].ind)}
             tabIndex="0"
-            onKeyPress={(e) => e.key === "Enter" && setOption("MantleBuilder")}
+            onKeyPress={(e) => e.key === "Enter" && setOption(OPTIONS[0].ind)}
             role="button"
           >
             {OPTIONS[0].name}
@@ -78,10 +87,10 @@ const HowItWorks = () => {
         </div>
         <div className="section_howItWorks__element_options">
           <h3
-            className={option === "MantlePlace" ? "active" : undefined}
-            onClick={() => setOption("MantlePlace")}
+            className={option === OPTIONS[1].ind ? "active" : undefined}
+            onClick={() => setOption(OPTIONS[1].ind)}
             tabIndex="0"
-            onKeyPress={(e) => e.key === "Enter" && setOption("MantlePlace")}
+            onKeyPress={(e) => e.key === "Enter" && setOption(OPTIONS[1].ind)}
             role="button"
           >
             {OPTIONS[1].name}
@@ -92,27 +101,29 @@ const HowItWorks = () => {
         <div className="section_howItWorks__element two__storebuilder">
           {DATA.howItWorks.options &&
             React.Children.toArray(
-              OPTIONS.filter((e) => e.name === option)[0].content.map(
-                (data) => (
-                  <div className="section_howItWorks__element_content">
-                    <img
-                      src={`/images/landing/section/${
-                        data.img && data.img
-                      }.png`}
-                      alt={data.h3 && data.h3}
-                      className={`section_howItWorks__element_content__img ${
-                        data.img && data.img === "engage" ? "engage" : ""
-                      }`}
-                    />
-                    <h3 className="section_howItWorks__element_content__title">
-                      {data.title && data.title}
-                    </h3>
-                    <p className="section_howItWorks__element_content__description">
-                      {data.details && data.details}
-                    </p>
-                  </div>
-                )
-              )
+              OPTIONS.filter((e) => e.ind === option)[0].content.map((data) => (
+                <div className="section_howItWorks__element_content">
+                  <img
+                    src={`/images/landing/section/${data.img && data.img}.png`}
+                    alt={data.h3 && data.h3}
+                    className={`section_howItWorks__element_content__img ${
+                      data.img && data.img === "engage"
+                        ? "engage"
+                        : data.img && data.img === "sell"
+                        ? "sell"
+                        : data.img && data.img === "mint_nft"
+                        ? "mint_nft"
+                        : ""
+                    }`}
+                  />
+                  <h3 className="section_howItWorks__element_content__title">
+                    {data.title && data.title}
+                  </h3>
+                  <p className="section_howItWorks__element_content__description">
+                    {data.details && data.details}
+                  </p>
+                </div>
+              ))
             )}
         </div>
       )}
