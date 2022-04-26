@@ -5,5 +5,15 @@
   "overview1": "Claimed",
   "overview2": "$MNTL Staking APR",
   "overview3": "Claimed / Total Participants",
-  "overview4": "Total Distribution"
+  "overview4": "Total Distribution",
+  "mission1": "Initial Claim (30%)",
+  "mission2": "Staking (10%)",
+  "mission3": "Vote on a governance proposal (10%)",
+  "mission4": "Provide liquidity to Mantle ($MNTL) pools (20%)",
+  "mission5": "Mint an NFT on MantlePlace (30%)",
+  "calculationTitle": "The amount of allocated $MNTL tokens can be calculated as follows:",
+  "calculationExp1": "value of locked tokens in pools (Bonded)",
+  "calculationExp2": "value of unlocked tokens in pools (Unbonded)",
+  "calculationKey1": "Snapshot Date",
+  "calculationKey2": "Maximum Allocation per wallet"
 }
