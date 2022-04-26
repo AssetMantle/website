@@ -111,6 +111,18 @@
       "href": ""
     }
   },
+  "iAmSold": {
+    "visibility": false,
+    "title": "I’m sold, let’s do this!",
+    "description": "Join the AssetMantle community today.",
+    "href": "https://forms.office.com/r/YSH0dhMLwB"
+  },
+  "convincing": {
+    "visibility": false,
+    "title": "Um, i need some convincing!",
+    "description": "No sweat. It’s a new space and we understand you have questions. Let’s take a digital walk and answer them!",
+    "href": ""
+  },
   "gettingStarted": {
     "visibility": true,
     "title": "Getting started with AssetMantle",
@@ -179,6 +191,46 @@
       "href": "https://docs.assetmantle.one/AssetMantle_Whitepaper/"
     }
   },
+  "stores": {
+    "visibility": false,
+    "title": "Our Stores",
+    "description": "Discover an awesome range of NFTs from games, art, collectibles, and more. Get ready to raise those digital envy meters!",
+    "store1": "Featured Stores",
+    "store2": "New Stores",
+    "store3": "Popular Stores"
+  },
+  "wNFT": {
+    "visibility": false,
+    "title": "Hold on, what’s an NFT?",
+    "description": "What is an NFT? Why is it relevant? NFT stands for non-fungible token. It’s the digital equivalent of owning cool things in the physical world, like sexy sneakers or a Van Gogh. Like them, NFTs are unique, non-interchangeable units of data stored on the blockchain. They are photos, videos, or audio. They provide public proof of authenticity or ownership. But that does not restrict the sharing or copying of the digital file. Many consider NFTs to be the future of owning, flaunting and sharing things on the net!",
+    "subTitle": "NFTs come in various forms such as:",
+    "href": "/whats-an-nft"
+  },
+  "pricing": {
+    "visibility": false,
+    "title": "Pricing",
+    "description": "We bring you the most affordable, flexible pricing options.",
+    "currencies_name_1": "Ethereum",
+    "currencies_value_1": "$250 USD ",
+    "currencies_name_2": "Solana",
+    "currencies_value_2": "$2.5 USD",
+    "currencies_name_3": "Polygon",
+    "currencies_value_3": "$5 USD",
+    "name": "AssetMantle",
+    "value": "$0.000001* USD",
+    "href": "/pricing"
+  },
+  "LetsAmplify": {
+    "visibility": false,
+    "title": "Ok, let’s amplify my NFT game, people!",
+    "description": "Yay. You’ve just taken the first step to enhancing your life in the metaverse. Let’s get started and help you create, sell, and buy your digital assets.",
+    "href": ""
+  },
+  "testimonials": {
+    "visibility": false,
+    "title": "Hear what people have to say",
+    "description": "People who have tried AssetMantle are rocking it, whether they are creators or collectors"
+  },
   "team": {
     "visibility": true,
     "title": "Meet The Mantle Team",
@@ -234,5 +286,11 @@
         ]
       }
     ]
+  },
+  "source": {
+    "visibility": false,
+    "title": "Source",
+    "text": "NFT Market History",
+    "href": "https://nonfungible.com/market/history"
   }
 }
