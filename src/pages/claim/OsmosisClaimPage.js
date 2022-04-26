@@ -4,7 +4,11 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 import { MdDone } from "react-icons/md";
-import { AiOutlineArrowRight,AiFillCaretDown,AiFillCaretUp } from "react-icons/ai";
+import {
+  AiOutlineArrowRight,
+  AiFillCaretDown,
+  AiFillCaretUp,
+} from "react-icons/ai";
 
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
@@ -20,6 +24,8 @@ export default function OsmosisClaimPage() {
   const [StakeModal, setStakeModal] = useState(false);
   const [TotalParticipant, setTotalParticipant] = useState();
   const [TotalClaimed, setTotalClaimed] = useState();
+  const [InitialClaimNotification, setInitialClaimNotification] =
+    useState(false);
   const [Response, setResponse] = useState({
     success: false,
     address: "",
@@ -27,7 +33,11 @@ export default function OsmosisClaimPage() {
   });
 
   const [NotEligible, setNotEligible] = useState();
-  const [TAndC, setTAndC] = useState(localStorage.getItem("TAndC") && localStorage.getItem("TAndC") === "true" ? false : true);
+  const [TAndC, setTAndC] = useState(
+    localStorage.getItem("TAndC") && localStorage.getItem("TAndC") === "true"
+      ? false
+      : true
+  );
 
   const [CalculationShowState, setCalculationShowState] = useState(false);
 
@@ -122,49 +132,49 @@ export default function OsmosisClaimPage() {
   const fetchBackendData = async (OsmosisAccount, mntlAddress) => {
     // fetching data from backend
     fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setResponse(data);
-          } else {
-            setResponse({
-              success: false,
-              address: mntlAddress,
-              message: "Not eligible",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success.toString() === "true") {
+          setResponse(data);
+        } else {
+          setResponse({
+            success: false,
+            address: mntlAddress,
+            message: "Not eligible",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
 
     //  Fetching claim response
     fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAccount}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            setClaimResponse(data);
-            setNotEligible(false);
-          } else {
-            setClaimResponse({
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setClaimResponse(data);
+          setNotEligible(false);
+        } else {
+          setClaimResponse({
+            success: false,
+            address: "",
+            initialClaim: {
               success: false,
-              address: "",
-              initialClaim: {
-                success: false,
-                txHash: "",
-              },
-              stake: {
-                success: false,
-                txHash: "",
-              },
-              vote: {
-                success: false,
-                txHash: "",
-              },
-            });
-            setNotEligible(true);
-          }
-        })
-        .catch((err) => console.log(err));
-  }
+              txHash: "",
+            },
+            stake: {
+              success: false,
+              txHash: "",
+            },
+            vote: {
+              success: false,
+              txHash: "",
+            },
+          });
+          setNotEligible(true);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
@@ -188,7 +198,6 @@ export default function OsmosisClaimPage() {
     }
   };
 
-
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
     const pub = await window.keplr.getKey("osmosis-1");
@@ -209,6 +218,8 @@ export default function OsmosisClaimPage() {
         publicKey: pub.pubKey,
       }),
     });
+
+    console.log(res);
 
     //  Fetching claim response
     fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAddress}`)
@@ -240,6 +251,15 @@ export default function OsmosisClaimPage() {
   };
 
   useEffect(() => {
+    if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
+      setInitialClaimNotification(true);
+      setTimeout(() => {
+        setInitialClaimNotification(false);
+      }, 10000);
+    }
+  }, [ClaimResponse]);
+
+  useEffect(() => {
     let bar = 0;
     if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
       bar += 30;
@@ -256,8 +276,8 @@ export default function OsmosisClaimPage() {
   useEffect(() => {
     window.addEventListener("keplr_keystorechange", () => {
       handleKeplrConnect();
-    })
-  },[])
+    });
+  }, []);
 
   // connect bar
   const BarContainer = styled.div`
@@ -468,9 +488,7 @@ export default function OsmosisClaimPage() {
                 <h4>{t("OSMOSIS_CLAIM_MISSION_3")}</h4>
               </div>
               <button
-                disabled={
-                  true
-                }
+                disabled={true}
                 className="section_mission__container_mission__button"
                 onClick={() =>
                   window.open(
@@ -528,7 +546,9 @@ export default function OsmosisClaimPage() {
               <div className="section_data__con__shown_l">
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
-                  <span>15<sup>th</sup> February, 2022</span>
+                  <span>
+                    15<sup>th</sup> February, 2022
+                  </span>
                 </h4>
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
@@ -539,13 +559,18 @@ export default function OsmosisClaimPage() {
                 <span
                   onClick={() => setCalculationShowState(!CalculationShowState)}
                 >
-                  Calculation {CalculationShowState ? <AiFillCaretUp /> :<AiFillCaretDown />}
+                  Calculation{" "}
+                  {CalculationShowState ? (
+                    <AiFillCaretUp />
+                  ) : (
+                    <AiFillCaretDown />
+                  )}
                 </span>
               </div>
             </div>
             {CalculationShowState && (
               <div className="section_data__con__hide">
-                <br/>
+                <br />
                 <h4>{t("OSMOSIS_CLAIM_CALCULATION_TITLE")}</h4>
                 <div className="section_data__formula">
                   <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var>{" "}
@@ -593,7 +618,27 @@ export default function OsmosisClaimPage() {
           ClaimResponse={setClaimResponse}
         />
       )}
-
+      <NotificationInitialClaim className={InitialClaimNotification && "show"}>
+        <div className="left">
+          <img
+            className="left_loadingImage"
+            alt={"spinning loading indicator"}
+            src="images/stakedrop/loader.svg"
+          />
+          <div className="left_close">
+            <img
+              // className="left_close"
+              onClick={() => setInitialClaimNotification(false)}
+              src="/images/icons/close.png"
+              alt="close"
+            />
+          </div>
+        </div>
+        <div className="right">
+          Can't see your tokens after initial claim? <br /> Please wait for 10 -
+          15 minutes for the tokens to be displayed in the wallet.
+        </div>
+      </NotificationInitialClaim>
       {TAndC === true && <TAndCModal closeModal={setTAndC} />}
     </>
   );
@@ -922,5 +967,61 @@ const Container = styled.main`
     text-decoration: none;
     border: none;
     outline: none;
+  }
+`;
+
+const NotificationInitialClaim = styled.div`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: min(95vw, 400px);
+  padding: 20px;
+  background: var(--dark-m);
+  border-radius: 12px;
+  font: 600 var(--p-s);
+  color: var(--success);
+  box-shadow: var(--dark-shadow);
+  transition: all ease-in-out 300ms;
+  transform: translateX(800px);
+  display: flex;
+  gap: 12px;
+  border: 1px solid var(--success);
+  .left {
+    position: relative;
+    &_loadingImage {
+      width: 20px;
+      height: 20px;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: loading-spin infinite 20s linear;
+      }
+      @keyframes loading-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+    &_close {
+      position: absolute;
+      background-color: var(--dark-s);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      top: -25px;
+      left: -25px;
+      padding: 2px;
+      display: flex;
+      img {
+        margin: auto;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  &.show {
+    transform: translateX(0);
   }
 `;
