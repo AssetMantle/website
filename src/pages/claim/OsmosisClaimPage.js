@@ -400,8 +400,8 @@ export default function OsmosisClaimPage() {
             >
               {/* add " completed" class to mark completed */}
               <div className="section_mission__container_mission__title">
-                <p>Mission #1</p>
-                <h4>Initial claim (30%)</h4>
+                <p>{t("MISSION")} #1</p>
+                <h4>{t("OSMOSIS_CLAIM_MISSION_1")}</h4>
               </div>
               <button
                 disabled={
@@ -426,8 +426,8 @@ export default function OsmosisClaimPage() {
               }`}
             >
               <div className="section_mission__container_mission__title">
-                <p>Mission #2</p>
-                <h4>Staking (10%)</h4>
+                <p>{t("MISSION")} #2</p>
+                <h4>{t("OSMOSIS_CLAIM_MISSION_2")}</h4>
               </div>
               <button
                 disabled={
@@ -455,8 +455,8 @@ export default function OsmosisClaimPage() {
               }`}
             >
               <div className="section_mission__container_mission__title">
-                <p>Mission #3</p>
-                <h4>Vote on a governance proposal (10%)</h4>
+                <p>{t("MISSION")} #3</p>
+                <h4>{t("OSMOSIS_CLAIM_MISSION_3")}</h4>
               </div>
               <button
                 disabled={
@@ -479,8 +479,8 @@ export default function OsmosisClaimPage() {
             </div>
             <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
-                <p>Mission #4</p>
-                <h4>Provide liquidity to Mantle ($MNTL) pools (20%)</h4>
+                <p>{t("MISSION")} #4</p>
+                <h4>{t("OSMOSIS_CLAIM_MISSION_4")}</h4>
               </div>
               <button
                 disabled={true}
@@ -494,8 +494,8 @@ export default function OsmosisClaimPage() {
             </div>
             <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
-                <p>Mission #5</p>
-                <h4>Mint an NFT on MantlePlace (30%)</h4>
+                <p>{t("MISSION")} #5</p>
+                <h4>{t("OSMOSIS_CLAIM_MISSION_5")}</h4>
               </div>
               <button
                 disabled={true}
@@ -513,7 +513,7 @@ export default function OsmosisClaimPage() {
         <section className="section_data">
           <div className="section_data__con">
             <h4>
-              The amount of allocated $MNTL tokens can be calculated as follows:
+              {t("OSMOSIS_CLAIM_CALCULATION_TITLE")}
             </h4>
             <div className="section_data__formula">
               <var>Allocation</var> <var>=</var> <var>750</var> <var>*</var>{" "}
@@ -529,12 +529,10 @@ export default function OsmosisClaimPage() {
               <br />
               <div className="section_data__exp_formula__var">
                 <p>
-                  <var>x</var> <var>=</var> <var>$</var> value of locked tokens
-                  in pools (Bonded)
+                  <var>x</var> <var>=</var> <var>$</var> {t("OSMOSIS_CLAIM_CALCULATION_EXP_1")}
                 </p>
                 <p>
-                  <var>y</var> <var>=</var> <var>$</var> value of unlocked
-                  tokens in pools (Unbonded)
+                  <var>y</var> <var>=</var> <var>$</var> {t("OSMOSIS_CLAIM_CALCULATION_EXP_2")}
                 </p>
                 <p>
                   <var>z</var> <var>=</var> <var>1.25</var> <var>*</var>{" "}
@@ -551,11 +549,11 @@ export default function OsmosisClaimPage() {
             </div>
             <br />
             <h4>
-              Snapshot Date <AiOutlineArrowRight />{" "}
+              {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
               <span>15 February, 2022</span>
             </h4>
             <h4>
-              Maximum Allocation per wallet <AiOutlineArrowRight />{" "}
+             {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
               <span>750 $MNTL</span>
             </h4>
           </div>

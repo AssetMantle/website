@@ -96,6 +96,16 @@ const English = {
     OSMOSIS_CLAIM_OVERVIEW_2: osmosisData.overview2,
     OSMOSIS_CLAIM_OVERVIEW_3: osmosisData.overview3,
     OSMOSIS_CLAIM_OVERVIEW_4: osmosisData.overview4,
+    OSMOSIS_CLAIM_MISSION_1: osmosisData.mission1,
+    OSMOSIS_CLAIM_MISSION_2: osmosisData.mission2,
+    OSMOSIS_CLAIM_MISSION_3: osmosisData.mission3,
+    OSMOSIS_CLAIM_MISSION_4: osmosisData.mission4,
+    OSMOSIS_CLAIM_MISSION_5: osmosisData.mission5,
+    OSMOSIS_CLAIM_CALCULATION_TITLE: osmosisData.calculationTitle,
+    OSMOSIS_CLAIM_CALCULATION_EXP_1: osmosisData.calculationExp1,
+    OSMOSIS_CLAIM_CALCULATION_EXP_2: osmosisData.calculationExp2,
+    OSMOSIS_CLAIM_CALCULATION_KEY_1: osmosisData.calculationKey1,
+    OSMOSIS_CLAIM_CALCULATION_KEY_2: osmosisData.calculationKey2,
 
     // StakeDrop Page
     // Intro section
@@ -264,12 +274,12 @@ const English = {
     CONNECTING: "Connecting...",
     CONNECT_WALLET: "Connect Wallet",
     CONNECTING_WALLET: "Connecting Wallet",
-    WALLET_CONNECTED: "Wallet Connected",
     CREATE_A_STORE: "Create A Store",
     DAY: "day",
     DAYS: "days",
     DETAILS: "Details",
     LETS_GO: "Let's go",
+    MISSION: "Mission",
     NOTIFY_ME: "Notify Me",
     ONGOING: "Ongoing",
     OR: "or",
@@ -278,6 +288,7 @@ const English = {
     TELL_ME_MORE: "Tell me more",
     VIEW: "View",
     WALLET: "Wallet",
+    WALLET_CONNECTED: "Wallet Connected",
   },
 };
 
