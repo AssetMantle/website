@@ -272,9 +272,9 @@ export default function OsmosisClaimPage() {
           >
             {`${
               {
-                0: <>{t("CONNECT")} {t("WALLET")}</>,
-                1: <>{t("CONNECTING")} {t("WALLET")}</>,
-                2: <>{t("WALLET")} {t("CONNECTED")}</>,
+                0: t("CONNECT_WALLET"),
+                1: t("CONNECTING_WALLET"),
+                2: t("WALLET_CONNECTED"),
               }[KeplrConnectionState]
             }`}
           </button>
