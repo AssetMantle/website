@@ -8,9 +8,8 @@ import { AiOutlineArrowRight,AiFillCaretDown,AiFillCaretUp } from "react-icons/a
 
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
-import {config} from "dotenv";
 import TAndCModal from "./TAndCModal";
-import {RiFileCopyLine} from "react-icons/all";
+import config from "./config";
 
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
@@ -53,7 +52,7 @@ export default function OsmosisClaimPage() {
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const OsmosisChainID = "osmosis-1";
 
-  const totalParticipant = config.claimPageClaimEndPoint + "/status";
+  const totalParticipant = `${config.claimPageClaimEndPoint}/status`;
   function getTotalUsers() {
     return axios
       .all([axios.get(totalParticipant)])
@@ -299,13 +298,11 @@ export default function OsmosisClaimPage() {
                 <strong>Osmosis: </strong>
                 <br />
                 {OsmosisAddress}
-                 <RiFileCopyLine onClick={() =>  navigator.clipboard.writeText(OsmosisAddress)} style={{cursor:'pointer'}} />
               </p>
               <p>
                 <strong>AssetMantle: </strong>
                 <br />
                 {MNTLAddress}
-                <RiFileCopyLine onClick={() =>  navigator.clipboard.writeText(MNTLAddress)} style={{cursor:'pointer'}} />
               </p>
             </div>
           </section>

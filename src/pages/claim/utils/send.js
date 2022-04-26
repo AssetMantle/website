@@ -1,6 +1,6 @@
 import {getKeplrWallet, getTxFee, Transaction} from './keplr.js'
 import {SendMsg} from './protoMsgHelpr'
-import {config} from "dotenv";
+import config from "../config";
 
 const MicroFactor = 1000000;
 

@@ -11,8 +11,7 @@ import {MsgTransfer} from "cosmjs-types/ibc/applications/transfer/v1/tx";
 import {coin} from "@cosmjs/stargate";
 import {stringToNumber, trimWhiteSpaces} from "./scripts";
 import {OPTIONS} from "../constants/voteOptions";
-import {config} from "dotenv";
-
+import config from "../config";
 const msgSendTypeUrl = "/cosmos.bank.v1beta1.MsgSend";
 const msgDelegateTypeUrl = "/cosmos.staking.v1beta1.MsgDelegate";
 const msgRedelegateTypeUrl = "/cosmos.staking.v1beta1.MsgBeginRedelegate";
