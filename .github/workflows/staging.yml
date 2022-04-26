@@ -3,7 +3,7 @@ name: Airdrop-Staging
 
 on:
   push:
-    branches: [0xankit/apr]
+    branches: [airdrop/master]
 
 jobs:
   deploy:
