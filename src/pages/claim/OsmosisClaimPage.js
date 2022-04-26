@@ -611,7 +611,7 @@ const Container = styled.main`
     }
     &_notEligible {
       padding: 24px 0;
-      color: red;
+      color: var(--yellow);
       text-align: center;
       font: var(--p-m);
     }
