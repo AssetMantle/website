@@ -17,6 +17,7 @@
     "bech32": "^2.0.0",
     "bootstrap": "^4.6.0",
     "cosmjs-types": "^0.4.1",
+    "dotenv": "^16.0.0",
     "dotenv-cli": "^5.1.0",
     "i18next": "^21.6.11",
     "i18next-browser-languagedetector": "^6.1.3",

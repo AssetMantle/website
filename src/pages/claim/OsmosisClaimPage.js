@@ -9,7 +9,7 @@ import { AiOutlineArrowRight,AiFillCaretDown,AiFillCaretUp } from "react-icons/a
 import OsmosisStakeModal from "./OsmosisStake";
 import { getMantleAddress } from "./utils/address";
 import TAndCModal from "./TAndCModal";
-const config = require("./config.json");
+import config from "./config";
 
 export default function OsmosisClaimPage() {
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ export default function OsmosisClaimPage() {
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
   const OsmosisChainID = "osmosis-1";
 
-  const totalParticipant = config.claimPageClaimEndPoint + "/status";
+  const totalParticipant = `${config.claimPageClaimEndPoint}/status`;
   function getTotalUsers() {
     return axios
       .all([axios.get(totalParticipant)])
@@ -119,6 +119,53 @@ export default function OsmosisClaimPage() {
     }
   }, []);
 
+  const fetchBackendData = async (OsmosisAccount, mntlAddress) => {
+    // fetching data from backend
+    fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success.toString() === "true") {
+            setResponse(data);
+          } else {
+            setResponse({
+              success: false,
+              address: mntlAddress,
+              message: "Not eligible",
+            });
+          }
+        })
+        .catch((err) => console.log(err));
+
+    //  Fetching claim response
+    fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAccount}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setClaimResponse(data);
+            setNotEligible(false);
+          } else {
+            setClaimResponse({
+              success: false,
+              address: "",
+              initialClaim: {
+                success: false,
+                txHash: "",
+              },
+              stake: {
+                success: false,
+                txHash: "",
+              },
+              vote: {
+                success: false,
+                txHash: "",
+              },
+            });
+            setNotEligible(true);
+          }
+        })
+        .catch((err) => console.log(err));
+  }
+
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       // Osmosis address
@@ -135,57 +182,12 @@ export default function OsmosisClaimPage() {
       sessionStorage.setItem("MNTL", mntlAddress);
       sessionStorage.setItem("OSMO", OsmosisAccount);
 
-      fetchBackendData(OsmosisAccount, mntlAddress);
+      await fetchBackendData(OsmosisAccount, mntlAddress);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
   };
 
-  const fetchBackendData = async (OsmosisAccount, mntlAddress) => {
-    // fetching data from backend
-    fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmosisAccount}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success.toString() === "true") {
-          setResponse(data);
-        } else {
-          setResponse({
-            success: false,
-            address: mntlAddress,
-            message: "Not eligible",
-          });
-        }
-      })
-      .catch((err) => console.log(err));
-
-    //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAccount}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setClaimResponse(data);
-        } else {
-          setClaimResponse({
-            success: false,
-            address: "",
-            initialClaim: {
-              success: false,
-              txHash: "",
-            },
-            stake: {
-              success: false,
-              txHash: "",
-            },
-            vote: {
-              success: false,
-              txHash: "",
-            },
-          });
-          setNotEligible(true);
-        }
-      })
-      .catch((err) => console.log(err));
-  };
 
   const handleClaimInitial = async () => {
     const data = "INITIAL_CLAIM";
@@ -195,7 +197,7 @@ export default function OsmosisClaimPage() {
       OsmosisAddress,
       data
     );
-    const res = await fetch(`${config.claimPageClaimEndPoint}/claim/`, {
+    const res = await fetch(`${config.claimPageClaimEndPoint}/osmosis/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -209,7 +211,7 @@ export default function OsmosisClaimPage() {
     });
 
     //  Fetching claim response
-    fetch(`${config.claimPageClaimEndPoint}/claim/${OsmosisAddress}`)
+    fetch(`${config.claimPageClaimEndPoint}/osmosis/${OsmosisAddress}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -251,8 +253,10 @@ export default function OsmosisClaimPage() {
     setBar(bar);
   }, [ClaimResponse]);
 
-  window.addEventListener("keplr_keystorechange", () => {
-    handleKeplrConnect();
+  useEffect(() => {
+    window.addEventListener("keplr_keystorechange", () => {
+      handleKeplrConnect();
+    })
   },[])
 
   // connect bar
@@ -307,7 +311,6 @@ export default function OsmosisClaimPage() {
             </div>
           </section>
         )}
-
         {NotEligible === true ? (
           <section className="section_notEligible">
             {t("OSMOSIS_CLAIM_NOT_ELIGIBLE")}
@@ -525,7 +528,7 @@ export default function OsmosisClaimPage() {
               <div className="section_data__con__shown_l">
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_1")} <AiOutlineArrowRight />{" "}
-                  <span>15 February, 2022</span>
+                  <span>15<sup>th</sup> February, 2022</span>
                 </h4>
                 <h4>
                   {t("OSMOSIS_CLAIM_CALCULATION_KEY_2")} <AiOutlineArrowRight />{" "}
@@ -590,7 +593,7 @@ export default function OsmosisClaimPage() {
           ClaimResponse={setClaimResponse}
         />
       )}
-      
+
       {TAndC === true && <TAndCModal closeModal={setTAndC} />}
     </>
   );
