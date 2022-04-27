@@ -65,7 +65,7 @@
 .section_reward_table__element_option:first-child p {
   font: var(--h4);
   color: var(--gray-deep);
-  text-align: center;
+  text-align: right;
 }
 
 .section_reward_table__element_option:last-child h4 {
