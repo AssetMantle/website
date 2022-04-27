@@ -51,16 +51,13 @@
   color: var(--gray);
 }
 
-.section_reward_table__element_option h4:not(:first-child) {
-  text-align: center;
-}
 .section_reward_table__element_option p {
   font: 600 var(--p-m);
   color: var(--gray);
-  text-align: center;
+  text-align: right;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .section_reward_table__element_option:first-child h4 {
   color: var(--gray-deep);
@@ -68,7 +65,7 @@
 .section_reward_table__element_option:first-child p {
   font: var(--h4);
   color: var(--gray-deep);
-  text-align: center;
+  text-align: right;
 }
 
 .section_reward_table__element_option:last-child h4 {
@@ -78,4 +75,20 @@
   font: var(--h4);
   color: var(--yellow);
   text-align: center;
+}
+
+.section_reward_table__element_option:last-child span {
+  font: var(--p-m);
+  color: var(--yellow);
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  cursor: pointer
+}
+
+
+.section_reward_table__element_option:last-child span svg {
+  margin-top: 4px;
 }

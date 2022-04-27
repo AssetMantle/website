@@ -262,6 +262,8 @@ export const AirdropContainer = styled.main`
             color: var(--yellow);
             border: none;
             box-shadow: none;
+            text-align: right;
+            padding-right: 0px;
             &:hover,
             &:focus {
               box-shadow: none;
@@ -438,7 +440,7 @@ export const AirdropContainer = styled.main`
         }
         p {
           font: var(--p-l);
-          color: var(--gray-deep);
+          color: var(--yellow);
         }
       }
     }

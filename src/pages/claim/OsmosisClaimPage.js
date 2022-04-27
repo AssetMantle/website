@@ -266,15 +266,6 @@ export default function OsmosisClaimPage() {
   // }, [ClaimResponse]);
 
   useEffect(() => {
-    if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
-      setInitialClaimNotification(true);
-      setTimeout(() => {
-        setInitialClaimNotification(false);
-      }, 10000);
-    }
-  }, [ClaimResponse]);
-
-  useEffect(() => {
     let bar = 0;
     if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
       bar += 30;
@@ -832,18 +823,21 @@ const Container = styled.main`
           align-items: center;
           justify-content: space-between;
           background-color: var(--dark-m);
-          padding: 24px 20px;
+          /* padding: 24px 20px; */
           border-radius: 12px;
           gap: 10px;
-          width: min(100%, 410.66px);
-          min-height: 147.19px;
-          @media (max-width: 1017px) {
+          width: min(100%, 233.66px);
+          flex-direction: column;
+          min-height: 250.19px;
+          text-align: center;
+          /* @media (max-width: 1017px) {
             width: 100%;
-          }
+          } */
           @media (max-width: 548px) {
             flex-wrap: wrap;
           }
           &__title {
+            padding: 24px 20px;
             p {
               font: var(--p-s);
               color: var(--gray-deep);
@@ -859,13 +853,14 @@ const Container = styled.main`
             background: var(--yellow-gradient-bg);
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
               inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
-            border-radius: 12px;
+            border-radius: 0 0 12px 12px;
             transition: all ease-in-out 100ms;
             cursor: pointer;
             color: var(--dark-m);
             text-decoration: none;
             border: none;
             outline: none;
+            width: 100%;
             &:hover,
             &:focus {
               box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
@@ -913,6 +908,7 @@ const Container = styled.main`
             }
             .section_mission__container_mission__done {
               display: flex;
+              opacity: 0;
             }
           }
         }

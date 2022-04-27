@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import { HiOutlineInformationCircle } from "react-icons/hi";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { initializeKeplr } from "./utils/keplr";
+const stakeDropAPI = process.env.REACT_APP_claimPageClaimEndPoint;
 
-// import campaignData from "../../../data/campaignData.json";
-import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
-import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
-
-export default function MantleDropClaim() {
+export default function MantleDropClaim({ totalValue }) {
   const { t } = useTranslation();
 
   const [Participated, setParticipated] = useState();
@@ -17,46 +16,40 @@ export default function MantleDropClaim() {
 
   const [Modal, setModal] = useState(false);
 
+  const [ShowTable, setShowTable] = useState(false);
+
   //   address
+  const [MNTLAddress, setMNTLAddress] = useState("");
+  const [APIResponse, setAPIResponse] = useState({
+    success: false,
+    cosmos: {
+      address: "",
+      amount: 0,
+    },
+    juno: {
+      address: "",
+      amount: 0,
+    },
+    comdex: {
+      address: "",
+      amount: 0,
+    },
+    stargaze: {
+      address: "",
+      amount: 0,
+    },
+    terra: {
+      address: "",
+      amount: 0,
+    },
+    persistence: {
+      address: "",
+      amount: 0,
+    },
+  });
   const [InputAddress, setInputAddress] = useState("");
-  const [CosmosAddress, setCosmosAddress] = useState("");
-  const [PersistenceAddress, setPersistenceAddress] = useState("");
-  const [TerraAddress, setTerraAddress] = useState("");
-  const [ComdexAddress, setComdexAddress] = useState("");
-  const [JunoAddress, setJunoAddress] = useState("");
-  const [StargazeAddress, setStargazeAddress] = useState("");
 
   const [InputCampaignData, setInputCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [CosmosCampaignData, setCosmosCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [PersistenceCampaignData, setPersistenceCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [TerraCampaignData, setTerraCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [ComdexCampaignData, setComdexCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [JunoCampaignData, setJunoCampaignData] = useState({
-    delegator: "",
-    received: 0,
-    mantleAddress: "",
-  });
-  const [StargazeCampaignData, setStargazeCampaignData] = useState({
     delegator: "",
     received: 0,
     mantleAddress: "",
@@ -64,167 +57,66 @@ export default function MantleDropClaim() {
 
   // connect keplr
   const [KeplrConnectionState, setKeplrConnectionState] = useState(0);
-  const cosmosChainID = "cosmoshub-4";
-  const persistenceChainID = "core-1";
-  const terraChainID = "columbus-5";
-  const comdexChainID = "comdex-1";
-  const junoChainID = "juno-1";
-  const stargazeChainID = "stargaze-1";
 
   const handleKeplrConnect = async () => {
     if (window.keplr) {
       setKeplrConnectionState(1);
 
-      // taking cosmos address
-      let cosmosOfflineSigner = window.keplr.getOfflineSigner(cosmosChainID);
-      let cosmosAccounts = await cosmosOfflineSigner.getAccounts();
-      const cosmosAccount = cosmosAccounts[0].address;
-      setCosmosAddress(cosmosAccount);
-      fetch(
-        `https://cosmos-stakedrop.assetmantle.one/delegator/${cosmosAccount}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setCosmosCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setCosmosCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking cosmos address ends
-
-      // taking persistence address
-      let persistenceOfflineSigner =
-        window.keplr.getOfflineSigner(persistenceChainID);
-      let persistenceAccounts = await persistenceOfflineSigner.getAccounts();
-      const persistenceAccount = persistenceAccounts[0].address;
-      setPersistenceAddress(persistenceAccount);
-      fetch(
-        `https://persistence-stakedrop.assetmantle.one/delegator/${persistenceAccount}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setPersistenceCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setPersistenceCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking persistence address ends
-
-      // taking terra address
+      // adding MNTL wallet
       try {
-        await initializeKeplrForTera();
+        await initializeKeplr();
       } catch (e) {
         console.log(e);
       }
-      let terraOfflineSigner = window.keplr.getOfflineSigner(terraChainID);
-      let terraAccounts = await terraOfflineSigner.getAccounts();
-      const terraAccount = terraAccounts[0].address;
-      setTerraAddress(terraAccount);
-      fetch(`https://terra-stakedrop.assetmantle.one/delegator/${terraAccount}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setTerraCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setTerraCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking terra address ends
+      let mantleOfflineSigner = window.keplr.getOfflineSigner(
+        process.env.REACT_APP_mainNetChainID
+      );
+      let mntlAccounts = await mantleOfflineSigner.getAccounts();
+      let mntlAddress = mntlAccounts[0].address;
+      setMNTLAddress(mntlAddress);
 
-      // taking comdex address
-      try {
-        await initializeKeplrForComdex();
-      } catch (e) {
-        console.log(e);
-      }
-      let comdexOfflineSigner = window.keplr.getOfflineSigner(comdexChainID);
-      let comdexAccounts = await comdexOfflineSigner.getAccounts();
-      const comdexAccount = comdexAccounts[0].address;
-      setComdexAddress(comdexAccount);
-      fetch(
-        `https://comdex-stakedrop.assetmantle.one/delegator/${comdexAccount}`
-      )
+      // fetching address and rewards
+      fetch(`${stakeDropAPI}/stakeDrop/${mntlAddress}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.success.toString() === "true") {
-            setComdexCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setComdexCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
+          if (data.success === true) {
+            setAPIResponse(data);
+          } else if (data.success === false) {
+            setAPIResponse({
+              success: false,
+              cosmos: {
+                address: "",
+                amount: 0,
+              },
+              juno: {
+                address: "",
+                amount: 0,
+              },
+              comdex: {
+                address: "",
+                amount: 0,
+              },
+              stargaze: {
+                address: "",
+                amount: 0,
+              },
+              terra: {
+                address: "",
+                amount: 0,
+              },
+              persistence: {
+                address: "",
+                amount: 0,
+              },
             });
           }
         })
         .catch((err) => console.log(err));
-      //  taking comdex address end
-
-      // taking juno address
-      let junoOfflineSigner = window.keplr.getOfflineSigner(junoChainID);
-      let junoAccounts = await junoOfflineSigner.getAccounts();
-      const junoAccount = junoAccounts[0].address;
-      setJunoAddress(junoAccount);
-      fetch(`https://juno-stakedrop.assetmantle.one/delegator/${junoAccount}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setJunoCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setJunoCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking juno address ends
-
-      // taking stargaze address
-      let stargazeOfflineSigner =
-        window.keplr.getOfflineSigner(stargazeChainID);
-      let stargazeAccounts = await stargazeOfflineSigner.getAccounts();
-      const stargazeAccount = stargazeAccounts[0].address;
-      setStargazeAddress(stargazeAccount);
-      fetch(
-        `https://stargaze-stakedrop.assetmantle.one/delegator/${stargazeAccount}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success.toString() === "true") {
-            setStargazeCampaignData(data);
-          } else if (data.success.toString() === "false") {
-            setStargazeCampaignData({
-              delegator: "",
-              received: 0,
-              mantleAddress: "",
-            });
-          }
-        })
-        .catch((err) => console.log(err));
-      // taking stargaze address ends
 
       // took necessary addresses
 
       setKeplrConnectionState(2);
-      setModal(false)
+      setModal(false);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -251,6 +143,7 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
     } else if (InputAddress.includes("persistence")) {
       fetch(
         `https://persistence-stakedrop.assetmantle.one/delegator/${InputAddress}`
@@ -271,6 +164,7 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
     } else if (InputAddress.includes("terra")) {
       fetch(`https://terra-stakedrop.assetmantle.one/delegator/${InputAddress}`)
         .then((res) => res.json())
@@ -289,6 +183,7 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
     } else if (InputAddress.includes("comdex")) {
       fetch(
         `https://comdex-stakedrop.assetmantle.one/delegator/${InputAddress}`
@@ -309,6 +204,7 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
     } else if (InputAddress.includes("juno")) {
       fetch(`https://juno-stakedrop.assetmantle.one/delegator/${InputAddress}`)
         .then((res) => res.json())
@@ -327,6 +223,7 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
     } else if (InputAddress.includes("stars")) {
       fetch(
         `https://stargaze-stakedrop.assetmantle.one/delegator/${InputAddress}`
@@ -347,6 +244,49 @@ export default function MantleDropClaim() {
           }
         })
         .catch((err) => console.log(err));
+      setModal(false);
+    } else if (InputAddress.includes("mantle")) {
+      fetch(`${stakeDropAPI}/stakeDrop/${InputAddress}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success === true) {
+            setAPIResponse(data);
+            setMNTLAddress(InputAddress);
+            setInputError();
+          } else if (data.success === false) {
+            setParticipated(false);
+            setInputError();
+            setAPIResponse({
+              success: false,
+              cosmos: {
+                address: "",
+                amount: 0,
+              },
+              juno: {
+                address: "",
+                amount: 0,
+              },
+              comdex: {
+                address: "",
+                amount: 0,
+              },
+              stargaze: {
+                address: "",
+                amount: 0,
+              },
+              terra: {
+                address: "",
+                amount: 0,
+              },
+              persistence: {
+                address: "",
+                amount: 0,
+              },
+            });
+          }
+        })
+        .catch((err) => console.log(err));
+      setModal(false);
     } else {
       setInputError();
       setInputCampaignData({
@@ -378,6 +318,18 @@ export default function MantleDropClaim() {
     return result;
   };
 
+  useEffect(() => {
+    totalValue(
+      APIResponse.cosmos.amount +
+        APIResponse.comdex.amount +
+        APIResponse.persistence.amount +
+        APIResponse.juno.amount +
+        APIResponse.stargaze.amount +
+        APIResponse.terra.amount +
+        InputCampaignData.received/1000000
+    );
+  }, [APIResponse, InputCampaignData]);
+
   return (
     <>
       <section className="section_drop">
@@ -401,13 +353,7 @@ export default function MantleDropClaim() {
             <h4>{t("AIRDROP_START_WITH_STAKEDROP_VALUE")}</h4>
           </div>
           <div className="section_drop__button">
-            {CosmosAddress ||
-            PersistenceAddress ||
-            TerraAddress ||
-            ComdexAddress ||
-            JunoAddress ||
-            StargazeAddress ||
-            InputCampaignData.delegator ? (
+            {KeplrConnectionState === 2 || InputAddress ? (
               <button className="button_2" onClick={() => setModal(true)}>
                 {t("Edit")}
               </button>
@@ -417,327 +363,296 @@ export default function MantleDropClaim() {
           </div>
         </div>
       </section>
+      {KeplrConnectionState === 2 ? (
+        APIResponse.success === false ? (
+          <section className="section_allocation">
+            <h3 className="error-t">
+              {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+            </h3>
+          </section>
+        ) : (
+          ""
+        )
+      ) : InputAddress ? (
+        InputAddress.includes("mantle") ? (
+          APIResponse.success === false && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
+        ) : (
+          InputCampaignData.mantleAddress === "" && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
+        )
+      ) : (
+        ""
+      )}
       <Container>
-        {Modal && <div className="section_calculation__modal">
-          <div
-            className="section_calculation__modal___fo_bg"
-            onClick={() => setModal(false)}
-          ></div>
-          <div className="section_calculation__modal__sc">
-            <div className="section_calculation__modal_container">
-              <section className="section_calculation lighter_bg">
-                <>
-                  <div
-                    className="section_calculation__modal__sc_close"
-                    onClick={() => setModal(false)}
-                    onKeyPress={(e) => e.key === "Enter" && setModal(false)}
-                  >
-                    <img src="/images/icons/close.png" alt="close" />
-                  </div>
-                </>
-                <h2>Participated in the StakeDrop Campaign?</h2>
-                <h3>Check your $MNTL Allocation</h3>
-                <div className="section_calculation__connect">
-                  {/* <p className="section_calculation__connect_text">
-                Connect your wallet
-              </p> */}
-                  <button
-                    className="section_calculation__connect_button"
-                    onClick={handleKeplrConnect}
-                    disabled={
-                      InputAddress !== null &&
-                      InputAddress !== undefined &&
-                      InputAddress !== ""
-                        ? true
-                        : false
-                    }
-                  >
-                    <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-                    <span>{`${
-                      {
-                        0: t("CONNECT"),
-                        1: t("CONNECTING"),
-                        2: t("CONNECTED"),
-                      }[KeplrConnectionState]
-                    } Keplr`}</span>
-                  </button>
-                </div>
-                <div className="section_calculation__or">Or</div>
-                <div className="section_calculation__from">
-                  <label
-                    htmlFor="walletAddress"
-                    className="section_calculation__from_label"
-                  >
-                    Enter your wallet address
-                  </label>
-                  <div className="section_calculation__from_line2">
-                    <input
-                      type="text"
-                      name="walletAddress"
-                      value={InputAddress}
-                      className="section_calculation__from_line2_input"
-                      readOnly={
-                        CosmosAddress ||
-                        PersistenceAddress ||
-                        TerraAddress ||
-                        ComdexAddress ||
-                        JunoAddress ||
-                        StargazeAddress
+        {Modal && (
+          <div className="section_calculation__modal">
+            <div
+              className="section_calculation__modal___fo_bg"
+              onClick={() => setModal(false)}
+            ></div>
+            <div className="section_calculation__modal__sc">
+              <div className="section_calculation__modal_container">
+                <section className="section_calculation lighter_bg">
+                  <>
+                    <div
+                      className="section_calculation__modal__sc_close"
+                      onClick={() => setModal(false)}
+                      onKeyPress={(e) => e.key === "Enter" && setModal(false)}
+                    >
+                      <img src="/images/icons/close.png" alt="close" />
+                    </div>
+                  </>
+                  <h2>Participated in the StakeDrop Campaign?</h2>
+                  <h3>Check your $MNTL Allocation</h3>
+                  <div className="section_calculation__connect">
+                    <button
+                      className="section_calculation__connect_button"
+                      onClick={handleKeplrConnect}
+                      disabled={
+                        InputAddress !== null &&
+                        InputAddress !== undefined &&
+                        InputAddress !== ""
                           ? true
                           : false
                       }
-                      onChange={(e) =>
-                        CosmosAddress ||
-                        PersistenceAddress ||
-                        TerraAddress ||
-                        ComdexAddress ||
-                        JunoAddress ||
-                        StargazeAddress
-                          ? setInputAddress()
-                          : handleInputChange(e)
-                      }
-                      placeholder="Enter your wallet address"
-                    />
-                    <button
-                      onClick={InputCalculate}
-                      className="section_calculation__from_line2_button"
-                      disabled={
-                        InputAddress !== null &&
-                        InputAddress !== "" &&
-                        InputAddress !== undefined
-                          ? false
-                          : true
-                      }
                     >
-                      Calculate
+                      <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+                      <span>{`${
+                        {
+                          0: t("CONNECT"),
+                          1: t("CONNECTING"),
+                          2: t("CONNECTED"),
+                        }[KeplrConnectionState]
+                      } Keplr`}</span>
                     </button>
                   </div>
-                </div>
-                {Participated === false && (
-                  <div className="section_calculation__error">
-                    <div className="section_calculation__error_element__line1">
-                      <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You didn't participate in the campaigns!</h3>
+                  <div className="section_calculation__or">Or</div>
+                  <div className="section_calculation__from">
+                    <label
+                      htmlFor="walletAddress"
+                      className="section_calculation__from_label"
+                    >
+                      Enter your wallet address
+                    </label>
+                    <div className="section_calculation__from_line2">
+                      <input
+                        type="text"
+                        name="walletAddress"
+                        value={InputAddress}
+                        className="section_calculation__from_line2_input"
+                        readOnly={KeplrConnectionState === 2 ? true : false}
+                        onChange={(e) =>
+                          KeplrConnectionState === 2
+                            ? setInputAddress()
+                            : handleInputChange(e)
+                        }
+                        placeholder="Enter your wallet address"
+                      />
+                      <button
+                        onClick={InputCalculate}
+                        className="section_calculation__from_line2_button"
+                        disabled={
+                          InputAddress !== null &&
+                          InputAddress !== "" &&
+                          InputAddress !== undefined
+                            ? false
+                            : true
+                        }
+                      >
+                        Calculate
+                      </button>
                     </div>
                   </div>
-                )}
-                {InputError && (
-                  <div className="section_calculation__error">
-                    <div className="section_calculation__error_element__line1">
-                      <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>{InputError}</h3>
+
+                  {InputAddress && InputError && (
+                    <div className="section_calculation__error">
+                      <div className="section_calculation__error_element__line1">
+                        <img src="/images/stakedrop/info.svg" alt="info icon" />
+                        <h3>{InputError}</h3>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </section>
+                  )}
+                </section>
+              </div>
             </div>
           </div>
-        </div>}
+        )}
 
-        {/* $MNTL Address ⬇ */}
-        <>
-          {CosmosCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {CosmosCampaignData.mantleAddress}
-            </div>
-          ) : PersistenceCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {PersistenceCampaignData.mantleAddress}
-            </div>
-          ) : TerraCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {TerraCampaignData.mantleAddress}
-            </div>
-          ) : ComdexCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {ComdexCampaignData.mantleAddress}
-            </div>
-          ) : JunoCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {JunoCampaignData.mantleAddress}
-            </div>
-          ) : StargazeCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {StargazeCampaignData.mantleAddress}
-            </div>
-          ) : InputCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {InputCampaignData.mantleAddress}
-            </div>
-          ) : null}
-        </>
-
-        {Participated !== false ? (
+        {/*{APIResponse.success === true && KeplrConnectionState ===2 ? (*/}
+        {APIResponse.success === true || InputCampaignData.mantleAddress ? (
           <section className="section_reward_table">
             <div className="section_reward_table__element">
-              <>
-                {CosmosAddress ||
-                PersistenceAddress ||
-                TerraAddress ||
-                ComdexAddress ||
-                JunoAddress ||
-                StargazeAddress ||
-                InputCampaignData.delegator ? (
-                  <div className="section_reward_table__element_option">
-                    <h4>Campaign</h4>
-                    <h4>Address</h4>
-                    <p>Rewards ($MNTL)</p>
-                  </div>
-                ) : (
-                  ""
-                )}
-              </>
-              {CosmosAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Cosmos</h4>
-                  <h4>
-                    {CosmosAddress.substring(0, 5)}...
-                    {CosmosAddress.substring(CosmosAddress.length - 5)}
-                  </h4>
-                  <p>
-                    {CosmosCampaignData.received
-                      ? division(CosmosCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {PersistenceAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Persistence</h4>
-                  <h4>
-                    {PersistenceAddress.substring(0, 5)}...
-                    {PersistenceAddress.substring(
-                      PersistenceAddress.length - 5
+              {ShowTable && (
+                <>
+                  <>
+                    {APIResponse || InputCampaignData.delegator ? (
+                      <div className="section_reward_table__element_option">
+                        <h4>Campaign</h4>
+                        <h4>Address</h4>
+                        <p>Rewards ($MNTL)</p>
+                      </div>
+                    ) : (
+                      ""
                     )}
-                  </h4>
+                  </>
+                  {APIResponse.cosmos.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Cosmos</h4>
+                      <h4>{APIResponse.cosmos.address}</h4>
+                      <p>
+                        {APIResponse.cosmos.amount
+                          ? APIResponse.cosmos.amount.toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {APIResponse.persistence.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Persistence</h4>
+                      <h4>{APIResponse.persistence.address}</h4>
 
-                  <p>
-                    {PersistenceCampaignData.received
-                      ? division(PersistenceCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {TerraAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Terra</h4>
-                  <h4>
-                    {TerraAddress.substring(0, 5)}...
-                    {TerraAddress.substring(TerraAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {APIResponse.persistence.amount
+                          ? APIResponse.persistence.amount.toLocaleString(
+                              "en-US",
+                              {
+                                maximumFractionDigits: 2,
+                              }
+                            )
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {APIResponse.terra.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Terra</h4>
+                      <h4>{APIResponse.terra.address}</h4>
 
-                  <p>
-                    {TerraCampaignData.received
-                      ? division(TerraCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {ComdexAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Comdex</h4>
-                  <h4>
-                    {ComdexAddress.substring(0, 5)}...
-                    {ComdexAddress.substring(ComdexAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {APIResponse.terra.amount
+                          ? APIResponse.terra.amount.toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {APIResponse.comdex.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Comdex</h4>
+                      <h4>{APIResponse.comdex.address}</h4>
 
-                  <p>
-                    {ComdexCampaignData.received
-                      ? division(ComdexCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {JunoAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Juno</h4>
-                  <h4>
-                    {JunoAddress.substring(0, 5)}...
-                    {JunoAddress.substring(JunoAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {APIResponse.comdex.amount
+                          ? APIResponse.comdex.amount.toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {APIResponse.juno.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Juno</h4>
+                      <h4>{APIResponse.juno.address}</h4>
 
-                  <p>
-                    {JunoCampaignData.received
-                      ? division(JunoCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {StargazeAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Stargaze</h4>
-                  <h4>
-                    {StargazeAddress.substring(0, 5)}...
-                    {StargazeAddress.substring(StargazeAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {APIResponse.juno.amount
+                          ? APIResponse.juno.amount.toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {APIResponse.stargaze.address && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Stargaze</h4>
+                      <h4>{APIResponse.stargaze.address}</h4>
 
-                  <p>
-                    {StargazeCampaignData.received
-                      ? division(StargazeCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {InputCampaignData.delegator && (
-                <div className="section_reward_table__element_option">
-                  <h4>
-                    {InputAddress.includes("cosmos")
-                      ? "Cosmos"
-                      : InputAddress.includes("persistence")
-                      ? "Persistence"
-                      : InputAddress.includes("terra")
-                      ? "Terra"
-                      : InputAddress.includes("comdex")
-                      ? "Comdex"
-                      : InputAddress.includes("juno")
-                      ? "Juno"
-                      : InputAddress.includes("stars")
-                      ? "Stargaze"
-                      : "Failed to detect"}
-                  </h4>
-                  <h4>
-                    {InputCampaignData.delegator.substring(0, 5)}...
-                    {InputCampaignData.delegator.substring(
-                      InputCampaignData.delegator.length - 5
-                    )}
-                  </h4>
+                      <p>
+                        {APIResponse.stargaze.amount
+                          ? APIResponse.stargaze.amount.toLocaleString(
+                              "en-US",
+                              {
+                                maximumFractionDigits: 2,
+                              }
+                            )
+                          : "0"}
+                      </p>
+                    </div>
+                  )}
+                  {InputCampaignData.delegator && (
+                    <div className="section_reward_table__element_option">
+                      <h4>
+                        {InputAddress.includes("cosmos")
+                          ? "Cosmos"
+                          : InputAddress.includes("persistence")
+                          ? "Persistence"
+                          : InputAddress.includes("terra")
+                          ? "Terra"
+                          : InputAddress.includes("comdex")
+                          ? "Comdex"
+                          : InputAddress.includes("juno")
+                          ? "Juno"
+                          : InputAddress.includes("stars")
+                          ? "Stargaze"
+                          : "Failed to detect"}
+                      </h4>
+                      <h4>{InputCampaignData.delegator}</h4>
 
-                  <p>
-                    {InputCampaignData.received
-                      ? division(InputCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
+                      <p>
+                        {InputCampaignData.received
+                          ? (InputCampaignData.received/1000000).toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
               <>
-                {CosmosAddress ||
-                PersistenceAddress ||
-                TerraAddress ||
-                ComdexAddress ||
-                JunoAddress ||
-                StargazeAddress ? (
+                {APIResponse || InputCampaignData.received ? (
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
-                    <span></span>
                     {/* <span></span> */}
+                    <h4>{MNTLAddress ? MNTLAddress : InputCampaignData.mantleAddress}</h4>
+                    <span onClick={() => setShowTable(!ShowTable)}>
                     <p>
                       <img
-                        src="/images/airdrop/dark.png"
-                        alt="coin illustration dark"
+                          src="/images/airdrop/dark.png"
+                          alt="coin illustration dark"
                       />{" "}
-                      {(
-                        (CosmosCampaignData.received +
-                          PersistenceCampaignData.received +
-                          TerraCampaignData.received +
-                          ComdexCampaignData.received +
-                          JunoCampaignData.received +
-                          StargazeCampaignData.received) /
-                        1000000
+                      {( InputCampaignData.received ? (InputCampaignData.received/1000000) :
+                          (APIResponse.cosmos.amount +
+                          APIResponse.comdex.amount +
+                          APIResponse.persistence.amount +
+                          APIResponse.juno.amount +
+                          APIResponse.stargaze.amount +
+                          APIResponse.terra.amount)
+
                       ).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
+                        maximumFractionDigits: 2,
                       })}
                       {` $MNTL`}
                     </p>
+                      {" "}
+                      {ShowTable ? <AiFillCaretUp /> : <AiFillCaretDown />}
+                    </span>
                   </div>
                 ) : (
                   ""
@@ -746,14 +661,42 @@ export default function MantleDropClaim() {
             </div>
           </section>
         ) : (
-          <div className="section_calculation__error">
-            <div className="section_calculation__error_element__line1">
-              <img src="/images/stakedrop/info.svg" alt="info icon" />
-              <h3>You didn't participate in the campaigns!</h3>
+          ""
+        )}
+
+        {/*) : (*/}
+        {/*  <div className="section_calculation__error">*/}
+        {/*    <div className="section_calculation__error_element__line1">*/}
+        {/*      <img src="/images/stakedrop/info.svg" alt="info icon" />*/}
+        {/*      <h3>You didn't participate in the campaigns!</h3>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*)}*/}
+      </Container>
+      {KeplrConnectionState === 2 || InputAddress ? (
+        <section
+          className="section_drop"
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
+        >
+          <div className="section_drop__element">
+            <div className="section_drop__element_details">
+              <h3>{false}</h3>
+              <div className="section_drop__element_details__hover">
+                <p></p>
+              </div>
+            </div>
+            <div className="section_drop__element_value">
+              <p></p>
+              <h4>{false}</h4>
+            </div>
+            <div className="section_drop__button">
+              <a href="/stakedrop">Details</a>
             </div>
           </div>
-        )}
-      </Container>
+        </section>
+      ) : (
+        ""
+      )}
     </>
   );
 }
