@@ -254,6 +254,7 @@ export default function MantleDropClaim({ totalValue }) {
         .then((data) => {
           if (data.success === true) {
             setAPIResponse(data);
+            setMNTLAddress(InputAddress);
             setInputError();
           } else if (data.success === false) {
             setParticipated(false);
