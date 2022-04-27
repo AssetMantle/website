@@ -21,10 +21,12 @@ export default function Airdrop() {
   const [OsmoAddress, setOsmoAddress] = useState();
 
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
+  const [OsmoAllocation, setOsmoAllocation] = useState(0);
   const [TAndC, setTAndC] = useState(false);
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
   const [MetaMaskAddress, setMetaMaskAddress] = useState();
+  const [MetamaskAllocation, setMetamaskAllocation] = useState(0);
 
   const [MetaMaskCalculatedDATA, setMetaMaskCalculatedDATA] = useState();
 
@@ -38,11 +40,16 @@ export default function Airdrop() {
     fetch(`https://airdrop-data.assetmantle.one/keplr/${OsmoAddress}`)
       .then((res) => res.json())
       .then((data) => {
-        data.success.toString() === "true"
-          ? setKeplrCalculatedDATA(data)
-          : data.address.toString() === "undefined"
-          ? setKeplrCalculatedDATA()
-          : setKeplrCalculatedDATA(false);
+        if (data.success.toString() === "true") {
+          setKeplrCalculatedDATA(data);
+          setOsmoAllocation(data.allocation);
+        } else if (data.address.toString() === "undefined") {
+          setKeplrCalculatedDATA();
+          setOsmoAllocation(0);
+        } else {
+          setKeplrCalculatedDATA(false);
+          setOsmoAllocation(0);
+        }
       });
   }, [OsmoAddress]);
 
@@ -50,11 +57,16 @@ export default function Airdrop() {
     fetch(`https://airdrop-data.assetmantle.one/metaMask/${MetaMaskAddress}`)
       .then((res) => res.json())
       .then((data) => {
-        data.success.toString() === "true"
-          ? setMetaMaskCalculatedDATA(data)
-          : data.address.toString() === "undefined"
-          ? setMetaMaskCalculatedDATA()
-          : setMetaMaskCalculatedDATA(false);
+        if (data.success.toString() === "true") {
+          setMetaMaskCalculatedDATA(data);
+          setMetamaskAllocation(data.allocation);
+        } else if (data.address.toString() === "undefined") {
+          setMetamaskAllocation(0);
+          setMetaMaskCalculatedDATA();
+        } else {
+          setMetamaskAllocation(0);
+          setMetaMaskCalculatedDATA(false);
+        }
       });
   }, [MetaMaskAddress]);
 
@@ -321,7 +333,9 @@ export default function Airdrop() {
           </div>
         </section>
         <section className="section_wallets"></section>
-        {KeplrCalculatedDATA || MetaMaskCalculatedDATA || MantleDropClaimValue ? (
+        {KeplrCalculatedDATA ||
+        MetaMaskCalculatedDATA ||
+        MantleDropClaimValue ? (
           <>
             <section className="section_allocation">
               <h3>{t("AIRDROP_ALLOCATION_TITLE")}</h3>
@@ -334,20 +348,11 @@ export default function Airdrop() {
                   <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
                 </div>
                 <p>
-                  {MetaMaskCalculatedDATA &&
-                  MetaMaskCalculatedDATA.allocation &&
-                  KeplrCalculatedDATA &&
-                  KeplrCalculatedDATA.allocation 
-                    ? (
-                        Number(MetaMaskCalculatedDATA.allocation) +
-                        Number(KeplrCalculatedDATA.allocation) + MantleDropClaimValue
-                      ).toFixed(2)
-                    : MetaMaskCalculatedDATA &&
-                      MetaMaskCalculatedDATA.allocation
-                    ? Number(MetaMaskCalculatedDATA.allocation).toFixed(2)
-                    : KeplrCalculatedDATA && KeplrCalculatedDATA.allocation
-                    ? Number(KeplrCalculatedDATA.allocation).toFixed(2)
-                    : undefined}
+                  {(
+                    Number(OsmoAllocation) +
+                    Number(MetamaskAllocation) +
+                    MantleDropClaimValue
+                  ).toFixed(2)}
                 </p>
               </div>
             </section>
@@ -375,12 +380,12 @@ export default function Airdrop() {
                     </p>
                   </div>
                 )}
-                {MantleDropClaimValue && <div className="section_allocation_by_network__element_option">
+                {MantleDropClaimValue && (
+                  <div className="section_allocation_by_network__element_option">
                     <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
-                    <p>
-                      {Number(MantleDropClaimValue).toFixed(2)}
-                    </p>
-                  </div>}
+                    <p>{Number(MantleDropClaimValue).toFixed(2)}</p>
+                  </div>
+                )}
                 {/* <div className="section_allocation_by_network__element_option">
                   <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                   <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
