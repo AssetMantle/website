@@ -618,7 +618,9 @@ export default function MantleDropClaim({ totalValue }) {
 
                       <p>
                         {InputCampaignData.received
-                          ? division(InputCampaignData.received)
+                          ? (InputCampaignData.received/1000000).toLocaleString("en-US", {
+                              maximumFractionDigits: 2,
+                            })
                           : "--"}
                       </p>
                     </div>
@@ -637,14 +639,14 @@ export default function MantleDropClaim({ totalValue }) {
                           src="/images/airdrop/dark.png"
                           alt="coin illustration dark"
                       />{" "}
-                      {(
-                          APIResponse.cosmos.amount +
+                      {( InputCampaignData.received ? (InputCampaignData.received/1000000) :
+                          (APIResponse.cosmos.amount +
                           APIResponse.comdex.amount +
                           APIResponse.persistence.amount +
                           APIResponse.juno.amount +
                           APIResponse.stargaze.amount +
-                          APIResponse.terra.amount +
-                          InputCampaignData.received
+                          APIResponse.terra.amount)
+
                       ).toLocaleString("en-US", {
                         maximumFractionDigits: 2,
                       })}
