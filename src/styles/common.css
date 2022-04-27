@@ -1,3 +1,7 @@
 .error-t {
     color: red !important;
 }
+
+.yellow-t {
+    color: var(--yellow) !important;
+}

@@ -51,13 +51,10 @@
   color: var(--gray);
 }
 
-.section_reward_table__element_option h4:not(:first-child) {
-  text-align: center;
-}
 .section_reward_table__element_option p {
   font: 600 var(--p-m);
   color: var(--gray);
-  text-align: center;
+  text-align: right;
   display: flex;
   align-items: center;
   justify-content: center;

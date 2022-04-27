@@ -30,6 +30,8 @@ export default function Airdrop() {
 
   const [OsmoIModalState, setOsmoIModalState] = useState(false);
 
+  const [MantleDropClaimValue, setMantleDropClaimValue] = useState(0);
+
   // const [Total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export default function Airdrop() {
             </div>
           </div>
         </section>
-        <MantleDropClaim />
+        <MantleDropClaim totalValue={setMantleDropClaimValue} />
         {/* <section className="section_drop">
           <div className="section_drop__heading">
             <h3>{t("COMPLETED")}</h3>
@@ -335,7 +337,7 @@ export default function Airdrop() {
                   {MetaMaskCalculatedDATA &&
                   MetaMaskCalculatedDATA.allocation &&
                   KeplrCalculatedDATA &&
-                  KeplrCalculatedDATA.allocation
+                  KeplrCalculatedDATA.allocation 
                     ? (
                         Number(MetaMaskCalculatedDATA.allocation) +
                         Number(KeplrCalculatedDATA.allocation)
@@ -373,6 +375,12 @@ export default function Airdrop() {
                     </p>
                   </div>
                 )}
+                {MantleDropClaimValue && <div className="section_allocation_by_network__element_option">
+                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
+                    <p>
+                      {Number(MantleDropClaimValue).toFixed(2)}
+                    </p>
+                  </div>}
                 {/* <div className="section_allocation_by_network__element_option">
                   <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                   <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>

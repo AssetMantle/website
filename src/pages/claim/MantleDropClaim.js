@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -6,15 +6,16 @@ import { HiOutlineInformationCircle } from "react-icons/hi";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 // import campaignData from "../../../data/campaignData.json";
-import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
-import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
-import { initializeKeplr } from "./utils/keplr";
+// import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
+// import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
+// import { initializeKeplr } from "./utils/keplr";
 const stakeDropAPI = process.env.REACT_APP_claimPageClaimEndPoint;
 
-export default function MantleDropClaim() {
+export default function MantleDropClaim({totalValue}) {
   const { t } = useTranslation();
 
   const [Participated, setParticipated] = useState();
+  console.log("Participated", Participated);
 
   const [InputError, setInputError] = useState();
 
@@ -323,6 +324,16 @@ export default function MantleDropClaim() {
     return result;
   };
 
+  useEffect(() => {
+    totalValue(APIResponse.cosmos.amount +
+      APIResponse.comdex.amount +
+      APIResponse.persistence.amount +
+      APIResponse.juno.amount +
+      APIResponse.stargaze.amount +
+      APIResponse.terra.amount)
+  }, [APIResponse]);
+  
+
   return (
     <>
       <section className="section_drop">
@@ -462,7 +473,7 @@ export default function MantleDropClaim() {
         )}
 
         {/* $MNTL Address ⬇ */}
-        <>
+        {/* <>
           {KeplrConnectionState === 2 ? (
             APIResponse.success === true ? (
               <div className="section_calculation__address">
@@ -490,7 +501,7 @@ export default function MantleDropClaim() {
           ) : (
             ""
           )}
-        </>
+        </> */}
 
         {/*{APIResponse.success === true && KeplrConnectionState ===2 ? (*/}
         {APIResponse.success === true || InputCampaignData.mantleAddress ? (
@@ -659,6 +670,23 @@ export default function MantleDropClaim() {
         {/*  </div>*/}
         {/*)}*/}
       </Container>
+      <section className="section_drop" style={{paddingTop: "10px", paddingBottom: "20px"}}>
+        <div className="section_drop__element">
+          <div className="section_drop__element_details">
+            <h3>{false}</h3>
+            <div className="section_drop__element_details__hover">
+              <p></p>
+            </div>
+          </div>
+          <div className="section_drop__element_value">
+            <p></p>
+            <h4>{false}</h4>
+          </div>
+          <div className="section_drop__button">
+              <a href="/stakedrop">Details</a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
