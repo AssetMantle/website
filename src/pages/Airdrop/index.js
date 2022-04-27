@@ -25,6 +25,7 @@ export default function Airdrop() {
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
   const [OsmoAllocation, setOsmoAllocation] = useState(0);
   const [OsmoTS, setOsmoTS] = useState(false);
+  const [TotalCalModal,setTotalCalModal] = useState(false);
   const [TAndC, setTAndC] = useState(false);
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
@@ -208,7 +209,7 @@ export default function Airdrop() {
                     >
                       {KeplrCalculatedDATA &&
                         KeplrCalculatedDATA.allocation &&
-                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}{" "}
+                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}{` $MNTL`}{" "}
                       {OsmoTS ? <AiFillCaretUp /> : <AiFillCaretDown />}
                     </p>
                   </div>
@@ -384,50 +385,58 @@ export default function Airdrop() {
                   <h4 className="yellow-t">{t("AIRDROP_ALLOCATION_KEY")}</h4>
                 </div>
                 <p className="yellow-t">
-                  {(
-                    Number(OsmoAllocation) +
-                    Number(MetamaskAllocation) +
-                    MantleDropClaimValue
-                  ).toFixed(2)}
+                  <span onClick={() => setTotalCalModal(!TotalCalModal)}
+                        style={{ cursor: "pointer" }}
+                  >
+                    {(
+                        Number(OsmoAllocation) +
+                        Number(MetamaskAllocation) +
+                        MantleDropClaimValue
+                    ).toFixed(2)} {` $MNTL`}
+                    {" "}
+                    {TotalCalModal ? <AiFillCaretUp /> : <AiFillCaretDown />}
+                    </span>
                 </p>
               </div>
             </section>
-            <section className="section_allocation_by_network">
-              <div className="section_allocation_by_network__element">
-                <div className="section_allocation_by_network__element_option">
-                  <h4>Category</h4>
-                  <p>$MNTL Allocation</p>
-                </div>
-                {MantleDropClaimValue !== 0 && (
-                  <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
-                    <p>{Number(MantleDropClaimValue).toFixed(2)}</p>
-                  </div>
-                )}
-                {KeplrCalculatedDATA && KeplrCalculatedDATA.allocation && (
-                  <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
-                    <p>
-                      {KeplrCalculatedDATA &&
-                        KeplrCalculatedDATA.allocation &&
-                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}
-                    </p>
-                  </div>
-                )}
-                {MetaMaskCalculatedDATA && MetaMaskCalculatedDATA.allocation && (
-                  <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
-                    <p>
-                      {Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
-                    </p>
-                  </div>
-                )}
-                {/* <div className="section_allocation_by_network__element_option">
+            {TotalCalModal &&
+                <section className="section_allocation_by_network">
+                  <div className="section_allocation_by_network__element">
+                    <div className="section_allocation_by_network__element_option">
+                      <h4>Category</h4>
+                      <p>$MNTL Allocation</p>
+                    </div>
+                    {MantleDropClaimValue !== 0 && (
+                        <div className="section_allocation_by_network__element_option">
+                          <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
+                          <p>{Number(MantleDropClaimValue).toFixed(2)}</p>
+                        </div>
+                    )}
+                    {KeplrCalculatedDATA && KeplrCalculatedDATA.allocation && (
+                        <div className="section_allocation_by_network__element_option">
+                          <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
+                          <p>
+                            {KeplrCalculatedDATA &&
+                                KeplrCalculatedDATA.allocation &&
+                                Number(KeplrCalculatedDATA.allocation).toFixed(2)}
+                          </p>
+                        </div>
+                    )}
+                    {MetaMaskCalculatedDATA && MetaMaskCalculatedDATA.allocation && (
+                        <div className="section_allocation_by_network__element_option">
+                          <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
+                          <p>
+                            {Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
+                          </p>
+                        </div>
+                    )}
+                    {/* <div className="section_allocation_by_network__element_option">
                   <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                   <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                 </div> */}
-              </div>
-            </section>
+                  </div>
+                </section>
+            }
           </>
         ) : undefined}
         <section className="section_drop">

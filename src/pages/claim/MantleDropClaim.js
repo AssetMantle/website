@@ -11,7 +11,6 @@ export default function MantleDropClaim({ totalValue }) {
   const { t } = useTranslation();
 
   const [Participated, setParticipated] = useState();
-  console.log("Participated", Participated);
 
   const [InputError, setInputError] = useState();
 
@@ -74,7 +73,6 @@ export default function MantleDropClaim({ totalValue }) {
       );
       let mntlAccounts = await mantleOfflineSigner.getAccounts();
       let mntlAddress = mntlAccounts[0].address;
-      console.log(mntlAddress);
       setMNTLAddress(mntlAddress);
 
       // fetching address and rewards
@@ -83,7 +81,6 @@ export default function MantleDropClaim({ totalValue }) {
         .then((data) => {
           if (data.success === true) {
             setAPIResponse(data);
-            console.log(data);
           } else if (data.success === false) {
             setAPIResponse({
               success: false,
