@@ -5,9 +5,6 @@ import styled from "styled-components";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
-// import campaignData from "../../../data/campaignData.json";
-import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
-import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
 import {initializeKeplr} from "./utils/keplr";
 const stakeDropAPI = process.env.REACT_APP_claimPageClaimEndPoint
 
@@ -69,11 +66,11 @@ export default function MantleDropClaim() {
       setKeplrConnectionState(1);
 
       // adding MNTL wallet
-      // try {
-      //   await initializeKeplr();
-      // } catch (e) {
-      //   console.log(e);
-      // }
+      try {
+        await initializeKeplr();
+      } catch (e) {
+        console.log(e);
+      }
       let mantleOfflineSigner = window.keplr.getOfflineSigner(process.env.REACT_APP_mainNetChainID);
       let mntlAccounts = await mantleOfflineSigner.getAccounts();
       let mntlAddress =  mntlAccounts[0].address;
@@ -471,11 +468,8 @@ export default function MantleDropClaim() {
         {/* $MNTL Address ⬇ */}
         <>
           {KeplrConnectionState === 2 ? (
-            APIResponse.success === true ? (
-              <div className="section_calculation__address">
-                Address: {MNTLAddress}
-              </div>
-            ) : InputCampaignData.mantleAddress ? (
+            APIResponse.success === true ? "" :
+                InputCampaignData.mantleAddress ? (
               <div className="section_calculation__address">
                 Address: {InputCampaignData.mantleAddress}
               </div>
@@ -515,7 +509,9 @@ export default function MantleDropClaim() {
                             </h4>
                             <p>
                               {APIResponse.cosmos.amount
-                                  ? APIResponse.cosmos.amount
+                                  ? (APIResponse.cosmos.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -529,7 +525,9 @@ export default function MantleDropClaim() {
 
                             <p>
                               {APIResponse.persistence.amount
-                                  ? APIResponse.persistence.amount
+                                  ? (APIResponse.persistence.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -543,7 +541,9 @@ export default function MantleDropClaim() {
 
                             <p>
                               {APIResponse.terra.amount
-                                  ? APIResponse.terra.amount
+                                  ? (APIResponse.terra.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -557,7 +557,9 @@ export default function MantleDropClaim() {
 
                             <p>
                               {APIResponse.comdex.amount
-                                  ? APIResponse.comdex.amount
+                                  ? (APIResponse.comdex.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -571,7 +573,9 @@ export default function MantleDropClaim() {
 
                             <p>
                               {APIResponse.juno.amount
-                                  ? APIResponse.juno.amount
+                                  ? (APIResponse.juno.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -585,7 +589,9 @@ export default function MantleDropClaim() {
 
                             <p>
                               {APIResponse.stargaze.amount
-                                  ? APIResponse.stargaze.amount
+                                  ? (APIResponse.stargaze.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
                                   : "--"}
                             </p>
                           </div>
@@ -628,6 +634,10 @@ export default function MantleDropClaim() {
                       <div className="section_reward_table__element_option">
                         <h4>Total Rewards:</h4>
                         {/* <span></span> */}
+                        <h4>
+                          {MNTLAddress ? MNTLAddress : InputAddress}
+                        </h4>
+                        <span onClick={() => setShowTable(!ShowTable)}>
                         <p>
                           <img
                               src="/images/airdrop/dark.png"
@@ -641,13 +651,12 @@ export default function MantleDropClaim() {
                                   APIResponse.stargaze.amount +
                                   APIResponse.terra.amount)
                           ).toLocaleString("en-US", {
-                            maximumFractionDigits: 4,
+                            maximumFractionDigits: 2,
                           })}
                           {` $MNTL`}
                         </p>
-                        <span onClick={() => setShowTable(!ShowTable)}>
                       {" "}
-                          {ShowTable ? <AiFillCaretDown /> : <AiFillCaretUp />}
+                          {ShowTable ? <AiFillCaretUp /> : <AiFillCaretDown />}
                     </span>
                       </div>
                   ) : (

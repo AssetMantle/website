@@ -128,7 +128,7 @@ async function setChain() {
                 coinDenom: config.coinDenom,
                 coinMinimalDenom: config.coinDenom,
                 coinDecimals: 6,
-                coinGeckoId: "cosmos",
+                coinGeckoId: "assetmantle",
             },
         ],
         feeCurrencies: [
@@ -136,14 +136,14 @@ async function setChain() {
                 coinDenom: config.coinDenom,
                 coinMinimalDenom: config.coinDenom,
                 coinDecimals: 6,
-                coinGeckoId: "cosmos",
+                coinGeckoId: "assetmantle",
             },
         ],
         stakeCurrency: {
             coinDenom: config.coinDenom,
             coinMinimalDenom: config.coinDenom,
             coinDecimals: 6,
-            coinGeckoId: "cosmos",
+            coinGeckoId: "assetmantle",
         },
         coinType: 118,
         gasPriceStep: {
