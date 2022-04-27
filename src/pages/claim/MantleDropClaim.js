@@ -4,12 +4,8 @@ import styled from "styled-components";
 
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
-
-// import campaignData from "../../../data/campaignData.json";
-// import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
-// import { initializeKeplrForTera } from "../StakeDrop/terraKeplr";
-// import { initializeKeplr } from "./utils/keplr";
-const stakeDropAPI = process.env.REACT_APP_claimPageClaimEndPoint;
+import {initializeKeplr} from "./utils/keplr";
+const stakeDropAPI = process.env.REACT_APP_claimPageClaimEndPoint
 
 export default function MantleDropClaim({totalValue}) {
   const { t } = useTranslation();
@@ -68,14 +64,12 @@ export default function MantleDropClaim({totalValue}) {
       setKeplrConnectionState(1);
 
       // adding MNTL wallet
-      // try {
-      //   await initializeKeplr();
-      // } catch (e) {
-      //   console.log(e);
-      // }
-      let mantleOfflineSigner = window.keplr.getOfflineSigner(
-        process.env.REACT_APP_mainNetChainID
-      );
+      try {
+        await initializeKeplr();
+      } catch (e) {
+        console.log(e);
+      }
+      let mantleOfflineSigner = window.keplr.getOfflineSigner(process.env.REACT_APP_mainNetChainID);
       let mntlAccounts = await mantleOfflineSigner.getAccounts();
       let mntlAddress = mntlAccounts[0].address;
       console.log(mntlAddress);
@@ -472,160 +466,151 @@ export default function MantleDropClaim({totalValue}) {
           </div>
         )}
 
-        {/* $MNTL Address ⬇ */}
-        {/* <>
-          {KeplrConnectionState === 2 ? (
-            APIResponse.success === true ? (
-              <div className="section_calculation__address">
-                Address: {MNTLAddress}
-              </div>
-            ) : (
-              <section className="section_allocation" style={{ padding: "0" }}>
-                <h3 className="error-t">
-                  {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
-                </h3>
-              </section>
-            )
-          ) : InputAddress ? (
-            InputCampaignData.mantleAddress ? (
-              <div className="section_calculation__address">
-                Address: {InputCampaignData.mantleAddress}
-              </div>
-            ) : (
-              <section className="section_allocation" style={{ padding: "0" }}>
-                <h3 className="error-t">
-                  {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
-                </h3>
-              </section>
-            )
-          ) : (
-            ""
-          )}
-        </> */}
-
         {/*{APIResponse.success === true && KeplrConnectionState ===2 ? (*/}
         {APIResponse.success === true || InputCampaignData.mantleAddress ? (
-          <section className="section_reward_table">
-            <div className="section_reward_table__element">
-              {ShowTable && (
-                <>
-                  <>
-                    {APIResponse || InputCampaignData.delegator ? (
-                      <div className="section_reward_table__element_option">
-                        <h4>Campaign</h4>
-                        <h4>Address</h4>
-                        <p>Rewards ($MNTL)</p>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </>
-                  {APIResponse.cosmos.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Cosmos</h4>
-                      <h4>{APIResponse.cosmos.address}</h4>
-                      <p>
-                        {APIResponse.cosmos.amount
-                          ? APIResponse.cosmos.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {APIResponse.persistence.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Persistence</h4>
-                      <h4>{APIResponse.persistence.address}</h4>
-
-                      <p>
-                        {APIResponse.persistence.amount
-                          ? APIResponse.persistence.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {APIResponse.terra.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Terra</h4>
-                      <h4>{APIResponse.terra.address}</h4>
-
-                      <p>
-                        {APIResponse.terra.amount
-                          ? APIResponse.terra.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {APIResponse.comdex.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Comdex</h4>
-                      <h4>{APIResponse.comdex.address}</h4>
-
-                      <p>
-                        {APIResponse.comdex.amount
-                          ? APIResponse.comdex.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {APIResponse.juno.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Juno</h4>
-                      <h4>{APIResponse.juno.address}</h4>
-
-                      <p>
-                        {APIResponse.juno.amount
-                          ? APIResponse.juno.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {APIResponse.stargaze.address && (
-                    <div className="section_reward_table__element_option">
-                      <h4>Stargaze</h4>
-                      <h4>{APIResponse.stargaze.address}</h4>
-
-                      <p>
-                        {APIResponse.stargaze.amount
-                          ? APIResponse.stargaze.amount
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                  {InputCampaignData.delegator && (
-                    <div className="section_reward_table__element_option">
-                      <h4>
-                        {InputAddress.includes("cosmos")
-                          ? "Cosmos"
-                          : InputAddress.includes("persistence")
-                          ? "Persistence"
-                          : InputAddress.includes("terra")
-                          ? "Terra"
-                          : InputAddress.includes("comdex")
-                          ? "Comdex"
-                          : InputAddress.includes("juno")
-                          ? "Juno"
-                          : InputAddress.includes("stars")
-                          ? "Stargaze"
-                          : "Failed to detect"}
-                      </h4>
-                      <h4>
-                        {InputCampaignData.delegator.substring(0, 5)}...
-                        {InputCampaignData.delegator.substring(
-                          InputCampaignData.delegator.length - 5
+            <section className="section_reward_table">
+              <div className="section_reward_table__element">
+                {ShowTable && (
+                    <>
+                      <>
+                        {APIResponse ||
+                        InputCampaignData.delegator ? (
+                            <div className="section_reward_table__element_option">
+                              <h4>Campaign</h4>
+                              <h4>Address</h4>
+                              <p>Rewards ($MNTL)</p>
+                            </div>
+                        ) : (
+                            ""
                         )}
-                      </h4>
+                      </>
+                      {APIResponse.cosmos.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Cosmos</h4>
+                            <h4>
+                              {APIResponse.cosmos.address}
+                            </h4>
+                            <p>
+                              {APIResponse.cosmos.amount
+                                  ? (APIResponse.cosmos.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {APIResponse.persistence.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Persistence</h4>
+                            <h4>
+                              {APIResponse.persistence.address}
+                            </h4>
 
-                      <p>
-                        {InputCampaignData.received
-                          ? division(InputCampaignData.received)
-                          : "--"}
-                      </p>
-                    </div>
-                  )}
-                </>
-              )}
+                            <p>
+                              {APIResponse.persistence.amount
+                                  ? (APIResponse.persistence.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {APIResponse.terra.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Terra</h4>
+                            <h4>
+                              {APIResponse.terra.address}
+                            </h4>
+
+                            <p>
+                              {APIResponse.terra.amount
+                                  ? (APIResponse.terra.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {APIResponse.comdex.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Comdex</h4>
+                            <h4>
+                              {APIResponse.comdex.address}
+                            </h4>
+
+                            <p>
+                              {APIResponse.comdex.amount
+                                  ? (APIResponse.comdex.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {APIResponse.juno.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Juno</h4>
+                            <h4>
+                              {APIResponse.juno.address}
+                            </h4>
+
+                            <p>
+                              {APIResponse.juno.amount
+                                  ? (APIResponse.juno.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {APIResponse.stargaze.address && (
+                          <div className="section_reward_table__element_option">
+                            <h4>Stargaze</h4>
+                            <h4>
+                              {APIResponse.stargaze.address}
+                            </h4>
+
+                            <p>
+                              {APIResponse.stargaze.amount
+                                  ? (APIResponse.stargaze.amount).toLocaleString("en-US", {
+                                    maximumFractionDigits: 2,
+                                  })
+                                  : "0"}
+                            </p>
+                          </div>
+                      )}
+                      {InputCampaignData.delegator && (
+                          <div className="section_reward_table__element_option">
+                            <h4>
+                              {InputAddress.includes("cosmos")
+                                  ? "Cosmos"
+                                  : InputAddress.includes("persistence")
+                                      ? "Persistence"
+                                      : InputAddress.includes("terra")
+                                          ? "Terra"
+                                          : InputAddress.includes("comdex")
+                                              ? "Comdex"
+                                              : InputAddress.includes("juno")
+                                                  ? "Juno"
+                                                  : InputAddress.includes("stars")
+                                                      ? "Stargaze"
+                                                      : "Failed to detect"}
+                            </h4>
+                            <h4>
+                              {InputCampaignData.delegator}
+                            </h4>
+
+                            <p>
+                              {InputCampaignData.received
+                                  ? division(InputCampaignData.received)
+                                  : "--"}
+                            </p>
+                          </div>
+                      )}
+                    </>
+                )}
               <>
-                {APIResponse ? (
+                {APIResponse || InputCampaignData.received? (
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     {/* <span></span> */}
