@@ -365,6 +365,16 @@ export default function MantleDropClaim({ totalValue }) {
           </div>
         </div>
       </section>
+      {APIResponse.success === false ||
+      InputCampaignData.mantleAddress === "" ? (
+        <section className="section_allocation">
+          <h3 className="error-t">
+            {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+          </h3>
+        </section>
+      ) : (
+        ""
+      )}
       <Container>
         {Modal && (
           <div className="section_calculation__modal">
@@ -448,14 +458,7 @@ export default function MantleDropClaim({ totalValue }) {
                       </button>
                     </div>
                   </div>
-                  {KeplrConnectionState === 2 && APIResponse.success === false && (
-                    <div className="section_calculation__error">
-                      <div className="section_calculation__error_element__line1">
-                        <img src="/images/stakedrop/info.svg" alt="info icon" />
-                        <h3>You didn't participate in the campaigns 23!</h3>
-                      </div>
-                    </div>
-                  )}
+
                   {InputAddress && InputError && (
                     <div className="section_calculation__error">
                       <div className="section_calculation__error_element__line1">
@@ -651,26 +654,30 @@ export default function MantleDropClaim({ totalValue }) {
         {/*  </div>*/}
         {/*)}*/}
       </Container>
-      <section
-        className="section_drop"
-        style={{ paddingTop: "10px", paddingBottom: "20px" }}
-      >
-        <div className="section_drop__element">
-          <div className="section_drop__element_details">
-            <h3>{false}</h3>
-            <div className="section_drop__element_details__hover">
+      {KeplrConnectionState === 2 || InputCampaignData.delegator ? (
+        <section
+          className="section_drop"
+          style={{ paddingTop: "10px", paddingBottom: "20px" }}
+        >
+          <div className="section_drop__element">
+            <div className="section_drop__element_details">
+              <h3>{false}</h3>
+              <div className="section_drop__element_details__hover">
+                <p></p>
+              </div>
+            </div>
+            <div className="section_drop__element_value">
               <p></p>
+              <h4>{false}</h4>
+            </div>
+            <div className="section_drop__button">
+              <a href="/stakedrop">Details</a>
             </div>
           </div>
-          <div className="section_drop__element_value">
-            <p></p>
-            <h4>{false}</h4>
-          </div>
-          <div className="section_drop__button">
-            <a href="/stakedrop">Details</a>
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        ""
+      )}
     </>
   );
 }
