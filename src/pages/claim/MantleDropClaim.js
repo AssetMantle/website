@@ -619,27 +619,28 @@ export default function MantleDropClaim({ totalValue }) {
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     {/* <span></span> */}
+                    <h4>{MNTLAddress ? MNTLAddress : InputCampaignData.mantleAddress}</h4>
+                    <span onClick={() => setShowTable(!ShowTable)}>
                     <p>
                       <img
-                        src="/images/airdrop/dark.png"
-                        alt="coin illustration dark"
+                          src="/images/airdrop/dark.png"
+                          alt="coin illustration dark"
                       />{" "}
                       {(
-                        APIResponse.cosmos.amount +
-                        APIResponse.comdex.amount +
-                        APIResponse.persistence.amount +
-                        APIResponse.juno.amount +
-                        APIResponse.stargaze.amount +
-                        APIResponse.terra.amount +
-                        InputCampaignData.received
+                          APIResponse.cosmos.amount +
+                          APIResponse.comdex.amount +
+                          APIResponse.persistence.amount +
+                          APIResponse.juno.amount +
+                          APIResponse.stargaze.amount +
+                          APIResponse.terra.amount +
+                          InputCampaignData.received
                       ).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
+                        maximumFractionDigits: 2,
                       })}
                       {` $MNTL`}
                     </p>
-                    <span onClick={() => setShowTable(!ShowTable)}>
                       {" "}
-                      {ShowTable ? <AiFillCaretDown /> : <AiFillCaretUp />}
+                      {ShowTable ? <AiFillCaretUp /> : <AiFillCaretDown />}
                     </span>
                   </div>
                 ) : (
