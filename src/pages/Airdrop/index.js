@@ -340,7 +340,7 @@ export default function Airdrop() {
                   KeplrCalculatedDATA.allocation 
                     ? (
                         Number(MetaMaskCalculatedDATA.allocation) +
-                        Number(KeplrCalculatedDATA.allocation)
+                        Number(KeplrCalculatedDATA.allocation) + MantleDropClaimValue
                       ).toFixed(2)
                     : MetaMaskCalculatedDATA &&
                       MetaMaskCalculatedDATA.allocation
