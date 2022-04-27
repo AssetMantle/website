@@ -321,7 +321,7 @@ export default function Airdrop() {
           </div>
         </section>
         <section className="section_wallets"></section>
-        {KeplrCalculatedDATA || MetaMaskCalculatedDATA ? (
+        {KeplrCalculatedDATA || MetaMaskCalculatedDATA || MantleDropClaimValue ? (
           <>
             <section className="section_allocation">
               <h3>{t("AIRDROP_ALLOCATION_TITLE")}</h3>
