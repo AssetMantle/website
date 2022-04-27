@@ -204,7 +204,7 @@ export default function Airdrop() {
                       </p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1")}</h4>
+                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1")}</h4>
                       <p>
                         $
                         {KeplrCalculatedDATA &&
@@ -287,7 +287,9 @@ export default function Airdrop() {
                       <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2")}</p>
                     </div>
                     <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2")}</h4>
+                      <h4>
+                        {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2")}
+                      </h4>
                       <p>
                         {MetaMaskCalculatedDATA &&
                           MetaMaskCalculatedDATA.allocation &&
@@ -316,8 +318,7 @@ export default function Airdrop() {
             ) : undefined}
           </div>
         </section>
-        <section className="section_wallets">
-        </section>
+        <section className="section_wallets"></section>
         {KeplrCalculatedDATA || MetaMaskCalculatedDATA ? (
           <>
             <section className="section_allocation">

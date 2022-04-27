@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import { HiOutlineInformationCircle } from "react-icons/hi";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 // import campaignData from "../../../data/campaignData.json";
 import { initializeKeplrForComdex } from "../StakeDrop/comdex/comdexKeplr";
@@ -16,6 +17,8 @@ export default function MantleDropClaim() {
   const [InputError, setInputError] = useState();
 
   const [Modal, setModal] = useState(false);
+
+  const [ShowTable, setShowTable] = useState(false);
 
   //   address
   const [InputAddress, setInputAddress] = useState("");
@@ -224,7 +227,7 @@ export default function MantleDropClaim() {
       // took necessary addresses
 
       setKeplrConnectionState(2);
-      setModal(false)
+      setModal(false);
     } else {
       window.alert("Please install Keplr to move forward with the task.");
     }
@@ -418,296 +421,310 @@ export default function MantleDropClaim() {
         </div>
       </section>
       <Container>
-        {Modal && <div className="section_calculation__modal">
-          <div
-            className="section_calculation__modal___fo_bg"
-            onClick={() => setModal(false)}
-          ></div>
-          <div className="section_calculation__modal__sc">
-            <div className="section_calculation__modal_container">
-              <section className="section_calculation lighter_bg">
-                <>
-                  <div
-                    className="section_calculation__modal__sc_close"
-                    onClick={() => setModal(false)}
-                    onKeyPress={(e) => e.key === "Enter" && setModal(false)}
-                  >
-                    <img src="/images/icons/close.png" alt="close" />
-                  </div>
-                </>
-                <h2>Participated in the StakeDrop Campaign?</h2>
-                <h3>Check your $MNTL Allocation</h3>
-                <div className="section_calculation__connect">
-                  {/* <p className="section_calculation__connect_text">
+        {Modal && (
+          <div className="section_calculation__modal">
+            <div
+              className="section_calculation__modal___fo_bg"
+              onClick={() => setModal(false)}
+            ></div>
+            <div className="section_calculation__modal__sc">
+              <div className="section_calculation__modal_container">
+                <section className="section_calculation lighter_bg">
+                  <>
+                    <div
+                      className="section_calculation__modal__sc_close"
+                      onClick={() => setModal(false)}
+                      onKeyPress={(e) => e.key === "Enter" && setModal(false)}
+                    >
+                      <img src="/images/icons/close.png" alt="close" />
+                    </div>
+                  </>
+                  <h2>Participated in the StakeDrop Campaign?</h2>
+                  <h3>Check your $MNTL Allocation</h3>
+                  <div className="section_calculation__connect">
+                    {/* <p className="section_calculation__connect_text">
                 Connect your wallet
               </p> */}
-                  <button
-                    className="section_calculation__connect_button"
-                    onClick={handleKeplrConnect}
-                    disabled={
-                      InputAddress !== null &&
-                      InputAddress !== undefined &&
-                      InputAddress !== ""
-                        ? true
-                        : false
-                    }
-                  >
-                    <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
-                    <span>{`${
-                      {
-                        0: t("CONNECT"),
-                        1: t("CONNECTING"),
-                        2: t("CONNECTED"),
-                      }[KeplrConnectionState]
-                    } Keplr`}</span>
-                  </button>
-                </div>
-                <div className="section_calculation__or">Or</div>
-                <div className="section_calculation__from">
-                  <label
-                    htmlFor="walletAddress"
-                    className="section_calculation__from_label"
-                  >
-                    Enter your wallet address
-                  </label>
-                  <div className="section_calculation__from_line2">
-                    <input
-                      type="text"
-                      name="walletAddress"
-                      value={InputAddress}
-                      className="section_calculation__from_line2_input"
-                      readOnly={
-                        CosmosAddress ||
-                        PersistenceAddress ||
-                        TerraAddress ||
-                        ComdexAddress ||
-                        JunoAddress ||
-                        StargazeAddress
+                    <button
+                      className="section_calculation__connect_button"
+                      onClick={handleKeplrConnect}
+                      disabled={
+                        InputAddress !== null &&
+                        InputAddress !== undefined &&
+                        InputAddress !== ""
                           ? true
                           : false
                       }
-                      onChange={(e) =>
-                        CosmosAddress ||
-                        PersistenceAddress ||
-                        TerraAddress ||
-                        ComdexAddress ||
-                        JunoAddress ||
-                        StargazeAddress
-                          ? setInputAddress()
-                          : handleInputChange(e)
-                      }
-                      placeholder="Enter your wallet address"
-                    />
-                    <button
-                      onClick={InputCalculate}
-                      className="section_calculation__from_line2_button"
-                      disabled={
-                        InputAddress !== null &&
-                        InputAddress !== "" &&
-                        InputAddress !== undefined
-                          ? false
-                          : true
-                      }
                     >
-                      Calculate
+                      <img src="/images/airdrop/Kepler.png" alt="Keplr icon" />
+                      <span>{`${
+                        {
+                          0: t("CONNECT"),
+                          1: t("CONNECTING"),
+                          2: t("CONNECTED"),
+                        }[KeplrConnectionState]
+                      } Keplr`}</span>
                     </button>
                   </div>
-                </div>
-                {Participated === false && (
-                  <div className="section_calculation__error">
-                    <div className="section_calculation__error_element__line1">
-                      <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>You didn't participate in the campaigns!</h3>
+                  <div className="section_calculation__or">Or</div>
+                  <div className="section_calculation__from">
+                    <label
+                      htmlFor="walletAddress"
+                      className="section_calculation__from_label"
+                    >
+                      Enter your wallet address
+                    </label>
+                    <div className="section_calculation__from_line2">
+                      <input
+                        type="text"
+                        name="walletAddress"
+                        value={InputAddress}
+                        className="section_calculation__from_line2_input"
+                        readOnly={
+                          CosmosAddress ||
+                          PersistenceAddress ||
+                          TerraAddress ||
+                          ComdexAddress ||
+                          JunoAddress ||
+                          StargazeAddress
+                            ? true
+                            : false
+                        }
+                        onChange={(e) =>
+                          CosmosAddress ||
+                          PersistenceAddress ||
+                          TerraAddress ||
+                          ComdexAddress ||
+                          JunoAddress ||
+                          StargazeAddress
+                            ? setInputAddress()
+                            : handleInputChange(e)
+                        }
+                        placeholder="Enter your wallet address"
+                      />
+                      <button
+                        onClick={InputCalculate}
+                        className="section_calculation__from_line2_button"
+                        disabled={
+                          InputAddress !== null &&
+                          InputAddress !== "" &&
+                          InputAddress !== undefined
+                            ? false
+                            : true
+                        }
+                      >
+                        Calculate
+                      </button>
                     </div>
                   </div>
-                )}
-                {InputError && (
-                  <div className="section_calculation__error">
-                    <div className="section_calculation__error_element__line1">
-                      <img src="/images/stakedrop/info.svg" alt="info icon" />
-                      <h3>{InputError}</h3>
+                  {Participated === false && (
+                    <div className="section_calculation__error">
+                      <div className="section_calculation__error_element__line1">
+                        <img src="/images/stakedrop/info.svg" alt="info icon" />
+                        <h3>You didn't participate in the campaigns!</h3>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </section>
+                  )}
+                  {InputError && (
+                    <div className="section_calculation__error">
+                      <div className="section_calculation__error_element__line1">
+                        <img src="/images/stakedrop/info.svg" alt="info icon" />
+                        <h3>{InputError}</h3>
+                      </div>
+                    </div>
+                  )}
+                </section>
+              </div>
             </div>
           </div>
-        </div>}
+        )}
 
         {/* $MNTL Address ⬇ */}
         <>
-          {CosmosCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {CosmosCampaignData.mantleAddress}
-            </div>
-          ) : PersistenceCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {PersistenceCampaignData.mantleAddress}
-            </div>
-          ) : TerraCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {TerraCampaignData.mantleAddress}
-            </div>
-          ) : ComdexCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {ComdexCampaignData.mantleAddress}
-            </div>
-          ) : JunoCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {JunoCampaignData.mantleAddress}
-            </div>
-          ) : StargazeCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {StargazeCampaignData.mantleAddress}
-            </div>
-          ) : InputCampaignData.mantleAddress ? (
-            <div className="section_calculation__address">
-              Address: {InputCampaignData.mantleAddress}
-            </div>
+          {KeplrConnectionState === 2 ? (
+            CosmosCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {CosmosCampaignData.mantleAddress}
+              </div>
+            ) : PersistenceCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {PersistenceCampaignData.mantleAddress}
+              </div>
+            ) : TerraCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {TerraCampaignData.mantleAddress}
+              </div>
+            ) : ComdexCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {ComdexCampaignData.mantleAddress}
+              </div>
+            ) : JunoCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {JunoCampaignData.mantleAddress}
+              </div>
+            ) : StargazeCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {StargazeCampaignData.mantleAddress}
+              </div>
+            ) : InputCampaignData.mantleAddress ? (
+              <div className="section_calculation__address">
+                Address: {InputCampaignData.mantleAddress}
+              </div>
+            ) : (
+              <section className="section_allocation" style={{ padding: "0" }}>
+                <h3 className="error-t">
+                  {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+                </h3>
+              </section>
+            )
           ) : null}
         </>
 
         {Participated !== false ? (
           <section className="section_reward_table">
             <div className="section_reward_table__element">
-              <>
-                {CosmosAddress ||
-                PersistenceAddress ||
-                TerraAddress ||
-                ComdexAddress ||
-                JunoAddress ||
-                StargazeAddress ||
-                InputCampaignData.delegator ? (
-                  <div className="section_reward_table__element_option">
-                    <h4>Campaign</h4>
-                    <h4>Address</h4>
-                    <p>Rewards ($MNTL)</p>
-                  </div>
-                ) : (
-                  ""
-                )}
-              </>
-              {CosmosAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Cosmos</h4>
-                  <h4>
-                    {CosmosAddress.substring(0, 5)}...
-                    {CosmosAddress.substring(CosmosAddress.length - 5)}
-                  </h4>
-                  <p>
-                    {CosmosCampaignData.received
-                      ? division(CosmosCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {PersistenceAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Persistence</h4>
-                  <h4>
-                    {PersistenceAddress.substring(0, 5)}...
-                    {PersistenceAddress.substring(
-                      PersistenceAddress.length - 5
+              {ShowTable && (
+                <>
+                  <>
+                    {CosmosAddress ||
+                    PersistenceAddress ||
+                    TerraAddress ||
+                    ComdexAddress ||
+                    JunoAddress ||
+                    StargazeAddress ||
+                    InputCampaignData.delegator ? (
+                      <div className="section_reward_table__element_option">
+                        <h4>Campaign</h4>
+                        <h4>Address</h4>
+                        <p>Rewards ($MNTL)</p>
+                      </div>
+                    ) : (
+                      ""
                     )}
-                  </h4>
+                  </>
+                  {CosmosAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Cosmos</h4>
+                      <h4>
+                        {CosmosAddress.substring(0, 5)}...
+                        {CosmosAddress.substring(CosmosAddress.length - 5)}
+                      </h4>
+                      <p>
+                        {CosmosCampaignData.received
+                          ? division(CosmosCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {PersistenceAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Persistence</h4>
+                      <h4>
+                        {PersistenceAddress.substring(0, 5)}...
+                        {PersistenceAddress.substring(
+                          PersistenceAddress.length - 5
+                        )}
+                      </h4>
 
-                  <p>
-                    {PersistenceCampaignData.received
-                      ? division(PersistenceCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {TerraAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Terra</h4>
-                  <h4>
-                    {TerraAddress.substring(0, 5)}...
-                    {TerraAddress.substring(TerraAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {PersistenceCampaignData.received
+                          ? division(PersistenceCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {TerraAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Terra</h4>
+                      <h4>
+                        {TerraAddress.substring(0, 5)}...
+                        {TerraAddress.substring(TerraAddress.length - 5)}
+                      </h4>
 
-                  <p>
-                    {TerraCampaignData.received
-                      ? division(TerraCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {ComdexAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Comdex</h4>
-                  <h4>
-                    {ComdexAddress.substring(0, 5)}...
-                    {ComdexAddress.substring(ComdexAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {TerraCampaignData.received
+                          ? division(TerraCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {ComdexAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Comdex</h4>
+                      <h4>
+                        {ComdexAddress.substring(0, 5)}...
+                        {ComdexAddress.substring(ComdexAddress.length - 5)}
+                      </h4>
 
-                  <p>
-                    {ComdexCampaignData.received
-                      ? division(ComdexCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {JunoAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Juno</h4>
-                  <h4>
-                    {JunoAddress.substring(0, 5)}...
-                    {JunoAddress.substring(JunoAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {ComdexCampaignData.received
+                          ? division(ComdexCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {JunoAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Juno</h4>
+                      <h4>
+                        {JunoAddress.substring(0, 5)}...
+                        {JunoAddress.substring(JunoAddress.length - 5)}
+                      </h4>
 
-                  <p>
-                    {JunoCampaignData.received
-                      ? division(JunoCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {StargazeAddress && (
-                <div className="section_reward_table__element_option">
-                  <h4>Stargaze</h4>
-                  <h4>
-                    {StargazeAddress.substring(0, 5)}...
-                    {StargazeAddress.substring(StargazeAddress.length - 5)}
-                  </h4>
+                      <p>
+                        {JunoCampaignData.received
+                          ? division(JunoCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {StargazeAddress && (
+                    <div className="section_reward_table__element_option">
+                      <h4>Stargaze</h4>
+                      <h4>
+                        {StargazeAddress.substring(0, 5)}...
+                        {StargazeAddress.substring(StargazeAddress.length - 5)}
+                      </h4>
 
-                  <p>
-                    {StargazeCampaignData.received
-                      ? division(StargazeCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
-              )}
-              {InputCampaignData.delegator && (
-                <div className="section_reward_table__element_option">
-                  <h4>
-                    {InputAddress.includes("cosmos")
-                      ? "Cosmos"
-                      : InputAddress.includes("persistence")
-                      ? "Persistence"
-                      : InputAddress.includes("terra")
-                      ? "Terra"
-                      : InputAddress.includes("comdex")
-                      ? "Comdex"
-                      : InputAddress.includes("juno")
-                      ? "Juno"
-                      : InputAddress.includes("stars")
-                      ? "Stargaze"
-                      : "Failed to detect"}
-                  </h4>
-                  <h4>
-                    {InputCampaignData.delegator.substring(0, 5)}...
-                    {InputCampaignData.delegator.substring(
-                      InputCampaignData.delegator.length - 5
-                    )}
-                  </h4>
+                      <p>
+                        {StargazeCampaignData.received
+                          ? division(StargazeCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                  {InputCampaignData.delegator && (
+                    <div className="section_reward_table__element_option">
+                      <h4>
+                        {InputAddress.includes("cosmos")
+                          ? "Cosmos"
+                          : InputAddress.includes("persistence")
+                          ? "Persistence"
+                          : InputAddress.includes("terra")
+                          ? "Terra"
+                          : InputAddress.includes("comdex")
+                          ? "Comdex"
+                          : InputAddress.includes("juno")
+                          ? "Juno"
+                          : InputAddress.includes("stars")
+                          ? "Stargaze"
+                          : "Failed to detect"}
+                      </h4>
+                      <h4>
+                        {InputCampaignData.delegator.substring(0, 5)}...
+                        {InputCampaignData.delegator.substring(
+                          InputCampaignData.delegator.length - 5
+                        )}
+                      </h4>
 
-                  <p>
-                    {InputCampaignData.received
-                      ? division(InputCampaignData.received)
-                      : "--"}
-                  </p>
-                </div>
+                      <p>
+                        {InputCampaignData.received
+                          ? division(InputCampaignData.received)
+                          : "--"}
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
               <>
                 {CosmosAddress ||
@@ -718,7 +735,6 @@ export default function MantleDropClaim() {
                 StargazeAddress ? (
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
-                    <span></span>
                     {/* <span></span> */}
                     <p>
                       <img
@@ -738,6 +754,10 @@ export default function MantleDropClaim() {
                       })}
                       {` $MNTL`}
                     </p>
+                    <span onClick={() => setShowTable(!ShowTable)}>
+                      View Details{" "}
+                      {ShowTable ? <AiFillCaretDown /> : <AiFillCaretUp />}
+                    </span>
                   </div>
                 ) : (
                   ""

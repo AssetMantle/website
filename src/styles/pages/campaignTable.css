@@ -79,3 +79,19 @@
   color: var(--yellow);
   text-align: center;
 }
+
+.section_reward_table__element_option:last-child span {
+  font: var(--p-m);
+  color: var(--yellow);
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  cursor: pointer
+}
+
+
+.section_reward_table__element_option:last-child span svg {
+  margin-top: 4px;
+}
