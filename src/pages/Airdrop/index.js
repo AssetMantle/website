@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { AirdropContainer } from "../../styles/pages/airdropStyle";
 
 import { HiOutlineInformationCircle } from "react-icons/hi";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 import airDropData from "../../data/airdropData.json";
 import LPModal from "./LPModal";
@@ -22,11 +23,13 @@ export default function Airdrop() {
 
   const [KeplrCalculatedDATA, setKeplrCalculatedDATA] = useState();
   const [OsmoAllocation, setOsmoAllocation] = useState(0);
+  const [OsmoTS, setOsmoTS] = useState(false);
   const [TAndC, setTAndC] = useState(false);
 
   const [MetaMaskModalStat, setMetaMaskModalStat] = useState(false);
   const [MetaMaskAddress, setMetaMaskAddress] = useState();
   const [MetamaskAllocation, setMetamaskAllocation] = useState(0);
+  const [MetamaskTS, setMetamaskTS] = useState(false);
 
   const [MetaMaskCalculatedDATA, setMetaMaskCalculatedDATA] = useState();
 
@@ -193,45 +196,59 @@ export default function Airdrop() {
                         src="/images/airdrop/dark.png"
                         alt="coin illustration dark"
                       />
-                      <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
+                      <h4 className="yellow-t">
+                        {t("AIRDROP_ALLOCATION_KEY")}
+                      </h4>
                     </div>
-                    <p>
+                    <p
+                      onClick={() => setOsmoTS(!OsmoTS)}
+                      style={{ cursor: "pointer" }}
+                    >
                       {KeplrCalculatedDATA &&
                         KeplrCalculatedDATA.allocation &&
-                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}
+                        Number(KeplrCalculatedDATA.allocation).toFixed(2)}{" "}
+                      {OsmoTS ? <AiFillCaretUp /> : <AiFillCaretDown />}
                     </p>
                   </div>
                 </section>
-                <section className="section_allocation_by_network">
-                  <div className="section_allocation_by_network__element">
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_1")}</h4>
-                      <p>Value LP (in USD)</p>
-                    </div>
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_1")}</h4>
-                      <p>
-                        $
-                        {KeplrCalculatedDATA &&
-                          KeplrCalculatedDATA.allocation &&
-                          Number(KeplrCalculatedDATA.locked).toFixed(2)}
-                      </p>
-                    </div>
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1")}</h4>
-                      <p>
-                        $
-                        {KeplrCalculatedDATA &&
-                          KeplrCalculatedDATA.allocation &&
-                          Number(KeplrCalculatedDATA.unlocked).toFixed(2)}
-                      </p>
-                    </div>
-                    {/* <div className="section_allocation_by_network__element_option">
+                {OsmoTS && (
+                  <section className="section_allocation_by_network">
+                    <div className="section_allocation_by_network__element">
+                      <div className="section_allocation_by_network__element_option">
+                        <h4>
+                          {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_1")}
+                        </h4>
+                        <p>Value LP (in USD)</p>
+                      </div>
+                      <div className="section_allocation_by_network__element_option">
+                        <h4>
+                          {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_1")}
+                        </h4>
+                        <p>
+                          $
+                          {KeplrCalculatedDATA &&
+                            KeplrCalculatedDATA.allocation &&
+                            Number(KeplrCalculatedDATA.locked).toFixed(2)}
+                        </p>
+                      </div>
+                      <div className="section_allocation_by_network__element_option">
+                        <h4>
+                          {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_2_1")}
+                        </h4>
+                        <p>
+                          $
+                          {KeplrCalculatedDATA &&
+                            KeplrCalculatedDATA.allocation &&
+                            Number(KeplrCalculatedDATA.unlocked).toFixed(2)}
+                        </p>
+                      </div>
+                      {/* <div className="section_allocation_by_network__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                     </div> */}
-                  </div>
-                </section>
+                    </div>
+                  </section>
+                )}
               </>
             ) : KeplrCalculatedDATA === false ? (
               <section className="section_allocation">
@@ -285,34 +302,45 @@ export default function Airdrop() {
                         src="/images/airdrop/dark.png"
                         alt="coin illustration dark"
                       />
-                      <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
+                      <h4 className="yellow-t">
+                        {t("AIRDROP_ALLOCATION_KEY")}
+                      </h4>
                     </div>
-                    <p>
+                    <p
+                      onClick={() => setMetamaskTS(!MetamaskTS)}
+                      style={{ cursor: "pointer" }}
+                    >
                       {MetaMaskCalculatedDATA &&
                         MetaMaskCalculatedDATA.allocation &&
-                        Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
+                        Number(MetaMaskCalculatedDATA.allocation).toFixed(
+                          2
+                        )}{" "}
+                      {MetamaskTS ? <AiFillCaretUp /> : <AiFillCaretDown />}
                     </p>
                   </div>
                 </section>
-                <section className="section_allocation_by_network">
-                  <div className="section_allocation_by_network__element">
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_2")}</h4>
-                      <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2")}</p>
-                    </div>
-                    <div className="section_allocation_by_network__element_option">
-                      <h4>
-                        {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2")}
-                      </h4>
-                      <p>
-                        {MetaMaskCalculatedDATA &&
-                          MetaMaskCalculatedDATA.allocation &&
-                          Number(MetaMaskCalculatedDATA.volumeTraded).toFixed(
-                            2
-                          )}
-                      </p>
-                    </div>
-                    {/* <div className="section_allocation_by_network__element_option">
+                {MetamaskTS && (
+                  <section className="section_allocation_by_network">
+                    <div className="section_allocation_by_network__element">
+                      <div className="section_allocation_by_network__element_option">
+                        <h4>
+                          {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_TITLE_2")}
+                        </h4>
+                        <p>{t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_KEY_1_2")}</p>
+                      </div>
+                      <div className="section_allocation_by_network__element_option">
+                        <h4>
+                          {t("AIRDROP_REQUIRED_ELIGIBILITY_TABLE_VALUE_1_2")}
+                        </h4>
+                        <p>
+                          {MetaMaskCalculatedDATA &&
+                            MetaMaskCalculatedDATA.allocation &&
+                            Number(MetaMaskCalculatedDATA.volumeTraded).toFixed(
+                              2
+                            )}
+                        </p>
+                      </div>
+                      {/* <div className="section_allocation_by_network__element_option">
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_VALUE")}</p>
                     </div>
@@ -320,8 +348,9 @@ export default function Airdrop() {
                       <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_KEY")}</h4>
                       <p>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_3_VALUE")}</p>
                     </div> */}
-                  </div>
-                </section>
+                    </div>
+                  </section>
+                )}
               </>
             ) : MetaMaskCalculatedDATA === false ? (
               <section className="section_allocation">
@@ -338,16 +367,21 @@ export default function Airdrop() {
         MantleDropClaimValue ? (
           <>
             <section className="section_allocation">
-              <h3>{t("AIRDROP_ALLOCATION_TITLE")}</h3>
+              <h3
+                className="yellow-t"
+                style={{ display: "flex", alignItems: "center", gap: "24px" }}
+              >
+                {t("AIRDROP_ALLOCATION_TITLE")} <hr style={{ flex: "1" }} />
+              </h3>
               <div className="section_allocation__element">
                 <div className="section_allocation__element_left">
                   <img
                     src="/images/airdrop/dark.png"
                     alt="coin illustration dark"
                   />
-                  <h4>{t("AIRDROP_ALLOCATION_KEY")}</h4>
+                  <h4 className="yellow-t">{t("AIRDROP_ALLOCATION_KEY")}</h4>
                 </div>
-                <p>
+                <p className="yellow-t">
                   {(
                     Number(OsmoAllocation) +
                     Number(MetamaskAllocation) +
@@ -362,6 +396,12 @@ export default function Airdrop() {
                   <h4>Category</h4>
                   <p>$MNTL Allocation</p>
                 </div>
+                {MantleDropClaimValue !== 0 && (
+                  <div className="section_allocation_by_network__element_option">
+                    <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
+                    <p>{Number(MantleDropClaimValue).toFixed(2)}</p>
+                  </div>
+                )}
                 {KeplrCalculatedDATA && KeplrCalculatedDATA.allocation && (
                   <div className="section_allocation_by_network__element_option">
                     <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_1_KEY")}</h4>
@@ -378,12 +418,6 @@ export default function Airdrop() {
                     <p>
                       {Number(MetaMaskCalculatedDATA.allocation).toFixed(2)}
                     </p>
-                  </div>
-                )}
-                {MantleDropClaimValue && (
-                  <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
-                    <p>{Number(MantleDropClaimValue).toFixed(2)}</p>
                   </div>
                 )}
                 {/* <div className="section_allocation_by_network__element_option">
