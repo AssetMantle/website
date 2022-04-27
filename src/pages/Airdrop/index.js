@@ -12,6 +12,7 @@ import MetaMaskModal from "./MetaMaskModal";
 import TAndCModal from "../claim/TAndCModal";
 import OsmoIModal from "./OsmoIModal";
 import MantleDropClaim from "../claim/MantleDropClaim";
+import {getMantleAddress} from "../claim/utils/address";
 
 // const chainIDs = require("../../data/chain.json");
 
@@ -200,6 +201,7 @@ export default function Airdrop() {
                         {t("AIRDROP_ALLOCATION_KEY")}
                       </h4>
                     </div>
+                    <p>{getMantleAddress(OsmoAddress)}</p>
                     <p
                       onClick={() => setOsmoTS(!OsmoTS)}
                       style={{ cursor: "pointer" }}
