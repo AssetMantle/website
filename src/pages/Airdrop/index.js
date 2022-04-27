@@ -376,7 +376,7 @@ export default function Airdrop() {
                   </div>
                 )}
                 {MantleDropClaimValue && <div className="section_allocation_by_network__element_option">
-                    <h4>{t("AIRDROP_ALLOCATION_BY_NETWORK_OPTION_2_KEY")}</h4>
+                    <h4>{t("AIRDROP_START_WITH_STAKEDROP_TITLE")}</h4>
                     <p>
                       {Number(MantleDropClaimValue).toFixed(2)}
                     </p>

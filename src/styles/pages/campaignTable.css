@@ -57,7 +57,7 @@
   text-align: right;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .section_reward_table__element_option:first-child h4 {
   color: var(--gray-deep);
