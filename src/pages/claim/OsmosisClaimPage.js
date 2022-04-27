@@ -449,9 +449,9 @@ export default function OsmosisClaimPage() {
               >
                 Claim
               </button>
-              <div className="section_mission__container_mission__done">
-                <MdDone />
-              </div>
+              {/*<div className="section_mission__container_mission__done">*/}
+              {/*  <MdDone />*/}
+              {/*</div>*/}
             </div>
             <div
               className={`section_mission__container_mission ${
@@ -478,9 +478,9 @@ export default function OsmosisClaimPage() {
               >
                 Stake
               </button>
-              <div className="section_mission__container_mission__done">
-                <MdDone />
-              </div>
+              {/*<div className="section_mission__container_mission__done">*/}
+              {/*  <MdDone />*/}
+              {/*</div>*/}
             </div>
             <div
               className={`section_mission__container_mission ${
@@ -507,9 +507,9 @@ export default function OsmosisClaimPage() {
                 {/*Vote*/}
                 Soon
               </button>
-              <div className="section_mission__container_mission__done">
-                <MdDone />
-              </div>
+              {/*<div className="section_mission__container_mission__done">*/}
+              {/*  <MdDone />*/}
+              {/*</div>*/}
             </div>
             <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
@@ -523,9 +523,9 @@ export default function OsmosisClaimPage() {
                 {/*Provide*/}
                 Soon
               </button>
-              <div className="section_mission__container_mission__done">
-                <MdDone />
-              </div>
+              {/*<div className="section_mission__container_mission__done">*/}
+              {/*  <MdDone />*/}
+              {/*</div>*/}
             </div>
             <div className={`section_mission__container_mission`}>
               <div className="section_mission__container_mission__title">
@@ -539,9 +539,9 @@ export default function OsmosisClaimPage() {
                 {/* Mint */}
                 Soon
               </button>
-              <div className="section_mission__container_mission__done">
-                <MdDone />
-              </div>
+              {/*<div className="section_mission__container_mission__done">*/}
+              {/*  <MdDone />*/}
+              {/*</div>*/}
             </div>
           </div>
         </section>
