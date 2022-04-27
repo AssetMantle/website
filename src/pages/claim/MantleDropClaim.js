@@ -452,7 +452,7 @@ export default function MantleDropClaim({ totalValue }) {
                     <div className="section_calculation__error">
                       <div className="section_calculation__error_element__line1">
                         <img src="/images/stakedrop/info.svg" alt="info icon" />
-                        <h3>You didn't participate in the campaigns 23!</h3>
+                        <h3>You didn't participate in the campaigns!</h3>
                       </div>
                     </div>
                   )}
@@ -598,7 +598,7 @@ export default function MantleDropClaim({ totalValue }) {
                       <p>
                         {InputCampaignData.received
                           ? division(InputCampaignData.received)
-                          : "--"}
+                          : 0}
                       </p>
                     </div>
                   )}
@@ -609,25 +609,26 @@ export default function MantleDropClaim({ totalValue }) {
                   <div className="section_reward_table__element_option">
                     <h4>Total Rewards:</h4>
                     {/* <span></span> */}
-                    <p>
-                      <img
-                        src="/images/airdrop/dark.png"
-                        alt="coin illustration dark"
-                      />{" "}
-                      {(
-                        APIResponse.cosmos.amount +
-                        APIResponse.comdex.amount +
-                        APIResponse.persistence.amount +
-                        APIResponse.juno.amount +
-                        APIResponse.stargaze.amount +
-                        APIResponse.terra.amount +
-                        InputCampaignData.received
-                      ).toLocaleString("en-US", {
-                        maximumFractionDigits: 4,
-                      })}
-                      {` $MNTL`}
-                    </p>
+                    <h4>{MNTLAddress ? MNTLAddress : InputAddress}</h4>
                     <span onClick={() => setShowTable(!ShowTable)}>
+                      <p>
+                      <img
+                          src="/images/airdrop/dark.png"
+                          alt="coin illustration dark"
+                      />{" "}
+                        {(
+                            APIResponse.cosmos.amount +
+                            APIResponse.comdex.amount +
+                            APIResponse.persistence.amount +
+                            APIResponse.juno.amount +
+                            APIResponse.stargaze.amount +
+                            APIResponse.terra.amount +
+                            InputCampaignData.received
+                        ).toLocaleString("en-US", {
+                          maximumFractionDigits: 2,
+                        })}
+                        {` $MNTL`}
+                    </p>
                       {" "}
                       {ShowTable ? <AiFillCaretDown /> : <AiFillCaretUp />}
                     </span>
