@@ -375,16 +375,27 @@ export default function MantleDropClaim({ totalValue }) {
         ) : (
           ""
         )
-      ) : InputAddress &&
-        InputCampaignData.mantleAddress ? (
-          <section className="section_allocation">
-            <h3 className="error-t">
-              {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
-            </h3>
-          </section>
+      ) : InputAddress ? (
+        InputAddress.includes("mantle") ? (
+          APIResponse.success === false && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
         ) : (
-          ""
-        )}
+          InputCampaignData.mantleAddress === "" && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
+        )
+      ) : (
+        ""
+      )}
       <Container>
         {Modal && (
           <div className="section_calculation__modal">
@@ -665,7 +676,7 @@ export default function MantleDropClaim({ totalValue }) {
       {KeplrConnectionState === 2 || InputCampaignData.delegator ? (
         <section
           className="section_drop"
-          style={{ paddingTop: "10px", paddingBottom: "20px" }}
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
         >
           <div className="section_drop__element">
             <div className="section_drop__element_details">
