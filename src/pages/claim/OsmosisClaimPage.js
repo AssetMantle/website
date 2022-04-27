@@ -227,6 +227,12 @@ export default function OsmosisClaimPage() {
       .then((data) => {
         if (data.success) {
           setClaimResponse(data);
+          if (data.success && data.initialClaim.success) {
+            setInitialClaimNotification(true);
+            setTimeout(() => {
+              setInitialClaimNotification(false);
+            }, 10000);
+          }
         } else {
           setClaimResponse({
             success: false,
@@ -249,6 +255,15 @@ export default function OsmosisClaimPage() {
       })
       .catch((err) => console.log(err));
   };
+
+  // useEffect(() => {
+  //   if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
+  //     setInitialClaimNotification(true);
+  //     setTimeout(() => {
+  //       setInitialClaimNotification(false);
+  //     }, 10000);
+  //   }
+  // }, [ClaimResponse]);
 
   useEffect(() => {
     if (ClaimResponse.success && ClaimResponse.initialClaim.success) {
