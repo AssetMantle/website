@@ -376,14 +376,22 @@ export default function MantleDropClaim({ totalValue }) {
           ""
         )
       ) : InputAddress ? (
-        InputCampaignData.mantleAddress === "" ? (
-          <section className="section_allocation">
-            <h3 className="error-t">
-              {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
-            </h3>
-          </section>
+        InputAddress.includes("mantle") ? (
+          APIResponse.success === false && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
         ) : (
-          ""
+          InputCampaignData.mantleAddress === "" && (
+            <section className="section_allocation">
+              <h3 className="error-t">
+                {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+              </h3>
+            </section>
+          )
         )
       ) : (
         ""
