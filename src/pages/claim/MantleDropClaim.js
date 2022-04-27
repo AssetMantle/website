@@ -676,7 +676,7 @@ export default function MantleDropClaim({ totalValue }) {
         {/*  </div>*/}
         {/*)}*/}
       </Container>
-      {KeplrConnectionState === 2 || InputCampaignData.delegator ? (
+      {KeplrConnectionState === 2 || InputAddress ? (
         <section
           className="section_drop"
           style={{ paddingTop: "20px", paddingBottom: "20px" }}
