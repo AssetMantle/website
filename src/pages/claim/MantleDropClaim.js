@@ -365,13 +365,20 @@ export default function MantleDropClaim({ totalValue }) {
           </div>
         </div>
       </section>
-      {
-        APIResponse.success === false || InputCampaignData.mantleAddress === "" ? <section className="section_allocation">
-        <h3 className="error-t">
-          {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
-        </h3>
-      </section>:""
-      }
+      {KeplrConnectionState === 2 || InputAddress ? (
+        APIResponse.success === false ||
+        InputCampaignData.mantleAddress === "" ? (
+          <section className="section_allocation">
+            <h3 className="error-t">
+              {t("AIRDROP_REQUIRED_ELIGIBILITY_NOT_ELIGIBLE")}
+            </h3>
+          </section>
+        ) : (
+          ""
+        )
+      ) : (
+        ""
+      )}
       <Container>
         {Modal && (
           <div className="section_calculation__modal">
@@ -394,9 +401,6 @@ export default function MantleDropClaim({ totalValue }) {
                   <h2>Participated in the StakeDrop Campaign?</h2>
                   <h3>Check your $MNTL Allocation</h3>
                   <div className="section_calculation__connect">
-                    {/* <p className="section_calculation__connect_text">
-                Connect your wallet
-              </p> */}
                     <button
                       className="section_calculation__connect_button"
                       onClick={handleKeplrConnect}
@@ -455,7 +459,7 @@ export default function MantleDropClaim({ totalValue }) {
                       </button>
                     </div>
                   </div>
-                  
+
                   {InputAddress && InputError && (
                     <div className="section_calculation__error">
                       <div className="section_calculation__error_element__line1">
