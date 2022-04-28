@@ -80,11 +80,11 @@ export default function OsmosisClaimPage() {
   }
 
   const total_supply =
-    "https://rest.assetmantle.one/cosmos/bank/v1beta1/supply";
+    `${process.env.REACT_APP_restAPI}/cosmos/bank/v1beta1/supply/umntl`;
   const inflation =
-    "https://rest.assetmantle.one/cosmos/mint/v1beta1/inflation";
+    `${process.env.REACT_APP_restAPI}/cosmos/mint/v1beta1/inflation`;
   const bondedAmount =
-    "https://rest.assetmantle.one/cosmos/staking/v1beta1/pool";
+    `${process.env.REACT_APP_restAPI}/cosmos/staking/v1beta1/pool`;
 
   function getAPR() {
     return axios
@@ -95,9 +95,10 @@ export default function OsmosisClaimPage() {
       ])
       .then(
         axios.spread((totalSupply, inflation, bondedAmount) => {
-          totalSupply = totalSupply.data.supply[0].amount;
+          totalSupply = totalSupply.data.amount.amount;
           inflation = inflation.data.inflation;
           bondedAmount = bondedAmount.data.pool.bonded_tokens;
+          console.log(totalSupply,inflation,bondedAmount)
           return (inflation * totalSupply * 100) / bondedAmount;
         })
       )
@@ -108,6 +109,7 @@ export default function OsmosisClaimPage() {
   }
   async function getAprTest() {
     const ap = await getAPR();
+    console.log(ap);
     setApr(ap);
   }
 
