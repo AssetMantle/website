@@ -34,7 +34,7 @@ const Difference = () => {
         className="section__am_diff__link_span"
         id="the_assetMantle_difference"
       ></span>
-      <h2>{t("ASSETMANTLE_DIFFERENCE_TITLE")}</h2>
+      <h2 className="yellow-t">{t("ASSETMANTLE_DIFFERENCE_TITLE")}</h2>
       <p>{t("ASSETMANTLE_DIFFERENCE_DESCRIPTION")}</p>
       <div className="section__am_diff__element">
         {DATA.amDif.contents &&
@@ -42,7 +42,7 @@ const Difference = () => {
             CONTENTS.map((data) => (
               <div className="section__am_diff__element_content">
                 <img
-                  src={`/images/landing/section/${data.img && data.img}.png`}
+                  src={`/images/landing/section/${DATA.imgType}/${data.img && data.img}.${DATA.imgType}`}
                   alt={data.img && data.img}
                 />
                 <div className="section__am_diff__element_content__right">

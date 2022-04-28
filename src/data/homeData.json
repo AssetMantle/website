@@ -1,4 +1,5 @@
 {
+  "imgType": "gif",
   "hero": {
     "visibility": true,
     "h11": "Create, Own,",
@@ -113,27 +114,27 @@
   },
   "gettingStarted": {
     "visibility": true,
-    "title": "Getting started with AssetMantle",
-    "description": "Our plug and play technology makes it super easy for you to build, launch, promote and buy NFTs. Just choose your preference and let’s amplify your NFT game.",
+    "title": "How Does AssetMantle Help Creators and collectors?",
+    "description": "AssetMantle helps creators and collectors tap into the true potential of NFTs.",
     "bodyTitle": "how does AssetMantle help you",
     "bodyDescription": "We amplify your NFT game by plugging every gap!",
-    "list1title": "Creator",
+    "list1title": "For Creator",
     "list1": [
-      "No more delays. Our plug and play technology empowers you to mint and sell with enhanced speed.",
-      "No more limits. Create and buy any kind of NFT from our wide range. Plus its all seamlessly interoperable with any platform/chain.",
-      "No more generic looks. Enjoy complete customization with the drag and drop interface of our plug and play technology.",
-      "No more invisibility. Boost your personal brand with pubic listings, artist shoutouts, audience engagement, and journey sharing.",
-      "No more paying extra. Get near-zero gas fees, mint for free, and get financial autonomy by controlling payment types and royalties.",
-      "No more snags. When in doubt, just reach out to a vibrant community of experts, influncers, and like-minded enthusiasts."
+      "Build without coding",
+          "Mutable and private metadata",
+          "Negligible minting fee",
+          "Support for multiple file formats",
+          "Collaborate with split royalties",
+          "Round the clock community support"
     ],
-    "list2title": "Collector",
+    "list2title": "For Collector",
     "list2": [
-      "Browse and indulge in a wide, exciting range of NFTs including audio, video and text",
-      "Get 100% proof of ownership of what you buy that sits on the secure blockchain",
-      "High degree of authenticity ensures your NFTs will be immune to removals or fraud",
-      "It’s so easy for you to transfer and trade NFTs with other enthusiasts",
-      "Access global markets and find the coolest NFTs with no agents or commissions",
-      "It’s super convenient because you get digital files that offer permanent storage and easy sharing and exchange"
+      "Buy from verified creators",
+      "Wallet agnosticism",
+      "Resell across blockchains",
+      "Co-own rare collectibles",
+      "Connect with creators in TradeRoom",
+      "Intuitive user experience"
     ],
     "href": ""
   },

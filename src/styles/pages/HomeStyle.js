@@ -7,6 +7,11 @@ export const HomeContainer = styled.main`
   height: 100vh;
   overflow-y: auto;
   z-index: 1;
+  background-color: var(--bg);
+  background-image: url("/images/bg/bg_big.webp");
+  background-size: 100%;
+  background-position: top left;
+  background-repeat: no-repeat repeat;
   /* scroll-snap-type: y mandatory;
   & > section {
     scroll-snap-align: start;
@@ -60,7 +65,9 @@ export const HomeContainer = styled.main`
           }
         }
         &_box {
-          background-color: var(--dark-m);
+          background-image: url("/imagesgradient_bg_pngwebp");
+          background-size: 100%;
+          background-repeat: no-repeat repeat;
           padding: 25px;
           border-radius: 16px;
           width: min(100%, 375px);
@@ -139,6 +146,10 @@ export const HomeContainer = styled.main`
       justify-content: space-between;
       padding: 60px 160px 160px;
       gap: 25px;
+      @media (max-width: 1060px) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
       @media (max-width: 768px) {
         padding: 90px 40px 60px;
         grid-template-columns: 1fr;
@@ -211,7 +222,9 @@ export const HomeContainer = styled.main`
       }
     }
     &_overview {
-      background-color: var(--dark-m);
+      background-image: url("/images/bg/gradient_bg.png");
+      background-size: 100%;
+      background-repeat: no-repeat repeat;
       padding: 60px 92px;
       margin-bottom: 60px;
       h2 {
@@ -242,7 +255,7 @@ export const HomeContainer = styled.main`
         }
       }
       &__element {
-        max-width: 273px;
+        max-width: 290px;
         display: grid;
         align-items: center;
         justify-content: center;
@@ -268,7 +281,7 @@ export const HomeContainer = styled.main`
           color: var(--gray);
           text-align: center;
           margin-bottom: auto;
-          max-width: 225px;
+          max-width: 287px;
           @media (max-width: 768px) {
             font: var(--h3);
           }
@@ -289,8 +302,10 @@ export const HomeContainer = styled.main`
       position: relative;
       padding: 60px 92px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
+      gap: 70px;
       @media (max-width: 768px) {
+        gap: 40px;
         padding: 70px 40px;
       }
       @media (max-width: 548px) {
@@ -304,6 +319,8 @@ export const HomeContainer = styled.main`
       }
       &__element {
         &:nth-child(1) {
+          display: flex;
+          flex-direction: column;
           h2 {
             font: var(--h2);
             color: var(--gray);
@@ -311,14 +328,25 @@ export const HomeContainer = styled.main`
           }
           p {
             font: 600 var(--p-l);
-            max-width: 548px;
+            /* max-width: 548px; */
             color: var(--gray-deep);
             margin-bottom: 60px;
+          }
+          ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+          }
+          .section_WhatIsAssetMantle__element_button {
+            padding-top: 66px;
           }
         }
         &:nth-child(2) {
           display: flex;
+          width: 100%;
           img {
+            width: 100%;
+            height: auto;
             margin: auto;
             @media (max-width: 768px) {
               width: 80%;
@@ -392,11 +420,13 @@ export const HomeContainer = styled.main`
           flex-wrap: wrap;
           align-items: flex-start;
           justify-content: space-around;
+          align-items: center;
           gap: 30px;
           @media (max-width: 768px) {
             gap: 70px;
           }
           @media (max-width: 548px) {
+            flex-direction: column;
             padding: 40px 0;
             gap: 120px;
           }
@@ -430,6 +460,11 @@ export const HomeContainer = styled.main`
             img {
               width: 97px;
               height: 92px;
+              &.mint_nft {
+                width: 90px;
+                height: auto;
+                margin-bottom: 64px;
+              }
             }
           }
           &:nth-child(3) {
@@ -437,8 +472,8 @@ export const HomeContainer = styled.main`
               width: 102.7px;
               height: auto;
               margin-bottom: 28px;
-              &.engage {
-                margin-bottom: 65px;
+              &.sell {
+                margin-bottom: 46px;
               }
             }
           }
@@ -446,6 +481,9 @@ export const HomeContainer = styled.main`
             img {
               width: 108.31px;
               height: 92px;
+              &.engage {
+                /* margin-bottom: 65px; */
+              }
             }
           }
         }
@@ -453,7 +491,9 @@ export const HomeContainer = styled.main`
     }
     &_iAmSold,
     &_letsAmplify {
-      background-color: var(--dark-m);
+      background-image: url("/images/bg/gradient_bg.png");
+      background-size: 100%;
+      background-repeat: no-repeat repeat;
       padding: 60px 92px;
       display: flex;
       flex-direction: row;
@@ -592,72 +632,41 @@ export const HomeContainer = styled.main`
         max-width: 936px;
       }
       &__element {
-        &_title {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-evenly;
-          padding-top: 60px;
-          padding-bottom: 73px;
-          overflow-y: auto;
-          @media (max-width: 548px) {
-            gap: 60px;
-            justify-content: space-between;
-            padding-left: 40px;
-            padding-right: 40px;
-          }
-          &__option {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 40px;
-            &_img {
-              width: 160px;
-              aspect-ratio: 1/1 !important;
-              @media (max-width: 768px) {
-                width: 100px;
-              }
-              @media (max-width: 548px) {
-                width: 80px;
-              }
-              img {
-                width: 100%;
-                height: auto;
-                margin: 0 0 auto;
-              }
-            }
-            h3 {
-              font: var(--h3);
-              color: var(--gray);
-              display: inline;
-              border-bottom: 3px solid transparent;
-              padding: 0 4px 4px;
-              opacity: 0.5;
-              cursor: pointer;
-              &.active {
-                opacity: 1;
-                border-bottom: 3px solid var(--yellow);
-              }
-            }
-          }
+        padding-top: 79px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        @media (max-width: 668px) {
+          grid-template-columns: 1fr;
         }
-        &_body {
-          p {
-            margin-bottom: 60px;
+        &_card {
+          background-color: var(--dark-t);
+          backdrop-filter: blur(2px);
+          border-radius: 12px;
+          padding: 40px 72px;
+          @media (max-width: 768px) {
+            padding: 30px 40px;
           }
-          ul {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+          @media (max-width: 548px) {
+            padding: 20px 28px;
+          }
+          &_title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             gap: 24px;
-            @media (max-width: 768px) {
-            }
             @media (max-width: 548px) {
-              grid-template-columns: 1fr;
+              flex-direction: column-reverse;
             }
-            li {
-              padding-top: 0;
-              padding-bottom: 0;
+            h2 {
+              max-width: 150px;
+              @media (max-width: 548px) {
+                max-width: 100%;
+              }
+            }
+            img {
+              width: min(50%, 150px);
+              height: auto;
             }
           }
         }
@@ -753,6 +762,30 @@ export const HomeContainer = styled.main`
             max-width: 479px;
             margin: 0;
           }
+          &:nth-child(1) {
+            img {
+              width: 106px;
+              height: auto;
+            }
+          }
+          &:nth-child(2) {
+            img {
+              width: 106px;
+              height: auto;
+            }
+          }
+          &:nth-child(3) {
+            img {
+              width: 106px;
+              height: auto;
+            }
+          }
+          &:nth-child(4) {
+            img {
+              width: 106px;
+              height: auto;
+            }
+          }
         }
       }
       &__link {
@@ -768,7 +801,9 @@ export const HomeContainer = styled.main`
       display: grid;
       grid-template-columns: 1fr 9fr 2fr;
       gap: 40px;
-      background-color: var(--dark-m);
+      background-image: url("/images/bg/gradient_bg.png");
+      background-size: 100%;
+      background-repeat: no-repeat repeat;
       @media (max-width: 768px) {
         padding: 80px 40px;
       }
@@ -808,6 +843,76 @@ export const HomeContainer = styled.main`
               text-align: center;
             }
           }
+        }
+      }
+    }
+    &_slick__left {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    &_team {
+      padding: 60px 80px;
+      @media (max-width: 768px) {
+        padding: 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 20px;
+      }
+      h2 {
+        font: var(--h2);
+        color: var(--gray);
+        margin-bottom: 24px;
+        text-transform: capitalize;
+        + p {
+          font: var(--p-l);
+          color: var(--gray-deep);
+          margin-bottom: 24px;
+          max-width: 935px;
+        }
+      }
+      h3 {
+        font: var(--h3);
+        color: var(--gray);
+        padding: 24px 0;
+      }
+      &__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 24px 0;
+      }
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0 0;
+      }
+    }
+    &_faq {
+      padding: 60px 92px;
+      @media (max-width: 768px) {
+        padding: 70px 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 60px 28px;
+      }
+      h2 {
+        font: var(--h2);
+        color: var(--gray);
+        margin-bottom: 24px;
+      }
+      p {
+        font: var(--p-l);
+        color: var(--gray-deep);
+        max-width: 936px;
+        margin-bottom: 40px;
+      }
+      details {
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--dark-s);
         }
       }
     }
@@ -934,11 +1039,6 @@ export const HomeContainer = styled.main`
         }
       }
     }
-    &_slick__left {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
     &_pricing {
       padding: 60px 92px;
       @media (max-width: 768px) {
@@ -1063,31 +1163,6 @@ export const HomeContainer = styled.main`
               opacity: 0;
             }
           }
-        }
-      }
-    }
-    &_faq {
-      padding: 60px 92px;
-      @media (max-width: 768px) {
-        padding: 70px 40px;
-      }
-      @media (max-width: 548px) {
-        padding: 60px 28px;
-      }
-      h2 {
-        font: var(--h2);
-        color: var(--gray);
-        margin-bottom: 24px;
-      }
-      p {
-        font: var(--p-l);
-        color: var(--gray-deep);
-        max-width: 936px;
-        margin-bottom: 40px;
-      }
-      details {
-        &:not(:last-child) {
-          border-bottom: 1px solid var(--dark-s);
         }
       }
     }

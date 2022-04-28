@@ -71,7 +71,7 @@ const HowItWorks = () => {
   return (
     <section className="section_howItWorks">
       <span className="section_howItWorks__link_span" id="how_it_works"></span>
-      <h2>{t("HOW_IT_WORKS_TITLE")}</h2>
+      <h2 className="yellow-t">{t("HOW_IT_WORKS_TITLE")}</h2>
       <p>{OPTIONS.filter((e) => e.ind === option)[0].description}</p>
       <div className="section_howItWorks__element one">
         <div className="section_howItWorks__element_options">
@@ -104,7 +104,7 @@ const HowItWorks = () => {
               OPTIONS.filter((e) => e.ind === option)[0].content.map((data) => (
                 <div className="section_howItWorks__element_content">
                   <img
-                    src={`/images/landing/section/${data.img && data.img}.png`}
+                    src={`/images/landing/section/${DATA.imgType}/${data.img && data.img}.${DATA.imgType}`}
                     alt={data.h3 && data.h3}
                     className={`section_howItWorks__element_content__img ${
                       data.img && data.img === "engage"

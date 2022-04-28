@@ -9,7 +9,7 @@ const ServicesSection = () => {
   return (
     <section className="section_services">
       <div className="section_services__element">
-        <img src="/images/landing/section/bags.png" alt="bags  illustration" />
+        <img src={`/images/landing/section/${DATA.imgType}/bags.${DATA.imgType}`} alt="bags  illustration" />
         <div className="section_services__element_details">
           <h2>{t("SERVICES_2_TITLE")}</h2>
           <p>{t("SERVICES_2_DESCRIPTION")}</p>
@@ -22,7 +22,7 @@ const ServicesSection = () => {
       </div>
       <div className="section_services__element">
         <img
-          src="/images/landing/section/bricks.png"
+          src={`/images/landing/section/${DATA.imgType}/bricks.${DATA.imgType}`}
           alt="blocks  illustration"
         />
         <div className="section_services__element_details">

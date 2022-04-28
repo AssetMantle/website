@@ -14,7 +14,7 @@ const RoadMap = () => {
           id="how_does_assetMantle_help_you"
         ></span>
         <img
-          src="/images/landing/section/roadmap.png"
+          src={`/images/landing/section/png/roadmap.png`}
           alt="roadmap illustration"
         />
       </div>

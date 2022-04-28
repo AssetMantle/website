@@ -10,18 +10,11 @@ import ServicesSection from "./ServicesSection";
 import Overview from "./Overview";
 import WhatIsAssetMantle from "./WhatIsAssetMantle";
 import HowItWorks from "./HowItWorks";
-import IAmSold from "./IAmSold";
-import NeedConvencing from "./NeedConvencing";
-import GettingStarted from "./GettingStarted";
 import Difference from "./Difference";
-import Stores from "./Stores.js";
-import WhatIsNFT from "./WhatIsNFT.js";
-import Pricing from "./Pricing.js";
-import LetsAmplify from "./LetsAmplify.js";
-import Testimonial from "./Testimonial.js";
+import Team from "./Team";
 import Faq from "./Faq.js";
 import RoadMap from "./Roadmap.js";
-import Source from "./Source.js";
+
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 
@@ -34,18 +27,10 @@ export default function Home() {
       {DATA.overview.visibility && <Overview />}
       {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
       {DATA.howItWorks.visibility && <HowItWorks />}
-      {DATA.iAmSold.visibility && <IAmSold />}
-      {/* {DATA.convincing.visibility && <NeedConvencing />} */}
-      {DATA.gettingStarted.visibility && <GettingStarted />}
       {DATA.amDif.visibility && <Difference />}
       {DATA.RoadMap.visibility && <RoadMap />}
-      {/* {DATA.stores.visibility && <Stores />} */}
-      {/* {DATA.wNFT.visibility && <WhatIsNFT />} */}
-      {/* {DATA.pricing.visibility && <Pricing />} */}
-      {/* {DATA.LetsAmplify.visibility && <LetsAmplify />} */}
-      {/* {DATA.testimonials.visibility && <Testimonial />} */}
+      {DATA.team.visibility && <Team />}
       {DATA.faq.visibility && <Faq />}
-      {DATA.source.visibility && <Source />}
       <Footer />
     </HomeContainer>
   );

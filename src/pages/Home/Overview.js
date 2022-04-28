@@ -1,6 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import homeData from "../../data/homeData.json"
+
 const Overview = () => {
   const { t } = useTranslation();
 
@@ -12,7 +14,7 @@ const Overview = () => {
       </h2>
       <div className="section_overview_element_con">
         <div className="section_overview__element">
-          <img src={`/images/landing/section/sold.png`} alt="world icon" />
+          <img src={`/images/landing/section/${homeData.imgType}/sold.${homeData.imgType}`} alt="world icon" />
           <h2>
             {t("OVERVIEW_1_TITLE")}
             <br />
@@ -20,7 +22,7 @@ const Overview = () => {
           </h2>
         </div>
         <div className="section_overview__element">
-          <img src={`/images/landing/section/cart.png`} alt="world icon" />
+          <img src={`/images/landing/section/${homeData.imgType}/cart.${homeData.imgType}`} alt="world icon" />
           <h2>
             {t("OVERVIEW_2_TITLE")}
             <br />
@@ -28,7 +30,7 @@ const Overview = () => {
           </h2>
         </div>
         <div className="section_overview__element">
-          <img src={`/images/landing/section/wallet.png`} alt="world icon" />
+          <img src={`/images/landing/section/${homeData.imgType}/wallet.${homeData.imgType}`} alt="world icon" />
           <h2>
             {t("OVERVIEW_3_TITLE")}
             <br />

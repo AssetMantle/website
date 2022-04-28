@@ -15,6 +15,7 @@
   /* ------------colors----------------- */
   --bg: rgb(4, 4, 4);
   --dark: #1e1e1e;
+  --dark-t: #1f1f1f8c;
   --dark-m: #2c2c2c;
   --dark-s: #2e2e2e;
   --dark-xs: #3e3e3e;
@@ -100,4 +101,8 @@ body {
   border: 0 solid #fff;
   border-radius: 20px;
   background: var(--yellow);
+}
+
+.yellow-t {
+  color: var(--yellow) !important;
 }
