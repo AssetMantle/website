@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 import DATA from "../../data/homeData.json";
 
-import { ButtonSecondary } from "../../components/Buttons";
+// import { ButtonSecondary } from "../../components/Buttons";
 import UList from "../../components/UList";
 
 import { useTranslation } from "react-i18next";
 
 const GettingStarted = () => {
   const { t } = useTranslation();
-
-  const [option, setOption] = useState(0);
 
   const List1 = [
     t("GETTING_STARTED_LIST_1_LI_1"),
@@ -36,53 +34,32 @@ const GettingStarted = () => {
         className="section_gettingStarted__link_span"
         id="getting_started"
       ></span>
-      <h2>{t("GETTING_STARTED_TITLE")}</h2>
+      <h2 className="yellow-t">{t("GETTING_STARTED_TITLE")}</h2>
       <p>{t("GETTING_STARTED_DESCRIPTION")}</p>
       <div className="section_gettingStarted__element">
-        <div className="section_gettingStarted__element_title">
-          <div
-            className="section_gettingStarted__element_title__option"
-            onClick={() => setOption(0)}
-          >
-            <div className="section_gettingStarted__element_title__option_img">
-              <img
-                src={`/images/landing/section/paintingImg.png`}
-                alt="painting illustration"
-              />
-            </div>
-            <h3 className={option === 0 ? "active" : undefined}>
-              {t("GETTING_STARTED_LIST_1_TITLE")}
-            </h3>
+        <div className="section_gettingStarted__element_card">
+          <div className="section_gettingStarted__element_card_title">
+            <h2>{t("GETTING_STARTED_LIST_1_TITLE")}</h2>
+            <img
+              src={`/images/landing/section/${DATA.imgType}/paintingImg.${DATA.imgType}`}
+              alt="painting illustration"
+            />
           </div>
-          <div
-            className="section_gettingStarted__element_title__option"
-            onClick={() => setOption(1)}
-          >
-            <div className="section_gettingStarted__element_title__option_img">
-              <img
-                src={`/images/landing/section/collector.png`}
-                alt="collector illustration"
-              />
-            </div>
-            <h3 className={option === 1 ? "active" : undefined}>
-              {t("GETTING_STARTED_LIST_2_TITLE")}
-            </h3>
-          </div>
-        </div>
-        <div className="section_gettingStarted__element_body">
-          <h2>{t("GETTING_STARTED_BODY_TITLE")}</h2>
-          <p>{t("GETTING_STARTED_BODY_DESCRIPTION")}</p>
-          {option === 0 ? (
+          <div className="section_gettingStarted__element_card_body">
             <UList data={List1} />
-          ) : (
-            option === 1 && <UList data={List2} />
-          )}
+          </div>
         </div>
-        <div className="section_gettingStarted__element_button">
-          <ButtonSecondary
-            text={t("TELL_ME_MORE")}
-            href={DATA.gettingStarted.href && DATA.gettingStarted.href}
-          />
+        <div className="section_gettingStarted__element_card">
+          <div className="section_gettingStarted__element_card_title">
+            <h2>{t("GETTING_STARTED_LIST_2_TITLE")}</h2>
+            <img
+              src={`/images/landing/section/${DATA.imgType}/collector.${DATA.imgType}`}
+              alt="collector illustration"
+            />
+          </div>
+          <div className="section_gettingStarted__element_card_body">
+            <UList data={List2} />
+          </div>
         </div>
       </div>
     </section>
