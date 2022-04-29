@@ -9,9 +9,8 @@ const English = {
   translations: {
     // home data
     //  hero section
-    HERO_TITLE_LINE1: homeData.hero.h11,
-    HERO_TITLE_LINE2: homeData.hero.h12,
-    HERO_BODY: homeData.hero.pxl,
+    HERO_TITLE: homeData.hero.title,
+    HERO_DESCRIPTION: homeData.hero.description,
 
     // Services section
     SERVICES_1_TITLE: homeData.services.buildTitle,
