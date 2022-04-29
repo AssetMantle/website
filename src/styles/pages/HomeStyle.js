@@ -12,7 +12,7 @@ export const HomeContainer = styled.main`
   background-size: 100%;
   background-position: top left;
   background-repeat: no-repeat repeat;
-  /* scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
   & > section {
     scroll-snap-align: start;
   }
@@ -21,7 +21,7 @@ export const HomeContainer = styled.main`
     & > section {
       scroll-snap-align: none;
     }
-  } */
+  }
   .section {
     &_hero {
       display: grid;
