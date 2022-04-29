@@ -1,10 +1,9 @@
 {
-  "imgType": "png",
+  "imgType": "gif",
   "hero": {
     "visibility": true,
-    "h11": "Create, Own,",
-    "h12": "Discover, Collect.",
-    "pxl": "A dynamic NFT marketplace for creators and collectors. Customizable. Multi-chain. Low fees. Take crypto artwork to the next level."
+    "title": "Redefining Digital Asset Ownership",
+    "description": "Multi-Chain | Open-Source | No-Code"
   },
   "services": {
     "visibility": true,
