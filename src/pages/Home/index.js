@@ -9,11 +9,14 @@ import HeroSection from "./HeroSection";
 import ServicesSection from "./ServicesSection";
 import Overview from "./Overview";
 import WhatIsAssetMantle from "./WhatIsAssetMantle";
+import AirdropSection from "./AirdropSection";
 import HowItWorks from "./HowItWorks";
+import GettingStarted from "./GettingStarted";
 import Difference from "./Difference";
 import Team from "./Team";
-import Faq from "./Faq.js";
 import RoadMap from "./Roadmap.js";
+import WhitePaper from "./WhitePaper";
+import Faq from "./Faq.js";
 
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
@@ -26,9 +29,12 @@ export default function Home() {
       {DATA.services.visibility && <ServicesSection />}
       {DATA.overview.visibility && <Overview />}
       {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
+      {DATA.drop.visibility && <AirdropSection />}
       {DATA.howItWorks.visibility && <HowItWorks />}
+      {DATA.gettingStarted.visibility && <GettingStarted />}
       {DATA.amDif.visibility && <Difference />}
       {DATA.RoadMap.visibility && <RoadMap />}
+      {DATA.whitepaper.visibility && <WhitePaper />}
       {DATA.team.visibility && <Team />}
       {DATA.faq.visibility && <Faq />}
       <Footer />
