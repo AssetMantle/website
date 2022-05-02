@@ -74,8 +74,8 @@ export default function OsmosisClaimPage() {
         })
       )
       .catch((error) => {
-        return 0;
         console.log(error);
+        return 0;
       });
   }
 
