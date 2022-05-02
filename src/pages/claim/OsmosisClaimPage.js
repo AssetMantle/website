@@ -74,8 +74,8 @@ export default function OsmosisClaimPage() {
         })
       )
       .catch((error) => {
+        console.log(error);
         return 0;
-        // console.log(error);
       });
   }
 
@@ -494,7 +494,7 @@ export default function OsmosisClaimPage() {
                 <h4>{t("OSMOSIS_CLAIM_MISSION_3")}</h4>
               </div>
               <button
-                disabled={true}
+                disabled={ClaimResponse.success ? ClaimResponse.vote.success : true}
                 className="section_mission__container_mission__button"
                 onClick={() =>
                   window.open(
@@ -504,8 +504,8 @@ export default function OsmosisClaimPage() {
                   )
                 }
               >
-                {/*Vote*/}
-                Soon
+                Vote
+                {/*Soon*/}
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
