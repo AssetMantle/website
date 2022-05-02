@@ -14,6 +14,13 @@ import About from "./pages/About";
 const App = () => {
   const [theme, setTheme] = useState(false);
 
+    const CURRENT_VERSION = process.env.REACT_APP_VERSION;
+    if (localStorage.getItem("VERSION") !== CURRENT_VERSION) {
+        localStorage.clear();
+        localStorage.setItem("VERSION", CURRENT_VERSION);
+        window.location.reload();
+    }
+
   const routes = [
     {
       component: Home,
