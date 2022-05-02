@@ -39,7 +39,7 @@ jobs:
           REACT_APP_tendermintRPC: 'https://rpc.assetmantle.one'
           REACT_APP_websiteURL: 'https://explorer.assetmantle.one/transactions'
           REACT_APP_claimPageClaimEndPoint: 'https://osmosis-airdrop.assetmantle.one'
-          REACT_APP_proposalID: '211'  
+          REACT_APP_proposalID: '216'  
       - name: Publish
         uses: cloudflare/wrangler-action@1.3.0
         with:
