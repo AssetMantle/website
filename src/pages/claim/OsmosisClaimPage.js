@@ -511,17 +511,27 @@ export default function OsmosisClaimPage() {
                 <MdDone />
               </div>
             </div>
-            <div className={`section_mission__container_mission`}>
+            <div className={`section_mission__container_mission ${
+                ClaimResponse.success &&
+                ClaimResponse.liquidity.success &&
+                "completed"
+            }`}>
               <div className="section_mission__container_mission__title">
                 <p>{t("MISSION")} #4</p>
                 <h4>{t("OSMOSIS_CLAIM_MISSION_4")}</h4>
               </div>
               <button
-                disabled={true}
+                disabled={ClaimResponse.success ? ClaimResponse.liquidity.success : true}
                 className="section_mission__container_mission__button"
+                onClick={() =>
+                    window.open(
+                        "https://app.osmosis.zone/pool/" +
+                        config.poolNumber,
+                        "_blank"
+                    )}
               >
-                {/*Provide*/}
-                Soon
+                Provide
+                {/*Soon*/}
               </button>
               <div className="section_mission__container_mission__done">
                 <MdDone />
