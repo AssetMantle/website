@@ -2,9 +2,45 @@ import styled from "styled-components";
 
 export const AboutContainer = styled.main`
   max-width: 1440px;
+  scroll-behavior: smooth;
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   z-index: 1;
+  background-color: var(--bg);
+  background-image: url("/images/bg/bg_big.webp");
+  background-size: 100%;
+  background-position: top left;
+  background-repeat: no-repeat repeat;
+  @media (min-width: 769px) {
+    scroll-snap-type: y mandatory;
+    .smoothScrollElement {
+      max-width: 1440px;
+      margin: auto;
+      padding: 0;
+      margin: 0;
+      scroll-snap-align: start;
+      min-height: 900px;
+      width: calc(100vw - 5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &:last-child {
+        scroll-snap-align: end;
+      }
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    scroll-snap-type: none;
+    & > .smoothScrollElement {
+      scroll-snap-align: none;
+    }
+  }
   .section {
     &_hero {
       padding: 0px 92px 0px;
@@ -44,6 +80,161 @@ export const AboutContainer = styled.main`
           @media (max-width: 548px) {
             transform: translateX(0);
           }
+        }
+      }
+    }
+    &_visionMission {
+      padding: 30px 92px 30px;
+      @media (max-width: 768px) {
+        padding: 40px;
+      }
+      @media (max-width: 548px) {
+        padding: 20px;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+      gap: 68px;
+      &__element {
+        max-width: 936px;
+        h1 {
+          font: var(--h1);
+          color: var(--yellow);
+        }
+        p {
+          padding-top: 28px;
+          font: var(--p-l);
+          color: var(--gray-deep);
+        }
+      }
+    }
+    &_whitepaper {
+      background-image: url("/images/bg/gradient_bg.png");
+      background-size: 100%;
+      background-repeat: no-repeat repeat;
+      padding: 60px 92px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: no-wrap;
+      gap: 50px;
+      margin: 60px 0;
+      @media (max-width: 768px) {
+        padding: 60px 40px;
+      }
+      @media (max-width: 548px) {
+        flex-wrap: wrap;
+        padding: 60px 28px;
+      }
+      &__element {
+        &:nth-child(1) {
+          width: min(936px, 100%);
+        }
+        h2 {
+          font: var(--h2);
+          color: var(--gray);
+          margin-bottom: 24px;
+          @media (max-width: 548px) {
+            margin-bottom: 30px;
+          }
+        }
+        p {
+          font: var(--p-l);
+          margin: 0;
+          color: var(--gray-deep);
+        }
+        &.bu {
+          @media (max-width: 548px) {
+            width: 100%;
+            text-align: center;
+          }
+          & > a {
+            width: max-content;
+            display: inline-block;
+            @media (max-width: 548px) {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+      .btn__primary {
+        @media (max-width: 548px) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    &_roadmap {
+      h1 {
+        font: var(--h1);
+        color: var(--yellow);
+        padding: 80px 93px;
+        @media (max-width: 768px) {
+          padding: 40px;
+        }
+        @media (max-width: 548px) {
+          padding: 20px;
+        }
+      }
+      &__slide {
+        background-image: url("/images/bg/gradient_bg.png");
+        background-size: 100%;
+        background-repeat: no-repeat repeat;
+        padding: 43px 100px 74px;
+        @media (max-width: 768px) {
+          padding: 43px 50px 74px;
+        }
+        @media (max-width: 548px) {
+          padding: 43px 20px 74px;
+        }
+        &_element {
+          position: relative;
+          &__phase {
+            width: 100%;
+            overflow: auto;
+            display: flex;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            width: 100%;
+            &_image {
+              margin: auto;
+            }
+          }
+          &_left_button,
+          &_right_button {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+          }
+          &_left_button {
+            left: 0;
+          }
+          &_right_button {
+            right: 0;
+          }
+        }
+      }
+      &__note {
+        font: var(--p-s);
+        color: var(--gray);
+        text-align: right;
+        padding: 38px 100px 115px;
+        @media (max-width: 768px) {
+          padding: 38px 50px 74px;
+        }
+        @media (max-width: 548px) {
+          padding: 38px 20px 74px;
         }
       }
     }
@@ -279,7 +470,7 @@ export const AboutContainer = styled.main`
       }
     }
     &_team {
-      padding: 60px 92px;
+      padding: 60px 70px;
       @media (max-width: 768px) {
         padding: 40px;
       }
