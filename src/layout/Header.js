@@ -169,10 +169,10 @@ function Header({ theme = false, setTheme }) {
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <div className="header__right_second__nav_buttons__drop_down__grid_element__body_line">
-                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link">
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link title">
                           {t("WALLET")}
                         </div>
-                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link">
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link title">
                           {t("EXPLORER")}
                         </div>
                       </div>
@@ -180,7 +180,7 @@ function Header({ theme = false, setTheme }) {
                         <a
                           href="a"
                           onClick={(e) => e.preventDefault()}
-                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link hovered"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small hovered"
                         >
                           <span>{t("KEPLR")}</span>
                           <span>{t("COMING_SOON")}</span>
@@ -189,14 +189,14 @@ function Header({ theme = false, setTheme }) {
                           href="https://www.mintscan.io/asset-mantle"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
                         >
                           {t("MINTSCAN")}
                         </a>
                         <a
                           href="a"
                           onClick={(e) => e.preventDefault}
-                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link hovered"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small hovered"
                         >
                           <span>{t("COSMOSTATION")}</span>
                           <span>{t("COMING_SOON")}</span>
@@ -205,7 +205,7 @@ function Header({ theme = false, setTheme }) {
                           href="https://explorer.postcapitalist.io/AssetMantle"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
                         >
                           {t("POSTCAPITALIST")}
                         </a>

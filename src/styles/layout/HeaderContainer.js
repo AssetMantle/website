@@ -115,6 +115,7 @@ const HeaderContainer = styled.header`
                     padding-bottom: 16px;
                     border-bottom: 2px solid var(--dark-s);
                     width: 100%;
+                    color: var(--header-color);
                   }
                   &__body {
                     display: flex;
@@ -128,7 +129,7 @@ const HeaderContainer = styled.header`
                       gap: 16px;
                     }
                     &_link {
-                      color: var(--header-color);
+                      color: var(--header-color-s);
                       font: var(--p-s);
                       text-decoration: none;
                       max-width: 180px;
@@ -161,6 +162,14 @@ const HeaderContainer = styled.header`
                       }
                       &:hover {
                         color: var(--yellow);
+                      }
+                      &.title {
+                        &:hover {
+                          color: var(--header-color-s);
+                        }
+                      }
+                      &.small {
+                        font-size: 12px;
                       }
                     }
                   }
