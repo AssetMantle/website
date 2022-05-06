@@ -1,13 +1,40 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import DATA from "../data/headerData.json";
+import FAQData from "../data/homeData.json";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { CgArrowTopRight } from "react-icons/cg";
 
 export default function Nav() {
+  const { t } = useTranslation();
+
   const location = useLocation();
   const [details, setDetails] = useState(false);
+
+  const FAQ = [
+    {
+      id: FAQData.faq.qas[0].id,
+      question: t("FAQ_QUESTION_1"),
+    },
+    {
+      id: FAQData.faq.qas[1].id,
+      question: t("FAQ_QUESTION_2"),
+    },
+    {
+      id: FAQData.faq.qas[2].id,
+      question: t("FAQ_QUESTION_3"),
+    },
+    {
+      id: FAQData.faq.qas[3].id,
+      question: t("FAQ_QUESTION_4"),
+    },
+    {
+      id: FAQData.faq.qas[4].id,
+      question: t("FAQ_QUESTION_5"),
+    },
+  ];
 
   return (
     <NavContainer>
@@ -34,7 +61,7 @@ export default function Nav() {
                               <div className="nav__container_box_second__nav_buttons">
                                 <div className="nav__container_box_second__nav_buttons__drop">
                                   <div className="nav__container_box_second__nav_buttons__drop_d">
-                                    Learn
+                                    {t("LEARN")}
                                     <img
                                       src="/images/header/down_arrow.png"
                                       alt="down arrow"
@@ -44,7 +71,7 @@ export default function Nav() {
                                     <div className="nav__container_box_second__nav_buttons__drop_down__grid two">
                                       <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
-                                          Docs
+                                          {t("DOCS")}
                                         </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
                                           <a
@@ -53,7 +80,7 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            Whitepaper
+                                            {t("WHITEPAPER")}
                                           </a>
                                           <a
                                             href="https://docs.assetmantle.one/About_AssetMantle#what-is-assetmantle"
@@ -61,45 +88,25 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            What is AssetMantle
+                                            {t("WHAT_IS_ASSETMANTLE")}
                                           </a>
                                         </div>
                                       </div>
                                       <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
-                                          Faq
+                                          {t("FAQ")}
                                         </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
-                                          <a
-                                            href="#what-is-an-nft"
-                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
-                                          >
-                                            What is an NFT?
-                                          </a>
-                                          <a
-                                            href="#what-is-mantleplace"
-                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
-                                          >
-                                            What is MantlePlace?
-                                          </a>
-                                          <a
-                                            href="#what-is-mantle-builder"
-                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
-                                          >
-                                            What is MantleBuilder?
-                                          </a>
-                                          <a
-                                            href="#what-is-ibc-protocol"
-                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
-                                          >
-                                            What is IBC Protocol?
-                                          </a>
-                                          <a
-                                            href="#what-makes-assetmsntle-special"
-                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
-                                          >
-                                            What makes AssetMantle special?
-                                          </a>
+                                          {React.Children.toArray(
+                                            FAQ.map((data) => (
+                                              <a
+                                                href={`#${data.id}`}
+                                                className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                                              >
+                                                {data.question}
+                                              </a>
+                                            ))
+                                          )}
                                         </div>
                                       </div>
                                     </div>
@@ -107,7 +114,7 @@ export default function Nav() {
                                 </div>
                                 <div className="nav__container_box_second__nav_buttons__drop">
                                   <div className="nav__container_box_second__nav_buttons__drop_d">
-                                    Network
+                                    {t("NETWORK")}
                                     <img
                                       src="/images/header/down_arrow.png"
                                       alt="down arrow"
@@ -117,7 +124,7 @@ export default function Nav() {
                                     <div className="nav__container_box_second__nav_buttons__drop_down__grid two">
                                       <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
-                                          Native
+                                          {t("NATIVE")}
                                         </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
                                           <a
@@ -126,7 +133,7 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            AssetMantle Wallet
+                                            {t("ASSETMANTLE_WALLET")}
                                           </a>
                                           <a
                                             href="https://explorer.assetmantle.one/"
@@ -134,21 +141,21 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            AssetMantle Explorer
+                                            {t("ASSETMANTLE_EXPLORER")}
                                           </a>
                                         </div>
                                       </div>
                                       <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
-                                          External Tools
+                                          {t("EXTERNAL_TOOLS")}
                                         </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
                                           <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_line">
                                             <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link">
-                                              Wallet
+                                              {t("WALLET")}
                                             </div>
                                             <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link">
-                                              Explorer
+                                              {t("EXPLORER")}
                                             </div>
                                           </div>
                                           <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_line">
@@ -159,8 +166,8 @@ export default function Nav() {
                                               }
                                               className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link hovered"
                                             >
-                                              <span>Keplr</span>
-                                              <span>Coming Soon</span>
+                                              <span>{t("KEPLR")}</span>
+                                              <span>{t("COMING_SOON")}</span>
                                             </a>
                                             <a
                                               href="https://www.mintscan.io/asset-mantle"
@@ -168,15 +175,15 @@ export default function Nav() {
                                               rel="noopener noreferrer"
                                               className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                             >
-                                              Mintscan
+                                              {t("MINTSCAN")}
                                             </a>
                                             <a
                                               href="a"
                                               onClick={(e) => e.preventDefault}
                                               className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link hovered"
                                             >
-                                              <span>Cosmostation</span>
-                                              <span>Coming Soon</span>
+                                              <span>{t("COSMOSTATION")}</span>
+                                              <span>{t("COMING_SOON")}</span>
                                             </a>
                                             <a
                                               href="https://explorer.postcapitalist.io/AssetMantle"
@@ -184,7 +191,7 @@ export default function Nav() {
                                               rel="noopener noreferrer"
                                               className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                             >
-                                              Postcapitalist
+                                              {t("POSTCAPITALIST")}
                                             </a>
                                           </div>
                                         </div>
@@ -194,7 +201,7 @@ export default function Nav() {
                                 </div>
                                 <div className="nav__container_box_second__nav_buttons__drop">
                                   <div className="nav__container_box_second__nav_buttons__drop_d">
-                                    Community
+                                    {t("COMMUNITY")}
                                     <img
                                       src="/images/header/down_arrow.png"
                                       alt="down arrow"
@@ -299,7 +306,7 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            Tokenomics
+                                            {t("TOKENOMICS")}
                                           </a>
                                           <a
                                             href="https://airdrop.assetmantle.one/"
@@ -307,7 +314,7 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            MantleDrop
+                                            {t("MANTLEDROP")}
                                           </a>
                                         </div>
                                       </div>
