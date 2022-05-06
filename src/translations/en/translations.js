@@ -152,6 +152,14 @@ const English = {
     ABOUT_VISION_TITLE: aboutData.vision.title,
     ABOUT_VISION_DESCRIPTION: aboutData.vision.vision,
 
+    // mission section
+    ABOUT_MISSION_TITLE: aboutData.mission.title,
+    ABOUT_MISSION_DESCRIPTION: aboutData.mission.mission,
+
+    // roadmap section
+    ABOUT_ROADMAP_TITLE: aboutData.roadmap.title,
+    ABOUT_ROADMAP_NOTE: aboutData.roadmap.note,
+
     // team section
     ABOUT_TEAM_TITLE: aboutData.team.title,
     ABOUT_TEAM_DESCRIPTION: aboutData.team.description,
