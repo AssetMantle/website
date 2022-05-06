@@ -9,6 +9,7 @@ faucet/node_modules
 .github
 
 #  files
+.env.local
 package-lock.json
 yarn.lock
 .env.local

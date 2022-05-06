@@ -24,6 +24,13 @@ const App = () => {
       behavior: "smooth",
     });
   }, [location.pathname]);
+  
+    const CURRENT_VERSION = process.env.REACT_APP_VERSION;
+    if (localStorage.getItem("VERSION") !== CURRENT_VERSION) {
+        localStorage.clear();
+        localStorage.setItem("VERSION", CURRENT_VERSION);
+        window.location.reload();
+    }
 
   const routes = [
     {
