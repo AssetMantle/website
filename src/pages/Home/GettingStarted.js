@@ -2,7 +2,6 @@ import React from "react";
 
 import DATA from "../../data/homeData.json";
 
-// import { ButtonSecondary } from "../../components/Buttons";
 import UList from "../../components/UList";
 
 import { useTranslation } from "react-i18next";
