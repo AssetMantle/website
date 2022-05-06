@@ -37,7 +37,9 @@ export default function Home() {
       {DATA.whitepaper.visibility && <WhitePaper />}
       {DATA.team.visibility && <Team />}
       {DATA.faq.visibility && <Faq />}
-      <Footer />
+      <section>
+        <Footer />
+      </section>
     </HomeContainer>
   );
 }
