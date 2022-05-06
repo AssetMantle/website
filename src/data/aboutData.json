@@ -1,15 +1,21 @@
 {
   "hero": {
     "title": "What is AssetMantle ?",
-    "description": "AssetMantle is a one-stop NFT framework that empowers and incentivizes creators and their communities to build, innovate, and transact independently, and securely on the blockchain via MantlePlace and MantleBuilder.",
+    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
     "image": "/images/about/hero.png",
     "image_alt": "token illustration"
   },
   "vision": {
-    "title": "Vision Of AssetMantle",
-    "vision": "The vision is to build an open-source community-driven framework that also contributes to interNFT metadata standardization and Mantle modules for modular, interoperable, composable, and decomposable NFT integration in metaverses,  games, and art.",
-    "image": "/images/about/vision.png",
-    "image_alt": "vision phase illustration"
+    "title": "Vision",
+    "vision": "Build an open-source, community-driven framework for inter-chain NFTs and metadata standardization by contributing to interNFT standard."
+  },
+  "mission": {
+    "title": "Mission",
+    "mission": "Provide a platform that enables a diverse set of NFTs use cases that extend beyond arts and collectibles and can potentially change the representation of rights and ownership of real-world assets like real estate and other commodities."
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "note": "*Exact details to be announced in the future"
   },
   "team": {
     "title": "The Mantle team",
