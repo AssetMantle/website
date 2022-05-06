@@ -285,6 +285,19 @@ const English = {
     COMMUNITY_GUIDELINES_LIST_6_DESCRIPTION:
       whatIsNFTData.communityGuidelines.options[5].body,
 
+    // footer
+    FOOTER_TITLE: footerData.contents.title,
+    FOOTER_DESCRIPTION: footerData.contents.description,
+    FOOTER_EMAIL_DESCRIPTION_1: footerData.contents.emailDescription1,
+    FOOTER_EMAIL_DESCRIPTION_2: footerData.contents.emailDescription2,
+    FOOTER_SOCIAL_TITLE: footerData.social.title,
+    FOOTER_SUBSCRIBE_TITLE: footerData.contents.subscriptionTitle,
+    FOOTER_BUG_BOUNTY_LABEL: footerData.contents.bugBountyLabel,
+    FOOTER_FEATURE_LABEL: footerData.contents.featureLabel,
+    FOOTER_BLOG_LABEL: footerData.contents.blogLabel,
+    FOOTER_DOCS_LABEL: footerData.contents.docsLabel,
+    FOOTER_EXPLORER_LABEL: footerData.contents.explorerLabel,
+
     // footer modals
     // Bug Bounty Modal
     BUG_BOUNTY_MODAL_TITLE: footerData.bugBounty.title,
@@ -308,19 +321,25 @@ const English = {
     REQUEST_A_FEATURE_MODAL_NAME_LABEL: footerData.requestAFeature.nameLabel,
     REQUEST_A_FEATURE_MODAL_EMAIL_LABEL: footerData.requestAFeature.emailLabel,
     REQUEST_A_FEATURE_MODAL_TITLE_LABEL: footerData.requestAFeature.titleLabel,
-    REQUEST_A_FEATURE_MODAL_DESCRIPTION_LABEL: footerData.requestAFeature.descriptionLabel,
+    REQUEST_A_FEATURE_MODAL_DESCRIPTION_LABEL:
+      footerData.requestAFeature.descriptionLabel,
     REQUEST_A_FEATURE_MODAL_CHECKBOX_1: footerData.requestAFeature.checkBox1,
     REQUEST_A_FEATURE_MODAL_CHECKBOX_2: footerData.requestAFeature.checkBox2,
-    REQUEST_A_FEATURE_MODAL_SUBMIT_BUTTON_TEXT: footerData.requestAFeature.button,
-    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_TITLE: footerData.requestAFeature.success.title,
-    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_DESCRIPTION: footerData.requestAFeature.success.description,
-    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT: footerData.requestAFeature.success.button,
+    REQUEST_A_FEATURE_MODAL_SUBMIT_BUTTON_TEXT:
+      footerData.requestAFeature.button,
+    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_TITLE:
+      footerData.requestAFeature.success.title,
+    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_DESCRIPTION:
+      footerData.requestAFeature.success.description,
+    REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT:
+      footerData.requestAFeature.success.button,
 
     // Commons & Statics [A-Z order]
     ASSETMANTLE_WALLET: "AssetMantle Wallet",
     ASSETMANTLE_EXPLORER: "AssetMantle Explorer",
     AIRDROP: "Airdrop",
     AND: "and",
+    BLOG: "Blog",
     CHECK_ELIGIBILITY: "Check Eligibility",
     CLAIM: "Claim",
     COMING_SOON: "Coming Soon",
@@ -335,6 +354,7 @@ const English = {
     DAYS: "days",
     DETAILS: "Details",
     DOCS: "Docs",
+    EMAIL: "Email",
     EXPLORER: "Explorer",
     EXTERNAL_TOOLS: "External Tools",
     FAQ: "Faq",

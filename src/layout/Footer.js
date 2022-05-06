@@ -9,10 +9,13 @@ import DATA from "../data/footerData.json";
 import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
 import { RequestAFeature } from "../components/RequestAFeature";
+import { useTranslation } from "react-i18next";
 
 const mailURl = process.env.REACT_APP_MAIL_CHIMP_URL;
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   // const [email, setEmail] = useState();
   const [bugBountyModalStat, setBugBountyModalStat] = useState(false);
   const [suggestFeatureModalStat, setSuggestFeatureModalStat] = useState(false);
@@ -24,8 +27,8 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <h2 className="footer__title">Drop Us A Line</h2>
-      <p className="footer__details">Need to talk about NFTs? We would love to chat.</p>
+      <h2 className="footer__title">{t("FOOTER_TITLE")}</h2>
+      <p className="footer__details">{t("FOOTER_DESCRIPTION")}</p>
       <div className="footer_container">
         <div className="footer_container__element">
           <div className="footer_container__element_emails">
@@ -34,40 +37,42 @@ const Footer = () => {
               alt="email icon"
               className="footer_container__element_emails__icon"
             />
-            <h3 className="footer_container__element_emails__title">Email</h3>
+            <h3 className="footer_container__element_emails__title">
+              {t("EMAIL")}
+            </h3>
           </div>
 
           <div className="footer_container__element_email__tile">
             <h4 className="footer_container__element_email__tile_title">
-              For Information And Support:
+              {t("FOOTER_EMAIL_DESCRIPTION_1")}
             </h4>
             <a
               className="footer_container__element_email__tile_email"
-              href="mailto:hello@assetmantle.one"
+              href={`mailto:${DATA.contents.email1}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              hello@assetmantle.one
+              {DATA.contents.email1}
             </a>
           </div>
 
           <div className="footer_container__element_email__tile">
             <h4 className="footer_container__element_email__tile_title">
-              For Collaboration And Interests
+              {t("FOOTER_EMAIL_DESCRIPTION_2")}
             </h4>
             <a
               className="footer_container__element_email__tile_email"
-              href="mailto:communications@assetmantle.one"
+              href={`mailto:${DATA.contents.email2}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              communications@assetmantle.one
+              {DATA.contents.email2}
             </a>
           </div>
 
           <div className="footer_container__element_social">
             <h3 className="footer_container__element_social__title">
-              {DATA.social.h3}
+              {t("FOOTER_SOCIAL_TITLE")}
             </h3>
             <div className="footer_container__element_social__icons">
               {DATA.social.links &&
@@ -92,7 +97,7 @@ const Footer = () => {
         <div className="footer_container__element_2">
           <div className="footer_container__element_2__subscribe">
             <h3 className="footer_container__element_2__subscribe_title">
-              Join our Whitelist
+              {t("FOOTER_SUBSCRIBE_TITLE")}
             </h3>
             <div className="footer_container__element_2__subscribe_form">
               <MailchimpSubscribe
@@ -106,79 +111,60 @@ const Footer = () => {
                 )}
               />
             </div>
-            {/* <form
-              className="footer_container__element_2__subscribe_form"
-              onSubmit={handleSubmit}
-            >
-              <input
-                type="email"
-                placeholder="example@gmail.com"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button type="submit" onSubmit={(e) => e.preventDefault}>
-                Join
-              </button>
-            </form> */}
           </div>
           <div className="footer_container__element_2__links">
-            {window.location.href.includes("airdrop") ||
-            window.location.href.includes("stakedrop") ? undefined : (
-              <>
-                <p className="footer_container__element_2__links_link">
-                  Spotted something wrong?&nbsp;
-                  <button
-                    className="footer_container__element_2__links_link__button"
-                    onClick={() => setBugBountyModalStat(true)}
-                    onKeyPress={(e) =>
-                      e.key === "Enter" && setBugBountyModalStat(true)
-                    }
-                  >
-                    Bug Bounty
-                  </button>
-                </p>
-                <p className="footer_container__element_2__links_link">
-                  Have something in mind?&nbsp;
-                  <button
-                    className="footer_container__element_2__links_link__button"
-                    onClick={() => setSuggestFeatureModalStat(true)}
-                    onKeyPress={(e) =>
-                      e.key === "Enter" && setSuggestFeatureModalStat(true)
-                    }
-                  >
-                    Suggest a Feature
-                  </button>
-                </p>
-              </>
-            )}
             <p className="footer_container__element_2__links_link">
-              Want to know what we're upto?&nbsp;
+              {t("FOOTER_BUG_BOUNTY_LABEL")}&nbsp;
+              <button
+                className="footer_container__element_2__links_link__button"
+                onClick={() => setBugBountyModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setBugBountyModalStat(true)
+                }
+              >
+                {t("BUG_BOUNTY_MODAL_TITLE")}
+              </button>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              {t("FOOTER_FEATURE_LABEL")}&nbsp;
+              <button
+                className="footer_container__element_2__links_link__button"
+                onClick={() => setSuggestFeatureModalStat(true)}
+                onKeyPress={(e) =>
+                  e.key === "Enter" && setSuggestFeatureModalStat(true)
+                }
+              >
+                {t("REQUEST_A_FEATURE_MODAL_TITLE")}
+              </button>
+            </p>
+            <p className="footer_container__element_2__links_link">
+              {t("FOOTER_BLOG_LABEL")}&nbsp;
               <a
-                href="http://blog.assetmantle.one/"
+                href={DATA.contents.blogLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Blog
+                {t("BLOG")}
               </a>
             </p>
             <p className="footer_container__element_2__links_link">
-              Want to know more?&nbsp;
+              {t("FOOTER_DOCS_LABEL")}&nbsp;
               <a
-                href="https://docs.assetmantle.one/"
+                href={DATA.contents.docsLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Docs
+                {t("DOCS")}
               </a>
             </p>
             <p className="footer_container__element_2__links_link">
-              Interested in transaction activities?&nbsp;
+              {t("FOOTER_EXPLORER_LABEL")}&nbsp;
               <a
-                href="https://test-mantle-1.explorer.persistence.one"
+                href={DATA.contents.explorerLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Explorer
+                {t("EXPLORER")}
               </a>
             </p>
           </div>
