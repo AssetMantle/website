@@ -266,7 +266,7 @@ export const teamMemberData = [
   {
     image: "sankrit.webp",
     name: "Sankrit K",
-    designation: "Content Writer",
+    designation: "Content Writer & SEO Specialist",
     designationType: "Developer",
     social: [
       {
