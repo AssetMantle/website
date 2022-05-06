@@ -43,6 +43,7 @@
   /* header */
   --header-bg: rgba(4, 4, 4, 0.8);
   --header-color: #fffdfa;
+  --header-color-s: #B0B0B0;
 
   /* --------------fonts---------------------- */
   --h1: bold 36px/120% paralucent, sans-serif;
