@@ -22,31 +22,31 @@ export default function HeroSection() {
       image: "hero_image_1.png",
       avatar: "hero_avatar_1.png",
       name: "Dreamyvisuals  ",
-      profile: "@dreamyvisualz",
+      profile: "Forest Ruins",
     },
     {
       image: "hero_image_2.png",
-      avatar: "hero_avatar_1.png",
+      avatar: "hero_avatar_2.png",
       name: "shainefer",
-      profile: "@dreamyvisualz",
+      profile: "Break",
     },
     {
       image: "hero_image_3.png",
-      avatar: "hero_avatar_1.png",
-      name: "thedreamyvisuals ",
-      profile: "@dreamyvisualz",
+      avatar: "hero_avatar_3.png",
+      name: "Igor Kozhanov ",
+      profile: "Red",
     },
     {
       image: "hero_image_4.png",
-      avatar: "hero_avatar_1.png",
-      name: "Orbics",
-      profile: "@dreamyvisualz",
+      avatar: "hero_avatar_4.png",
+      name: "ORBICS",
+      profile: "Orbics",
     },
     {
       image: "hero_image_5.png",
       avatar: "hero_avatar_1.png",
       name: "Sourav paul",
-      profile: "@dreamyvisualz",
+      profile: "David",
     },
   ];
 
@@ -162,6 +162,7 @@ const Slide = styled.div`
           gap: 0px;
           h4 {
             color: var(--yellow);
+            text-transform: capitalize;
           }
           p {
             font: var(--p-m);
