@@ -222,6 +222,7 @@ export const FooterContainer = styled.footer`
                 outline: none;
                 color: var(--yellow);
                 width: max-content;
+                cursor: pointer;
                 span:last-child {
                   display: none;
                 }

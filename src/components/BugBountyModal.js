@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export default function BugBountyModal({ closeModal }) {
+  const { t } = useTranslation();
+
   const [FullName, setFullName] = useState("");
   const [Email, setEmail] = useState("");
   const [Title, setTitle] = useState("");
@@ -43,17 +46,16 @@ export default function BugBountyModal({ closeModal }) {
               <img src="/images/icons/success.png" alt="Success illustration" />
             </div>
             <div className="modal_success__container_element">
-              <h1>Response Submitted</h1>
+              <h1>{t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_TITLE")}</h1>
               <p>
-                Thank you for taking the time to help us improve. Someone from
-                the AssetMantle team will reach out to you.
+                {t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}
               </p>
               <div className="modal_success__container_element__button">
                 <button
                   onClick={() => closeModal(false)}
                   onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
                 >
-                  Proceed
+                  {t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT")}
                 </button>
               </div>
             </div>
@@ -69,10 +71,9 @@ export default function BugBountyModal({ closeModal }) {
             <img src="/images/icons/close.png" alt="close" />
           </div>
           <div className="modal_container">
-            <h2 className="modal_container__title">Bug Bounty</h2>
+            <h2 className="modal_container__title">{t("BUG_BOUNTY_MODAL_TITLE")}</h2>
             <p className="modal_container__description">
-              Did you spot a bug? Let us know and there might just be something
-              for you!
+              {t("BUG_BOUNTY_MODAL_DESCRIPTION")}
             </p>
             <form
               action=""
@@ -84,7 +85,7 @@ export default function BugBountyModal({ closeModal }) {
                   className="modal_container__form_label"
                   htmlFor="Full Name"
                 >
-                  Full Name
+                  {t("BUG_BOUNTY_MODAL_NAME_LABEL")}
                   <input
                     type="text"
                     placeholder="Jon Dao"
@@ -93,7 +94,7 @@ export default function BugBountyModal({ closeModal }) {
                   />
                 </label>
                 <label className="modal_container__form_label" htmlFor="Email">
-                  Email
+                  {t("BUG_BOUNTY_MODAL_EMAIL_LABEL")}
                   <input
                     type="email"
                     placeholder="jon.dao@example.com"
@@ -103,7 +104,7 @@ export default function BugBountyModal({ closeModal }) {
                 </label>
               </div>
               <label htmlFor="Title" className="modal_container__form_label">
-                Title
+                {t("BUG_BOUNTY_MODAL_TITLE_LABEL")}
                 <input
                   type="text"
                   placeholder="Report a bug."
@@ -115,7 +116,7 @@ export default function BugBountyModal({ closeModal }) {
                 htmlFor="Description"
                 className="modal_container__form_label"
               >
-                Description
+                {t("BUG_BOUNTY_MODAL_DESCRIPTION_LABEL")}
                 <textarea
                   name="Description"
                   id="Description"
@@ -134,8 +135,7 @@ export default function BugBountyModal({ closeModal }) {
                   onChange={(e) => setReceiveM(e.target.checked)}
                   id="receive_news"
                 />
-                I would like to receive news and information about developments
-                at AssetMantle.{" "}
+                {t("BUG_BOUNTY_MODAL_CHECKBOX_1")}
               </label>
               <label
                 htmlFor="term_and_condition"
@@ -147,11 +147,11 @@ export default function BugBountyModal({ closeModal }) {
                   onChange={(e) => setTAndC(e.target.checked)}
                   id="term_and_condition"
                 />
-                I accept the terms and conditions
+                {t("BUG_BOUNTY_MODAL_CHECKBOX_2")}
               </label>
               <div className="modal_container__form_button">
                 <button type="submit" value="Submit">
-                  Submit
+                  {t("BUG_BOUNTY_MODAL_SUBMIT_BUTTON_TEXT")}
                 </button>
               </div>
             </form>

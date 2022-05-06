@@ -36,5 +36,37 @@
       "text": "Docs",
       "href": "https://docs.assetmantle.one/"
     }
+  },
+  "bugBounty": {
+    "title": "Bug Bounty",
+    "description": "Did you spot a bug? Let us know and there might just be something for you!",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "checkBox1": "I would like to receive news and information about developments at AssetMantle.",
+    "checkBox2": "I accept the terms and conditions",
+    "button": "Submit",
+    "success": {
+      "title": "Response Submitted",
+      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "button": "Proceed"
+    }
+  },
+  "requestAFeature": {
+    "title": "Suggest a feature",
+    "description": "Do you have something in mind that you’d like to see on AssetMantle? Let us know.",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "checkBox1": "I would like to receive news and information about developments at AssetMantle.",
+    "checkBox2": "I accept the terms and conditions",
+    "button": "Submit",
+    "success": {
+      "title": "Response Submitted",
+      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "button": "Proceed"
+    }
   }
 }

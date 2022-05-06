@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export const RequestAFeature = ({ closeModal }) => {
+  const { t } = useTranslation();
+
   const [FullName, setFullName] = useState("");
   const [Email, setEmail] = useState("");
   const [Title, setTitle] = useState("");
@@ -43,17 +46,16 @@ export const RequestAFeature = ({ closeModal }) => {
               <img src="/images/icons/success.png" alt="Success illustration" />
             </div>
             <div className="modal_success__container_element">
-              <h1>Response Submitted</h1>
+              <h1>{t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_TITLE")}</h1>
               <p>
-                Thank you for taking the time to help us improve. Someone from
-                the AssetMantle team will reach out to you.
+                {t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}
               </p>
               <div className="modal_success__container_element__button">
                 <button
                   onClick={() => closeModal(false)}
                   onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
                 >
-                  Proceed
+                  {t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT")}
                 </button>
               </div>
             </div>
@@ -69,10 +71,9 @@ export const RequestAFeature = ({ closeModal }) => {
             <img src="/images/icons/close.png" alt="close" />
           </div>
           <div className="modal_container">
-            <h2 className="modal_container__title">Suggest a feature</h2>
+            <h2 className="modal_container__title">{t("REQUEST_A_FEATURE_MODAL_TITLE")}</h2>
             <p className="modal_container__description">
-              Do you have something in mind that you’d like to see on
-              AssetMantle? Let us know.
+              {t("REQUEST_A_FEATURE_MODAL_DESCRIPTION")}
             </p>
             <form
               action=""
@@ -84,7 +85,7 @@ export const RequestAFeature = ({ closeModal }) => {
                   className="modal_container__form_label"
                   htmlFor="Full Name"
                 >
-                  Full Name
+                 {t("REQUEST_A_FEATURE_MODAL_NAME_LABEL")}
                   <input
                     type="text"
                     placeholder="Jon Dao"
@@ -93,7 +94,7 @@ export const RequestAFeature = ({ closeModal }) => {
                   />
                 </label>
                 <label className="modal_container__form_label" htmlFor="Email">
-                  Email
+                  {t("REQUEST_A_FEATURE_MODAL_EMAIL_LABEL")}
                   <input
                     type="email"
                     placeholder="jon.dao@example.com"
@@ -103,7 +104,7 @@ export const RequestAFeature = ({ closeModal }) => {
                 </label>
               </div>
               <label htmlFor="Title" className="modal_container__form_label">
-                Title
+                {t("REQUEST_A_FEATURE_MODAL_TITLE_LABEL")}
                 <input
                   type="text"
                   placeholder="Feature title"
@@ -115,7 +116,7 @@ export const RequestAFeature = ({ closeModal }) => {
                 htmlFor="Description"
                 className="modal_container__form_label"
               >
-                Description
+                {t("REQUEST_A_FEATURE_MODAL_DESCRIPTION_LABEL")}
                 <textarea
                   name="Description"
                   id="Description"
@@ -134,24 +135,23 @@ export const RequestAFeature = ({ closeModal }) => {
                   onChange={(e) => setReceiveM(e.target.checked)}
                   id="receive_news"
                 />
-                I would like to receive news and information about developments
-                at AssetMantle.{" "}
+                {t("REQUEST_A_FEATURE_MODAL_CHECKBOX_1")}
               </label>
               <label
                 htmlFor="term_and_condition"
                 className="modal_container__form_label__checkbox"
-              >
+                >
                 <input
                   type="checkbox"
                   name="term_and_condition"
                   onChange={(e) => setTAndC(e.target.checked)}
                   id="term_and_condition"
-                />
-                I accept the terms and conditions
+                  />
+                  {t("REQUEST_A_FEATURE_MODAL_CHECKBOX_2")}
               </label>
               <div className="modal_container__form_button">
                 <button type="submit" value="Submit">
-                  Submit
+                  {t("REQUEST_A_FEATURE_MODAL_SUBMIT_BUTTON_TEXT")}
                 </button>
               </div>
             </form>
