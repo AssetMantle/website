@@ -7,33 +7,14 @@ import AppContainer from "./styles/AppStyle";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-// import { HeaderSecondary } from "./layout/HeaderSecondary";
-// import HeaderASAO from "./layout/HeaderASAO";
-
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import About from "./pages/About/";
-// import Pricing from "./pages/Pricing";
-// import WhatsAnNFT from "./pages/WhatsAnNFT";
 
 const App = () => {
   const [theme, setTheme] = useState(false);
-  // taking header to show from useEffect
-  // const [header, setHeader] = useState(1);
 
   const location = useLocation();
-
-  // changing header
-  // useEffect(() => {
-  //   setHeader(
-  //     location.pathname === "/"
-  //       ? 1
-  //       : window.location.href.includes("airdrop") ||
-  //         window.location.href.includes("stakedrop")
-  //       ? 2
-  //       : 0
-  //   );
-  // }, [location.pathname]);
 
   // scrolling to top on every page change
   useEffect(() => {
