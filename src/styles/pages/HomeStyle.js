@@ -30,6 +30,9 @@ export const HomeContainer = styled.main`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      &:last-child {
+        scroll-snap-align: end;
+      }
       & > * {
         width: 100%;
       }
@@ -50,6 +53,10 @@ export const HomeContainer = styled.main`
       @media (max-width: 548px) {
         padding: 85px 0px 0;
       }
+      background-image: url("/images/landing/hero/hero_bg.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       /* width: calc(100vw - 5px); */
       &__slide {
         img {
