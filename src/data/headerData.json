@@ -27,7 +27,7 @@
         "href": "/about"
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "What's an NFT",
         "href": "/whats-an-nft"
       },
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "visibility": true,
+        "visibility": false,
         "text": "Pricing",
         "href": "/pricing"
       },
