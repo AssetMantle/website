@@ -7,14 +7,14 @@
   },
   "services": {
     "visibility": true,
-    "buildTitle": "Build a Store",
-    "buildDesc": "Fully customizable store builder",
-    "buildBtnText": "MantleBuilder",
-    "buildHref": "",
     "shopTitle": "Start Shopping",
     "shopDesc": "Explore verified NFT collections",
     "shopBtnText": "MantlePlace",
-    "shopHref": ""
+    "shopHref": "",
+    "buildTitle": "Build a Store",
+    "buildDesc": "Fully customizable store builder",
+    "buildBtnText": "MantleBuilder",
+    "buildHref": ""
   },
   "overview": {
     "visibility": true,
@@ -33,7 +33,7 @@
     "li1": "Open-source framework",
     "li2": "Batch and lazy minting",
     "li3": "Creator-centric platform",
-    "li4": "'Collaborations via royalty splits",
+    "li4": "Custom Royalty Splits",
     "li5": "Community-first approach",
     "li6": "Real-world asset tokenization",
     "li7": "Interchain NFTs",
@@ -118,16 +118,16 @@
     "description": "AssetMantle helps creators and collectors tap into the true potential of NFTs.",
     "bodyTitle": "how does AssetMantle help you",
     "bodyDescription": "We amplify your NFT game by plugging every gap!",
-    "list1title": "For Creator",
+    "list1title": "For Creators",
     "list1": [
       "Build without coding",
-          "Mutable and private metadata",
-          "Negligible minting fee",
-          "Support for multiple file formats",
-          "Collaborate with split royalties",
-          "Round the clock community support"
+      "Mutable and private metadata",
+      "Negligible minting fee",
+      "Support for multiple file formats",
+      "Collaborate with split royalties",
+      "Round the clock community support"
     ],
-    "list2title": "For Collector",
+    "list2title": "For Collectors",
     "list2": [
       "Buy from verified creators",
       "Wallet agnosticism",

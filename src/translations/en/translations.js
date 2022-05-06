@@ -335,8 +335,8 @@ const English = {
       footerData.requestAFeature.success.button,
 
     // Commons & Statics [A-Z order]
-    ASSETMANTLE_WALLET: "AssetMantle Wallet",
-    ASSETMANTLE_EXPLORER: "AssetMantle Explorer",
+    ASSETMANTLE_WALLET: "MantleWallet",
+    ASSETMANTLE_EXPLORER: "MantleExplorer",
     AIRDROP: "Airdrop",
     AND: "and",
     BLOG: "Blog",

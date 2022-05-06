@@ -25,21 +25,39 @@ export default function Home() {
   return (
     <HomeContainer>
       <Header />
-      {DATA.hero.visibility && <HeroSection />}
-      {DATA.services.visibility && <ServicesSection />}
-      {DATA.overview.visibility && <Overview />}
-      {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
-      {DATA.drop.visibility && <AirdropSection />}
-      {DATA.howItWorks.visibility && <HowItWorks />}
-      {DATA.gettingStarted.visibility && <GettingStarted />}
-      {DATA.amDif.visibility && <Difference />}
-      {DATA.RoadMap.visibility && <RoadMap />}
-      {DATA.whitepaper.visibility && <WhitePaper />}
-      {DATA.team.visibility && <Team />}
-      {DATA.faq.visibility && <Faq />}
-      <section>
+      <div className="smoothScrollElement">
+        {DATA.hero.visibility && <HeroSection />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.services.visibility && <ServicesSection />}
+        {DATA.overview.visibility && <Overview />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
+        {DATA.drop.visibility && <AirdropSection />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.howItWorks.visibility && <HowItWorks />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.gettingStarted.visibility && <GettingStarted />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.amDif.visibility && <Difference />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.RoadMap.visibility && <RoadMap />}
+        {DATA.whitepaper.visibility && <WhitePaper />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.team.visibility && <Team />}
+      </div>
+      <div className="smoothScrollElement">
+        {DATA.faq.visibility && <Faq />}
+      </div>
+      <div className="smoothScrollElement">
         <Footer />
-      </section>
+      </div>
     </HomeContainer>
   );
 }
