@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import HeaderContainer, { NavIcon } from "../styles/layout/HeaderContainer";
 import Nav from "./Nav";
@@ -8,6 +9,8 @@ import DATA from "../data/headerData.json";
 import FAQData from "../data/homeData.json";
 
 function Header({ theme = false, setTheme }) {
+  const { t } = useTranslation();
+
   const [navToggler, setNavToggler] = useState(false);
 
   const location = useLocation();
@@ -19,23 +22,23 @@ function Header({ theme = false, setTheme }) {
   const FAQ = [
     {
       id: FAQData.faq.qas[0].id,
-      question: FAQData.faq.qas[0].q,
+      question: t("FAQ_QUESTION_1"),
     },
     {
       id: FAQData.faq.qas[1].id,
-      question: FAQData.faq.qas[1].q,
+      question: t("FAQ_QUESTION_2"),
     },
     {
       id: FAQData.faq.qas[2].id,
-      question: FAQData.faq.qas[2].q,
+      question: t("FAQ_QUESTION_3"),
     },
     {
       id: FAQData.faq.qas[3].id,
-      question: FAQData.faq.qas[3].q,
+      question: t("FAQ_QUESTION_4"),
     },
     {
       id: FAQData.faq.qas[4].id,
-      question: FAQData.faq.qas[4].q,
+      question: t("FAQ_QUESTION_5"),
     },
   ];
 
@@ -85,13 +88,13 @@ function Header({ theme = false, setTheme }) {
           )}
           <div className="header__right_second__nav_buttons">
             <div className="header__right_second__nav_buttons__drop">
-              Learn
+              {t("LEARN")}
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
                 <div className="header__right_second__nav_buttons__drop_down__grid two">
                   <div className="header__right_second__nav_buttons__drop_down__grid_element">
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
-                      Docs
+                      {t("DOCS")}
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
@@ -100,7 +103,7 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        Whitepaper
+                        {t("WHITEPAPER")}
                       </a>
                       <a
                         href="https://docs.assetmantle.one/About_AssetMantle#what-is-assetmantle"
@@ -108,13 +111,13 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        What is AssetMantle
+                        {t("WHAT_IS_ASSETMANTLE")}
                       </a>
                     </div>
                   </div>
                   <div className="header__right_second__nav_buttons__drop_down__grid_element">
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
-                      Faq
+                      {t("FAQ")}
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       {React.Children.toArray(
@@ -133,13 +136,13 @@ function Header({ theme = false, setTheme }) {
               </div>
             </div>
             <div className="header__right_second__nav_buttons__drop">
-              Network
+              {t("NETWORK")}
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
                 <div className="header__right_second__nav_buttons__drop_down__grid two">
                   <div className="header__right_second__nav_buttons__drop_down__grid_element">
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
-                      Native
+                      {t("NATIVE")}
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
@@ -148,7 +151,7 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        AssetMantle Wallet
+                        {t("ASSETMANTLE_WALLET")}
                       </a>
                       <a
                         href="https://explorer.assetmantle.one/"
@@ -156,21 +159,21 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        AssetMantle Explorer
+                        {t("ASSETMANTLE_EXPLORER")}
                       </a>
                     </div>
                   </div>
                   <div className="header__right_second__nav_buttons__drop_down__grid_element">
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
-                      External Tools
+                      {t("EXTERNAL_TOOLS")}
                     </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <div className="header__right_second__nav_buttons__drop_down__grid_element__body_line">
                         <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link">
-                          Wallet
+                          {t("WALLET")}
                         </div>
                         <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link">
-                          Explorer
+                          {t("EXPLORER")}
                         </div>
                       </div>
                       <div className="header__right_second__nav_buttons__drop_down__grid_element__body_line">
@@ -179,8 +182,8 @@ function Header({ theme = false, setTheme }) {
                           onClick={(e) => e.preventDefault()}
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link hovered"
                         >
-                          <span>Keplr</span>
-                          <span>Coming Soon</span>
+                          <span>{t("KEPLR")}</span>
+                          <span>{t("COMING_SOON")}</span>
                         </a>
                         <a
                           href="https://www.mintscan.io/asset-mantle"
@@ -188,15 +191,15 @@ function Header({ theme = false, setTheme }) {
                           rel="noopener noreferrer"
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                         >
-                          Mintscan
+                          {t("MINTSCAN")}
                         </a>
                         <a
                           href="a"
                           onClick={(e) => e.preventDefault}
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link hovered"
                         >
-                          <span>Cosmostation</span>
-                          <span>Coming Soon</span>
+                          <span>{t("COSMOSTATION")}</span>
+                          <span>{t("COMING_SOON")}</span>
                         </a>
                         <a
                           href="https://explorer.postcapitalist.io/AssetMantle"
@@ -204,7 +207,7 @@ function Header({ theme = false, setTheme }) {
                           rel="noopener noreferrer"
                           className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                         >
-                          Postcapitalist
+                          {t("POSTCAPITALIST")}
                         </a>
                       </div>
                     </div>
@@ -213,7 +216,7 @@ function Header({ theme = false, setTheme }) {
               </div>
             </div>
             <div className="header__right_second__nav_buttons__drop">
-              Community
+              {t("COMMUNITY")}
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
                 <div className="header__right_second__nav_buttons__drop_down__grid one">
@@ -309,7 +312,7 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        Tokenomics
+                        {t("TOKENOMICS")}
                       </a>
                       <a
                         href="https://airdrop.assetmantle.one/"
@@ -317,7 +320,7 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        MantleDrop
+                        {t("MANTLEDROP")}
                       </a>
                     </div>
                   </div>
