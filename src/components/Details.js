@@ -43,11 +43,12 @@ const Container = styled.details`
     top: -80px;
   }
   summary {
-    font: 600 var(--p-m);
+    font: var(--h4);
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     outline: none;
+    color: var(--gray);
     list-style: none;
     &::-webkit-details-marker {
       display: none;
@@ -62,7 +63,7 @@ const Container = styled.details`
     }
   }
   p.details {
-    font: var(--h5);
+    font: var(--p-m);
     font-weight: 400;
     max-width: 94%;
     margin: 0;
