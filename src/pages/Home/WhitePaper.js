@@ -9,7 +9,7 @@ export default function WhitePaper() {
   return (
     <section className="section_whitepaper">
       <div className="section_whitepaper__element">
-        <h2>{t("WHITEPAPER_TITLE")}</h2>
+        <h2 className="yellow-t">{t("WHITEPAPER_TITLE")}</h2>
         <p>{t("WHITEPAPER_DESCRIPTION")}</p>
       </div>
       <div className="section_whitepaper__element bu">
