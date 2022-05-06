@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 
 // style
 import AppContainer from "./styles/AppStyle";
 
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
+// import Header from "./layout/Header";
+// import Footer from "./layout/Footer";
 
 import RouteNotFound from "./components/RouteNotFound";
 import Home from "./pages/Home/";
 import About from "./pages/About/";
 
 const App = () => {
-  const [theme, setTheme] = useState(false);
+  // const [theme, setTheme] = useState(false);
 
   const location = useLocation();
 
@@ -53,11 +53,6 @@ const App = () => {
 
   return (
     <AppContainer>
-      {location.pathname === "/" ? (
-        ""
-      ) : (
-        <Header theme={theme} setTheme={setTheme} />
-      )}
       <Switch>
         {routes.map((route) => {
           return (
@@ -71,7 +66,6 @@ const App = () => {
         })}
         <Route component={RouteNotFound} />
       </Switch>
-      {location.pathname === "/" ? "" : <Footer />}
     </AppContainer>
   );
 };
