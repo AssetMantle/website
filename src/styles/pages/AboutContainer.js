@@ -43,6 +43,7 @@ export const AboutContainer = styled.main`
   }
   .section {
     &_hero {
+      position: relative;
       padding: 0px 92px 0px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -80,6 +81,35 @@ export const AboutContainer = styled.main`
           @media (max-width: 548px) {
             transform: translateX(0);
           }
+        }
+      }
+      &__animatedDown {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        animation: upDown 2000ms cubic-bezier(1, 0.71, 0, 0.43) infinite;
+        @keyframes upDown {
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(20px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+        img{
+          cursor: pointer;
+        }
+        @media (max-width: 548px) {
+          display: none;
         }
       }
     }
@@ -196,15 +226,14 @@ export const AboutContainer = styled.main`
             width: 100%;
             overflow: auto;
             display: flex;
+            flex-direction: column;
+            position: relative;
             &::-webkit-scrollbar {
               display: none;
             }
             -ms-overflow-style: none; /* IE and Edge */
             scrollbar-width: none;
             width: 100%;
-            &_image {
-              margin: auto;
-            }
           }
           &_left_button,
           &_right_button {
@@ -216,12 +245,24 @@ export const AboutContainer = styled.main`
             border: none;
             outline: none;
             cursor: pointer;
+            @media (max-width: 548px) {
+              img {
+                width: 20px;
+                height: auto;
+              }
+            }
           }
           &_left_button {
             left: 0;
+            @media (max-width: 548px) {
+              left: -10px;
+            }
           }
           &_right_button {
             right: 0;
+            @media (max-width: 548px) {
+              right: -10px;
+            }
           }
         }
       }

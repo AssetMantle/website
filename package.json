@@ -26,6 +26,7 @@
   },
   "scripts": {
     "start": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts start",
+    "startWithOutENV": "react-scripts start",
     "build": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts build",
     "test": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts test",
     "eject": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts eject"

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { AboutContainer } from "../../styles/pages/AboutContainer";
 import TeamMemberCard from "../../components/TeamMemberCard";
 import { teamMemberData } from "../../data/teamData";
@@ -8,11 +8,86 @@ import aboutData from "../../data/aboutData.json";
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import WhitePaper from "../Home/WhitePaper";
+import RoadMapSlide from "./RoadMapSlide";
 
 export default function About() {
   const { t } = useTranslation();
 
   const [phase, setPhase] = useState(0);
+
+  const phases = [
+    {
+      image: "phase_00.png",
+      title: "Phase 00 UNEARTH",
+      list: [
+        "Testnet",
+        "Onboarding for validators",
+        "MantlePlace beta version release ",
+        "Multi-wallet support: Ledger, Keplr",
+        "Mantle transaction explorer ",
+        "Mint, Buy, Sell, Transfer ",
+        "Onboarding for ‘Mantle Genesis creators’",
+      ],
+      },
+    {
+      image: "phase_01.png",
+      title: "Phase 01 TRENCH",
+      list: [
+        "$MNTL Tokenomics*",
+        "IBC enabled chain",
+        "MantlePlace V2",
+        "Introducing Fractional NFTs",
+        "Onboarding for ‘Genesis stores’",
+        "Incentivised Testnet V2*",
+        "$MNTL Airdrop Calculator",
+      ],
+    },
+    {
+      image: "phase_02.png",
+      title: "Phase 02 UNLIMIT",
+      list: [
+        "Auctions, secondary sales & Royalties",
+        "Mainnet Launch",
+        "$MNTL Airdrops*",
+        "Liquidity Bootstrapping Pool event on Osmosis Chain*",
+        "MantleBuilder V1",
+        "MantlePlace early access to ‘Genesis creators’",
+        "Mantle NFT Drops for Genesis Creators & early adopters",
+      ],
+    },
+    {
+      image: "phase_03.png",
+      title: "Phase 03 CACHE",
+      list: [
+        "IBC InterNFT Compatibility ",
+        "Curation for art and verification for artists by Mantle DAO* ",
+        "Stats, Analytics dashboard on MantlePlace ",
+        "$MNTL Retroactive Rewards ",
+        "Membership NFT drops to Genesis stores & early adopters ",
+      ],
+    },
+    {
+      image: "phase_04.png",
+      title: "Phase 04 CURATE",
+      list: [
+        "Introducing TradeRoom ",
+        "Composable, Decomposable NFTs   ",
+        "Integrations of Multiple-Payment modes",
+        "Staking and liquidity pools (LPs) for NFTs",
+        "MantlePlace V3 ",
+      ],
+    },
+    {
+      image: "phase_05.png",
+      title: "Phase 05 RAREFY",
+      list: [
+        "Cosmos NFT projects collaborations ",
+        "ETH Bridge Integration for multi-chain compatibility ",
+        "IBC Resolver  ",
+        "Identity as SECP256K1 Address ",
+      ],
+    },
+  ];
 
   return (
     <AboutContainer>
@@ -29,6 +104,9 @@ export default function About() {
           </div>
           <div className="section_hero__element">
             <img src={aboutData.hero.image} alt={aboutData.hero.image_alt} />
+          </div>
+          <div className="section_hero__animatedDown">
+          <img src="/images/about/down_arrow.svg" alt="arrow" />
           </div>
         </section>
       </div>
@@ -50,18 +128,23 @@ export default function About() {
           <h1>{t("ABOUT_ROADMAP_TITLE")}</h1>
           <div className="section_roadmap__slide">
             <div className="section_roadmap__slide_element">
-              <button onClick={()=>phase !== 0 ? setPhase(phase - 1): setPhase(5)} className="section_roadmap__slide_element_left_button">
+              <button
+                onClick={() =>
+                  phase !== 0 ? setPhase(phase - 1) : setPhase(5)
+                }
+                className="section_roadmap__slide_element_left_button"
+              >
                 <img src="/images/about/left_arrow.svg" alt="arrow" />
               </button>
               <div className="section_roadmap__slide_element__phase">
-
-              <img
-                className="section_roadmap__slide_element__phase_image"
-                src={`/images/about/phase0${phase}.svg`}
-                alt="phase00"
-              />
+                <RoadMapSlide image={phases[phase].image} title={phases[phase].title} list={phases[phase].list} />
               </div>
-              <button onClick={()=>phase !== 5 ? setPhase(phase + 1): setPhase(0)} className="section_roadmap__slide_element_right_button">
+              <button
+                onClick={() =>
+                  phase !== 5 ? setPhase(phase + 1) : setPhase(0)
+                }
+                className="section_roadmap__slide_element_right_button"
+              >
                 <img src="/images/about/right_arrow.svg" alt="arrow" />
               </button>
             </div>
