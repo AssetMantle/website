@@ -1,44 +1,44 @@
 export const teamMemberData = [
-  // {
-  //   image: "deepanshu.webp",
-  //   name: "Deepanshu Tripathi",
-  //   designation: "Founder, Core - Product Planning & Implementation​",
-  //   designationType: "Founding",
-  //   social: [
-  //     {
-  //       icon: "LinkedIn",
-  //       href: "http://linkedin.com/in/deepanshutr",
-  //     },
-  //     {
-  //       icon: "Twitter",
-  //       href: "https://twitter.com/deepanshutr",
-  //     },
-  //     {
-  //       icon: "Github",
-  //       href: "https://github.com/deepanshutr",
-  //     },
-  //   ],
-  // },
-  // {
-  //   image: "abhinav.webp",
-  //   name: "Abhinav Kumar",
-  //   designation: "Co-Founder, Core - Product Planning & Implementation​",
-  //   designationType: "Founding",
-  //   social: [
-  //     {
-  //       icon: "LinkedIn",
-  //       href: "https://www.linkedin.com/in/avkr003/",
-  //     },
-  //     {
-  //       icon: "Twitter",
-  //       href: "https://twitter.com/avkr003",
-  //     },
-  //     {
-  //       icon: "Github",
-  //       href: "https://github.com/avkr003",
-  //     },
-  //   ],
-  // },
+  {
+    image: "deepanshu.webp",
+    name: "Deepanshu Tripathi",
+    designation: "Founder, Core - Product Planning & Implementation​",
+    designationType: "Founding",
+    social: [
+      {
+        icon: "LinkedIn",
+        href: "http://linkedin.com/in/deepanshutr",
+      },
+      {
+        icon: "Twitter",
+        href: "https://twitter.com/deepanshutr",
+      },
+      {
+        icon: "Github",
+        href: "https://github.com/deepanshutr",
+      },
+    ],
+  },
+  {
+    image: "abhinav.webp",
+    name: "Abhinav Kumar",
+    designation: "Co-Founder, Core - Product Planning & Implementation​",
+    designationType: "Founding",
+    social: [
+      {
+        icon: "LinkedIn",
+        href: "https://www.linkedin.com/in/avkr003/",
+      },
+      {
+        icon: "Twitter",
+        href: "https://twitter.com/avkr003",
+      },
+      {
+        icon: "Github",
+        href: "https://github.com/avkr003",
+      },
+    ],
+  },
   // {
   //   image: "naman.webp",
   //   name: "Naman Kabra",
