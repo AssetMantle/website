@@ -302,6 +302,7 @@ export const AboutContainer = styled.main`
           }
           &_left_button {
             left: 0;
+            z-index: 10;
             @media (max-width: 548px) {
               left: -10px;
             }
