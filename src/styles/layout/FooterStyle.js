@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   padding: 60px 92px 80px;
-  background-color: var(--dark-m);
+  background-color: var(--footer-bg);
   max-width: 1440px;
   margin: auto;
   margin-bottom: 0;

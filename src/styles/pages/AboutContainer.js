@@ -13,6 +13,10 @@ export const AboutContainer = styled.main`
   background-size: 100%;
   background-position: top left;
   background-repeat: no-repeat repeat;
+  background-attachment: scroll;
+  @media (min-width: 1441px) {
+    background: none;
+  }
   @media (min-width: 769px) {
     scroll-snap-type: y mandatory;
     .smoothScrollElement {
@@ -26,7 +30,10 @@ export const AboutContainer = styled.main`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      &.center {
+        justify-content: center;
+      }
       &:last-child {
         scroll-snap-align: end;
       }
@@ -46,13 +53,13 @@ export const AboutContainer = styled.main`
       position: relative;
       padding: 0px 92px 0px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 4fr;
       align-items: center;
       justify-content: center;
-      gap: 30px;
+      gap: 70px;
       @media (max-width: 768px) {
         padding: 20px 40px;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 2fr;
       }
       @media (max-width: 548px) {
         padding: 20px 30px;
@@ -64,15 +71,22 @@ export const AboutContainer = styled.main`
           color: var(--yellow);
           padding: 12px 0;
           text-transform: capitalize;
+          max-width: 335px;
           @media (max-width: 548px) {
             font: var(--h2);
+            max-width: 100%;
           }
         }
         &_details {
           font: var(--p-l);
           color: var(--gray-deep);
           padding: 12px 0;
-          text-align: justify;
+        }
+        iframe{
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16/9;
+          border-radius: 12px;
         }
         img {
           width: 100%;
@@ -114,25 +128,51 @@ export const AboutContainer = styled.main`
       }
     }
     &_visionMission {
-      padding: 30px 92px 30px;
+      padding: 60px 92px 30px;
       @media (max-width: 768px) {
         padding: 40px;
       }
       @media (max-width: 548px) {
         padding: 20px;
       }
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      gap: 68px;
+      justify-content: center;
+      gap: 30px;
+      @media (max-width: 768px) {
+        padding: 20px 40px;
+        grid-template-columns: 2fr 1fr;
+      }
+      @media (max-width: 548px) {
+        padding: 20px 30px;
+        grid-template-columns: 1fr;
+      }
+      &_grid {
+        &:first-child {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
+          gap: 68px;
+        }
+        &:last-child {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          img {
+            width: min(447px, 100%);
+          }
+        }
+      }
       &__element {
-        max-width: 936px;
+        max-width: 627px;
         h1 {
           font: var(--h1);
           color: var(--yellow);
         }
         p {
+          text-align: justify;
           padding-top: 28px;
           font: var(--p-l);
           color: var(--gray-deep);
@@ -150,7 +190,7 @@ export const AboutContainer = styled.main`
       justify-content: space-between;
       flex-wrap: no-wrap;
       gap: 50px;
-      margin: 60px 0;
+      margin: 60px 0 30px;
       @media (max-width: 768px) {
         padding: 60px 40px;
       }
@@ -176,12 +216,17 @@ export const AboutContainer = styled.main`
           color: var(--gray-deep);
         }
         &.bu {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 28px;
           @media (max-width: 548px) {
             width: 100%;
+            grid-template-columns: repeat(1, 1fr);
             text-align: center;
           }
           & > a {
-            width: max-content;
+            width: 185px;
+            text-align: center;
             display: inline-block;
             @media (max-width: 548px) {
               width: 100%;
@@ -201,7 +246,7 @@ export const AboutContainer = styled.main`
       h1 {
         font: var(--h1);
         color: var(--yellow);
-        padding: 80px 93px;
+        padding: 100px 93px 60px;
         @media (max-width: 768px) {
           padding: 40px;
         }
@@ -224,8 +269,11 @@ export const AboutContainer = styled.main`
           position: relative;
           &__phase {
             width: 100%;
+            min-height: 475px;
             overflow: auto;
             display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
             position: relative;
             &::-webkit-scrollbar {
@@ -511,7 +559,7 @@ export const AboutContainer = styled.main`
       }
     }
     &_team {
-      padding: 60px 70px;
+      padding: 100px 70px 60px;
       @media (max-width: 768px) {
         padding: 40px;
       }

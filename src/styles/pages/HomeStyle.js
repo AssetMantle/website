@@ -13,6 +13,10 @@ export const HomeContainer = styled.main`
   background-size: 100%;
   background-position: top left;
   background-repeat: no-repeat repeat;
+  background-attachment: scroll;
+  @media (min-width: 1441px) {
+    background: none;
+  }
   section {
     width: 100%;
   }
@@ -29,7 +33,13 @@ export const HomeContainer = styled.main`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      &.center {
+        justify-content: center;
+      }
+      &.paddingBottom{
+        padding-bottom: 36px;
+      }
       &:last-child {
         scroll-snap-align: end;
       }
@@ -97,7 +107,7 @@ export const HomeContainer = styled.main`
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-content: space-between;
-      padding: 60px 160px 160px;
+      padding: 60px 160px 100px;
       gap: 25px;
       @media (max-width: 1060px) {
         padding-left: 40px;
@@ -329,7 +339,7 @@ export const HomeContainer = styled.main`
     }
     &_airdrop {
       padding: 20px 92px 20px 32px;
-      margin: 60px 0;
+      margin: 0px 0;
       display: grid;
       grid-template-columns: 2fr 8fr 2fr;
       gap: 40px;
@@ -416,6 +426,13 @@ export const HomeContainer = styled.main`
         font: var(--p-l);
         color: var(--gray-deep);
         max-width: 936px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        span {
+          color: var(--yellow);
+          padding-top: 5px;
+        }
       }
       &__element {
         &.one {
@@ -750,6 +767,8 @@ export const HomeContainer = styled.main`
         }
         &.bu {
           & > a {
+            margin-left: auto;
+            margin-right: 0;
             width: 175px;
             text-align: center;
             @media (max-width: 548px) {
@@ -796,12 +815,17 @@ export const HomeContainer = styled.main`
           color: var(--gray-deep);
         }
         &.bu {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 28px;
           @media (max-width: 548px) {
             width: 100%;
+            grid-template-columns: repeat(1, 1fr);
             text-align: center;
           }
           & > a {
-            width: max-content;
+            width: 185px;
+            text-align: center;
             display: inline-block;
             @media (max-width: 548px) {
               width: 100%;
@@ -824,11 +848,14 @@ export const HomeContainer = styled.main`
     }
     &_team {
       padding: 60px 80px;
+      padding-top: 90px;
       @media (max-width: 768px) {
         padding: 40px;
+        padding-top: 60px;
       }
       @media (max-width: 548px) {
         padding: 20px;
+        padding-top: 40px;
       }
       h2 {
         font: var(--h2);
@@ -875,7 +902,7 @@ export const HomeContainer = styled.main`
         color: var(--gray);
         margin-bottom: 24px;
       }
-      p {
+      & > p {
         font: var(--p-l);
         color: var(--gray-deep);
         max-width: 936px;

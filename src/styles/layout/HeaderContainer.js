@@ -86,16 +86,15 @@ const HeaderContainer = styled.header`
             border-bottom: 1px solid transparent;
             cursor: pointer;
             position: relative;
-
             &_down {
               display: none;
               padding: 16px;
               position: absolute;
               top: 99.5%;
               right: 0;
-              background-color: var(--dark);
+              background-color: var(--header-dropdown-bg);
               border-radius: 0 0 16px 16px;
-              border: 1px solid var(--yellow);
+              filter: var(--header-dropdown-filter);
               width: max-content;
               &__grid {
                 display: grid;
@@ -111,7 +110,7 @@ const HeaderContainer = styled.header`
                   flex-direction: column;
                   gap: 16px;
                   &__title {
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     padding-bottom: 16px;
                     border-bottom: 2px solid var(--dark-s);
                     width: 100%;
@@ -140,6 +139,15 @@ const HeaderContainer = styled.header`
                         width: 40px;
                         height: auto;
                       }
+                      &_icon {
+                        width: 24px;
+                        height: 24px;
+                        background-color: black;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      }
                       &.hovered {
                         span {
                           &:nth-child(1) {
@@ -159,13 +167,17 @@ const HeaderContainer = styled.header`
                             display: inline-block;
                           }
                         }
-                      }
-                      &:hover {
                         color: var(--yellow);
+                        .header__right_second__nav_buttons__drop_down__grid_element__body_link_icon {
+                          color: var(--yellow);
+                        }
                       }
                       &.title {
+                        padding-bottom: 6px;
+                        border-bottom: 2px solid var(--dark-s);
+                        color: var(--header-color-m);
                         &:hover {
-                          color: var(--header-color-s);
+                          color: var(--header-color-m);
                         }
                       }
                       &.small {
