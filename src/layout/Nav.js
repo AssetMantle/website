@@ -4,6 +4,16 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import DATA from "../data/headerData.json";
 import FAQData from "../data/homeData.json";
+
+// icons
+import { BsTwitter } from "react-icons/bs";
+import {
+  FaDiscord,
+  FaInstagram,
+  FaTelegramPlane,
+  FaGithub,
+} from "react-icons/fa";
+import { GrReddit } from "react-icons/gr";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { CgArrowTopRight } from "react-icons/cg";
 
@@ -61,7 +71,7 @@ export default function Nav() {
                               <div className="nav__container_box_second__nav_buttons">
                                 <div className="nav__container_box_second__nav_buttons__drop">
                                   <div className="nav__container_box_second__nav_buttons__drop_d">
-                                    {t("LEARN")}
+                                    {t("RESOURCE")}
                                     <img
                                       src="/images/header/down_arrow.png"
                                       alt="down arrow"
@@ -101,7 +111,7 @@ export default function Nav() {
                                             FAQ.map((data) => (
                                               <a
                                                 href={`#${data.id}`}
-                                                className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                                                className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                               >
                                                 {data.question}
                                               </a>
@@ -151,10 +161,10 @@ export default function Nav() {
                                         </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
                                           <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_line">
-                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link">
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link title">
                                               {t("WALLET")}
                                             </div>
-                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link">
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link title">
                                               {t("EXPLORER")}
                                             </div>
                                           </div>
@@ -164,7 +174,7 @@ export default function Nav() {
                                               onClick={(e) =>
                                                 e.preventDefault()
                                               }
-                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link hovered"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small hovered"
                                             >
                                               <span>{t("KEPLR")}</span>
                                               <span>{t("COMING_SOON")}</span>
@@ -173,14 +183,14 @@ export default function Nav() {
                                               href="https://www.mintscan.io/asset-mantle"
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"
                                             >
                                               {t("MINTSCAN")}
                                             </a>
                                             <a
                                               href="a"
                                               onClick={(e) => e.preventDefault}
-                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link hovered"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small hovered"
                                             >
                                               <span>{t("COSMOSTATION")}</span>
                                               <span>{t("COMING_SOON")}</span>
@@ -189,10 +199,28 @@ export default function Nav() {
                                               href="https://explorer.postcapitalist.io/AssetMantle"
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"
                                             >
                                               {t("POSTCAPITALIST")}
                                             </a>
+                                            <a
+                                              href="https://everstake.one/assetmantle"
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"
+                                            >
+                                              {t("EVERSTAKE")}
+                                            </a>
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"></div>
+                                            <a
+                                              href="https://app.citadel.one/"
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"
+                                            >
+                                              {t("CIATDEL")}
+                                            </a>
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link small"></div>
                                           </div>
                                         </div>
                                       </div>
@@ -201,7 +229,7 @@ export default function Nav() {
                                 </div>
                                 <div className="nav__container_box_second__nav_buttons__drop">
                                   <div className="nav__container_box_second__nav_buttons__drop_d">
-                                    {t("COMMUNITY")}
+                                    {t("CONNECT")}
                                     <img
                                       src="/images/header/down_arrow.png"
                                       alt="down arrow"
@@ -217,10 +245,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/twitter.png"
-                                              alt="Twitter icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <BsTwitter />
+                                            </div>
                                             Twitter
                                           </a>
                                           <a
@@ -229,10 +256,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/discord.png"
-                                              alt="Discord icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <FaDiscord />
+                                            </div>
                                             Discord
                                           </a>
                                           <a
@@ -241,10 +267,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/instagram.png"
-                                              alt="Instagram icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <FaInstagram />
+                                            </div>
                                             Instagram
                                           </a>
                                           <a
@@ -253,10 +278,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/telegram.png"
-                                              alt="Telegram icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <FaTelegramPlane />
+                                            </div>
                                             Telegram
                                           </a>
                                           <a
@@ -265,10 +289,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/github.png"
-                                              alt="github icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <FaGithub />
+                                            </div>
                                             Github
                                           </a>
                                           <a
@@ -277,10 +300,9 @@ export default function Nav() {
                                             rel="noopener noreferrer"
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
-                                            <img
-                                              src="/images/header/reddit.png"
-                                              alt="reddit icon"
-                                            />
+                                            <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                                              <GrReddit />
+                                            </div>
                                             Reddit
                                           </a>
                                         </div>
@@ -297,8 +319,11 @@ export default function Nav() {
                                     />
                                   </div>
                                   <div className="nav__container_box_second__nav_buttons__drop_down">
-                                    <div className="nav__container_box_second__nav_buttons__drop_down__grid one">
+                                    <div className="nav__container_box_second__nav_buttons__drop_down__grid two">
                                       <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
+                                        <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
+                                          {t("TOKEN")}
+                                        </div>
                                         <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
                                           <a
                                             href="https://blog.assetmantle.one/2022/03/01/mntl-tokenomics-and-utility/"
@@ -315,6 +340,29 @@ export default function Nav() {
                                             className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
                                           >
                                             {t("MANTLEDROP")}
+                                          </a>
+                                        </div>
+                                      </div>
+                                      <div className="nav__container_box_second__nav_buttons__drop_down__grid_element">
+                                        <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__title">
+                                          {t("TRACKING")}
+                                        </div>
+                                        <div className="nav__container_box_second__nav_buttons__drop_down__grid_element__body">
+                                          <a
+                                            href="https://www.coingecko.com/en/coins/assetmantle/usd"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
+                                          >
+                                            {t("COINGECKO")}
+                                          </a>
+                                          <a
+                                            href="https://coinmarketcap.com/currencies/assetmantle/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="nav__container_box_second__nav_buttons__drop_down__grid_element__body_link"
+                                          >
+                                            {t("COINMARKETCAP")}
                                           </a>
                                         </div>
                                       </div>
@@ -499,7 +547,7 @@ const NavContainer = styled.div`
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            gap: 40px;
+            gap: 24px;
             font: 600 22px/120% "Lato", sans-serif;
             color: var(--header-color);
             /* padding: 25px 4px 20px; */
@@ -524,9 +572,9 @@ const NavContainer = styled.div`
               /* position: absolute;
               top: 99.5%;
               right: 0; */
-              background-color: var(--dark);
+              background-color: var(--header-dropdown-bg);
               border-radius: 4px;
-              border: 1px solid var(--yellow);
+              filter: var(--header-dropdown-filter);
               width: max-content;
               &__grid {
                 display: grid;
@@ -547,6 +595,7 @@ const NavContainer = styled.div`
                     padding-bottom: 16px;
                     border-bottom: 2px solid var(--dark-s);
                     width: 100%;
+                    color: var(--header-color);
                   }
                   &__body {
                     display: flex;
@@ -560,7 +609,7 @@ const NavContainer = styled.div`
                       gap: 16px;
                     }
                     &_link {
-                      color: var(--header-color);
+                      color: var(--header-color-s);
                       font: var(--p-s);
                       text-decoration: none;
                       max-width: 180px;
@@ -570,6 +619,15 @@ const NavContainer = styled.div`
                       img {
                         width: 40px;
                         height: auto;
+                      }
+                      &_icon {
+                        width: 24px;
+                        height: 24px;
+                        background-color: black;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                       }
                       &.hovered {
                         span {
@@ -590,9 +648,21 @@ const NavContainer = styled.div`
                             display: inline-block;
                           }
                         }
-                      }
-                      &:hover {
                         color: var(--yellow);
+                        .header__right_second__nav_buttons__drop_down__grid_element__body_link_icon {
+                          color: var(--yellow);
+                        }
+                      }
+                      &.title {
+                        padding-bottom: 6px;
+                        border-bottom: 2px solid var(--dark-s);
+                        color: var(--header-color-m);
+                        &:hover {
+                          color: var(--header-color-m);
+                        }
+                      }
+                      &.small {
+                        font-size: 12px;
                       }
                     }
                   }

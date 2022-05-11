@@ -8,6 +8,16 @@ import Nav from "./Nav";
 import DATA from "../data/headerData.json";
 import FAQData from "../data/homeData.json";
 
+// icons
+import { BsTwitter } from "react-icons/bs";
+import {
+  FaDiscord,
+  FaInstagram,
+  FaTelegramPlane,
+  FaGithub,
+} from "react-icons/fa";
+import { GrReddit } from "react-icons/gr";
+
 function Header({ theme = false, setTheme }) {
   const { t } = useTranslation();
 
@@ -88,7 +98,7 @@ function Header({ theme = false, setTheme }) {
           )}
           <div className="header__right_second__nav_buttons">
             <div className="header__right_second__nav_buttons__drop">
-              {t("LEARN")}
+              {t("RESOURCE")}
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
                 <div className="header__right_second__nav_buttons__drop_down__grid two">
@@ -209,6 +219,24 @@ function Header({ theme = false, setTheme }) {
                         >
                           {t("POSTCAPITALIST")}
                         </a>
+                        <a
+                          href="https://everstake.one/assetmantle"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
+                        >
+                          {t("EVERSTAKE")}
+                        </a>
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"></div>
+                        <a
+                          href="https://app.citadel.one/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
+                        >
+                          {t("CIATDEL")}
+                        </a>
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"></div>
                       </div>
                     </div>
                   </div>
@@ -216,7 +244,7 @@ function Header({ theme = false, setTheme }) {
               </div>
             </div>
             <div className="header__right_second__nav_buttons__drop">
-              {t("COMMUNITY")}
+              {t("CONNECT")}
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
                 <div className="header__right_second__nav_buttons__drop_down__grid one">
@@ -228,10 +256,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/twitter.png"
-                          alt="Twitter icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <BsTwitter />
+                        </div>
                         Twitter
                       </a>
                       <a
@@ -240,10 +267,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/discord.png"
-                          alt="Discord icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <FaDiscord />
+                        </div>
                         Discord
                       </a>
                       <a
@@ -252,10 +278,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/instagram.png"
-                          alt="Instagram icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <FaInstagram />
+                        </div>
                         Instagram
                       </a>
                       <a
@@ -264,10 +289,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/telegram.png"
-                          alt="Telegram icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <FaTelegramPlane />
+                        </div>
                         Telegram
                       </a>
                       <a
@@ -276,10 +300,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/github.png"
-                          alt="github icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <FaGithub />
+                        </div>
                         Github
                       </a>
                       <a
@@ -288,10 +311,9 @@ function Header({ theme = false, setTheme }) {
                         rel="noopener noreferrer"
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
-                        <img
-                          src="/images/header/reddit.png"
-                          alt="reddit icon"
-                        />
+                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link_icon">
+                          <GrReddit />
+                        </div>
                         Reddit
                       </a>
                     </div>
@@ -303,8 +325,11 @@ function Header({ theme = false, setTheme }) {
               $MNTL
               <img src="/images/header/down_arrow.png" alt="down arrow" />
               <div className="header__right_second__nav_buttons__drop_down">
-                <div className="header__right_second__nav_buttons__drop_down__grid one">
+                <div className="header__right_second__nav_buttons__drop_down__grid two">
                   <div className="header__right_second__nav_buttons__drop_down__grid_element">
+                    <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
+                      {t("TOKEN")}
+                    </div>
                     <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
                       <a
                         href="https://blog.assetmantle.one/2022/03/01/mntl-tokenomics-and-utility/"
@@ -321,6 +346,29 @@ function Header({ theme = false, setTheme }) {
                         className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                       >
                         {t("MANTLEDROP")}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="header__right_second__nav_buttons__drop_down__grid_element">
+                    <div className="header__right_second__nav_buttons__drop_down__grid_element__title">
+                      {t("TRACKING")}
+                    </div>
+                    <div className="header__right_second__nav_buttons__drop_down__grid_element__body">
+                      <a
+                        href="https://www.coingecko.com/en/coins/assetmantle/usd"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                      >
+                        {t("COINGECKO")}
+                      </a>
+                      <a
+                        href="https://coinmarketcap.com/currencies/assetmantle/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
+                      >
+                        {t("COINMARKETCAP")}
                       </a>
                     </div>
                   </div>
