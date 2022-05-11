@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
 
+// icons
+import { MdVerified } from "react-icons/md";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 
@@ -100,7 +103,9 @@ export default function HeroSection() {
                         />
                       </div>
                       <div className="slide__active__contents__container_details">
-                        <h4>{data.name}</h4>
+                        <h4>
+                          {data.name} <span><MdVerified /></span>
+                        </h4>
                         <p>{data.profile}</p>
                       </div>
                     </a>
@@ -179,6 +184,12 @@ const Slide = styled.div`
           h4 {
             color: var(--yellow);
             text-transform: capitalize;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            span {
+              font-size: 16px;
+            }
           }
           p {
             font: var(--p-m);
