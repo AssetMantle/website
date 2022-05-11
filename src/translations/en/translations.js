@@ -144,6 +144,9 @@ const English = {
     FAQ_ANSWER_5_LI_10: homeData.faq.qas[4].list[9],
     FAQ_ANSWER_5_LI_11: homeData.faq.qas[4].list[10],
 
+    //  Featured section
+    FEATURED_TITLE: homeData.featured.title,
+
     // About Page
     // hero section
     ABOUT_HERO_TITLE: aboutData.hero.title,
