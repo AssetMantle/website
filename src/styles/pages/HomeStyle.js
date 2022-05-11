@@ -40,9 +40,6 @@ export const HomeContainer = styled.main`
       &.paddingBottom{
         padding-bottom: 36px;
       }
-      &:last-child {
-        scroll-snap-align: end;
-      }
       & > * {
         width: 100%;
       }
