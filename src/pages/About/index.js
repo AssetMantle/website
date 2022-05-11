@@ -28,7 +28,7 @@ export default function About() {
         "Mint, Buy, Sell, Transfer ",
         "Onboarding for ‘Mantle Genesis creators’",
       ],
-      },
+    },
     {
       image: "phase_01.png",
       title: "Phase 01 TRENCH",
@@ -92,7 +92,7 @@ export default function About() {
   return (
     <AboutContainer>
       <Header />
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         <section className="section_hero">
           <div className="section_hero__element">
             <h1 className="section_hero__element_title">
@@ -103,22 +103,30 @@ export default function About() {
             </p>
           </div>
           <div className="section_hero__element">
-            <img src={aboutData.hero.image} alt={aboutData.hero.image_alt} />
-          </div>
-          <div className="section_hero__animatedDown">
-          <img src="/images/about/down_arrow.svg" alt="arrow" />
+            <iframe
+              src="https://www.youtube.com/embed/vvKVCbxWl1g"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
         </section>
       </div>
       <div className="smoothScrollElement">
         <section className="section_visionMission">
-          <div className="section_visionMission__element">
-            <h1>{t("ABOUT_VISION_TITLE")}</h1>
-            <p>{t("ABOUT_VISION_DESCRIPTION")}</p>
+          <div className="section_visionMission_grid">
+            <div className="section_visionMission__element">
+              <h1>{t("ABOUT_VISION_TITLE")}</h1>
+              <p>{t("ABOUT_VISION_DESCRIPTION")}</p>
+            </div>
+            <div className="section_visionMission__element">
+              <h1>{t("ABOUT_MISSION_TITLE")}</h1>
+              <p>{t("ABOUT_MISSION_DESCRIPTION")}</p>
+            </div>
           </div>
-          <div className="section_visionMission__element">
-            <h1>{t("ABOUT_MISSION_TITLE")}</h1>
-            <p>{t("ABOUT_MISSION_DESCRIPTION")}</p>
+          <div className="section_visionMission_grid">
+            <img src={aboutData.hero.image} alt={aboutData.hero.image_alt} />
           </div>
         </section>
         <WhitePaper />
@@ -137,7 +145,11 @@ export default function About() {
                 <img src="/images/about/left_arrow.svg" alt="arrow" />
               </button>
               <div className="section_roadmap__slide_element__phase">
-                <RoadMapSlide image={phases[phase].image} title={phases[phase].title} list={phases[phase].list} />
+                <RoadMapSlide
+                  image={phases[phase].image}
+                  title={phases[phase].title}
+                  list={phases[phase].list}
+                />
               </div>
               <button
                 onClick={() =>

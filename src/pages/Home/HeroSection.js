@@ -10,9 +10,10 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 // Import Swiper styles
 import "swiper/swiper-bundle.css";
 import "swiper/modules/effect-coverflow/effect-coverflow.min.css";
+import "swiper/modules/navigation/navigation.min.css";
 
 // import required modules
-import { EffectCoverflow } from "swiper";
+import { EffectCoverflow, Navigation } from "swiper";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -22,30 +23,35 @@ export default function HeroSection() {
       image: "hero_image_1.png",
       avatar: "hero_avatar_1.png",
       name: "Dreamyvisuals  ",
+      social: "https://twitter.com/dreamyvisualz",
       profile: "Forest Ruins",
     },
     {
       image: "hero_image_2.png",
       avatar: "hero_avatar_2.png",
       name: "shainefer",
+      social: "https://twitter.com/Shai_Nefer_",
       profile: "Break",
     },
     {
       image: "hero_image_3.png",
       avatar: "hero_avatar_3.png",
       name: "Igor Kozhanov ",
+      social: "https://twitter.com/Igor211988189",
       profile: "Red",
     },
     {
       image: "hero_image_4.png",
       avatar: "hero_avatar_4.png",
       name: "ORBICS",
+      social: "https://twitter.com/OrbicsNFT?t=KRA-mPDPPop5L6opSYjUtg&s=09",
       profile: "Orbics",
     },
     {
       image: "hero_image_5.png",
-      avatar: "hero_avatar_1.png",
-      name: "Sourav paul",
+      avatar: "hero_avatar_5.png",
+      name: "Gojuku",
+      social: "https://twitter.com/Gojuku_",
       profile: "David",
     },
   ];
@@ -66,8 +72,9 @@ export default function HeroSection() {
               modifier: 2,
               slideShadows: false,
             }}
+            navigation={true}
             loop={true}
-            modules={[EffectCoverflow]}
+            modules={[EffectCoverflow, Navigation]}
             className="mySwiper"
           >
             {React.Children.toArray(
@@ -79,22 +86,30 @@ export default function HeroSection() {
                     alt=""
                   />
                   <div className="slide__active__contents">
-                    <div className="slide__active__contents__container">
+                    <a
+                      href={data.social}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slide__active__contents__container"
+                      onClick={(e) => !data.social && e.preventDefault()}
+                    >
                       <div className="slide__active__contents__container_image">
-                        <img src={`/images/landing/hero/${data.avatar}`} alt={`${data.name}'s avatar`} />
+                        <img
+                          src={`/images/landing/hero/${data.avatar}`}
+                          alt={`${data.name}'s avatar`}
+                        />
                       </div>
                       <div className="slide__active__contents__container_details">
                         <h4>{data.name}</h4>
                         <p>{data.profile}</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </SwiperSlide>
               ))
             )}
           </Swiper>
         </Slide>
-
         {/* <div className="section_hero__left_box2">
           <img src="/images/hero_avatar_1.png" alt="NFT" />
         </div> */}
@@ -140,6 +155,7 @@ const Slide = styled.div`
         rgba(129, 129, 129, 0) 39.58%
       );
       &__container {
+        text-decoration: none;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -150,7 +166,7 @@ const Slide = styled.div`
           width: 65px;
           height: 65px;
           border-radius: 50%;
-          img{
+          img {
             width: 100%;
             height: auto;
             border-radius: 50%;
@@ -171,6 +187,10 @@ const Slide = styled.div`
         }
       }
     }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--yellow);
   }
 `;
 

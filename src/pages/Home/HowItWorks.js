@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DATA from "../../data/homeData.json";
 
+import {BsFillCaretRightFill} from "react-icons/bs";
+
 const HowItWorks = () => {
   const { t } = useTranslation();
 
-  const [option, setOption] = useState(DATA.howItWorks.options[1].name);
+  const [option, setOption] = useState(DATA.howItWorks.options[0].name);
 
   const OPTIONS = [
     {
@@ -72,7 +74,7 @@ const HowItWorks = () => {
     <section className="section_howItWorks">
       <span className="section_howItWorks__link_span" id="how_it_works"></span>
       <h2 className="yellow-t">{t("HOW_IT_WORKS_TITLE")}</h2>
-      <p>{OPTIONS.filter((e) => e.ind === option)[0].description}</p>
+      <p>{OPTIONS.filter((e) => e.ind === option)[0].name} <span><BsFillCaretRightFill /></span> {OPTIONS.filter((e) => e.ind === option)[0].description}</p>
       <div className="section_howItWorks__element one">
         <div className="section_howItWorks__element_options">
           <h3

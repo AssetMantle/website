@@ -28,7 +28,7 @@ export default function Home() {
       <div className="smoothScrollElement">
         {DATA.hero.visibility && <HeroSection />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement paddingBottom">
         {DATA.services.visibility && <ServicesSection />}
         {DATA.overview.visibility && <Overview />}
       </div>
@@ -36,23 +36,23 @@ export default function Home() {
         {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
         {DATA.drop.visibility && <AirdropSection />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.howItWorks.visibility && <HowItWorks />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.gettingStarted.visibility && <GettingStarted />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.amDif.visibility && <Difference />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.RoadMap.visibility && <RoadMap />}
         {DATA.whitepaper.visibility && <WhitePaper />}
       </div>
       <div className="smoothScrollElement">
         {DATA.team.visibility && <Team />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.faq.visibility && <Faq />}
       </div>
       <div className="smoothScrollElement">
