@@ -6,8 +6,8 @@ export const ButtonPrimary = ({ text, href, comingSoon, targetBlank }) => {
     <BPS
       href={href}
       className={`btn__primary ${comingSoon ? "coming" : undefined}`}
-      target={targetBlank && "_blank"}
-      rel={targetBlank && "noopener noreferrer"}
+      target={targetBlank ? "_blank" : ""}
+      rel={targetBlank ? "noopener noreferrer" : ""}
     >
       <span>{text}</span>
       {comingSoon && <span className="upcoming">Coming soon</span>}
@@ -68,9 +68,21 @@ const BPDS = styled(BPS)`
   }
 `;
 
-export const ButtonSecondary = ({ text, href, comingSoon }) => {
+export const ButtonSecondary = ({
+  text,
+  href,
+  comingSoon,
+  targetBlank,
+  download,
+}) => {
   return (
-    <BSS className={comingSoon ? "coming" : undefined} href={href}>
+    <BSS
+      className={comingSoon ? "coming" : undefined}
+      href={href}
+      target={targetBlank ? "_blank" : ""}
+      rel={targetBlank ? "noopener noreferrer" : ""}
+      download={download}
+    >
       <span>{text}</span>
       {comingSoon && <span className="upcoming">Coming soon</span>}
     </BSS>
