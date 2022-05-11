@@ -1,84 +1,84 @@
 export const teamMemberData = [
-  {
-    image: "deepanshu.webp",
-    name: "Deepanshu Tripathi",
-    designation: "Founder, Core - Product Planning & Implementation​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "http://linkedin.com/in/deepanshutr",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/deepanshutr",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/deepanshutr",
-      },
-    ],
-  },
-  {
-    image: "abhinav.webp",
-    name: "Abhinav Kumar",
-    designation: "Co-Founder, Core - Product Planning & Implementation​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/avkr003/",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/avkr003",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/avkr003",
-      },
-    ],
-  },
-  {
-    image: "naman.webp",
-    name: "Naman Kabra",
-    designation: "Core - Business Development & Growth​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/namankabra/",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/307naman",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/nk307",
-      },
-    ],
-  },
-  {
-    image: "prabhav.webp",
-    name: "Prabhav Varambally",
-    designation: "Core - Business Operations & Strategy​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/prabhavtv/",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/Prabhavv_",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/Prabhavv",
-      },
-    ],
-  },
+  // {
+  //   image: "deepanshu.webp",
+  //   name: "Deepanshu Tripathi",
+  //   designation: "Founder, Core - Product Planning & Implementation​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "http://linkedin.com/in/deepanshutr",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/deepanshutr",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/deepanshutr",
+  //     },
+  //   ],
+  // },
+  // {
+  //   image: "abhinav.webp",
+  //   name: "Abhinav Kumar",
+  //   designation: "Co-Founder, Core - Product Planning & Implementation​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "https://www.linkedin.com/in/avkr003/",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/avkr003",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/avkr003",
+  //     },
+  //   ],
+  // },
+  // {
+  //   image: "naman.webp",
+  //   name: "Naman Kabra",
+  //   designation: "Core - Business Development & Growth​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "https://www.linkedin.com/in/namankabra/",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/307naman",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/nk307",
+  //     },
+  //   ],
+  // },
+  // {
+  //   image: "prabhav.webp",
+  //   name: "Prabhav Varambally",
+  //   designation: "Core - Business Operations & Strategy​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "https://www.linkedin.com/in/prabhavtv/",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/Prabhavv_",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/Prabhavv",
+  //     },
+  //   ],
+  // },
   {
     image: "sachin.webp",
     name: "Sachin Matta",
