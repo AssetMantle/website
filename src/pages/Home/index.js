@@ -20,6 +20,7 @@ import Faq from "./Faq.js";
 
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
+import Featured from "./Featured";
 
 export default function Home() {
   return (
@@ -56,6 +57,7 @@ export default function Home() {
         {DATA.faq.visibility && <Faq />}
       </div>
       <div className="smoothScrollElement">
+        {DATA.featured.visibility && <Featured />}
         <Footer />
       </div>
     </HomeContainer>
