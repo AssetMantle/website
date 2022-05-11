@@ -22,7 +22,7 @@
   --dark-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
     inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #303030;
 
-  --yellow: #F3B211;
+  --yellow: #f3b211;
   --yellow-1: #fec73e;
   --yellow-2: #fbc131;
   --yellow-3: #f5b71d;
@@ -42,10 +42,10 @@
 
   /* header */
   --header-bg: rgba(4, 4, 4, 0.8);
-  --header-dropdown-bg: #21211E;
+  --header-dropdown-bg: #21211e;
   --header-dropdown-filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.75));
   --header-color: #fffdfa;
-  --header-color-s: #B0B0B0;
+  --header-color-s: #b0b0b0;
   --header-color-m: #fffdfabf;
 
   /* footer */

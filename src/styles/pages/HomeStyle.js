@@ -37,7 +37,7 @@ export const HomeContainer = styled.main`
       &.center {
         justify-content: center;
       }
-      &.paddingBottom{
+      &.paddingBottom {
         padding-bottom: 36px;
       }
       & > * {

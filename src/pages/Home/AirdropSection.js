@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import DATA from "../../data/homeData.json";
 import { ButtonPrimary } from "../../components/Buttons";
 import { useTranslation } from "react-i18next";
@@ -26,5 +26,5 @@ export default function AirdropSection() {
         />
       </div>
     </section>
-  )
+  );
 }
