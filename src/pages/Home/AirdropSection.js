@@ -22,6 +22,7 @@ export default function AirdropSection() {
         <ButtonPrimary
           text={t("DROP_BUTTON_TEXT")}
           href={DATA.drop.button.href && DATA.drop.button.href}
+          targetBlank={true}
         />
       </div>
     </section>

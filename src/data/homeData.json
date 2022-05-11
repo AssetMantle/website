@@ -50,7 +50,7 @@
     "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
     "button": {
       "title": "Check Airdrops",
-      "href": ""
+      "href": "https://airdrop.assetmantle.one/"
     }
   },
   "howItWorks": {
