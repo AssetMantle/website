@@ -240,5 +240,31 @@
         ]
       }
     ]
+  },
+  "featured": {
+    "visibility": true,
+    "title": "As Featured In",
+    "news": [
+      {
+        "img": "yahoo_finance",
+        "href": "https://www.google.com/amp/s/finance.yahoo.com/amphtml/news/assetmantle-launches-long-awaited-mainnet-150000066.html"
+      },
+      {
+        "img": "coinquora",
+        "href": "https://coinquora.com/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration/"
+      },
+      {
+        "img": "digitaljournal",
+        "href": "https://www.digitaljournal.com/pr/assetmantle-launches-its-long-awaited-mainnet"
+      },
+      {
+        "img": "investing",
+        "href": "https://m.investing.com/news/cryptocurrency-news/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration-2820215?ampMode=1"
+      },
+      {
+        "img": "techbullion",
+        "href": "https://techbullion.com/talking-nfts-with-assetmantle-founder-deepanshu-tripathi/"
+      }
+    ]
   }
 }
