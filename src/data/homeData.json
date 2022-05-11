@@ -60,7 +60,7 @@
     "options": [
       {
         "name": "MantlePlace",
-        "description": "MantlePlace : Buy/sell on a decentralized NFT marketplace.",
+        "description": "Buy/sell on a decentralized NFT marketplace.",
         "content": [
           {
             "img": "create_account",
@@ -86,7 +86,7 @@
       },
       {
         "name": "MantleBuilder",
-        "description": "MantleBuilder: Create fully customizable NFT storefront.",
+        "description": "Create fully customizable NFT storefront.",
         "content": [
           {
             "img": "create_account",
@@ -174,11 +174,15 @@
   },
   "whitepaper": {
     "visibility": true,
-    "title": "Need To Deep Dive Into Tech?",
-    "description": "Read the AssetMantle whitepaper",
+    "title": "Need To Know More?",
+    "description": "Read the AssetMantle whitepaper or download our Litepaper",
     "button": {
       "title": "Whitepaper",
       "href": "https://docs.assetmantle.one/AssetMantle_Whitepaper/"
+    },
+    "button2": {
+      "title": "Litepaper",
+      "href": "/pdfs/litepaper.pdf"
     }
   },
   "team": {
@@ -220,7 +224,7 @@
       {
         "id": "what-makes-assetmsntle-special",
         "q": "What makes AssetMantle special?",
-        "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features of AssetMantle include:",
+        "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features include:",
         "list": [
           "Open-source modules",
           "IBC protocol enabled",
