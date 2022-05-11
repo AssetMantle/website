@@ -26,7 +26,7 @@ const Details = ({ id, title, details, list, link }) => {
       {list && (
         <ul>
           {list.map((item, index) => (
-            <li key={index}> - {item}</li>
+            <li key={index}>  {item}</li>
           ))}
         </ul>
       )}
@@ -65,7 +65,7 @@ const Container = styled.details`
   p.details {
     font: var(--p-m);
     font-weight: 400;
-    max-width: 94%;
+    width: min(1176px, 94%);
     margin: 0;
     margin-top: 12px;
     color: var(--gray-deep);
@@ -80,6 +80,14 @@ const Container = styled.details`
     padding-top: 16px;
     padding-left: 10px;
     font: var(--p-s);
+    li {
+      padding: 5px 0;
+      &:not(:last-child) {
+        &::before {
+          content: "-";
+        }
+      }
+    }
   }
   &[open] {
     summary {
