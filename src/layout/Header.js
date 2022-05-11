@@ -204,12 +204,12 @@ function Header({ theme = false, setTheme }) {
                           {t("MINTSCAN")}
                         </a>
                         <a
-                          href="a"
-                          onClick={(e) => e.preventDefault}
-                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small hovered"
+                          href="https://wallet.cosmostation.io/asset-mantle"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
                         >
-                          <span>{t("COSMOSTATION")}</span>
-                          <span>{t("COMING_SOON")}</span>
+                          {t("COSMOSTATION")}
                         </a>
                         <a
                           href="https://explorer.postcapitalist.io/AssetMantle"
