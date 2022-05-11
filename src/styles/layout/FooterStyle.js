@@ -1,30 +1,30 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-  padding: 60px 92px 80px;
+  padding: 40px 92px;
   background-color: var(--footer-bg);
   max-width: 1440px;
   margin: auto;
   margin-bottom: 0;
   @media (max-width: 768px) {
-    padding: 60px 40px;
+    padding: 40px;
   }
   @media (max-width: 548px) {
-    padding: 60px 28px 0;
+    padding: 40px 28px 0;
   }
   h2 {
     font: var(--h2);
     color: var(--gray);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     @media (max-width: 548px) {
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
   }
   p {
     font: var(--p-l);
     max-width: 983px;
     color: var(--gray-deep);
-    margin-bottom: 60px;
+    margin-bottom: 56px;
     @media (max-width: 548px) {
       margin-bottom: 50px;
     }
@@ -59,6 +59,10 @@ export const FooterContainer = styled.footer`
           gap: 24px;
           align-items: center;
           padding-bottom: 14px;
+          &__icon {
+            width: 71px;
+            height: auto;
+          }
           &__title {
             margin: auto 0 !important;
           }
@@ -67,7 +71,7 @@ export const FooterContainer = styled.footer`
           display: flex;
           flex-direction: column;
           gap: 8px;
-          padding: 20px 0;
+          padding: 14px 0;
           &_title {
             margin: 0;
             text-transform: capitalize;
@@ -82,16 +86,16 @@ export const FooterContainer = styled.footer`
           }
         }
         &_social {
-          padding-top: 60px;
+          padding-top: 42px;
           display: flex;
           flex-direction: column;
-          gap: 32px;
+          gap: 28px;
           &__icons {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             flex-wrap: wrap;
-            gap: 23px;
+            gap: 24px;
             @media (max-width: 768px) {
               width: 80%;
             }
@@ -208,7 +212,7 @@ export const FooterContainer = styled.footer`
             flex-direction: column;
             &_link {
               margin: 0;
-              padding: 12px 0;
+              padding: 8px 0;
               font: var(--p-m);
               color: var(--gray-deep);
               display: flex;
