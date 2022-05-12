@@ -1,5 +1,6 @@
 /* font importation */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://use.typekit.net/idg6zrf.css");
 
 *,
 *::after,
@@ -7,17 +8,21 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
   /* ------------colors----------------- */
+  --bg: rgb(4, 4, 4);
   --dark: #1e1e1e;
-  --darkT: rgba(30, 30, 30, 0.8);
+  --dark-t: #1f1f1f8c;
   --dark-m: #2c2c2c;
   --dark-s: #2e2e2e;
   --dark-xs: #3e3e3e;
+  --dark-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #303030;
 
-  --yellow: #ffc942;
+  --yellow: #f3b211;
   --yellow-1: #fec73e;
   --yellow-2: #fbc131;
   --yellow-3: #f5b71d;
@@ -35,20 +40,77 @@
   --gray: #c2c2c2;
   --gray-deep: #9d9d9d;
 
-  /* --------------fonts---------------------- */
-  --h1: bold 40px/120% "Inter", sans-serif;
-  --h2: bold 32px/120% "Inter", sans-serif;
-  --h3: bold 28px/120% "Inter", sans-serif;
-  --h4: bold 20px/120% "Inter", sans-serif;
-  --h5: bold 28px/120% "Inter", sans-serif;
+  /* header */
+  --header-bg: rgba(4, 4, 4, 0.8);
+  --header-dropdown-bg: #21211e;
+  --header-dropdown-filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.75));
+  --header-color: #fffdfa;
+  --header-color-s: #b0b0b0;
+  --header-color-m: #fffdfabf;
 
-  --p-xl: 32px/120% "Lato", sans-serif;
-  --p-l: 24px/120% "Lato", sans-serif;
+  /* footer */
+  --footer-bg: #171717;
+
+  /* --------------fonts---------------------- */
+  --h1: bold 36px/120% paralucent, sans-serif;
+  --h2: bold 30px/120% paralucent, sans-serif;
+  --h3: bold 24px/120% paralucent, sans-serif;
+  --h4: bold 20px/120% paralucent, sans-serif;
+  --h5: bold 18px/120% paralucent, sans-serif;
+
+  --p-xl: 30px/120% "Lato", sans-serif;
+  --p-l: 22px/120% "Lato", sans-serif;
   --p-m: 20px/120% "Lato", sans-serif;
   --p-s: 16px/120% "Lato", sans-serif;
   --p-xs: 14px/120% "Lato", sans-serif;
   /* for semi bold font use font-weight: 600; */
 
-  --label: 600 18px/120% "Inter", sans-serif;
+  --label: 600 18px/120% paralucent, sans-serif;
   --input: 18px/120% "Lato", sans-serif;
+}
+
+h1 {
+  font: var(--h1);
+}
+
+h2 {
+  font: var(--h2);
+}
+
+h3 {
+  font: var(--h3);
+}
+
+h4 {
+  font: var(--h4);
+}
+
+h5 {
+  font: var(--h5);
+}
+
+h6 {
+  font: var(--h6);
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0 solid #fff;
+  border-radius: 20px;
+  /* background: var(--gray); */
+  background: transparent;
+}
+
+.yellow-t {
+  color: var(--yellow) !important;
 }

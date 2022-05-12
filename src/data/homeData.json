@@ -1,171 +1,270 @@
 {
-  "section1": {
-    "left": {
-      "name": "Enim Ad",
-      "eth": "Coming soon"
-    },
-    "right": {
-      "h1": "Create, Own,<br />Discover, Collect.",
-      "p": "Your one stop shop for NFTs. A community first platform for creators and collectors."
+  "imgType": "gif",
+  "hero": {
+    "visibility": true,
+    "title": "Redefining Digital Asset Ownership",
+    "description": "Multi-Chain | Open-Source | No-Code"
+  },
+  "services": {
+    "visibility": true,
+    "shopTitle": "Start Shopping",
+    "shopDesc": "Explore verified NFT collections",
+    "shopBtnText": "MantlePlace",
+    "shopHref": "",
+    "buildTitle": "Build a Store",
+    "buildDesc": "Fully customizable store builder",
+    "buildBtnText": "MantleBuilder",
+    "buildHref": ""
+  },
+  "overview": {
+    "visibility": true,
+    "title": "Be a Mantler!  Join the community",
+    "salesUSD": "Gas Fees As Low",
+    "salesUSD2": "As $0.01",
+    "totalSales": "Collect From 100+",
+    "totalSales2": "Verified Creators",
+    "activeWallets": "Transact Securely",
+    "activeWallets2": "with $MNTL"
+  },
+  "WhatIsAssetMantle": {
+    "visibility": true,
+    "title": "What is AssetMantle?",
+    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
+    "li1": "Open-source framework",
+    "li2": "Batch and lazy minting",
+    "li3": "Creator-centric platform",
+    "li4": "Custom Royalty Splits",
+    "li5": "Community-first approach",
+    "li6": "Real-world asset tokenization",
+    "li7": "Interchain NFTs",
+    "li8": "No-code builder",
+    "button": {
+      "title": "Learn More",
+      "href": "/about"
     }
   },
-  "section2": {
-    "left": {
-      "h2": "Build a Store",
-      "p_l": "Fully customizable store builder",
-      "a": "MantleBuilder",
-      "href": ""
-    },
-    "right": {
-      "h2": "Start Shopping",
-      "p_l": "Build your collection of NFTs",
-      "a": "MantlePlace",
-      "href": ""
+  "drop": {
+    "visibility": true,
+    "image": "token_ills.png",
+    "title": "MantleDrop ($MNTL Airdrop)",
+    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
+    "button": {
+      "title": "Check Airdrops",
+      "href": "https://airdrop.assetmantle.one/"
     }
   },
-  "section3": {
-    "left": {
-      "img": "Group345",
-      "h2": "22 billion+ Sales in USD"
-    },
-    "middle": {
-      "img": "Group334",
-      "h2": "35.6 million+ Total Sales"
-    },
-    "right": {
-      "img": "Group335",
-      "h2": "3 million+ Active Wallets"
-    }
-  },
-  "section4": {
-    "left": {
-      "h2": "What is AssetMantle?",
-      "p_l": "AssetMantle is a one-of-a-kind platform to facilitate commerce for your NFTs.",
-      "list": [
-        "Sign up, mint, and start selling in 5 minutes or less!",
-        "Option to turn anything into an NFT (AssetMantle supports various formats and kinds).",
-        "Royalty splits make creative collaborations easier.",
-        "'Trade Room' for accessible communication between creators and collectors.",
-        "Integrated analytics for improved marketing.",
-        "Batch listing and minting.",
-        "Auctions and secondary sales."
-      ]
-    }
-  },
-  "section5": {
-    "h2": "How it works",
-    "p_l": "Create your own store in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
+  "howItWorks": {
+    "visibility": true,
+    "title": "How it works",
+    "description": "Create your own store in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
     "options": [
-      {
-        "name": "MantleBuilder",
-        "content": [
-          {
-            "img": "Group291",
-            "h3": "Create Account",
-            "p_m": "Simple account creation process using an email ID and password"
-          },
-          {
-            "img": "Group250",
-            "h3": "Create Store",
-            "p_m": "Choose from a variety of templates or start from scratch"
-          },
-          {
-            "img": "Group290",
-            "h3": "Publish",
-            "p_m": "Ready to sell in 5 minutes or less"
-          },
-          {
-            "img": "Group251",
-            "h3": "Sell",
-            "p_m": "Name your price and your sale mechanism "
-          }
-        ],
-        "button": "Tell Me More"
-      },
       {
         "name": "MantlePlace",
+        "description": "Buy/sell on a decentralized NFT marketplace.",
         "content": [
           {
-            "img": "Group291",
+            "img": "create_account",
             "h3": "Create Account",
-            "p_m": "Simple account creation process using an email ID and password"
+            "p_m": ""
           },
           {
-            "img": "Group251",
+            "img": "mint_nft",
+            "h3": "Mint NFTs",
+            "p_m": ""
+          },
+          {
+            "img": "sell",
             "h3": "Buy/Sell",
-            "p_m": "Buy NFTs created by world-renowned artists or list your own"
+            "p_m": ""
+          },
+          {
+            "img": "engage",
+            "h3": "Engage",
+            "p_m": ""
           }
-        ],
-        "button": "Tell Me More"
-      }
-    ]
-  },
-  "section6": {
-    "h2": "I’m sold, let’s do this!",
-    "p_l": "Join the AssetMantle community today.",
-    "bp": "Sign Up",
-    "href": "https://forms.office.com/r/YSH0dhMLwB"
-  },
-  "section7": {
-    "leftImg": "Union",
-    "mid": {
-      "h2": "I need some convincing",
-      "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    "rightButton": "Take a Tour"
-  },
-  "section8": {
-    "h2": "Getting started with AssetMantle",
-    "p_m": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "options": [
-      {
-        "img": "",
-        "name": "Artist",
-        "h2": "how does AssetMantle help you",
-        "p_l": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-        "list": [
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-          "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
-          "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur",
-          "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit",
-          "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil",
-          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
-        ],
-        "button": "Tell Me More"
+        ]
       },
       {
-        "img": "",
-        "name": "NFT Collector"
+        "name": "MantleBuilder",
+        "description": "Create fully customizable NFT storefront.",
+        "content": [
+          {
+            "img": "create_account",
+            "h3": "Create Account",
+            "p_m": ""
+          },
+          {
+            "img": "create_store",
+            "h3": "Create Store",
+            "p_m": ""
+          },
+          {
+            "img": "publish",
+            "h3": "Publish",
+            "p_m": ""
+          },
+          {
+            "img": "sell",
+            "h3": "Sell",
+            "p_m": ""
+          }
+        ]
       }
     ]
+  },
+  "gettingStarted": {
+    "visibility": true,
+    "title": "How Does AssetMantle Help Creators and collectors?",
+    "description": "AssetMantle helps creators and collectors tap into the true potential of NFTs.",
+    "bodyTitle": "how does AssetMantle help you",
+    "bodyDescription": "We amplify your NFT game by plugging every gap!",
+    "list1title": "For Creators",
+    "list1": [
+      "Build without coding",
+      "Mutable and private metadata",
+      "Negligible minting fee",
+      "Support for multiple file formats",
+      "Collaborate with split royalties",
+      "Round the clock community support"
+    ],
+    "list2title": "For Collectors",
+    "list2": [
+      "Buy from verified creators",
+      "Wallet agnosticism",
+      "Resell across blockchains",
+      "Co-own rare collectibles",
+      "Connect with creators in TradeRoom",
+      "Intuitive user experience"
+    ],
+    "href": ""
   },
   "amDif": {
-    "h2": "The AssetMantle Difference",
-    "p_l": "AssetMantle brings never seen before features that enhance the experience of buying and selling NFTs.",
+    "visibility": true,
+    "title": "The AssetMantle Difference",
+    "description": "Powerful features to enhance the NFT experience for all.",
     "contents": [
       {
-        "img": "Group254",
+        "img": "multi_chain",
         "h3": "Multi-chain access",
-        "p_m": "Travel with your NFTs to different chains and show them off in many metaverses"
+        "p_m": "Trade NFTs on other chains or show them off across metaverses!"
       },
       {
-        "img": "Group389",
+        "img": "negligible_minting_fee",
         "h3": "Negligible Minting Fee",
-        "p_m": "Yes, a minting fee so low, it’s barely there. We offer lowest gas fees too."
+        "p_m": "Enjoy negligible minting fees and gas fees in the Cosmos ecosystem."
       },
       {
-        "img": "Group252",
+        "img": "multiple_payment_modes",
         "h3": "Multiple payment modes",
-        "p_m": "We support traditional debit/credit card, tokens and fiat"
+        "p_m": "Experience AssetMantle with fiat currency, coins, or stablecoins!"
       },
       {
-        "img": "Group253",
+        "img": "complete_customization",
         "h3": "Complete customization",
-        "p_m": "Build your brand storefront with our plug-and-play technology with full royalty percentage control"
+        "p_m": "Build fully customized NFT marketplaces from scratch without coding."
       }
-    ],
-    "p_l2": "Curious about our story? Check out ",
-    "link": "Our Roadmap",
-    "href": ""
+    ]
+  },
+  "RoadMap": {
+    "visibility": true,
+    "title": "Want to know more about the journey?",
+    "description": "Check out the AssetMantle roadmap",
+    "btnText": "Roadmap",
+    "href": "/about#roadmap"
+  },
+  "whitepaper": {
+    "visibility": true,
+    "title": "Need To Know More?",
+    "description": "Read the AssetMantle whitepaper or download our Litepaper",
+    "button": {
+      "title": "Whitepaper",
+      "href": "https://docs.assetmantle.one/AssetMantle_Whitepaper/"
+    },
+    "button2": {
+      "title": "Litepaper",
+      "href": "/pdfs/litepaper.pdf"
+    }
+  },
+  "team": {
+    "visibility": true,
+    "title": "Meet The Mantle Team",
+    "description": "Meet the faces behind AssetMantle",
+    "button": {
+      "visibility": true,
+      "text": "View More",
+      "href": "/about#team"
+    }
+  },
+  "faq": {
+    "visibility": true,
+    "title": "Frequently Asked Questions (FAQs)",
+    "description": "",
+    "qas": [
+      {
+        "id": "what-is-an-nft",
+        "q": "What is an NFT?",
+        "a": "NFT stands for “Non-Fungible Token”. An NFT is an immutable token on the blockchain. It is cryptographically protected and can be treated as a digital certificate of ownership on the blockchain. NFTs on AssetMantle are part of the growing Cosmos ecosystem."
+      },
+      {
+        "id": "what-is-mantleplace",
+        "q": "What is MantlePlace?",
+        "a": "MantlePlace is the native NFT marketplace of AssetMantle. All creators on MantlePlace are verified for authenticity in an effort to minimize instances of frauds and rug pulls."
+      },
+      {
+        "id": "what-is-mantle-builder",
+        "q": "What is MantleBuilder?",
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder here: ",
+        "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
+      },
+      {
+        "id": "what-is-ibc-protocol",
+        "q": "What is IBC Protocol?",
+        "a": "IBC stands for “Inter-Blockchain Communication”. It is an open-source protocol that allows sovereign blockchains in the Cosmos ecosystem to transfer assets and information among themselves. This empowers NFT creators and collectors to utilize their NFTs across different chains and metaverses."
+      },
+      {
+        "id": "what-makes-assetmsntle-special",
+        "q": "What makes AssetMantle special?",
+        "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features include:",
+        "list": [
+          "Open-source modules",
+          "IBC protocol enabled",
+          "Support for fractional NFTs",
+          "Negligible gas fees",
+          "Ledger hardware support",
+          "InterNFT standard",
+          "IPFS storage mechanism",
+          "Cross-chain interoperability",
+          "Support for multiple asset types",
+          "Real-world asset tokenization",
+          "... and more"
+        ]
+      }
+    ]
+  },
+  "featured": {
+    "visibility": true,
+    "title": "As Featured In",
+    "news": [
+      {
+        "img": "yahoo_finance",
+        "href": "https://www.google.com/amp/s/finance.yahoo.com/amphtml/news/assetmantle-launches-long-awaited-mainnet-150000066.html"
+      },
+      {
+        "img": "coinquora",
+        "href": "https://coinquora.com/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration/"
+      },
+      {
+        "img": "digitaljournal",
+        "href": "https://www.digitaljournal.com/pr/assetmantle-launches-its-long-awaited-mainnet"
+      },
+      {
+        "img": "investing",
+        "href": "https://m.investing.com/news/cryptocurrency-news/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration-2820215?ampMode=1"
+      },
+      {
+        "img": "techbullion",
+        "href": "https://techbullion.com/talking-nfts-with-assetmantle-founder-deepanshu-tripathi/"
+      }
+    ]
   }
 }

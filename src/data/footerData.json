@@ -1,24 +1,41 @@
 {
+  "contents": {
+    "title": "Drop Us A Line",
+    "description": "Need to talk about NFTs? We would love to chat.",
+    "emailDescription1": "For Information And Support:",
+    "email1": "hello@assetmantle.one",
+    "emailDescription2": "For Collaboration And Interests",
+    "email2": "communications@assetmantle.one",
+    "subscriptionTitle": "Join our Whitelist",
+    "bugBountyLabel": "Spotted something wrong?",
+    "featureLabel": "Have something in mind?",
+    "blogLabel": "Want to know what we're upto?",
+    "blogLink": "http://blog.assetmantle.one/",
+    "docsLabel": "Want to know more?",
+    "docsLink": "https://docs.assetmantle.one/",
+    "explorerLabel": "Interested in transaction activities?",
+    "explorerLink": "https://test-mantle-1.explorer.persistence.one"
+  },
   "social": {
-    "h3": "Social Media",
+    "title": "Social Media",
     "links": [
       {
-        "icon": "Group283",
+        "icon": "twitter_icon",
         "alt": " Twitter link",
         "href": "https://twitter.com/AssetMantle"
       },
       {
-        "icon": "Group286",
+        "icon": "discord_icon",
         "alt": "Discord link",
         "href": "https://discord.gg/BSdBQ4495d"
       },
       {
-        "icon": "Group285",
+        "icon": "instagram_icon",
         "alt": "Instagram link",
         "href": "https://www.instagram.com/assetmantle/"
       },
       {
-        "icon": "Group284",
+        "icon": "telegram_icon",
         "alt": "Telegram link",
         "href": "https://t.me/assetmantlechat"
       },
@@ -35,6 +52,38 @@
     "docs": {
       "text": "Docs",
       "href": "https://docs.assetmantle.one/"
+    }
+  },
+  "bugBounty": {
+    "title": "Bug Bounty",
+    "description": "Did you spot a bug? Let us know and there might just be something for you!",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "checkBox1": "I would like to receive news and information about developments at AssetMantle.",
+    "checkBox2": "I accept the terms and conditions",
+    "button": "Submit",
+    "success": {
+      "title": "Response Submitted",
+      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "button": "Proceed"
+    }
+  },
+  "requestAFeature": {
+    "title": "Suggest a feature",
+    "description": "Do you have something in mind that you’d like to see on AssetMantle? Let us know.",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "checkBox1": "I would like to receive news and information about developments at AssetMantle.",
+    "checkBox2": "I accept the terms and conditions",
+    "button": "Submit",
+    "success": {
+      "title": "Response Submitted",
+      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "button": "Proceed"
     }
   }
 }

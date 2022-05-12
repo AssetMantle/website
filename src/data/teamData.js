@@ -39,46 +39,46 @@ export const teamMemberData = [
       },
     ],
   },
-  {
-    image: "naman.webp",
-    name: "Naman Kabra",
-    designation: "Core - Business Development & Growth​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/namankabra/",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/307naman",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/nk307",
-      },
-    ],
-  },
-  {
-    image: "prabhav.webp",
-    name: "Prabhav Varambally",
-    designation: "Core - Business Operations & Strategy​",
-    designationType: "Founding",
-    social: [
-      {
-        icon: "LinkedIn",
-        href: "https://www.linkedin.com/in/prabhavtv/",
-      },
-      {
-        icon: "Twitter",
-        href: "https://twitter.com/Prabhavv_",
-      },
-      {
-        icon: "Github",
-        href: "https://github.com/Prabhavv",
-      },
-    ],
-  },
+  // {
+  //   image: "naman.webp",
+  //   name: "Naman Kabra",
+  //   designation: "Core - Business Development & Growth​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "https://www.linkedin.com/in/namankabra/",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/307naman",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/nk307",
+  //     },
+  //   ],
+  // },
+  // {
+  //   image: "prabhav.webp",
+  //   name: "Prabhav Varambally",
+  //   designation: "Core - Business Operations & Strategy​",
+  //   designationType: "Founding",
+  //   social: [
+  //     {
+  //       icon: "LinkedIn",
+  //       href: "https://www.linkedin.com/in/prabhavtv/",
+  //     },
+  //     {
+  //       icon: "Twitter",
+  //       href: "https://twitter.com/Prabhavv_",
+  //     },
+  //     {
+  //       icon: "Github",
+  //       href: "https://github.com/Prabhavv",
+  //     },
+  //   ],
+  // },
   {
     image: "sachin.webp",
     name: "Sachin Matta",
@@ -266,7 +266,7 @@ export const teamMemberData = [
   {
     image: "sankrit.webp",
     name: "Sankrit K",
-    designation: "Content Writer",
+    designation: "Content Writer & SEO Specialist",
     designationType: "Developer",
     social: [
       {
@@ -316,7 +316,7 @@ export const teamMemberData = [
     designationType: "Developer",
   },
   {
-    image: "",
+    image: "aditya.webp",
     name: "Aditya Nalini",
     designation: "NFT Strategist",
     designationType: "Developer",

@@ -1,0 +1,77 @@
+{
+  "amplifyNFTGame": {
+    "visibility": true,
+    "title": "Amplify your NFT game affordably",
+    "description": "No more worrying about excess fees. We have the most cost-effective structure for your NFTs, from minting to distributing."
+  },
+  "lowCostMint": {
+    "visibility": true,
+    "title": "Super Low Cost-to-mint",
+    "description": "AssetMantle offers you the fastest and most affordable NFT ecosystem. No additional fees. No needless middlemen. Own your stores and your NFTs with confidence and ease. We also have the lowest minting fees. Wanna bet your favorite celebrity’s first ever tweet on it?",
+    "cost": "cost-to-mint per NFT",
+    "details": "The best rate in the market"
+  },
+  "lowestTransactionCosts": {
+    "visibility": true,
+    "title": "Lowest Transaction costs across networks",
+    "description": "There are two parts to NFT costs. The first is setting up.  The second is transaction costs. The latter is where you can end up paying a lot more than you need to. With AssetMantle, we keep transaction costs to a minimum. And we’ve been doing that across networks for years."
+  },
+  "jumpRightIn": {
+    "visibility": true,
+    "title": "This works, let’s jump right in!",
+    "description": "That’s great. Let’s take you through store creation and ace your NFT game.",
+    "href": ""
+  },
+  "convincing": {
+    "visibility": true
+  },
+  "getPaid": {
+    "visibility": true,
+    "title": "But wait, how do I get paid?",
+    "description": "We’re glad you asked. We’ve got you covered.",
+    "list": [
+      "AssetMantle will levy a nominal royalty fee which will go into a community pool",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit"
+    ],
+    "h3": "sale mechanisms",
+    "pl2": "We know your needs can be dynamic. That’s why we have a wide and flexible range.",
+    "list2": [
+      {
+        "title": "auctioning",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "Fixed Price",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "Change price at any time",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      },
+      {
+        "title": "others",
+        "description": "Asset Mantle supports a variety of web3 wallets including Keplr and hardware wallets like Ledger"
+      }
+    ]
+  },
+  "letsAmplify": {
+    "visibility": true
+  },
+  "acceptedCurrencies": {
+    "visibility": true,
+    "title": "Accepted Currencies",
+    "description": "We accept a range of currencies, making transactions simple and seamless",
+    "list": [
+      "ATOM",
+      "XPRT",
+      "Luna",
+      "Mantle tokens",
+      "All IBC enabled tokens",
+      "Fiat"
+    ]
+  }
+}

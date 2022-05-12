@@ -1,0 +1,296 @@
+{
+  "hero": {
+    "visibility": true,
+    "h11": "Create, Own,",
+    "h12": "Discover, Collect.",
+    "pxl": "A dynamic NFT marketplace for creators and collectors. Customizable. Multi-chain. Low fees. Take crypto artwork to the next level."
+  },
+  "services": {
+    "visibility": true,
+    "buildTitle": "Build a Store",
+    "buildDesc": "Fully customizable store builder",
+    "buildBtnText": "MantleBuilder",
+    "buildHref": "",
+    "shopTitle": "Start Shopping",
+    "shopDesc": "Explore verified NFT collections",
+    "shopBtnText": "MantlePlace",
+    "shopHref": ""
+  },
+  "overview": {
+    "visibility": true,
+    "title": "Be a Mantler!  Join the community",
+    "salesUSD": "Gas Fees As Low",
+    "salesUSD2": "As $0.01",
+    "totalSales": "Collect From 100+",
+    "totalSales2": "Verified Creators",
+    "activeWallets": "Transact Securely",
+    "activeWallets2": "with $MNTL"
+  },
+  "WhatIsAssetMantle": {
+    "visibility": true,
+    "title": "What is AssetMantle?",
+    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
+    "li1": "Open-source framework",
+    "li2": "Batch and lazy minting",
+    "li3": "Creator-centric platform",
+    "li4": "'Collaborations via royalty splits",
+    "li5": "Community-first approach",
+    "li6": "Real-world asset tokenization",
+    "li7": "Interchain NFTs",
+    "li8": "No-code builder",
+    "button": {
+      "title": "Learn More",
+      "href": "/about"
+    }
+  },
+  "howItWorks": {
+    "visibility": true,
+    "title": "How it works",
+    "description": "Create your own store in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
+    "options": [
+      {
+        "name": "MantlePlace",
+        "description": "MantlePlace : Buy/sell on a decentralized NFT marketplace.",
+        "content": [
+          {
+            "img": "create_account",
+            "h3": "Create Account",
+            "p_m": ""
+          },
+          {
+            "img": "mint_nft",
+            "h3": "Mint NFTs",
+            "p_m": ""
+          },
+          {
+            "img": "sell",
+            "h3": "Buy/Sell",
+            "p_m": ""
+          },
+          {
+            "img": "engage",
+            "h3": "Engage",
+            "p_m": ""
+          }
+        ]
+      },
+      {
+        "name": "MantleBuilder",
+        "description": "MantleBuilder: Create fully customizable NFT storefront.",
+        "content": [
+          {
+            "img": "create_account",
+            "h3": "Create Account",
+            "p_m": ""
+          },
+          {
+            "img": "create_store",
+            "h3": "Create Store",
+            "p_m": ""
+          },
+          {
+            "img": "publish",
+            "h3": "Publish",
+            "p_m": ""
+          },
+          {
+            "img": "sell",
+            "h3": "Sell",
+            "p_m": ""
+          }
+        ]
+      }
+    ]
+  },
+  "drop": {
+    "image": "token_ills.png",
+    "title": "MantleDrop ($MNTL Airdrop)",
+    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
+    "button": {
+      "title": "Check Airdrops",
+      "href": ""
+    }
+  },
+  "iAmSold": {
+    "visibility": false,
+    "title": "I’m sold, let’s do this!",
+    "description": "Join the AssetMantle community today.",
+    "href": "https://forms.office.com/r/YSH0dhMLwB"
+  },
+  "convincing": {
+    "visibility": false,
+    "title": "Um, i need some convincing!",
+    "description": "No sweat. It’s a new space and we understand you have questions. Let’s take a digital walk and answer them!",
+    "href": ""
+  },
+  "gettingStarted": {
+    "visibility": true,
+    "title": "Getting started with AssetMantle",
+    "description": "Our plug and play technology makes it super easy for you to build, launch, promote and buy NFTs. Just choose your preference and let’s amplify your NFT game.",
+    "bodyTitle": "how does AssetMantle help you",
+    "bodyDescription": "We amplify your NFT game by plugging every gap!",
+    "list1title": "Creator",
+    "list1": [
+      "No more delays. Our plug and play technology empowers you to mint and sell with enhanced speed.",
+      "No more limits. Create and buy any kind of NFT from our wide range. Plus its all seamlessly interoperable with any platform/chain.",
+      "No more generic looks. Enjoy complete customization with the drag and drop interface of our plug and play technology.",
+      "No more invisibility. Boost your personal brand with pubic listings, artist shoutouts, audience engagement, and journey sharing.",
+      "No more paying extra. Get near-zero gas fees, mint for free, and get financial autonomy by controlling payment types and royalties.",
+      "No more snags. When in doubt, just reach out to a vibrant community of experts, influncers, and like-minded enthusiasts."
+    ],
+    "list2title": "Collector",
+    "list2": [
+      "Browse and indulge in a wide, exciting range of NFTs including audio, video and text",
+      "Get 100% proof of ownership of what you buy that sits on the secure blockchain",
+      "High degree of authenticity ensures your NFTs will be immune to removals or fraud",
+      "It’s so easy for you to transfer and trade NFTs with other enthusiasts",
+      "Access global markets and find the coolest NFTs with no agents or commissions",
+      "It’s super convenient because you get digital files that offer permanent storage and easy sharing and exchange"
+    ],
+    "href": ""
+  },
+  "amDif": {
+    "visibility": true,
+    "title": "The AssetMantle Difference",
+    "description": "Powerful features to enhance the NFT experience for all.",
+    "contents": [
+      {
+        "img": "multi_chain",
+        "h3": "Multi-chain access",
+        "p_m": "Trade NFTs on other chains or show them off across metaverses!"
+      },
+      {
+        "img": "negligible_minting_fee",
+        "h3": "Negligible Minting Fee",
+        "p_m": "Enjoy negligible minting fees and gas fees in the Cosmos ecosystem."
+      },
+      {
+        "img": "multiple_payment_modes",
+        "h3": "Multiple payment modes",
+        "p_m": "Experience AssetMantle with fiat currency, coins, or stablecoins!"
+      },
+      {
+        "img": "complete_customization",
+        "h3": "Complete customization",
+        "p_m": "Build fully customized NFT marketplaces from scratch without coding."
+      }
+    ]
+  },
+  "RoadMap": {
+    "visibility": true,
+    "title": "Want to know more about the journey?",
+    "description": "Check out the AssetMantle roadmap",
+    "btnText": "Roadmap",
+    "href": ""
+  },
+  "whitepaper": {
+    "title": "Need To Deep Dive Into Tech?",
+    "description": "Read the AssetMantle whitepaper",
+    "button": {
+      "title": "Whitepaper",
+      "href": "https://docs.assetmantle.one/AssetMantle_Whitepaper/"
+    }
+  },
+  "stores": {
+    "visibility": false,
+    "title": "Our Stores",
+    "description": "Discover an awesome range of NFTs from games, art, collectibles, and more. Get ready to raise those digital envy meters!",
+    "store1": "Featured Stores",
+    "store2": "New Stores",
+    "store3": "Popular Stores"
+  },
+  "wNFT": {
+    "visibility": false,
+    "title": "Hold on, what’s an NFT?",
+    "description": "What is an NFT? Why is it relevant? NFT stands for non-fungible token. It’s the digital equivalent of owning cool things in the physical world, like sexy sneakers or a Van Gogh. Like them, NFTs are unique, non-interchangeable units of data stored on the blockchain. They are photos, videos, or audio. They provide public proof of authenticity or ownership. But that does not restrict the sharing or copying of the digital file. Many consider NFTs to be the future of owning, flaunting and sharing things on the net!",
+    "subTitle": "NFTs come in various forms such as:",
+    "href": "/whats-an-nft"
+  },
+  "pricing": {
+    "visibility": false,
+    "title": "Pricing",
+    "description": "We bring you the most affordable, flexible pricing options.",
+    "currencies_name_1": "Ethereum",
+    "currencies_value_1": "$250 USD ",
+    "currencies_name_2": "Solana",
+    "currencies_value_2": "$2.5 USD",
+    "currencies_name_3": "Polygon",
+    "currencies_value_3": "$5 USD",
+    "name": "AssetMantle",
+    "value": "$0.000001* USD",
+    "href": "/pricing"
+  },
+  "LetsAmplify": {
+    "visibility": false,
+    "title": "Ok, let’s amplify my NFT game, people!",
+    "description": "Yay. You’ve just taken the first step to enhancing your life in the metaverse. Let’s get started and help you create, sell, and buy your digital assets.",
+    "href": ""
+  },
+  "testimonials": {
+    "visibility": false,
+    "title": "Hear what people have to say",
+    "description": "People who have tried AssetMantle are rocking it, whether they are creators or collectors"
+  },
+  "team": {
+    "visibility": true,
+    "title": "Meet The Mantle Team",
+    "description": "Meet the faces behind AssetMantle",
+    "button": {
+      "visibility": true,
+      "text": "View More",
+      "href": "/about#team"
+    }
+  },
+  "faq": {
+    "visibility": true,
+    "title": "Frequently Asked Questions (FAQ)",
+    "description": "",
+    "qas": [
+      {
+        "id": "what-is-an-nft",
+        "q": "What is an NFT?",
+        "a": "NFT stands for “Non-Fungible Token”. An NFT is an immutable token on the blockchain. It is cryptographically protected and can be treated as a digital certificate of ownership on the blockchain. NFTs on AssetMantle are part of the growing Cosmos ecosystem."
+      },
+      {
+        "id": "what-is-mantleplace",
+        "q": "What is MantlePlace?",
+        "a": "MantlePlace is the native NFT marketplace of AssetMantle. All creators on MantlePlace are verified for authenticity in an effort to minimize instances of frauds and rug pulls."
+      },
+      {
+        "id": "what-is-mantle-builder",
+        "q": "What is MantleBuilder?",
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder here: ",
+        "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
+      },
+      {
+        "id": "what-is-ibc-protocol",
+        "q": "What is IBC Protocol?",
+        "a": "IBC stands for “Inter-Blockchain Communication”. It is an open-source protocol that allows sovereign blockchains in the Cosmos ecosystem to transfer assets and information among themselves. This empowers NFT creators and collectors to utilize their NFTs across different chains and metaverses."
+      },
+      {
+        "id": "what-makes-assetmsntle-special",
+        "q": "What makes AssetMantle special?",
+        "a": "AssetMantle is built from the ground up to completely redefine digital asset ownership. Some noteworthy features of AssetMantle include:",
+        "list": [
+          "Open-source modules",
+          "IBC protocol enabled",
+          "Support for fractional NFTs",
+          "Negligible gas fees",
+          "Ledger hardware support",
+          "InterNFT standard",
+          "IPFS storage mechanism",
+          "Cross-chain interoperability",
+          "Support for multiple asset types",
+          "Real-world asset tokenization",
+          "... and more"
+        ]
+      }
+    ]
+  },
+  "source": {
+    "visibility": false,
+    "title": "Source",
+    "text": "NFT Market History",
+    "href": "https://nonfungible.com/market/history"
+  }
+}

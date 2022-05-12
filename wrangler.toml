@@ -6,6 +6,7 @@ compatibility_flags = []
 workers_dev = true
 site = {bucket = "./build",entry-point = "workers-site"}
 compatibility_date = "2021-10-27"
+account_id = ${{ secrets.CF_ACCOUNT_ID }}
 
 [env.staging]
 routes = ["https://staging.assetmantle.one/*"]
