@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ButtonPrimary, ButtonSecondary } from "../../components/Buttons";
 import DATA from "../../data/homeData.json";
 import { useTranslation } from "react-i18next";
@@ -9,7 +9,7 @@ export default function WhitePaper() {
   return (
     <section className="section_whitepaper">
       <div className="section_whitepaper__element">
-        <h2 className="">{t("WHITEPAPER_TITLE")}</h2>
+        <h2 className="yellow-t">{t("WHITEPAPER_TITLE")}</h2>
         <p>{t("WHITEPAPER_DESCRIPTION")}</p>
       </div>
       <div className="section_whitepaper__element bu">
@@ -25,5 +25,5 @@ export default function WhitePaper() {
         />
       </div>
     </section>
-  )
+  );
 }

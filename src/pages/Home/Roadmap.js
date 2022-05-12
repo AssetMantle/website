@@ -19,7 +19,7 @@ const RoadMap = () => {
         />
       </div>
       <div className="section_roadMap__element">
-        <h2>{t("ROADMAP_TITLE")}</h2>
+        <h2 className="yellow-t">{t("ROADMAP_TITLE")}</h2>
         <p>{t("ROADMAP_DESCRIPTION")}</p>
       </div>
       <div className="section_roadMap__element bu">
