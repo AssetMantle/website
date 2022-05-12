@@ -25,7 +25,7 @@ export const AboutContainer = styled.main`
       padding: 0;
       margin: 0;
       scroll-snap-align: start;
-      min-height: 900px;
+      min-height: 100vh;
       width: calc(100vw - 5px);
       display: flex;
       flex-direction: column;

@@ -104,7 +104,10 @@ export default function HeroSection() {
                       </div>
                       <div className="slide__active__contents__container_details">
                         <h4>
-                          {data.name} <span><MdVerified /></span>
+                          {data.name}{" "}
+                          <span>
+                            <MdVerified />
+                          </span>
                         </h4>
                         <p>{data.profile}</p>
                       </div>
@@ -189,10 +192,14 @@ const Slide = styled.div`
             gap: 4px;
             span {
               font-size: 16px;
+              display: flex;
+              align-items: center;
+              padding-bottom: 5px;
+              justify-content: center;
             }
           }
           p {
-            font: var(--p-m);
+            font: var(--p-s);
             color: var(--gray);
           }
         }

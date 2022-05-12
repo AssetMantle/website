@@ -84,7 +84,7 @@ export const ButtonSecondary = ({
       download={download}
     >
       <span>{text}</span>
-      {comingSoon && <span className="upcoming">Coming soon</span>}
+      {comingSoon && <span className="upcoming">Coming Soon</span>}
     </BSS>
   );
 };
