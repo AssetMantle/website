@@ -115,6 +115,7 @@ const HeaderContainer = styled.header`
                     border-bottom: 2px solid var(--dark-s);
                     width: 100%;
                     color: var(--header-color);
+                    font: var(--p-s);
                   }
                   &__body {
                     display: flex;
@@ -130,6 +131,7 @@ const HeaderContainer = styled.header`
                     &_link {
                       color: var(--header-color-s);
                       font: var(--p-s);
+                      font-size: 14px;
                       text-decoration: none;
                       max-width: 180px;
                       display: flex;
@@ -176,6 +178,7 @@ const HeaderContainer = styled.header`
                         padding-bottom: 6px;
                         border-bottom: 2px solid var(--dark-s);
                         color: var(--header-color-m);
+                        font-size: 14px;
                         &:hover {
                           color: var(--header-color-m);
                         }
