@@ -66,6 +66,13 @@ export const AboutContainer = styled.main`
         grid-template-columns: 1fr;
       }
       &__element {
+        &.pushed {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          padding: 30px 0;
+        }
         &_title {
           font: var(--h1);
           color: var(--yellow);
@@ -82,7 +89,7 @@ export const AboutContainer = styled.main`
           color: var(--gray-deep);
           padding: 12px 0;
         }
-        iframe{
+        iframe {
           width: 100%;
           height: auto;
           aspect-ratio: 16/9;
@@ -119,7 +126,7 @@ export const AboutContainer = styled.main`
             transform: translateY(0);
           }
         }
-        img{
+        img {
           cursor: pointer;
         }
         @media (max-width: 548px) {
