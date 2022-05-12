@@ -28,7 +28,7 @@ export const HomeContainer = styled.main`
       padding: 0;
       margin: 0;
       scroll-snap-align: start;
-      min-height: 900px;
+      min-height: 100vh;
       width: calc(100vw - 5px);
       display: flex;
       flex-direction: column;
@@ -53,7 +53,7 @@ export const HomeContainer = styled.main`
   }
   .section {
     &_hero {
-      padding: 185px 0 60px;
+      padding: 155px 0 60px;
       @media (max-width: 768px) {
         padding: 100px 0 0;
       }
@@ -104,7 +104,7 @@ export const HomeContainer = styled.main`
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-content: space-between;
-      padding: 60px 160px 100px;
+      padding: 80px 160px 60px;
       gap: 25px;
       @media (max-width: 1060px) {
         padding-left: 40px;
@@ -272,7 +272,7 @@ export const HomeContainer = styled.main`
     }
     &_WhatIsAssetMantle {
       position: relative;
-      padding: 60px 92px;
+      padding: 80px 92px 60px;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 70px;
@@ -299,7 +299,7 @@ export const HomeContainer = styled.main`
             margin-bottom: 24px;
           }
           p {
-            font: 600 var(--p-l);
+            font: var(--p-l);
             /* max-width: 548px; */
             color: var(--gray-deep);
             margin-bottom: 60px;
@@ -558,7 +558,7 @@ export const HomeContainer = styled.main`
         max-width: 936px;
       }
       &__element {
-        padding-top: 79px;
+        padding-top: 59px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
