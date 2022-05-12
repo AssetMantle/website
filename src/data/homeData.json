@@ -11,7 +11,7 @@
     "shopDesc": "Explore verified NFT collections",
     "shopBtnText": "MantlePlace",
     "shopHref": "",
-    "buildTitle": "Build a Store",
+    "buildTitle": "Build Your Store",
     "buildDesc": "Fully customizable store builder",
     "buildBtnText": "MantleBuilder",
     "buildHref": ""
@@ -29,13 +29,13 @@
   "WhatIsAssetMantle": {
     "visibility": true,
     "title": "What is AssetMantle?",
-    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
+    "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain. ",
     "li1": "Open-source framework",
-    "li2": "Batch and lazy minting",
+    "li2": " Batch and lazy minting",
     "li3": "Creator-centric platform",
-    "li4": "Custom Royalty Splits",
-    "li5": "Community-first approach",
-    "li6": "Real-world asset tokenization",
+    "li4": "Custom royalty splits",
+    "li5": "Real-world asset tokenization",
+    "li6": "Community-first approach",
     "li7": "Interchain NFTs",
     "li8": "No-code builder",
     "button": {
@@ -56,11 +56,11 @@
   "howItWorks": {
     "visibility": true,
     "title": "How it works",
-    "description": "Create your own store in a few steps using MantleBuilder or browse through the vast collection of NFTs in MantlePlace",
+    "description": "",
     "options": [
       {
         "name": "MantlePlace",
-        "description": "Buy/sell on a decentralized NFT marketplace.",
+        "description": "Mint, collect and engage",
         "content": [
           {
             "img": "create_account",
@@ -114,26 +114,26 @@
   },
   "gettingStarted": {
     "visibility": true,
-    "title": "How Does AssetMantle Help Creators and collectors?",
-    "description": "AssetMantle helps creators and collectors tap into the true potential of NFTs.",
-    "bodyTitle": "how does AssetMantle help you",
-    "bodyDescription": "We amplify your NFT game by plugging every gap!",
+    "title": "AssetMantle for Creators and Collectors",
+    "description": "Tap into the true potential of NFTs with a blockchain-based identity and an intuitive UX.",
+    "bodyTitle": "",
+    "bodyDescription": "",
     "list1title": "For Creators",
     "list1": [
-      "Build without coding",
+      "Plug-and-play experience",
       "Mutable and private metadata",
-      "Negligible minting fee",
+      "Negligible minting fees",
       "Support for multiple file formats",
-      "Collaborate with split royalties",
-      "Round the clock community support"
+      "Custom royalty splits",
+      "Engage with avid collectors"
     ],
     "list2title": "For Collectors",
     "list2": [
-      "Buy from verified creators",
+      "Earn rewards by trading NFTs",
       "Wallet agnosticism",
-      "Resell across blockchains",
-      "Co-own rare collectibles",
-      "Connect with creators in TradeRoom",
+      "Truly interoperable NFTs",
+      "Fractionalized Ownership",
+      "Engage with creators in TradeRoom",
       "Intuitive user experience"
     ],
     "href": ""
@@ -146,22 +146,22 @@
       {
         "img": "multi_chain",
         "h3": "Multi-chain access",
-        "p_m": "Trade NFTs on other chains or show them off across metaverses!"
+        "p_m": "Trade NFTs on other chains or show them off  across metaverses."
       },
       {
         "img": "negligible_minting_fee",
         "h3": "Negligible Minting Fee",
-        "p_m": "Enjoy negligible minting fees and gas fees in the Cosmos ecosystem."
+        "p_m": "Get exposure to IBC-enabled Cosmos ecosystem at negligible fees."
       },
       {
         "img": "multiple_payment_modes",
         "h3": "Multiple payment modes",
-        "p_m": "Experience AssetMantle with fiat currency, coins, or stablecoins!"
+        "p_m": "Experience AssetMantle with fiat currency, coins  or stablecoins."
       },
       {
         "img": "complete_customization",
         "h3": "Complete customization",
-        "p_m": "Build fully customized NFT marketplaces from scratch without coding."
+        "p_m": "Experience no-code NFT marketplace creation with plug-and-play Mantle modules."
       }
     ]
   },
