@@ -887,7 +887,7 @@ export const HomeContainer = styled.main`
       }
     }
     &_faq {
-      padding: 60px 92px;
+      padding: 60px 92px 0px;
       @media (max-width: 768px) {
         padding: 70px 40px;
       }
