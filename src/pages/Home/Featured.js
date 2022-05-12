@@ -10,7 +10,11 @@ export default function Featured() {
 
   return (
     <FeaturedContainer>
-      <h3>{t("FEATURED_TITLE")}</h3>
+      <h2 className="yellow-t">
+        <hr />
+        {t("FEATURED_TITLE")}
+        <hr />
+      </h2>
       <div className="featured_in">
         {React.Children.toArray(
           FeaturedData.featured.news.map((data) => (
@@ -29,7 +33,11 @@ export default function Featured() {
 }
 
 const FeaturedContainer = styled.div`
-  padding: 120px 92px 30px;
+  background-image: url("/images/bg/gradient_bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat repeat;
+  padding: 40px 92px;
+  margin-top: 60px;
   @media (max-width: 768px) {
     padding: 60px 40px;
   }
@@ -37,8 +45,27 @@ const FeaturedContainer = styled.div`
     padding: 30px 20px;
   }
   color: var(--gray);
-  h3 {
+  h2 {
     text-align: center;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    hr {
+      margin: auto 0;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        #ffc640 47.4%,
+        #f2af13 100%
+      );
+      /* Icon-yellow */
+
+      box-shadow: 1.41818px 1.41818px 2.83636px rgba(0, 0, 0, 0.2),
+        inset -1.41818px -1.41818px 2.83636px rgba(0, 0, 0, 0.2),
+        inset 1.41818px 1.41818px 2px #ffd365;
+      border-radius: 10px;
+      height: 5px;
+      flex: 1;
+    }
   }
   .featured_in {
     padding-top: 30px;
