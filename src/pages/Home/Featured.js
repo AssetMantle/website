@@ -64,6 +64,8 @@ const FeaturedContainer = styled.div`
         inset 1.41818px 1.41818px 2px #ffd365;
       border-radius: 10px;
       height: 5px;
+      border: none;
+      outline: none;
       flex: 1;
     }
   }
