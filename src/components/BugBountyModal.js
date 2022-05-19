@@ -43,21 +43,14 @@ export default function BugBountyModal({ closeModal }) {
           </div>
           <div className="modal_success__container">
             <div className="modal_success__container_element">
-              <img src="/images/icons/success.png" alt="Success illustration" />
+              <img
+                src="/images/icons/greentick.png"
+                alt="Success illustration"
+              />
             </div>
             <div className="modal_success__container_element">
               <h1>{t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_TITLE")}</h1>
-              <p>
-                {t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}
-              </p>
-              <div className="modal_success__container_element__button">
-                <button
-                  onClick={() => closeModal(false)}
-                  onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
-                >
-                  {t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT")}
-                </button>
-              </div>
+              <p>{t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}</p>
             </div>
           </div>
         </div>
@@ -71,7 +64,9 @@ export default function BugBountyModal({ closeModal }) {
             <img src="/images/icons/close.png" alt="close" />
           </div>
           <div className="modal_container">
-            <h2 className="modal_container__title">{t("BUG_BOUNTY_MODAL_TITLE")}</h2>
+            <h2 className="modal_container__title">
+              {t("BUG_BOUNTY_MODAL_TITLE")}
+            </h2>
             <p className="modal_container__description">
               {t("BUG_BOUNTY_MODAL_DESCRIPTION")}
             </p>
@@ -327,7 +322,7 @@ const Container = styled.div`
     border-radius: 20px;
     z-index: 7;
     position: relative;
-    max-width: 936px;
+    max-width: 636px;
     &__close {
       font: var(--h2);
       color: var(--yellow);
@@ -344,33 +339,25 @@ const Container = styled.div`
       }
     }
     &__container {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      @media (max-width: 548px) {
-        grid-template-columns: 1fr;
-      }
-      gap: 27px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 42px;
       &_element {
         &:nth-child(1) {
           @media (max-width: 548px) {
             display: flex;
           }
           img {
-            @media (max-width: 768px) {
-              width: 180px;
-            }
-            @media (max-width: 548px) {
-              width: 100px;
-              margin: auto;
-            }
+            margin: auto;
+            width: min(100%, 100px);
           }
         }
         &:nth-child(2) {
-          @media (max-width: 548px) {
-            text-align: center;
-          }
+          text-align: center;
           h1 {
-            font: var(--h1);
+            font: var(--h2);
             color: var(--gray);
             padding-bottom: 24px;
             margin: 0;
@@ -379,13 +366,10 @@ const Container = styled.div`
             }
           }
           p {
-            font: var(--p-xl);
+            font: var(--p-s);
             color: var(--gray-deep);
             margin: 0;
-            padding-bottom: 40px;
-            @media (max-width: 768px) {
-              font: var(--p-l);
-            }
+            /* padding-bottom: 40px; */
           }
         }
         &__button {
