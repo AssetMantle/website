@@ -26,14 +26,14 @@ export default function Home() {
   return (
     <HomeContainer>
       <Header />
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.hero.visibility && <HeroSection />}
       </div>
-      <div className="smoothScrollElement paddingBottom">
+      <div className="smoothScrollElement center">
         {DATA.services.visibility && <ServicesSection />}
         {DATA.overview.visibility && <Overview />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.WhatIsAssetMantle.visibility && <WhatIsAssetMantle />}
         {DATA.drop.visibility && <AirdropSection />}
       </div>
@@ -50,7 +50,7 @@ export default function Home() {
         {DATA.RoadMap.visibility && <RoadMap />}
         {DATA.whitepaper.visibility && <WhitePaper />}
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         {DATA.team.visibility && <Team />}
       </div>
       <div className="smoothScrollElement center">
