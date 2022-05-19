@@ -474,27 +474,23 @@ const NavContainer = styled.div`
   .nav__container {
     position: relative;
     height: 100%;
-    width: min(70%, 468px);
-    background: linear-gradient(
-      90deg,
-      #171717 42.83%,
-      rgba(23, 23, 23, 0.81) 83.08%,
-      rgba(23, 23, 23, 0) 100%
-    );
-    padding: 62px 80px;
-    @media (min-width: 1440px) {
+    width: min(70%, 340px);
+    padding: 61px 59px;
+    background: #171717;
+    backdrop-filter: blur(4px);
+    @media (min-width: 1441px) {
       margin-right: calc((100vw - 1440px) / 2);
     }
     @media (max-width: 548px) {
-      padding: 62px 20px 60px 40px;
-      width: min(90%, 468px);
+      padding: 61px 20px 60px 40px;
+      width: min(90%, 340px);
     }
     &_box {
       height: 100%;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 24px;
       -ms-overflow-style: none;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -708,7 +704,7 @@ const NavLink = styled(Link)`
   &.active {
     border-bottom: 3px solid var(--yellow);
     font: 600 26px/120% "Lato", sans-serif;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
   &:hover {
     color: var(--gray);
@@ -735,7 +731,7 @@ const NavLinkA = styled.a`
   &.active {
     border-bottom: 3px solid var(--yellow);
     font: 600 26px/120% "Lato", sans-serif;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
   &:hover {
     color: var(--gray);
@@ -772,7 +768,7 @@ const NavDetails = styled.div`
     &.active {
       border-bottom: 3px solid var(--yellow);
       font: 600 26px/120% "Lato", sans-serif;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
     &:hover {
       color: var(--gray);
