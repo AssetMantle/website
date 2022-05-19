@@ -27,19 +27,19 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <h2 className="footer__title">{t("FOOTER_TITLE")}</h2>
-      <p className="footer__details">{t("FOOTER_DESCRIPTION")}</p>
       <div className="footer_container">
         <div className="footer_container__element">
+          <h2 className="footer__title">{t("FOOTER_TITLE")}</h2>
+          <p className="footer__details">{t("FOOTER_DESCRIPTION")}</p>
           <div className="footer_container__element_emails">
+            <h3 className="footer_container__element_emails__title">
+              {t("EMAIL")}
+            </h3>
             <img
               src="/images/icons/email_icon.png"
               alt="email icon"
               className="footer_container__element_emails__icon"
             />
-            <h3 className="footer_container__element_emails__title">
-              {t("EMAIL")}
-            </h3>
           </div>
 
           <div className="footer_container__element_email__tile">
@@ -69,30 +69,6 @@ const Footer = () => {
               {DATA.contents.email2}
             </a>
           </div>
-
-          <div className="footer_container__element_social">
-            <h3 className="footer_container__element_social__title">
-              {t("FOOTER_SOCIAL_TITLE")}
-            </h3>
-            <div className="footer_container__element_social__icons">
-              {DATA.social.links &&
-                React.Children.toArray(
-                  DATA.social.links.map((data) => (
-                    <a
-                      className="footer_container__element_social__icons_icon"
-                      href={data.href && data.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={`/images/icons/${data.icon && data.icon}.png`}
-                        alt={data.alt && data.alt}
-                      />
-                    </a>
-                  ))
-                )}
-            </div>
-          </div>
         </div>
         <div className="footer_container__element_2">
           <div className="footer_container__element_2__subscribe">
@@ -111,6 +87,35 @@ const Footer = () => {
                 )}
               />
             </div>
+          </div>
+
+          <div className="footer_container__element_2_social">
+            <h3 className="footer_container__element_2_social__title">
+              {t("FOOTER_SOCIAL_TITLE")}
+            </h3>
+            <div className="footer_container__element_2_social__icons">
+              {DATA.social.links &&
+                React.Children.toArray(
+                  DATA.social.links.map((data) => (
+                    <a
+                      className="footer_container__element_2_social__icons_icon"
+                      href={data.href && data.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`/images/icons/${data.icon && data.icon}.png`}
+                        alt={data.alt && data.alt}
+                      />
+                    </a>
+                  ))
+                )}
+            </div>
+          </div>
+        </div>
+        <div className="footer_container__element_2">
+          <div className="footer_container__element_2__logo">
+            <img src="/images/icons/logo.svg" alt="" />
           </div>
           <div className="footer_container__element_2__links">
             <p className="footer_container__element_2__links_link">
@@ -169,6 +174,10 @@ const Footer = () => {
             </p>
           </div>
         </div>
+      </div>
+      <hr className="bottom__line" />
+      <div className="copy-right__footer">
+        &copy; AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
       </div>
       {bugBountyModalStat === true && (
         <BugBountyModal closeModal={setBugBountyModalStat} />
