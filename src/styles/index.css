@@ -52,17 +52,20 @@
   --footer-bg: #171717;
 
   /* --------------fonts---------------------- */
-  --h1: bold 36px/120% paralucent, sans-serif;
-  --h2: bold 30px/120% paralucent, sans-serif;
-  --h3: bold 24px/120% paralucent, sans-serif;
-  --h4: bold 20px/120% paralucent, sans-serif;
-  --h5: bold 18px/120% paralucent, sans-serif;
+  --font-primary: paralucent, sans-serif;
+  --font-secondary: "Lato", sans-serif;
 
-  --p-xl: 30px/120% "Lato", sans-serif;
-  --p-l: 22px/120% "Lato", sans-serif;
-  --p-m: 20px/120% "Lato", sans-serif;
-  --p-s: 16px/120% "Lato", sans-serif;
-  --p-xs: 14px/120% "Lato", sans-serif;
+  --h1: bold 36px/120% var(--font-primary);
+  --h2: bold 30px/120% var(--font-primary);
+  --h3: bold 24px/120% var(--font-primary);
+  --h4: bold 20px/120% var(--font-primary);
+  --h5: bold 18px/120% var(--font-primary);
+
+  --p-xl: 30px/120% var(--font-secondary);
+  --p-l: 22px/120% var(--font-secondary);
+  --p-m: 20px/120% var(--font-secondary);
+  --p-s: 16px/120% var(--font-secondary);
+  --p-xs: 14px/120% var(--font-secondary);
   /* for semi bold font use font-weight: 600; */
 
   --label: 600 18px/120% paralucent, sans-serif;
