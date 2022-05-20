@@ -168,7 +168,8 @@ export const AboutContainer = styled.main`
           align-items: center;
           justify-content: flex-end;
           img {
-            width: min(447px, 100%);
+            width: min(427px, 100%);
+            height: auto;
           }
         }
       }
@@ -179,8 +180,8 @@ export const AboutContainer = styled.main`
           color: var(--yellow);
         }
         p {
-          text-align: justify;
-          padding-top: 28px;
+          text-align: left;
+          padding-top: 16px;
           font: var(--p-l);
           color: var(--gray-deep);
         }
@@ -197,7 +198,7 @@ export const AboutContainer = styled.main`
       justify-content: space-between;
       flex-wrap: no-wrap;
       gap: 50px;
-      margin: 60px 0 30px;
+      /* margin: 60px 0 30px; */
       @media (max-width: 768px) {
         padding: 60px 40px;
       }
@@ -250,10 +251,11 @@ export const AboutContainer = styled.main`
       }
     }
     &_roadmap {
+      position: relative;
       h1 {
         font: var(--h1);
         color: var(--yellow);
-        padding: 100px 93px 60px;
+        padding: 80px 92px 24px;
         @media (max-width: 768px) {
           padding: 40px;
         }
@@ -323,15 +325,18 @@ export const AboutContainer = styled.main`
         }
       }
       &__note {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         font: var(--p-s);
         color: var(--gray);
         text-align: right;
-        padding: 38px 100px 115px;
+        padding: 16px 100px;
         @media (max-width: 768px) {
-          padding: 38px 50px 74px;
+          padding: 16px 50px;
         }
         @media (max-width: 548px) {
-          padding: 38px 20px 74px;
+          padding: 16px 20px;
         }
       }
     }
@@ -567,7 +572,7 @@ export const AboutContainer = styled.main`
       }
     }
     &_team {
-      padding: 100px 70px 60px;
+      padding: 80px 70px 60px;
       @media (max-width: 768px) {
         padding: 40px;
       }
@@ -577,7 +582,7 @@ export const AboutContainer = styled.main`
       h2 {
         font: var(--h2);
         color: var(--yellow);
-        margin-bottom: 24px;
+        margin-bottom: 8px;
         text-transform: capitalize;
         + p {
           font: var(--p-l);

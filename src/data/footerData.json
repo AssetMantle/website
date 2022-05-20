@@ -1,7 +1,7 @@
 {
   "contents": {
     "title": "Drop Us A Line",
-    "description": "Need to talk about NFTs? We would love to chat.",
+    "description": "Have something to say to the Mantle team?",
     "emailDescription1": "For Information And Support:",
     "email1": "hello@assetmantle.one",
     "emailDescription2": "For Collaboration And Interests",
@@ -66,7 +66,7 @@
     "button": "Submit",
     "success": {
       "title": "Response Submitted",
-      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "description": "The community appreciates your contribution. The Mantle team will reach out to you at the earliest.",
       "button": "Proceed"
     }
   },
@@ -82,7 +82,7 @@
     "button": "Submit",
     "success": {
       "title": "Response Submitted",
-      "description": "Thank you for taking the time to help us improve. Someone from the AssetMantle team will reach out to you.",
+      "description": "The community appreciates your contribution. The Mantle team will reach out to you at the earliest.",
       "button": "Proceed"
     }
   }

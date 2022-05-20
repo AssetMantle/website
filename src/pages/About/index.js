@@ -113,7 +113,7 @@ export default function About() {
           </div>
         </section>
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         <section className="section_visionMission">
           <div className="section_visionMission_grid">
             <div className="section_visionMission__element">
@@ -131,7 +131,7 @@ export default function About() {
         </section>
         <WhitePaper />
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         <section className="section_roadmap" id="roadmap">
           <h1>{t("ABOUT_ROADMAP_TITLE")}</h1>
           <div className="section_roadmap__slide">
@@ -164,7 +164,7 @@ export default function About() {
           <div className="section_roadmap__note">{t("ABOUT_ROADMAP_NOTE")}</div>
         </section>
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         <section className="section_team" id="team">
           <h2>{t("ABOUT_TEAM_TITLE")}</h2>
           <p>{t("ABOUT_TEAM_DESCRIPTION")}</p>
@@ -189,7 +189,7 @@ export default function About() {
           </div>
         </section>
       </div>
-      <div className="smoothScrollElement">
+      <div className="smoothScrollElement center">
         <Footer />
       </div>
     </AboutContainer>

@@ -12,7 +12,7 @@ export const RequestAFeature = ({ closeModal }) => {
   const [ReceiveM, setReceiveM] = useState(false);
   const [TAndC, setTAndC] = useState(false);
 
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(200);
 
   const FormBody = {
     fullName: FullName,
@@ -43,21 +43,14 @@ export const RequestAFeature = ({ closeModal }) => {
           </div>
           <div className="modal_success__container">
             <div className="modal_success__container_element">
-              <img src="/images/icons/success.png" alt="Success illustration" />
+              <img
+                src="/images/icons/greentick.png"
+                alt="Success illustration"
+              />
             </div>
             <div className="modal_success__container_element">
-              <h1>{t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_TITLE")}</h1>
-              <p>
-                {t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}
-              </p>
-              <div className="modal_success__container_element__button">
-                <button
-                  onClick={() => closeModal(false)}
-                  onKeyPress={(e) => e.key === "Enter" && closeModal(false)}
-                >
-                  {t("REQUEST_A_FEATURE_MODAL_SUBMIT_SUCCESS_BUTTON_TEXT")}
-                </button>
-              </div>
+              <h1>{t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_TITLE")}</h1>
+              <p>{t("BUG_BOUNTY_MODAL_SUBMIT_SUCCESS_DESCRIPTION")}</p>
             </div>
           </div>
         </div>
@@ -71,7 +64,9 @@ export const RequestAFeature = ({ closeModal }) => {
             <img src="/images/icons/close.png" alt="close" />
           </div>
           <div className="modal_container">
-            <h2 className="modal_container__title">{t("REQUEST_A_FEATURE_MODAL_TITLE")}</h2>
+            <h2 className="modal_container__title">
+              {t("REQUEST_A_FEATURE_MODAL_TITLE")}
+            </h2>
             <p className="modal_container__description">
               {t("REQUEST_A_FEATURE_MODAL_DESCRIPTION")}
             </p>
@@ -85,7 +80,7 @@ export const RequestAFeature = ({ closeModal }) => {
                   className="modal_container__form_label"
                   htmlFor="Full Name"
                 >
-                 {t("REQUEST_A_FEATURE_MODAL_NAME_LABEL")}
+                  {t("REQUEST_A_FEATURE_MODAL_NAME_LABEL")}
                   <input
                     type="text"
                     placeholder="Jon Dao"
@@ -140,14 +135,14 @@ export const RequestAFeature = ({ closeModal }) => {
               <label
                 htmlFor="term_and_condition"
                 className="modal_container__form_label__checkbox"
-                >
+              >
                 <input
                   type="checkbox"
                   name="term_and_condition"
                   onChange={(e) => setTAndC(e.target.checked)}
                   id="term_and_condition"
-                  />
-                  {t("REQUEST_A_FEATURE_MODAL_CHECKBOX_2")}
+                />
+                {t("REQUEST_A_FEATURE_MODAL_CHECKBOX_2")}
               </label>
               <div className="modal_container__form_button">
                 <button type="submit" value="Submit">
@@ -327,7 +322,7 @@ const Container = styled.div`
     border-radius: 20px;
     z-index: 7;
     position: relative;
-    max-width: 936px;
+    max-width: 636px;
     &__close {
       font: var(--h2);
       color: var(--yellow);
@@ -344,33 +339,25 @@ const Container = styled.div`
       }
     }
     &__container {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      @media (max-width: 548px) {
-        grid-template-columns: 1fr;
-      }
-      gap: 27px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 42px;
       &_element {
         &:nth-child(1) {
           @media (max-width: 548px) {
             display: flex;
           }
           img {
-            @media (max-width: 768px) {
-              width: 180px;
-            }
-            @media (max-width: 548px) {
-              width: 100px;
-              margin: auto;
-            }
+            margin: auto;
+            width: min(100%, 100px);
           }
         }
         &:nth-child(2) {
-          @media (max-width: 548px) {
-            text-align: center;
-          }
+          text-align: center;
           h1 {
-            font: var(--h1);
+            font: var(--h2);
             color: var(--gray);
             padding-bottom: 24px;
             margin: 0;
@@ -379,13 +366,10 @@ const Container = styled.div`
             }
           }
           p {
-            font: var(--p-xl);
+            font: var(--p-s);
             color: var(--gray-deep);
             margin: 0;
-            padding-bottom: 40px;
-            @media (max-width: 768px) {
-              font: var(--p-l);
-            }
+            /* padding-bottom: 40px; */
           }
         }
         &__button {

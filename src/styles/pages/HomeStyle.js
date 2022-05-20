@@ -188,7 +188,7 @@ export const HomeContainer = styled.main`
       padding: 50px 92px;
       /* margin-bottom: 60px; */
       h2:first-child {
-        padding: 0 0 40px;
+        padding: 0 0 32px;
         font: var(--h2);
         color: var(--gray);
         text-align: center;
@@ -221,10 +221,10 @@ export const HomeContainer = styled.main`
         height: 100%;
         align-items: center;
         justify-content: center;
-        gap: 52px;
+        gap: 32px;
         margin: 0 auto;
         @media (max-width: 548px) {
-          gap: 48px;
+          gap: 40px;
         }
         img {
           height: auto;
@@ -272,7 +272,7 @@ export const HomeContainer = styled.main`
     }
     &_WhatIsAssetMantle {
       position: relative;
-      padding: 80px 92px 60px;
+      padding: 80px 92px 50px;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 70px;
@@ -302,7 +302,7 @@ export const HomeContainer = styled.main`
             font: var(--p-l);
             /* max-width: 548px; */
             color: var(--gray-deep);
-            margin-bottom: 60px;
+            margin-bottom: 24px;
           }
           ul {
             display: grid;
@@ -313,7 +313,7 @@ export const HomeContainer = styled.main`
             }
           }
           .section_WhatIsAssetMantle__element_button {
-            padding-top: 66px;
+            padding-top: 40px;
           }
         }
         &:nth-child(2) {
@@ -335,7 +335,7 @@ export const HomeContainer = styled.main`
       }
     }
     &_airdrop {
-      padding: 20px 92px 20px 32px;
+      padding: 16px 92px 16px 32px;
       margin: 0px 0;
       display: grid;
       grid-template-columns: 2fr 8fr 2fr;
@@ -363,7 +363,7 @@ export const HomeContainer = styled.main`
         h2 {
           font: var(--h2);
           color: var(--gray);
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
         p {
           font: var(--p-l);
@@ -477,65 +477,53 @@ export const HomeContainer = styled.main`
           }
         }
         &_content {
-          max-width: 219px;
+          width: 172px;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
           text-align: center;
-          img {
-            margin-bottom: 44px;
+          align-items: center;
+          justify-content: space-between;
+          height: 178px;
+          &__img {
+            /* margin-bottom: 44px; */
+            height: auto;
+            &.create_account {
+              width: 90px;
+            }
+            &.mint_nft {
+              width: 92px;
+              margin-top: -10px;
+            }
+            &.sell {
+              width: 118.31px;
+              margin-top: -20px;
+            }
+            &.engage {
+              width: 106px;
+              margin-top: -10px;
+            }
+            &.create_store {
+              width: 92px;
+            }
+            &.publish {
+              width: 120px;
+              margin-left: -30px;
+              margin-top: -30px;
+            }
           }
           h3 {
             font: var(--h3);
             color: var(--gray);
-            margin-bottom: 12px;
           }
           p {
             font: var(--p-m);
             color: var(--gray-deep);
           }
-          &:first-child {
-            img {
-              width: 90px;
-              height: 90px;
-            }
-          }
-          &:nth-child(2) {
-            img {
-              width: 97px;
-              height: 92px;
-              &.mint_nft {
-                width: 90px;
-                height: auto;
-                margin-bottom: 64px;
-              }
-            }
-          }
-          &:nth-child(3) {
-            img {
-              width: 102.7px;
-              height: auto;
-              margin-bottom: 28px;
-              &.sell {
-                margin-bottom: 46px;
-              }
-            }
-          }
-          &:nth-child(4) {
-            img {
-              width: 108.31px;
-              height: 92px;
-              &.engage {
-                /* margin-bottom: 65px; */
-              }
-            }
-          }
         }
       }
     }
     &_gettingStarted {
-      padding: 60px 92px;
+      padding: 80px 92px 60px;
       @media (max-width: 768px) {
         padding: 60px 40px;
       }
@@ -550,7 +538,7 @@ export const HomeContainer = styled.main`
       h2 {
         font: var(--h2);
         color: var(--gray);
-        margin-bottom: 24px;
+        margin-bottom: 16px;
       }
       p {
         font: var(--p-l);
@@ -844,8 +832,8 @@ export const HomeContainer = styled.main`
       gap: 48px;
     }
     &_team {
-      padding: 60px 80px;
-      padding-top: 90px;
+      padding: 100px 80px;
+      padding-top: 70px;
       @media (max-width: 768px) {
         padding: 40px;
         padding-top: 60px;
@@ -857,12 +845,12 @@ export const HomeContainer = styled.main`
       h2 {
         font: var(--h2);
         color: var(--gray);
-        margin-bottom: 24px;
+        margin-bottom: 8px;
         text-transform: capitalize;
         + p {
           font: var(--p-l);
           color: var(--gray-deep);
-          margin-bottom: 24px;
+          margin-bottom: 16px;
           max-width: 935px;
         }
       }
@@ -883,7 +871,7 @@ export const HomeContainer = styled.main`
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 60px 0 0;
+        padding: 36px 0 0;
       }
     }
     &_faq {

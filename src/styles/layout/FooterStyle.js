@@ -10,8 +10,9 @@ export const FooterContainer = styled.footer`
     padding: 40px;
   }
   @media (max-width: 548px) {
-    padding: 40px 28px 0;
+    padding: 40px 28px 20;
   }
+  padding-bottom: 20px;
   h2 {
     font: var(--h2);
     color: var(--gray);
@@ -24,22 +25,21 @@ export const FooterContainer = styled.footer`
     font: var(--p-l);
     max-width: 983px;
     color: var(--gray-deep);
-    margin-bottom: 56px;
-    @media (max-width: 548px) {
-      margin-bottom: 50px;
-    }
   }
   .footer {
+    &__details {
+      font: var(--p-s);
+      margin-bottom: 32px;
+    }
     &_container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      @media (max-width: 638px) {
-        grid-template-columns: 1fr;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 80px;
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
       }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
-        padding: 50px 0;
         gap: 100px;
       }
       &__element {
@@ -58,9 +58,9 @@ export const FooterContainer = styled.footer`
           display: flex;
           gap: 24px;
           align-items: center;
-          padding-bottom: 14px;
+          padding-bottom: 12px;
           &__icon {
-            width: 71px;
+            width: 36px;
             height: auto;
           }
           &__title {
@@ -71,7 +71,7 @@ export const FooterContainer = styled.footer`
           display: flex;
           flex-direction: column;
           gap: 8px;
-          padding: 14px 0;
+          padding: 12px 0;
           &_title {
             margin: 0;
             text-transform: capitalize;
@@ -82,26 +82,6 @@ export const FooterContainer = styled.footer`
             text-decoration: none;
             @media (max-width: 350px) {
               font: var(--p-s);
-            }
-          }
-        }
-        &_social {
-          padding-top: 42px;
-          display: flex;
-          flex-direction: column;
-          gap: 28px;
-          &__icons {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 24px;
-            @media (max-width: 768px) {
-              width: 80%;
-            }
-            img {
-              width: 50px;
-              height: 50px;
             }
           }
         }
@@ -120,7 +100,7 @@ export const FooterContainer = styled.footer`
             &_title {
               font: var(--h3);
               color: var(--gray);
-              padding-bottom: 24px;
+              padding-bottom: 16px;
             }
             &_label {
               font: var(--p-s) !important;
@@ -142,23 +122,22 @@ export const FooterContainer = styled.footer`
               }
               &__fields {
                 display: flex;
-                gap: 24px;
+                gap: 12px;
                 @media (max-width: 768px) {
                   flex-direction: column;
                   gap: 10px;
                 }
               }
               input {
-                font: var(--input);
+                font: var(--p-xs);
                 color: var(--gray-deep);
                 background-color: transparent;
                 border: 2px solid var(--gray-deep);
                 border-radius: 12px;
                 outline: none;
-                padding: 0 15px;
                 width: 59%;
                 flex: 1;
-                padding: 12px 16px;
+                padding: 10px 10px 9px;
                 @media (max-width: 768px) {
                   width: 100%;
                 }
@@ -176,11 +155,11 @@ export const FooterContainer = styled.footer`
                   inset -4px -4px 8px rgba(0, 0, 0, 0.25),
                   inset 4px 4px 8px #ffc942;
                 border-radius: 12px;
-                padding: 12px 43px 14px;
+                padding: 9px 73.5px 8px;
                 transition: all ease-in-out 100ms;
                 border: none;
                 outline: none;
-                width: 39%;
+                width: min(176px, 100%);
                 &:hover,
                 &:focus {
                   box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
@@ -193,12 +172,8 @@ export const FooterContainer = styled.footer`
                     box-shadow: none;
                   }
                 }
-                @media (min-width: 769px) {
-                  margin-left: -14px;
-                }
                 @media (max-width: 768px) {
                   width: 100%;
-                  margin-top: 10px;
                 }
               }
               &__message {
@@ -213,14 +188,14 @@ export const FooterContainer = styled.footer`
             &_link {
               margin: 0;
               padding: 8px 0;
-              font: var(--p-m);
+              font: var(--p-s);
               color: var(--gray-deep);
               display: flex;
               @media (max-width: 768px) {
                 flex-direction: column;
               }
               &__button {
-                font: var(--p-m);
+                font: var(--p-s);
                 background-color: transparent;
                 border: none;
                 outline: none;
@@ -248,8 +223,56 @@ export const FooterContainer = styled.footer`
               }
             }
           }
+          &__logo {
+            padding-top: 10px;
+            width: min(274px, 100%);
+            img {
+              width: 100%;
+            }
+          }
+          &_social {
+            padding-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            &__title {
+              color: var(--gray);
+            }
+            &__icons {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              gap: 24px;
+              @media (max-width: 768px) {
+                width: 90%;
+              }
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
         }
       }
     }
+  }
+  hr.bottom__line {
+    background: #383838;
+    width: 100%;
+    margin-top: 20px;
+    height: 4px;
+    border: none;
+    outline: none;
+    box-shadow: 1.41818px 1.41818px 2.83636px rgba(0, 0, 0, 0.2),
+      inset -1.41818px -1.41818px 2.83636px rgba(0, 0, 0, 0.2),
+      inset 1.41818px 1.41818px 2.83636px #3f3f3f;
+    border-radius: 10px;
+  }
+  .copy-right__footer {
+    text-align: center;
+    padding: 20px 20px 0;
+    font: var(--p-xs);
+    color: var(--gray-deep);
   }
 `;

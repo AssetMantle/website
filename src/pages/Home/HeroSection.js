@@ -185,6 +185,8 @@ const Slide = styled.div`
           flex-direction: column;
           gap: 0px;
           h4 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
             color: var(--yellow);
             text-transform: capitalize;
             display: flex;

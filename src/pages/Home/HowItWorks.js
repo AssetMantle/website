@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DATA from "../../data/homeData.json";
 
-import {BsFillCaretRightFill} from "react-icons/bs";
+import { BsFillCaretRightFill } from "react-icons/bs";
 
 const HowItWorks = () => {
   const { t } = useTranslation();
@@ -74,7 +74,13 @@ const HowItWorks = () => {
     <section className="section_howItWorks">
       <span className="section_howItWorks__link_span" id="how_it_works"></span>
       <h2 className="yellow-t">{t("HOW_IT_WORKS_TITLE")}</h2>
-      <p>{OPTIONS.filter((e) => e.ind === option)[0].name} <span><BsFillCaretRightFill /></span> {OPTIONS.filter((e) => e.ind === option)[0].description}</p>
+      <p>
+        {OPTIONS.filter((e) => e.ind === option)[0].name}{" "}
+        <span>
+          <BsFillCaretRightFill />
+        </span>{" "}
+        {OPTIONS.filter((e) => e.ind === option)[0].description}
+      </p>
       <div className="section_howItWorks__element one">
         <div className="section_howItWorks__element_options">
           <h3
@@ -106,24 +112,20 @@ const HowItWorks = () => {
               OPTIONS.filter((e) => e.ind === option)[0].content.map((data) => (
                 <div className="section_howItWorks__element_content">
                   <img
-                    src={`/images/landing/section/${DATA.imgType}/${data.img && data.img}.${DATA.imgType}`}
+                    src={`/images/landing/section/${DATA.imgType}/${
+                      data.img && data.img
+                    }.${DATA.imgType}`}
                     alt={data.h3 && data.h3}
                     className={`section_howItWorks__element_content__img ${
-                      data.img && data.img === "engage"
-                        ? "engage"
-                        : data.img && data.img === "sell"
-                        ? "sell"
-                        : data.img && data.img === "mint_nft"
-                        ? "mint_nft"
-                        : ""
+                      data.img && data.img
                     }`}
                   />
                   <h3 className="section_howItWorks__element_content__title">
                     {data.title && data.title}
                   </h3>
-                  <p className="section_howItWorks__element_content__description">
+                  {/* <p className="section_howItWorks__element_content__description">
                     {data.details && data.details}
-                  </p>
+                  </p> */}
                 </div>
               ))
             )}

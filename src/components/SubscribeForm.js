@@ -71,7 +71,7 @@ const SubscribeForm = ({ status = "success", message, onValidated }) => {
       {status !== "success" && (
         <>
           <p className="footer_container__element_2__subscribe_label">
-            Your Email ID
+            Email ID
           </p>
           <div className="footer_container__element_2__subscribe_form__fields">
             <input

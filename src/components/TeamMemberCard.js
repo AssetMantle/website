@@ -61,7 +61,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: min(296px, 100%);
-  padding-top: 24px;
+  /* padding-top: 24px; */
   text-align: center;
   height: 100%;
   .teamMemberCard {
