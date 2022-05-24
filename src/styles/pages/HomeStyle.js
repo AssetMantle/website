@@ -426,11 +426,11 @@ export const HomeContainer = styled.main`
         color: var(--gray-deep);
         max-width: 936px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 5px;
         span {
           color: var(--yellow);
-          padding-top: 5px;
+          padding-top: 2px;
         }
       }
       &__element {

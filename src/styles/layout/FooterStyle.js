@@ -40,7 +40,7 @@ export const FooterContainer = styled.footer`
       }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
-        gap: 100px;
+        gap: 64px;
       }
       &__element {
         h3 {
@@ -95,7 +95,7 @@ export const FooterContainer = styled.footer`
             gap: 50px;
           } */
           @media (max-width: 548px) {
-            gap: 50px;
+            gap: 48px;
           }
           &__subscribe {
             @media (min-width: 549px) {
@@ -230,6 +230,9 @@ export const FooterContainer = styled.footer`
           &__logo {
             padding-top: 10px;
             width: min(274px, 100%);
+            @media (max-width: 548px) {
+              display: none;
+            }
             img {
               width: 100%;
             }

@@ -262,6 +262,8 @@ const Container = styled.div`
         align-items: flex-start;
         justify-content: flex-end;
         button {
+          width: 216px;
+          text-align: center;
           display: inline;
           font: 600 var(--p-m);
           color: var(--dark-m);

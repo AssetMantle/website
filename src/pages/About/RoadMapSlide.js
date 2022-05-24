@@ -45,6 +45,9 @@ const Container = styled.div`
       }
     }
     &_details {
+      @media (max-width: 768px) {
+        min-height: 520px;
+      }
       h1 {
         font: 600 var(--h1);
         color: var(--yellow);

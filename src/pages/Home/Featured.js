@@ -47,6 +47,7 @@ const FeaturedContainer = styled.div`
   background-repeat: no-repeat repeat;
   padding: 40px 92px;
   margin-top: 60px;
+  width: 100%;
   @media (max-width: 768px) {
     padding: 60px 40px;
   }
@@ -80,45 +81,19 @@ const FeaturedContainer = styled.div`
   }
   .featured_in {
     padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     gap: 65px;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     img {
       transition: all 0.3s ease;
+      width: 170px;
+      height: auto;
       &:hover {
         transform: scale(1.2);
-      }
-    }
-    &:nth-child(1) {
-      img {
-        width: 160px;
-        height: auto;
-      }
-    }
-    &:nth-child(2) {
-      img {
-        width: 180px;
-        height: auto;
-      }
-    }
-    &:nth-child(3) {
-      img {
-        width: 180px;
-        height: auto;
-      }
-    }
-    &:nth-child(4) {
-      img {
-        width: 180px;
-        height: auto;
-      }
-    }
-    &:nth-child(5) {
-      img {
-        width: 180px;
-        height: auto;
       }
     }
   }

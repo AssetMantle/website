@@ -12,7 +12,7 @@ export const RequestAFeature = ({ closeModal }) => {
   const [ReceiveM, setReceiveM] = useState(false);
   const [TAndC, setTAndC] = useState(false);
 
-  const [status, setStatus] = useState(200);
+  const [status, setStatus] = useState();
 
   const FormBody = {
     fullName: FullName,
@@ -380,6 +380,8 @@ const Container = styled.div`
             justify-content: center;
           }
           button {
+            width: 216px;
+            text-align: center;
             display: inline-block;
             font: 600 var(--p-m);
             color: var(--dark-m);

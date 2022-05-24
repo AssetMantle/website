@@ -294,6 +294,9 @@ export const AboutContainer = styled.main`
             -ms-overflow-style: none; /* IE and Edge */
             scrollbar-width: none;
             width: 100%;
+            @media (max-width: 768px) {
+              min-height: 520px;
+            }
           }
           &_left_button,
           &_right_button {
@@ -349,7 +352,7 @@ export const AboutContainer = styled.main`
         padding: 40px;
       }
       @media (max-width: 548px) {
-        padding: 20px;
+        padding: 40px 20px;
       }
       h2 {
         font: 600 var(--h2);
