@@ -75,9 +75,14 @@ export default function Team() {
           />
         )}
       </div>
-      <div className="section_team__button">
-        <ButtonSecondary text={t("TEAM_BUTTON")} href={homeData.team.button.href} />
-      </div>
+      {teamMemberData.length > 4 && (
+        <div className="section_team__button">
+          <ButtonSecondary
+            text={t("TEAM_BUTTON")}
+            href={homeData.team.button.href}
+          />
+        </div>
+      )}
     </section>
   );
 }
