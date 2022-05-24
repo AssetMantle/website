@@ -9,28 +9,37 @@ export default function Featured() {
   const { t } = useTranslation();
 
   return (
-    <FeaturedContainer>
-      <h2 className="yellow-t">
-        <hr />
-        {t("FEATURED_TITLE")}
-        <hr />
-      </h2>
-      <div className="featured_in">
-        {React.Children.toArray(
-          FeaturedData.featured.news.map((data) => (
-            <a href={data.href} target="_blank" rel="noopener noreferrer">
-              <img
-                src={`/images/landing/${data.img}.png`}
-                alt={data.img}
-                className="featured_in__img"
-              />
-            </a>
-          ))
-        )}
-      </div>
-    </FeaturedContainer>
+    <ContainCenter>
+      <FeaturedContainer>
+        <h2 className="yellow-t">
+          <hr />
+          {t("FEATURED_TITLE")}
+          <hr />
+        </h2>
+        <div className="featured_in">
+          {React.Children.toArray(
+            FeaturedData.featured.news.map((data) => (
+              <a href={data.href} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={`/images/landing/${data.img}.png`}
+                  alt={data.img}
+                  className="featured_in__img"
+                />
+              </a>
+            ))
+          )}
+        </div>
+      </FeaturedContainer>
+    </ContainCenter>
   );
 }
+
+const ContainCenter = styled.section`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
 
 const FeaturedContainer = styled.div`
   background-image: url("/images/bg/gradient_bg.png");
