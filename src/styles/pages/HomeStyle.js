@@ -85,6 +85,7 @@ export const HomeContainer = styled.main`
         }
         h1 {
           font-size: 48px;
+          font-weight: 500;
           color: var(--yellow);
           margin: 0;
           @media (max-width: 768px) {
@@ -94,6 +95,7 @@ export const HomeContainer = styled.main`
         p {
           color: var(--gray-deep);
           font: var(--p-xl);
+          font-family: var(--font-primary);
           @media (max-width: 768px) {
             font: var(--p-l);
           }
@@ -574,6 +576,7 @@ export const HomeContainer = styled.main`
             }
             h2 {
               max-width: 150px;
+              font-weight: 600;
               @media (max-width: 548px) {
                 max-width: 100%;
               }
@@ -843,7 +846,7 @@ export const HomeContainer = styled.main`
         padding-top: 40px;
       }
       h2 {
-        font: var(--h2);
+        font: 600 var(--h2);
         color: var(--gray);
         margin-bottom: 8px;
         text-transform: capitalize;
