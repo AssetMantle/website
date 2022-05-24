@@ -439,8 +439,13 @@ export default function Nav() {
                 <>
                   {data.visibility && (
                     <NavLinkExt
-                      to={data.href}
                       className={data.disable && "disabled"}
+                      aria-disabled={data.disable}
+                      onClick={(e) =>
+                        data.disable
+                          ? e.preventDefault()
+                          : window.open(data.href, "_blank")
+                      }
                     >
                       <span>
                         {data.text}
@@ -459,6 +464,7 @@ export default function Nav() {
 }
 
 const NavContainer = styled.div`
+  font-family: var(--font-primary);
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -478,9 +484,6 @@ const NavContainer = styled.div`
     padding: 61px 59px;
     background: #171717;
     backdrop-filter: blur(4px);
-    @media (min-width: 1441px) {
-      margin-right: calc((100vw - 1440px) / 2);
-    }
     @media (max-width: 548px) {
       padding: 61px 20px 60px 40px;
       width: min(90%, 340px);
@@ -811,14 +814,15 @@ const NavLinkExt = styled(Link)`
       font: 600 var(--p-l);
     } */
   }
-  &.disabled {
-    color: var(--gray-deep);
-    span {
-      color: var(--yellow-disabled);
-    }
-  }
   &:hover {
     color: var(--gray);
     text-decoration: none;
+  }
+  &.disabled {
+    color: var(--gray-deep);
+    cursor: not-allowed;
+    span {
+      color: var(--yellow-disabled);
+    }
   }
 `;
