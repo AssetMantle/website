@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "What is AssetMantle ?",
+    "title": "What is AssetMantle?",
     "description": "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
     "image": "/images/about/hero.png",
     "image_alt": "token illustration"
