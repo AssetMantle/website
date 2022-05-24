@@ -189,7 +189,7 @@ export default function About() {
           </div>
         </section>
       </div>
-      <div className="smoothScrollElement center">
+      <div className="smoothScrollElement height-auto">
         <Footer />
       </div>
     </AboutContainer>
