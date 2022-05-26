@@ -55,11 +55,11 @@
   --font-primary: paralucent, sans-serif;
   --font-secondary: "Lato", sans-serif;
 
-  --h1: bold 36px/120% var(--font-primary);
-  --h2: bold 30px/120% var(--font-primary);
-  --h3: bold 24px/120% var(--font-primary);
-  --h4: bold 20px/120% var(--font-primary);
-  --h5: bold 18px/120% var(--font-primary);
+  --h1: 36px/120% var(--font-primary);
+  --h2: 30px/120% var(--font-primary);
+  --h3: 24px/120% var(--font-primary);
+  --h4: 20px/120% var(--font-primary);
+  --h5: 18px/120% var(--font-primary);
 
   --p-xl: 30px/120% var(--font-secondary);
   --p-l: 22px/120% var(--font-secondary);

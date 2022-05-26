@@ -14,7 +14,7 @@ export const FooterContainer = styled.footer`
   }
   padding-bottom: 20px;
   h2 {
-    font: var(--h2);
+    font: 600 var(--h2);
     color: var(--gray);
     margin-bottom: 16px;
     @media (max-width: 548px) {
@@ -40,15 +40,15 @@ export const FooterContainer = styled.footer`
       }
       @media (max-width: 548px) {
         grid-template-columns: 1fr;
-        gap: 100px;
+        gap: 64px;
       }
       &__element {
         h3 {
-          font: var(--h3);
+          font: 600 var(--h3);
           color: var(--gray);
         }
         h4 {
-          font: var(--h4);
+          font: 600 var(--h4);
           color: var(--gray);
         }
         p {
@@ -70,35 +70,39 @@ export const FooterContainer = styled.footer`
         &_email__tile {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 12px;
           padding: 12px 0;
           &_title {
             margin: 0;
             text-transform: capitalize;
+            font: 800 var(--p-s) !important;
           }
           &_email {
-            font: var(--p-m);
+            font: var(--p-xs);
             color: var(--gray-deep);
             text-decoration: none;
-            @media (max-width: 350px) {
+            /* @media (max-width: 350px) {
               font: var(--p-s);
-            }
+            } */
           }
         }
         &_2 {
           display: flex;
           flex-direction: column;
-          gap: 40px;
+          gap: 36px;
           justify-content: space-between;
           /* @media (max-width: 768px) {
             gap: 50px;
           } */
           @media (max-width: 548px) {
-            gap: 50px;
+            gap: 48px;
           }
           &__subscribe {
+            @media (min-width: 549px) {
+              padding-top: 50px;
+            }
             &_title {
-              font: var(--h3);
+              font: 600 var(--h3);
               color: var(--gray);
               padding-bottom: 16px;
             }
@@ -137,7 +141,7 @@ export const FooterContainer = styled.footer`
                 outline: none;
                 width: 59%;
                 flex: 1;
-                padding: 10px 10px 9px;
+                padding: 10px 16px 9px;
                 @media (max-width: 768px) {
                   width: 100%;
                 }
@@ -147,7 +151,7 @@ export const FooterContainer = styled.footer`
               }
               button {
                 display: inline;
-                font: 600 var(--p-m);
+                font: 600 var(--p-s);
                 color: var(--dark-m);
                 text-transform: capitalize;
                 background: var(--yellow-gradient-bg);
@@ -188,10 +192,10 @@ export const FooterContainer = styled.footer`
             &_link {
               margin: 0;
               padding: 8px 0;
-              font: var(--p-s);
+              font: var(--p-xs);
               color: var(--gray-deep);
               display: flex;
-              @media (max-width: 768px) {
+              @media (max-width: 362px) {
                 flex-direction: column;
               }
               &__button {
@@ -226,16 +230,19 @@ export const FooterContainer = styled.footer`
           &__logo {
             padding-top: 10px;
             width: min(274px, 100%);
+            @media (max-width: 548px) {
+              display: none;
+            }
             img {
               width: 100%;
             }
           }
           &_social {
-            padding-top: 36px;
             display: flex;
             flex-direction: column;
             gap: 16px;
             &__title {
+              font-weight: 600;
               color: var(--gray);
             }
             &__icons {
@@ -247,9 +254,35 @@ export const FooterContainer = styled.footer`
               @media (max-width: 768px) {
                 width: 90%;
               }
-              img {
+              &_icon {
                 width: 40px;
                 height: 40px;
+                font-size: 26px;
+                background-color: black;
+                border-radius: 50%;
+                text-decoration: none;
+                color: var(--gray);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover,
+                &:focus {
+                  color: var(--yellow);
+                }
+                &.github_icon {
+                  font-size: 40px;
+                  color: black;
+                  background-color: var(--gray);
+                  border: none;
+                  outline: none;
+                  & > * {
+                    transform: scale(1.1);
+                  }
+                  &:hover,
+                  &:focus {
+                    background-color: var(--yellow);
+                  }
+                }
               }
             }
           }
@@ -272,7 +305,7 @@ export const FooterContainer = styled.footer`
   .copy-right__footer {
     text-align: center;
     padding: 20px 20px 0;
-    font: var(--p-xs);
+    font: 600 var(--p-xs);
     color: var(--gray-deep);
   }
 `;

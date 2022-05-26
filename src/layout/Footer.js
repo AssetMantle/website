@@ -6,6 +6,15 @@ import { FooterContainer } from "../styles/layout/FooterStyle";
 
 import DATA from "../data/footerData.json";
 
+// icons
+import { BsTwitter } from "react-icons/bs";
+import {
+  FaDiscord,
+  FaInstagram,
+  FaTelegramPlane,
+  FaGithub,
+} from "react-icons/fa";
+
 import BugBountyModal from "../components/BugBountyModal";
 import SubscribeForm from "../components/SubscribeForm";
 import { RequestAFeature } from "../components/RequestAFeature";
@@ -24,6 +33,14 @@ const Footer = () => {
   //   e.preventDefault();
   //   console.log(email);
   // };
+
+  const Icons = {
+    twitter_icon: <BsTwitter />,
+    discord_icon: <FaDiscord />,
+    telegram_icon: <FaTelegramPlane />,
+    github_icon: <FaGithub />,
+    instagram_icon: <FaInstagram />,
+  };
 
   return (
     <FooterContainer>
@@ -96,17 +113,14 @@ const Footer = () => {
             <div className="footer_container__element_2_social__icons">
               {DATA.social.links &&
                 React.Children.toArray(
-                  DATA.social.links.map((data) => (
+                  DATA.social.links.map((data, index) => (
                     <a
-                      className="footer_container__element_2_social__icons_icon"
+                      className={`footer_container__element_2_social__icons_icon ${data.icon}`}
                       href={data.href && data.href}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
-                        src={`/images/icons/${data.icon && data.icon}.png`}
-                        alt={data.alt && data.alt}
-                      />
+                      {Icons[data.icon]}
                     </a>
                   ))
                 )}

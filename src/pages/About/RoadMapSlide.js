@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function RoadMapSlide({
   image,
   title = "Phase 00 UNEARTH",
-  list = ["sal;s","aosppas"],
+  list,
 }) {
   return (
     <Container>
@@ -45,15 +45,18 @@ const Container = styled.div`
       }
     }
     &_details {
+      @media (max-width: 768px) {
+        min-height: 520px;
+      }
       h1 {
-        font: var(--h1);
+        font: 600 var(--h1);
         color: var(--yellow);
         max-width: 190px;
         padding-bottom: 20px;
         padding: 0 !important;
       }
       ul {
-          padding-top: 24px;
+        padding-top: 24px;
         display: flex;
         flex-direction: column;
         gap: 20px;
