@@ -60,6 +60,7 @@ const FeaturedContainer = styled.div`
     position: relative;
     display: flex;
     gap: 8px;
+    letter-spacing: 0.08em;
     hr {
       margin: auto 0;
       background: radial-gradient(
