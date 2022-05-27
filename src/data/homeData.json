@@ -47,7 +47,7 @@
     "visibility": true,
     "image": "token_ills.png",
     "title": "MantleDrop ($MNTL Airdrop)",
-    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL).",
+    "description": "Head over to the airdrop page to claim Mantle tokens ($MNTL)",
     "button": {
       "title": "Check Airdrops",
       "href": "https://airdrop.assetmantle.one/"
@@ -132,7 +132,7 @@
       "Earn rewards by trading NFTs",
       "Wallet agnosticism",
       "Truly interoperable NFTs",
-      "Fractionalized Ownership",
+      "Fractionalized ownership",
       "Engage with creators in TradeRoom",
       "Intuitive user experience"
     ],
@@ -175,7 +175,7 @@
   "whitepaper": {
     "visibility": true,
     "title": "Need To Know More?",
-    "description": "Read the AssetMantle whitepaper or download our Litepaper",
+    "description": "Read the AssetMantle whitepaper or download our litepaper",
     "button": {
       "title": "Whitepaper",
       "href": "https://docs.assetmantle.one/AssetMantle_Whitepaper/"
@@ -213,8 +213,12 @@
       {
         "id": "what-is-mantle-builder",
         "q": "What is MantleBuilder?",
-        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder here: ",
-        "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder ",
+        "link": {
+          "text": "here",
+          "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
+        },
+        "afterLink": ".]"
       },
       {
         "id": "what-is-ibc-protocol",

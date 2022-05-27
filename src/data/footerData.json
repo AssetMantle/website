@@ -4,9 +4,9 @@
     "description": "Have something to say to the Mantle team?",
     "emailDescription1": "For Information And Support:",
     "email1": "hello@assetmantle.one",
-    "emailDescription2": "For Collaboration And Interests",
+    "emailDescription2": "For Collaboration And Interests:",
     "email2": "communications@assetmantle.one",
-    "subscriptionTitle": "Join our Whitelist",
+    "subscriptionTitle": "Subscribe To MantleLetter",
     "bugBountyLabel": "Spotted something wrong?",
     "featureLabel": "Have something in mind?",
     "blogLabel": "Want to know what we're upto?",
@@ -14,7 +14,7 @@
     "docsLabel": "Want to know more?",
     "docsLink": "https://docs.assetmantle.one/",
     "explorerLabel": "Interested in transaction activities?",
-    "explorerLink": "https://test-mantle-1.explorer.persistence.one"
+    "explorerLink": "https://explorer.assetmantle.one/"
   },
   "social": {
     "title": "Social Media",
