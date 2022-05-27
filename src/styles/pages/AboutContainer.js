@@ -81,6 +81,7 @@ export const AboutContainer = styled.main`
           color: var(--yellow);
           padding: 12px 0;
           text-transform: capitalize;
+          letter-spacing: 0.08em;
           max-width: 335px;
           @media (max-width: 548px) {
             font: var(--h2);
@@ -181,6 +182,7 @@ export const AboutContainer = styled.main`
         h1 {
           font: 600 var(--h1);
           color: var(--yellow);
+          letter-spacing: 0.08em;
         }
         p {
           text-align: left;
@@ -217,6 +219,8 @@ export const AboutContainer = styled.main`
           font: var(--h2);
           color: var(--gray);
           margin-bottom: 24px;
+          letter-spacing: 0.08em;
+          font-feature-settings: "kern" off;
           @media (max-width: 548px) {
             margin-bottom: 30px;
           }
@@ -259,6 +263,7 @@ export const AboutContainer = styled.main`
         font: 600 var(--h1);
         color: var(--yellow);
         padding: 80px 92px 24px;
+        letter-spacing: 0.08em;
         @media (max-width: 768px) {
           padding: 40px;
         }
@@ -359,6 +364,7 @@ export const AboutContainer = styled.main`
         color: var(--yellow);
         margin-bottom: 8px;
         text-transform: capitalize;
+        letter-spacing: 0.08em;
         + p {
           font: var(--p-l);
           color: var(--gray-deep);
