@@ -17,6 +17,7 @@ export const FooterContainer = styled.footer`
     font: 600 var(--h2);
     color: var(--gray);
     margin-bottom: 16px;
+    letter-spacing: 0.08em;
     @media (max-width: 548px) {
       margin-bottom: 24px;
     }
@@ -199,7 +200,7 @@ export const FooterContainer = styled.footer`
                 flex-direction: column;
               }
               &__button {
-                font: var(--p-s);
+                font: var(--p-xs);
                 background-color: transparent;
                 border: none;
                 outline: none;
