@@ -21,7 +21,11 @@ const Faq = () => {
       id: homeData.faq.qas[2].id,
       q: t("FAQ_QUESTION_3"),
       a: t("FAQ_ANSWER_3"),
-      link: homeData.faq.qas[2].link,
+      link: {
+        text: "here",
+        link: homeData.faq.qas[2].link.link,
+      },
+      afterLink: ".]",
     },
     {
       id: homeData.faq.qas[3].id,
@@ -43,8 +47,8 @@ const Faq = () => {
         t("FAQ_ANSWER_5_LI_8"),
         t("FAQ_ANSWER_5_LI_9"),
         t("FAQ_ANSWER_5_LI_10"),
-        t("FAQ_ANSWER_5_LI_11"),
       ],
+      afterList: t("FAQ_ANSWER_5_LI_11"),
     },
   ];
 
@@ -61,6 +65,8 @@ const Faq = () => {
               details={faq.a}
               list={faq.list && faq.list}
               link={faq.link && faq.link}
+              afterLink={faq.afterLink && faq.afterLink}
+              afterList={faq.afterList && faq.afterList}
             />
           ))
         )}
