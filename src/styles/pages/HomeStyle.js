@@ -87,6 +87,7 @@ export const HomeContainer = styled.main`
           font-size: 48px;
           font-weight: 500;
           color: var(--yellow);
+          letter-spacing: 0.08em;
           margin: 0;
           @media (max-width: 768px) {
             font-size: 40px;
@@ -96,6 +97,7 @@ export const HomeContainer = styled.main`
           color: var(--gray-deep);
           font: var(--p-xl);
           font-family: var(--font-primary);
+          letter-spacing: 0.08em;
           @media (max-width: 768px) {
             font: var(--p-l);
           }
@@ -160,6 +162,7 @@ export const HomeContainer = styled.main`
           h2 {
             font: var(--h2);
             color: var(--gray);
+            letter-spacing: 0.08em;
             margin-bottom: 8px;
           }
           p {
@@ -194,6 +197,8 @@ export const HomeContainer = styled.main`
         font: var(--h2);
         color: var(--gray);
         text-align: center;
+        letter-spacing: 0.08em;
+        font-feature-settings: "kern" off;
         a {
           color: var(--yellow);
           text-decoration: none;
@@ -245,6 +250,7 @@ export const HomeContainer = styled.main`
           color: var(--gray);
           text-align: center;
           max-width: 287px;
+          letter-spacing: 0.08em;
           @media (max-width: 768px) {
             font: var(--h3);
           }
@@ -299,6 +305,8 @@ export const HomeContainer = styled.main`
             font: var(--h2);
             color: var(--gray);
             margin-bottom: 24px;
+            letter-spacing: 0.08em;
+            font-feature-settings: "kern" off;
           }
           p {
             font: var(--p-l);
@@ -366,6 +374,8 @@ export const HomeContainer = styled.main`
           font: var(--h2);
           color: var(--gray);
           margin-bottom: 16px;
+          letter-spacing: 0.08em;
+          font-feature-settings: "kern" off;
         }
         p {
           font: var(--p-l);
@@ -416,6 +426,8 @@ export const HomeContainer = styled.main`
         font: var(--h2);
         color: var(--gray);
         margin-bottom: 24px;
+        letter-spacing: 0.08em;
+        font-feature-settings: "kern" off;
         @media (max-width: 548px) {
           margin-bottom: 30px;
         }
@@ -453,6 +465,7 @@ export const HomeContainer = styled.main`
               width: max-content;
               cursor: pointer;
               opacity: 0.5;
+              letter-spacing: 0.08em;
               &.active {
                 opacity: 1;
                 border-bottom: 3px solid var(--yellow);
@@ -516,6 +529,7 @@ export const HomeContainer = styled.main`
           h3 {
             font: var(--h3);
             color: var(--gray);
+            letter-spacing: 0.08em;
           }
           p {
             font: var(--p-m);
@@ -541,6 +555,8 @@ export const HomeContainer = styled.main`
         font: var(--h2);
         color: var(--gray);
         margin-bottom: 16px;
+        letter-spacing: 0.08em;
+        font-feature-settings: "kern" off;
       }
       p {
         font: var(--p-l);
@@ -577,6 +593,7 @@ export const HomeContainer = styled.main`
             h2 {
               max-width: 150px;
               font-weight: 600;
+              letter-spacing: 0.08em;
               @media (max-width: 548px) {
                 max-width: 100%;
               }
@@ -617,6 +634,8 @@ export const HomeContainer = styled.main`
         font: var(--h2);
         color: var(--gray);
         margin-bottom: 24px;
+        letter-spacing: 0.08em;
+        font-feature-settings: "kern" off;
       }
       p {
         font: var(--p-l);
@@ -668,10 +687,11 @@ export const HomeContainer = styled.main`
             }
           }
           h3 {
-            font: var(--h3);
+            font: 600 var(--h3);
             color: var(--gray);
             margin-bottom: 24px;
             text-transform: capitalize;
+            letter-spacing: 0.08em;
           }
           p {
             font: var(--p-m);
@@ -742,6 +762,8 @@ export const HomeContainer = styled.main`
           font: var(--h2);
           color: var(--gray);
           margin-bottom: 24px;
+          letter-spacing: 0.08em;
+          font-feature-settings: "kern" off;
         }
         p {
           font: var(--p-l);
@@ -793,6 +815,8 @@ export const HomeContainer = styled.main`
           font: var(--h2);
           color: var(--gray);
           margin-bottom: 24px;
+          letter-spacing: 0.08em;
+          font-feature-settings: "kern" off;
           @media (max-width: 548px) {
             margin-bottom: 30px;
           }
@@ -835,8 +859,7 @@ export const HomeContainer = styled.main`
       gap: 48px;
     }
     &_team {
-      padding: 100px 80px;
-      padding-top: 70px;
+      padding: 100px 80px 60px;
       @media (max-width: 768px) {
         padding: 40px;
         padding-top: 60px;
@@ -850,6 +873,8 @@ export const HomeContainer = styled.main`
         color: var(--gray);
         margin-bottom: 8px;
         text-transform: capitalize;
+        letter-spacing: 0.08em;
+        font-feature-settings: "kern" off;
         + p {
           font: var(--p-l);
           color: var(--gray-deep);
@@ -886,9 +911,10 @@ export const HomeContainer = styled.main`
         padding: 60px 28px;
       }
       h2 {
-        font: var(--h2);
+        font: 600 var(--h2);
         color: var(--gray);
         margin-bottom: 24px;
+        letter-spacing: 0.08em;
       }
       & > p {
         font: var(--p-l);
@@ -899,285 +925,6 @@ export const HomeContainer = styled.main`
       details {
         &:not(:last-child) {
           border-bottom: 1px solid var(--dark-s);
-        }
-      }
-    }
-    &_stores {
-      padding: 60px 92px;
-      @media (max-width: 768px) {
-        padding: 60px 40px;
-      }
-      @media (max-width: 548px) {
-        padding: 60px 28px;
-      }
-      h2 {
-        font: var(--h2);
-        color: var(--gray);
-        margin-bottom: 24px;
-      }
-      p {
-        font: var(--p-l);
-        color: var(--gray-deep);
-        margin-bottom: 80px;
-        max-width: 936px;
-      }
-      h3 {
-        font: var(--h3);
-        color: var(--gray);
-        margin: 40px 0;
-        &.section_stores__title {
-          position: relative;
-          span {
-            position: absolute;
-            top: -150px;
-          }
-        }
-      }
-      &__element {
-        /* display: grid; */
-        /* grid-template-columns: repeat(4, 1fr); */
-        /* gap: 24px; */
-        padding-bottom: 20px;
-        width: 100%;
-        @media (max-width: 768px) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        @media (max-width: 548px) {
-          grid-template-columns: 1fr;
-        }
-        li.splide__slide {
-          width: 30%;
-          min-height: 435.859px;
-          display: flex;
-        }
-        button {
-          &.splide__arrow {
-            background-color: transparent;
-            background-image: url("/images/landing/triangle.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            top: 50%;
-            height: 20px;
-            aspect-ratio: 4/3;
-            border-radius: 0;
-            &.splide__arrow--prev {
-              left: -24px;
-            }
-            &.splide__arrow--next {
-              right: -24px;
-              transform: rotate(180deg);
-              top: 46.9%;
-            }
-            svg {
-              opacity: 0;
-            }
-          }
-        }
-      }
-    }
-    &_w__nft {
-      padding: 80px 92px 0px;
-      @media (max-width: 768px) {
-        padding: 80px 40px 0px;
-      }
-      @media (max-width: 548px) {
-        padding: 80px 28px 0px;
-      }
-      position: relative;
-      &__link_span {
-        position: absolute;
-        top: -150px;
-      }
-      h2 {
-        font: var(--h2);
-        color: var(--gray);
-        margin-bottom: 24px;
-      }
-      p {
-        font: var(--p-l);
-        color: var(--gray-deep);
-        max-width: 936px;
-        margin-bottom: 60px;
-      }
-      h3 {
-        font: var(--h3);
-        color: var(--gray);
-        padding-bottom: 38px;
-      }
-      &.section_w__nft_button {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 80px 92px 60px;
-        @media (max-width: 768px) {
-          padding: 50px 40px 60px;
-        }
-        @media (max-width: 548px) {
-          padding: 50px 20px 60px;
-        }
-        & > a {
-          @media (max-width: 548px) {
-            width: 100%;
-            text-align: center;
-          }
-        }
-      }
-    }
-    &_pricing {
-      padding: 60px 92px;
-      @media (max-width: 768px) {
-        padding: 80px 40px 60px;
-      }
-      @media (max-width: 548px) {
-        padding: 60px 28px;
-      }
-      position: relative;
-      &__link_span {
-        position: absolute;
-        top: -150px;
-      }
-      h2 {
-        font: var(--h2);
-        color: var(--gray);
-        margin-bottom: 24px;
-      }
-      p {
-        font: var(--p-l);
-        color: var(--gray-deep);
-        margin-bottom: 80px;
-        max-width: 936px;
-      }
-      &__body {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        @media (max-width: 548px) {
-          grid-template-columns: 1fr;
-        }
-        &_element__left {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          &_content {
-            font: var(--h3);
-            color: var(--gray);
-            @media (max-width: 548px) {
-              font: var(--h4);
-            }
-          }
-        }
-        &_element__right {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          h1 {
-            font: var(--h1);
-            color: var(--gray);
-            margin: 0;
-            @media (max-width: 548px) {
-              font: var(--h2);
-            }
-            &:nth-child(2) {
-              margin-top: 8px;
-              color: var(--yellow);
-              @media (max-width: 548px) {
-                font: var(--h3);
-              }
-            }
-          }
-        }
-      }
-      &__button {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 80px;
-        & > a {
-          @media (max-width: 548px) {
-            width: 100%;
-            text-align: center;
-          }
-        }
-      }
-    }
-    &_testimonial {
-      padding: 60px 92px;
-      @media (max-width: 768px) {
-        padding: 70px 40px;
-      }
-      @media (max-width: 548px) {
-        padding: 60px 28px;
-      }
-      h2 {
-        font: var(--h2);
-        color: var(--gray);
-        margin-bottom: 24px;
-      }
-      p {
-        font: var(--p-l);
-        color: var(--gray-deep);
-        max-width: 936px;
-        margin-bottom: 59px;
-      }
-      &_slick {
-        li.splide__slide {
-          width: 50%;
-        }
-        button {
-          &.splide__arrow {
-            background-color: transparent;
-            background-image: url("/images/landing/triangle.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            top: 50%;
-            height: 20px;
-            aspect-ratio: 4/3;
-            border-radius: 0;
-            &.splide__arrow--prev {
-              left: -24px;
-            }
-            &.splide__arrow--next {
-              right: -24px;
-              transform: rotate(180deg);
-              top: 46.9%;
-            }
-            svg {
-              opacity: 0;
-            }
-          }
-        }
-      }
-    }
-    &_source {
-      padding: 60px 92px;
-      margin-top: 20px;
-      position: relative;
-      @media (max-width: 768px) {
-        padding: 40px;
-      }
-      @media (max-width: 548px) {
-        padding: 40px 20px;
-      }
-      span {
-        position: absolute;
-        top: -150px;
-        @media (max-width: 548px) {
-          top: -120px;
-        }
-      }
-      p {
-        font: 600 var(--p-m);
-        color: var(--gray-deep);
-        text-align: right;
-        max-width: 100%;
-        a {
-          color: var(--gray-deep);
-          text-decoration: none;
-          word-break: break-all;
         }
       }
     }

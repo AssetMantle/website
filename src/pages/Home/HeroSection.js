@@ -211,6 +211,22 @@ const Slide = styled.div`
   .swiper-button-next,
   .swiper-button-prev {
     color: var(--yellow);
+    @media (min-width: 549px) {
+      height: 62px;
+      width: 62px;
+      background-image: url("/images/landing/hero/left.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+  .swiper-button-next {
+    @media (min-width: 549px) {
+      background-image: url("/images/landing/hero/right.svg");
+    }
   }
 `;
 

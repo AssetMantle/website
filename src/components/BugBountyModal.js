@@ -189,6 +189,9 @@ const Container = styled.div`
     background-color: var(--dark-xs);
     padding: 40px;
     border-radius: 20px;
+    @media (min-height: 768px) {
+      height: max-content;
+    }
     @media (max-width: 548px) {
       padding: 20px;
     }

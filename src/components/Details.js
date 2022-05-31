@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AiFillCaretDown } from "react-icons/ai";
 
-const Details = ({ id, title, details, list, link }) => {
+const Details = ({ id, title, details, list, link, afterLink, afterList }) => {
   return (
     <Container tabIndex="0">
       <span className="faq__link_span" id={id}></span>
@@ -16,19 +16,26 @@ const Details = ({ id, title, details, list, link }) => {
         {details}{" "}
         {link && (
           <>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {link}
+            <a
+              href={link.link && link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.text && link.text}
             </a>
-            .
           </>
         )}
+        {afterLink && afterLink}
       </p>
       {list && (
-        <ul>
-          {list.map((item, index) => (
-            <li key={index}>  {item}</li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {list.map((item, index) => (
+              <li key={index}> {item}</li>
+            ))}
+          </ul>
+          <p>{afterList && afterList}</p>
+        </>
       )}
     </Container>
   );
@@ -50,6 +57,7 @@ const Container = styled.details`
     outline: none;
     color: var(--gray);
     list-style: none;
+    letter-spacing: 0.08em;
     &::-webkit-details-marker {
       display: none;
     }
@@ -82,11 +90,12 @@ const Container = styled.details`
     font: var(--p-s);
     li {
       padding: 5px 0;
-      &:not(:last-child) {
-        &::before {
-          content: "-";
-        }
+      &::before {
+        content: "-";
       }
+    }
+    & + p {
+      font: var(--p-s);
     }
   }
   &[open] {

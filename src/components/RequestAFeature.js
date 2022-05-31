@@ -189,6 +189,9 @@ const Container = styled.div`
     background-color: var(--dark-xs);
     padding: 40px;
     border-radius: 20px;
+    @media (min-height: 768px) {
+      height: max-content;
+    }
     @media (max-width: 548px) {
       padding: 20px;
     }
@@ -262,6 +265,8 @@ const Container = styled.div`
         align-items: flex-start;
         justify-content: flex-end;
         button {
+          width: 216px;
+          text-align: center;
           display: inline;
           font: 600 var(--p-m);
           color: var(--dark-m);
