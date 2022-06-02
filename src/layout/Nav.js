@@ -17,7 +17,7 @@ import { GrReddit } from "react-icons/gr";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { CgArrowTopRight } from "react-icons/cg";
 
-export default function Nav() {
+export default function Nav({ setCloseNav }) {
   const { t } = useTranslation();
 
   const location = useLocation();
@@ -48,6 +48,11 @@ export default function Nav() {
 
   return (
     <NavContainer>
+      <div
+        className="full"
+        onClick={() => setCloseNav(false)}
+        onKeyPress={(e) => e.key === "Enter" && setCloseNav(false)}
+      ></div>
       <div className="nav__container">
         <div className="nav__container_box">
           {DATA &&
@@ -440,17 +445,19 @@ export default function Nav() {
                   {data.visibility && (
                     <NavLinkExt
                       className={data.disable && "disabled"}
-                      aria-disabled={data.disable}
+                      aria-disabled={data.disable && data.disable}
                       onClick={(e) =>
                         data.disable
                           ? e.preventDefault()
                           : window.open(data.href, "_blank")
                       }
                     >
-                      <span>
+                      <p>
                         {data.text}
-                        {data.icon === "external-link" && <CgArrowTopRight />}
-                      </span>
+                        <span>
+                          {data.icon === "external-link" && <CgArrowTopRight />}
+                        </span>
+                      </p>
                       {data.instruction}
                     </NavLinkExt>
                   )}
@@ -477,6 +484,11 @@ const NavContainer = styled.div`
   backdrop-filter: blur(7px);
   display: flex;
   justify-content: flex-end;
+  .full {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
   .nav__container {
     position: relative;
     height: 100%;
@@ -825,14 +837,24 @@ const NavLinkExt = styled(Link)`
   /* @media (max-width: 548px) {
     font: 600 var(--p-xs);
   } */
-  span {
+  p {
     font: 400 22px/120% var(--font-primary);
     letter-spacing: 0.08em;
     text-transform: capitalize;
     color: var(--yellow);
+    display: flex;
+    align-items: flex-end;
     /* @media (max-width: 548px) {
       font: 600 var(--p-l);
     } */
+    span {
+      font-size: 30px;
+      display: flex;
+      align-items: flex-end;
+      & > svg {
+        margin-bottom: 2px;
+      }
+    }
   }
   &:hover {
     color: var(--gray);
@@ -841,7 +863,7 @@ const NavLinkExt = styled(Link)`
   &.disabled {
     color: var(--gray-deep);
     cursor: not-allowed;
-    span {
+    p {
       color: var(--yellow-disabled);
     }
   }
