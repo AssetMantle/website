@@ -66,6 +66,7 @@ export const FooterContainer = styled.footer`
           }
           &__title {
             margin: auto 0 !important;
+            letter-spacing: 0.08em;
           }
         }
         &_email__tile {
@@ -252,6 +253,7 @@ export const FooterContainer = styled.footer`
             &__title {
               font-weight: 600;
               color: var(--gray);
+              letter-spacing: 0.08em;
             }
             &__icons {
               display: flex;
