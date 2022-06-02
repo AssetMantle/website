@@ -71,7 +71,7 @@ export default function HeroSection() {
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 135,
+              depth: 100,
               modifier: 2,
               slideShadows: false,
             }}
@@ -212,25 +212,39 @@ const Slide = styled.div`
   .swiper-button-prev {
     color: var(--yellow);
     @media (min-width: 549px) {
-      height: 271px;
-      top: 21%;
+      height: 300px;
+      top: 18%;
       left: 0;
       right: auto;
       width: 130px;
-      background-image: url("/images/landing/hero/left.svg");
-      background-position: center;
-      background-repeat: no-repeat;
+      background-image: url("/images/landing/hero/left-bg.png");
+      background-position: top left;
+      background-repeat: no-repeat repeat;
       background-size: contain;
+      display: flex;
+      justify-content: flex-start;
       &::after {
-        opacity: 0;
+        content: "";
+        margin-left: 29px;
+        width: 24.02px;
+        height: 58.45px;
+        background-image: url("/images/landing/hero/left.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
     }
   }
   .swiper-button-next {
     @media (min-width: 549px) {
-      background-image: url("/images/landing/hero/right.svg");
+      background-image: url("/images/landing/hero/right-bg.png");
       left: auto;
       right: 0;
+      justify-content: flex-end;
+      &::after {
+        margin-right: 29px;
+        background-image: url("/images/landing/hero/right.svg");
+      }
     }
   }
 `;
