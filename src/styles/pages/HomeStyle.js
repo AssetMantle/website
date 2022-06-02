@@ -492,7 +492,7 @@ export const HomeContainer = styled.main`
           }
         }
         &_content {
-          width: 172px;
+          width: 193px;
           display: flex;
           flex-direction: column;
           text-align: center;
