@@ -391,7 +391,7 @@ function Header({ theme = false, setTheme }) {
           )}
         </NavIcon>
       </div>
-      {navToggler && <Nav />}
+      {navToggler && <Nav setCloseNav={setNavToggler} />}
     </HeaderContainer>
   );
 }
