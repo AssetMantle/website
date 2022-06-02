@@ -9,14 +9,17 @@ const ServicesSection = () => {
   return (
     <section className="section_services">
       <div className="section_services__element">
-        <img src={`/images/landing/section/${DATA.imgType}/bags.${DATA.imgType}`} alt="bags  illustration" />
+        <img
+          src={`/images/landing/section/${DATA.imgType}/bags.${DATA.imgType}`}
+          alt="bags  illustration"
+        />
         <div className="section_services__element_details">
           <h2>{t("SERVICES_2_TITLE")}</h2>
           <p>{t("SERVICES_2_DESCRIPTION")}</p>
           <ButtonPrimary
-            href={DATA.services.rightHref && DATA.services.rightHref}
+            href={DATA.services.shopHref && DATA.services.shopHref}
+            targetBlank
             text={t("SERVICES_2_BUTTONTEXT")}
-            comingSoon={true}
           />
         </div>
       </div>

@@ -71,7 +71,7 @@ export default function HeroSection() {
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 100,
+              depth: 135,
               modifier: 2,
               slideShadows: false,
             }}
@@ -212,8 +212,11 @@ const Slide = styled.div`
   .swiper-button-prev {
     color: var(--yellow);
     @media (min-width: 549px) {
-      height: 62px;
-      width: 62px;
+      height: 271px;
+      top: 21%;
+      left: 0;
+      right: auto;
+      width: 130px;
       background-image: url("/images/landing/hero/left.svg");
       background-position: center;
       background-repeat: no-repeat;
@@ -226,6 +229,8 @@ const Slide = styled.div`
   .swiper-button-next {
     @media (min-width: 549px) {
       background-image: url("/images/landing/hero/right.svg");
+      left: auto;
+      right: 0;
     }
   }
 `;

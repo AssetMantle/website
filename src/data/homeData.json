@@ -10,7 +10,7 @@
     "shopTitle": "Start Shopping",
     "shopDesc": "Explore verified NFT collections",
     "shopBtnText": "MantlePlace",
-    "shopHref": "",
+    "shopHref": "https://marketplace.assetmantle.one/",
     "buildTitle": "Build Your Store",
     "buildDesc": "Fully customizable store builder",
     "buildBtnText": "MantleBuilder",
@@ -213,12 +213,12 @@
       {
         "id": "what-is-mantle-builder",
         "q": "What is MantleBuilder?",
-        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. [Read more about MantleBuilder ",
+        "a": "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It’s simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. Read more about MantleBuilder ",
         "link": {
           "text": "here",
           "link": "https://docs.assetmantle.one/MantleBuilder_Overview"
         },
-        "afterLink": ".]"
+        "afterLink": "."
       },
       {
         "id": "what-is-ibc-protocol",

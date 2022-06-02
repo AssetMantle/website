@@ -191,7 +191,8 @@ const Footer = () => {
       </div>
       <hr className="bottom__line" />
       <div className="copy-right__footer">
-        &copy; AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
+        &copy; AssetMantle {new Date().getFullYear()} -{" "}
+        {t("FOOTER_RIGHT_RESERVED")}{" "}
       </div>
       {bugBountyModalStat === true && (
         <BugBountyModal closeModal={setBugBountyModalStat} />

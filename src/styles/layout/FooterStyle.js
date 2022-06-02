@@ -35,7 +35,7 @@ export const FooterContainer = styled.footer`
     &_container {
       display: grid;
       grid-template-columns: 2fr 3fr 2fr;
-      gap: 80px;
+      gap: 94px;
       @media (max-width: 768px) {
         grid-template-columns: 1fr 1fr;
       }
@@ -106,6 +106,7 @@ export const FooterContainer = styled.footer`
               font: 600 var(--h3);
               color: var(--gray);
               padding-bottom: 16px;
+              letter-spacing: 0.08em;
             }
             &_label {
               font: var(--p-s) !important;
@@ -190,6 +191,9 @@ export const FooterContainer = styled.footer`
           &__links {
             display: flex;
             flex-direction: column;
+            @media (min-width: 769px) {
+              margin-left: auto;
+            }
             &_link {
               margin: 0;
               padding: 8px 0;
@@ -231,6 +235,9 @@ export const FooterContainer = styled.footer`
           &__logo {
             padding-top: 10px;
             width: min(274px, 100%);
+            @media (min-width: 769px) {
+              margin-left: auto;
+            }
             @media (max-width: 548px) {
               display: none;
             }
@@ -295,7 +302,7 @@ export const FooterContainer = styled.footer`
     background: #383838;
     width: 100%;
     margin-top: 20px;
-    height: 4px;
+    height: 2px;
     border: none;
     outline: none;
     box-shadow: 1.41818px 1.41818px 2.83636px rgba(0, 0, 0, 0.2),

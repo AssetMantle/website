@@ -22,10 +22,10 @@ const Faq = () => {
       q: t("FAQ_QUESTION_3"),
       a: t("FAQ_ANSWER_3"),
       link: {
-        text: "here",
+        text: homeData.faq.qas[2].link.text,
         link: homeData.faq.qas[2].link.link,
       },
-      afterLink: ".]",
+      afterLink: homeData.faq.qas[2].afterLink,
     },
     {
       id: homeData.faq.qas[3].id,

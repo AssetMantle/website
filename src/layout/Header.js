@@ -133,7 +133,7 @@ function Header({ theme = false, setTheme }) {
                       {React.Children.toArray(
                         FAQ.map((data) => (
                           <a
-                            href={`#${data.id}`}
+                            href={`/#${data.id}`}
                             className="header__right_second__nav_buttons__drop_down__grid_element__body_link"
                           >
                             {data.question}

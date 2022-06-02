@@ -547,7 +547,9 @@ const NavContainer = styled.div`
             align-items: flex-start;
             flex-direction: column;
             gap: 24px;
-            font: 600 22px/120% "Lato", sans-serif;
+            font: 600 22px/120% var(--font-primary);
+            letter-spacing: 0.08em;
+            text-transform: capitalize;
             color: var(--header-color);
             /* padding: 25px 4px 20px; */
             padding: 0px 4px;
@@ -692,7 +694,9 @@ const NavLink = styled(Link)`
   align-items: center;
   width: max-content;
   padding: 4px;
-  font: 600 22px/120% "Lato", sans-serif;
+  font: 400 22px/120% var(--font-primary);
+  letter-spacing: 0.08em;
+  text-transform: capitalize;
   color: var(--gray);
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -706,7 +710,9 @@ const NavLink = styled(Link)`
   } */
   &.active {
     border-bottom: 3px solid var(--yellow);
-    font: 600 26px/120% "Lato", sans-serif;
+    font: 600 26px/120% var(--font-primary);
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
     margin-bottom: 8px;
   }
   &:hover {
@@ -719,7 +725,9 @@ const NavLinkA = styled.a`
   align-items: center;
   width: max-content;
   padding: 4px;
-  font: 600 22px/120% "Lato", sans-serif;
+  font: 400 22px/120% var(--font-primary);
+  letter-spacing: 0.08em;
+  text-transform: capitalize;
   color: var(--gray);
   border-bottom: 3px solid transparent;
   text-decoration: none;
@@ -733,7 +741,9 @@ const NavLinkA = styled.a`
   } */
   &.active {
     border-bottom: 3px solid var(--yellow);
-    font: 600 26px/120% "Lato", sans-serif;
+    font: 600 26px/120% var(--font-primary);
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
     margin-bottom: 8px;
   }
   &:hover {
@@ -748,7 +758,9 @@ const NavDetails = styled.div`
     align-items: center;
     width: max-content;
     padding: 4px;
-    font: 600 22px/120% "Lato", sans-serif;
+    font: 400 22px/120% var(--font-primary);
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
     color: var(--gray);
     border-bottom: 3px solid transparent;
     text-decoration: none;
@@ -770,7 +782,9 @@ const NavDetails = styled.div`
     } */
     &.active {
       border-bottom: 3px solid var(--yellow);
-      font: 600 26px/120% "Lato", sans-serif;
+      font: 600 26px/120% var(--font-primary);
+      letter-spacing: 0.08em;
+      text-transform: capitalize;
       margin-bottom: 8px;
     }
     &:hover {
@@ -790,6 +804,7 @@ const NavDetails = styled.div`
     }
     &.active {
       display: flex;
+      font-weight: 600;
     }
   }
 `;
@@ -800,15 +815,20 @@ const NavLinkExt = styled(Link)`
   gap: 8px;
   padding: 7px 4px;
   width: max-content;
-  font: 600 16px/120% "Lato", sans-serif;
+  font: 400 16px/120% var(--font-primary);
+  letter-spacing: 0.08em;
+  text-transform: capitalize;
   color: var(--gray);
   border-bottom: 3px solid transparent;
   text-decoration: none;
+  cursor: pointer;
   /* @media (max-width: 548px) {
     font: 600 var(--p-xs);
   } */
   span {
-    font: 600 22px/120% "Lato", sans-serif;
+    font: 400 22px/120% var(--font-primary);
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
     color: var(--yellow);
     /* @media (max-width: 548px) {
       font: 600 var(--p-l);
