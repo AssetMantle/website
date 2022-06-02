@@ -309,6 +309,7 @@ const English = {
     FOOTER_BLOG_LABEL: footerData.contents.blogLabel,
     FOOTER_DOCS_LABEL: footerData.contents.docsLabel,
     FOOTER_EXPLORER_LABEL: footerData.contents.explorerLabel,
+    FOOTER_RIGHT_RESERVED: footerData.contents.reserved,
 
     // footer modals
     // Bug Bounty Modal
@@ -394,7 +395,7 @@ const English = {
     TRACKING: "Tracking",
     VIEW: "View",
     WALLET: "Wallet",
-    WHAT_IS_ASSETMANTLE: "What is AssetMantle",
+    WHAT_IS_ASSETMANTLE: "What is AssetMantle?",
     WHITEPAPER: "Whitepaper",
   },
 };
