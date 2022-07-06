@@ -92,6 +92,15 @@
       },
       {
         "visibility": true,
+        "disable": false,
+        "target": "blank",
+        "text": "MantlePlace Web3 (devnet)",
+        "instruction": "",
+        "href": "https://devnet.assetmantle.one/",
+        "icon": "external-link"
+      },
+      {
+        "visibility": true,
         "disable": true,
         "target": "blank",
         "text": "MantleBuilder",
