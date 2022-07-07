@@ -85,7 +85,7 @@
         "visibility": true,
         "disable": false,
         "target": "blank",
-        "text": "Mantleplace",
+        "text": "MantlePlace",
         "instruction": "",
         "href": "https://marketplace.assetmantle.one/",
         "icon": "external-link"
@@ -94,7 +94,7 @@
         "visibility": true,
         "disable": false,
         "target": "blank",
-        "text": "MantlePlace Web3 (devnet)",
+        "text": "Devnet",
         "instruction": "",
         "href": "https://devnet.assetmantle.one/",
         "icon": "external-link"
