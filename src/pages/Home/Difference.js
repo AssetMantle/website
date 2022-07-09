@@ -24,7 +24,7 @@ const Difference = () => {
     {
       img: "complete_customization",
       title: t("ASSETMANTLE_DIFFERENCE_LIST_4_TITLE"),
-      description: t("ASSETMANTLE_DIFFERENCE_LIST_1_DESC"),
+      description: t("ASSETMANTLE_DIFFERENCE_LIST_4_DESC"),
     },
   ];
 
@@ -42,7 +42,9 @@ const Difference = () => {
             CONTENTS.map((data) => (
               <div className="section__am_diff__element_content">
                 <img
-                  src={`/images/landing/section/${DATA.imgType}/${data.img && data.img}.${DATA.imgType}`}
+                  src={`/images/landing/section/${DATA.imgType}/${
+                    data.img && data.img
+                  }.${DATA.imgType}`}
                   alt={data.img && data.img}
                 />
                 <div className="section__am_diff__element_content__right">
