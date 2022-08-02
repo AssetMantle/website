@@ -1,34 +1,26 @@
-import Head from 'next/head'
+import * as React from "react";
+import AdvantageSection from "../views/AdvantageSection";
+import ChainSection from "../views/ChainSection";
+import FeatureSection from "../views/FeatureSection";
+import GallerySection from "../views/GallerySection";
+import HeroSection from "../views/HeroSection";
+import InfoSection from "../views/InfoSection";
+import SocialProofSection from "../views/SocialProofSection";
+import SubscribeSection from "../views/SubscribeSection";
+import TeamSection from "../views/TeamSection";
 
-import Post from '../components/post'
-
-export async function getStaticProps() {
-  // fetch list of posts
-  const response = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_page=1'
-  )
-  const postList = await response.json()
-  return {
-    props: {
-      postList,
-    },
-  }
-}
-
-export default function IndexPage({ postList }) {
+export default function Index() {
   return (
-    <main>
-      <Head>
-        <title>Home page</title>
-      </Head>
-
-      <h1>List of posts</h1>
-
-      <section>
-        {postList.map((post) => (
-          <Post {...post} key={post.id} />
-        ))}
-      </section>
-    </main>
-  )
+    <>
+      <HeroSection />
+      <FeatureSection />
+      <GallerySection />
+      <InfoSection />
+      <ChainSection />
+      <AdvantageSection />
+      <TeamSection />
+      <SocialProofSection />
+      <SubscribeSection />
+    </>
+  );
 }
