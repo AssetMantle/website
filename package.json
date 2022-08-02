@@ -2,9 +2,20 @@
   "private": true,
   "dependencies": {
     "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "serve": "11.2.0"
+    "react": "latest",
+    "react-dom": "latest",
+    "serve": "11.2.0",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "prop-types": "latest",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-next": "latest"
   },
   "scripts": {
     "dev": "next",
@@ -13,5 +24,11 @@
     "export": "next export",
     "prestart": "npm run export",
     "start": "serve out"
-  }
+  },
+  "name": "assetmantle-website",
+  "version": "1.0.0",
+  "description": "Landing Website for AssetMantle.one",
+  "repository": "https://github.com/AssetMantle/assetMantle-website.git",
+  "author": "kombos <kamlesh@assetmantle.one>",
+  "license": "MIT"
 }
