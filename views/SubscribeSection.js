@@ -19,7 +19,7 @@ const flexStyle = {
   mb: 19,
 };
 
-export default function Initiatives() {
+export default function SubscribeSection() {
   const DATA = [
     {
       image: "github-logo",
@@ -58,7 +58,7 @@ export default function Initiatives() {
             },
           }}
         >
-          Initiatives
+          SubscribeSection
         </Typography>
         <Box sx={flexStyle}>
           {DATA.map((data, index) => (

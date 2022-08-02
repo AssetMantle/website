@@ -24,7 +24,7 @@ const joinStyle = {
   textTransform: "uppercase",
 };
 
-export default function WorkingGroup() {
+export default function TeamSection() {
   const List = [
     "A community-led initiative to develop Interchain standards that will advance the state of the art for Non-fungible Tokens and the Metadata associated with uniquely identified tokenised resources.",
     "Our mission is to make NFTs interoperable across blockchain networks. To enable ownership, control and rights management of NFT metadata and linked resources, regardless of where these are located.",

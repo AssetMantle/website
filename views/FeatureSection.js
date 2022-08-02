@@ -9,7 +9,7 @@ const sectionStyle = {
   textAlign: { xs: "center", sm: "center", md: "left" },
 };
 
-export default function Contributors() {
+export default function FeatureSection() {
   return (
     <Box component="section" sx={sectionStyle}>
       <Container maxWidth="lg">
@@ -30,7 +30,7 @@ export default function Contributors() {
                 },
               }}
             >
-              Contributors
+              FeatureSection
             </Typography>
             <Box sx={{ mt: 8 }}>
               <Typography component="p" variant="body1">
