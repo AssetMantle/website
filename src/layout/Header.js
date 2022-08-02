@@ -227,7 +227,14 @@ function Header({ theme = false, setTheme }) {
                         >
                           {t("EVERSTAKE")}
                         </a>
-                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"></div>
+                        <a
+                          href="https://bigdipper.live/assetmantle"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
+                        >
+                          {t("BIGDIPPER")}
+                        </a>
                         <a
                           href="https://app.citadel.one/"
                           target="_blank"
@@ -236,7 +243,14 @@ function Header({ theme = false, setTheme }) {
                         >
                           {t("CIATDEL")}
                         </a>
-                        <div className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"></div>
+                        <a
+                          href="https://www.stakingrewards.com/earn/asset-mantle/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="header__right_second__nav_buttons__drop_down__grid_element__body_link small"
+                        >
+                          {t("STAKINGREWARDS")}
+                        </a>
                       </div>
                     </div>
                   </div>
