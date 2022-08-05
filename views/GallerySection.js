@@ -11,18 +11,32 @@ import {
 import { Container } from "@mui/system";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-const FeatureConfigData = {
+const GalleryConfigData = {
   textAlign: "center",
   title: "",
   titleComponent: "",
   titleVariant: "",
   description: "",
   descriptionStyle: "", // array of styles
-  features: [],
+  galleries: [
+    // object template
+    // {
+    //   image: "",
+    //   height: "",
+    //   title: "",
+    //   description: "",
+    //   buttons: [
+    //     {
+    //       text: "",
+    //       url: "",
+    //     },
+    //   ],
+    // },
+  ],
 };
 
 const sectionStyle = {
-  mt: 13,
+  my: 10,
   paddingTop: "7px",
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "left" },
@@ -49,21 +63,21 @@ export default function GallerySection() {
       <Container
         maxWidth="lg"
         sx={{
-          textAlign: FeatureConfigData.textAlign
-            ? FeatureConfigData.textAlign
+          textAlign: GalleryConfigData.textAlign
+            ? GalleryConfigData.textAlign
             : "left",
         }}
       >
-        {FeatureConfigData.title && (
+        {GalleryConfigData.title && (
           <Typography
             component={
-              FeatureConfigData.titleComponent
-                ? FeatureConfigData.titleComponent
+              GalleryConfigData.titleComponent
+                ? GalleryConfigData.titleComponent
                 : "h2"
             }
             variant={
-              FeatureConfigData.titleVariant
-                ? FeatureConfigData.titleVariant
+              GalleryConfigData.titleVariant
+                ? GalleryConfigData.titleVariant
                 : "h2"
             }
             color="inherit"
@@ -71,57 +85,57 @@ export default function GallerySection() {
               pb: 2,
             }}
           >
-            {FeatureConfigData.title}
+            {GalleryConfigData.title}
           </Typography>
         )}
-        {FeatureConfigData.description && (
+        {GalleryConfigData.description && (
           <Typography
             component="p"
             variant="subtitle1"
             color="inherit"
             sx={
-              FeatureConfigData.descriptionStyle
-                ? FeatureConfigData.descriptionStyle
+              GalleryConfigData.descriptionStyle
+                ? GalleryConfigData.descriptionStyle
                 : {
                     pb: 2,
                   }
             }
           >
-            {FeatureConfigData.description}
+            {GalleryConfigData.description}
           </Typography>
         )}
-        {FeatureConfigData.features.length !== 0 && (
+        {GalleryConfigData.galleries && GalleryConfigData.galleries.length > 0 && (
           <Box sx={optionContainerStyles}>
-            {FeatureConfigData.features.map((feature, index) => (
+            {GalleryConfigData.galleries.map((Gallery, index) => (
               <Card sx={optionStyles}>
                 <CardMedia
                   key={index}
                   component="img"
-                  alt={feature.title}
-                  height={feature.height ? feature.height : 420}
-                  image={feature.image}
+                  alt={Gallery.title}
+                  height={Gallery.height ? Gallery.height : 420}
+                  image={Gallery.image}
                   sx={{ border: "none" }}
                 />
                 <CardContent>
-                  {feature.title && (
+                  {Gallery.title && (
                     <Typography
                       gutterBottom
                       variant="h5"
                       component="div"
                       color="primary.light"
                     >
-                      {feature.title}
+                      {Gallery.title}
                     </Typography>
                   )}
-                  {feature.description && (
+                  {Gallery.description && (
                     <Typography variant="body2" color="primary.light">
-                      {feature.description}
+                      {Gallery.description}
                     </Typography>
                   )}
                 </CardContent>
-                {feature.buttons.length !== 0 && (
+                {Gallery.buttons.length !== 0 && (
                   <CardActions>
-                    {feature.buttons.map((button, index) => (
+                    {Gallery.buttons.map((button, index) => (
                       <Button
                         component="a"
                         href={button.url && button.url}
