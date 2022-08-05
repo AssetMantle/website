@@ -1,87 +1,179 @@
-import { Box, Container, Link, Typography } from "@mui/material";
+import { Box, CardMedia, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import Divider from "../components/Divider";
-import Li from "../components/Li";
+
+const InfoSectionConfigData = {
+  textAlign: "", // >>> default: left
+  fullWidth: true, // boolean
+  smallDeviceColumnDirections: "reverse", // only "reverse" or "" >>>>>>default is "no-reverse"
+  contentMaxWidth: "", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
+  title: "Expanding your company’s brand awareness ",
+  titleComponent: "h2",
+  titleVariant: "h2",
+  description:
+    "The majestic Rocky Mountains are a major tourist location in the western United States.",
+  descriptionStyle: false, // object of styles or false
+  rightSidedImage:
+    "https://images.unsplash.com/photo-1659661236300-bac97ff45a0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+  infos: [
+    {
+      title: "Info 1",
+      description: "Description 1",
+      icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+    },
+    {
+      title: "Info 2",
+      description: "Description 2",
+      icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+    },
+  ],
+};
 
 const sectionStyle = {
-  display: "flex",
-  pt: 8,
-  pb: 7,
+  py: 10,
   color: "primary.light",
+  textAlign: {
+    xs: "center",
+    sm: "center",
+    md: InfoSectionConfigData.textAlign
+      ? InfoSectionConfigData.textAlign
+      : "left",
+  },
 };
 
 const listStyle = {
-  mt: 8,
   mx: "auto",
-  display: "flex",
-  flexDirection: "column",
-  gap: 13,
+  my: 8,
+  height: "100%",
 };
 
-const joinStyle = {
-  textAlign: "center",
-  marginTop: "48px",
-  textTransform: "uppercase",
+const Content = () => {
+  return (
+    <Grid container spacing={0}>
+      <Grid item xs={12} md={7}>
+        <Box
+          sx={listStyle}
+          maxWidth={
+            InfoSectionConfigData.contentMaxWidth
+              ? InfoSectionConfigData.contentMaxWidth
+              : "457px"
+          }
+        >
+          {InfoSectionConfigData.title && (
+            <Typography
+              component={
+                InfoSectionConfigData.titleComponent
+                  ? InfoSectionConfigData.titleComponent
+                  : "h2"
+              }
+              variant={
+                InfoSectionConfigData.titleVariant
+                  ? InfoSectionConfigData.titleVariant
+                  : "h2"
+              }
+              color="inherit"
+              sx={{
+                pb: 2,
+              }}
+            >
+              {InfoSectionConfigData.title}
+            </Typography>
+          )}
+          {InfoSectionConfigData.description && (
+            <Typography
+              component="p"
+              variant="body1"
+              color="inherit"
+              sx={
+                InfoSectionConfigData.descriptionStyle
+                  ? InfoSectionConfigData.descriptionStyle
+                  : {
+                      pb: 2,
+                      maxWidth: "92%",
+                    }
+              }
+            >
+              {InfoSectionConfigData.description}
+            </Typography>
+          )}
+          {InfoSectionConfigData.infos &&
+            InfoSectionConfigData.infos.length > 0 && (
+              <Box sx={{ pt: 4 }}>
+                {InfoSectionConfigData.infos.map((data, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 2,
+                      pb: 3,
+                    }}
+                  >
+                    {data.icon && (
+                      <CardMedia
+                        sx={{ width: 32, aspectRatio: "1/1" }}
+                        image={data.icon}
+                      />
+                    )}
+                    <Box>
+                      {data.title && (
+                        <Typography
+                          component="p"
+                          variant="body1"
+                          color="inherit"
+                        >
+                          {data.title}
+                        </Typography>
+                      )}
+                      {data.description && (
+                        <Typography
+                          component="p"
+                          variant="body2"
+                          color="inherit"
+                        >
+                          {data.description}
+                        </Typography>
+                      )}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            )}
+        </Box>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        md={5}
+        sx={{
+          position: "relative",
+          overflow: "hidden",
+          aspectRatio: { xs: "16/10", md: "none" },
+        }}
+      >
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+          src="https://images.unsplash.com/photo-1659625945776-121a1f4bd246?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80"
+        />
+      </Grid>
+    </Grid>
+  );
 };
 
 export default function InfoSection() {
-  const List = [
-    "A community-led initiative to develop Interchain standards that will advance the state of the art for Non-fungible Tokens and the Metadata associated with uniquely identified tokenised resources.",
-    "Our mission is to make NFTs interoperable across blockchain networks. To enable ownership, control and rights management of NFT metadata and linked resources, regardless of where these are located.",
-  ];
   return (
     <Box component="section" sx={sectionStyle}>
-      <Container maxWidth="lg">
-        <Typography
-          component="h2"
-          variant="h2"
-          color="inherit"
-          sx={{
-            paddingBottom: "22px",
-            backgroundImage: "url(/static/line.svg)",
-            backgroundPosition: "bottom right",
-            backgroundRepeat: "no-repeat",
-            width: "min(510px,100%)",
-            "@media (max-width:900px)": {
-              textAlign: "center",
-              width: "100%",
-            },
-          }}
-        >
-          InterNFT Working Group
-        </Typography>
-        <Box sx={listStyle} maxWidth="840px">
-          {List.map((data, index) => (
-            <Li key={index}>{data}</Li>
-          ))}
-        </Box>
-        <Divider mt="112px" />
-        <Box sx={joinStyle}>
-          <Typography component="p" variant="body2" color="inherit">
-            Interested in Joining the InterNFT Working Group?{" "}
-            <Link
-              underline="none"
-              href="https://t.me/joinchat/V0HEvpFn6TOVTauH"
-              sx={{ cursor: "pointer" }}
-            >
-              Click here!
-            </Link>
-          </Typography>
-          <Typography component="p" variant="body2" color="inherit">
-            Want to Participate in developing next-generation Interchain
-            standards and share your use-case requirements?
-          </Typography>
-          <Link
-            underline="none"
-            href="https://github.com/interNFT/nft-rfc/blob/main/nft-rfc-002.md"
-            variant="body2"
-            sx={{ cursor: "pointer" }}
-          >
-            Click to participate
-          </Link>
-        </Box>
-        <Divider mt="48px" />
-      </Container>
+      {InfoSectionConfigData.fullWidth ? (
+        <Content />
+      ) : (
+        <Container maxWidth="lg">
+          <Content />
+        </Container>
+      )}
     </Box>
   );
 }
