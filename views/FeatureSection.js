@@ -8,7 +8,7 @@ const FeatureConfigData = {
   titleComponent: "",
   titleVariant: "h1",
   description: "",
-  descriptionStyle: "", // array of styles
+  descriptionStyle: false, // object of styles or false
   features: [
     {
       href: "",
@@ -36,7 +36,6 @@ const FeatureConfigData = {
 
 const sectionStyle = {
   my: 10,
-  paddingTop: "7px",
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "left" },
 };

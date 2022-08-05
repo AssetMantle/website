@@ -17,7 +17,7 @@ const GalleryConfigData = {
   titleComponent: "",
   titleVariant: "",
   description: "",
-  descriptionStyle: "", // array of styles
+  descriptionStyle: false, // object of styles or false
   galleries: [
     // object template
     // {
