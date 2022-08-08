@@ -32,7 +32,7 @@ const rawTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "'Lato', sans-serif",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
@@ -63,10 +63,10 @@ const theme = {
     h1: {
       ...rawTheme.typography.h1,
       ...fontHeader,
-      fontSize: 40,
-      lineHeight: "120%",
+      fontSize: 56,
+      lineHeight: "114%",
       letterSpacing: 0,
-      fontWeight: 600,
+      fontWeight: 700,
     },
     h2: {
       ...rawTheme.typography.h2,
@@ -81,7 +81,8 @@ const theme = {
     h4: {
       ...rawTheme.typography.h4,
       ...fontHeader,
-      fontSize: 36,
+      fontSize: 24,
+      fontWeight: 700,
     },
     h5: {
       ...rawTheme.typography.h5,
@@ -91,7 +92,7 @@ const theme = {
     h6: {
       ...rawTheme.typography.h6,
       ...fontHeader,
-      fontSize: 18,
+      fontSize: 16,
     },
     subtitle1: {
       ...rawTheme.typography.subtitle1,
@@ -100,7 +101,7 @@ const theme = {
     body1: {
       ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 20,
+      fontSize: 24,
     },
     body2: {
       ...rawTheme.typography.body1,
