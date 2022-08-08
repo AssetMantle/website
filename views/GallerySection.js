@@ -189,7 +189,7 @@ export default function GallerySection() {
                   </CardContent>
                 )}
                 {Gallery.buttons.length !== 0 && (
-                  <CardActions sx={{ marginTop: "auto" }}>
+                  <CardActions sx={{ marginTop: "auto", pb: 3 }}>
                     {Gallery.buttons.map((button, index) => (
                       <Button
                         component="a"
