@@ -158,10 +158,9 @@ export default function GallerySection() {
         {GalleryConfigData.galleries && GalleryConfigData.galleries.length > 0 && (
           <Box sx={optionContainerStyles}>
             {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Card sx={optionStyles}>
+              <Card sx={optionStyles} key={index}>
                 {Gallery.image && (
                   <CardMedia
-                    key={index}
                     component="img"
                     alt={Gallery.title}
                     // height={Gallery.height ? Gallery.height : 420}
