@@ -11,6 +11,9 @@ const primaryStyle = {
   justifyContent: "center",
   gap: 1,
   borderRadius: 8,
+  "&:disabled": {
+    backgroundColor: "warning.dark",
+  },
 };
 const secondaryStyle = {
   border: "1px solid",
@@ -23,6 +26,9 @@ const secondaryStyle = {
   justifyContent: "center",
   gap: 1,
   borderRadius: 8,
+  "&:disabled": {
+    color: "warning.dark",
+  },
 };
 
 export default function Button({
@@ -40,10 +46,13 @@ export default function Button({
           variant="subtitle1"
           underline="none"
           sx={primaryStyle}
-          href={href && href}
-          component="a"
-          target={target ? target : "_self"}
+          component="button"
           disabled={disabled ? disabled : false}
+          onClick={(e) =>
+            !disabled
+              ? window.open(href && href, target ? target : "_self")
+              : e.preventDefault()
+          }
         >
           {text}
           {icon &&
@@ -54,10 +63,13 @@ export default function Button({
           variant="subtitle1"
           underline="none"
           sx={secondaryStyle}
-          href={href && href}
-          component="a"
-          target={target ? target : "_self"}
+          component="button"
           disabled={disabled ? disabled : false}
+          onClick={(e) =>
+            !disabled
+              ? window.open(href && href, target ? target : "_self")
+              : e.preventDefault()
+          }
         >
           {text}
           {icon &&
