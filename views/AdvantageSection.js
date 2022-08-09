@@ -23,6 +23,7 @@ const InitiativeSectionConfigData = {
     pt: 7,
     width: "min(100%, 343px)",
   }, // object of styles or false
+  backgroundImage: "", // "url('/images/mantleplace.png')",
   ctas: [
     {
       title: "Whitepaper",
@@ -120,8 +121,9 @@ export default function AdvantageSection() {
           textAlign: InitiativeSectionConfigData.textAlign
             ? InitiativeSectionConfigData.textAlign
             : "left",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: InitiativeSectionConfigData.backgroundImage,
+          backgroundSize: "100%",
+          backgroundPosition: "top left",
           backgroundRepeat: "no-repeat",
         }}
       >
