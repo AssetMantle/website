@@ -111,6 +111,10 @@ const theme = {
       ...rawTheme.typography.body1,
       fontSize: 14,
     },
+    body4: {
+      ...rawTheme.typography.body1,
+      fontSize: 12,
+    },
   },
 };
 
