@@ -1,29 +1,117 @@
-import { Box, CardMedia, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  CardMedia,
+  Container,
+  Grid,
+  ImageList,
+  ImageListItem,
+  Typography,
+} from "@mui/material";
 import React from "react";
+import VerifiedIcon from "@mui/icons-material/Verified";
 
 const InfoSectionConfigData = {
   textAlign: "", // >>> default: left
-  fullWidth: true, // boolean
-  smallDeviceColumnDirections: "reverse", // only "reverse" or "" >>>>>>default is "no-reverse"
+  fullWidth: false, // boolean
+  smallDeviceColumnDirections: "", // only "reverse" or "" >>>>>>default is "no-reverse"
   contentMaxWidth: "", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
-  title: "Expanding your company’s brand awareness ",
+  title: "Distributed nft economy",
   titleComponent: "h2",
-  titleVariant: "h2",
+  titleVariant: "h1",
   description:
-    "The majestic Rocky Mountains are a major tourist location in the western United States.",
-  descriptionStyle: false, // object of styles or false
-  rightSidedImage:
-    "https://images.unsplash.com/photo-1659661236300-bac97ff45a0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+    "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts. This shopifying NFT assets, leading to a distributed network of networks, with global ownership states stored singularly in the AssetMantle chain.",
+  descriptionStyle: { pt: 7 }, // object of styles or false
+  rightSidedImage: "",
   infos: [
+    //   {
+    //     title: "Info 1",
+    //     description: "Description 1",
+    //     icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+    //   },
+    //   {
+    //     title: "Info 2",
+    //     description: "Description 2",
+    //     icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+    //   },
+  ],
+  imageData: [
     {
-      title: "Info 1",
-      description: "Description 1",
-      icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      title: "Breakfast",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
     },
     {
-      title: "Info 2",
-      description: "Description 2",
-      icon: "https://uploads-ssl.webflow.com/623a0c9828949e55356286f9/623b5936a09ba064d3f5c894_Microscope.svg",
+      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+      title: "Burger",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+      title: "Camera",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
+    },
+    {
+      img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+      title: "Coffee",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+      title: "Hats",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
+    },
+    {
+      img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+      title: "Honey",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+      title: "Basketball",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+      title: "Fern",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+      title: "Mushrooms",
+      name: "ALSlkaskal",
+      author: "@slasl",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
+      title: "Tomato basil",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
+    },
+    {
+      img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+      title: "Sea star",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
+    },
+    {
+      img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+      title: "Bike",
+      name: "ALSlkaskal",
+      author: "@slasl",
+      rows: 2,
     },
   ],
 };
@@ -31,6 +119,7 @@ const InfoSectionConfigData = {
 const sectionStyle = {
   py: 10,
   color: "primary.light",
+  mx: "auto",
   textAlign: {
     xs: "center",
     sm: "center",
@@ -41,21 +130,29 @@ const sectionStyle = {
 };
 
 const listStyle = {
-  mx: "auto",
-  my: 8,
+  margin: { xs: "auto", md: "auto 0" },
   height: "100%",
 };
 
+function srcset(image, size, rows = 1, cols = 1) {
+  return {
+    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+    srcSet: `${image}?w=${size * cols}&h=${
+      size * rows
+    }&fit=crop&auto=format&dpr=2 2x`,
+  };
+}
+
 const Content = () => {
   return (
-    <Grid container spacing={0}>
-      <Grid item xs={12} md={7}>
+    <Grid container spacing={0} sx={{ alignItems: "center" }}>
+      <Grid item xs={12} md={5}>
         <Box
           sx={listStyle}
           maxWidth={
             InfoSectionConfigData.contentMaxWidth
               ? InfoSectionConfigData.contentMaxWidth
-              : "457px"
+              : "480px"
           }
         >
           {InfoSectionConfigData.title && (
@@ -72,7 +169,10 @@ const Content = () => {
               }
               color="inherit"
               sx={{
-                pb: 2,
+                background:
+                  "linear-gradient(90deg, #6FB4B5 0%, #FF930F 77.03%)",
+                backgroundClip: "text",
+                textFillColor: "transparent",
               }}
             >
               {InfoSectionConfigData.title}
@@ -143,22 +243,71 @@ const Content = () => {
       <Grid
         item
         xs={12}
-        md={5}
+        md={7}
         sx={{
           position: "relative",
-          overflow: "hidden",
-          aspectRatio: { xs: "16/10", md: "none" },
+          padding: { xs: " 56px 0 0", md: "32px" },
         }}
       >
-        <img
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-          src="https://images.unsplash.com/photo-1659625945776-121a1f4bd246?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80"
-        />
+        <ImageList
+          sx={{ width: "min(640px, 100%)", margin: { xs: "auto", md: "0" } }}
+          variant="quilted"
+          cols={3}
+          gap={16}
+          rowHeight={130}
+        >
+          {InfoSectionConfigData.imageData.map((item) => (
+            <ImageListItem
+              key={item.img}
+              cols={item.cols || 1}
+              rows={item.rows || 1}
+              sx={{
+                borderRadius: "8px",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <img
+                {...srcset(item.img, 121, item.rows, item.cols)}
+                alt={item.title}
+                loading="lazy"
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: 0,
+                  width: "100%",
+                  height: "100%",
+                  p: 1,
+                  backgroundImage:
+                    "linear-gradient(0deg,#000,transparent 70%,transparent)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-end",
+                }}
+              >
+                {item.author && (
+                  <Typography
+                    variant="body3"
+                    color="primary.main"
+                    component="h6"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    {item.author} <VerifiedIcon fontSize="inherit" />
+                  </Typography>
+                )}
+                {item.name && (
+                  <Typography component="p" variant="body4">
+                    {item.name}
+                  </Typography>
+                )}
+              </Box>
+            </ImageListItem>
+          ))}
+        </ImageList>
       </Grid>
     </Grid>
   );
@@ -166,7 +315,7 @@ const Content = () => {
 
 export default function InfoSection() {
   return (
-    <Box component="section" sx={sectionStyle}>
+    <Box component="section" sx={sectionStyle} maxWidth="xl">
       {InfoSectionConfigData.fullWidth ? (
         <Content />
       ) : (
