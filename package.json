@@ -1,17 +1,19 @@
 {
   "private": true,
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "serve": "11.2.0",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "prop-types": "latest",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",
-    "@emotion/styled": "latest"
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@splidejs/react-splide": "^0.7.8",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "^4.4.0",
+    "serve": "11.2.0"
   },
   "devDependencies": {
     "eslint": "latest",
