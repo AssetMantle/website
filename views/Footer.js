@@ -15,7 +15,7 @@ export default function Footer() {
     <Box component="footer" sx={footerStyle}>
       <Container maxWidth="lg">
         <Typography variant="body3" component="p">
-          © InterNFT 2022 - All rights reserved{" "}
+          © AssetMantle 2022 - All rights reserved{" "}
         </Typography>
       </Container>
     </Box>
