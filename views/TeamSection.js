@@ -313,7 +313,7 @@ export default function GallerySection() {
               options={{
                 type: "loop",
                 rewind: true,
-                width: "90%",
+                width: "100%",
                 gap: "32px",
                 perPage: 4,
                 breakpoints: {
