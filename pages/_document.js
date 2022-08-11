@@ -15,7 +15,14 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body style={{ backgroundColor: theme.palette.primary.dark }}>
+        <body
+          style={{
+            backgroundImage: "url('/images/Background_tile.webp')",
+            backgroundRepeat: "repeat-y",
+            backgroundSize: "100%",
+            backgroundColor: theme.palette.primary.dark,
+          }}
+        >
           <Main />
           <NextScript />
         </body>
