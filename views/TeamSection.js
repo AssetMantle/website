@@ -296,6 +296,8 @@ export default function GallerySection() {
           <Box
             sx={{
               pt: 8,
+              display: "flex",
+              justifyContent: "center",
               ".splide__pagination": {
                 gap: 2,
               },
@@ -313,7 +315,7 @@ export default function GallerySection() {
               options={{
                 type: "loop",
                 rewind: true,
-                width: "100%",
+                width: "90%",
                 gap: "32px",
                 perPage: 4,
                 breakpoints: {
