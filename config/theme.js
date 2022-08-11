@@ -63,7 +63,7 @@ const theme = {
     h1: {
       ...rawTheme.typography.h1,
       ...fontHeader,
-      fontSize: 56,
+      fontSize: { xs: 40, md: 56 },
       lineHeight: "114%",
       letterSpacing: 0,
       fontWeight: 700,
