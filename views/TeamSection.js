@@ -138,6 +138,86 @@ const TeamsConfigData = {
         },
       ],
     },
+    {
+      image: "https://assetmantle.one/images/team/deepanshu.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/abhinav.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/naman.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/prabhav.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
   ],
 };
 
@@ -147,13 +227,6 @@ const sectionStyle = {
   paddingTop: "7px",
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "left" },
-};
-const optionContainerStyles = {
-  display: "flex",
-  justifyContent: "center",
-  flexWrap: "wrap",
-  gap: 8,
-  pt: 8,
 };
 const optionStyles = {
   background: "transparent",
@@ -220,7 +293,21 @@ export default function GallerySection() {
           </Typography>
         )}
         {TeamsConfigData.members && TeamsConfigData.members.length > 0 && (
-          <Box sx={optionContainerStyles}>
+          <Box
+            sx={{
+              pt: 8,
+              ".splide__pagination": {
+                gap: 2,
+              },
+              ".splide__pagination__page": {
+                transform: "scale(1.6)",
+              },
+              ".splide__pagination__page.is-active": {
+                backgroundColor: "primary.main",
+                transform: "scale(2)",
+              },
+            }}
+          >
             <Splide
               hasTrack={false}
               options={{
@@ -287,7 +374,7 @@ export default function GallerySection() {
                           <CardActions
                             sx={{
                               marginTop: "auto",
-                              pb: 3,
+                              pb: 8,
                               borderTop: "1px solid",
                               borderColor: "primary.light",
                               color: "primary.light",
@@ -373,6 +460,7 @@ export default function GallerySection() {
                   className="splide__arrow splide__arrow--prev"
                   sx={{
                     background: "transparent !important",
+                    outline: "none !important",
                     "&.splide__arrow svg": {
                       fill: "#FFD365",
                     },
@@ -394,6 +482,7 @@ export default function GallerySection() {
                   className="splide__arrow splide__arrow--next"
                   sx={{
                     background: "transparent !important",
+                    outline: "none !important",
                     "&.splide__arrow svg": {
                       fill: "#FFD365",
                     },
