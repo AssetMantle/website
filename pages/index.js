@@ -6,7 +6,7 @@ import GallerySection from "../views/GallerySection";
 import HeroSection from "../views/HeroSection";
 import InfoSection from "../views/InfoSection";
 import SocialProofSection from "../views/SocialProofSection";
-import SubscribeSection from "../views/SubscribeSection";
+// import SubscribeSection from "../views/SubscribeSection";
 import TeamSection from "../views/TeamSection";
 
 export default function Index() {
@@ -20,7 +20,7 @@ export default function Index() {
       <AdvantageSection />
       <TeamSection />
       <SocialProofSection />
-      <SubscribeSection />
+      {/* <SubscribeSection /> */}
     </>
   );
 }
