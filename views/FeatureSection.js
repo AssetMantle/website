@@ -177,48 +177,50 @@ export default function FeatureSection() {
             {FeatureConfigData.description}
           </Typography>
         )}
-        {FeatureConfigData.features && FeatureConfigData.features.length > 0 && (
-          <Box sx={optionContainerStyles}>
-            {FeatureConfigData.features.map((feature, index) => (
-              <Card sx={optionStyles} key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    gap: 2,
-                    pb: 2,
-                  }}
-                >
-                  {feature.iconType === "component"
-                    ? feature.icon && feature.icon
-                    : feature.icon && (
-                        <CardMedia
-                          sx={{ width: 32, aspectRatio: "1/1" }}
-                          image={feature.icon}
-                        />
-                      )}
-                  {feature.title && (
-                    <Typography
-                      component="h3"
-                      variant="h5"
-                      color="inherit"
-                      sx={{ fontWeight: "700" }}
-                    >
-                      {feature.title}
+        {Array.isArray(FeatureConfigData.features) &&
+          FeatureConfigData.features &&
+          FeatureConfigData.features.length > 0 && (
+            <Box sx={optionContainerStyles}>
+              {FeatureConfigData.features.map((feature, index) => (
+                <Card sx={optionStyles} key={index}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      gap: 2,
+                      pb: 2,
+                    }}
+                  >
+                    {feature.iconType === "component"
+                      ? feature.icon && feature.icon
+                      : feature.icon && (
+                          <CardMedia
+                            sx={{ width: 32, aspectRatio: "1/1" }}
+                            image={feature.icon}
+                          />
+                        )}
+                    {feature.title && (
+                      <Typography
+                        component="h3"
+                        variant="h5"
+                        color="inherit"
+                        sx={{ fontWeight: "700" }}
+                      >
+                        {feature.title}
+                      </Typography>
+                    )}
+                  </Box>
+                  {feature.description && (
+                    <Typography component="p" variant="body2" color="inherit">
+                      {feature.description}
                     </Typography>
                   )}
-                </Box>
-                {feature.description && (
-                  <Typography component="p" variant="body2" color="inherit">
-                    {feature.description}
-                  </Typography>
-                )}
-              </Card>
-            ))}
-          </Box>
-        )}
+                </Card>
+              ))}
+            </Box>
+          )}
       </Container>
     </Box>
   );

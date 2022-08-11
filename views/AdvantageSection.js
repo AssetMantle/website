@@ -205,7 +205,8 @@ export default function AdvantageSection() {
               )}
           </Grid>
           <Grid item xs={12} md={5}>
-            {InitiativeSectionConfigData.initiatives &&
+            {Array.isArray(InitiativeSectionConfigData.initiatives) &&
+              InitiativeSectionConfigData.initiatives &&
               InitiativeSectionConfigData.initiatives.length > 0 && (
                 <Stack
                   sx={{

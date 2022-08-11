@@ -256,57 +256,60 @@ const Content = () => {
           gap={16}
           rowHeight={130}
         >
-          {InfoSectionConfigData.imageData.map((item) => (
-            <ImageListItem
-              key={item.img}
-              cols={item.cols || 1}
-              rows={item.rows || 1}
-              sx={{
-                borderRadius: "8px",
-                overflow: "hidden",
-                position: "relative",
-              }}
-            >
-              <img
-                {...srcset(item.img, 121, item.rows, item.cols)}
-                alt={item.title}
-                loading="lazy"
-              />
-              <Box
+          {Array.isArray(InfoSectionConfigData.imageData) &&
+            InfoSectionConfigData.imageData &&
+            InfoSectionConfigData.imageData.length &&
+            InfoSectionConfigData.imageData.map((item) => (
+              <ImageListItem
+                key={item.img}
+                cols={item.cols || 1}
+                rows={item.rows || 1}
                 sx={{
-                  position: "absolute",
-                  bottom: 0,
-                  width: "100%",
-                  height: "100%",
-                  p: 1,
-                  backgroundImage:
-                    "linear-gradient(0deg,#000,transparent 70%,transparent)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-end",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  position: "relative",
                 }}
               >
-                {item.author && (
-                  <Typography
-                    variant="body3"
-                    color="primary.main"
-                    component="h6"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    {item.author} <VerifiedIcon fontSize="inherit" />
-                  </Typography>
-                )}
-                {item.name && (
-                  <Typography component="p" variant="body4">
-                    {item.name}
-                  </Typography>
-                )}
-              </Box>
-            </ImageListItem>
-          ))}
+                <img
+                  {...srcset(item.img, 121, item.rows, item.cols)}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: 0,
+                    width: "100%",
+                    height: "100%",
+                    p: 1,
+                    backgroundImage:
+                      "linear-gradient(0deg,#000,transparent 70%,transparent)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  {item.author && (
+                    <Typography
+                      variant="body3"
+                      color="primary.main"
+                      component="h6"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      {item.author} <VerifiedIcon fontSize="inherit" />
+                    </Typography>
+                  )}
+                  {item.name && (
+                    <Typography component="p" variant="body4">
+                      {item.name}
+                    </Typography>
+                  )}
+                </Box>
+              </ImageListItem>
+            ))}
         </ImageList>
       </Grid>
     </Grid>

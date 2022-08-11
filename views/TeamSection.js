@@ -292,220 +292,222 @@ export default function GallerySection() {
             {TeamsConfigData.description}
           </Typography>
         )}
-        {TeamsConfigData.members && TeamsConfigData.members.length > 0 && (
-          <Box
-            sx={{
-              pt: 8,
-              display: "flex",
-              justifyContent: "center",
-              ".splide__pagination": {
-                gap: 2,
-              },
-              ".splide__pagination__page": {
-                transform: "scale(1.6)",
-              },
-              ".splide__pagination__page.is-active": {
-                backgroundColor: "primary.main",
-                transform: "scale(2)",
-              },
-            }}
-          >
-            <Splide
-              hasTrack={false}
-              options={{
-                type: "loop",
-                rewind: true,
-                width: "90%",
-                gap: "32px",
-                perPage: 4,
-                breakpoints: {
-                  900: {
-                    perPage: 2,
-                  },
-                  600: {
-                    perPage: 1,
-                  },
+        {Array.isArray(TeamsConfigData.members) &&
+          TeamsConfigData.members &&
+          TeamsConfigData.members.length > 0 && (
+            <Box
+              sx={{
+                pt: 8,
+                display: "flex",
+                justifyContent: "center",
+                ".splide__pagination": {
+                  gap: 2,
+                },
+                ".splide__pagination__page": {
+                  transform: "scale(1.6)",
+                },
+                ".splide__pagination__page.is-active": {
+                  backgroundColor: "primary.main",
+                  transform: "scale(2)",
                 },
               }}
             >
-              <SplideTrack>
-                {TeamsConfigData.members.map((member, index) => (
-                  <SplideSlide>
-                    <Card sx={optionStyles} key={index}>
-                      {member.image && (
-                        <CardMedia
-                          component="img"
-                          alt={member.title}
-                          // height={member.height ? member.height : 420}
-                          image={member.image}
-                          sx={{
-                            border: "none",
-                            width: "100%",
-                            aspectRatio: "1/1",
-                            borderRadius: "50%",
-                            objectPosition: "top",
-                          }}
-                        />
-                      )}
-                      {(member.name || member.designation) && (
-                        <CardContent sx={{ padding: "0", pt: 5, pb: 2 }}>
-                          {member.name && (
-                            <Typography
-                              gutterBottom
-                              variant="subtitle1"
-                              component="h4"
-                              color="primary.light"
-                            >
-                              {member.name}
-                            </Typography>
-                          )}
-                          {member.designation && (
-                            <Typography
-                              variant="body2"
-                              color="primary.light"
-                              sx={{ pt: 1 }}
-                            >
-                              {member.designation}
-                            </Typography>
-                          )}
-                        </CardContent>
-                      )}
-                      {member.social &&
-                        Array.isArray(member.social) &&
-                        member.social.length > 0 && (
-                          <CardActions
+              <Splide
+                hasTrack={false}
+                options={{
+                  type: "loop",
+                  rewind: true,
+                  width: "90%",
+                  gap: "32px",
+                  perPage: 4,
+                  breakpoints: {
+                    900: {
+                      perPage: 2,
+                    },
+                    600: {
+                      perPage: 1,
+                    },
+                  },
+                }}
+              >
+                <SplideTrack>
+                  {TeamsConfigData.members.map((member, index) => (
+                    <SplideSlide>
+                      <Card sx={optionStyles} key={index}>
+                        {member.image && (
+                          <CardMedia
+                            component="img"
+                            alt={member.title}
+                            // height={member.height ? member.height : 420}
+                            image={member.image}
                             sx={{
-                              marginTop: "auto",
-                              pb: 8,
-                              borderTop: "1px solid",
-                              borderColor: "primary.light",
-                              color: "primary.light",
-                              gap: 1,
-                              justifyContent: {
-                                xs: "center",
-                                md: "flex-start",
-                              },
+                              border: "none",
+                              width: "100%",
+                              aspectRatio: "1/1",
+                              borderRadius: "50%",
+                              objectPosition: "top",
                             }}
-                          >
-                            {member.social.map((button, index) => (
-                              <>
-                                {button.icon === "LinkedIn" && (
-                                  <Link
-                                    key={index}
-                                    sx={linkStyles}
-                                    component="a"
-                                    href={button.href && button.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FiLinkedin />
-                                  </Link>
-                                )}
-                                {button.icon === "GitHub" && (
-                                  <Link
-                                    key={index}
-                                    sx={linkStyles}
-                                    component="a"
-                                    href={button.href && button.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FiGithub />
-                                  </Link>
-                                )}
-                                {button.icon === "Twitter" && (
-                                  <Link
-                                    key={index}
-                                    sx={linkStyles}
-                                    component="a"
-                                    href={button.href && button.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FiTwitter />
-                                  </Link>
-                                )}
-                                {button.icon === "Behance" && (
-                                  <Link
-                                    key={index}
-                                    sx={linkStyles}
-                                    component="a"
-                                    href={button.href && button.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FaBehance />
-                                  </Link>
-                                )}
-                                {button.icon === "Website" && (
-                                  <Link
-                                    key={index}
-                                    sx={linkStyles}
-                                    component="a"
-                                    href={button.href && button.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FiGlobe />
-                                  </Link>
-                                )}
-                              </>
-                            ))}
-                          </CardActions>
+                          />
                         )}
-                    </Card>
-                  </SplideSlide>
-                ))}
-              </SplideTrack>
-              <Box className="splide__arrows">
-                <Button
-                  className="splide__arrow splide__arrow--prev"
-                  sx={{
-                    background: "transparent !important",
-                    outline: "none !important",
-                    "&.splide__arrow svg": {
-                      fill: "#FFD365",
-                    },
-                  }}
-                >
-                  <EastOutlinedIcon
+                        {(member.name || member.designation) && (
+                          <CardContent sx={{ padding: "0", pt: 5, pb: 2 }}>
+                            {member.name && (
+                              <Typography
+                                gutterBottom
+                                variant="subtitle1"
+                                component="h4"
+                                color="primary.light"
+                              >
+                                {member.name}
+                              </Typography>
+                            )}
+                            {member.designation && (
+                              <Typography
+                                variant="body2"
+                                color="primary.light"
+                                sx={{ pt: 1 }}
+                              >
+                                {member.designation}
+                              </Typography>
+                            )}
+                          </CardContent>
+                        )}
+                        {member.social &&
+                          Array.isArray(member.social) &&
+                          member.social.length > 0 && (
+                            <CardActions
+                              sx={{
+                                marginTop: "auto",
+                                pb: 8,
+                                borderTop: "1px solid",
+                                borderColor: "primary.light",
+                                color: "primary.light",
+                                gap: 1,
+                                justifyContent: {
+                                  xs: "center",
+                                  md: "flex-start",
+                                },
+                              }}
+                            >
+                              {member.social.map((button, index) => (
+                                <>
+                                  {button.icon === "LinkedIn" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiLinkedin />
+                                    </Link>
+                                  )}
+                                  {button.icon === "GitHub" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiGithub />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Twitter" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiTwitter />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Behance" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FaBehance />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Website" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiGlobe />
+                                    </Link>
+                                  )}
+                                </>
+                              ))}
+                            </CardActions>
+                          )}
+                      </Card>
+                    </SplideSlide>
+                  ))}
+                </SplideTrack>
+                <Box className="splide__arrows">
+                  <Button
+                    className="splide__arrow splide__arrow--prev"
                     sx={{
-                      fontSize: "36px",
-                      color: "primary.main",
-                      transform: {
-                        xs: "translateX(-100%) scaleX(-1) !important",
-                        md: "translateX(-200%) scaleX(-1) !important",
+                      background: "transparent !important",
+                      outline: "none !important",
+                      "&.splide__arrow svg": {
+                        fill: "#FFD365",
                       },
-                      position: "absolute",
                     }}
-                  />
-                </Button>
-                <Button
-                  className="splide__arrow splide__arrow--next"
-                  sx={{
-                    background: "transparent !important",
-                    outline: "none !important",
-                    "&.splide__arrow svg": {
-                      fill: "#FFD365",
-                    },
-                  }}
-                >
-                  <EastOutlinedIcon
+                  >
+                    <EastOutlinedIcon
+                      sx={{
+                        fontSize: "36px",
+                        color: "primary.main",
+                        transform: {
+                          xs: "translateX(-100%) scaleX(-1) !important",
+                          md: "translateX(-200%) scaleX(-1) !important",
+                        },
+                        position: "absolute",
+                      }}
+                    />
+                  </Button>
+                  <Button
+                    className="splide__arrow splide__arrow--next"
                     sx={{
-                      fontSize: "36px",
-                      color: "primary.main",
-                      transform: {
-                        xs: "translateX(100%)",
-                        md: "translateX(200%)",
+                      background: "transparent !important",
+                      outline: "none !important",
+                      "&.splide__arrow svg": {
+                        fill: "#FFD365",
                       },
-                      position: "absolute",
                     }}
-                  />
-                </Button>
-              </Box>
-            </Splide>
-          </Box>
-        )}
+                  >
+                    <EastOutlinedIcon
+                      sx={{
+                        fontSize: "36px",
+                        color: "primary.main",
+                        transform: {
+                          xs: "translateX(100%)",
+                          md: "translateX(200%)",
+                        },
+                        position: "absolute",
+                      }}
+                    />
+                  </Button>
+                </Box>
+              </Splide>
+            </Box>
+          )}
       </Container>
     </Box>
   );

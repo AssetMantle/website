@@ -155,60 +155,62 @@ export default function GallerySection() {
             {GalleryConfigData.description}
           </Typography>
         )}
-        {GalleryConfigData.galleries && GalleryConfigData.galleries.length > 0 && (
-          <Box sx={optionContainerStyles}>
-            {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Card sx={optionStyles} key={index}>
-                {Gallery.image && (
-                  <CardMedia
-                    component="img"
-                    alt={Gallery.title}
-                    // height={Gallery.height ? Gallery.height : 420}
-                    image={Gallery.image}
-                    sx={{ border: "none", width: "100%", aspectRatio: "1/1" }}
-                  />
-                )}
-                {(Gallery.title || Gallery.description) && (
-                  <CardContent>
-                    {Gallery.title && (
-                      <Typography
-                        gutterBottom
-                        variant="h4"
-                        component="h4"
-                        color="primary.light"
-                      >
-                        {Gallery.title}
-                      </Typography>
-                    )}
-                    {Gallery.description && (
-                      <Typography variant="body2" color="primary.light">
-                        {Gallery.description}
-                      </Typography>
-                    )}
-                  </CardContent>
-                )}
-                {Gallery.buttons.length !== 0 && (
-                  <CardActions sx={{ marginTop: "auto", pb: 3 }}>
-                    {Gallery.buttons.map((button, index) => (
-                      <Button
-                        component="a"
-                        href={button.url && button.url}
-                        key={index}
-                        size="small"
-                      >
-                        {button.text && (
-                          <>
-                            {button.text} <KeyboardArrowRightIcon />
-                          </>
-                        )}
-                      </Button>
-                    ))}
-                  </CardActions>
-                )}
-              </Card>
-            ))}
-          </Box>
-        )}
+        {Array.isArray(GalleryConfigData.galleries) &&
+          GalleryConfigData.galleries &&
+          GalleryConfigData.galleries.length > 0 && (
+            <Box sx={optionContainerStyles}>
+              {GalleryConfigData.galleries.map((Gallery, index) => (
+                <Card sx={optionStyles} key={index}>
+                  {Gallery.image && (
+                    <CardMedia
+                      component="img"
+                      alt={Gallery.title}
+                      // height={Gallery.height ? Gallery.height : 420}
+                      image={Gallery.image}
+                      sx={{ border: "none", width: "100%", aspectRatio: "1/1" }}
+                    />
+                  )}
+                  {(Gallery.title || Gallery.description) && (
+                    <CardContent>
+                      {Gallery.title && (
+                        <Typography
+                          gutterBottom
+                          variant="h4"
+                          component="h4"
+                          color="primary.light"
+                        >
+                          {Gallery.title}
+                        </Typography>
+                      )}
+                      {Gallery.description && (
+                        <Typography variant="body2" color="primary.light">
+                          {Gallery.description}
+                        </Typography>
+                      )}
+                    </CardContent>
+                  )}
+                  {Gallery.buttons.length !== 0 && (
+                    <CardActions sx={{ marginTop: "auto", pb: 3 }}>
+                      {Gallery.buttons.map((button, index) => (
+                        <Button
+                          component="a"
+                          href={button.url && button.url}
+                          key={index}
+                          size="small"
+                        >
+                          {button.text && (
+                            <>
+                              {button.text} <KeyboardArrowRightIcon />
+                            </>
+                          )}
+                        </Button>
+                      ))}
+                    </CardActions>
+                  )}
+                </Card>
+              ))}
+            </Box>
+          )}
       </Container>
     </Box>
   );
