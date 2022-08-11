@@ -115,6 +115,11 @@ const theme = {
       ...rawTheme.typography.body1,
       fontSize: 12,
     },
+    button: {
+      ...rawTheme.typography.body1,
+      fontSize: 20,
+      fontWeight: 600,
+    },
   },
 };
 
