@@ -1,13 +1,14 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Container,
   Grid,
+  Stack,
   Typography,
 } from "@mui/material";
 import React from "react";
-import Button from "../components/Buttons";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
@@ -31,7 +32,7 @@ const InitiativeSectionConfigData = {
       icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
-      variant: "primary",
+      variant: "contained",
     },
     {
       title: "litepaper",
@@ -39,7 +40,7 @@ const InitiativeSectionConfigData = {
       icon: <FileDownloadOutlinedIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
-      variant: "secondary",
+      variant: "outlined",
     },
   ],
   initiatives: [
@@ -136,6 +137,8 @@ export default function AdvantageSection() {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             {InitiativeSectionConfigData.title && (
@@ -179,20 +182,24 @@ export default function AdvantageSection() {
                 <Box
                   sx={{
                     display: "flex",
+                    flexWrap: "wrap",
                     gap: 2,
                     pt: 8,
                   }}
                 >
                   {InitiativeSectionConfigData.ctas.map((cta, index) => (
                     <Button
+                      variant={cta.variant ? cta.variant : "contained"}
                       key={index}
-                      text={cta.title && cta.title}
-                      href={cta.url && cta.url}
-                      icon={cta.icon && cta.icon}
-                      target={cta.target && cta.target}
-                      disabled={cta.disabled && cta.disabled}
-                      variant={cta.variant && cta.variant}
-                    />
+                      sx={{
+                        borderRadius: 8,
+                        padding: "12px 34px",
+                        textTransform: "capitalize",
+                      }}
+                      endIcon={cta.icon ? cta.icon : null}
+                    >
+                      {cta.title && cta.title}
+                    </Button>
                   ))}
                 </Box>
               )}
@@ -200,9 +207,8 @@ export default function AdvantageSection() {
           <Grid item xs={12} md={5}>
             {InitiativeSectionConfigData.initiatives &&
               InitiativeSectionConfigData.initiatives.length > 0 && (
-                <Box
+                <Stack
                   sx={{
-                    display: "flex",
                     gap: "10px",
                     flexDirection: "column",
                     mt: { xs: 8, md: 0 },
@@ -240,7 +246,7 @@ export default function AdvantageSection() {
                       </Card>
                     )
                   )}
-                </Box>
+                </Stack>
               )}
           </Grid>
         </Grid>
