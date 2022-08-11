@@ -1,86 +1,420 @@
-import { Box, Container, Link, Typography } from "@mui/material";
 import React from "react";
-import Divider from "../components/Divider";
-import Li from "../components/Li";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Link,
+  Typography,
+} from "@mui/material";
+import { Container } from "@mui/system";
+import { FiLinkedin, FiGithub, FiTwitter, FiGlobe } from "react-icons/fi";
+import { FaBehance } from "react-icons/fa";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+
+const TeamsConfigData = {
+  textAlign: "center", // >>> default: left
+  title: "MEET OUR TEAM",
+  titleComponent: "h2",
+  titleVariant: "h1",
+  description:
+    "The Mantle team consists of some of the best minds in their respective fields.",
+  descriptionStyle: {
+    mt: 4,
+    mx: "auto",
+  }, // object of styles or false
+  descriptionVariant: "body1",
+  members: [
+    // object template
+    // {
+    //   image: "https://assetmantle.one/images/team/deepanshu.webp",
+    //   name: "Deepanshu Kumar",
+    //   designation: "Founder, Core - Product Planning & Implementation​",
+    //   designationType: "",
+    //   social: [
+    //     {
+    //       icon: "LinkedIn",
+    //       href: "",
+    //     },
+    //     {
+    //       icon: "Twitter",
+    //       href: "",
+    //     },
+    //     {
+    //       icon: "GitHub",
+    //       href: "",
+    //     },
+    //     {
+    //       icon: "Behance",
+    //       href: "",
+    //     },
+    //     {
+    //       icon: "Website",
+    //       href: "",
+    //     },
+    //   ],
+    // },
+    {
+      image: "https://assetmantle.one/images/team/deepanshu.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/abhinav.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/naman.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+    {
+      image: "https://assetmantle.one/images/team/prabhav.webp",
+      name: "Deepanshu Kumar",
+      designation: "Founder, Core - Product Planning & Implementation​",
+      designationType: "",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "",
+        },
+        {
+          icon: "Twitter",
+          href: "",
+        },
+        {
+          icon: "GitHub",
+          href: "",
+        },
+      ],
+    },
+  ],
+};
 
 const sectionStyle = {
-  display: "flex",
-  pt: 8,
-  pb: 7,
+  my: 10,
+  py: 4,
+  paddingTop: "7px",
   color: "primary.light",
+  textAlign: { xs: "center", sm: "center", md: "left" },
 };
-
-const listStyle = {
-  mt: 8,
-  mx: "auto",
+const optionContainerStyles = {
+  display: "flex",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  gap: 8,
+  pt: 8,
+};
+const optionStyles = {
+  background: "transparent",
+  borderRadius: "12px",
+  maxWidth: 227,
+  boxShadow: "none",
+  padding: "0",
+  textAlign: { xs: "center", md: "left" },
   display: "flex",
   flexDirection: "column",
-  gap: 13,
+  margin: { xs: "auto", md: "0" },
+};
+const linkStyles = {
+  color: "primary.light",
+  "&:hover": {
+    color: "primary.main",
+  },
 };
 
-const joinStyle = {
-  textAlign: "center",
-  marginTop: "48px",
-  textTransform: "uppercase",
-};
-
-export default function TeamSection() {
-  const List = [
-    "A community-led initiative to develop Interchain standards that will advance the state of the art for Non-fungible Tokens and the Metadata associated with uniquely identified tokenised resources.",
-    "Our mission is to make NFTs interoperable across blockchain networks. To enable ownership, control and rights management of NFT metadata and linked resources, regardless of where these are located.",
-  ];
+export default function GallerySection() {
   return (
     <Box component="section" sx={sectionStyle}>
-      <Container maxWidth="lg">
-        <Typography
-          component="h2"
-          variant="h2"
-          color="inherit"
-          sx={{
-            paddingBottom: "22px",
-            backgroundImage: "url(/static/line.svg)",
-            backgroundPosition: "bottom right",
-            backgroundRepeat: "no-repeat",
-            width: "min(510px,100%)",
-            "@media (max-width:900px)": {
-              textAlign: "center",
-              width: "100%",
-            },
-          }}
-        >
-          InterNFT Working Group
-        </Typography>
-        <Box sx={listStyle} maxWidth="840px">
-          {List.map((data, index) => (
-            <Li key={index}>{data}</Li>
-          ))}
-        </Box>
-        <Divider mt="112px" />
-        <Box sx={joinStyle}>
-          <Typography component="p" variant="body2" color="inherit">
-            Interested in Joining the InterNFT Working Group?{" "}
-            <Link
-              underline="none"
-              href="https://t.me/joinchat/V0HEvpFn6TOVTauH"
-              sx={{ cursor: "pointer" }}
-            >
-              Click here!
-            </Link>
-          </Typography>
-          <Typography component="p" variant="body2" color="inherit">
-            Want to Participate in developing next-generation Interchain
-            standards and share your use-case requirements?
-          </Typography>
-          <Link
-            underline="none"
-            href="https://github.com/interNFT/nft-rfc/blob/main/nft-rfc-002.md"
-            variant="body2"
-            sx={{ cursor: "pointer" }}
+      <Container
+        maxWidth="lg"
+        sx={{
+          textAlign: TeamsConfigData.textAlign
+            ? TeamsConfigData.textAlign
+            : "left",
+        }}
+      >
+        {TeamsConfigData.title && (
+          <Typography
+            component={
+              TeamsConfigData.titleComponent
+                ? TeamsConfigData.titleComponent
+                : "h2"
+            }
+            variant={
+              TeamsConfigData.titleVariant ? TeamsConfigData.titleVariant : "h2"
+            }
+            color="inherit"
           >
-            Click to participate
-          </Link>
-        </Box>
-        <Divider mt="48px" />
+            {TeamsConfigData.title}
+          </Typography>
+        )}
+        {TeamsConfigData.description && (
+          <Typography
+            component="p"
+            variant={
+              TeamsConfigData.descriptionVariant
+                ? TeamsConfigData.descriptionVariant
+                : "body1"
+            }
+            color="inherit"
+            sx={
+              TeamsConfigData.descriptionStyle
+                ? TeamsConfigData.descriptionStyle
+                : {
+                    pb: 2,
+                  }
+            }
+          >
+            {TeamsConfigData.description}
+          </Typography>
+        )}
+        {TeamsConfigData.members && TeamsConfigData.members.length > 0 && (
+          <Box sx={optionContainerStyles}>
+            <Splide
+              hasTrack={false}
+              options={{
+                type: "loop",
+                rewind: true,
+                width: "90%",
+                gap: "32px",
+                perPage: 4,
+                breakpoints: {
+                  900: {
+                    perPage: 2,
+                  },
+                  600: {
+                    perPage: 1,
+                  },
+                },
+              }}
+            >
+              <SplideTrack>
+                {TeamsConfigData.members.map((member, index) => (
+                  <SplideSlide>
+                    <Card sx={optionStyles} key={index}>
+                      {member.image && (
+                        <CardMedia
+                          component="img"
+                          alt={member.title}
+                          // height={member.height ? member.height : 420}
+                          image={member.image}
+                          sx={{
+                            border: "none",
+                            width: "100%",
+                            aspectRatio: "1/1",
+                            borderRadius: "50%",
+                            objectPosition: "top",
+                          }}
+                        />
+                      )}
+                      {(member.name || member.designation) && (
+                        <CardContent sx={{ padding: "0", pt: 5, pb: 2 }}>
+                          {member.name && (
+                            <Typography
+                              gutterBottom
+                              variant="subtitle1"
+                              component="h4"
+                              color="primary.light"
+                            >
+                              {member.name}
+                            </Typography>
+                          )}
+                          {member.designation && (
+                            <Typography
+                              variant="body2"
+                              color="primary.light"
+                              sx={{ pt: 1 }}
+                            >
+                              {member.designation}
+                            </Typography>
+                          )}
+                        </CardContent>
+                      )}
+                      {member.social &&
+                        Array.isArray(member.social) &&
+                        member.social.length > 0 && (
+                          <CardActions
+                            sx={{
+                              marginTop: "auto",
+                              pb: 3,
+                              borderTop: "1px solid",
+                              borderColor: "primary.light",
+                              color: "primary.light",
+                              gap: 1,
+                              justifyContent: {
+                                xs: "center",
+                                md: "flex-start",
+                              },
+                            }}
+                          >
+                            {member.social.map((button, index) => (
+                              <>
+                                {button.icon === "LinkedIn" && (
+                                  <Link
+                                    key={index}
+                                    sx={linkStyles}
+                                    component="a"
+                                    href={button.href && button.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FiLinkedin />
+                                  </Link>
+                                )}
+                                {button.icon === "GitHub" && (
+                                  <Link
+                                    key={index}
+                                    sx={linkStyles}
+                                    component="a"
+                                    href={button.href && button.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FiGithub />
+                                  </Link>
+                                )}
+                                {button.icon === "Twitter" && (
+                                  <Link
+                                    key={index}
+                                    sx={linkStyles}
+                                    component="a"
+                                    href={button.href && button.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FiTwitter />
+                                  </Link>
+                                )}
+                                {button.icon === "Behance" && (
+                                  <Link
+                                    key={index}
+                                    sx={linkStyles}
+                                    component="a"
+                                    href={button.href && button.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FaBehance />
+                                  </Link>
+                                )}
+                                {button.icon === "Website" && (
+                                  <Link
+                                    key={index}
+                                    sx={linkStyles}
+                                    component="a"
+                                    href={button.href && button.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FiGlobe />
+                                  </Link>
+                                )}
+                              </>
+                            ))}
+                          </CardActions>
+                        )}
+                    </Card>
+                  </SplideSlide>
+                ))}
+              </SplideTrack>
+              <Box className="splide__arrows">
+                <Button
+                  className="splide__arrow splide__arrow--prev"
+                  sx={{
+                    background: "transparent !important",
+                    "&.splide__arrow svg": {
+                      fill: "#FFD365",
+                    },
+                  }}
+                >
+                  <EastOutlinedIcon
+                    sx={{
+                      fontSize: "36px",
+                      color: "primary.main",
+                      transform: {
+                        xs: "translateX(-100%) scaleX(-1) !important",
+                        md: "translateX(-200%) scaleX(-1) !important",
+                      },
+                      position: "absolute",
+                    }}
+                  />
+                </Button>
+                <Button
+                  className="splide__arrow splide__arrow--next"
+                  sx={{
+                    background: "transparent !important",
+                    "&.splide__arrow svg": {
+                      fill: "#FFD365",
+                    },
+                  }}
+                >
+                  <EastOutlinedIcon
+                    sx={{
+                      fontSize: "36px",
+                      color: "primary.main",
+                      transform: {
+                        xs: "translateX(100%)",
+                        md: "translateX(200%)",
+                      },
+                      position: "absolute",
+                    }}
+                  />
+                </Button>
+              </Box>
+            </Splide>
+          </Box>
+        )}
       </Container>
     </Box>
   );
