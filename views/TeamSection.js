@@ -15,6 +15,7 @@ import { Container } from "@mui/system";
 import { FiLinkedin, FiGithub, FiTwitter, FiGlobe } from "react-icons/fi";
 import { FaBehance } from "react-icons/fa";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const TeamsConfigData = {
   textAlign: "center", // >>> default: left
@@ -33,7 +34,7 @@ const TeamsConfigData = {
   members: [
     // object template
     // {
-    //   image: "https://assetmantle.one/images/team/deepanshu.webp",
+    //   image: "/images/teams/https://assetmantle.one/images/team/deepanshu.png",
     //   name: "Deepanshu Kumar",
     //   designation: "Founder, Core - Product Planning & Implementation​",
     //   designationType: "",
@@ -61,162 +62,358 @@ const TeamsConfigData = {
     //   ],
     // },
     {
-      image: "https://assetmantle.one/images/team/deepanshu.webp",
-      name: "Deepanshu Kumar",
+      image: "/images/teams/deepanshu.png",
+      name: "Deepanshu Tripathi",
       designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "http://linkedin.com/in/deepanshutr",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/deepanshutr",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/deepanshutr",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/abhinav.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/abhinav.png",
+      name: "Abhinav Kumar",
+      designation: "Co-Founder, Core - Product Planning & Implementation​",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/avkr003/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/avkr003",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/avkr003",
+        },
+        {
+          icon: "Behance",
+          href: "https://www.behance.net/kombos",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/naman.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/kamlesh.png",
+      name: "Kamlesh Parikarath",
+      designation: "Core - Product Development & Growth",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/kamleshparikarath/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/0xKombos",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/kombos",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/prabhav.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/naman.png",
+      name: "Naman Kabra",
+      designation: "Core - Business Development & Growth",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/namankabra/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/307naman",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/nk307",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/deepanshu.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/sachin.png",
+      name: "Sachin Matta",
+      designation: "Core - Product Marketing and Communications",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/sachin-matta/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/ciberexplosion",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/ciberexplosion",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/abhinav.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/prabhav.png",
+      name: "Prabhav Varambally",
+      designation: "Core - Business Operations & Strategy",
+      designationType: "Founding",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/prabhavtv/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/Prabhavv_",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/Prabhavv",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/naman.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/harman.png",
+      name: "Harman Sohi",
+      designation: "Design Lead",
+      designationType: "Design",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/harman-sohi-she-her-2590b8b4/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/NotHarmanSohi",
         },
         {
-          icon: "GitHub",
-          href: "",
+          icon: "Behance",
+          href: "https://www.behance.net/sohiharman",
         },
       ],
     },
     {
-      image: "https://assetmantle.one/images/team/prabhav.webp",
-      name: "Deepanshu Kumar",
-      designation: "Founder, Core - Product Planning & Implementation​",
-      designationType: "",
+      image: "/images/teams/sarin.png",
+      name: "Sarin Venugopal",
+      designation: "Product Marketing & Operations",
+      designationType: "Developer",
       social: [
         {
           icon: "LinkedIn",
-          href: "",
+          href: "https://www.linkedin.com/in/sarin-venugopal-3123638/",
         },
         {
           icon: "Twitter",
-          href: "",
+          href: "https://twitter.com/the_bad_apple_",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/pratik.png",
+      name: "Pratik Balar",
+      designation: "DevOps & Infrastructure",
+      designationType: "Founding",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/pratikbalar",
+        },
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/pratikbin",
         },
         {
           icon: "GitHub",
-          href: "",
+          href: "https://github.com/pratikbin",
+        },
+        {
+          icon: "Website",
+          href: "https://pratikb.in/",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/sarvagya.png",
+      name: "Sarvagya Sagar",
+      designation: "Research and DevSecOps​",
+      designationType: "Founding",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/iamsarvagyaa/",
+        },
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/iamsarvagyaa",
+        },
+        {
+          icon: "GitHub",
+          href: "https://github.com/iamsarvagyaa",
+        },
+        {
+          icon: "Website",
+          href: "https://sarvagya.me",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/arun.png",
+      name: "Arun Ramesan",
+      designation: "Visual Designer​",
+      designationType: "Design",
+      // social: [
+      //   {
+      //     icon: "LinkedIn",
+      //     href: "https://www.linkedin.com/in/iamsarvagyaa/",
+      //   },
+      //   {
+      //     icon: "Behance",
+      //     href: "https://twitter.com/iamsarvagyaa",
+      //   },
+      //   {
+      //     icon: "Instagram",
+      //     href: "https://github.com/iamsarvagyaa",
+      //   },
+      // ],
+    },
+    {
+      image: "/images/teams/mrinal.png",
+      name: "Mrinal Vishwanath",
+      designation: "Product Marketing and PR Strategist",
+      designationType: "Developer",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/iamsarvagyaa/",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/jagdish.png",
+      name: "Jagdish Chudasama",
+      designation: "UI/UX Developer​",
+      designationType: "Developer",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/chudasama-jagdish-3759981b1/",
+        },
+        {
+          icon: "GitHub",
+          href: "https://github.com/chudasamajd",
+        },
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/JagdishChudas15",
+        },
+        {
+          icon: "Website",
+          href: `https://chudasamajd.github.io/chudasamajd`,
+        },
+      ],
+    },
+    {
+      image: "/images/teams/namaha.png",
+      name: "Namaha Shetty",
+      designation: "UI/UX Designer",
+      designationType: "Design",
+      social: [
+        {
+          icon: "Website",
+          href: "www.namahashetty.com",
+        },
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/namahashetty/",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/akhlak.png",
+      name: "Akhlak Hossain",
+      designation: "Core - Product Planning & Implementation​",
+      designationType: "Developer",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/akhlakhossainjim/",
+        },
+        {
+          icon: "GitHub",
+          href: "http://github.com/Akhlak-Hossain-Jim",
+        },
+        {
+          icon: "Website",
+          href: "http://ahjim.com/",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/ankit.png",
+      name: "Ankit Kumar",
+      designation: "Blockchain Developer",
+      designationType: "Founding",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/0xankit",
+        },
+        {
+          icon: "Twitter",
+          href: "https://mobile.twitter.com/me_0xankit",
+        },
+        {
+          icon: "GitHub",
+          href: "https://github.com/0xankit",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/aditya.png",
+      name: "Aditya Nalini",
+      designation: "NFT Strategist",
+      designationType: "Developer",
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/adinalini",
+        },
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/adinalini",
+        },
+        {
+          icon: "GitHub",
+          href: "https://github.com/adinalini",
+        },
+      ],
+    },
+    {
+      image: "/images/teams/rohit.png",
+      name: "Rohit Sharma",
+      designation: "Creators Communications and Integrations",
+      designationType: "Developer",
+      social: [
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/SharmaJiKaSon1",
+        },
+        {
+          icon: "Website",
+          href: "www.instagram.com/schoolboy_sharma",
         },
       ],
     },
@@ -234,6 +431,7 @@ const optionStyles = {
   background: "transparent",
   borderRadius: "12px",
   maxWidth: 227,
+  height: "100%",
   boxShadow: "none",
   padding: "0",
   textAlign: { xs: "center", md: "left" },
@@ -455,6 +653,18 @@ export default function GallerySection() {
                                         rel="noopener noreferrer"
                                       >
                                         <FiGlobe />
+                                      </Link>
+                                    )}
+                                    {button.icon === "Instagram" && (
+                                      <Link
+                                        key={index}
+                                        sx={linkStyles}
+                                        component="a"
+                                        href={button.href && button.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        <InstagramIcon />
                                       </Link>
                                     )}
                                   </>
