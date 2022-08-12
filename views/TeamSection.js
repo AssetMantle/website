@@ -558,9 +558,9 @@ export default function GallerySection() {
                               {member.name && (
                                 <Typography
                                   gutterBottom
-                                  variant="subtitle1"
+                                  variant="subtitle2"
                                   component="h4"
-                                  color="primary.light"
+                                  color="primary.main"
                                 >
                                   {member.name}
                                 </Typography>
