@@ -13,8 +13,6 @@ import React from "react";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
-import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
-
 const InitiativeSectionConfigData = {
   textAlign: "center", // >>> default: left
   title: "The AssetMantle Advantage",

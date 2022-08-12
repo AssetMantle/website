@@ -18,16 +18,18 @@ import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 
 const TeamsConfigData = {
   textAlign: "center", // >>> default: left
-  title: "MEET OUR TEAM",
+  title: "Meet our team",
   titleComponent: "h2",
   titleVariant: "h1",
-  description:
-    "The Mantle team consists of some of the best minds in their respective fields.",
+  /* description:
+    "The Mantle team consists of some of the best minds in their respective fields.", */
   descriptionStyle: {
     mt: 4,
     mx: "auto",
+    maxWidth: "min(836px, 100%)",
+    margin: "0 auto",
   }, // object of styles or false
-  descriptionVariant: "body1",
+  descriptionVariant: "subtitle2",
   members: [
     // object template
     // {

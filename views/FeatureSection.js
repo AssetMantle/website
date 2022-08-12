@@ -13,6 +13,7 @@ const FeatureConfigData = {
   title: "Why choose us?",
   titleComponent: "",
   titleVariant: "h1",
+  titleColor: "secondary.main",
   description:
     "AssetMantle’s foundation is built using the best-in-class core blockchain principles, and optimized for the next evolution of NFT economy",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
@@ -29,7 +30,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "We’re building a suite of NFT products, with the chain specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
+        "We’re building a suite of NFT products, with the chain having features like Verified NFT Creators, customized NFT properties, in-built whitelisting etc.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
@@ -55,7 +56,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "This network offers the basis for an economical network, with gas fees as low as $0.01 per transaction, it has the lowest transaction fees compared to any popular network.",
+        "This network offers the basis for an economical network, with one of th elowest transaction fees in any popular network, of about $0.01 per transaction.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
@@ -87,7 +88,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "With high level of network security, and leveraging the native token $MNTL, AssetMantle can provide the level of protection required for your asset ownership.",
+        "With high network security, and leveraging the native token $MNTL, AssetMantle provides the level of protection required for your assets.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
