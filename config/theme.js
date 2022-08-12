@@ -1,126 +1,45 @@
-import { createTheme } from "@mui/material/styles";
-import { green, grey, red } from "@mui/material/colors";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-const rawTheme = createTheme({
+const baseTheme = createTheme({
   palette: {
     navBg: "#040404cc",
-    gradientDark:
-      "linear-gradient(270.23deg, #111111 51.94%, rgba(17, 17, 17, 0) 98.63%)",
     primary: {
       light: "#FFFDFA",
       main: "#FFD365",
-      dark: "#111111",
+      dark: "#FFD365",
     },
     secondary: {
-      light: "#171616",
-      main: "#040404",
-      dark: "#21211E",
+      light: "#FFFFFF",
+      main: "#ffffe6",
+      dark: "#ffffcc",
     },
-    warning: {
-      main: "#F2AF13",
-      dark: "#ffb25e",
-    },
-    error: {
-      light: red[50],
-      main: red.A400,
-      dark: red[700],
-    },
-    success: {
-      light: green[50],
-      main: green[500],
-      dark: green[700],
-    },
-  },
-  typography: {
-    fontFamily: "'Lato', sans-serif",
-    fontSize: 14,
-    fontWeightLight: 300, // Work Sans
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
-  },
-});
-
-const fontHeader = {
-  color: rawTheme.palette.text.primary,
-  fontWeight: rawTheme.typography.fontWeightMedium,
-  fontFamily: "'Montserrat', sans-serif",
-  textTransform: "uppercase",
-};
-
-const theme = {
-  ...rawTheme,
-  palette: {
-    ...rawTheme.palette,
     background: {
-      ...rawTheme.palette.background,
-      default: rawTheme.palette.common.white,
-      placeholder: grey[200],
+      paper: "#111111",
     },
   },
   typography: {
-    ...rawTheme.typography,
-    fontHeader,
+    fontFamily: "'Inter', 'Roboto'",
+    fontSize: 14,
     h1: {
-      ...rawTheme.typography.h1,
-      ...fontHeader,
-      fontSize: { xs: 40, md: 56 },
-      lineHeight: "114%",
-      letterSpacing: 0,
+      fontSize: "4rem",
       fontWeight: 700,
     },
     h2: {
-      ...rawTheme.typography.h2,
-      ...fontHeader,
-      fontSize: 28,
-    },
-    h3: {
-      ...rawTheme.typography.h3,
-      ...fontHeader,
-      fontSize: 24,
-    },
-    h4: {
-      ...rawTheme.typography.h4,
-      ...fontHeader,
-      fontSize: 24,
+      fontSize: "3rem",
       fontWeight: 700,
     },
-    h5: {
-      ...rawTheme.typography.h5,
-      fontSize: 20,
-      fontWeight: rawTheme.typography.fontWeightLight,
-    },
-    h6: {
-      ...rawTheme.typography.h6,
-      ...fontHeader,
-      fontSize: 16,
+    h3: {
+      fontSize: "3rem",
+      fontWeight: 500,
     },
     subtitle1: {
-      ...rawTheme.typography.subtitle1,
-      fontSize: 20,
-    },
-    body1: {
-      ...rawTheme.typography.body2,
-      fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 24,
-    },
-    body2: {
-      ...rawTheme.typography.body1,
-      fontSize: 16,
-    },
-    body3: {
-      ...rawTheme.typography.body1,
-      fontSize: 14,
-    },
-    body4: {
-      ...rawTheme.typography.body1,
-      fontSize: 12,
-    },
-    button: {
-      ...rawTheme.typography.body1,
-      fontSize: 20,
-      fontWeight: 600,
+      fontSize: "2rem",
+      fontWeight: 200,
+      lineHeight: 1.2,
     },
   },
-};
+});
+
+let theme = responsiveFontSizes(baseTheme);
 
 export default theme;

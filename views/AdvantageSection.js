@@ -16,7 +16,7 @@ import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 
 const InitiativeSectionConfigData = {
   textAlign: "", // >>> default: left
-  title: "THE ASSETMANTLE ADVANTAGE",
+  title: "The AssetMantle Advantage",
   titleComponent: "h2",
   titleVariant: "h1",
   description: "The native token which powers the AssetMantle’s NFT Economy",
@@ -143,11 +143,6 @@ export default function AdvantageSection() {
           >
             {InitiativeSectionConfigData.title && (
               <Typography
-                component={
-                  InitiativeSectionConfigData.titleComponent
-                    ? InitiativeSectionConfigData.titleComponent
-                    : "h2"
-                }
                 variant={
                   InitiativeSectionConfigData.titleVariant
                     ? InitiativeSectionConfigData.titleVariant
@@ -191,10 +186,11 @@ export default function AdvantageSection() {
                     <Button
                       variant={cta.variant ? cta.variant : "contained"}
                       key={index}
+                      size="large"
                       sx={{
                         borderRadius: 8,
-                        padding: "12px 34px",
-                        textTransform: "capitalize",
+                        // padding: "12px 34px",
+                        // textTransform: "capitali ze",
                       }}
                       endIcon={cta.icon ? cta.icon : null}
                     >

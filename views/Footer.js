@@ -5,7 +5,7 @@ const footerStyle = {
   mt: 13,
   paddingTop: "7px",
   color: "primary.light",
-  backgroundColor: "secondary.dark",
+  backgroundColor: "background.paper",
   p: 4,
   textAlign: "center",
 };

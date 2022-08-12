@@ -13,9 +13,9 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const GalleryConfigData = {
   textAlign: "", // >>> default: left
-  title: "our products",
+  title: "Our Products",
   titleComponent: "h2",
-  titleVariant: "h1",
+  titleVariant: "h2",
   description:
     "AssetMantle’s suite of products help you up your game of digital asset ownership",
   descriptionStyle: {
