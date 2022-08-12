@@ -13,7 +13,7 @@ const sectionStyle = {
   mb: 4,
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "center" },
-  minWidth: { xs: "100vh", xl: "none" },
+  minHeight: { xs: "100vh", xl: "none" },
   // backgroundColor: "orange",
 };
 
@@ -29,7 +29,7 @@ export default function HeroSection() {
     <Stack
       direction="column"
       // justifyContent="center"
-      alignItems={{ xs: "center", md: "left" }}
+      alignItems={{ xs: "center", md: "flex-start" }}
       spacing={2}
     >
       {/* Title */}
