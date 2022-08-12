@@ -41,7 +41,7 @@ const GalleryConfigData = {
       buttons: [
         {
           text: "Learn More",
-          url: "",
+          url: "https://marketplace.assetmantle.one/",
         },
       ],
     },
@@ -53,7 +53,7 @@ const GalleryConfigData = {
       buttons: [
         {
           text: "Learn More",
-          url: "",
+          url: "https://docs.assetmantle.one/MantleBuilder_Overview/",
         },
       ],
     },
@@ -64,7 +64,7 @@ const GalleryConfigData = {
       buttons: [
         {
           text: "Learn More",
-          url: "",
+          url: "https://wallet.assetmantle.one/",
         },
       ],
     },
@@ -75,7 +75,7 @@ const GalleryConfigData = {
       buttons: [
         {
           text: "Learn More",
-          url: "",
+          url: "https://explorer.assetmantle.one/",
         },
       ],
     },
