@@ -420,7 +420,7 @@ export default function Header() {
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
-              <IconButton
+              {/*  <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
@@ -432,7 +432,7 @@ export default function Header() {
                 }}
               >
                 <MenuIcon color="primary" />
-              </IconButton>
+              </IconButton> */}
               <Box
                 sx={{
                   display: "flex",
