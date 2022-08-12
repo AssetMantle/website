@@ -191,6 +191,7 @@ const Content = () => {
                 <Typography
                   variant={InfoSectionConfigData.descriptionVariant}
                   color={InfoSectionConfigData.descriptionColor}
+                  key={index}
                 >
                   {item}
                 </Typography>
