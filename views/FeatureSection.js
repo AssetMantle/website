@@ -19,14 +19,14 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "We’re building a suite of NFT products, with the chain specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
+        "Our AssetMantle chain is specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
     {
       href: "",
       icon: "/images/featured/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
-      title: "Pioneering Cosmos Ecosystem",
+      title: "Cosmos Ecosystem",
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
@@ -41,7 +41,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "This network offers the basis for an economical network, with gas fees as low as $0.01 per transaction, it has the lowest transaction fees compared to any popular network.",
+        "AssetMantle has a hightly Economical network providing one of the lowest fees compared to any popular network, of around $0.01 per transaction.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
@@ -63,7 +63,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "With high level of network security, and leveraging the native token $MNTL, AssetMantle can provide the level of protection required for your asset ownership.",
+        "With high network security and leveraging the native token $MNTL, AssetMantle provides the level of protection required for your assets.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
