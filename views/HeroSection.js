@@ -80,7 +80,7 @@ export default function HeroSection() {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src="/images/mantler.webp"
+      src="/images/hero/mantler.webp"
       alt="hero_image"
       style={{
         width: "min(559px, 100%)",
