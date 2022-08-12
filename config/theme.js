@@ -25,17 +25,37 @@ const baseTheme = createTheme({
       fontWeight: 700,
     },
     h2: {
-      fontSize: "3rem",
+      fontSize: "3.5rem",
       fontWeight: 700,
+      lineHeight: 1,
     },
     h3: {
-      fontSize: "3rem",
-      fontWeight: 500,
+      fontSize: "2rem",
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: "1.8rem",
+      fontWeight: 700,
     },
     subtitle1: {
       fontSize: "2rem",
       fontWeight: 200,
       lineHeight: 1.2,
+    },
+    subtitle2: {
+      fontSize: "1.7rem",
+      fontWeight: 200,
+      lineHeight: 1.2,
+    },
+    body1: {
+      fontSize: "1.4rem",
+      fontWeight: 300,
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: "1.2rem",
+      fontWeight: 300,
+      lineHeight: 1.5,
     },
   },
 });

@@ -16,7 +16,7 @@ const FeatureConfigData = {
   description:
     "AssetMantle’s foundation is built using the best-in-class core blockchain principles, and optimized for the next evolution of NFT economy",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
-  features: [
+  featuresArray: [
     {
       href: "",
       icon: (
@@ -26,10 +26,12 @@ const FeatureConfigData = {
       ), // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
       title: "Optimized for NFTs",
-      titleVariant: "h2",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "We’re building a suite of NFT products, with the chain specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
     {
       href: "",
@@ -37,21 +39,25 @@ const FeatureConfigData = {
         <HubOutlinedIcon sx={{ fontSize: "56px", color: "primary.main" }} />
       ), // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
-      title: "Pioneering Cosmos Ecosystem",
-      titleVariant: "h2",
+      title: "Cosmos Ecosystem",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "AssetMantle being one of the top zones of the Cosmos Hub, leverages features like Tendermint Core for Consensus and a highly modular SDK framework.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
     {
       href: "",
       icon: <MoneyOffIcon sx={{ fontSize: "56px", color: "primary.main" }} />, // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
       title: "Extremely Low Fees",
-      titleVariant: "h2",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "This network offers the basis for an economical network, with gas fees as low as $0.01 per transaction, it has the lowest transaction fees compared to any popular network.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
     {
       href: "",
@@ -62,10 +68,12 @@ const FeatureConfigData = {
       ), // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
       title: "Fast Order Fulfillments",
-      titleVariant: "h2",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "Extremely fast transactions nearing 7 seconds enables almost zero waiting time for fulfillment of orders of buy, sell, auction etc.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
     {
       href: "",
@@ -76,10 +84,12 @@ const FeatureConfigData = {
       ), // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
       title: "Completely Secure",
-      titleVariant: "h2",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "With high level of network security, and leveraging the native token $MNTL, AssetMantle can provide the level of protection required for your asset ownership.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
     {
       href: "",
@@ -90,10 +100,12 @@ const FeatureConfigData = {
       ), // put icon component or url >>don't forgot to change the below
       iconType: "component", // >>>>put nothing if icon is a img or url
       title: "Future Interoperability",
-      titleVariant: "h2",
+      titleVariant: "h4",
+      titleColor: "primary.main",
       description:
         "InterNFT can potentially enable NFTs to be transferred to other connected chains, thereby creating a larger shared market economy.",
-      descriptionVariant: "body1",
+      descriptionVariant: "body2",
+      descriptionColor: "secondary.main",
     },
   ],
 };
@@ -151,9 +163,9 @@ export default function FeatureSection() {
             variant={
               FeatureConfigData.titleVariant
                 ? FeatureConfigData.titleVariant
-                : "h2"
+                : "h3"
             }
-            color="inherit"
+            color={FeatureConfigData.titleColor}
             sx={{
               pb: 2,
             }}
@@ -164,8 +176,7 @@ export default function FeatureSection() {
         {FeatureConfigData.description && (
           <Typography
             component="p"
-            variant="body1"
-            color="inherit"
+            variant="subtitle2"
             sx={
               FeatureConfigData.descriptionStyle
                 ? FeatureConfigData.descriptionStyle
@@ -177,11 +188,11 @@ export default function FeatureSection() {
             {FeatureConfigData.description}
           </Typography>
         )}
-        {Array.isArray(FeatureConfigData.features) &&
-          FeatureConfigData.features &&
-          FeatureConfigData.features.length > 0 && (
+        {Array.isArray(FeatureConfigData.featuresArray) &&
+          FeatureConfigData.featuresArray &&
+          FeatureConfigData.featuresArray.length > 0 && (
             <Box sx={optionContainerStyles}>
-              {FeatureConfigData.features.map((feature, index) => (
+              {FeatureConfigData.featuresArray.map((feature, index) => (
                 <Card sx={optionStyles} key={index}>
                   <Box
                     sx={{
@@ -203,17 +214,18 @@ export default function FeatureSection() {
                         )}
                     {feature.title && (
                       <Typography
-                        component="h3"
-                        variant="h5"
-                        color="inherit"
-                        sx={{ fontWeight: "700" }}
+                        variant={feature.titleVariant}
+                        color={feature.titleColor}
                       >
                         {feature.title}
                       </Typography>
                     )}
                   </Box>
                   {feature.description && (
-                    <Typography component="p" variant="body2" color="inherit">
+                    <Typography
+                      variant={feature.descriptionVariant}
+                      color={feature.descriptionColor}
+                    >
                       {feature.description}
                     </Typography>
                   )}

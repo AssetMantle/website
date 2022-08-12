@@ -16,14 +16,17 @@ const InfoSectionConfigData = {
   fullWidth: false, // boolean
   smallDeviceColumnDirections: "", // only "reverse" or "" >>>>>>default is "no-reverse"
   contentMaxWidth: "", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
-  title: "Distributed nft economy",
-  titleComponent: "h2",
-  titleVariant: "h1",
+  title: "Distributed NFT economy",
+  titleComponent: "h1",
+  titleVariant: "h2",
+  titleColor: "secondary.main",
   description: [
     "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts.",
     "This shopifying NFT assets, leading to a distributed network of networks, with global ownership states stored singularly in the AssetMantle chain.",
   ],
-  descriptionStyle: { pt: 7 }, // object of styles or false
+  descriptionVariant: "body1",
+  descriptionColor: "secondary.main",
+  descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
   rightSidedImage: "",
   infos: [
     //   {
@@ -160,23 +163,13 @@ const Content = () => {
         >
           {InfoSectionConfigData.title && (
             <Typography
-              component={
-                InfoSectionConfigData.titleComponent
-                  ? InfoSectionConfigData.titleComponent
-                  : "h2"
-              }
               variant={
                 InfoSectionConfigData.titleVariant
                   ? InfoSectionConfigData.titleVariant
-                  : "h2"
+                  : "h1"
               }
-              color="inherit"
-              sx={{
-                background:
-                  "linear-gradient(90deg, #6FB4B5 0%, #FF930F 77.03%)",
-                backgroundClip: "text",
-                textFillColor: "transparent",
-              }}
+              color={InfoSectionConfigData.titleColor}
+              gutterBottom
             >
               {InfoSectionConfigData.title}
             </Typography>

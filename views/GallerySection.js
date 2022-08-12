@@ -12,29 +12,15 @@ import { Container } from "@mui/system";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const GalleryConfigData = {
-  textAlign: "", // >>> default: left
+  textAlign: "center",
   title: "Our Products",
-  titleComponent: "h2",
-  titleVariant: "h2",
+  titleComponent: "h1",
+  titleVariant: "h1",
   description:
-    "AssetMantle’s suite of products help you up your game of digital asset ownership",
-  descriptionStyle: {
-    maxWidth: "480px",
-    mt: 6,
-  }, // object of styles or false
+    "AssetMantle’s suite of products, which is focussed on NFT ecosystem, helps you up your game of digital asset ownership",
+  descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
+
   galleries: [
-    // object template
-    // {
-    //   image: "/images/mantleplace.png",
-    //   title: "",
-    //   description: "",
-    //   buttons: [
-    //     {
-    //       text: "",
-    //       url: "",
-    //     },
-    //   ],
-    // },
     {
       image: "/images/MantlePlace.png",
       title: "MantlePlace",
@@ -141,8 +127,7 @@ export default function GallerySection() {
         )}
         {GalleryConfigData.description && (
           <Typography
-            component="p"
-            variant="body1"
+            variant="subtitle2"
             color="inherit"
             sx={
               GalleryConfigData.descriptionStyle
@@ -175,28 +160,28 @@ export default function GallerySection() {
                       {Gallery.title && (
                         <Typography
                           gutterBottom
-                          variant="h4"
-                          component="h4"
-                          color="primary.light"
+                          variant="h3"
+                          component="h3"
+                          color="primary.main"
                         >
                           {Gallery.title}
                         </Typography>
                       )}
                       {Gallery.description && (
-                        <Typography variant="body2" color="primary.light">
+                        <Typography variant="body1" color="primary.light">
                           {Gallery.description}
                         </Typography>
                       )}
                     </CardContent>
                   )}
                   {Gallery.buttons.length !== 0 && (
-                    <CardActions sx={{ marginTop: "auto", pb: 3 }}>
+                    <CardActions sx={{ pb: 2 }}>
                       {Gallery.buttons.map((button, index) => (
                         <Button
                           component="a"
                           href={button.url && button.url}
                           key={index}
-                          size="small"
+                          // size="small"
                         >
                           {button.text && (
                             <>

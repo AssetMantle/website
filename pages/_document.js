@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
           style={{
             backgroundImage: "url('/images/Background_tile.webp')",
             backgroundRepeat: "repeat-y",
+            // backgroundPosition: "center top",
             backgroundSize: "100%",
             backgroundColor: theme.palette.background.paper,
           }}

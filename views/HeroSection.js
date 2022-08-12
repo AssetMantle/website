@@ -101,9 +101,6 @@ export default function HeroSection() {
         height: "700px",
         width: "auto",
       }}
-      // layout="intrinsic"
-      // width="300px"
-      // height=""
     />
   );
 
