@@ -40,7 +40,7 @@ export default class MyDocument extends Document {
             backgroundRepeat: "repeat-y",
             // backgroundPosition: "center top",
             backgroundSize: "100%",
-            backgroundColor: theme.palette.background.paper,
+            backgroundColor: theme.palette.background.default,
           }}
         >
           <Main />

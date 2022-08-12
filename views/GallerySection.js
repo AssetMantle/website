@@ -71,7 +71,7 @@ const GalleryConfigData = {
     {
       image: "/images/products/MantleExplorer.png",
       title: "MantleExplorer",
-      description: "A blockchain explorer for the AssetMantle chain",
+      description: "A detailed blockchain explorer for the AssetMantle chain",
       buttons: [
         {
           text: "Learn More",

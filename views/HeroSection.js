@@ -69,7 +69,7 @@ export default function HeroSection() {
           Documentation
         </Button>
       </Box>
-      <Divider variant="inset" orientation="horizontal" light fullWidth />
+      <Divider variant="inset" orientation="horizontal" light />
       <SocialIcons />
     </Stack>
   );
