@@ -99,10 +99,6 @@ const TeamsConfigData = {
           icon: "GitHub",
           href: "https://github.com/avkr003",
         },
-        {
-          icon: "Behance",
-          href: "https://www.behance.net/kombos",
-        },
       ],
     },
     {
@@ -122,6 +118,10 @@ const TeamsConfigData = {
         {
           icon: "GitHub",
           href: "https://github.com/kombos",
+        },
+        {
+          icon: "Behance",
+          href: "https://www.behance.net/kombos",
         },
       ],
     },
@@ -274,20 +274,20 @@ const TeamsConfigData = {
       name: "Arun Ramesan",
       designation: "Visual Designer​",
       designationType: "Design",
-      // social: [
-      //   {
-      //     icon: "LinkedIn",
-      //     href: "https://www.linkedin.com/in/iamsarvagyaa/",
-      //   },
-      //   {
-      //     icon: "Behance",
-      //     href: "https://twitter.com/iamsarvagyaa",
-      //   },
-      //   {
-      //     icon: "Instagram",
-      //     href: "https://github.com/iamsarvagyaa",
-      //   },
-      // ],
+      social: [
+        {
+          icon: "LinkedIn",
+          href: "https://www.linkedin.com/in/arunramesan",
+        },
+        {
+          icon: "Behance",
+          href: "https://www.behance.net/arxwork",
+        },
+        {
+          icon: "Instagram",
+          href: "https://www.instagram.com/arxwork",
+        },
+      ],
     },
     {
       image: "/images/teams/mrinal.png",
