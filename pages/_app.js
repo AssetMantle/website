@@ -15,7 +15,11 @@ export default function MyApp(props) {
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>InterNFT</title>
+        <meta
+          name="description"
+          content="AssetMantle is a community-first platform for NFT creators and collectors. Use AssetMantle to create your own NFT store or to expand your collection of NFTs."
+        />
+        <title>AssetMantle</title>
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
