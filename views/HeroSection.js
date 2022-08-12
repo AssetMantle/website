@@ -1,10 +1,8 @@
-import AssignmentIcon from "@mui/icons-material/Assignment";
+import ArticleIcon from "@mui/icons-material/Article";
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
-import Image from "next/image";
 import React from "react";
-// import mantler from "../public/static/heroSection/mantler.png";
-import ArticleIcon from "@mui/icons-material/Article";
+import SocialIcons from "../components/SocialIcons";
 
 // import Icon from '@mui/material/Icon';
 
@@ -26,21 +24,6 @@ const contentSheet = {
 };
 
 export default function HeroSection() {
-  const SocialIconsJSX = (
-    <Stack
-      direction="row"
-      justifyContent="center"
-      alignItems="left"
-      spacing={2}
-    >
-      <AssignmentIcon fontSize="large" />
-      <AssignmentIcon fontSize="large" />
-      <AssignmentIcon fontSize="large" />
-      <AssignmentIcon fontSize="large" />
-      <AssignmentIcon fontSize="large" />
-    </Stack>
-  );
-
   // contents of right sub-section
   const LeftSubSectionJSX = (
     <Stack
@@ -87,7 +70,7 @@ export default function HeroSection() {
         </Button>
       </Box>
       <Divider variant="inset" orientation="horizontal" light fullWidth />
-      {SocialIconsJSX}
+      <SocialIcons />
     </Stack>
   );
 

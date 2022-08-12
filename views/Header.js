@@ -147,7 +147,7 @@ export default function Header() {
         },
       ],
     },
-    {
+    /* {
       menuName: "Resources",
       isExternalURL: false,
       isNestMenuCollapsed: true,
@@ -181,6 +181,63 @@ export default function Header() {
           isExternalURL: true,
           isNestMenuCollapsed: true,
           url: "https://assetmantle.one/mantleplace",
+        },
+      ],
+    }, */
+    {
+      menuName: "Build",
+      isExternalURL: false,
+      isNestMenuCollapsed: false,
+      url: [
+        {
+          menuName: "Docs",
+          isExternalURL: true,
+          isNestMenuCollapsed: false,
+          url: [
+            {
+              menuName: "Whitepaper",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+            {
+              menuName: "Developer Docs",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+          ],
+        },
+        {
+          menuName: "Developer Resources",
+          isExternalURL: true,
+          isNestMenuCollapsed: false,
+          url: [
+            {
+              menuName: "GitHub",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+            {
+              menuName: "Grants",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+            {
+              menuName: "interNFT",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+            {
+              menuName: "DevNet",
+              isExternalURL: true,
+              isNestMenuCollapsed: false,
+              url: "https://assetmantle.one/mantleplace",
+            },
+          ],
         },
       ],
     },
