@@ -6,21 +6,33 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Grid,
   Typography,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const GalleryConfigData = {
-  textAlign: "center",
+  textAlign: "center", // >>> default: left
   title: "Our Products",
   titleComponent: "h1",
   titleVariant: "h1",
   description:
     "AssetMantle’s suite of products, which is focussed on NFT ecosystem, helps you up your game of digital asset ownership",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
-
   galleries: [
+    // object template
+    // {
+    //   image: "/images/mantleplace.png",
+    //   title: "",
+    //   description: "",
+    //   buttons: [
+    //     {
+    //       text: "",
+    //       url: "",
+    //     },
+    //   ],
+    // },
     {
       image: "/images/MantlePlace.png",
       title: "MantlePlace",
@@ -77,13 +89,6 @@ const sectionStyle = {
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "left" },
 };
-const optionContainerStyles = {
-  display: "flex",
-  justifyContent: "center",
-  flexWrap: "wrap",
-  gap: "21px",
-  pt: 8,
-};
 const optionStyles = {
   background:
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
@@ -91,6 +96,8 @@ const optionStyles = {
   borderRadius: "16px",
   maxWidth: 272,
   boxShadow: "none",
+  height: "100%",
+  mx: "auto",
   padding: "0 11px",
   textAlign: { xs: "center", md: "left" },
   display: "flex",
@@ -127,6 +134,7 @@ export default function GallerySection() {
         )}
         {GalleryConfigData.description && (
           <Typography
+            component="p"
             variant="subtitle2"
             color="inherit"
             sx={
@@ -143,58 +151,71 @@ export default function GallerySection() {
         {Array.isArray(GalleryConfigData.galleries) &&
           GalleryConfigData.galleries &&
           GalleryConfigData.galleries.length > 0 && (
-            <Box sx={optionContainerStyles}>
+            <Grid container spacing={2} sx={{ pt: 8 }}>
               {GalleryConfigData.galleries.map((Gallery, index) => (
-                <Card sx={optionStyles} key={index}>
-                  {Gallery.image && (
-                    <CardMedia
-                      component="img"
-                      alt={Gallery.title}
-                      // height={Gallery.height ? Gallery.height : 420}
-                      image={Gallery.image}
-                      sx={{ border: "none", width: "100%", aspectRatio: "1/1" }}
-                    />
-                  )}
-                  {(Gallery.title || Gallery.description) && (
-                    <CardContent>
-                      {Gallery.title && (
-                        <Typography
-                          gutterBottom
-                          variant="h3"
-                          component="h3"
-                          color="primary.main"
-                        >
-                          {Gallery.title}
-                        </Typography>
-                      )}
-                      {Gallery.description && (
-                        <Typography variant="body1" color="primary.light">
-                          {Gallery.description}
-                        </Typography>
-                      )}
-                    </CardContent>
-                  )}
-                  {Gallery.buttons.length !== 0 && (
-                    <CardActions sx={{ pb: 2 }}>
-                      {Gallery.buttons.map((button, index) => (
-                        <Button
-                          component="a"
-                          href={button.url && button.url}
-                          key={index}
-                          // size="small"
-                        >
-                          {button.text && (
-                            <>
-                              {button.text} <KeyboardArrowRightIcon />
-                            </>
-                          )}
-                        </Button>
-                      ))}
-                    </CardActions>
-                  )}
-                </Card>
+                <Grid item xs={12} sm={6} md={3} key={index}>
+                  <Card sx={optionStyles}>
+                    {Gallery.image && (
+                      <CardMedia
+                        component="img"
+                        alt={Gallery.title}
+                        // height={Gallery.height ? Gallery.height : 420}
+                        image={Gallery.image}
+                        sx={{
+                          border: "none",
+                          width: "100%",
+                          aspectRatio: "1/1",
+                        }}
+                      />
+                    )}
+                    {(Gallery.title || Gallery.description) && (
+                      <CardContent sx={{ p: 0.5 }}>
+                        {Gallery.title && (
+                          <Typography
+                            gutterBottom
+                            variant="h3"
+                            component="h3"
+                            color="primary.main"
+                          >
+                            {Gallery.title}
+                          </Typography>
+                        )}
+                        {Gallery.description && (
+                          <Typography variant="body1" color="primary.light">
+                            {Gallery.description}
+                          </Typography>
+                        )}
+                      </CardContent>
+                    )}
+                    {Gallery.buttons.length !== 0 && (
+                      <CardActions
+                        sx={{
+                          mt: "auto",
+                          pb: 2,
+                          justifyContent: { xs: "center", md: "flex-start" },
+                          justifySelf: "flex-end",
+                        }}
+                      >
+                        {Gallery.buttons.map((button, index) => (
+                          <Button
+                            component="a"
+                            href={button.url && button.url}
+                            key={index}
+                            // size="small"
+                          >
+                            {button.text && (
+                              <>
+                                {button.text} <KeyboardArrowRightIcon />
+                              </>
+                            )}
+                          </Button>
+                        ))}
+                      </CardActions>
+                    )}
+                  </Card>
+                </Grid>
               ))}
-            </Box>
+            </Grid>
           )}
       </Container>
     </Box>
