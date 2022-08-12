@@ -83,8 +83,8 @@ export default function HeroSection() {
       src="/images/mantler.webp"
       alt="hero_image"
       style={{
-        height: "700px",
-        width: "auto",
+        width: "min(559px, 100%)",
+        height: "auto",
       }}
     />
   );
