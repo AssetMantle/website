@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardContent,
+  CardMedia,
   Container,
   Grid,
   Stack,
@@ -15,16 +16,16 @@ import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 
 const InitiativeSectionConfigData = {
-  textAlign: "", // >>> default: left
+  textAlign: "center", // >>> default: left
   title: "The AssetMantle Advantage",
+  titleOnLeft: false, // >>> default: false
   titleComponent: "h2",
   titleVariant: "h1",
-  description: "The native token which powers the AssetMantle’s NFT Economy",
-  descriptionStyle: {
-    pt: 7,
-    width: "min(100%, 343px)",
-  }, // object of styles or false
+  description: "",
+  descriptionOnLeft: false, // >>> default: false
+  descriptionStyle: false, // object of styles or false
   backgroundImage: "", // "url('/images/mantleplace.png')",
+  leftImage: "/images/advantage/advantage_bg.png", // "url('/images/mantleplace.png')",
   ctas: [
     {
       title: "Whitepaper",
@@ -45,41 +46,25 @@ const InitiativeSectionConfigData = {
   ],
   initiatives: [
     {
-      icon: (
-        <TrendingUpOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // add component: <Icon /> or url: "https://icon.png"
+      icon: "/images/advantage/multiChain.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Multi-Chain Access",
       description:
         "Trade NFT on other chains or show them off across metaverses",
     },
     {
-      icon: (
-        <TrendingUpOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // add component: <Icon /> or url: "https://icon.png"
+      icon: "/images/advantage/highEconomical.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Highly Economical ROI",
       description:
         "Leverage a rich NFT Economy on an IBC enabled Cosmos Ecosystem at negligible cost",
     },
     {
-      icon: (
-        <TrendingUpOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // add component: <Icon /> or url: "https://icon.png"
+      icon: "/images/advantage/multiplePayment.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Multiple Payment Modes",
       description:
         "Experience AssetMantle with fiat currency, coins or stablecoins",
     },
     {
-      icon: (
-        <TrendingUpOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // add component: <Icon /> or url: "https://icon.png"
+      icon: "/images/advantage/noCodeCustomization.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "No-Code Customization Engine",
       description:
         "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
@@ -98,19 +83,19 @@ const listStyle = {
   background:
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
   backdropFilter: "blur(47.4479px)",
-  pl: 3,
+  pl: 0,
   pt: 5,
   pr: 2,
   pb: 2,
   mx: { xs: "auto", md: 0 },
-  marginLeft: "auto",
-  width: "min(441px, 100%)",
+  ml: { md: "auto" },
+  width: "min(500px, 100%)",
   borderRadius: "6px",
   backdropFilter: "blur(2px)",
   color: "primary.light",
   display: "flex",
   alignItems: "center",
-  gap: 2,
+  textAlign: { xs: "center", md: "left" },
 };
 
 export default function AdvantageSection() {
@@ -128,50 +113,110 @@ export default function AdvantageSection() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Grid container spacing={2} maxWidth="lg">
+        {InitiativeSectionConfigData.title &&
+          !InitiativeSectionConfigData.titleOnLeft && (
+            <Typography
+              component={
+                InitiativeSectionConfigData.titleComponent
+                  ? InitiativeSectionConfigData.titleComponent
+                  : "h2"
+              }
+              variant={
+                InitiativeSectionConfigData.titleVariant
+                  ? InitiativeSectionConfigData.titleVariant
+                  : "h2"
+              }
+              color="inherit"
+            >
+              {InitiativeSectionConfigData.title}
+            </Typography>
+          )}
+        {InitiativeSectionConfigData.description &&
+          !InitiativeSectionConfigData.descriptionOnLeft && (
+            <Typography
+              component="p"
+              variant="body1"
+              color="inherit"
+              sx={
+                InitiativeSectionConfigData.descriptionStyle
+                  ? InitiativeSectionConfigData.descriptionStyle
+                  : {
+                      pt: 2,
+                    }
+              }
+            >
+              {InitiativeSectionConfigData.description}
+            </Typography>
+          )}
+        <Grid
+          container
+          spacing={2}
+          maxWidth="lg"
+          sx={{
+            pt:
+              InitiativeSectionConfigData.descriptionOnLeft ||
+              InitiativeSectionConfigData.titleOnLeft
+                ? 0
+                : 8,
+          }}
+        >
           <Grid
             item
             xs={12}
-            md={7}
+            md={6}
             sx={{
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
               alignItems: { xs: "center", md: "flex-start" },
               textAlign: { xs: "center", md: "left" },
+              backgroundImage:
+                InitiativeSectionConfigData.leftImage &&
+                `url('${InitiativeSectionConfigData.leftImage}')`,
+              backgroundSize: "contain",
+              backgroundPosition: { xs: "center", md: "left" },
+              backgroundRepeat: "no-repeat",
+              aspectRatio: InitiativeSectionConfigData.leftImage && {
+                xs: "2/1",
+                md: "auto",
+              },
             }}
           >
-            {InitiativeSectionConfigData.title && (
-              <Typography
-                variant={
-                  InitiativeSectionConfigData.titleVariant
-                    ? InitiativeSectionConfigData.titleVariant
-                    : "h2"
-                }
-                color="inherit"
-                sx={{
-                  maxWidth: "min(625px, 100%)",
-                }}
-              >
-                {InitiativeSectionConfigData.title}
-              </Typography>
-            )}
-            {InitiativeSectionConfigData.description && (
-              <Typography
-                component="p"
-                variant="body1"
-                color="inherit"
-                sx={
-                  InitiativeSectionConfigData.descriptionStyle
-                    ? InitiativeSectionConfigData.descriptionStyle
-                    : {
-                        pt: 2,
-                      }
-                }
-              >
-                {InitiativeSectionConfigData.description}
-              </Typography>
-            )}
+            {InitiativeSectionConfigData.title &&
+              InitiativeSectionConfigData.titleOnLeft && (
+                <Typography
+                  component={
+                    InitiativeSectionConfigData.titleComponent
+                      ? InitiativeSectionConfigData.titleComponent
+                      : "h2"
+                  }
+                  variant={
+                    InitiativeSectionConfigData.titleVariant
+                      ? InitiativeSectionConfigData.titleVariant
+                      : "h2"
+                  }
+                  color="inherit"
+                >
+                  {InitiativeSectionConfigData.title}
+                </Typography>
+              )}
+            {InitiativeSectionConfigData.description &&
+              InitiativeSectionConfigData.descriptionOnLeft && (
+                <Typography
+                  component="p"
+                  variant="body1"
+                  color="inherit"
+                  sx={
+                    InitiativeSectionConfigData.descriptionStyle
+                      ? InitiativeSectionConfigData.descriptionStyle
+                      : {
+                          pt: 2,
+                        }
+                  }
+                >
+                  {InitiativeSectionConfigData.description}
+                </Typography>
+              )}
             {InitiativeSectionConfigData.ctas &&
               InitiativeSectionConfigData.ctas.length > 0 && (
                 <Box
@@ -180,6 +225,17 @@ export default function AdvantageSection() {
                     flexWrap: "wrap",
                     gap: 2,
                     pt: 8,
+                    justifyContent: "center",
+                    mt:
+                      InitiativeSectionConfigData.descriptionOnLeft ||
+                      InitiativeSectionConfigData.titleOnLeft
+                        ? 0
+                        : "auto",
+                    mb:
+                      InitiativeSectionConfigData.descriptionOnLeft ||
+                      InitiativeSectionConfigData.titleOnLeft
+                        ? 0
+                        : 8,
                   }}
                 >
                   {InitiativeSectionConfigData.ctas.map((cta, index) => (
@@ -200,7 +256,7 @@ export default function AdvantageSection() {
                 </Box>
               )}
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={6}>
             {Array.isArray(InitiativeSectionConfigData.initiatives) &&
               InitiativeSectionConfigData.initiatives &&
               InitiativeSectionConfigData.initiatives.length > 0 && (
@@ -217,9 +273,14 @@ export default function AdvantageSection() {
                         {initiative.icon &&
                           (typeof initiative.icon === "string" ? (
                             <CardMedia
-                              src={initiative.icon}
+                              component="img"
+                              image={initiative.icon}
                               alt={initiative.title}
                               title={initiative.title}
+                              sx={{
+                                width: "min(112px, 100%)",
+                                height: "auto",
+                              }}
                             />
                           ) : (
                             initiative.icon
