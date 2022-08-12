@@ -23,7 +23,7 @@ const GalleryConfigData = {
   galleries: [
     // object template
     // {
-    //   image: "/images/mantleplace.png",
+    //   image: "/images/products/mantleplace.png",
     //   title: "",
     //   description: "",
     //   buttons: [
@@ -34,7 +34,7 @@ const GalleryConfigData = {
     //   ],
     // },
     {
-      image: "/images/MantlePlace.png",
+      image: "/images/products/MantlePlace.png",
       title: "MantlePlace",
       description:
         "A new, highly optimized NFT marketplace for Cosmos Ecosystem",
@@ -46,7 +46,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/MantleBuilder.png",
+      image: "/images/products/MantleBuilder.png",
       title: "MantleBuilder",
       description:
         "A no-code marketplace builder enabling instant NFT shopifying",
@@ -58,7 +58,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/MantleWallet.png",
+      image: "/images/products/MantleWallet.png",
       title: "MantleWallet",
       description: "A non-custodial blockchain wallet for AssetMantle chain",
       buttons: [
@@ -69,7 +69,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/MantleExplorer.png",
+      image: "/images/products/MantleExplorer.png",
       title: "MantleExplorer",
       description: "A blockchain explorer for the AssetMantle chain",
       buttons: [
@@ -192,6 +192,7 @@ export default function GallerySection() {
                         sx={{
                           mt: "auto",
                           pb: 2,
+                          px: 0.5,
                           justifyContent: { xs: "center", md: "flex-start" },
                           justifySelf: "flex-end",
                         }}
@@ -201,6 +202,9 @@ export default function GallerySection() {
                             component="a"
                             href={button.url && button.url}
                             key={index}
+                            sx={{
+                              px: 0,
+                            }}
                             // size="small"
                           >
                             {button.text && (
