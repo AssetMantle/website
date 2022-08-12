@@ -22,7 +22,7 @@ const InfoSectionConfigData = {
   titleColor: "secondary.main",
   description: [
     "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts.",
-    "This shopifying NFT assets, leading to a distributed network of networks, with global ownership states stored singularly in the AssetMantle chain.",
+    "This shopifying of NFT assets, leads to a distributed network of networks, with world state stored collectively in the AssetMantle chain.",
   ],
   descriptionVariant: "body1",
   descriptionColor: "secondary.main",
