@@ -681,6 +681,7 @@ export default function GallerySection() {
                     sx={{
                       background: "transparent !important",
                       outline: "none !important",
+                      position: "absolute",
                       transform: {
                         xs: "translateX(-70%) translateY(-50%) !important",
                         md: "translateX(-130%) translateY(-50%) !important",
@@ -701,6 +702,7 @@ export default function GallerySection() {
                     sx={{
                       background: "transparent !important",
                       outline: "none !important",
+                      position: "absolute",
                       transform: {
                         xs: "translateX(70%) translateY(-50%) !important",
                         md: "translateX(130%) translateY(-50%) !important",
