@@ -49,7 +49,7 @@ const GalleryConfigData = {
       image: "/images/products/MantleBuilder.png",
       title: "MantleBuilder",
       description:
-        "A no-code marketplace builder enabling instant NFT shopifying",
+        "Coming soon, a no-code marketplace builder for NFT shopifying",
       buttons: [
         {
           text: "Learn More",

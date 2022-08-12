@@ -27,7 +27,7 @@ const InitiativeSectionConfigData = {
   ctas: [
     {
       title: "Whitepaper",
-      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
+      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/https://docs.assetmantle.one/AssetMantle_Whitepaper/",
       icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -250,6 +250,8 @@ export default function AdvantageSection() {
                         // textTransform: "capitali ze",
                       }}
                       endIcon={cta.icon ? cta.icon : null}
+                      href={cta.url}
+                      target={cta.target}
                     >
                       {cta.title && cta.title}
                     </Button>
@@ -290,12 +292,12 @@ export default function AdvantageSection() {
                           <Typography
                             variant="h6"
                             component="h6"
-                            color="inherit"
+                            color="primary.main"
                           >
                             {initiative.title && initiative.title}
                           </Typography>
                           <Typography
-                            variant="body2"
+                            variant="body1"
                             component="p"
                             sx={{ pt: 3 }}
                           >
