@@ -19,7 +19,13 @@ const InitiativeSectionConfigData = {
   title: "The AssetMantle Advantage",
   titleComponent: "h2",
   titleVariant: "h1",
-  description: "The native token which powers the AssetMantle’s NFT Economy",
+  titleColor: "secondary.main",
+  titleStyles: {
+    maxWidth: "min(625px, 100%)",
+  },
+  // description: "The native token which powers the AssetMantle’s NFT Economy",
+  descriptionVariant: "body1",
+  descriptionColor: "secondary.main",
   descriptionStyle: {
     pt: 7,
     width: "min(100%, 343px)",
@@ -148,19 +154,16 @@ export default function AdvantageSection() {
                     ? InitiativeSectionConfigData.titleVariant
                     : "h2"
                 }
-                color="inherit"
-                sx={{
-                  maxWidth: "min(625px, 100%)",
-                }}
+                color={InitiativeSectionConfigData.titleColor}
+                sx={InitiativeSectionConfigData.titleStyles}
               >
                 {InitiativeSectionConfigData.title}
               </Typography>
             )}
             {InitiativeSectionConfigData.description && (
               <Typography
-                component="p"
-                variant="body1"
-                color="inherit"
+                variant={InitiativeSectionConfigData.descriptionVariant}
+                color={InitiativeSectionConfigData.descriptionColor}
                 sx={
                   InitiativeSectionConfigData.descriptionStyle
                     ? InitiativeSectionConfigData.descriptionStyle
@@ -225,18 +228,10 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0" }}>
-                          <Typography
-                            variant="h6"
-                            component="h6"
-                            color="inherit"
-                          >
+                          <Typography variant="h4" color="primary.main">
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography
-                            variant="body2"
-                            component="p"
-                            sx={{ pt: 3 }}
-                          >
+                          <Typography variant="body1" sx={{ pt: 3 }}>
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>

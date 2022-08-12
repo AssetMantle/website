@@ -13,6 +13,7 @@ const FeatureConfigData = {
   title: "Why choose us?",
   titleComponent: "",
   titleVariant: "h1",
+  titleColor: "secondary.main",
   description:
     "AssetMantle’s foundation is built using the best-in-class core blockchain principles, and optimized for the next evolution of NFT economy",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false

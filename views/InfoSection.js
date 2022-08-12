@@ -188,7 +188,10 @@ const Content = () => {
               }
             >
               {InfoSectionConfigData.description.map((item, index) => (
-                <Typography component="p" variant="body1" color="inherit">
+                <Typography
+                  variant={InfoSectionConfigData.descriptionVariant}
+                  color={InfoSectionConfigData.descriptionColor}
+                >
                   {item}
                 </Typography>
               ))}
@@ -196,8 +199,8 @@ const Content = () => {
           ) : (
             <Typography
               component="p"
-              variant="body1"
-              color="inherit"
+              variant={InfoSectionConfigData.descriptionVariant}
+              color={InfoSectionConfigData.descriptionColor}
               sx={
                 InfoSectionConfigData.descriptionStyle
                   ? InfoSectionConfigData.descriptionStyle

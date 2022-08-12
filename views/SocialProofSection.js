@@ -4,7 +4,7 @@ import React from "react";
 
 const SocialProofConfigData = {
   textAlign: "center",
-  title: "FEATURED IN",
+  title: "Featured In",
   titleComponent: "",
   titleVariant: "h1",
   description: "",
