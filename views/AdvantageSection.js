@@ -27,7 +27,7 @@ const InitiativeSectionConfigData = {
   ctas: [
     {
       title: "Whitepaper",
-      url: "",
+      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
       icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -35,7 +35,7 @@ const InitiativeSectionConfigData = {
     },
     {
       title: "litepaper",
-      url: "",
+      url: "https://assetmantle.one/pdfs/litepaper.pdf",
       icon: <FileDownloadOutlinedIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -247,6 +247,8 @@ export default function AdvantageSection() {
                         // textTransform: "capitali ze",
                       }}
                       endIcon={cta.icon ? cta.icon : null}
+                      href={cta.url}
+                      target={cta.target}
                     >
                       {cta.title && cta.title}
                     </Button>
@@ -284,16 +286,10 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0" }}>
-                          <Typography
-                            variant="h4"
-                            color="primary.main"
-                          >
+                          <Typography variant="h4" color="primary.main">
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography
-                            variant="body1"
-                            sx={{ pt: 3 }}
-                          >
+                          <Typography variant="body1" sx={{ pt: 3 }}>
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>

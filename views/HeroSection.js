@@ -65,6 +65,8 @@ export default function HeroSection() {
             borderRadius: 8,
           }}
           endIcon={<ArticleIcon />}
+          href="https://docs.assetmantle.one/"
+          target="_blank"
         >
           Documentation
         </Button>
