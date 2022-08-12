@@ -27,7 +27,7 @@ const InitiativeSectionConfigData = {
   ctas: [
     {
       title: "Whitepaper",
-      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
+      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/https://docs.assetmantle.one/AssetMantle_Whitepaper/",
       icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -35,7 +35,7 @@ const InitiativeSectionConfigData = {
     },
     {
       title: "litepaper",
-      url: "https://assetmantle.one/pdfs/litepaper.pdf",
+      url: "/litepaper.pdf",
       icon: <FileDownloadOutlinedIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -238,9 +238,12 @@ export default function AdvantageSection() {
                 >
                   {InitiativeSectionConfigData.ctas.map((cta, index) => (
                     <Button
+                      component="a"
                       variant={cta.variant ? cta.variant : "contained"}
                       key={index}
                       size="large"
+                      href={cta.url && cta.url}
+                      target={cta.target && cta.target}
                       sx={{
                         borderRadius: 8,
                         // padding: "12px 34px",
@@ -286,10 +289,18 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0" }}>
-                          <Typography variant="h4" color="primary.main">
+                          <Typography
+                            variant="h6"
+                            component="h6"
+                            color="primary.main"
+                          >
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography variant="body1" sx={{ pt: 3 }}>
+                          <Typography
+                            variant="body1"
+                            component="p"
+                            sx={{ pt: 3 }}
+                          >
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>
