@@ -288,18 +288,10 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0" }}>
-                          <Typography
-                            variant="h6"
-                            component="h6"
-                            color="primary.main"
-                          >
+                          <Typography variant="h4" color="primary.main">
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography
-                            variant="body1"
-                            component="p"
-                            sx={{ pt: 3 }}
-                          >
+                          <Typography variant="body1" sx={{ pt: 3 }}>
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>
