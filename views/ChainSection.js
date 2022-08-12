@@ -1,87 +1,200 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 import { Container } from "@mui/system";
 import React from "react";
 
+// import Icon from '@mui/material/Icon';
+
 const sectionStyle = {
-  mt: 13,
-  paddingTop: "7px",
+  py: 4,
+  mb: 4,
   color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "left" },
+  textAlign: { xs: "center", sm: "center", md: "center" },
+  backgroundColor: "pink",
 };
 
 export default function ChainSection() {
+  const LinksJSX = (
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
+    >
+      <AssignmentIcon fontSize="large" />
+      <Typography variant="h2" color="primary">
+        $MNTL
+      </Typography>
+    </Stack>
+  );
+
+  const TokenTickerJSX = (
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
+    >
+      <AssignmentIcon fontSize="large" />
+      <Typography variant="h1" color="primary">
+        $MNTL
+      </Typography>
+    </Stack>
+  );
+
+  // contents of left sub-section
+  const LeftSubSectionJSX = (
+    // Stack with Icons Grid & Chain Description
+    <Stack
+      direction="column"
+      // justifyContent="center"
+      alignItems="center"
+      spacing={2}
+      sx={{
+        backgroundColor: "green",
+      }}
+    >
+      {/* Icon Grid */}
+      <Grid
+        container
+        // spacing={2}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "green",
+        }}
+      >
+        {/* Icons */}
+        <Grid
+          item
+          xs={6}
+          md={6}
+          sx={{ backgroundColor: "rgba(0, 127, 127, 0.8)" }}
+        >
+          <Avatar variant="rounded" sx={{ width: "86", height: "56" }}>
+            <AssignmentIcon />
+          </Avatar>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          md={6}
+          sx={{ backgroundColor: "rgba(0, 127, 127, 0.8)" }}
+        >
+          <Avatar variant="rounded" sx={{ width: "86", height: "56" }}>
+            <AssignmentIcon />
+          </Avatar>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          md={6}
+          sx={{ backgroundColor: "rgba(0, 127, 127, 0.8)" }}
+        >
+          <Avatar variant="rounded" sx={{ width: "86", height: "56" }}>
+            <AssignmentIcon />
+          </Avatar>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          md={6}
+          sx={{ backgroundColor: "rgba(0, 127, 127, 0.8)" }}
+        >
+          <Avatar variant="rounded" sx={{ width: "86", height: "56" }}>
+            <AssignmentIcon />
+          </Avatar>
+        </Grid>
+      </Grid>
+
+      {/* Chain Description */}
+      <Typography
+        variant="body1"
+        color="primary"
+        align="center"
+        sx={{ maxWidth: 300, backgroundColor: "yellowgreen" }}
+      >
+        Part of rich Cosmos Ecosystem
+      </Typography>
+    </Stack>
+  );
+
+  // contents of right sub-section
+  const RightSubSectionJSX = (
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
+    >
+      {/* Token Icon & Ticker */}
+      {TokenTickerJSX}
+
+      {/* Token Description */}
+      <Typography
+        variant="body1"
+        color="primary"
+        align="center"
+        sx={{ maxWidth: 300 }}
+      >
+        The native token which powers the AssetMantle’s NFT Economy
+      </Typography>
+
+      {/* Links */}
+      {LinksJSX}
+    </Stack>
+  );
+
   return (
     <Box component="section" sx={sectionStyle}>
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={5}>
-            <Typography
-              component="h2"
-              variant="h2"
-              color="inherit"
-              sx={{
-                paddingBottom: "33px",
-                backgroundImage: "url(/static/line.svg)",
-                backgroundPosition: "bottom right",
-                backgroundRepeat: "no-repeat",
-                width: "min(510px,100%)",
-                "@media (max-width:900px)": {
-                  width: "100%",
-                },
-              }}
+      <Container maxWidth="lg" disableGutters>
+        {/* Stack with Title & Section Contents */}
+        <Stack
+          direction="column"
+          // justifyContent="center"
+          // alignItems="center"
+          spacing={4}
+          sx={{ backgroundColor: "orange" }}
+        >
+          {/* Title */}
+          <Typography
+            variant="h1"
+            color="primary"
+            sx={{ backgroundColor: "blue" }}
+          >
+            The AssetMantle Chain
+          </Typography>
+
+          {/* Section Contents */}
+          <Grid container>
+            {/* Left Sub-section */}
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sm={6}
+              lg={6}
+              xl={6}
+              sx={{ backgroundColor: "aliceblue" }}
             >
-              ChainSection
-            </Typography>
-            <Box sx={{ mt: 8 }}>
-              <Typography component="p" variant="body1">
-                This open collaboration was initiated by the Interchain
-                Foundation and is facilitated by ixo (The Internet of Impact)
-                together with AssetMantle.
-                <br />
-                <br />
-                <br />
-                <Link
-                  underline="hover"
-                  href="https://interchain.io/"
-                  sx={{ cursor: "pointer" }}
-                >
-                  Interchain Foundation
-                </Link>{" "}
-                grants along with the collaborative development of developers
-                from{" "}
-                <Link
-                  underline="hover"
-                  href="https://www.w3.org/"
-                  sx={{ cursor: "pointer" }}
-                >
-                  World Wide Web Consortium (W3C)
-                </Link>{" "}
-                and other development teams worked to further expand the
-                capabilities of Cosmos SDK
-                <br />
-                <br />
-                <br />
-                <Link
-                  underline="none"
-                  href="https://blog.cosmos.network/progress-report-interchain-nft-metadata-standards-94770dfe3bb1"
-                  sx={{ cursor: "pointer" }}
-                >
-                  LEARN MORE
-                </Link>
-              </Typography>
-            </Box>
+              {LeftSubSectionJSX}
+            </Grid>
+
+            {/* Right Sub-section */}
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sm={6}
+              lg={6}
+              xl={6}
+              sx={{ backgroundColor: "red" }}
+            >
+              {RightSubSectionJSX}
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={7}>
-            <img
-              src="/static/InterNFTGraphic.png"
-              alt=""
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
-          </Grid>
-        </Grid>
+        </Stack>
       </Container>
     </Box>
   );

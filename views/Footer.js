@@ -5,7 +5,7 @@ const footerStyle = {
   mt: 13,
   paddingTop: "7px",
   color: "primary.light",
-  backgroundColor: "secondary.dark",
+  backgroundColor: "background.default",
   p: 4,
   textAlign: "center",
 };
@@ -15,7 +15,7 @@ export default function Footer() {
     <Box component="footer" sx={footerStyle}>
       <Container maxWidth="lg">
         <Typography variant="body3" component="p">
-          © InterNFT 2022 - All rights reserved{" "}
+          © AssetMantle 2022 - All rights reserved{" "}
         </Typography>
       </Container>
     </Box>

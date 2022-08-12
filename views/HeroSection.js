@@ -1,78 +1,116 @@
-import { Typography, useTheme } from "@mui/material";
-import Box from "@mui/material/Box";
-import * as React from "react";
+import ArticleIcon from "@mui/icons-material/Article";
+import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import React from "react";
+import SocialIcons from "../components/SocialIcons";
 
-const sectionStyles = {
-  display: "flex",
-  height: "min(950px, 100vh)",
-  backgroundImage:
-    "linear-gradient(180deg, rgba(17, 17, 17, 0) 80%, #111111 97.82%), url(/static/hero-bg.svg)",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "100%, cover",
-  backgroundPosition: "bottom left, top left",
-  margin: "0 auto",
-  textAlign: { xs: "center", sm: "center", md: "left" },
-};
+// import Icon from '@mui/material/Icon';
 
-const containerStyles = {
-  display: "flex",
-  width: "100%",
-  margin: "auto",
-  mr: 0,
-  background:
-    "linear-gradient(270.23deg, #111111 51.94%, rgba(17, 17, 17, 0) 98.63%)",
-  width: "min(947px, 100%)",
-};
-
-const contentStyles = {
-  margin: "auto",
+const sectionStyle = {
+  pt: 4,
+  mt: 2,
+  pb: 4,
+  mb: 4,
   color: "primary.light",
-  padding: "28px 24px 27px 47px",
-  width: "min(calc(768px + 24px + 47px), 100%)",
-  "@media (max-width:900px)": {
-    padding: "28px 24px 27px",
-  },
+  textAlign: { xs: "center", sm: "center", md: "center" },
+  minHeight: { xs: "100vh", xl: "none" },
+  // backgroundColor: "orange",
 };
 
-function HeroSection() {
-  const theme = useTheme();
-  // console.log("theme: ", theme);
-  return (
-    <Box component="section" sx={sectionStyles} maxWidth="xl">
-      <Box sx={containerStyles}>
-        <Box sx={contentStyles}>
-          <Typography
-            color="inherit"
-            variant="h1"
-            component="h1"
-            sx={{
-              pb: 1,
-              backgroundImage: "url(/static/line.svg)",
-              backgroundPosition: "bottom left",
-              backgroundRepeat: "no-repeat",
-              width: "min(762px,100%)",
-            }}
-          >
-            Interchain NFTs + Metadata
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            component="p"
-            sx={{
-              paddingTop: "11px",
-              textTransform: "uppercase",
-              fontWeight: "200",
-            }}
-          >
-            New open standards for tokenising resources within <br />
-            <Typography component="strong">
-              the Internet of Blockchains
-            </Typography>
-          </Typography>
-        </Box>
+const contentSheet = {
+  title: "Redefining Digital Asset Ownership",
+  subtitle:
+    "Experience the first NFT marketplace with blockchain-based identity",
+};
+
+export default function HeroSection() {
+  // contents of right sub-section
+  const LeftSubSectionJSX = (
+    <Stack
+      direction="column"
+      // justifyContent="center"
+      alignItems={{ xs: "center", md: "flex-start" }}
+      spacing={2}
+    >
+      {/* Title */}
+      <Typography
+        variant="h1"
+        color="secondary.main"
+        // align={}
+        sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
+      >
+        {contentSheet.title}
+      </Typography>
+      {/* Subtitle */}
+      <Typography
+        variant="subtitle1"
+        color="primary.main"
+        align="left"
+        sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
+      >
+        {contentSheet.subtitle}
+      </Typography>
+      {/* CTA */}
+      <Box
+        display="flex"
+        alignItems="left"
+        pt={2}
+        pb={4}
+        sx={{ backgroundColor: "transparent" }}
+      >
+        <Button
+          variant="contained"
+          size="large"
+          sx={{
+            borderRadius: 8,
+          }}
+          endIcon={<ArticleIcon />}
+          href="https://docs.assetmantle.one/"
+          target="_blank"
+        >
+          Documentation
+        </Button>
       </Box>
+      <Divider variant="inset" orientation="horizontal" light />
+      <SocialIcons />
+    </Stack>
+  );
+
+  // contents of left sub-section
+  const RightSubSectionJSX = (
+    // Hero Image
+    <img
+      src="/images/hero/mantler.webp"
+      alt="hero_image"
+      style={{
+        width: "95%",
+        height: "auto",
+      }}
+    />
+  );
+
+  return (
+    <Box component="section" sx={sectionStyle}>
+      <Container maxWidth="lg">
+        {/* Left & Right Sub-section */}
+        <Grid container alignItems="center">
+          {/* Left Sub-section */}
+          <Grid
+            item
+            xs={12}
+            md={5}
+            py={10}
+            sx={{ backgroundColor: "transparent" }}
+          >
+            {LeftSubSectionJSX}
+          </Grid>
+
+          {/* Right Sub-section */}
+          <Grid item xs={12} md={7} sx={{ backgroundColor: "transparent" }}>
+            {RightSubSectionJSX}
+          </Grid>
+        </Grid>
+      </Container>
     </Box>
   );
 }
-
-export default HeroSection;
