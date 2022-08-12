@@ -79,14 +79,7 @@ export default function HeroSection() {
   // contents of left sub-section
   const RightSubSectionJSX = (
     // Hero Image
-    <img
-      src="/images/mantler.webp"
-      alt="hero_image"
-      style={{
-        height: "700px",
-        width: "auto",
-      }}
-    />
+    <img src="/images/hero/mantler.webp" alt="hero_image" width="95%" />
   );
 
   return (
