@@ -1,12 +1,6 @@
 import { Box, Card, CardMedia, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
-import HubOutlinedIcon from "@mui/icons-material/HubOutlined";
-import MoneyOffIcon from "@mui/icons-material/MoneyOff";
-import FastForwardOutlinedIcon from "@mui/icons-material/FastForwardOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import SwapHorizOutlinedIcon from "@mui/icons-material/SwapHorizOutlined";
 
 const FeatureConfigData = {
   textAlign: "center",
@@ -20,27 +14,19 @@ const FeatureConfigData = {
   featuresArray: [
     {
       href: "",
-      icon: (
-        <CategoryOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
+      icon: "/images/featured/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
       title: "Optimized for NFTs",
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "We’re building a suite of NFT products, with the chain having features like Verified NFT Creators, customized NFT properties, in-built whitelisting etc.",
+        "We’re building a suite of NFT products, with the chain specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
     {
       href: "",
-      icon: (
-        <HubOutlinedIcon sx={{ fontSize: "56px", color: "primary.main" }} />
-      ), // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
-      title: "Cosmos Ecosystem",
+      icon: "/images/featured/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
+      title: "Pioneering Cosmos Ecosystem",
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
@@ -50,24 +36,18 @@ const FeatureConfigData = {
     },
     {
       href: "",
-      icon: <MoneyOffIcon sx={{ fontSize: "56px", color: "primary.main" }} />, // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
+      icon: "/images/featured/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
       title: "Extremely Low Fees",
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "This network offers the basis for an economical network, with one of th elowest transaction fees in any popular network, of about $0.01 per transaction.",
+        "This network offers the basis for an economical network, with gas fees as low as $0.01 per transaction, it has the lowest transaction fees compared to any popular network.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
     {
       href: "",
-      icon: (
-        <FastForwardOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
+      icon: "/images/featured/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
       title: "Fast Order Fulfillments",
       titleVariant: "h4",
       titleColor: "primary.main",
@@ -78,28 +58,18 @@ const FeatureConfigData = {
     },
     {
       href: "",
-      icon: (
-        <SecurityOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
+      icon: "/images/featured/completelySecure.svg", // put icon component or url >>don't forgot to change the below
       title: "Completely Secure",
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "With high network security, and leveraging the native token $MNTL, AssetMantle provides the level of protection required for your assets.",
+        "With high level of network security, and leveraging the native token $MNTL, AssetMantle can provide the level of protection required for your asset ownership.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
     {
       href: "",
-      icon: (
-        <SwapHorizOutlinedIcon
-          sx={{ fontSize: "56px", color: "primary.main" }}
-        />
-      ), // put icon component or url >>don't forgot to change the below
-      iconType: "component", // >>>>put nothing if icon is a img or url
+      icon: "/images/featured/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
       title: "Future Interoperability",
       titleVariant: "h4",
       titleColor: "primary.main",
@@ -135,7 +105,7 @@ const optionStyles = {
   boxShadow: "none",
   padding: "16px 22px",
   borderRadius: "25px",
-  minHeight: "265px",
+  minHeight: "296px",
   transition: "all 0.3s ease-in-out",
   color: "primary.light",
   "&:hover": {
@@ -205,14 +175,14 @@ export default function FeatureSection() {
                       pb: 2,
                     }}
                   >
-                    {feature.iconType === "component"
-                      ? feature.icon && feature.icon
-                      : feature.icon && (
-                          <CardMedia
-                            sx={{ width: 32, aspectRatio: "1/1" }}
-                            image={feature.icon}
-                          />
-                        )}
+                    {feature.icon && typeof feature.icon === "string" ? (
+                      <CardMedia
+                        sx={{ width: "56px", aspectRatio: "1/1" }}
+                        image={feature.icon}
+                      />
+                    ) : (
+                      feature.icon
+                    )}
                     {feature.title && (
                       <Typography
                         variant={feature.titleVariant}
