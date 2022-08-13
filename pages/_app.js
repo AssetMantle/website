@@ -15,7 +15,7 @@ export default function MyApp(props) {
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>InterNFT</title>
+        <title>AssetMantle</title>
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />

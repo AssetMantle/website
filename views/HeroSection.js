@@ -13,7 +13,7 @@ const sectionStyle = {
   mb: 4,
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "center" },
-  minHeight: { xs: "100vh", xl: "none" },
+  minHeight: { xs: "100vh", xl: "0vh" },
   // backgroundColor: "orange",
 };
 
