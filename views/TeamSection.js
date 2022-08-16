@@ -297,7 +297,15 @@ const TeamsConfigData = {
       social: [
         {
           icon: "LinkedIn",
-          href: "https://www.linkedin.com/in/iamsarvagyaa/",
+          href: "https://www.linkedin.com/in/mrinal-vishwanath-813a07137",
+        },
+        {
+          icon: "Twitter",
+          href: "https://twitter.com/MrinalVishwana1",
+        },
+        {
+          icon: "GitHub",
+          href: "https://github.com/MrinalVishy",
         },
       ],
     },
@@ -333,7 +341,7 @@ const TeamsConfigData = {
       social: [
         {
           icon: "Website",
-          href: "www.namahashetty.com",
+          href: "https://www.namahashetty.com",
         },
         {
           icon: "LinkedIn",
@@ -344,7 +352,7 @@ const TeamsConfigData = {
     {
       image: "/images/teams/akhlak.png",
       name: "Akhlak Hossain",
-      designation: "Core - Product Planning & Implementation​",
+      designation: "UI Developer",
       designationType: "Developer",
       social: [
         {
@@ -413,7 +421,7 @@ const TeamsConfigData = {
         },
         {
           icon: "Website",
-          href: "www.instagram.com/schoolboy_sharma",
+          href: "https://www.instagram.com/schoolboy_sharma",
         },
       ],
     },

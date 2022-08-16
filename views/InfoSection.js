@@ -111,7 +111,8 @@ const InfoSectionConfigData = {
 };
 
 const sectionStyle = {
-  py: 10,
+  my: 10,
+  py: 4,
   color: "primary.light",
   mx: "auto",
   textAlign: {

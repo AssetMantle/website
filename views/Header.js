@@ -1,15 +1,12 @@
 import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import {
   AppBar,
   Box,
   Button,
   Container,
-  IconButton,
   Menu,
   MenuItem,
-  SwipeableDrawer,
   Toolbar,
   useScrollTrigger,
 } from "@mui/material";
@@ -451,14 +448,14 @@ export default function Header() {
           </Container>
         </AppBar>
       </ElevationScroll>
-      <SwipeableDrawer
+      {/* <SwipeableDrawer
         anchor="left"
         open={drawerOpen}
         onClose={setDrawer(false)}
         onOpen={setDrawer(true)}
       >
         {drawerContents}
-      </SwipeableDrawer>
+      </SwipeableDrawer> */}
     </>
   );
 }
