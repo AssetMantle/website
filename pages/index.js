@@ -1,6 +1,6 @@
 import * as React from "react";
 import AdvantageSection from "../views/AdvantageSection";
-// import ChainSection from "../views/ChainSection";
+import ChainSection from "../views/ChainSection";
 import FeatureSection from "../views/FeatureSection";
 import GallerySection from "../views/GallerySection";
 import HeroSection from "../views/HeroSection";
@@ -16,7 +16,7 @@ export default function Index() {
       <GallerySection />
       <FeatureSection />
       <InfoSection />
-      {/* <ChainSection /> */}
+      <ChainSection />
       <AdvantageSection />
       <TeamSection />
       <SocialProofSection />
