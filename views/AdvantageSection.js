@@ -81,7 +81,7 @@ const listStyle = {
   background:
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
   backdropFilter: "blur(47.4479px)",
-  pl: 0,
+  pl: { xs: 2, md: 0 },
   pt: 5,
   pr: 2,
   pb: 2,
