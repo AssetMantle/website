@@ -352,7 +352,7 @@ const TeamsConfigData = {
     {
       image: "/images/teams/akhlak.png",
       name: "Akhlak Hossain",
-      designation: "Core - Product Planning & Implementation​",
+      designation: "UI Developer",
       designationType: "Developer",
       social: [
         {
