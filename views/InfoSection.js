@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   CardMedia,
   Container,
   Grid,
@@ -30,81 +31,93 @@ const InfoSectionConfigData = {
   rightSidedImage: "",
   imageData: [
     {
-      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      title: "Breakfast",
-      name: "",
-      author: "",
+      img: "/images/info/Archetypes.webp",
+      title: "Archetypes",
+      name: "Archetypes",
+      author: "Oblitus Mantra",
+      href: "https://twitter.com/Archetypes0nft",
       rows: 2,
     },
     {
-      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      title: "Burger",
-      name: "",
-      author: "",
+      img: "/images/info/arto.webp",
+      title: "Arto DAO",
+      name: "Arto DAO",
+      author: "Arto DAO",
+      href: "https://twitter.com/ArtoDAO",
     },
     {
-      img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-      title: "Camera",
-      name: "",
-      author: "",
+      img: "/images/info/Aequanimity.webp",
+      title: "Aequanimity",
+      name: "Aequanimity",
+      author: "pratykarya",
+      href: "https://twitter.com/PratykArya",
       rows: 2,
     },
     {
-      img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-      title: "Coffee",
-      name: "",
-      author: "",
+      img: "/images/info/Christiopkosin.webp",
+      title: "Christiopkosin",
+      name: "Christiopkosin",
+      author: "Christiopkosin",
+      href: "",
     },
     {
-      img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-      title: "Hats",
-      name: "",
-      author: "",
+      img: "/images/info/the_dansant.webp",
+      title: "The Dansant",
+      name: "The Dansant",
+      author: "the_dansant",
+      href: "https://twitter.com/the_dansant",
       rows: 2,
     },
     {
-      img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-      title: "Honey",
-      name: "",
-      author: "",
+      img: "/images/info/boldwockeez.webp",
+      title: "boldwockeez",
+      name: "boldwockeez",
+      author: "cryptoduuudes",
+      href: "https://twitter.com/CryptoDuuudes",
     },
     {
-      img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-      title: "Basketball",
-      name: "",
-      author: "",
+      img: "/images/info/MantleMonkeys.webp",
+      title: "Mantle Monkeys",
+      name: "Mantle Monkeys",
+      author: "MantleMonkeys",
+      href: "https://twitter.com/MantleMonkeys",
     },
     {
-      img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-      title: "Fern",
-      name: "",
-      author: "",
+      img: "/images/info/mantlewarriors.webp",
+      title: "Mantle Warriors",
+      name: "Mantle Warriors",
+      author: "mantlewarriors",
+      href: "https://twitter.com/mantlewarriors",
     },
     {
-      img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-      title: "Mushrooms",
-      name: "",
-      author: "",
+      img: "/images/info/OblitusMantra1.webp",
+      title: "Oblitus Mantra - Forgotten Worlds",
+      name: "Oblitus Mantra",
+      author: "Oblitus",
+      href: "https://twitter.com/Oblitus_NFT",
     },
     {
-      img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-      title: "Tomato basil",
-      name: "",
-      author: "",
+      img: "/images/info/OblitusMantra2.webp",
+      title: "Oblitus Mantra - Forgotten Worlds",
+      name: "Oblitus Mantra",
+      author: "Oblitus",
+      href: "https://twitter.com/Oblitus_NFT",
       rows: 2,
     },
     {
-      img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-      title: "Sea star",
-      name: "",
-      author: "",
+      img: "/images/info/Pinnacle1.webp",
+      title: "Pinnacle",
+      name: "Pinnacle",
+      author: "Zeelectric",
+      href: "",
       rows: 2,
     },
     {
-      img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-      title: "Bike",
-      name: "",
-      author: "",
+      img: "/images/info/Pinnacle2.webp",
+      title: "Pinnacle",
+      name: "Pinnacle",
+      author: "Zeelectric",
+      href: "",
       rows: 2,
     },
   ],
@@ -255,20 +268,28 @@ const Content = () => {
                   }}
                 >
                   {item.author && (
-                    <Typography
-                      variant="h6"
-                      color="primary.main"
-                      component="h6"
+                    <Button
+                      variant="text"
+                      size="large"
+                      component="a"
+                      href={item.href ? item.href : null}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       sx={{
                         display: "flex",
                         alignItems: "center",
+                        padding: "0",
+                        justifyContent: "start",
+                        width: "100%",
+                        gap: 1,
+                        textTransform: "capitalize",
                       }}
                     >
                       {item.author} <VerifiedIcon fontSize="inherit" />
-                    </Typography>
+                    </Button>
                   )}
                   {item.name && (
-                    <Typography component="p" variant="body2">
+                    <Typography component="p" variant="body3">
                       {item.name}
                     </Typography>
                   )}
