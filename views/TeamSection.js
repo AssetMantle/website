@@ -544,7 +544,7 @@ export default function GallerySection() {
                     TeamsConfigData.members &&
                     TeamsConfigData.members.length > 0 &&
                     TeamsConfigData.members.map((member, index) => (
-                      <SplideSlide>
+                      <SplideSlide key={index}>
                         <Card sx={optionStyles} key={index}>
                           {member.image && (
                             <CardMedia

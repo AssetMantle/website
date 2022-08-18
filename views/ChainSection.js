@@ -1,3 +1,5 @@
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CallMadeIcon from "@mui/icons-material/CallMade";
 import {
   Box,
   Button,
@@ -7,26 +9,30 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
-import React from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import CallMadeIcon from "@mui/icons-material/CallMade";
+import React, { useState } from "react";
+import Section from "../components/Section";
 
 const ChainSectionConfigData = {
   textAlign: "", // >>> default: left
-  title: "$MNTL",
-  titleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
-  titleComponent: "h2",
-  titleVariant: "h2",
-  description: "The native token which powers the AssetMantle’s NFT Economy",
-  descriptionStyle: {
-    maxWidth: "450px",
-    fontWeight: "400",
-    textAlign: { xs: "center", sm: "left" },
+  title: "The AssetMantle Chain",
+  subTitle:
+    "The AssetMantle Blockchain leverages the following standards which makes it pioneer the NFT World State",
+  subSectionTitle: "$MNTL",
+  subSectionTitleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
+  subSectionTitleVariant: "h1",
+  subSectionTitleColor: "secondary.light",
+  subSectionDescription:
+    "The native token which powers the AssetMantle’s NFT Economy",
+  subSectionDescriptionVariant: "subtitle2",
+  subSectionDescriptionColor: "secondary.light",
+  subSectionDescriptionStyle: {
+    textAlign: { xs: "center" },
     mx: { xs: "auto !important", sm: "0 !important" },
+    maxWidth: "400px",
   }, // object of styles or false
   backgroundImage: "", // "url('/images/mantleplace.png')",
-  defaultChainDescription: "Part of Rich Cosmos Ecosystem",
+  defaultChainDescription:
+    "One of the pioneering zones of the rich Cosmos Ecosystem ",
   ctas: [
     {
       title: "Buy Now ",
@@ -48,182 +54,212 @@ const ChainSectionConfigData = {
   chains: [
     {
       icon: "/images/chain/modular.svg", // add url: "https://icon.png"
-      title: "Inherits modular framework of Cosmos SDK",
+      alt: "modular",
+      title: "Inherits modular framework from the popular Cosmos SDK",
     },
     {
       icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
+      alt: "cosmos",
       title: "Imbibes the leading BFT Consensus Engine",
     },
     {
       icon: "/images/chain/connected.svg", // add url: "https://icon.png"
+      alt: "connected",
       title: "Implements connectedness across other Cosmos Zones",
     },
     {
       icon: "/images/chain/interNft.svg", // add url: "https://icon.png"
+      alt: "internft",
       title: "Instills the plan to build open standards for interchain NFT",
     },
   ],
 };
 
-const sectionStyle = {
-  my: 10,
-  py: 4,
-  color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "left" },
-};
-
 export default function ChainSection() {
-  const [showDescription, setShowDescription] = React.useState();
+  const [showDescription, setShowDescription] = useState();
 
   return (
-    <Box component="section" sx={sectionStyle}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          textAlign: ChainSectionConfigData.textAlign
-            ? ChainSectionConfigData.textAlign
-            : "left",
-        }}
-      >
-        <Grid container spacing={2}>
+    <Section
+      title={ChainSectionConfigData.title}
+      subTitle={ChainSectionConfigData.subTitle}
+    >
+      <Grid container spacing={2}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "transparent",
+          }}
+        >
           {/* Left Sub-section */}
-          <Grid item xs={12} sm={6}>
-            <Stack spacing={2}>
-              {Array.isArray(ChainSectionConfigData.chains) &&
-                ChainSectionConfigData.chains &&
-                ChainSectionConfigData.chains.length > 0 && (
-                  <Grid container>
-                    {ChainSectionConfigData.chains.map((data, index) => (
-                      <Grid
-                        item
-                        xs={6}
-                        sx={{ margin: "-12px" }}
-                        key={index}
-                        onBlur={() => setShowDescription()}
-                        onFocus={() => setShowDescription(index)}
-                        onMouseOver={() => setShowDescription(index)}
-                        onMouseOut={() => setShowDescription()}
-                      >
-                        <Card
-                          sx={{
-                            backgroundColor: "transparent",
-                            boxShadow: "none",
-                          }}
-                        >
-                          <CardMedia
-                            component="img"
-                            alt={data.title && data.title}
-                            image={data.icon && data.icon}
-                            title={data.title && data.title}
-                            sx={{
-                              width: "min(244px,100%)",
-                              height: "auto",
-                            }}
-                          />
-                        </Card>
-                      </Grid>
-                    ))}
-                  </Grid>
-                )}
-              {showDescription ? (
-                <Typography
-                  variant="body2"
-                  color="primary.main"
-                  textAlign="center"
-                >
-                  {ChainSectionConfigData.chains[showDescription].title}
-                </Typography>
-              ) : (
-                <Typography
-                  variant="body2"
-                  color="primary.main"
-                  textAlign="center"
-                >
-                  {ChainSectionConfigData.defaultChainDescription}
-                </Typography>
-              )}
-            </Stack>
-          </Grid>
-
-          {/* Right Sub-section */}
-          <Grid item xs={12} sm={6}>
-            <Stack spacing={4}>
-              <Grid container alignItems="center">
-                {ChainSectionConfigData.titleIcon && (
-                  <Grid item xs={6}>
-                    <img
-                      src={ChainSectionConfigData.titleIcon}
-                      alt={
-                        ChainSectionConfigData.title &&
-                        ChainSectionConfigData.title
-                      }
-                      style={{ width: "min(220px, 100%)", height: "auto" }}
-                    />
-                  </Grid>
-                )}
-                {ChainSectionConfigData.title && (
-                  <Grid item xs={6}>
-                    <Typography
-                      variant={
-                        ChainSectionConfigData.titleVariant
-                          ? ChainSectionConfigData.titleVariant
-                          : "h1"
-                      }
+          <Stack
+            spacing={2}
+            direction="column"
+            maxWidth="400px"
+            sx={{
+              py: 4,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            {Array.isArray(ChainSectionConfigData.chains) &&
+              ChainSectionConfigData.chains &&
+              ChainSectionConfigData.chains.length > 0 && (
+                <Grid container spacing={0}>
+                  {ChainSectionConfigData.chains.map((data, index) => (
+                    <Grid
+                      item
+                      xs={6}
+                      justifyContent="center"
+                      sx={{
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                      zeroMinWidth
+                      key={index}
+                      onBlur={() => setShowDescription()}
+                      onFocus={() => setShowDescription(index + 1)}
+                      onMouseOver={() => setShowDescription(index + 1)}
+                      onMouseOut={() => setShowDescription()}
                     >
-                      {ChainSectionConfigData.title}
-                    </Typography>
-                  </Grid>
-                )}
-              </Grid>
-              {ChainSectionConfigData.description && (
+                      <img src={data.icon} alt={data.alt} width="100%" />
+                    </Grid>
+                  ))}
+                </Grid>
+              )}
+            <Typography
+              variant="subtitle2"
+              color="primary.main"
+              textAlign="center"
+              sx={{
+                maxWidth: "380px",
+              }}
+            >
+              {showDescription
+                ? ChainSectionConfigData.chains[showDescription - 1].title
+                : ChainSectionConfigData.defaultChainDescription}
+            </Typography>
+          </Stack>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "transparent",
+          }}
+        >
+          {/* Right Sub-section */}
+          <Stack
+            spacing={2}
+            width="100%"
+            direction="column"
+            sx={{
+              py: 4,
+              display: "flex",
+              flexGrow: 1,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <Stack
+              spacing={2}
+              direction="row"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "transparent",
+              }}
+            >
+              {ChainSectionConfigData.subSectionTitleIcon && (
+                <img
+                  src={ChainSectionConfigData.subSectionTitleIcon}
+                  alt={
+                    ChainSectionConfigData.subSectionTitle &&
+                    ChainSectionConfigData.subSectionTitle
+                  }
+                  style={{ width: "50%" }}
+                />
+              )}
+              {ChainSectionConfigData.subSectionTitle && (
                 <Typography
-                  component="p"
-                  variant="subtitle2"
-                  color="inherit"
-                  sx={
-                    ChainSectionConfigData.descriptionStyle &&
-                    ChainSectionConfigData.descriptionStyle
+                  variant={
+                    ChainSectionConfigData.subSectionTitleVariant || "h1"
+                  }
+                  color={
+                    ChainSectionConfigData.subSectionTitleColor ||
+                    "primary.main"
                   }
                 >
-                  {ChainSectionConfigData.description}
+                  {ChainSectionConfigData.subSectionTitle}
                 </Typography>
               )}
-              {ChainSectionConfigData.ctas &&
-                ChainSectionConfigData.ctas.length > 0 && (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 2,
-                      pt: 3,
-                      justifyContent: { xs: "center", sm: "flex-start" },
-                    }}
-                  >
-                    {ChainSectionConfigData.ctas.map((cta, index) => (
-                      <Button
-                        component="a"
-                        variant={cta.variant ? cta.variant : "contained"}
-                        key={index}
-                        size="large"
-                        href={cta.url && cta.url}
-                        target={cta.target && cta.target}
-                        sx={{
-                          borderRadius: 8,
-                          fontWeight: "700",
-                          // padding: "12px 34px",
-                          // textTransform: "capitalize",
-                        }}
-                        endIcon={cta.icon ? cta.icon : null}
-                      >
-                        {cta.title && cta.title}
-                      </Button>
-                    ))}
-                  </Box>
-                )}
             </Stack>
-          </Grid>
+            {ChainSectionConfigData.subSectionDescription && (
+              <Typography
+                variant={
+                  ChainSectionConfigData.subSectionDescriptionVariant || "body1"
+                }
+                color={
+                  ChainSectionConfigData.subSectionDescriptionColor ||
+                  "secondary.main"
+                }
+                sx={
+                  ChainSectionConfigData.subSectionDescriptionStyle &&
+                  ChainSectionConfigData.subSectionDescriptionStyle
+                }
+              >
+                {ChainSectionConfigData.subSectionDescription}
+              </Typography>
+            )}
+            {ChainSectionConfigData.ctas &&
+              ChainSectionConfigData.ctas.length > 0 && (
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 2,
+                    pt: 3,
+                    justifyContent: { xs: "center" },
+                  }}
+                >
+                  {ChainSectionConfigData.ctas.map((cta, index) => (
+                    <Button
+                      component="a"
+                      variant={cta.variant ? cta.variant : "contained"}
+                      key={index}
+                      size="large"
+                      href={cta.url && cta.url}
+                      target={cta.target && cta.target}
+                      sx={{
+                        borderRadius: 8,
+                        fontWeight: "700",
+                        // padding: "12px 34px",
+                        // textTransform: "capitalize",
+                      }}
+                      endIcon={cta.icon ? cta.icon : null}
+                    >
+                      {cta.title && cta.title}
+                    </Button>
+                  ))}
+                </Box>
+              )}
+          </Stack>
         </Grid>
-      </Container>
-    </Box>
+      </Grid>
+    </Section>
   );
 }
