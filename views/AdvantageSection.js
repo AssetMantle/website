@@ -75,6 +75,7 @@ const sectionStyle = {
   py: 4,
   color: "primary.light",
   textAlign: { xs: "center", sm: "center", md: "left" },
+  backgroundColor: "transparent",
 };
 
 const listStyle = {

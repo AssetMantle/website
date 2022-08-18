@@ -293,7 +293,7 @@ const toggleDrawer = () => {
   setDrawerOpen(!drawerOpen);
 };
 
-const drawerContents = (
+/* const drawerContents = (
   <Box
     sx={{ width: 250 }}
     role="presentation"
@@ -326,7 +326,7 @@ const drawerContents = (
       ))}
     </List>
   </Box>
-);
+); */
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -360,7 +360,7 @@ export default function Header() {
         <>
           <Button
             id={item.menuName}
-            key={item.menuName}
+            key={index}
             onClick={(e) => {
               handleClick(index, e);
             }}
