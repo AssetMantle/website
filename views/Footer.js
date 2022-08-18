@@ -154,7 +154,7 @@ export default function Footer() {
                             p: 0,
                             justifyContent: { xs: "center", sm: "flex-start" },
                             textTransform: "lowercase",
-                            color: "primary.light",
+                            // color: "primary.light",
                             fontWeight: "400",
                           }}
                         >
@@ -298,7 +298,7 @@ export default function Footer() {
                 FooterConfigData.colThree.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colThree.list.map((item, index) => (
-                      <Typography variant="body3">
+                      <Typography variant="caption">
                         {item.title}
                         <Button
                           component="a"
@@ -325,7 +325,11 @@ export default function Footer() {
             </Grid>
           </Grid>
         )}
-        <Typography variant="body2" component="p" sx={{ textAlign: "center" }}>
+        <Typography
+          variant="caption"
+          component="p"
+          sx={{ textAlign: "center" }}
+        >
           © AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
         </Typography>
       </Container>
