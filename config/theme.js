@@ -58,10 +58,10 @@ const baseTheme = createTheme({
       fontWeight: 300,
       lineHeight: 1.5,
     },
-    body3: {
+    caption: {
       fontSize: "1rem",
       fontWeight: 300,
-      lineHeight: 1.5,
+      lineHeight: 1,
     },
   },
 });
