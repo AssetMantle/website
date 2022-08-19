@@ -63,6 +63,7 @@ export default function HeroSection() {
           size="large"
           sx={{
             borderRadius: 8,
+            fontWeight: "bold",
           }}
           endIcon={<ArticleIcon />}
           href="https://docs.assetmantle.one/"
@@ -71,7 +72,16 @@ export default function HeroSection() {
           Documentation
         </Button>
       </Box>
-      <Divider variant="inset" orientation="horizontal" light />
+      <Divider
+        variant="fullWidth"
+        orientation="horizontal"
+        light={true}
+        sx={{
+          width: { xs: "100%", md: "80%" },
+          borderColor: "primary.light",
+          margin: "16px 0 !important",
+        }}
+      />
       <SocialIcons />
     </Stack>
   );
@@ -91,7 +101,7 @@ export default function HeroSection() {
 
   return (
     <Box component="section" sx={sectionStyle}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative" }}>
         {/* Left & Right Sub-section */}
         <Grid container alignItems="center">
           {/* Left Sub-section */}
@@ -108,6 +118,69 @@ export default function HeroSection() {
           {/* Right Sub-section */}
           <Grid item xs={12} md={7} sx={{ backgroundColor: "transparent" }}>
             {RightSubSectionJSX}
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          alignItems="center"
+          sx={{
+            background:
+              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
+            backdropFilter: "blur(47.4479px)",
+            borderRadius: 4,
+            px: 10,
+            py: 6,
+            width: "min(1200px, 90vw)",
+            position: { xs: "relative", md: "absolute" },
+            bottom: { xs: "0", md: "-24px" },
+          }}
+        >
+          <Grid item xs={12} md={4}>
+            <Stack direction="row" alignItems="center" gap={1}>
+              <Typography variant="h3" color="primary.main">
+                35k+
+              </Typography>
+              <Typography
+                variant="caption"
+                textAlign="left"
+                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+              >
+                Community
+                <br />
+                members
+              </Typography>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Stack direction="row" alignItems="center" gap={1}>
+              <Typography variant="h3" color="primary.main">
+                93k+
+              </Typography>
+              <Typography
+                variant="caption"
+                textAlign="left"
+                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+              >
+                Unique wallets
+                <br />& users
+              </Typography>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Stack direction="row" alignItems="center" gap={1}>
+              <Typography variant="h3" color="primary.main">
+                3M+
+              </Typography>
+              <Typography
+                variant="caption"
+                textAlign="left"
+                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+              >
+                TRANSACTIONS
+                <br />
+                ON-CHAIN
+              </Typography>
+            </Stack>
           </Grid>
         </Grid>
       </Container>
