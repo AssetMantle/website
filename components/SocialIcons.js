@@ -1,6 +1,6 @@
-import { IconButton, Stack, SvgIcon } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 import React from "react";
-import { FiLinkedin, FiGithub, FiTwitter } from "react-icons/fi";
+import { FiGithub, FiTwitter } from "react-icons/fi";
 import { TbBrandTelegram, TbBrandDiscord } from "react-icons/tb";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
