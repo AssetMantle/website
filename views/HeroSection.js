@@ -125,7 +125,8 @@ export default function HeroSection() {
           alignItems="center"
           sx={{
             background:
-              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
+              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
+            // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
             backdropFilter: "blur(47.4479px)",
             borderRadius: 4,
             px: 10,
