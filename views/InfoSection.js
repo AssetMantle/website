@@ -289,7 +289,7 @@ const Content = () => {
                     </Button>
                   )}
                   {item.name && (
-                    <Typography component="p" variant="body3">
+                    <Typography component="p" variant="caption">
                       {item.name}
                     </Typography>
                   )}
