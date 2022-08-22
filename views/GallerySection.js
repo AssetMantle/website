@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Box,
   Button,
   Card,
   CardActions,
@@ -9,8 +8,8 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Section from "../components/Section";
 
 const GalleryConfigData = {
   textAlign: "center", // >>> default: left
@@ -81,14 +80,6 @@ const GalleryConfigData = {
     },
   ],
 };
-
-const sectionStyle = {
-  my: 10,
-  py: 4,
-  paddingTop: "7px",
-  color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "left" },
-};
 const optionStyles = {
   background:
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
@@ -106,122 +97,83 @@ const optionStyles = {
 
 export default function GallerySection() {
   return (
-    <Box component="section" sx={sectionStyle}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          textAlign: GalleryConfigData.textAlign
-            ? GalleryConfigData.textAlign
-            : "left",
-        }}
-      >
-        {GalleryConfigData.title && (
-          <Typography
-            component={
-              GalleryConfigData.titleComponent
-                ? GalleryConfigData.titleComponent
-                : "h2"
-            }
-            variant={
-              GalleryConfigData.titleVariant
-                ? GalleryConfigData.titleVariant
-                : "h2"
-            }
-            color="inherit"
-          >
-            {GalleryConfigData.title}
-          </Typography>
+    <Section
+      title={GalleryConfigData.title && GalleryConfigData.title}
+      subTitle={GalleryConfigData.description && GalleryConfigData.description}
+    >
+      {Array.isArray(GalleryConfigData.galleries) &&
+        GalleryConfigData.galleries &&
+        GalleryConfigData.galleries.length > 0 && (
+          <Grid container spacing={2} sx={{ pt: 8 }}>
+            {GalleryConfigData.galleries.map((Gallery, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card sx={optionStyles}>
+                  {Gallery.image && (
+                    <CardMedia
+                      component="img"
+                      alt={Gallery.title}
+                      // height={Gallery.height ? Gallery.height : 420}
+                      image={Gallery.image}
+                      sx={{
+                        border: "none",
+                        width: "100%",
+                        aspectRatio: "1/1",
+                      }}
+                    />
+                  )}
+                  {(Gallery.title || Gallery.description) && (
+                    <CardContent sx={{ p: 0.5 }}>
+                      {Gallery.title && (
+                        <Typography
+                          gutterBottom
+                          variant="h3"
+                          component="h3"
+                          color="primary.main"
+                        >
+                          {Gallery.title}
+                        </Typography>
+                      )}
+                      {Gallery.description && (
+                        <Typography variant="body1" color="primary.light">
+                          {Gallery.description}
+                        </Typography>
+                      )}
+                    </CardContent>
+                  )}
+                  {Gallery.buttons.length !== 0 && (
+                    <CardActions
+                      sx={{
+                        mt: "auto",
+                        pb: 2,
+                        px: 0.5,
+                        justifyContent: { xs: "center", md: "flex-start" },
+                        justifySelf: "flex-end",
+                      }}
+                    >
+                      {Gallery.buttons.map((button, index) => (
+                        <Button
+                          component="a"
+                          href={button.url && button.url}
+                          key={index}
+                          sx={{
+                            px: 0,
+                          }}
+                          // size="small"
+                        >
+                          {button.text && (
+                            <>
+                              {button.text} <KeyboardArrowRightIcon />
+                            </>
+                          )}
+                        </Button>
+                      ))}
+                    </CardActions>
+                  )}
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         )}
-        {GalleryConfigData.description && (
-          <Typography
-            component="p"
-            variant="subtitle2"
-            color="inherit"
-            sx={
-              GalleryConfigData.descriptionStyle
-                ? GalleryConfigData.descriptionStyle
-                : {
-                    pb: 2,
-                  }
-            }
-          >
-            {GalleryConfigData.description}
-          </Typography>
-        )}
-        {Array.isArray(GalleryConfigData.galleries) &&
-          GalleryConfigData.galleries &&
-          GalleryConfigData.galleries.length > 0 && (
-            <Grid container spacing={2} sx={{ pt: 8 }}>
-              {GalleryConfigData.galleries.map((Gallery, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
-                  <Card sx={optionStyles}>
-                    {Gallery.image && (
-                      <CardMedia
-                        component="img"
-                        alt={Gallery.title}
-                        // height={Gallery.height ? Gallery.height : 420}
-                        image={Gallery.image}
-                        sx={{
-                          border: "none",
-                          width: "100%",
-                          aspectRatio: "1/1",
-                        }}
-                      />
-                    )}
-                    {(Gallery.title || Gallery.description) && (
-                      <CardContent sx={{ p: 0.5 }}>
-                        {Gallery.title && (
-                          <Typography
-                            gutterBottom
-                            variant="h3"
-                            component="h3"
-                            color="primary.main"
-                          >
-                            {Gallery.title}
-                          </Typography>
-                        )}
-                        {Gallery.description && (
-                          <Typography variant="body1" color="primary.light">
-                            {Gallery.description}
-                          </Typography>
-                        )}
-                      </CardContent>
-                    )}
-                    {Gallery.buttons.length !== 0 && (
-                      <CardActions
-                        sx={{
-                          mt: "auto",
-                          pb: 2,
-                          px: 0.5,
-                          justifyContent: { xs: "center", md: "flex-start" },
-                          justifySelf: "flex-end",
-                        }}
-                      >
-                        {Gallery.buttons.map((button, index) => (
-                          <Button
-                            component="a"
-                            href={button.url && button.url}
-                            key={index}
-                            sx={{
-                              px: 0,
-                            }}
-                            // size="small"
-                          >
-                            {button.text && (
-                              <>
-                                {button.text} <KeyboardArrowRightIcon />
-                              </>
-                            )}
-                          </Button>
-                        ))}
-                      </CardActions>
-                    )}
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          )}
-      </Container>
-    </Box>
+    </Section>
   );
 }

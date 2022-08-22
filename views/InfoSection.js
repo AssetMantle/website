@@ -1,8 +1,6 @@
 import {
   Box,
   Button,
-  CardMedia,
-  Container,
   Grid,
   ImageList,
   ImageListItem,
@@ -11,6 +9,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import Section from "../components/Section";
 
 const InfoSectionConfigData = {
   textAlign: "", // >>> default: left
@@ -121,20 +120,6 @@ const InfoSectionConfigData = {
       rows: 2,
     },
   ],
-};
-
-const sectionStyle = {
-  my: 10,
-  py: 4,
-  color: "primary.light",
-  mx: "auto",
-  textAlign: {
-    xs: "center",
-    sm: "center",
-    md: InfoSectionConfigData.textAlign
-      ? InfoSectionConfigData.textAlign
-      : "left",
-  },
 };
 
 const listStyle = {
@@ -289,7 +274,11 @@ const Content = () => {
                     </Button>
                   )}
                   {item.name && (
-                    <Typography component="p" variant="caption">
+                    <Typography
+                      component="p"
+                      variant="caption"
+                      color="primary.light"
+                    >
                       {item.name}
                     </Typography>
                   )}
@@ -304,14 +293,8 @@ const Content = () => {
 
 export default function InfoSection() {
   return (
-    <Box component="section" sx={sectionStyle} maxWidth="xl">
-      {InfoSectionConfigData.fullWidth ? (
-        <Content />
-      ) : (
-        <Container maxWidth="lg">
-          <Content />
-        </Container>
-      )}
-    </Box>
+    <Section>
+      <Content />
+    </Section>
   );
 }
