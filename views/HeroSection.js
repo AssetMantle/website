@@ -123,6 +123,7 @@ export default function HeroSection() {
         <Grid
           container
           alignItems="center"
+          spacing={2}
           sx={{
             background:
               "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
@@ -131,12 +132,12 @@ export default function HeroSection() {
             borderRadius: 4,
             px: 10,
             py: 6,
-            width: "min(1200px, 90vw)",
+            width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
           }}
         >
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Stack direction="row" alignItems="center" gap={1}>
               <Typography variant="h3" color="primary.main">
                 35k+
@@ -152,7 +153,7 @@ export default function HeroSection() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Stack direction="row" alignItems="center" gap={1}>
               <Typography variant="h3" color="primary.main">
                 93k+
@@ -167,7 +168,7 @@ export default function HeroSection() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Stack direction="row" alignItems="center" gap={1}>
               <Typography variant="h3" color="primary.main">
                 3M+
