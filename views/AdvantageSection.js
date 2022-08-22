@@ -83,9 +83,8 @@ const listStyle = {
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
   backdropFilter: "blur(47.4479px)",
   pl: { xs: 2, md: 0 },
-  pt: 5,
   pr: 2,
-  pb: 2,
+  py: 3,
   mx: { xs: "auto", md: 0 },
   ml: { md: "auto" },
   width: "min(500px, 100%)",
@@ -226,6 +225,7 @@ export default function AdvantageSection() {
                     gap: 2,
                     pt: 8,
                     justifyContent: "center",
+                    width: "100%",
                     mt:
                       InitiativeSectionConfigData.descriptionOnLeft ||
                       InitiativeSectionConfigData.titleOnLeft
@@ -288,11 +288,11 @@ export default function AdvantageSection() {
                           ) : (
                             initiative.icon
                           ))}
-                        <CardContent sx={{ padding: "0" }}>
+                        <CardContent sx={{ padding: "0 !important" }}>
                           <Typography variant="h4" color="primary.main">
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography variant="body1" sx={{ pt: 3 }}>
+                          <Typography variant="body1" sx={{ pt: 1 }}>
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>
