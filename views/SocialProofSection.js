@@ -1,6 +1,6 @@
-import { Box, Card, CardMedia, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Box, Card, CardMedia } from "@mui/material";
 import React from "react";
+import Section from "../components/Section";
 
 const SocialProofConfigData = {
   textAlign: "center",
@@ -44,12 +44,6 @@ const SocialProofConfigData = {
   ],
 };
 
-const sectionStyle = {
-  my: 10,
-  py: 4,
-  color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "left" },
-};
 const optionContainerStyles = {
   display: "flex",
   alignItems: "center",
@@ -61,85 +55,43 @@ const optionContainerStyles = {
 
 export default function SocialProofSection() {
   return (
-    <Box component="section" sx={sectionStyle}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          textAlign: SocialProofConfigData.textAlign
-            ? SocialProofConfigData.textAlign
-            : "left",
-        }}
-      >
-        {SocialProofConfigData.title && (
-          <Typography
-            component={
-              SocialProofConfigData.titleComponent
-                ? SocialProofConfigData.titleComponent
-                : "h2"
-            }
-            variant={
-              SocialProofConfigData.titleVariant
-                ? SocialProofConfigData.titleVariant
-                : "h2"
-            }
-            color="inherit"
-            sx={{
-              pb: 2,
-            }}
-          >
-            {SocialProofConfigData.title}
-          </Typography>
+    <Section
+      title={SocialProofConfigData.title}
+      subTitle={SocialProofConfigData.description}
+    >
+      {Array.isArray(SocialProofConfigData.features) &&
+        SocialProofConfigData.features &&
+        SocialProofConfigData.features.length > 0 && (
+          <Box sx={optionContainerStyles}>
+            {SocialProofConfigData.features.map((feature, index) => (
+              <Card
+                sx={{
+                  width: "min(208px,100%)",
+                  padding: 3,
+                  backgroundColor: "transparent",
+                  height: "100%",
+                  display: "flex",
+                  boxShadow: "none",
+                  "&:hover": {
+                    boxShadow: "0px 0px 4px 4px rgba(0,0,0,0.2)",
+                  },
+                }}
+                key={index}
+                component="a"
+                href={feature.link && feature.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CardMedia
+                  component="img"
+                  alt={feature.title && feature.title}
+                  image={feature.image && feature.image}
+                  sx={{ border: "none", width: "100%", height: "auto" }}
+                />
+              </Card>
+            ))}
+          </Box>
         )}
-        {SocialProofConfigData.description && (
-          <Typography
-            component="p"
-            variant="body1"
-            color="inherit"
-            sx={
-              SocialProofConfigData.descriptionStyle
-                ? SocialProofConfigData.descriptionStyle
-                : {
-                    pb: 2,
-                  }
-            }
-          >
-            {SocialProofConfigData.description}
-          </Typography>
-        )}
-        {Array.isArray(SocialProofConfigData.features) &&
-          SocialProofConfigData.features &&
-          SocialProofConfigData.features.length > 0 && (
-            <Box sx={optionContainerStyles}>
-              {SocialProofConfigData.features.map((feature, index) => (
-                <Card
-                  sx={{
-                    width: "min(208px,100%)",
-                    padding: 3,
-                    backgroundColor: "transparent",
-                    height: "100%",
-                    display: "flex",
-                    boxShadow: "none",
-                    "&:hover": {
-                      boxShadow: "0px 0px 4px 4px rgba(0,0,0,0.2)",
-                    },
-                  }}
-                  key={index}
-                  component="a"
-                  href={feature.link && feature.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <CardMedia
-                    component="img"
-                    alt={feature.title && feature.title}
-                    image={feature.image && feature.image}
-                    sx={{ border: "none", width: "100%", height: "auto" }}
-                  />
-                </Card>
-              ))}
-            </Box>
-          )}
-      </Container>
-    </Box>
+    </Section>
   );
 }
