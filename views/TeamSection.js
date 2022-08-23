@@ -16,6 +16,7 @@ import { FiLinkedin, FiGithub, FiTwitter, FiGlobe } from "react-icons/fi";
 import { FaBehance } from "react-icons/fa";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Section from "../components/Section";
 
 const TeamsConfigData = {
   textAlign: "center", // >>> default: left
@@ -456,7 +457,8 @@ const linkStyles = {
 
 export default function GallerySection() {
   return (
-    <Box component="section" sx={sectionStyle}>
+    <>
+      {/* <Box component="section" sx={sectionStyle}>
       <Container
         maxWidth="lg"
         sx={{
@@ -499,12 +501,18 @@ export default function GallerySection() {
           >
             {TeamsConfigData.description}
           </Typography>
-        )}
+        )} */}
+      <Section
+        title={TeamsConfigData.title}
+        subTitle={TeamsConfigData.description}
+      >
         {Array.isArray(TeamsConfigData.members) &&
           TeamsConfigData.members &&
           TeamsConfigData.members.length > 0 && (
             <Box
               sx={{
+                width: "100%",
+                position: "relative",
                 pt: 8,
                 display: "flex",
                 justifyContent: "center",
@@ -730,7 +738,9 @@ export default function GallerySection() {
               </Splide>
             </Box>
           )}
-      </Container>
-    </Box>
+      </Section>
+      {/* </Container>
+    </Box> */}
+    </>
   );
 }
