@@ -599,8 +599,9 @@ export default function GallerySection() {
                                 sx={{
                                   marginTop: "auto",
                                   pb: 8,
+                                  pt: 2,
                                   borderTop: "0.5px solid",
-                                  borderColor: "primary.light",
+                                  borderColor: "grey.600",
                                   color: "primary.light",
                                   gap: 1,
                                   justifyContent: {
