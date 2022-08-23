@@ -72,7 +72,7 @@ export default function HeroSection() {
           Documentation
         </Button>
       </Box>
-      <Divider
+      {/* <Divider
         variant="fullWidth"
         orientation="horizontal"
         light={true}
@@ -81,7 +81,7 @@ export default function HeroSection() {
           borderColor: "primary.light",
           margin: "16px 0 !important",
         }}
-      />
+      /> */}
       <SocialIcons />
     </Stack>
   );
@@ -130,8 +130,8 @@ export default function HeroSection() {
             // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
             backdropFilter: "blur(47.4479px)",
             borderRadius: 4,
-            px: 10,
-            py: 6,
+            px: 6,
+            py: 4,
             width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
