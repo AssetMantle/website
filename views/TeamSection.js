@@ -599,7 +599,7 @@ export default function GallerySection() {
                                 sx={{
                                   marginTop: "auto",
                                   pb: 8,
-                                  borderTop: "1px solid",
+                                  borderTop: "0.5px solid",
                                   borderColor: "primary.light",
                                   color: "primary.light",
                                   gap: 1,
