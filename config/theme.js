@@ -5,7 +5,7 @@ const baseTheme = createTheme({
     navBg: "#040404cc",
     primary: {
       light: "#FFFDFA",
-      main: "#FFD365",
+      main: "#FFC640",
       dark: "#FFD365",
     },
     secondary: {

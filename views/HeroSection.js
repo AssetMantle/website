@@ -126,57 +126,79 @@ export default function HeroSection() {
           spacing={2}
           sx={{
             background:
-              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
+              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.06) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
             // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
-            backdropFilter: "blur(47.4479px)",
+            backdropFilter: "blur(10px)",
             borderRadius: 4,
             px: 6,
             py: 4,
             width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
+            display: "flex",
           }}
         >
-          <Grid item xs={12} sm={6} md={4}>
-            <Stack direction="row" alignItems="center" gap={1}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            backgroundColor="transparent"
+            justifyContent="center"
+          >
+            <Stack direction="row" alignItems="center" spacing={2}>
               <Typography variant="h3" color="primary.main">
                 35k+
               </Typography>
               <Typography
                 variant="caption"
                 textAlign="left"
-                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
               >
-                Community
+                COMMUNITY
                 <br />
-                members
+                MEMBERS
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Stack direction="row" alignItems="center" gap={1}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            backgroundColor="transparent"
+            justifyContent="center"
+          >
+            <Stack direction="row" alignItems="center" spacing={2}>
               <Typography variant="h3" color="primary.main">
                 93k+
               </Typography>
               <Typography
                 variant="caption"
                 textAlign="left"
-                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
               >
-                Unique wallets
-                <br />& users
+                UNIQUE WALLETS
+                <br />& USERS
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Stack direction="row" alignItems="center" gap={1}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            backgroundColor="transparent"
+            justifyContent="center"
+          >
+            <Stack direction="row" alignItems="center" spacing={2}>
               <Typography variant="h3" color="primary.main">
                 3M+
               </Typography>
               <Typography
                 variant="caption"
                 textAlign="left"
-                sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
               >
                 TRANSACTIONS
                 <br />
