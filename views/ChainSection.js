@@ -1,14 +1,6 @@
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import CallMadeIcon from "@mui/icons-material/CallMade";
-import {
-  Box,
-  Button,
-  Card,
-  CardMedia,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import DownloadingIcon from "@mui/icons-material/Downloading";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Section from "../components/Section";
 
@@ -16,7 +8,7 @@ const ChainSectionConfigData = {
   textAlign: "", // >>> default: left
   title: "The AssetMantle Chain",
   subTitle:
-    "The AssetMantle Blockchain leverages the following standards which makes it pioneer the NFT World State",
+    "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere",
   subSectionTitle: "$MNTL",
   subSectionTitleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
   subSectionTitleVariant: "h1",
@@ -37,7 +29,7 @@ const ChainSectionConfigData = {
     {
       title: "Buy Now ",
       url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
-      icon: <ArrowForwardIosIcon />, // url: "/" or component: <Icon/>
+      icon: <ShoppingCartIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "contained",
@@ -45,7 +37,7 @@ const ChainSectionConfigData = {
     {
       title: "Airdrops",
       url: "https://airdrop.assetmantle.one/",
-      icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
+      icon: <DownloadingIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "outlined",
@@ -53,24 +45,24 @@ const ChainSectionConfigData = {
   ],
   chains: [
     {
-      icon: "/images/chain/modular.svg", // add url: "https://icon.png"
+      icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
       alt: "modular",
-      title: "Inherits modular framework from the popular Cosmos SDK",
+      title: "Implements modular framework from the popular Cosmos SDK",
     },
     {
-      icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
+      icon: "/images/chain/modular.svg", // add url: "https://icon.png"
       alt: "cosmos",
-      title: "Imbibes the leading BFT Consensus Engine",
+      title: "Imbibes the leading Tendermint BFT Consensus Engine",
     },
     {
       icon: "/images/chain/connected.svg", // add url: "https://icon.png"
       alt: "connected",
-      title: "Implements connectedness across other Cosmos Zones",
+      title: "Incorporates connectedness with Cosmos Zones using IBC",
     },
     {
       icon: "/images/chain/interNft.svg", // add url: "https://icon.png"
       alt: "internft",
-      title: "Instills the plan to build open standards for interchain NFT",
+      title: "Inherits the plan to build open standards for interchain NFT",
     },
   ],
 };
@@ -83,7 +75,7 @@ export default function ChainSection() {
       title={ChainSectionConfigData.title}
       subTitle={ChainSectionConfigData.subTitle}
     >
-      <Grid container spacing={2}>
+      <Grid container spacing={2} backgroundColor="transparent">
         <Grid
           item
           xs={12}
@@ -100,13 +92,10 @@ export default function ChainSection() {
             spacing={2}
             direction="column"
             maxWidth="400px"
-            sx={{
-              py: 4,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-            }}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            backgroundColor="transparent"
           >
             {Array.isArray(ChainSectionConfigData.chains) &&
               ChainSectionConfigData.chains &&
@@ -121,6 +110,7 @@ export default function ChainSection() {
                         backgroundColor: "transparent",
                         display: "flex",
                         alignItems: "center",
+                        cursor: "pointer",
                       }}
                       zeroMinWidth
                       key={index}
@@ -129,7 +119,7 @@ export default function ChainSection() {
                       onMouseOver={() => setShowDescription(index + 1)}
                       onMouseOut={() => setShowDescription()}
                     >
-                      <img src={data.icon} alt={data.alt} width="100%" />
+                      <img src={data.icon} alt={data.alt} width="90%" />
                     </Grid>
                   ))}
                 </Grid>

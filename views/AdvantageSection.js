@@ -73,7 +73,7 @@ const InitiativeSectionConfigData = {
 const listStyle = {
   background:
     "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-  backdropFilter: "blur(47.4479px)",
+  backdropFilter: "blur(10px)",
   pl: { xs: 2, md: 0 },
   pr: 2,
   py: 3,
@@ -92,29 +92,14 @@ const listStyle = {
 export default function AdvantageSection() {
   return (
     <Section
-      title={
-        InitiativeSectionConfigData.title &&
-        !InitiativeSectionConfigData.titleOnLeft &&
-        InitiativeSectionConfigData.title
-      }
+      title={InitiativeSectionConfigData.title}
       subTitle={
         InitiativeSectionConfigData.description &&
         !InitiativeSectionConfigData.descriptionOnLeft &&
         InitiativeSectionConfigData.description
       }
     >
-      <Grid
-        container
-        spacing={2}
-        maxWidth="lg"
-        sx={{
-          pt:
-            InitiativeSectionConfigData.descriptionOnLeft ||
-            InitiativeSectionConfigData.titleOnLeft
-              ? 0
-              : 8,
-        }}
-      >
+      <Grid container spacing={2} maxWidth="lg">
         <Grid
           item
           xs={12}
@@ -137,41 +122,6 @@ export default function AdvantageSection() {
             },
           }}
         >
-          {InitiativeSectionConfigData.title &&
-            InitiativeSectionConfigData.titleOnLeft && (
-              <Typography
-                component={
-                  InitiativeSectionConfigData.titleComponent
-                    ? InitiativeSectionConfigData.titleComponent
-                    : "h2"
-                }
-                variant={
-                  InitiativeSectionConfigData.titleVariant
-                    ? InitiativeSectionConfigData.titleVariant
-                    : "h2"
-                }
-                color="inherit"
-              >
-                {InitiativeSectionConfigData.title}
-              </Typography>
-            )}
-          {InitiativeSectionConfigData.description &&
-            InitiativeSectionConfigData.descriptionOnLeft && (
-              <Typography
-                component="p"
-                variant="body1"
-                color="inherit"
-                sx={
-                  InitiativeSectionConfigData.descriptionStyle
-                    ? InitiativeSectionConfigData.descriptionStyle
-                    : {
-                        pt: 2,
-                      }
-                }
-              >
-                {InitiativeSectionConfigData.description}
-              </Typography>
-            )}
           {InitiativeSectionConfigData.ctas &&
             InitiativeSectionConfigData.ctas.length > 0 && (
               <Box
@@ -224,6 +174,7 @@ export default function AdvantageSection() {
                   gap: "10px",
                   flexDirection: "column",
                   mt: { xs: 8, md: 0 },
+                  backgroundColor: "transparent",
                 }}
               >
                 {InitiativeSectionConfigData.initiatives.map(

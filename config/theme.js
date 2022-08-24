@@ -2,6 +2,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const baseTheme = createTheme({
   palette: {
+    mode: "dark",
     navBg: "#040404cc",
     primary: {
       light: "#FFFDFA",
@@ -14,7 +15,7 @@ const baseTheme = createTheme({
       dark: "#ffffcc",
     },
     background: {
-      paper: "#FFD365",
+      // paper: "#FFD365",
       default: "#111111",
     },
   },

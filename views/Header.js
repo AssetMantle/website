@@ -17,22 +17,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import React, { useState } from "react";
-
-function ElevationScroll(props) {
-  const { children } = props;
-  // implement scroll trigger. Enable hystersis so that we can identify up-scroll from down-scroll
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-
-  let appBarJSX = React.cloneElement(children, {
-    elevation: trigger ? 2 : 0,
-    style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
-  });
-
-  return appBarJSX;
-}
+import BasicMenu from "../components/BasicMenu";
 
 // contents of menu and/or drawer
 const itemList = [
@@ -271,137 +256,115 @@ const itemList = [
   },
 ];
 
-const createMenuItem = (menuObj) => {
-  if (typeof menuObj.url == "string") {
-    return;
-  }
-};
-
-const setDrawer = (isOpen) => (event) => {
-  if (
-    event &&
-    event.type === "keydown" &&
-    (event.key === "Tab" || event.key === "Shift")
-  ) {
-    return;
-  }
-
-  setDrawerOpen(isOpen);
-};
-
-const toggleDrawer = () => {
-  setDrawerOpen(!drawerOpen);
-};
-
-/* const drawerContents = (
-  <Box
-    sx={{ width: 250 }}
-    role="presentation"
-    onClick={setDrawer(false)}
-    onKeyDown={setDrawer(false)}
-  >
-    <List>
-      {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    <List>
-      {["All mail", "Trash", "Spam"].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-  </Box>
-); */
-
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  let blankArray = new Array(itemList.length).fill(null);
 
-  const [anchorEl, setAnchorEl] = useState(blankArray);
-  const isOpen = (menuVal) => Boolean(anchorEl[menuVal]);
-  const handleClick = (menuVal, event) => {
-    console.log(
-      "inside handleclick, menuVal: ",
-      menuVal,
-      " and event: ",
-      event
-    );
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    let newArray = new Array(itemList.length).fill(null);
-    newArray[menuVal] = event.currentTarget;
-    // console.log("newArray: ", newArray, " arraySize: ", newArray.length);
-    setAnchorEl(newArray);
-    console.log("anchorEl: ", anchorEl);
+  function ElevationScroll(props) {
+    const { children } = props;
+    // implement scroll trigger. Enable hystersis so that we can identify up-scroll from down-scroll
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 0,
+    });
+
+    let appBarJSX = React.cloneElement(children, {
+      elevation: trigger ? 2 : 0,
+      style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
+    });
+
+    return appBarJSX;
+  }
+
+  const createMenuItem = (menuObj) => {
+    if (typeof menuObj.url == "string") {
+      return;
+    }
   };
-  const handleClose = (menuVal, event) => {
-    // event.preventDefault();
-    let newArray = new Array(itemList.length).fill(null);
-    setAnchorEl(newArray);
+
+  const setDrawer = (isDrawerOpen) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setDrawerOpen(isDrawerOpen);
   };
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const drawerContents = (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={setDrawer(false)}
+      onKeyDown={setDrawer(false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   const menuListJSX = (
     <>
-      {itemList.map((item, index) => (
-        <>
-          <Button
-            id={item.menuName}
-            key={index}
-            onClick={(e) => {
-              handleClick(index, e);
-            }}
-          >
-            {item.menuName}
-          </Button>
-          <Menu
-            id={item.menuName}
-            key={index}
-            aria-labelledby="menu-item"
-            anchorEl={anchorEl && anchorEl[index]}
-            open={isOpen(index)}
-            onClose={(e) => {
-              handleClose(index, e);
-            }}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            transformOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-          >
-            {/* <ListItemButton>
-          <ListItemText primary="Inbox" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemText primary="Starred" />
-            </ListItemButton>
-          </List>
-        </Collapse> */}
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu>
-        </>
-      ))}
+      <Button
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
     </>
   );
 
@@ -443,19 +406,13 @@ export default function Header() {
                   style={{ cursor: "pointer", maxWidth: "200px" }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" } }}></Box>
+              <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+                <BasicMenu />
+              </Box>
             </Toolbar>
           </Container>
         </AppBar>
       </ElevationScroll>
-      {/* <SwipeableDrawer
-        anchor="left"
-        open={drawerOpen}
-        onClose={setDrawer(false)}
-        onOpen={setDrawer(true)}
-      >
-        {drawerContents}
-      </SwipeableDrawer> */}
     </>
   );
 }

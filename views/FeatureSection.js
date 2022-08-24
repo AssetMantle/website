@@ -110,9 +110,7 @@ export default function FeatureSection() {
   return (
     <Section
       title={FeatureConfigData.title && FeatureConfigData.title}
-      subTitle={
-        FeatureConfigData.titleComponent && FeatureConfigData.titleComponent
-      }
+      subTitle={FeatureConfigData.description && FeatureConfigData.description}
     >
       {Array.isArray(FeatureConfigData.featuresArray) &&
         FeatureConfigData.featuresArray &&

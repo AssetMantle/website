@@ -104,9 +104,9 @@ export default function GallerySection() {
       {Array.isArray(GalleryConfigData.galleries) &&
         GalleryConfigData.galleries &&
         GalleryConfigData.galleries.length > 0 && (
-          <Grid container spacing={2} sx={{ pt: 8 }}>
+          <Grid container spacing={2}>
             {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid item xs={12} sm={6} lg={3} key={index}>
                 <Card sx={optionStyles}>
                   {Gallery.image && (
                     <CardMedia

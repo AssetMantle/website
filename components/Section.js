@@ -11,10 +11,10 @@ const Section = (props) => {
     children,
   } = props;
 
-  console.log("props: ", props);
+  // console.log("props: ", props);
 
   const sectionStyle = {
-    my: 10,
+    my: 16,
     py: 4,
     textAlign: { xs: "center", md: "left" },
     backgroundColor,
@@ -27,7 +27,7 @@ const Section = (props) => {
     titleVariant: "h1",
     titleColor: "secondary.light",
     subTitle,
-    subTitleVariant: "subtitle1",
+    subTitleVariant: "subtitle2",
     subTitleColor: "secondary.light",
     subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
   };
@@ -86,7 +86,7 @@ const Section = (props) => {
   };
 
   const TitleAndSubtitleJSX = getTitleAndSubtitleJSX();
-  console.log("TitleAndSubtitleJSX: ", TitleAndSubtitleJSX);
+  // console.log("TitleAndSubtitleJSX: ", TitleAndSubtitleJSX);
 
   return (
     <Box component="section" sx={sectionStyle}>
@@ -97,7 +97,7 @@ const Section = (props) => {
         }}
       >
         {TitleAndSubtitleJSX ? (
-          <Stack spacing={4} direction="column" alignItems="center">
+          <Stack spacing={8} direction="column" alignItems="center">
             {TitleAndSubtitleJSX}
             {children}
           </Stack>
