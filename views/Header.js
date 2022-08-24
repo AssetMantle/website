@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
   Menu,
   MenuItem,
   Toolbar,
@@ -16,8 +17,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import BasicMenu from "../components/BasicMenu";
+import { TbUserExclamation } from "react-icons/tb";
 
 // contents of menu and/or drawer
 const itemList = [
@@ -25,6 +29,8 @@ const itemList = [
     menuName: "Products",
     isExternalURL: false,
     isNestMenuCollapsed: false,
+    endIcon: <ExpandMoreIcon />,
+    ratioWidthExist: true,
     url: [
       {
         menuName: "In-House",
@@ -61,6 +67,7 @@ const itemList = [
         menuName: "External",
         isExternalURL: false,
         isNestMenuCollapsed: true,
+        titleExist: true,
         url: [
           {
             menuName: "Wallet",
@@ -169,6 +176,53 @@ const itemList = [
     menuName: "Build",
     isExternalURL: false,
     isNestMenuCollapsed: false,
+    endIcon: <ExpandMoreIcon />,
+    url: [
+      {
+        menuName: "Token",
+        isExternalURL: true,
+        isNestMenuCollapsed: true,
+        url: [
+          {
+            menuName: "Tokenomics",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://assetmantle.one/mantleplace",
+          },
+          {
+            menuName: "MantleDrop",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://assetmantle.one/mantleplace",
+          },
+        ],
+      },
+      {
+        menuName: "Tracking",
+        isExternalURL: true,
+        isNestMenuCollapsed: true,
+        url: [
+          {
+            menuName: "Tokenomics",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://assetmantle.one/mantleplace",
+          },
+          {
+            menuName: "MantleDrop",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://assetmantle.one/mantleplace",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    menuName: "$MNTL",
+    isExternalURL: false,
+    isNestMenuCollapsed: true,
+    endIcon: <ExpandMoreIcon />,
     url: [
       {
         menuName: "Docs",
@@ -219,38 +273,6 @@ const itemList = [
             url: "https://assetmantle.one/mantleplace",
           },
         ],
-      },
-    ],
-  },
-  {
-    menuName: "$MNTL",
-    isExternalURL: false,
-    isNestMenuCollapsed: true,
-    url: [
-      {
-        menuName: "Token",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: [
-          {
-            menuName: "Tokenomics",
-            isExternalURL: true,
-            isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
-          },
-          {
-            menuName: "MantleDrop",
-            isExternalURL: true,
-            isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
-          },
-        ],
-      },
-      {
-        menuName: "Tracking",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
       },
     ],
   },
@@ -380,7 +402,7 @@ export default function Header() {
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
-              {/*  <IconButton
+              <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
@@ -392,7 +414,7 @@ export default function Header() {
                 }}
               >
                 <MenuIcon color="primary" />
-              </IconButton> */}
+              </IconButton>
               <Box
                 sx={{
                   display: "flex",
@@ -407,7 +429,18 @@ export default function Header() {
                 />
               </Box>
               <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-                <BasicMenu />
+                {itemList &&
+                  Array.isArray(itemList) &&
+                  itemList.length > 0 &&
+                  itemList.map((data, index) => (
+                    <BasicMenu
+                      key={index}
+                      title={data.menuName}
+                      urls={data.url}
+                      titleEndIcon={data.endIcon}
+                      ratioWidthExist={data.ratioWidthExist}
+                    />
+                  ))}
               </Box>
             </Toolbar>
           </Container>
