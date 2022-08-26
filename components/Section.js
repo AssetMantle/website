@@ -89,7 +89,14 @@ const Section = (props) => {
   // console.log("TitleAndSubtitleJSX: ", TitleAndSubtitleJSX);
 
   return (
-    <Box component="section" sx={sectionStyle}>
+    <Box
+      component="section"
+      sx={sectionStyle}
+      id={
+        SectionConfigData.title &&
+        SectionConfigData.title.toLowerCase().replaceAll(" ", "-")
+      }
+    >
       <Container
         maxWidth="lg"
         sx={{

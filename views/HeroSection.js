@@ -100,7 +100,14 @@ export default function HeroSection() {
   );
 
   return (
-    <Box component="section" sx={sectionStyle}>
+    <Box
+      component="section"
+      sx={sectionStyle}
+      id={
+        contentSheet.title &&
+        contentSheet.title.toLowerCase().replaceAll(" ", "-")
+      }
+    >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
         {/* Left & Right Sub-section */}
         <Grid container alignItems="center">
