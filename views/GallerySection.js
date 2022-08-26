@@ -106,7 +106,13 @@ export default function GallerySection() {
         GalleryConfigData.galleries.length > 0 && (
           <Grid container spacing={2}>
             {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Grid item xs={12} sm={6} lg={3} key={index}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                lg={3}
+                key={Gallery.image && Gallery.image + index}
+              >
                 <Card sx={optionStyles}>
                   {Gallery.image && (
                     <CardMedia
@@ -154,7 +160,7 @@ export default function GallerySection() {
                         <Button
                           component="a"
                           href={button.url && button.url}
-                          key={index}
+                          key={index + button.text && button.text}
                           sx={{
                             px: 0,
                           }}
