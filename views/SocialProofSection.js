@@ -72,6 +72,7 @@ export default function SocialProofSection() {
                   height: "100%",
                   display: "flex",
                   boxShadow: "none",
+                  backgroundImage: "none",
                   "&:hover": {
                     boxShadow: "0px 0px 4px 4px rgba(0,0,0,0.2)",
                   },
