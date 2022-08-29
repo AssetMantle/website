@@ -6,12 +6,13 @@ export default function ExplanationSection() {
   return (
     <>
       <Section>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              textAlign: { xs: "center", md: "left" },
             }}
             item
             xs={12}

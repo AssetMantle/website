@@ -193,6 +193,12 @@ const itemList = [
         isNestMenuCollapsed: false,
         url: [
           {
+            menuName: "About",
+            isExternalURL: false,
+            isNestMenuCollapsed: false,
+            url: "/about",
+          },
+          {
             menuName: "Whitepaper",
             isExternalURL: true,
             isNestMenuCollapsed: false,

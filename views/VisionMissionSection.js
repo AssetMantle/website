@@ -14,11 +14,13 @@ export default function VisionMissionSection() {
 
           <Grid item xs={12} md={8}>
             <Paper sx={{ p: 4 }}>
-              <Grid container spacing={2}>
+              <Grid container spacing={4}>
                 <Grid item xs={12} md={6}>
                   <Stack spacing={2}>
                     <img />
-                    <Typography variant="h4">Vision</Typography>
+                    <Typography variant="h4" color="primary.main">
+                      Vision
+                    </Typography>
                     <Typography variant="subtitle2">
                       Build an open-source, community-driven framework for
                       inter-chain NFTs and metadata standardization by
@@ -29,7 +31,9 @@ export default function VisionMissionSection() {
                 <Grid item xs={12} md={6}>
                   <Stack spacing={2}>
                     <img />
-                    <Typography variant="h4">Mission</Typography>
+                    <Typography variant="h4" color="primary.main">
+                      Mission
+                    </Typography>
                     <Typography variant="subtitle2">
                       Provide a platform that enables a diverse set of NFTs use
                       cases that extend beyond arts and collectibles and can
