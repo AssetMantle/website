@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
   Menu,
   MenuItem,
   Toolbar,
@@ -16,23 +17,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
-
-function ElevationScroll(props) {
-  const { children } = props;
-  // implement scroll trigger. Enable hystersis so that we can identify up-scroll from down-scroll
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-
-  let appBarJSX = React.cloneElement(children, {
-    elevation: trigger ? 2 : 0,
-    style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
-  });
-
-  return appBarJSX;
-}
+import BasicMenu from "../components/BasicMenu";
+import { TbUserExclamation } from "react-icons/tb";
 
 // contents of menu and/or drawer
 const itemList = [
@@ -40,6 +29,8 @@ const itemList = [
     menuName: "Products",
     isExternalURL: false,
     isNestMenuCollapsed: false,
+    endIcon: <ExpandMoreIcon />,
+    ratioWidthExist: true,
     url: [
       {
         menuName: "In-House",
@@ -50,25 +41,25 @@ const itemList = [
             menuName: "MantlePlace",
             isExternalURL: true,
             isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://marketplace.assetmantle.one/",
           },
           {
             menuName: "MantleBuilder",
             isExternalURL: true,
             isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://docs.assetmantle.one/MantleBuilder_Overview/",
           },
           {
             menuName: "MantleWallet",
             isExternalURL: true,
             isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://wallet.assetmantle.one/",
           },
           {
             menuName: "MantleExplorer",
             isExternalURL: true,
             isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://explorer.assetmantle.one/",
           },
         ],
       },
@@ -76,6 +67,7 @@ const itemList = [
         menuName: "External",
         isExternalURL: false,
         isNestMenuCollapsed: true,
+        titleExist: true,
         url: [
           {
             menuName: "Wallet",
@@ -86,25 +78,25 @@ const itemList = [
                 menuName: "Keplr",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://www.keplr.app/",
               },
               {
                 menuName: "Cosmostation",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://wallet.cosmostation.io/asset-mantle",
               },
               {
                 menuName: "Everstake",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://everstake.one/assetmantle",
               },
               {
                 menuName: "Citadel",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://app.citadel.one/",
               },
             ],
           },
@@ -117,25 +109,25 @@ const itemList = [
                 menuName: "MintScan",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://www.mintscan.io/asset-mantle",
               },
               {
                 menuName: "PostCapitalist",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://explorer.postcapitalist.io/AssetMantle",
               },
               {
                 menuName: "BigDipper",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://bigdipper.live/assetmantle",
               },
               {
                 menuName: "StakingRewards",
                 isExternalURL: true,
                 isNestMenuCollapsed: true,
-                url: "https://assetmantle.one/mantleplace",
+                url: "https://www.stakingrewards.com/earn/asset-mantle/",
               },
             ],
           },
@@ -143,47 +135,57 @@ const itemList = [
       },
     ],
   },
-  /* {
-    menuName: "Resources",
-    isExternalURL: false,
-    isNestMenuCollapsed: true,
-    url: [
-      {
-        menuName: "About",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
-      },
-      {
-        menuName: "WhitePaper",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
-      },
-      {
-        menuName: "Documentation",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
-      },
-      {
-        menuName: "FAQ",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
-      },
-      {
-        menuName: "Support",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
-      },
-    ],
-  }, */
   {
     menuName: "Build",
     isExternalURL: false,
     isNestMenuCollapsed: false,
+    endIcon: <ExpandMoreIcon />,
+    url: [
+      {
+        menuName: "Token",
+        isExternalURL: true,
+        isNestMenuCollapsed: true,
+        url: [
+          {
+            menuName: "Tokenomics",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://blog.assetmantle.one/2022/03/01/mntl-tokenomics-and-utility/",
+          },
+          {
+            menuName: "MantleDrop",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://airdrop.assetmantle.one/",
+          },
+        ],
+      },
+      {
+        menuName: "Tracking",
+        isExternalURL: true,
+        isNestMenuCollapsed: true,
+        url: [
+          {
+            menuName: "CoinGecko",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://www.coingecko.com/en/coins/assetmantle/usd",
+          },
+          {
+            menuName: "CoinMarketCap",
+            isExternalURL: true,
+            isNestMenuCollapsed: true,
+            url: "https://coinmarketcap.com/currencies/assetmantle/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    menuName: "$MNTL",
+    isExternalURL: false,
+    isNestMenuCollapsed: true,
+    endIcon: <ExpandMoreIcon />,
     url: [
       {
         menuName: "Docs",
@@ -194,13 +196,13 @@ const itemList = [
             menuName: "Whitepaper",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
           },
           {
             menuName: "Developer Docs",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://docs.assetmantle.one/Quick_Setup#overview",
           },
         ],
       },
@@ -213,195 +215,144 @@ const itemList = [
             menuName: "GitHub",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://github.com/AssetMantle",
           },
           {
             menuName: "Grants",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://grants.assetmantle.one/",
           },
           {
             menuName: "interNFT",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://internft.github.io/",
           },
           {
             menuName: "DevNet",
             isExternalURL: true,
             isNestMenuCollapsed: false,
-            url: "https://assetmantle.one/mantleplace",
+            url: "https://devnet.assetmantle.one/",
           },
         ],
-      },
-    ],
-  },
-  {
-    menuName: "$MNTL",
-    isExternalURL: false,
-    isNestMenuCollapsed: true,
-    url: [
-      {
-        menuName: "Token",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: [
-          {
-            menuName: "Tokenomics",
-            isExternalURL: true,
-            isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
-          },
-          {
-            menuName: "MantleDrop",
-            isExternalURL: true,
-            isNestMenuCollapsed: true,
-            url: "https://assetmantle.one/mantleplace",
-          },
-        ],
-      },
-      {
-        menuName: "Tracking",
-        isExternalURL: true,
-        isNestMenuCollapsed: true,
-        url: "https://assetmantle.one/mantleplace",
       },
     ],
   },
 ];
 
-const createMenuItem = (menuObj) => {
-  if (typeof menuObj.url == "string") {
-    return;
-  }
-};
-
-const setDrawer = (isOpen) => (event) => {
-  if (
-    event &&
-    event.type === "keydown" &&
-    (event.key === "Tab" || event.key === "Shift")
-  ) {
-    return;
-  }
-
-  setDrawerOpen(isOpen);
-};
-
-const toggleDrawer = () => {
-  setDrawerOpen(!drawerOpen);
-};
-
-/* const drawerContents = (
-  <Box
-    sx={{ width: 250 }}
-    role="presentation"
-    onClick={setDrawer(false)}
-    onKeyDown={setDrawer(false)}
-  >
-    <List>
-      {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    <List>
-      {["All mail", "Trash", "Spam"].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-  </Box>
-); */
-
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  let blankArray = new Array(itemList.length).fill(null);
 
-  const [anchorEl, setAnchorEl] = useState(blankArray);
-  const isOpen = (menuVal) => Boolean(anchorEl[menuVal]);
-  const handleClick = (menuVal, event) => {
-    console.log(
-      "inside handleclick, menuVal: ",
-      menuVal,
-      " and event: ",
-      event
-    );
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    let newArray = new Array(itemList.length).fill(null);
-    newArray[menuVal] = event.currentTarget;
-    // console.log("newArray: ", newArray, " arraySize: ", newArray.length);
-    setAnchorEl(newArray);
-    console.log("anchorEl: ", anchorEl);
+  function ElevationScroll(props) {
+    const { children } = props;
+    // implement scroll trigger. Enable hystersis so that we can identify up-scroll from down-scroll
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 0,
+    });
+
+    let appBarJSX = React.cloneElement(children, {
+      elevation: trigger ? 2 : 0,
+      style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
+    });
+
+
+    return appBarJSX;
+  }
+
+  const createMenuItem = (menuObj) => {
+    if (typeof menuObj.url == "string") {
+      return;
+    }
   };
-  const handleClose = (menuVal, event) => {
-    // event.preventDefault();
-    let newArray = new Array(itemList.length).fill(null);
-    setAnchorEl(newArray);
+
+  const setDrawer = (isDrawerOpen) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setDrawerOpen(isDrawerOpen);
   };
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const drawerContents = (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={setDrawer(false)}
+      onKeyDown={setDrawer(false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   const menuListJSX = (
     <>
-      {itemList.map((item, index) => (
-        <>
-          <Button
-            id={item.menuName}
-            key={index}
-            onClick={(e) => {
-              handleClick(index, e);
-            }}
-          >
-            {item.menuName}
-          </Button>
-          <Menu
-            id={item.menuName}
-            key={index}
-            aria-labelledby="menu-item"
-            anchorEl={anchorEl && anchorEl[index]}
-            open={isOpen(index)}
-            onClose={(e) => {
-              handleClose(index, e);
-            }}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            transformOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-          >
-            {/* <ListItemButton>
-          <ListItemText primary="Inbox" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemText primary="Starred" />
-            </ListItemButton>
-          </List>
-        </Collapse> */}
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu>
-        </>
-      ))}
+
+            
+      <Button
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
     </>
   );
 
@@ -417,7 +368,7 @@ export default function Header() {
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
-              {/*  <IconButton
+              <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
@@ -429,7 +380,7 @@ export default function Header() {
                 }}
               >
                 <MenuIcon color="primary" />
-              </IconButton> */}
+              </IconButton>
               <Box
                 sx={{
                   display: "flex",
@@ -443,19 +394,24 @@ export default function Header() {
                   style={{ cursor: "pointer", maxWidth: "200px" }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" } }}></Box>
+              <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+                {itemList &&
+                  Array.isArray(itemList) &&
+                  itemList.length > 0 &&
+                  itemList.map((data, index) => (
+                    <BasicMenu
+                      key={index}
+                      title={data.menuName}
+                      urls={data.url}
+                      titleEndIcon={data.endIcon}
+                      ratioWidthExist={data.ratioWidthExist}
+                    />
+                  ))}
+              </Box>
             </Toolbar>
           </Container>
         </AppBar>
       </ElevationScroll>
-      {/* <SwipeableDrawer
-        anchor="left"
-        open={drawerOpen}
-        onClose={setDrawer(false)}
-        onOpen={setDrawer(true)}
-      >
-        {drawerContents}
-      </SwipeableDrawer> */}
     </>
   );
 }

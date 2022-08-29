@@ -1,4 +1,4 @@
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Box, Card, CardMedia, Paper, Typography } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
 
@@ -90,10 +90,8 @@ const optionContainerStyles = {
   mt: 5,
 };
 const optionStyles = {
-  background:
-    "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-  backdropFilter: "blur(47.4479px)",
-  borderRadius: "16px",
+
+  background: "transparent",
   maxWidth: 374,
   boxShadow: "none",
   padding: "16px 22px",
@@ -110,35 +108,45 @@ export default function FeatureSection() {
   return (
     <Section
       title={FeatureConfigData.title && FeatureConfigData.title}
-      subTitle={
-        FeatureConfigData.titleComponent && FeatureConfigData.titleComponent
-      }
+
+      subTitle={FeatureConfigData.description && FeatureConfigData.description}
     >
       {Array.isArray(FeatureConfigData.featuresArray) &&
         FeatureConfigData.featuresArray &&
         FeatureConfigData.featuresArray.length > 0 && (
           <Box sx={optionContainerStyles}>
             {FeatureConfigData.featuresArray.map((feature, index) => (
-              <Card sx={optionStyles} key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    gap: 2,
-                    pb: 2,
-                  }}
-                >
-                  {feature.icon && typeof feature.icon === "string" ? (
-                    <CardMedia
-                      sx={{ width: "56px", aspectRatio: "1/1" }}
-                      image={feature.icon}
-                    />
-                  ) : (
-                    feature.icon
-                  )}
-                  {feature.title && (
+              <Paper variant="translucent">
+                <Card sx={optionStyles} key={index}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      gap: 2,
+                      pb: 2,
+                    }}
+                  >
+                    {feature.icon && typeof feature.icon === "string" ? (
+                      <CardMedia
+                        sx={{ width: "56px", aspectRatio: "1/1" }}
+                        image={feature.icon}
+                      />
+                    ) : (
+                      feature.icon
+                    )}
+                    {feature.title && (
+                      <Typography
+                        variant={feature.titleVariant}
+                        color={feature.titleColor}
+                      >
+                        {feature.title}
+                      </Typography>
+                    )}
+                  </Box>
+                  {feature.description && (
+
                     <Typography
                       variant={feature.titleVariant}
                       color={feature.titleColor}
@@ -146,16 +154,10 @@ export default function FeatureSection() {
                       {feature.title}
                     </Typography>
                   )}
-                </Box>
-                {feature.description && (
-                  <Typography
-                    variant={feature.descriptionVariant}
-                    color={feature.descriptionColor}
-                  >
-                    {feature.description}
-                  </Typography>
-                )}
-              </Card>
+
+                </Card>
+              </Paper>
+
             ))}
           </Box>
         )}

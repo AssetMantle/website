@@ -557,9 +557,9 @@ export default function GallerySection() {
                           {member.image && (
                             <CardMedia
                               component="img"
-                              alt={member.title}
                               // height={member.height ? member.height : 420}
                               image={member.image}
+                              alt={member.title}
                               sx={{
                                 border: "none",
                                 width: "100%",
