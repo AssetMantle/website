@@ -5,6 +5,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Paper,
   Stack,
   Typography,
 } from "@mui/material";
@@ -71,17 +72,10 @@ const InitiativeSectionConfigData = {
 };
 
 const listStyle = {
-  background:
-    "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-  backdropFilter: "blur(10px)",
+  background: "transparent",
   pl: { xs: 2, md: 0 },
   pr: 2,
   py: 3,
-  mx: { xs: "auto", md: 0 },
-  ml: { md: "auto" },
-  width: "min(500px, 100%)",
-  borderRadius: "6px",
-  backdropFilter: "blur(2px)",
   color: "primary.light",
   display: "flex",
   flexDirection: { xs: "column", md: "row" },
@@ -179,31 +173,40 @@ export default function AdvantageSection() {
               >
                 {InitiativeSectionConfigData.initiatives.map(
                   (initiative, index) => (
-                    <Card key={index} sx={listStyle}>
-                      {initiative.icon &&
-                        (typeof initiative.icon === "string" ? (
-                          <CardMedia
-                            component="img"
-                            image={initiative.icon}
-                            alt={initiative.title}
-                            title={initiative.title}
-                            sx={{
-                              width: "min(112px, 100%)",
-                              height: "auto",
-                            }}
-                          />
-                        ) : (
-                          initiative.icon
-                        ))}
-                      <CardContent sx={{ padding: "0 !important" }}>
-                        <Typography variant="h4" color="primary.main">
-                          {initiative.title && initiative.title}
-                        </Typography>
-                        <Typography variant="body1" sx={{ pt: 1 }}>
-                          {initiative.description && initiative.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
+                    <Paper
+                      variant="translucent"
+                      sx={{
+                        mx: { xs: "auto", md: 0 },
+                        ml: { md: "auto" },
+                        width: "min(500px, 100%)",
+                      }}
+                    >
+                      <Card key={index} sx={listStyle}>
+                        {initiative.icon &&
+                          (typeof initiative.icon === "string" ? (
+                            <CardMedia
+                              component="img"
+                              image={initiative.icon}
+                              alt={initiative.title}
+                              title={initiative.title}
+                              sx={{
+                                width: "min(112px, 100%)",
+                                height: "auto",
+                              }}
+                            />
+                          ) : (
+                            initiative.icon
+                          ))}
+                        <CardContent sx={{ padding: "0 !important" }}>
+                          <Typography variant="h4" color="primary.main">
+                            {initiative.title && initiative.title}
+                          </Typography>
+                          <Typography variant="body1" sx={{ pt: 1 }}>
+                            {initiative.description && initiative.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Paper>
                   )
                 )}
               </Stack>
