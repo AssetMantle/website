@@ -164,6 +164,7 @@ export default function GallerySection() {
                           sx={{
                             px: 0,
                           }}
+                          aria-label={`${button.text} about ${Gallery.title}`}
                           // size="small"
                         >
                           {button.text && (
