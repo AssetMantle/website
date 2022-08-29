@@ -6,7 +6,7 @@ const Section = (props) => {
   const {
     title = null,
     subTitle = null,
-    backgroundImage = "none",
+    background = "none",
     backgroundColor = "transparent",
     children,
   } = props;
@@ -14,11 +14,10 @@ const Section = (props) => {
   console.log("props: ", props);
 
   const sectionStyle = {
-    my: 10,
+    my: 16,
     py: 4,
     textAlign: { xs: "center", md: "left" },
     backgroundColor,
-    backgroundImage,
   };
 
   const SectionConfigData = {
@@ -94,10 +93,11 @@ const Section = (props) => {
         maxWidth="lg"
         sx={{
           textAlign: SectionConfigData.textAlign || "left",
+          background,
         }}
       >
         {TitleAndSubtitleJSX ? (
-          <Stack spacing={4} direction="column" alignItems="center">
+          <Stack spacing={8} direction="column" alignItems="center">
             {TitleAndSubtitleJSX}
             {children}
           </Stack>
