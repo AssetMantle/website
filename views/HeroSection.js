@@ -69,10 +69,6 @@ export default function HeroSection() {
         <Button
           variant="contained"
           size="large"
-          sx={{
-            borderRadius: 8,
-            fontWeight: "bold",
-          }}
           endIcon={<ArticleIcon />}
           href="https://docs.assetmantle.one/"
           target="_blank"

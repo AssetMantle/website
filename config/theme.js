@@ -80,6 +80,14 @@ const baseTheme = createTheme({
         },
       ],
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: "32px",
+          fontWeight: "bold",
+        },
+      },
+    },
   },
 });
 

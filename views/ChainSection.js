@@ -234,12 +234,6 @@ export default function ChainSection() {
                       size="large"
                       href={cta.url && cta.url}
                       target={cta.target && cta.target}
-                      sx={{
-                        borderRadius: 8,
-                        fontWeight: "700",
-                        // padding: "12px 34px",
-                        // textTransform: "capitalize",
-                      }}
                       endIcon={cta.icon ? cta.icon : null}
                     >
                       {cta.title && cta.title}
