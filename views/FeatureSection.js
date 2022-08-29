@@ -94,7 +94,6 @@ const optionStyles = {
   maxWidth: 374,
   boxShadow: "none",
   padding: "16px 22px",
-  borderRadius: "25px",
   minHeight: "296px",
   transition: "all 0.3s ease-in-out",
   color: "primary.light",
@@ -145,10 +144,10 @@ export default function FeatureSection() {
                   </Box>
                   {feature.description && (
                     <Typography
-                      variant={feature.titleVariant}
-                      color={feature.titleColor}
+                      variant={feature.descriptionVariant}
+                      color={feature.descriptionColor}
                     >
-                      {feature.title}
+                      {feature.description}
                     </Typography>
                   )}
                 </Card>
