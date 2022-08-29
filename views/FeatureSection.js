@@ -94,7 +94,6 @@ const optionStyles = {
   maxWidth: 374,
   boxShadow: "none",
   padding: "16px 22px",
-  borderRadius: "25px",
   minHeight: "296px",
   transition: "all 0.3s ease-in-out",
   color: "primary.light",
@@ -114,7 +113,7 @@ export default function FeatureSection() {
         FeatureConfigData.featuresArray.length > 0 && (
           <Box sx={optionContainerStyles}>
             {FeatureConfigData.featuresArray.map((feature, index) => (
-              <Paper variant="translucent">
+              <Paper variant="translucent" sx={{ overflow: "hidden" }}>
                 <Card sx={optionStyles} key={index}>
                   <Box
                     sx={{
