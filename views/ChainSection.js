@@ -1,3 +1,4 @@
+
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
@@ -8,7 +9,7 @@ const ChainSectionConfigData = {
   textAlign: "", // >>> default: left
   title: "The AssetMantle Chain",
   subTitle:
-    "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere",
+    "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere"
   subSectionTitle: "$MNTL",
   subSectionTitleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
   subSectionTitleVariant: "h1",
@@ -29,6 +30,7 @@ const ChainSectionConfigData = {
     {
       title: "Buy Now ",
       url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
+
       icon: <ShoppingCartIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -37,7 +39,9 @@ const ChainSectionConfigData = {
     {
       title: "Airdrops",
       url: "https://airdrop.assetmantle.one/",
+
       icon: <DownloadingIcon />, // url: "/" or component: <Icon/>
+
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "outlined",
@@ -45,6 +49,7 @@ const ChainSectionConfigData = {
   ],
   chains: [
     {
+
       icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
       alt: "modular",
       title: "Implements modular framework from the popular Cosmos SDK",
@@ -57,11 +62,14 @@ const ChainSectionConfigData = {
     {
       icon: "/images/chain/connected.svg", // add url: "https://icon.png"
       alt: "connected",
+
       title: "Incorporates connectedness with Cosmos Zones using IBC",
     },
     {
       icon: "/images/chain/interNft.svg", // add url: "https://icon.png"
       alt: "internft",
+Instills the plan to build open standards for interchain NFT",
+
       title: "Inherits the plan to build open standards for interchain NFT",
     },
   ],
@@ -75,6 +83,7 @@ export default function ChainSection() {
       title={ChainSectionConfigData.title}
       subTitle={ChainSectionConfigData.subTitle}
     >
+
       <Grid container spacing={2} backgroundColor="transparent">
         <Grid
           item
@@ -92,6 +101,7 @@ export default function ChainSection() {
             spacing={2}
             direction="column"
             maxWidth="400px"
+
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -110,6 +120,7 @@ export default function ChainSection() {
                         backgroundColor: "transparent",
                         display: "flex",
                         alignItems: "center",
+
                         cursor: "pointer",
                       }}
                       zeroMinWidth
@@ -119,6 +130,7 @@ export default function ChainSection() {
                       onMouseOver={() => setShowDescription(index + 1)}
                       onMouseOut={() => setShowDescription()}
                     >
+
                       <img src={data.icon} alt={data.alt} width="90%" />
                     </Grid>
                   ))}
@@ -234,6 +246,7 @@ export default function ChainSection() {
                       size="large"
                       href={cta.url && cta.url}
                       target={cta.target && cta.target}
+
                       endIcon={cta.icon ? cta.icon : null}
                     >
                       {cta.title && cta.title}

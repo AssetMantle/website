@@ -6,19 +6,18 @@ const Section = (props) => {
   const {
     title = null,
     subTitle = null,
-    backgroundImage = "none",
+    background = "none",
     backgroundColor = "transparent",
     children,
   } = props;
 
-  // console.log("props: ", props);
 
   const sectionStyle = {
     my: 16,
     py: 4,
     textAlign: { xs: "center", md: "left" },
     backgroundColor,
-    backgroundImage,
+
   };
 
   const SectionConfigData = {
@@ -27,7 +26,8 @@ const Section = (props) => {
     titleVariant: "h1",
     titleColor: "secondary.light",
     subTitle,
-    subTitleVariant: "subtitle2",
+    subTitleVariant: "subtitle1",
+
     subTitleColor: "secondary.light",
     subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
   };
@@ -86,6 +86,7 @@ const Section = (props) => {
   };
 
   const TitleAndSubtitleJSX = getTitleAndSubtitleJSX();
+
   // console.log("TitleAndSubtitleJSX: ", TitleAndSubtitleJSX);
 
   return (
@@ -101,6 +102,8 @@ const Section = (props) => {
         maxWidth="lg"
         sx={{
           textAlign: SectionConfigData.textAlign || "left",
+          background,
+
         }}
       >
         {TitleAndSubtitleJSX ? (

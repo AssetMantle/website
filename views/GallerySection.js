@@ -82,8 +82,9 @@ const GalleryConfigData = {
   ],
 };
 const optionStyles = {
+
   background: "transparent",
-  maxWidth: 272,
+maxWidth: 272,
   boxShadow: "none",
   height: "100%",
   mx: "auto",

@@ -72,10 +72,12 @@ const InitiativeSectionConfigData = {
 };
 
 const listStyle = {
+
   background: "transparent",
   pl: { xs: 2, md: 0 },
   pr: 2,
   py: 3,
+
   color: "primary.light",
   display: "flex",
   flexDirection: { xs: "column", md: "row" },
@@ -86,6 +88,7 @@ const listStyle = {
 export default function AdvantageSection() {
   return (
     <Section
+
       title={InitiativeSectionConfigData.title}
       subTitle={
         InitiativeSectionConfigData.description &&
@@ -93,6 +96,7 @@ export default function AdvantageSection() {
         InitiativeSectionConfigData.description
       }
     >
+
       <Grid container spacing={2} maxWidth="lg">
         <Grid
           item
@@ -116,7 +120,7 @@ export default function AdvantageSection() {
             },
           }}
         >
-          {InitiativeSectionConfigData.ctas &&
+       {InitiativeSectionConfigData.ctas &&
             InitiativeSectionConfigData.ctas.length > 0 && (
               <Box
                 sx={{
@@ -146,6 +150,7 @@ export default function AdvantageSection() {
                     size="large"
                     href={cta.url && cta.url}
                     target={cta.target && cta.target}
+
                     endIcon={cta.icon ? cta.icon : null}
                   >
                     {cta.title && cta.title}
@@ -163,11 +168,13 @@ export default function AdvantageSection() {
                   gap: "10px",
                   flexDirection: "column",
                   mt: { xs: 8, md: 0 },
+
                   backgroundColor: "transparent",
                 }}
               >
                 {InitiativeSectionConfigData.initiatives.map(
                   (initiative, index) => (
+
                     <Paper
                       variant="translucent"
                       sx={{
@@ -202,6 +209,7 @@ export default function AdvantageSection() {
                         </CardContent>
                       </Card>
                     </Paper>
+
                   )
                 )}
               </Stack>

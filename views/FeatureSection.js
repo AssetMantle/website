@@ -90,6 +90,7 @@ const optionContainerStyles = {
   mt: 5,
 };
 const optionStyles = {
+
   background: "transparent",
   maxWidth: 374,
   boxShadow: "none",
@@ -107,6 +108,7 @@ export default function FeatureSection() {
   return (
     <Section
       title={FeatureConfigData.title && FeatureConfigData.title}
+
       subTitle={FeatureConfigData.description && FeatureConfigData.description}
     >
       {Array.isArray(FeatureConfigData.featuresArray) &&
@@ -144,15 +146,18 @@ export default function FeatureSection() {
                     )}
                   </Box>
                   {feature.description && (
+
                     <Typography
-                      variant={feature.descriptionVariant}
-                      color={feature.descriptionColor}
+                      variant={feature.titleVariant}
+                      color={feature.titleColor}
                     >
-                      {feature.description}
+                      {feature.title}
                     </Typography>
                   )}
+
                 </Card>
               </Paper>
+
             ))}
           </Box>
         )}
