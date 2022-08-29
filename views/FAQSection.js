@@ -1,17 +1,15 @@
-import { React, useState } from "react";
-import Section from "../components/Section";
 import {
-  List,
-  ListItem,
-  Link as MuiLink,
-  Typography,
+  Accordion,
   AccordionDetails,
   AccordionSummary,
-  Accordion,
   Grid,
+  List,
+  ListItem,
+  Typography,
 } from "@mui/material";
-import Link from "next/link";
-import MUIAnchor from "../components/MUIanchor";
+import { React, useState } from "react";
+import MUIanchor from "../components/MUIanchor";
+import Section from "../components/Section";
 
 export default function FAQSection() {
   const [expanded, setExpanded] = useState(false);
@@ -80,12 +78,12 @@ export default function FAQSection() {
                 custom-branded NFT storefronts in the Cosmos ecosystem. Read
                 more about MantleBuilder{" "}
               </Typography>
-              <MUIAnchor
+              <MUIanchor
                 href="https://docs.assetmantle.one/MantleBuilder_Overview"
                 target="_blank"
               >
                 here.
-              </MUIAnchor>
+              </MUIanchor>
             </AccordionDetails>
           </Accordion>
           <Accordion
