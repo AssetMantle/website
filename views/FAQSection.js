@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@mui/material";
 import Link from "next/link";
-import { MUIAnchor } from "../components/MUIanchor";
+import MUIAnchor from "../components/MUIanchor";
 
 export default function FAQSection() {
   const [expanded, setExpanded] = useState(false);
