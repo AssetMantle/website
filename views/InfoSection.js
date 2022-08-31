@@ -262,6 +262,7 @@ const Content = () => {
                       rel="noopener noreferrer"
                       sx={{
                         justifyContent: "start",
+                        gap: 1,
                         padding: 0,
                         textTransform: "capitalize",
                       }}
