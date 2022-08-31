@@ -113,8 +113,8 @@ export default function FeatureSection() {
         FeatureConfigData.featuresArray.length > 0 && (
           <Box sx={optionContainerStyles}>
             {FeatureConfigData.featuresArray.map((feature, index) => (
-              <Paper variant="translucent" key={index}>
-                <Card sx={optionStyles} key={index}>
+              <Paper variant="translucent" sx={{ overflow: "hidden" }} key={index}>
+                <Card sx={optionStyles}>
                   <Box
                     sx={{
                       display: "flex",
