@@ -261,12 +261,8 @@ const Content = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        padding: "0",
                         justifyContent: "start",
-                        width: "100%",
-                        gap: 1,
+                        padding: 0,
                         textTransform: "capitalize",
                       }}
                     >
