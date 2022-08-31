@@ -143,7 +143,8 @@ export default function Footer() {
                 FooterConfigData.colOne.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colOne.list.map((item, index) => (
-                      <Stack key={index} spacing={2}>
+
+                      <Stack key={`${index}s0a${item.text}`} spacing={2}>
                         <Typography variant="h6">{item.title}</Typography>
                         <Button
                           component="a"
@@ -196,7 +197,8 @@ export default function Footer() {
                         <>
                           {button.icon === "linkedin" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -208,7 +210,8 @@ export default function Footer() {
                           )}
                           {button.icon === "github" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -220,7 +223,8 @@ export default function Footer() {
                           )}
                           {button.icon === "twitter" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -232,7 +236,8 @@ export default function Footer() {
                           )}
                           {button.icon === "instagram" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -244,7 +249,8 @@ export default function Footer() {
                           )}
                           {button.icon === "telegram" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -256,7 +262,9 @@ export default function Footer() {
                           )}
                           {button.icon === "discord" && (
                             <Link
-                              key={index}
+
+                              key={`${index}akl${button.icon}`}
+
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -298,7 +306,11 @@ export default function Footer() {
                 FooterConfigData.colThree.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colThree.list.map((item, index) => (
-                      <Typography variant="caption">
+
+                      <Typography
+                        variant="caption"
+                        key={`${index}${item.title}`}
+                      >
                         {item.title}
                         <Button
                           component="a"

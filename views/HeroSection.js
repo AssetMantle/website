@@ -1,5 +1,13 @@
 import ArticleIcon from "@mui/icons-material/Article";
-import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import SocialIcons from "../components/SocialIcons";
@@ -61,10 +69,7 @@ export default function HeroSection() {
         <Button
           variant="contained"
           size="large"
-          sx={{
-            borderRadius: 8,
-            fontWeight: "bold",
-          }}
+
           endIcon={<ArticleIcon />}
           href="https://docs.assetmantle.one/"
           target="_blank"
@@ -100,7 +105,15 @@ export default function HeroSection() {
   );
 
   return (
-    <Box component="section" sx={sectionStyle}>
+
+    <Box
+      component="section"
+      sx={sectionStyle}
+      id={
+        contentSheet.title &&
+        contentSheet.title.toLowerCase().replaceAll(" ", "-")
+      }
+    >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
         {/* Left & Right Sub-section */}
         <Grid container alignItems="center">
@@ -120,93 +133,96 @@ export default function HeroSection() {
             {RightSubSectionJSX}
           </Grid>
         </Grid>
-        <Grid
-          container
-          alignItems="center"
-          spacing={2}
+
+        <Paper
+          variant="translucent"
           sx={{
-            background:
-              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.06) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-            // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
-            backdropFilter: "blur(10px)",
-            borderRadius: 4,
-            px: 6,
-            py: 4,
             width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
-            display: "flex",
           }}
         >
+
           <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            backgroundColor="transparent"
-            justifyContent="center"
+            container
+            alignItems="center"
+            spacing={2}
+            sx={{
+              px: 6,
+              py: 4,
+              display: "flex",
+            }}
           >
-            <Stack direction="row" alignItems="center" spacing={2}>
-              <Typography variant="h3" color="primary.main">
-                35k+
-              </Typography>
-              <Typography
-                variant="caption"
-                textAlign="left"
-                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-              >
-                COMMUNITY
-                <br />
-                MEMBERS
-              </Typography>
-            </Stack>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              backgroundColor="transparent"
+              justifyContent="center"
+            >
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Typography variant="h3" color="primary.main">
+                  35k+
+                </Typography>
+                <Typography
+                  variant="caption"
+                  textAlign="left"
+                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                >
+                  COMMUNITY
+                  <br />
+                  MEMBERS
+                </Typography>
+              </Stack>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              backgroundColor="transparent"
+              justifyContent="center"
+            >
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Typography variant="h3" color="primary.main">
+                  93k+
+                </Typography>
+                <Typography
+                  variant="caption"
+                  textAlign="left"
+                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                >
+                  UNIQUE WALLETS
+                  <br />& USERS
+                </Typography>
+              </Stack>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              backgroundColor="transparent"
+              justifyContent="center"
+            >
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Typography variant="h3" color="primary.main">
+                  3M+
+                </Typography>
+                <Typography
+                  variant="caption"
+                  textAlign="left"
+                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                >
+                  TRANSACTIONS
+                  <br />
+                  ON-CHAIN
+                </Typography>
+              </Stack>
+            </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            backgroundColor="transparent"
-            justifyContent="center"
-          >
-            <Stack direction="row" alignItems="center" spacing={2}>
-              <Typography variant="h3" color="primary.main">
-                93k+
-              </Typography>
-              <Typography
-                variant="caption"
-                textAlign="left"
-                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-              >
-                UNIQUE WALLETS
-                <br />& USERS
-              </Typography>
-            </Stack>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            backgroundColor="transparent"
-            justifyContent="center"
-          >
-            <Stack direction="row" alignItems="center" spacing={2}>
-              <Typography variant="h3" color="primary.main">
-                3M+
-              </Typography>
-              <Typography
-                variant="caption"
-                textAlign="left"
-                // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-              >
-                TRANSACTIONS
-                <br />
-                ON-CHAIN
-              </Typography>
-            </Stack>
-          </Grid>
-        </Grid>
+        </Paper>
       </Container>
     </Box>
   );

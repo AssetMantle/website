@@ -193,6 +193,12 @@ const itemList = [
         isNestMenuCollapsed: false,
         url: [
           {
+            menuName: "About",
+            isExternalURL: false,
+            isNestMenuCollapsed: false,
+            url: "/about",
+          },
+          {
             menuName: "Whitepaper",
             isExternalURL: true,
             isNestMenuCollapsed: false,
@@ -266,6 +272,7 @@ export default function Header() {
       style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
     });
 
+
     return appBarJSX;
   }
 
@@ -328,6 +335,8 @@ export default function Header() {
 
   const menuListJSX = (
     <>
+
+            
       <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}

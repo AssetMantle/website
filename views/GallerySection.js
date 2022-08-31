@@ -6,6 +6,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Paper,
   Typography,
 } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -81,11 +82,9 @@ const GalleryConfigData = {
   ],
 };
 const optionStyles = {
-  background:
-    "linear-gradient(157.26deg, rgba(217, 217, 217, 0.12) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-  backdropFilter: "blur(47.4479px)",
-  borderRadius: "16px",
-  maxWidth: 272,
+
+  background: "transparent",
+maxWidth: 272,
   boxShadow: "none",
   height: "100%",
   mx: "auto",
@@ -106,70 +105,79 @@ export default function GallerySection() {
         GalleryConfigData.galleries.length > 0 && (
           <Grid container spacing={2}>
             {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Grid item xs={12} sm={6} lg={3} key={index}>
-                <Card sx={optionStyles}>
-                  {Gallery.image && (
-                    <CardMedia
-                      component="img"
-                      alt={Gallery.title}
-                      // height={Gallery.height ? Gallery.height : 420}
-                      image={Gallery.image}
-                      sx={{
-                        border: "none",
-                        width: "100%",
-                        aspectRatio: "1/1",
-                      }}
-                    />
-                  )}
-                  {(Gallery.title || Gallery.description) && (
-                    <CardContent sx={{ p: 0.5 }}>
-                      {Gallery.title && (
-                        <Typography
-                          gutterBottom
-                          variant="h3"
-                          component="h3"
-                          color="primary.main"
-                        >
-                          {Gallery.title}
-                        </Typography>
-                      )}
-                      {Gallery.description && (
-                        <Typography variant="body1" color="primary.light">
-                          {Gallery.description}
-                        </Typography>
-                      )}
-                    </CardContent>
-                  )}
-                  {Gallery.buttons.length !== 0 && (
-                    <CardActions
-                      sx={{
-                        mt: "auto",
-                        pb: 2,
-                        px: 0.5,
-                        justifyContent: { xs: "center", md: "flex-start" },
-                        justifySelf: "flex-end",
-                      }}
-                    >
-                      {Gallery.buttons.map((button, index) => (
-                        <Button
-                          component="a"
-                          href={button.url && button.url}
-                          key={index}
-                          sx={{
-                            px: 0,
-                          }}
-                          // size="small"
-                        >
-                          {button.text && (
-                            <>
-                              {button.text} <KeyboardArrowRightIcon />
-                            </>
-                          )}
-                        </Button>
-                      ))}
-                    </CardActions>
-                  )}
-                </Card>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                lg={3}
+                key={Gallery.image && Gallery.image + index}
+              >
+                <Paper variant="translucent">
+                  <Card sx={optionStyles}>
+                    {Gallery.image && (
+                      <CardMedia
+                        component="img"
+                        alt={Gallery.title}
+                        // height={Gallery.height ? Gallery.height : 420}
+                        image={Gallery.image}
+                        sx={{
+                          border: "none",
+                          width: "100%",
+                          aspectRatio: "1/1",
+                        }}
+                      />
+                    )}
+                    {(Gallery.title || Gallery.description) && (
+                      <CardContent sx={{ p: 0.5 }}>
+                        {Gallery.title && (
+                          <Typography
+                            gutterBottom
+                            variant="h3"
+                            component="h3"
+                            color="primary.main"
+                          >
+                            {Gallery.title}
+                          </Typography>
+                        )}
+                        {Gallery.description && (
+                          <Typography variant="body1" color="primary.light">
+                            {Gallery.description}
+                          </Typography>
+                        )}
+                      </CardContent>
+                    )}
+                    {Gallery.buttons.length !== 0 && (
+                      <CardActions
+                        sx={{
+                          mt: "auto",
+                          pb: 2,
+                          px: 0.5,
+                          justifyContent: { xs: "center", md: "flex-start" },
+                          justifySelf: "flex-end",
+                        }}
+                      >
+                        {Gallery.buttons.map((button, index) => (
+                          <Button
+                            component="a"
+                            href={button.url && button.url}
+                            key={index + button.text && button.text}
+                            sx={{
+                              px: 0,
+                            }}
+                            aria-label={`${button.text} about ${Gallery.title}`}
+                            // size="small"
+                          >
+                            {button.text && (
+                              <>
+                                {button.text} <KeyboardArrowRightIcon />
+                              </>
+                            )}
+                          </Button>
+                        ))}
+                      </CardActions>
+                    )}
+                  </Card>
+                </Paper>
               </Grid>
             ))}
           </Grid>
