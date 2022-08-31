@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
+import NextLink from "./NextLink";
 
 const Section = (props) => {
   const {
@@ -11,13 +12,11 @@ const Section = (props) => {
     children,
   } = props;
 
-
   const sectionStyle = {
     my: 16,
     py: 4,
     textAlign: { xs: "center", md: "left" },
     backgroundColor,
-
   };
 
   const SectionConfigData = {
@@ -26,7 +25,7 @@ const Section = (props) => {
     titleVariant: "h1",
     titleColor: "secondary.light",
     subTitle,
-    subTitleVariant: "subtitle1",
+    subTitleVariant: "subtitle2",
 
     subTitleColor: "secondary.light",
     subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
@@ -47,7 +46,19 @@ const Section = (props) => {
                 variant={SectionConfigData.titleVariant || "h1"}
                 color={SectionConfigData.titleColor || "inherit"}
               >
-                {SectionConfigData.title}
+                <NextLink
+                  color="inherit"
+                  underline="none"
+                  href={`#${
+                    SectionConfigData.title &&
+                    SectionConfigData.title
+                      .toLowerCase()
+                      .replaceAll(" ", "-")
+                      .replace(/[^a-z-]/g, "")
+                  }`}
+                >
+                  {SectionConfigData.title}
+                </NextLink>
               </Typography>
             )}
 
@@ -68,7 +79,19 @@ const Section = (props) => {
             variant={SectionConfigData.titleVariant || "h1"}
             color={SectionConfigData.titleColor || "inherit"}
           >
-            {SectionConfigData.title}
+            <NextLink
+              color="inherit"
+              underline="none"
+              href={`#${
+                SectionConfigData.title &&
+                SectionConfigData.title
+                  .toLowerCase()
+                  .replaceAll(" ", "-")
+                  .replace(/[^a-z-]/g, "")
+              }`}
+            >
+              {SectionConfigData.title}
+            </NextLink>
           </Typography>
         ) : (
           <Typography
@@ -95,7 +118,10 @@ const Section = (props) => {
       sx={sectionStyle}
       id={
         SectionConfigData.title &&
-        SectionConfigData.title.toLowerCase().replaceAll(" ", "-")
+        SectionConfigData.title
+          .toLowerCase()
+          .replaceAll(" ", "-")
+          .replace(/[^a-z-]/g, "")
       }
     >
       <Container
@@ -103,7 +129,6 @@ const Section = (props) => {
         sx={{
           textAlign: SectionConfigData.textAlign || "left",
           background,
-
         }}
       >
         {TitleAndSubtitleJSX ? (
