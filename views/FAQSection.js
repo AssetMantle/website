@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { React, useState } from "react";
-import MUIanchor from "../components/MUIanchor";
+import NextLink from "../components/NextLink";
 import Section from "../components/Section";
 
 export default function FAQSection() {
@@ -78,12 +78,12 @@ export default function FAQSection() {
                 custom-branded NFT storefronts in the Cosmos ecosystem. Read
                 more about MantleBuilder{" "}
               </Typography>
-              <MUIanchor
+              <NextLink
                 href="https://docs.assetmantle.one/MantleBuilder_Overview"
                 target="_blank"
               >
                 here.
-              </MUIanchor>
+              </NextLink>
             </AccordionDetails>
           </Accordion>
           <Accordion
