@@ -72,7 +72,6 @@ const InitiativeSectionConfigData = {
 };
 
 const listStyle = {
-
   background: "transparent",
   pl: { xs: 2, md: 0 },
   pr: 2,
@@ -88,7 +87,6 @@ const listStyle = {
 export default function AdvantageSection() {
   return (
     <Section
-
       title={InitiativeSectionConfigData.title}
       subTitle={
         InitiativeSectionConfigData.description &&
@@ -96,7 +94,6 @@ export default function AdvantageSection() {
         InitiativeSectionConfigData.description
       }
     >
-
       <Grid container spacing={2} maxWidth="lg">
         <Grid
           item
@@ -120,7 +117,7 @@ export default function AdvantageSection() {
             },
           }}
         >
-       {InitiativeSectionConfigData.ctas &&
+          {InitiativeSectionConfigData.ctas &&
             InitiativeSectionConfigData.ctas.length > 0 && (
               <Box
                 sx={{
@@ -146,11 +143,10 @@ export default function AdvantageSection() {
                   <Button
                     component="a"
                     variant={cta.variant ? cta.variant : "contained"}
-                    key={index}
+                    key={`${cta.title}-_${index}`}
                     size="large"
                     href={cta.url && cta.url}
                     target={cta.target && cta.target}
-
                     endIcon={cta.icon ? cta.icon : null}
                   >
                     {cta.title && cta.title}
@@ -174,8 +170,8 @@ export default function AdvantageSection() {
               >
                 {InitiativeSectionConfigData.initiatives.map(
                   (initiative, index) => (
-
                     <Paper
+                      key={index}
                       variant="translucent"
                       sx={{
                         mx: { xs: "auto", md: 0 },
@@ -183,7 +179,7 @@ export default function AdvantageSection() {
                         width: "min(500px, 100%)",
                       }}
                     >
-                      <Card key={index} sx={listStyle}>
+                      <Card sx={listStyle}>
                         {initiative.icon &&
                           (typeof initiative.icon === "string" ? (
                             <CardMedia
@@ -209,7 +205,6 @@ export default function AdvantageSection() {
                         </CardContent>
                       </Card>
                     </Paper>
-
                   )
                 )}
               </Stack>
