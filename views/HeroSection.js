@@ -69,6 +69,7 @@ export default function HeroSection() {
         <Button
           variant="contained"
           size="large"
+
           endIcon={<ArticleIcon />}
           href="https://docs.assetmantle.one/"
           target="_blank"
@@ -104,6 +105,7 @@ export default function HeroSection() {
   );
 
   return (
+
     <Box
       component="section"
       sx={sectionStyle}
@@ -131,6 +133,7 @@ export default function HeroSection() {
             {RightSubSectionJSX}
           </Grid>
         </Grid>
+
         <Paper
           variant="translucent"
           sx={{
@@ -139,6 +142,7 @@ export default function HeroSection() {
             bottom: { xs: "0", md: "-24px" },
           }}
         >
+
           <Grid
             container
             alignItems="center"

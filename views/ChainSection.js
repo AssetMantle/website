@@ -29,6 +29,7 @@ const ChainSectionConfigData = {
     {
       title: "Buy Now ",
       url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
+
       icon: <ShoppingCartIcon />, // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -37,7 +38,9 @@ const ChainSectionConfigData = {
     {
       title: "Airdrops",
       url: "https://airdrop.assetmantle.one/",
+
       icon: <DownloadingIcon />, // url: "/" or component: <Icon/>
+
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "outlined",
@@ -57,6 +60,7 @@ const ChainSectionConfigData = {
     {
       icon: "/images/chain/connected.svg", // add url: "https://icon.png"
       alt: "connected",
+
       title: "Incorporates connectedness with Cosmos Zones using IBC",
     },
     {
@@ -110,6 +114,7 @@ export default function ChainSection() {
                         backgroundColor: "transparent",
                         display: "flex",
                         alignItems: "center",
+
                         cursor: "pointer",
                       }}
                       zeroMinWidth

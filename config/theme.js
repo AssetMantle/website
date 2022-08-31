@@ -64,6 +64,7 @@ const baseTheme = createTheme({
       fontWeight: 300,
       lineHeight: 1,
     },
+
   },
   components: {
     MuiPaper: {
