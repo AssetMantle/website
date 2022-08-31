@@ -69,7 +69,6 @@ export default function HeroSection() {
         <Button
           variant="contained"
           size="large"
-
           endIcon={<ArticleIcon />}
           href="https://docs.assetmantle.one/"
           target="_blank"
@@ -105,7 +104,6 @@ export default function HeroSection() {
   );
 
   return (
-
     <Box
       component="section"
       sx={sectionStyle}
@@ -142,7 +140,6 @@ export default function HeroSection() {
             bottom: { xs: "0", md: "-24px" },
           }}
         >
-
           <Grid
             container
             alignItems="center"
@@ -161,7 +158,12 @@ export default function HeroSection() {
               backgroundColor="transparent"
               justifyContent="center"
             >
-              <Stack direction="row" alignItems="center" spacing={2}>
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
                 <Typography variant="h3" color="primary.main">
                   35k+
                 </Typography>
@@ -184,7 +186,12 @@ export default function HeroSection() {
               backgroundColor="transparent"
               justifyContent="center"
             >
-              <Stack direction="row" alignItems="center" spacing={2}>
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
                 <Typography variant="h3" color="primary.main">
                   93k+
                 </Typography>
@@ -206,7 +213,12 @@ export default function HeroSection() {
               backgroundColor="transparent"
               justifyContent="center"
             >
-              <Stack direction="row" alignItems="center" spacing={2}>
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
                 <Typography variant="h3" color="primary.main">
                   3M+
                 </Typography>
