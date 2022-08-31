@@ -82,9 +82,8 @@ const GalleryConfigData = {
   ],
 };
 const optionStyles = {
-
   background: "transparent",
-maxWidth: 272,
+  maxWidth: 272,
   boxShadow: "none",
   height: "100%",
   mx: "auto",
@@ -110,7 +109,7 @@ export default function GallerySection() {
                 xs={12}
                 sm={6}
                 lg={3}
-                key={Gallery.image && Gallery.image + index}
+                key={`${Math.random()}aks${index}`}
               >
                 <Paper variant="translucent">
                   <Card sx={optionStyles}>
@@ -156,11 +155,11 @@ export default function GallerySection() {
                           justifySelf: "flex-end",
                         }}
                       >
-                        {Gallery.buttons.map((button, index) => (
+                        {Gallery.buttons.map((button, i) => (
                           <Button
+                            key={`}-sa${Math.random()}}`}
                             component="a"
                             href={button.url && button.url}
-                            key={index + button.text && button.text}
                             sx={{
                               px: 0,
                             }}

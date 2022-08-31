@@ -36,23 +36,23 @@ const FooterConfigData = {
     title: "Assetmantle",
     list: [
       {
-        icon: "twitter",
+        icon: <FiTwitter />,
         href: "https://twitter.com/AssetMantle",
       },
       {
-        icon: "instagram",
+        icon: <InstagramIcon />,
         href: "https://www.instagram.com/assetmantle/",
       },
       {
-        icon: "github",
+        icon: <FiGithub />,
         href: "https://github.com/AssetMantle",
       },
       {
-        icon: "telegram",
+        icon: <TbBrandTelegram />,
         href: "https://t.me/assetmantlechat",
       },
       {
-        icon: "discord",
+        icon: <TbBrandDiscord />,
         href: "https://discord.gg/BSdBQ4495d",
       },
     ],
@@ -143,8 +143,7 @@ export default function Footer() {
                 FooterConfigData.colOne.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colOne.list.map((item, index) => (
-
-                      <Stack key={`${index}s0a${item.text}`} spacing={2}>
+                      <Stack key={`${index}s0a${item}`} spacing={2}>
                         <Typography variant="h6">{item.title}</Typography>
                         <Button
                           component="a"
@@ -195,85 +194,16 @@ export default function Footer() {
                     >
                       {FooterConfigData.colTwo.list.map((button, index) => (
                         <>
-                          {button.icon === "linkedin" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <FiLinkedin />
-                            </Link>
-                          )}
-                          {button.icon === "github" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <FiGithub />
-                            </Link>
-                          )}
-                          {button.icon === "twitter" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <FiTwitter />
-                            </Link>
-                          )}
-                          {button.icon === "instagram" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <InstagramIcon />
-                            </Link>
-                          )}
-                          {button.icon === "telegram" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <TbBrandTelegram />
-                            </Link>
-                          )}
-                          {button.icon === "discord" && (
-                            <Link
-
-                              key={`${index}akl${button.icon}`}
-
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <TbBrandDiscord />
-                            </Link>
-                          )}
+                          <Link
+                            key={`${index}akl${button}`}
+                            sx={linkStyles}
+                            component="a"
+                            href={button.href && button.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {button.icon && button.icon}
+                          </Link>
                         </>
                       ))}
                     </Stack>
@@ -306,11 +236,7 @@ export default function Footer() {
                 FooterConfigData.colThree.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colThree.list.map((item, index) => (
-
-                      <Typography
-                        variant="caption"
-                        key={`${index}${item.title}`}
-                      >
+                      <Typography variant="caption" key={`${index}sa${item}`}>
                         {item.title}
                         <Button
                           component="a"
