@@ -126,26 +126,26 @@ const TeamsConfigData = {
         },
       ],
     },
-    {
-      image: "/images/teams/naman.png",
-      name: "Naman Kabra",
-      designation: "Core - Business Development & Growth",
-      designationType: "Founding",
-      social: [
-        {
-          icon: "LinkedIn",
-          href: "https://www.linkedin.com/in/namankabra/",
-        },
-        {
-          icon: "Twitter",
-          href: "https://twitter.com/307naman",
-        },
-        {
-          icon: "GitHub",
-          href: "https://github.com/nk307",
-        },
-      ],
-    },
+    // {
+    //   image: "/images/teams/naman.png",
+    //   name: "Naman Kabra",
+    //   designation: "Core - Business Development & Growth",
+    //   designationType: "Founding",
+    //   social: [
+    //     {
+    //       icon: "LinkedIn",
+    //       href: "https://www.linkedin.com/in/namankabra/",
+    //     },
+    //     {
+    //       icon: "Twitter",
+    //       href: "https://twitter.com/307naman",
+    //     },
+    //     {
+    //       icon: "GitHub",
+    //       href: "https://github.com/nk307",
+    //     },
+    //   ],
+    // },
     {
       image: "/images/teams/sachin.png",
       name: "Sachin Matta",
@@ -166,26 +166,26 @@ const TeamsConfigData = {
         },
       ],
     },
-    {
-      image: "/images/teams/prabhav.png",
-      name: "Prabhav Varambally",
-      designation: "Core - Business Operations & Strategy",
-      designationType: "Founding",
-      social: [
-        {
-          icon: "LinkedIn",
-          href: "https://www.linkedin.com/in/prabhavtv/",
-        },
-        {
-          icon: "Twitter",
-          href: "https://twitter.com/Prabhavv_",
-        },
-        {
-          icon: "GitHub",
-          href: "https://github.com/Prabhavv",
-        },
-      ],
-    },
+    // {
+    //   image: "/images/teams/prabhav.png",
+    //   name: "Prabhav Varambally",
+    //   designation: "Core - Business Operations & Strategy",
+    //   designationType: "Founding",
+    //   social: [
+    //     {
+    //       icon: "LinkedIn",
+    //       href: "https://www.linkedin.com/in/prabhavtv/",
+    //     },
+    //     {
+    //       icon: "Twitter",
+    //       href: "https://twitter.com/Prabhavv_",
+    //     },
+    //     {
+    //       icon: "GitHub",
+    //       href: "https://github.com/Prabhavv",
+    //     },
+    //   ],
+    // },
     {
       image: "/images/teams/harman.png",
       name: "Harman Sohi",
@@ -457,291 +457,243 @@ const linkStyles = {
 
 export default function GallerySection() {
   return (
-    <>
-      {/* <Box component="section" sx={sectionStyle}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          textAlign: TeamsConfigData.textAlign
-            ? TeamsConfigData.textAlign
-            : "left",
-        }}
-      >
-        {TeamsConfigData.title && (
-          <Typography
-            component={
-              TeamsConfigData.titleComponent
-                ? TeamsConfigData.titleComponent
-                : "h2"
-            }
-            variant={
-              TeamsConfigData.titleVariant ? TeamsConfigData.titleVariant : "h2"
-            }
-            color="inherit"
+    <Section
+      title={TeamsConfigData.title}
+      subTitle={TeamsConfigData.description}
+    >
+      {Array.isArray(TeamsConfigData.members) &&
+        TeamsConfigData.members &&
+        TeamsConfigData.members.length > 0 && (
+          <Box
+            sx={{
+              width: "100%",
+              position: "relative",
+              pt: 8,
+              display: "flex",
+              justifyContent: "center",
+              ".splide__pagination": {
+                gap: 2,
+                bottom: "-20px",
+              },
+              ".splide__pagination__page": {
+                transform: "scale(1.6)",
+              },
+              ".splide__pagination__page.is-active": {
+                backgroundColor: "primary.main",
+                transform: "scale(2)",
+              },
+            }}
           >
-            {TeamsConfigData.title}
-          </Typography>
-        )}
-        {TeamsConfigData.description && (
-          <Typography
-            component="p"
-            variant={
-              TeamsConfigData.descriptionVariant
-                ? TeamsConfigData.descriptionVariant
-                : "body1"
-            }
-            color="inherit"
-            sx={
-              TeamsConfigData.descriptionStyle
-                ? TeamsConfigData.descriptionStyle
-                : {
-                    pb: 2,
-                  }
-            }
-          >
-            {TeamsConfigData.description}
-          </Typography>
-        )} */}
-      <Section
-        title={TeamsConfigData.title}
-        subTitle={TeamsConfigData.description}
-      >
-        {Array.isArray(TeamsConfigData.members) &&
-          TeamsConfigData.members &&
-          TeamsConfigData.members.length > 0 && (
-            <Box
-              sx={{
-                width: "100%",
-                position: "relative",
-                pt: 8,
-                display: "flex",
-                justifyContent: "center",
-                ".splide__pagination": {
-                  gap: 2,
-                  bottom: "-20px",
-                },
-                ".splide__pagination__page": {
-                  transform: "scale(1.6)",
-                },
-                ".splide__pagination__page.is-active": {
-                  backgroundColor: "primary.main",
-                  transform: "scale(2)",
+            <Splide
+              hasTrack={false}
+              options={{
+                type: "loop",
+                rewind: true,
+                width: "90%",
+                gap: "32px",
+                perPage: 4,
+                breakpoints: {
+                  900: {
+                    perPage: 2,
+                  },
+                  600: {
+                    perPage: 1,
+                  },
                 },
               }}
             >
-              <Splide
-                hasTrack={false}
-                options={{
-                  type: "loop",
-                  rewind: true,
-                  width: "90%",
-                  gap: "32px",
-                  perPage: 4,
-                  breakpoints: {
-                    900: {
-                      perPage: 2,
-                    },
-                    600: {
-                      perPage: 1,
-                    },
-                  },
-                }}
-              >
-                <SplideTrack>
-                  {Array.isArray(TeamsConfigData.members) &&
-                    TeamsConfigData.members &&
-                    TeamsConfigData.members.length > 0 &&
-                    TeamsConfigData.members.map((member, index) => (
-                      <SplideSlide key={index}>
-                        <Card sx={optionStyles}>
-                          {member.image && (
-                            <CardMedia
-                              component="img"
-                              // height={member.height ? member.height : 420}
-                              image={member.image}
-                              alt={member.title}
-                              sx={{
-                                border: "none",
-                                width: "100%",
-                                aspectRatio: "1/1",
-                                borderRadius: "50%",
-                                objectPosition: "top",
-                              }}
-                            />
-                          )}
-                          {(member.name || member.designation) && (
-                            <CardContent sx={{ padding: "0", pt: 5, pb: 2 }}>
-                              {member.name && (
-                                <Typography
-                                  gutterBottom
-                                  variant="subtitle2"
-                                  component="h4"
-                                  color="primary.main"
-                                >
-                                  {member.name}
-                                </Typography>
-                              )}
-                              {member.designation && (
-                                <Typography
-                                  variant="body2"
-                                  color="primary.light"
-                                  sx={{ pt: 1 }}
-                                >
-                                  {member.designation}
-                                </Typography>
-                              )}
-                            </CardContent>
-                          )}
-                          {member.social &&
-                            Array.isArray(member.social) &&
-                            member.social.length > 0 && (
-                              <CardActions
-                                sx={{
-                                  marginTop: "auto",
-                                  pb: 8,
-                                  pt: 2,
-                                  borderTop: "0.5px solid",
-                                  borderColor: "grey.600",
-                                  color: "primary.light",
-                                  gap: 1,
-                                  justifyContent: {
-                                    xs: "center",
-                                    md: "flex-start",
-                                  },
-                                }}
+              <SplideTrack>
+                {Array.isArray(TeamsConfigData.members) &&
+                  TeamsConfigData.members &&
+                  TeamsConfigData.members.length > 0 &&
+                  TeamsConfigData.members.map((member, index) => (
+                    <SplideSlide key={index}>
+                      <Card sx={optionStyles}>
+                        {member.image && (
+                          <CardMedia
+                            component="img"
+                            // height={member.height ? member.height : 420}
+                            image={member.image}
+                            alt={member.title}
+                            sx={{
+                              border: "none",
+                              width: "100%",
+                              aspectRatio: "1/1",
+                              borderRadius: "50%",
+                              objectPosition: "top",
+                            }}
+                          />
+                        )}
+                        {(member.name || member.designation) && (
+                          <CardContent sx={{ padding: "0", pt: 5, pb: 2 }}>
+                            {member.name && (
+                              <Typography
+                                gutterBottom
+                                variant="subtitle2"
+                                component="h4"
+                                color="primary.main"
                               >
-                                {member.social.map((button, index) => (
-                                  <>
-                                    {button.icon === "LinkedIn" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <FiLinkedin />
-                                      </Link>
-                                    )}
-                                    {button.icon === "GitHub" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <FiGithub />
-                                      </Link>
-                                    )}
-                                    {button.icon === "Twitter" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <FiTwitter />
-                                      </Link>
-                                    )}
-                                    {button.icon === "Behance" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <FaBehance />
-                                      </Link>
-                                    )}
-                                    {button.icon === "Website" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <FiGlobe />
-                                      </Link>
-                                    )}
-                                    {button.icon === "Instagram" && (
-                                      <Link
-                                        key={index}
-                                        sx={linkStyles}
-                                        component="a"
-                                        href={button.href && button.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                      >
-                                        <InstagramIcon />
-                                      </Link>
-                                    )}
-                                  </>
-                                ))}
-                              </CardActions>
+                                {member.name}
+                              </Typography>
                             )}
-                        </Card>
-                      </SplideSlide>
-                    ))}
-                </SplideTrack>
-                <Box className="splide__arrows">
-                  <Button
-                    className="splide__arrow splide__arrow--prev"
+                            {member.designation && (
+                              <Typography
+                                variant="body2"
+                                color="primary.light"
+                                sx={{ pt: 1 }}
+                              >
+                                {member.designation}
+                              </Typography>
+                            )}
+                          </CardContent>
+                        )}
+                        {member.social &&
+                          Array.isArray(member.social) &&
+                          member.social.length > 0 && (
+                            <CardActions
+                              sx={{
+                                marginTop: "auto",
+                                pb: 8,
+                                pt: 2,
+                                borderTop: "0.5px solid",
+                                borderColor: "grey.600",
+                                color: "primary.light",
+                                gap: 1,
+                                justifyContent: {
+                                  xs: "center",
+                                  md: "flex-start",
+                                },
+                              }}
+                            >
+                              {member.social.map((button, index) => (
+                                <>
+                                  {button.icon === "LinkedIn" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiLinkedin />
+                                    </Link>
+                                  )}
+                                  {button.icon === "GitHub" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiGithub />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Twitter" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiTwitter />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Behance" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FaBehance />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Website" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FiGlobe />
+                                    </Link>
+                                  )}
+                                  {button.icon === "Instagram" && (
+                                    <Link
+                                      key={index}
+                                      sx={linkStyles}
+                                      component="a"
+                                      href={button.href && button.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <InstagramIcon />
+                                    </Link>
+                                  )}
+                                </>
+                              ))}
+                            </CardActions>
+                          )}
+                      </Card>
+                    </SplideSlide>
+                  ))}
+              </SplideTrack>
+              <Box className="splide__arrows">
+                <Button
+                  className="splide__arrow splide__arrow--prev"
+                  sx={{
+                    background: "transparent !important",
+                    outline: "none !important",
+                    position: "absolute",
+                    transform: {
+                      xs: "translateX(-70%) translateY(-50%) !important",
+                      md: "translateX(-130%) translateY(-50%) !important",
+                    },
+                    "&.splide__arrow svg": {
+                      fill: "#FFD365",
+                    },
+                  }}
+                >
+                  <EastOutlinedIcon
                     sx={{
-                      background: "transparent !important",
-                      outline: "none !important",
-                      position: "absolute",
-                      transform: {
-                        xs: "translateX(-70%) translateY(-50%) !important",
-                        md: "translateX(-130%) translateY(-50%) !important",
-                      },
-                      "&.splide__arrow svg": {
-                        fill: "#FFD365",
-                      },
+                      fontSize: { xs: "24px", md: "36px" },
                     }}
-                  >
-                    <EastOutlinedIcon
-                      sx={{
-                        fontSize: { xs: "24px", md: "36px" },
-                      }}
-                    />
-                  </Button>
-                  <Button
-                    className="splide__arrow splide__arrow--next"
+                  />
+                </Button>
+                <Button
+                  className="splide__arrow splide__arrow--next"
+                  sx={{
+                    background: "transparent !important",
+                    outline: "none !important",
+                    position: "absolute",
+                    transform: {
+                      xs: "translateX(70%) translateY(-50%) !important",
+                      md: "translateX(130%) translateY(-50%) !important",
+                    },
+                    "&.splide__arrow svg": {
+                      fill: "#FFD365",
+                    },
+                  }}
+                >
+                  <EastOutlinedIcon
                     sx={{
-                      background: "transparent !important",
-                      outline: "none !important",
-                      position: "absolute",
-                      transform: {
-                        xs: "translateX(70%) translateY(-50%) !important",
-                        md: "translateX(130%) translateY(-50%) !important",
-                      },
-                      "&.splide__arrow svg": {
-                        fill: "#FFD365",
-                      },
+                      fontSize: { xs: "24px", md: "36px" },
                     }}
-                  >
-                    <EastOutlinedIcon
-                      sx={{
-                        fontSize: { xs: "24px", md: "36px" },
-                      }}
-                    />
-                  </Button>
-                </Box>
-              </Splide>
-            </Box>
-          )}
-      </Section>
-      {/* </Container>
-    </Box> */}
-    </>
+                  />
+                </Button>
+              </Box>
+            </Splide>
+          </Box>
+        )}
+    </Section>
   );
 }
