@@ -371,6 +371,8 @@ export default function Header(props) {
           </Box>
         </AppBar>
       </ElevationScroll>
+
+      <Toolbar id="back-to-top-anchor" />
     </>
   );
 }
