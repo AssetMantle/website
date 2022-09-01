@@ -28,6 +28,7 @@ export default function BasicMenu({
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         endIcon={titleEndIcon && titleEndIcon}
+        sx={{ justifyContent: { xs: "start", md: "center" } }}
       >
         {title}
       </Button>
