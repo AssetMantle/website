@@ -33,6 +33,17 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
             rel="stylesheet"
           />
+          {/* open graphs start */}
+          <meta property="og:site_name" content="AssetMantle" />
+          <meta property="og:url" content="https://assetmantle.one" />
+          <meta property="al:web:url" content="https://assetmantle.one" />
+          <meta property="og:image" content="/og.png" />
+          <meta property="og:title" content="AssetMantle" />
+          <meta
+            property="og:description"
+            content="AssetMantle is a community-first platform for NFT creators and collectors. Use AssetMantle to create your own NFT store or to expand your collection of NFTs."
+          />
+          {/* open graphs end */}
         </Head>
         <body
           style={{
