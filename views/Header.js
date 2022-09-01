@@ -1,27 +1,16 @@
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import {
   AppBar,
   Box,
-  Button,
   Container,
+  Drawer,
   IconButton,
-  Menu,
-  MenuItem,
   Toolbar,
   useScrollTrigger,
 } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import BasicMenu from "../components/BasicMenu";
-import { TbUserExclamation } from "react-icons/tb";
 
 // contents of menu and/or drawer
 const itemList = [
@@ -247,7 +236,8 @@ const itemList = [
   },
 ];
 
-export default function Header() {
+export default function Header(props) {
+  const { window } = props;
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -272,15 +262,8 @@ export default function Header() {
       style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
     });
 
-
     return appBarJSX;
   }
-
-  const createMenuItem = (menuObj) => {
-    if (typeof menuObj.url == "string") {
-      return;
-    }
-  };
 
   const setDrawer = (isDrawerOpen) => (event) => {
     if (
@@ -297,70 +280,8 @@ export default function Header() {
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
-
-  const drawerContents = (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={setDrawer(false)}
-      onKeyDown={setDrawer(false)}
-    >
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const menuListJSX = (
-    <>
-
-            
-      <Button
-        id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-      >
-        Dashboard
-      </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-    </>
-  );
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <>
@@ -416,6 +337,38 @@ export default function Header() {
               </Box>
             </Toolbar>
           </Container>
+          <Box component="nav">
+            <Drawer
+              container={container}
+              variant="temporary"
+              open={drawerOpen}
+              onClose={toggleDrawer}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+              sx={{
+                display: { xs: "block", sm: "none" },
+                "& .MuiDrawer-paper": {
+                  boxSizing: "border-box",
+                  width: "min(260px ,100%)",
+                  p: 4,
+                },
+              }}
+            >
+              {itemList &&
+                Array.isArray(itemList) &&
+                itemList.length > 0 &&
+                itemList.map((data, index) => (
+                  <BasicMenu
+                    key={index}
+                    title={data.menuName}
+                    urls={data.url}
+                    titleEndIcon={data.endIcon}
+                    ratioWidthExist={data.ratioWidthExist}
+                  />
+                ))}
+            </Drawer>
+          </Box>
         </AppBar>
       </ElevationScroll>
     </>
