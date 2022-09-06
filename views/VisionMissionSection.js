@@ -13,7 +13,7 @@ export default function VisionMissionSection() {
           <Grid item xs={12} md={4}></Grid>
 
           <Grid item xs={12} md={8}>
-            <Paper sx={{ p: 4 }}>
+            <Paper variant="translucent" sx={{ p: 4 }}>
               <Grid container spacing={4}>
                 <Grid item xs={12} md={6}>
                   <Stack spacing={2}>

@@ -92,6 +92,14 @@ const FooterConfigData = {
           href: "https://wallet.assetmantle.one/",
         },
       },
+      {
+        title: "Access our Resources",
+        link: {
+          icon: <NorthEastIcon />,
+          text: "MediaKit",
+          href: "https://docs.assetmantle.one/MediaKit",
+        },
+      },
     ],
   },
 };
@@ -143,7 +151,6 @@ export default function Footer() {
                 FooterConfigData.colOne.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colOne.list.map((item, index) => (
-
                       <Stack key={`${index}s0a${item.text}`} spacing={2}>
                         <Typography variant="h6">{item.title}</Typography>
                         <Button
@@ -197,7 +204,6 @@ export default function Footer() {
                         <>
                           {button.icon === "linkedin" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
@@ -210,7 +216,6 @@ export default function Footer() {
                           )}
                           {button.icon === "github" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
@@ -223,7 +228,6 @@ export default function Footer() {
                           )}
                           {button.icon === "twitter" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
@@ -236,7 +240,6 @@ export default function Footer() {
                           )}
                           {button.icon === "instagram" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
@@ -249,7 +252,6 @@ export default function Footer() {
                           )}
                           {button.icon === "telegram" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
                               sx={linkStyles}
                               component="a"
@@ -262,9 +264,7 @@ export default function Footer() {
                           )}
                           {button.icon === "discord" && (
                             <Link
-
                               key={`${index}akl${button.icon}`}
-
                               sx={linkStyles}
                               component="a"
                               href={button.href && button.href}
@@ -306,7 +306,6 @@ export default function Footer() {
                 FooterConfigData.colThree.list.length > 0 && (
                   <Stack sx={{ pt: 3 }} spacing={2}>
                     {FooterConfigData.colThree.list.map((item, index) => (
-
                       <Typography
                         variant="caption"
                         key={`${index}${item.title}`}

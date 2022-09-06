@@ -25,6 +25,7 @@ export default function FAQSection() {
       <Section title="FAQ">
         <Grid container>
           <Accordion
+            variant="translucent"
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
@@ -45,6 +46,7 @@ export default function FAQSection() {
             </AccordionDetails>
           </Accordion>
           <Accordion
+            variant="translucent"
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
           >
@@ -63,6 +65,7 @@ export default function FAQSection() {
             </AccordionDetails>
           </Accordion>
           <Accordion
+            variant="translucent"
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -89,6 +92,7 @@ export default function FAQSection() {
             </AccordionDetails>
           </Accordion>
           <Accordion
+            variant="translucent"
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
@@ -109,6 +113,7 @@ export default function FAQSection() {
             </AccordionDetails>
           </Accordion>
           <Accordion
+            variant="translucent"
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >

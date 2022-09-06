@@ -17,7 +17,6 @@ export default function AboutPageHeroSection() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-around",
-              // backgroundColor: "transparent",
             }}
           >
             {/* Left Sub-section */}

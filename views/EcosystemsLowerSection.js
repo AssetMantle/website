@@ -80,6 +80,17 @@ export default function EcosystemsPageLowerSection() {
   const [activeFilters, setActiveFilters] = useState([]);
   const [projects, setProjects] = useState("All Projects");
   const [searchData, setSearchData] = useState("");
+  const [availableFilters, setAvailableFilters] = useState([]);
+
+  const getFilters = (array) => {
+    array.map((item) => {
+      console.log(item);
+      setAvailableFilters([]);
+      // if (!availableFilters.includes(item.filters)) {
+      //   setAvailableFilters([...availableFilters, item.filters]);
+      // }
+    });
+  };
 
   const handleDropdownChange = (event) => {
     setProjects(event.target.value);
@@ -93,6 +104,7 @@ export default function EcosystemsPageLowerSection() {
         (compareArrayItem) => element.filters.indexOf(compareArrayItem) != -1
       )
     );
+    // getFilters(sortedData);
     return sortedData;
   };
 
@@ -101,32 +113,16 @@ export default function EcosystemsPageLowerSection() {
       return;
     }
     setActiveFilters((previous) => [...previous, searchData]);
-    // checkForSearchData();
   };
 
-  const checkForSearchData = () => {
-    // const checkPeriodically =
-    setInterval(() => {
-      console.log(searchData, searchData.length);
-      // if (searchData.length > 0) return;
-      // setActiveFilters([]);
-    }, 500);
-    // clearInterval(checkPeriodically);
-  };
   let sortedArray = getSortedArray();
 
-  // const checkPeriodically = setInterval(() => {
-  //   console.log(searchData, searchData.length);
-  //   if (searchData.length > 0) return;
-  //   setActiveFilters([]);
-  // }, 500);
-  // clearInterval(checkPeriodically);
   return (
     <>
       <Section>
         {/* Textbox and Number of Search results text */}
         <Stack spacing={4}>
-          <Grid container justifyContent="space-between">
+          <Grid wrap="nowrap" container justifyContent="space-between">
             <Grid item>
               <TextField
                 InputProps={{
@@ -142,6 +138,10 @@ export default function EcosystemsPageLowerSection() {
                 label="search"
                 onChange={(e) => {
                   setSearchData(e.target.value);
+                  if (e.target.value.length == 0) {
+                    setActiveFilters([]);
+                    return;
+                  }
                 }}
                 variant="outlined"
               />
