@@ -31,7 +31,7 @@ const TokenInfoConfigData = {
     ctas: [
       {
         title: "Stake Now",
-        url: "",
+        url: "https://wallet.assetmantle.one/#all",
         endIcon: <CallMadeIcon />, // url: "/" or component: <Icon/>
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
@@ -62,7 +62,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/Etherscan.png",
         name: "Etherscan",
-        url: "",
+        url: "https://etherscan.io/token/0x2c4f1df9c7de0c59778936c9b145ff56813f3295",
         target: "_blank",
       },
     ],
@@ -74,7 +74,7 @@ const TokenInfoConfigData = {
         name: "Osmosis",
         title: "Buy $MNTL>",
         subTitle: "",
-        url: "",
+        url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
       },
       {
@@ -82,7 +82,7 @@ const TokenInfoConfigData = {
         name: "Osmosis",
         title: "Buy $MNTL>",
         subTitle: "(USDC Pool)",
-        url: "",
+        url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
       },
       {
@@ -114,7 +114,7 @@ const TokenInfoConfigData = {
         name: "Osmosis",
         title: "Earn $MNTL>",
         subTitle: "(OSMO Pool)",
-        url: "",
+        url: "https://app.osmosis.zone/pool/690",
         target: "_blank",
       },
     ],
