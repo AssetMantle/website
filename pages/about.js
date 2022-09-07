@@ -1,6 +1,7 @@
 import React from "react";
 import ExplanationSection from "../views/AboutUsExplanationSection";
 import FAQSection from "../views/FAQSection";
+import TokenInfo from "../views/TokenInfo";
 import VisionMissionSection from "../views/VisionMissionSection";
 
 export default function About() {
@@ -8,6 +9,7 @@ export default function About() {
     <>
       <ExplanationSection />
       <VisionMissionSection />
+      <TokenInfo />
       <FAQSection />
     </>
   );
