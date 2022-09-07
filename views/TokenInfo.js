@@ -14,8 +14,7 @@ import CallMadeIcon from "@mui/icons-material/CallMade";
 
 const TokenInfoConfigData = {
   title: "$MNTL Token Info",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description: "",
   left: {
     title: "$MNTL",
     values: [
