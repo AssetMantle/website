@@ -41,7 +41,7 @@ const FeatureConfigData = {
       titleVariant: "h4",
       titleColor: "primary.main",
       description:
-        "AssetMantle has a hightly Economical network providing one of the lowest fees compared to any popular network, of around $0.01 per transaction.",
+        "AssetMantle has a highly Economical network providing one of the lowest fees compared to any popular network, of around $0.01 per transaction.",
       descriptionVariant: "body2",
       descriptionColor: "secondary.main",
     },
@@ -113,7 +113,11 @@ export default function FeatureSection() {
         FeatureConfigData.featuresArray.length > 0 && (
           <Box sx={optionContainerStyles}>
             {FeatureConfigData.featuresArray.map((feature, index) => (
-              <Paper variant="translucent" sx={{ overflow: "hidden" }} key={index}>
+              <Paper
+                variant="translucent"
+                sx={{ overflow: "hidden" }}
+                key={index}
+              >
                 <Card sx={optionStyles}>
                   <Box
                     sx={{
