@@ -18,6 +18,7 @@ import {
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState, useEffect } from "react";
 import Section from "../components/Section";
+import { MergeType } from "@mui/icons-material";
 
 const optionStyles = {
   // background:
@@ -61,34 +62,28 @@ const data = [
   },
   {
     name: "six",
-    filters: ["Ecosystem", "AssetMantle Ecosystem"],
+    filters: ["Products", "Ecosystem", "AssetMantle Ecosystem"],
   },
   { name: "seven", filters: ["Partnerships", "AssetMantle Ecosystem"] },
   { name: "eight", filters: ["Integrations", "Partnerships", "MantleLabs"] },
   { name: "nine", filters: ["Grants", "Ecosystem", "AssetMantle Ecosystem"] },
 ];
 
-const chips = [
-  { key: "Products" },
-  { key: "Grants" },
-  { key: "Integrations" },
-  { key: "Partnerships" },
-  { key: "Ecosystem" },
-];
-
 export default function EcosystemsPageLowerSection() {
   const [activeFilters, setActiveFilters] = useState([]);
   const [projects, setProjects] = useState("All Projects");
   const [searchData, setSearchData] = useState("");
-  const [availableFilters, setAvailableFilters] = useState([]);
+  const [nameFilters, setNameFilters] = useState("");
+  let filters = [];
 
   const getFilters = (array) => {
     array.map((item) => {
-      console.log(item);
-      setAvailableFilters([]);
-      // if (!availableFilters.includes(item.filters)) {
-      //   setAvailableFilters([...availableFilters, item.filters]);
-      // }
+      item.filters.map((element) => {
+        if (filters.includes(element)) {
+          return;
+        }
+        filters.push(element);
+      });
     });
   };
 
@@ -104,18 +99,21 @@ export default function EcosystemsPageLowerSection() {
         (compareArrayItem) => element.filters.indexOf(compareArrayItem) != -1
       )
     );
-    // getFilters(sortedData);
+    if (nameFilters.length) {
+      sortedData = data.filter((element) => {
+        return element.name == nameFilters;
+      });
+    }
+    getFilters(sortedData);
     return sortedData;
   };
 
   const submitSearchData = () => {
-    if (activeFilters.includes(searchData)) {
-      return;
-    }
-    setActiveFilters((previous) => [...previous, searchData]);
+    setNameFilters(searchData);
   };
 
   let sortedArray = getSortedArray();
+  console.log(sortedArray);
 
   return (
     <>
@@ -139,7 +137,7 @@ export default function EcosystemsPageLowerSection() {
                 onChange={(e) => {
                   setSearchData(e.target.value);
                   if (e.target.value.length == 0) {
-                    setActiveFilters([]);
+                    setNameFilters("");
                     return;
                   }
                 }}
@@ -167,94 +165,28 @@ export default function EcosystemsPageLowerSection() {
             }}
             gap={2}
           >
-            {chips.map((ecosystem, index) => {
+            {filters.map((type, index) => {
               return (
                 <Grid key={index} item>
                   <Chip
                     sx={{ px: 2 }}
-                    color={
-                      activeFilters.includes(ecosystem.key) ? "info" : "primary"
-                    }
+                    color={activeFilters.includes(type) ? "info" : "primary"}
                     onClick={() => {
-                      if (activeFilters.includes(ecosystem.key)) {
+                      if (activeFilters.includes(type)) {
                         return setActiveFilters(
                           activeFilters.filter((filter) => {
-                            return filter !== ecosystem.key;
+                            return filter !== type;
                           })
                         );
                       }
-                      setActiveFilters([...activeFilters, ecosystem.key]);
+                      setActiveFilters([...activeFilters, type]);
                     }}
-                    label={ecosystem.key}
+                    label={type}
                   ></Chip>
                 </Grid>
               );
             })}
           </Grid>
-
-          {/* <Grid
-            container
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-            }}
-            gap={2}
-          > */}
-          {/* {projects == "All Projects"
-              ? data.map((ecosystem, index) => {
-                  return (
-                    <Grid key={index} item>
-                      <Chip
-                        sx={{ px: 2 }}
-                        color={
-                          activeFilters.includes(ecosystem.key)
-                            ? "info"
-                            : "primary"
-                        }
-                        onClick={() => {
-                          if (activeFilters.includes(ecosystem.key)) {
-                            return setActiveFilters(
-                              activeFilters.filter((filter) => {
-                                return filter !== ecosystem.key;
-                              })
-                            );
-                          }
-                          setActiveFilters([...activeFilters, ecosystem.key]);
-                        }}
-                        label={ecosystem.filters}
-                      ></Chip>
-                    </Grid>
-                  );
-                })
-              : data
-                  .filter((ele) => ele.pType == projects)
-                  .map((ecosystem, index) => {
-                    return (
-                      <Grid key={index} item>
-                        <Chip
-                          sx={{ px: 2 }}
-                          color={
-                            activeFilters.includes(ecosystem.key)
-                              ? "info"
-                              : "primary"
-                          }
-                          onClick={() => {
-                            if (activeFilters.includes(ecosystem.key)) {
-                              return setActiveFilters(
-                                activeFilters.filter((filter) => {
-                                  return filter !== ecosystem.key;
-                                })
-                              );
-                            }
-                            setActiveFilters([...activeFilters, ecosystem.key]);
-                          }}
-                          label={ecosystem.filters}
-                        ></Chip>
-                      </Grid>
-                    );
-                  })}
-          </Grid> */}
 
           {/* Ecosystems */}
           <Grid container spacing={2}>
@@ -284,7 +216,7 @@ export default function EcosystemsPageLowerSection() {
                               <Chip color="primary" label={ele.filters["0"]} />
                             </Stack>
                             <Typography variant="h4" color="primary.main">
-                              MantlePlace
+                              {ele.name}
                             </Typography>
                             <Typography variant="body2">
                               A new, highly optimized NFT marketplace for Cosmos
