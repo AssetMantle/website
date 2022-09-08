@@ -98,6 +98,14 @@ const FooterConfigData = {
           href: "https://wallet.assetmantle.one/",
         },
       },
+      {
+        title: "Access our Resources",
+        link: {
+          icon: <NorthEastIcon />,
+          text: "MediaKit",
+          href: "https://docs.assetmantle.one/MediaKit",
+        },
+      },
     ],
   },
 };
