@@ -47,7 +47,7 @@ export default function TokenUtility() {
       title={tokenUtilityConfigData.title}
       subTitle={tokenUtilityConfigData.description}
     >
-      <Grid container sx={{ gap: 3 }}>
+      <Grid container spacing={3}>
         {tokenUtilityConfigData.options &&
           Array.isArray(tokenUtilityConfigData.options) &&
           tokenUtilityConfigData.options.length > 0 &&
