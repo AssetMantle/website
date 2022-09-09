@@ -11,6 +11,7 @@ import {
 import React from "react";
 import Section from "../components/Section";
 import CallMadeIcon from "@mui/icons-material/CallMade";
+import { Box } from "@mui/system";
 
 const TokenInfoConfigData = {
   title: "$MNTL Token Info",
@@ -29,20 +30,12 @@ const TokenInfoConfigData = {
     ],
     ctas: [
       {
-        title: "Stake Now",
-        url: "https://wallet.assetmantle.one/#all",
-        endIcon: <CallMadeIcon />, // url: "/" or component: <Icon/>
-        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-        disabled: false,
-        variant: "contained",
-      },
-      {
         title: "Airdrops",
         url: "https://airdrop.assetmantle.one/",
         endIcon: <CallMadeIcon />, // url: "/" or component: <Icon/>
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
-        variant: "outlined",
+        variant: "contained",
       },
     ],
     references: [
@@ -67,7 +60,71 @@ const TokenInfoConfigData = {
     ],
   },
   right: {
-    tokenFrom: [
+    tokenFrom: {
+      left: [
+        {
+          logo: "/images/tokenInfo/osmosis.png",
+          name: "Osmosis",
+          title: "Buy $MNTL>",
+          subTitle: "",
+          url: "https://app.osmosis.zone/pool/738",
+          target: "_blank",
+        },
+        {
+          logo: "/images/tokenInfo/Uniswap.png",
+          name: "Uniswap",
+          title: "Buy $MNTL>",
+          subTitle: "ECR 20",
+          url: "https://app.uniswap.org/#/swap?chain=mainnet",
+          target: "_blank",
+        },
+      ],
+      center: [
+        {
+          logo: "/images/tokenInfo/osmosis.png",
+          name: "Osmosis",
+          title: "Buy $MNTL>",
+          subTitle: "(USDC Pool)",
+          url: "https://app.osmosis.zone/pool/738",
+          target: "_blank",
+        },
+        {
+          logo: "/images/tokenInfo/mntl.png",
+          name: "mntl token",
+          title: "Stake Now >",
+          subTitle: "",
+          url: "https://wallet.assetmantle.one/#all",
+          target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
+        },
+        {
+          logo: "/images/tokenInfo/osmosis.png",
+          name: "Osmosis",
+          title: "Earn $MNTL>",
+          subTitle: "(OSMO Pool)",
+          url: "https://app.osmosis.zone/pool/690",
+          target: "_blank",
+        },
+      ],
+      right: [
+        {
+          logo: "/images/tokenInfo/osmosis.png",
+          name: "Osmosis",
+          title: "Buy $MNTL>",
+          subTitle: "(ATOM Pool)",
+          url: "https://app.osmosis.zone/pool/686",
+          target: "_blank",
+        },
+        {
+          logo: "/images/tokenInfo/Uniswap.png",
+          name: "Uniswap",
+          title: "Earn $MNTL ERC 20>",
+          subTitle: "(ETH Pool)",
+          url: "https://app.uniswap.org/#/add/ETH/0x2C4F1DF9c7DE0C59778936C9b145fF56813F3295/3000",
+          target: "_blank",
+        },
+      ],
+    },
+    tokenFrom2: [
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
@@ -75,6 +132,18 @@ const TokenInfoConfigData = {
         subTitle: "",
         url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
+        row: 2,
+        col: 1,
+      },
+      {
+        logo: "/images/tokenInfo/Uniswap.png",
+        name: "Uniswap",
+        title: "Buy $MNTL>",
+        subTitle: "ECR 20",
+        url: "https://app.uniswap.org/#/swap?chain=mainnet",
+        target: "_blank",
+        row: 4,
+        col: 1,
       },
       {
         logo: "/images/tokenInfo/osmosis.png",
@@ -83,30 +152,18 @@ const TokenInfoConfigData = {
         subTitle: "(USDC Pool)",
         url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
+        row: 1,
+        col: 3,
       },
       {
-        logo: "/images/tokenInfo/osmosis.png",
-        name: "Osmosis",
-        title: "Buy $MNTL>",
-        subTitle: "(ATOM Pool)",
-        url: "",
+        logo: "/images/tokenInfo/mntl.png",
+        name: "mntl token",
+        title: "Stake Now >",
+        subTitle: "",
+        url: "https://wallet.assetmantle.one/#all",
         target: "_blank",
-      },
-      {
-        logo: "/images/tokenInfo/Uniswap.png",
-        name: "Uniswap",
-        title: "Buy $MNTL>",
-        subTitle: "ECR 20",
-        url: "",
-        target: "_blank",
-      },
-      {
-        logo: "/images/tokenInfo/Uniswap.png",
-        name: "Uniswap",
-        title: "Earn $MNTL ERC 20>",
-        subTitle: "(ETH Pool)",
-        url: "",
-        target: "_blank",
+        row: 3,
+        col: 3, // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       },
       {
         logo: "/images/tokenInfo/osmosis.png",
@@ -115,9 +172,61 @@ const TokenInfoConfigData = {
         subTitle: "(OSMO Pool)",
         url: "https://app.osmosis.zone/pool/690",
         target: "_blank",
+        row: 5,
+        col: 3,
+      },
+      {
+        logo: "/images/tokenInfo/osmosis.png",
+        name: "Osmosis",
+        title: "Buy $MNTL>",
+        subTitle: "(ATOM Pool)",
+        url: "https://app.osmosis.zone/pool/686",
+        target: "_blank",
+        row: 2,
+        col: 5,
+      },
+      {
+        logo: "/images/tokenInfo/Uniswap.png",
+        name: "Uniswap",
+        title: "Earn $MNTL ERC 20>",
+        subTitle: "(ETH Pool)",
+        url: "https://app.uniswap.org/#/add/ETH/0x2C4F1DF9c7DE0C59778936C9b145fF56813F3295/3000",
+        target: "_blank",
+        row: 4,
+        col: 5,
       },
     ],
   },
+};
+
+const cardContainer = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
+  "&:nth-child(2)": {
+    mx: "-52px",
+  },
+};
+
+const cardStyle = {
+  width: "min(250px,100%)",
+  background: "transparent",
+  aspectRatio: "1/1",
+  boxShadow: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+  flexDirection: "column",
+  "&:first-child": {
+    marginTop: "auto",
+  },
+  "&:last-child": {
+    marginBottom: "auto",
+  },
+  backgroundImage: "url(/images/tokenInfo/Polygon.png)",
+  backgroundSize: "100% 100%",
+  backgroundRepeat: "no-repeat",
 };
 
 export default function TokenInfo() {
@@ -126,9 +235,24 @@ export default function TokenInfo() {
       title={TokenInfoConfigData.title}
       subTitle={TokenInfoConfigData.description}
     >
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <Stack direction="row" spacing={3} alignItems="center">
+      <Grid container spacing={{ xs: 0, md: 3 }}>
+        <Grid
+          item
+          xs={12}
+          md={5}
+          sx={{
+            display: "flex",
+            justifyContent: { xs: "center", sm: "start" },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={3}
+            alignItems="center"
+            justifyContent={{ xs: "center", sm: "start" }}
+            sx={{ my: "auto" }}
+          >
             <img
               src="/images/tokenInfo/mntlCoin.png"
               alt="MNTL token illustration"
@@ -155,7 +279,11 @@ export default function TokenInfo() {
                     ))
                   )}
               </Stack>
-              <Stack direction="row" spacing={2}>
+              <Stack
+                direction="row"
+                spacing={2}
+                justifyContent={{ xs: "center", sm: "start" }}
+              >
                 {TokenInfoConfigData.left.ctas &&
                   Array.isArray(TokenInfoConfigData.left.ctas) &&
                   TokenInfoConfigData.left.ctas.length > 0 &&
@@ -201,57 +329,76 @@ export default function TokenInfo() {
             </Stack>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Grid container spacing={1}>
-            {TokenInfoConfigData.right.tokenFrom &&
-              Array.isArray(TokenInfoConfigData.right.tokenFrom) &&
-              TokenInfoConfigData.right.tokenFrom.length > 0 &&
+        <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(7, 1fr)",
+              gap: "5px",
+              mt: 7,
+            }}
+          >
+            {TokenInfoConfigData.right.tokenFrom2 &&
+              Array.isArray(TokenInfoConfigData.right.tokenFrom2) &&
+              TokenInfoConfigData.right.tokenFrom2.length > 0 &&
               React.Children.toArray(
-                TokenInfoConfigData.right.tokenFrom.map((token) => (
-                  <Grid item xs={12} sm={6} md={4}>
-                    <Card
+                TokenInfoConfigData.right.tokenFrom2.map((token) => (
+                  <Card
+                    sx={{
+                      aspectRatio: "5/4",
+                      gridColumn: `${token.col} / span 3`,
+                      gridRow: `${token.row} / span 2`,
+                      background: "transparent",
+                      boxShadow: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      flexDirection: "column",
+                      backgroundImage: "url(/images/tokenInfo/Polygon.png)",
+                      backgroundSize: "88% 100%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      alt={token.name}
+                      image={token.logo && token.logo}
                       sx={{
-                        width: "max-content",
-                        margin: "auto",
-                        background: "transparent",
-                        boxShadow: "none",
+                        margin: "0 auto",
+                        border: "none",
+                        width: {
+                          xs: "calc(20px + 10vmin)",
+                          sm: "min(90px,100%)",
+                        },
+                        height: "auto",
+                        objectPosition: "center",
                       }}
-                    >
-                      <CardMedia
-                        component="img"
-                        alt={token.name}
-                        image={token.logo && token.logo}
-                        sx={{
-                          margin: "0 auto",
-                          border: "none",
-                          height: "min(90px,100%)",
-                          width: "auto",
-                          objectPosition: "center",
-                        }}
-                      />
-                      <CardActions>
-                        <Link
-                          href={token.url}
-                          variant="caption"
-                          textAlign="center"
-                          underline="none"
-                          fontWeight={400}
-                          target={token.target && token.target}
-                        >
-                          {token.title && token.title}
-                          {
-                            <>
-                              <br />
-                              {token.subTitle && token.subTitle}
-                            </>
-                          }
-                        </Link>
-                      </CardActions>
-                    </Card>
-                  </Grid>
+                    />
+                    <CardActions>
+                      <Link
+                        href={token.url}
+                        variant="caption"
+                        textAlign="center"
+                        underline="none"
+                        fontWeight={400}
+                        target={token.target && token.target}
+                        fontSize={{ xs: "60%", md: "90%" }}
+                      >
+                        {token.title && token.title}
+                        {
+                          <>
+                            <br />
+                            {token.subTitle && token.subTitle}
+                          </>
+                        }
+                      </Link>
+                    </CardActions>
+                  </Card>
                 ))
               )}
-          </Grid>
+          </Box>
         </Grid>
       </Grid>
     </Section>
