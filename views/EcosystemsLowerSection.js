@@ -16,7 +16,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import Section from "../components/Section";
 import { MergeType } from "@mui/icons-material";
 
@@ -37,36 +37,198 @@ const optionStyles = {
   // justifyContent: "center",
 };
 
-//Dummy Content
-const data = [
+const configData = [
   {
-    name: "one",
-    filters: ["MantleCreatives ", "Initiatives", "MantleLabs"],
+    name: "Osmosis",
+    filters: ["MantleChain Partners", "Token Integration Partners"],
+    description:
+      "The leading decentralized Cosmos exchange to swap, earn, and build",
   },
   {
-    name: "two",
-    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
-  },
-  { name: "three", filters: ["Products", "MantleCreatives", "MantleLabs"] },
-  {
-    name: "four",
-    filters: [
-      "Community Initiatives",
-      "MantleCreatives",
-      "AssetMantle Ecosystem",
-    ],
+    name: "Axelar",
+    filters: ["MantleChain Partners"],
+    description: "Axelar delivers secure cross-chain communication for Web3. ",
   },
   {
-    name: "five",
-    filters: ["Community Initiatives", "MantleLabs"],
+    name: "Crescent",
+    filters: ["MantleChain Partners"],
+    description:
+      "Innovating DeFi investment through advancements in inter-blockchain technology",
   },
   {
-    name: "six",
-    filters: ["Products", "Ecosystem", "AssetMantle Ecosystem"],
+    name: "Juno",
+    filters: ["MantleChain Partners"],
+    description:
+      " A digital banking platform that offers a high-yield checking account",
   },
-  { name: "seven", filters: ["Partnerships", "AssetMantle Ecosystem"] },
-  { name: "eight", filters: ["Integrations", "Partnerships", "MantleLabs"] },
-  { name: "nine", filters: ["Grants", "Ecosystem", "AssetMantle Ecosystem"] },
+  {
+    name: "Evmos",
+    filters: ["MantleChain Partners"],
+    description:
+      "Bringing the world of Ethereum-based applications and assets to the interoperable networks of the Cosmos ecosystem, all while aligning developer and user incentives",
+  },
+  {
+    name: "Gravity Bridge",
+    filters: ["MantleChain Partners", "Token Integration Partners"],
+    description:
+      "An open, decentralized bridge that unlocks the power of interoperability & liquidity between blockchain ecosystems.",
+  },
+  {
+    name: "OKC",
+    filters: ["MantleChain Partners"],
+    description:
+      "A high-performance, decentralized, smart contract-enabled blockchain, optimized for trading",
+  },
+  {
+    name: "RushRaids",
+    filters: ["MantleGrants Partners"],
+    description: "description",
+    description: "description",
+  },
+  {
+    name: "MyriadFlow",
+    filters: ["MantleGrants Partners", "interNFT"],
+    description: "An innovative platform to explore & launch NFT Experiences",
+  },
+  {
+    name: "GlitchCandies",
+    filters: ["MantleGrants Partners"],
+    description:
+      "Hand made collection of evolving sculptures created using sound synthesis and GLSL shaders minted on Cosmos ecosystem",
+  },
+  {
+    name: "Kevin Harrison",
+    filters: ["MantleGrants Partners"],
+    description: "description",
+  },
+  {
+    name: "LumosLabs",
+    filters: ["MantleGrants Partners"],
+    description:
+      "A world built for developers, designed to open access to ecosystem opportunities and help them with their journey into Web3",
+  },
+  {
+    name: "Cosmostation",
+    filters: ["Validators"],
+    description: "Wallet for Cosmos SDK based chains",
+  },
+  {
+    name: "Everstake",
+    filters: ["Validators"],
+    description:
+      "The biggest decentralized staking provider in the blockchain industry",
+  },
+  {
+    name: "Citadel.one",
+    filters: ["Validators"],
+    description:
+      "Stake, send, and exchange your crypto assets with a user-friendly non-custodial platform",
+  },
+  {
+    name: "Forbole",
+    filters: ["Validators"],
+    description:
+      "A pioneer in building blockchain solutions with a strong focus on user experience and making blockchain space more accessible to more people",
+  },
+  {
+    name: "P2P.org",
+    filters: ["Validators"],
+    description:
+      "Helping investors compound their cryptocurrency investments through non-custodial staking",
+  },
+  { name: "DSRV", filters: ["Validators"], description: "description" },
+  {
+    name: "INFStones",
+    filters: ["Validators"],
+    description:
+      "Build decentralized applications with unmatched agility, reliability, and scalability on more than 60 leading blockchain protocols",
+  },
+  {
+    name: "Cros-Nest",
+    filters: ["Validators"],
+    description:
+      "State-of-the-art distributed and redundant validator infrastructure for Proof of Stake Blockchains",
+  },
+  { name: "BlockScope", filters: ["Validators"], description: "description" },
+  {
+    name: "Frens",
+    filters: ["Validators"],
+    description:
+      "A community growth platform to help NFT, DAO, DeFi and blockchain gaming projects to grow quickly and engage their members",
+  },
+  {
+    name: "AllNodes",
+    filters: ["Validators"],
+    description:
+      "A non-custodial platform where you can host Masternodes, Validator Nodes, Super Nodes, Sentry Nodes, Full Nodes, and partake in Staking in over 55 protocols.",
+  },
+  { name: "DroidDAO", filters: ["Partnerships"], description: "description" },
+  { name: "NHDAO", filters: ["Partnerships"], description: "description" },
+  {
+    name: "AvigationAI",
+    filters: ["Partnerships"],
+    description: "description",
+  },
+  {
+    name: "Tanukiverse",
+    filters: ["Partnerships"],
+    description: "description",
+  },
+  { name: "Metaverse", filters: ["Partnerships"], description: "description" },
+  {
+    name: "Vorlds",
+    filters: ["Partnerships"],
+    description:
+      "A creator based Metaverse platform that supports users, NFTs and other parts from blockchains across the Polkadot & Ethereum ecosystems.",
+  },
+  {
+    name: "JunoSwap",
+    filters: ["Token Integration Partners"],
+    description:
+      "First ever interchain decentralized exchange focussed on CW-20 (CosmWasm) asset adoption",
+  },
+  {
+    name: "StakingRewards",
+    filters: ["Token Integration Partners"],
+    description: "Leading data provider for staking and crypto-growth tools",
+  },
+  { name: "PolkaDot", filters: ["interNFT"], description: "description" },
+  {
+    name: "Memora",
+    filters: ["interNFT"],
+    description:
+      "A Fintech Ecosystem that allows all actors of the arts world to monetize the assets",
+  },
+  {
+    name: "IXO",
+    filters: ["interNFT"],
+    description:
+      "The ixo Protocol is the basis for building an Internet of Impact for sustainable social, environmental and ecomic development and to mitigate climate impacts",
+  },
+  {
+    name: "HyperSign",
+    filters: ["interNFT"],
+    description:
+      "Hypersign is an Identity and access management solution that makes sure your employees and customers are who they say they are",
+  },
+  {
+    name: "interChain Foundation",
+    filters: ["interNFT"],
+    description:
+      "Stewards of the interchain, funding and advancing the creation of an interoperable, sustainable, and community-owned decentralized ecosystem",
+  },
+  {
+    name: "IRIS",
+    filters: ["interNFT"],
+    description:
+      "IRISnet (a.k.a IRIS Hub) is designed to be the foundation for the next generation distributed applications. Built with Cosmos-SDK, IRIS Hub enables cross-chain interoperability through a unified service model",
+  },
+  {
+    name: "AkashNetwork",
+    filters: ["interNFT"],
+    description:
+      "Launch applications such as DeFi apps, blogs, games, data visualizations, block explorers, blockchain nodes, and other blockchain network components on a decentralized cloud",
+  },
 ];
 
 export default function EcosystemsPageLowerSection() {
@@ -94,13 +256,13 @@ export default function EcosystemsPageLowerSection() {
   const getSortedArray = () => {
     const compareArray =
       projects == "All Projects" ? activeFilters : [...activeFilters, projects];
-    const sortedData = data.filter((element) =>
+    const sortedData = configData.filter((element) =>
       compareArray.every(
         (compareArrayItem) => element.filters.indexOf(compareArrayItem) != -1
       )
     );
     if (nameFilters.length) {
-      sortedData = data.filter((element) => {
+      sortedData = configData.filter((element) => {
         return element.name == nameFilters;
       });
     }
@@ -194,14 +356,17 @@ export default function EcosystemsPageLowerSection() {
               return (
                 <Grid
                   key={index}
-                  sx={{ display: "flex", justifyContent: "center" }}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
                   item
                   xs={12}
                   md={4}
                 >
                   <ButtonBase href="/">
                     <Card sx={optionStyles}>
-                      <Paper>
+                      <Paper sx={{ height: "312px" }}>
                         <CardContent>
                           <Stack spacing={2}>
                             <Stack
@@ -219,13 +384,13 @@ export default function EcosystemsPageLowerSection() {
                               {ele.name}
                             </Typography>
                             <Typography variant="body2">
-                              A new, highly optimized NFT marketplace for Cosmos
-                              Ecosystem
+                              {ele.description}
                             </Typography>
                             <Box
                               sx={{
                                 display: "flex",
                                 justifyContent: "end",
+                                marginBottom: "20px",
                               }}
                             >
                               <Typography color="primary" variant="caption">
