@@ -237,7 +237,6 @@ const itemList = [
 ];
 
 export default function Header(props) {
-  const { window } = props;
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -281,7 +280,7 @@ export default function Header(props) {
     setDrawerOpen(!drawerOpen);
   };
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    props.window !== undefined ? () => props.window().document.body : undefined;
 
   return (
     <>
