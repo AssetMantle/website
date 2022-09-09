@@ -3,8 +3,9 @@ import React from "react";
 import Section from "../components/Section";
 
 const TokenDistributionConfig = {
-  title: "$MNTL TOKEN DISTRIBUTION",
-  description: "",
+  title: "$MNTL Token Distribution",
+  description:
+    "Find out the crucial tokenomics pertaining to the protocol token of AssetMantle, optimizing it for long term value creation",
   chart: "/images/tokenDistribution/releaseSchedule.svg",
   chartName: "Release Schedule",
   overview: {
@@ -72,7 +73,10 @@ export default function TokenDistribution() {
             </Stack>
           </Grid>
           <Grid item xs={12} md={5}>
-            <Typography variant="body2">
+            <Typography
+              variant="body2"
+              textAlign={{ xs: "center", md: "left" }}
+            >
               {TokenDistributionConfig.overview.description}
             </Typography>
           </Grid>

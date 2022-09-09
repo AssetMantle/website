@@ -1,3 +1,4 @@
+import DownloadingIcon from "@mui/icons-material/Downloading";
 import {
   Button,
   Card,
@@ -8,14 +9,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 import Section from "../components/Section";
-import CallMadeIcon from "@mui/icons-material/CallMade";
-import { Box } from "@mui/system";
 
 const TokenInfoConfigData = {
   title: "$MNTL Token Info",
-  description: "",
+  description:
+    "Find out how the protocol token of AssetMantle chain is optimized for maximizing yield using across various DEXs",
   left: {
     title: "$MNTL",
     values: [
@@ -32,10 +33,11 @@ const TokenInfoConfigData = {
       {
         title: "Airdrops",
         url: "https://airdrop.assetmantle.one/",
-        endIcon: <CallMadeIcon />, // url: "/" or component: <Icon/>
+        endIcon: <DownloadingIcon />, // url: "/" or component: <Icon/>
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
         variant: "contained",
+        size: "large",
       },
     ],
     references: [
@@ -263,7 +265,7 @@ export default function TokenInfo() {
               }}
             />
             <Stack direction="column" spacing={3}>
-              <Typography variant="h2">
+              <Typography variant="h2" color="primary.main">
                 {TokenInfoConfigData.left.title &&
                   TokenInfoConfigData.left.title}
               </Typography>
@@ -273,8 +275,20 @@ export default function TokenInfo() {
                   TokenInfoConfigData.left.values.length > 0 &&
                   React.Children.toArray(
                     TokenInfoConfigData.left.values.map((value) => (
-                      <Typography variant="body1" fontWeight={400}>
-                        {value.key}: {value.value}
+                      <Typography
+                        component="span"
+                        sx={{ display: "inline" }}
+                        variant="h4"
+                        color="secondary.light"
+                      >
+                        {value.key}:{" "}
+                        <Typography
+                          sx={{ display: "inline" }}
+                          variant="h4"
+                          color="primary.main"
+                        >
+                          {value.value}
+                        </Typography>
                       </Typography>
                     ))
                   )}
@@ -292,7 +306,7 @@ export default function TokenInfo() {
                       <Button
                         component="a"
                         variant={cta.variant ? cta.variant : "contained"}
-                        size="medium"
+                        size={cta.size}
                         href={cta.url && cta.url}
                         target={cta.target && cta.target}
                         endIcon={cta.endIcon ? cta.endIcon : null}
@@ -302,7 +316,7 @@ export default function TokenInfo() {
                     ))
                   )}
               </Stack>
-              <Stack direction="row" spacing={4}>
+              <Stack direction="row" spacing={2.5}>
                 {TokenInfoConfigData.left.references &&
                   Array.isArray(TokenInfoConfigData.left.references) &&
                   TokenInfoConfigData.left.references.length > 0 &&

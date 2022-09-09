@@ -12,7 +12,7 @@ import Section from "../components/Section";
 const tokenUtilityConfigData = {
   title: "$MNTL Token Utility",
   description:
-    "AssetMantle’s foundation is built using the best-in-class core blockchain principles, and optimized for the next evolution of NFT economy",
+    "AssetMantle's protocol token is created using latest best practices for tokenization, realizing multiple types of utilities for its holder",
   options: [
     {
       icon: "/images/tokenUtility/governance.svg",
@@ -47,15 +47,20 @@ export default function TokenUtility() {
       title={tokenUtilityConfigData.title}
       subTitle={tokenUtilityConfigData.description}
     >
-      <Grid container spacing={3}>
+      <Grid container spacing={{ xs: 1, md: 3 }}>
         {tokenUtilityConfigData.options &&
           Array.isArray(tokenUtilityConfigData.options) &&
           tokenUtilityConfigData.options.length > 0 &&
           React.Children.toArray(
             tokenUtilityConfigData.options.map((option) => (
-              <Grid item xs={12} sm={6}>
-                <Paper variant="translucent">
-                  <Card sx={{ background: "transparent", textAlign: "center" }}>
+              <Grid item xs={12} md={6} backgroundColor="transparent">
+                <Paper variant="translucent" sx={{ height: "100%" }}>
+                  <Card
+                    sx={{
+                      background: "transparent",
+                      textAlign: "center",
+                    }}
+                  >
                     <CardMedia
                       component="img"
                       alt={option.title}
@@ -69,7 +74,9 @@ export default function TokenUtility() {
                       }}
                     />
                     <CardContent>
-                      <Typography variant="h3">{option.title}</Typography>
+                      <Typography variant="h3" color="primary.main">
+                        {option.title}
+                      </Typography>
                       <Typography variant="body1" sx={{ pt: 4 }}>
                         {option.description}
                       </Typography>
