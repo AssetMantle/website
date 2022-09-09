@@ -98,14 +98,6 @@ const FooterConfigData = {
           href: "https://wallet.assetmantle.one/",
         },
       },
-      {
-        title: "Access our Resources",
-        link: {
-          icon: <NorthEastIcon />,
-          text: "MediaKit",
-          href: "https://docs.assetmantle.one/MediaKit",
-        },
-      },
     ],
   },
 };
@@ -202,29 +194,31 @@ export default function Footer(props) {
                   Array.isArray(FooterConfigData.colOne.list) &&
                   FooterConfigData.colOne.list.length > 0 && (
                     <Stack sx={{ pt: 3 }} spacing={2}>
-                      {FooterConfigData.colOne.list.map((item, index) => (
-                        <Stack key={`${index}s0a${item}`} spacing={2}>
-                          <Typography variant="h6">{item.title}</Typography>
-                          <Button
-                            component="a"
-                            variant="text"
-                            size="large"
-                            href={item.email && `mailto:${item.email}`}
-                            sx={{
-                              p: 0,
-                              justifyContent: {
-                                xs: "center",
-                                sm: "flex-start",
-                              },
-                              textTransform: "lowercase",
-                              // color: "primary.light",
-                              fontWeight: "400",
-                            }}
-                          >
-                            {item.text}
-                          </Button>
-                        </Stack>
-                      ))}
+                      {React.Children.toArray(
+                        FooterConfigData.colOne.list.map((item) => (
+                          <Stack spacing={2}>
+                            <Typography variant="h6">{item.title}</Typography>
+                            <Button
+                              component="a"
+                              variant="text"
+                              size="large"
+                              href={item.email && `mailto:${item.email}`}
+                              sx={{
+                                p: 0,
+                                justifyContent: {
+                                  xs: "center",
+                                  sm: "flex-start",
+                                },
+                                textTransform: "lowercase",
+                                // color: "primary.light",
+                                fontWeight: "400",
+                              }}
+                            >
+                              {item.text}
+                            </Button>
+                          </Stack>
+                        ))
+                      )}
                     </Stack>
                   )}
               </Grid>
@@ -255,20 +249,21 @@ export default function Footer(props) {
                         direction="row"
                         sx={{ justifyContent: "center" }}
                       >
-                        {FooterConfigData.colTwo.list.map((button, index) => (
-                          <>
-                            <Link
-                              key={`${index}akl${button}`}
-                              sx={linkStyles}
-                              component="a"
-                              href={button.href && button.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {button.icon && button.icon}
-                            </Link>
-                          </>
-                        ))}
+                        {React.Children.toArray(
+                          FooterConfigData.colTwo.list.map((button) => (
+                            <>
+                              <Link
+                                sx={linkStyles}
+                                component="a"
+                                href={button.href && button.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {button.icon && button.icon}
+                              </Link>
+                            </>
+                          ))
+                        )}
                       </Stack>
                     )}
                 </Stack>
@@ -301,29 +296,31 @@ export default function Footer(props) {
                   Array.isArray(FooterConfigData.colThree.list) &&
                   FooterConfigData.colThree.list.length > 0 && (
                     <Stack sx={{ pt: 3 }} spacing={2}>
-                      {FooterConfigData.colThree.list.map((item, index) => (
-                        <Typography variant="caption" key={`${index}sa${item}`}>
-                          {item.title}
-                          <Button
-                            component="a"
-                            variant="text"
-                            size="large"
-                            href={item.link.href && item.link.href}
-                            sx={{
-                              p: 0,
-                              ml: 1,
-                              width: "max-content",
-                              textTransform: "Capitalize",
-                              fontWeight: "400",
-                            }}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            endIcon={item.link.icon && item.link.icon}
-                          >
-                            {item.link.text}
-                          </Button>
-                        </Typography>
-                      ))}
+                      {React.Children.toArray(
+                        FooterConfigData.colThree.list.map((item) => (
+                          <Typography variant="caption">
+                            {item.title}
+                            <Button
+                              component="a"
+                              variant="text"
+                              size="large"
+                              href={item.link.href && item.link.href}
+                              sx={{
+                                p: 0,
+                                ml: 1,
+                                width: "max-content",
+                                textTransform: "Capitalize",
+                                fontWeight: "400",
+                              }}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              endIcon={item.link.icon && item.link.icon}
+                            >
+                              {item.link.text}
+                            </Button>
+                          </Typography>
+                        ))
+                      )}
                     </Stack>
                   )}
               </Grid>
