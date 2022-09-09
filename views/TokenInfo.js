@@ -6,6 +6,7 @@ import {
   CardMedia,
   Grid,
   Link,
+  Paper,
   Stack,
   Typography,
 } from "@mui/material";
@@ -357,59 +358,63 @@ export default function TokenInfo() {
               TokenInfoConfigData.right.tokenFrom2.length > 0 &&
               React.Children.toArray(
                 TokenInfoConfigData.right.tokenFrom2.map((token) => (
-                  <Card
+                  <Paper
+                    variant="translucent"
                     sx={{
-                      aspectRatio: "5/4",
                       gridColumn: `${token.col} / span 3`,
                       gridRow: `${token.row} / span 2`,
-                      background: "transparent",
-                      boxShadow: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundImage: "url(/images/tokenInfo/Polygon.png)",
-                      backgroundSize: "88% 100%",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
+                      clipPath:
+                        "polygon(30% 0%, 70% 0%, 95% 50%, 70% 100%, 30% 100%, 5% 50%)",
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      alt={token.name}
-                      image={token.logo && token.logo}
+                    <Card
                       sx={{
-                        margin: "0 auto",
-                        border: "none",
-                        width: {
-                          xs: "calc(20px + 10vmin)",
-                          sm: "min(90px,100%)",
-                        },
-                        height: "auto",
-                        objectPosition: "center",
+                        aspectRatio: "5/4",
+                        background: "transparent",
+                        boxShadow: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        flexDirection: "column",
                       }}
-                    />
-                    <CardActions>
-                      <Link
-                        href={token.url}
-                        variant="caption"
-                        textAlign="center"
-                        underline="none"
-                        fontWeight={400}
-                        target={token.target && token.target}
-                        fontSize={{ xs: "60%", md: "90%" }}
-                      >
-                        {token.title && token.title}
-                        {
-                          <>
-                            <br />
-                            {token.subTitle && token.subTitle}
-                          </>
-                        }
-                      </Link>
-                    </CardActions>
-                  </Card>
+                    >
+                      <CardMedia
+                        component="img"
+                        alt={token.name}
+                        image={token.logo && token.logo}
+                        sx={{
+                          margin: "0 auto",
+                          border: "none",
+                          width: {
+                            xs: "calc(20px + 7vmin)",
+                            sm: "min(90px,100%)",
+                          },
+                          height: "auto",
+                          objectPosition: "center",
+                        }}
+                      />
+                      <CardActions>
+                        <Link
+                          href={token.url}
+                          variant="caption"
+                          textAlign="center"
+                          underline="none"
+                          fontWeight={400}
+                          target={token.target && token.target}
+                          fontSize={{ xs: "60%", md: "90%" }}
+                        >
+                          {token.title && token.title}
+                          {
+                            <>
+                              <br />
+                              {token.subTitle && token.subTitle}
+                            </>
+                          }
+                        </Link>
+                      </CardActions>
+                    </Card>
+                  </Paper>
                 ))
               )}
           </Box>
