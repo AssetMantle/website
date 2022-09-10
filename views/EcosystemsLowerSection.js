@@ -65,13 +65,13 @@ const configData = [
     name: "Evmos",
     filters: ["MantleChain Partners"],
     description:
-      "Bringing the world of Ethereum-based applications and assets to the interoperable networks of the Cosmos ecosystem, all while aligning developer and user incentives",
+      "Bringing the world of Ethereum-based applications and assets to the Cosmos ecosystem",
   },
   {
     name: "Gravity Bridge",
     filters: ["MantleChain Partners", "Token Integration Partners"],
     description:
-      "An open, decentralized bridge that unlocks the power of interoperability & liquidity between blockchain ecosystems.",
+      "An open, decentralized bridge enabling interoperability & liquidity between blockchains",
   },
   {
     name: "OKC",
@@ -82,8 +82,8 @@ const configData = [
   {
     name: "RushRaids",
     filters: ["MantleGrants Partners"],
-    description: "description",
-    description: "description",
+    description:
+      "First Multiplayer Battle Royale Game where you play and earn Cryptos",
   },
   {
     name: "MyriadFlow",
@@ -94,7 +94,7 @@ const configData = [
     name: "GlitchCandies",
     filters: ["MantleGrants Partners"],
     description:
-      "Hand made collection of evolving sculptures created using sound synthesis and GLSL shaders minted on Cosmos ecosystem",
+      "Hand made collection of evolving sculptures, minted on Cosmos ecosystem",
   },
   {
     name: "Kevin Harrison",
@@ -105,12 +105,12 @@ const configData = [
     name: "LumosLabs",
     filters: ["MantleGrants Partners"],
     description:
-      "A world built for developers, designed to open access to ecosystem opportunities and help them with their journey into Web3",
+      "A world built for developers, designed to open access to Web3 opportunities",
   },
   {
     name: "Cosmostation",
     filters: ["Validators"],
-    description: "Wallet for Cosmos SDK based chains",
+    description: "A performant Wallet for Cosmos Hub and related zone chains",
   },
   {
     name: "Everstake",
@@ -122,75 +122,98 @@ const configData = [
     name: "Citadel.one",
     filters: ["Validators"],
     description:
-      "Stake, send, and exchange your crypto assets with a user-friendly non-custodial platform",
+      "An all-in-one staking interface with a user-friendly non-custodial platform",
   },
   {
     name: "Forbole",
     filters: ["Validators"],
     description:
-      "A pioneer in building blockchain solutions with a strong focus on user experience and making blockchain space more accessible to more people",
+      "A pioneer in building blockchain solutions, increasing accessability to people",
   },
   {
     name: "P2P.org",
     filters: ["Validators"],
     description:
-      "Helping investors compound their cryptocurrency investments through non-custodial staking",
+      "Helping investors compound their crypto investments through non-custodial staking",
   },
-  { name: "DSRV", filters: ["Validators"], description: "description" },
+  {
+    name: "DSRV",
+    filters: ["Validators"],
+    description:
+      "Leading validator and blockchain infrastructure provider based in Seoul",
+  },
   {
     name: "INFStones",
     filters: ["Validators"],
     description:
-      "Build decentralized applications with unmatched agility, reliability, and scalability on more than 60 leading blockchain protocols",
+      "Build decentralized applications on more than 60 leading blockchain protocols",
   },
   {
     name: "Cros-Nest",
     filters: ["Validators"],
     description:
-      "State-of-the-art distributed and redundant validator infrastructure for Proof of Stake Blockchains",
+      "State-of-the-art distributed & redundant validator infrastructure for PoS Blockchains",
   },
-  { name: "BlockScope", filters: ["Validators"], description: "description" },
+  {
+    name: "BlockScope",
+    filters: ["Validators"],
+    description:
+      "A reliable Staking service in multiple chains for crypto investors",
+  },
   {
     name: "Frens",
     filters: ["Validators"],
     description:
-      "A community growth platform to help NFT, DAO, DeFi and blockchain gaming projects to grow quickly and engage their members",
+      "A community growth platform to help NFT, DAO, DeFi and blockchain gaming projects",
   },
   {
     name: "AllNodes",
     filters: ["Validators"],
     description:
-      "A non-custodial platform where you can host Masternodes, Validator Nodes, Super Nodes, Sentry Nodes, Full Nodes, and partake in Staking in over 55 protocols.",
+      "A non-custodial platform where you can partake in Staking in over 55 protocols",
   },
-  { name: "DroidDAO", filters: ["Partnerships"], description: "description" },
-  { name: "NHDAO", filters: ["Partnerships"], description: "description" },
+  {
+    name: "DroidDAO",
+    filters: ["Partnerships"],
+    description:
+      "a DAO that aims to capitalize upon leading, crypto native opportunities",
+  },
+  {
+    name: "NHDAO",
+    filters: ["Partnerships"],
+    description:
+      "Web3 consultancy with optimum experience in marketing and launching of NFTs",
+  },
   {
     name: "AvigationAI",
     filters: ["Partnerships"],
-    description: "description",
+    description:
+      "An AI specialization company that identifies potentially viral content",
   },
   {
     name: "Tanukiverse",
     filters: ["Partnerships"],
-    description: "description",
+    description:
+      "A community driven explore-to-earn game governed by Tanuki NFTs",
   },
   { name: "Metaverse", filters: ["Partnerships"], description: "description" },
   {
     name: "Vorlds",
     filters: ["Partnerships"],
     description:
-      "A creator based Metaverse platform that supports users, NFTs and other parts from blockchains across the Polkadot & Ethereum ecosystems.",
+      "A creator based Metaverse platform that supports Polkadot & Ethereum ecosystems",
   },
   {
     name: "JunoSwap",
     filters: ["Token Integration Partners"],
     description:
-      "First ever interchain decentralized exchange focussed on CW-20 (CosmWasm) asset adoption",
+      "First ever interchain DEX focussed on CW-20 (CosmWasm) asset adoption",
   },
   {
     name: "StakingRewards",
     filters: ["Token Integration Partners"],
-    description: "Leading data provider for staking and crypto-growth tools",
+    description:
+      "Crypto Staking explorer providing data for staking and crypto-growth tools",
   },
   { name: "PolkaDot", filters: ["interNFT"], description: "description" },
   {
@@ -203,31 +226,31 @@ const configData = [
     name: "IXO",
     filters: ["interNFT"],
     description:
-      "The ixo Protocol is the basis for building an Internet of Impact for sustainable social, environmental and ecomic development and to mitigate climate impacts",
+      "An Internet-of-Impact for sustainable social, environmental and economic development",
   },
   {
     name: "HyperSign",
     filters: ["interNFT"],
     description:
-      "Hypersign is an Identity and access management solution that makes sure your employees and customers are who they say they are",
+      "An Identity and access management solution to authenticate employees and customers",
   },
   {
     name: "interChain Foundation",
     filters: ["interNFT"],
     description:
-      "Stewards of the interchain, funding and advancing the creation of an interoperable, sustainable, and community-owned decentralized ecosystem",
+      "Stewards of interchain, funding the creation of interoperable decentralized ecosystem",
   },
   {
     name: "IRIS",
     filters: ["interNFT"],
     description:
-      "IRISnet (a.k.a IRIS Hub) is designed to be the foundation for the next generation distributed applications. Built with Cosmos-SDK, IRIS Hub enables cross-chain interoperability through a unified service model",
+      "A Cosmos zone enabling cross-chain interoperability through a unified service model",
   },
   {
     name: "AkashNetwork",
     filters: ["interNFT"],
     description:
-      "Launch applications such as DeFi apps, blogs, games, data visualizations, block explorers, blockchain nodes, and other blockchain network components on a decentralized cloud",
+      "A decentralized cloud for DApps, nodes, and other blockchain network components",
   },
 ];
 
