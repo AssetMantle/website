@@ -554,7 +554,7 @@ export default function EcosystemsPageLowerSection() {
                     <Card sx={optionStyles}>
                       <Paper sx={{ height: "312px" }}>
                         <CardContent>
-                          <Stack spacing={2}>
+                          <Stack justifyContent="space-between" spacing={2}>
                             <Stack
                               direction="row"
                               justifyContent="space-between"
@@ -576,7 +576,7 @@ export default function EcosystemsPageLowerSection() {
                               sx={{
                                 display: "flex",
                                 justifyContent: "end",
-                                marginBottom: "20px",
+                                // marginTop: "200px",
                               }}
                             >
                               <Typography color="primary" variant="caption">
