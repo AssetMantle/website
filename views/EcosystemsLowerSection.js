@@ -40,217 +40,355 @@ const optionStyles = {
 const configData = [
   {
     name: "Osmosis",
-    filters: ["MantleChain Partners", "Token Integration Partners"],
+    filters: [
+      "MantleChain Partners",
+      "Token Integration Partners",
+      "MantleLabs",
+    ],
     description:
       "The leading decentralized Cosmos exchange to swap, earn, and build",
   },
   {
     name: "Axelar",
-    filters: ["MantleChain Partners"],
+    filters: ["MantleChain Partners", "MantleLabs"],
     description: "Axelar delivers secure cross-chain communication for Web3. ",
   },
   {
     name: "Crescent",
-    filters: ["MantleChain Partners"],
+    filters: ["MantleChain Partners", "MantleLabs"],
     description:
       "Innovating DeFi investment through advancements in inter-blockchain technology",
   },
   {
     name: "Juno",
-    filters: ["MantleChain Partners"],
+    filters: ["MantleChain Partners", "MantleLabs"],
     description:
       " A digital banking platform that offers a high-yield checking account",
   },
   {
     name: "Evmos",
-    filters: ["MantleChain Partners"],
+    filters: ["MantleChain Partners", "MantleLabs"],
     description:
       "Bringing the world of Ethereum-based applications and assets to the Cosmos ecosystem",
   },
   {
     name: "Gravity Bridge",
-    filters: ["MantleChain Partners", "Token Integration Partners"],
+    filters: [
+      "MantleChain Partners",
+      "Token Integration Partners",
+      "MantleLabs",
+    ],
     description:
       "An open, decentralized bridge enabling interoperability & liquidity between blockchains",
   },
   {
     name: "OKC",
-    filters: ["MantleChain Partners"],
+    filters: ["MantleChain Partners", "MantleLabs"],
     description:
       "A high-performance, decentralized, smart contract-enabled blockchain, optimized for trading",
   },
   {
     name: "RushRaids",
-    filters: ["MantleGrants Partners"],
+    filters: ["MantleGrants Partners", "Ecosystem Projects", "MantleLabs"],
     description:
       "First Multiplayer Battle Royale Game where you play and earn Cryptos",
   },
   {
     name: "MyriadFlow",
-    filters: ["MantleGrants Partners", "interNFT"],
+    filters: [
+      "MantleGrants Partners",
+      "Ecosystem Projects",
+      "interNFT",
+      "AssetMantle Ecosystem",
+    ],
     description: "An innovative platform to explore & launch NFT Experiences",
   },
   {
     name: "GlitchCandies",
-    filters: ["MantleGrants Partners"],
+    filters: ["MantleGrants Partners", "MantleLabs"],
     description:
       "Hand made collection of evolving sculptures, minted on Cosmos ecosystem",
   },
   {
     name: "Kevin Harrison",
-    filters: ["MantleGrants Partners"],
+    filters: ["MantleGrants Partners", "MantleLabs"],
     description: "description",
   },
   {
     name: "LumosLabs",
-    filters: ["MantleGrants Partners"],
+    filters: ["MantleGrants Partners", "MantleLabs"],
     description:
       "A world built for developers, designed to open access to Web3 opportunities",
   },
   {
     name: "Cosmostation",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description: "A performant Wallet for Cosmos Hub and related zone chains",
   },
   {
     name: "Everstake",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "The biggest decentralized staking provider in the blockchain industry",
   },
   {
     name: "Citadel.one",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "An all-in-one staking interface with a user-friendly non-custodial platform",
   },
   {
     name: "Forbole",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "A pioneer in building blockchain solutions, increasing accessability to people",
   },
   {
     name: "P2P.org",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "Helping investors compound their crypto investments through non-custodial staking",
   },
   {
     name: "DSRV",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "Leading validator and blockchain infrastructure provider based in Seoul",
   },
   {
     name: "INFStones",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "Build decentralized applications on more than 60 leading blockchain protocols",
   },
   {
     name: "Cros-Nest",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "State-of-the-art distributed & redundant validator infrastructure for PoS Blockchains",
   },
   {
     name: "BlockScope",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "A reliable Staking service in multiple chains for crypto investors",
   },
   {
     name: "Frens",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "A community growth platform to help NFT, DAO, DeFi and blockchain gaming projects",
   },
   {
     name: "AllNodes",
-    filters: ["Validators"],
+    filters: ["Validators", "MantleLabs"],
     description:
       "A non-custodial platform where you can partake in Staking in over 55 protocols",
   },
   {
     name: "DroidDAO",
-    filters: ["Partnerships"],
+    filters: ["Partnerships", "MantleLabs"],
     description:
       "a DAO that aims to capitalize upon leading, crypto native opportunities",
   },
   {
     name: "NHDAO",
-    filters: ["Partnerships"],
+    filters: ["Partnerships", "MantleLabs"],
     description:
       "Web3 consultancy with optimum experience in marketing and launching of NFTs",
   },
   {
     name: "AvigationAI",
-    filters: ["Partnerships"],
+    filters: ["Partnerships", "MantleLabs"],
     description:
       "An AI specialization company that identifies potentially viral content",
   },
   {
     name: "Tanukiverse",
-    filters: ["Partnerships"],
+    filters: ["Partnerships", "MantleLabs"],
     description:
       "A community driven explore-to-earn game governed by Tanuki NFTs",
   },
-  { name: "Metaverse", filters: ["Partnerships"], description: "description" },
+  {
+    name: "Metaverse",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
   {
     name: "Vorlds",
-    filters: ["Partnerships"],
+    filters: ["Partnerships", "MantleLabs"],
     description:
       "A creator based Metaverse platform that supports Polkadot & Ethereum ecosystems",
   },
   {
     name: "JunoSwap",
-    filters: ["Token Integration Partners"],
+    filters: ["Token Integration Partners", "MantleLabs"],
     description:
       "First ever interchain DEX focussed on CW-20 (CosmWasm) asset adoption",
   },
   {
     name: "StakingRewards",
-    filters: ["Token Integration Partners"],
+    filters: ["Token Integration Partners", "MantleLabs"],
     description:
       "Crypto Staking explorer providing data for staking and crypto-growth tools",
   },
-  { name: "PolkaDot", filters: ["interNFT"], description: "description" },
+  {
+    name: "PolkaDot",
+    filters: ["interNFT", "AssetMantle Ecosystem"],
+    description: "description",
+  },
   {
     name: "Memora",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "A Fintech Ecosystem that allows all actors of the arts world to monetize the assets",
   },
   {
     name: "IXO",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "An Internet-of-Impact for sustainable social, environmental and economic development",
   },
   {
     name: "HyperSign",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "An Identity and access management solution to authenticate employees and customers",
   },
   {
     name: "interChain Foundation",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "Stewards of interchain, funding the creation of interoperable decentralized ecosystem",
   },
   {
     name: "IRIS",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "A Cosmos zone enabling cross-chain interoperability through a unified service model",
   },
   {
     name: "AkashNetwork",
-    filters: ["interNFT"],
+    filters: ["interNFT", "AssetMantle Ecosystem"],
     description:
       "A decentralized cloud for DApps, nodes, and other blockchain network components",
+  },
+  {
+    name: "Membership NFTs",
+    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "Mantlers",
+    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "AssMan NFTs",
+    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "MantlePlace",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description:
+      "A decentralized, no-code NFT marketplace bringing trading features to creators with an easy to use interface",
+  },
+  {
+    name: "MantleBuilder",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description:
+      "A no-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts.",
+  },
+  {
+    name: "MantleWallet",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "Mantle-1(AssetMantle Chain)",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "$MNTL(AssetMantle Token)",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description: "A governance and staking token that secures the MantleChain",
+  },
+  {
+    name: "Modules",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "AsGuard(AssetMantle Validator)",
+    filters: ["Products", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "interNFT",
+    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "Artist4Web3",
+    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "MantleArmy",
+    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
+    description: "description",
+  },
+  {
+    name: "Xtrathin",
+    filters: ["Ecosystem Projects", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Validators",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "DAOs",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Investors",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Media",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Protocol",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Projects",
+    filters: ["Partnerships", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Internal Development",
+    filters: ["Grants", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "External Integrations",
+    filters: ["Grants", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Products",
+    filters: ["Grants", "MantleLabs"],
+    description: "description",
   },
 ];
 
