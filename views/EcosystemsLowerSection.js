@@ -302,7 +302,7 @@ const configData = [
   },
   {
     name: "MantleWallet",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "Integrations", "AssetMantle Ecosystem"],
     description: "description",
   },
   {
@@ -388,6 +388,31 @@ const configData = [
   {
     name: "Products",
     filters: ["Grants", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Modules",
+    filters: ["Integrations", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Toolings",
+    filters: ["Integrations", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "NFT",
+    filters: ["Integrations", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "Analytics",
+    filters: ["Integrations", "MantleLabs"],
+    description: "description",
+  },
+  {
+    name: "LaunchPads",
+    filters: ["Integrations", "MantleLabs"],
     description: "description",
   },
 ];
