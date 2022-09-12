@@ -2,10 +2,16 @@ import React from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Section from "../components/Section";
 
+const configData = {
+  title: "Mantle Universe",
+  subTitle:
+    "Experience the first NFT marketplace with blockchain based identity",
+  image: "/images/hero/capture.png",
+};
+
 export default function AboutPageHeroSection() {
   return (
     <>
-      {" "}
       <Section>
         <Grid backgroundColor="transparent" container>
           <Grid
@@ -23,11 +29,10 @@ export default function AboutPageHeroSection() {
 
             <Stack spacing={1} maxWidth="300px">
               <Typography variant="h1" color="primary">
-                Mantle Universe
+                {configData.title}
               </Typography>
-              <Typography color="white">
-                Experience the first NFT marketplace with blockchain based
-                identity
+              <Typography variant="subtitle2" color="white">
+                {configData.subTitle}
               </Typography>
             </Stack>
           </Grid>
@@ -58,7 +63,7 @@ export default function AboutPageHeroSection() {
                 backgroundColor: "transparent",
               }}
             >
-              <img src="/images/hero/capture.png" alt="image" width="100%" />
+              <img src={configData.image} alt="image" width="100%" />
             </Stack>
           </Grid>
         </Grid>

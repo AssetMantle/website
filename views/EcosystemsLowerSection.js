@@ -1,23 +1,27 @@
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Chip,
-  Grid,
-  IconButton,
-  InputAdornment,
-  MenuItem,
-  Select,
   Stack,
   TextField,
+  Grid,
   Typography,
+  Chip,
+  Box,
+  Card,
+  Select,
+  CardContent,
+  Paper,
+  ButtonBase,
+  MenuItem,
+  InputLabel,
+  FormControl,
+  InputAdornment,
+  CardHeader,
+  Avatar,
+  CardActions,
 } from "@mui/material";
-
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState } from "react";
 import Section from "../components/Section";
+import { MergeType } from "@mui/icons-material";
 
 const optionStyles = {
   // background:
@@ -450,38 +454,40 @@ export default function EcosystemsPageLowerSection() {
       <Section>
         {/* Textbox and Number of Search results text */}
         <Stack spacing={4}>
-          <Grid container justifyContent="space-between">
-            <Grid item xs={12}>
-              <TextField
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <ArrowForwardOutlinedIcon
-                        sx={{ cursor: "pointer" }}
-                        onClick={submitSearchData}
-                      />
-                    </InputAdornment>
-                  ),
-                }}
-                label="search"
-                onChange={(e) => {
-                  setSearchData(e.target.value);
-                  if (e.target.value.length == 0) {
-                    setNameFilters;
-                    return;
-                  }
-                }}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            justifyContent="space-between"
+          >
+            <TextField
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <ArrowForwardOutlinedIcon
+                      sx={{ cursor: "pointer" }}
+                      onClick={submitSearchData}
+                    />
+                  </InputAdornment>
+                ),
+              }}
+              label="search"
+              onChange={(e) => {
+                setSearchData(e.target.value);
+                if (e.target.value.length == 0) {
+                  setNameFilters;
+                  return;
+                }
+              }}
+              variant="outlined"
+            />
+
+            <Grid item>
               <Select value={projects} onChange={handleDropdownChange}>
                 <MenuItem value="All Projects">All Projects</MenuItem>
                 <MenuItem value="AssetMantle">AssetMantle</MenuItem>
                 <MenuItem value="MantleLabs">MantleLabs</MenuItem>
               </Select>
             </Grid>
-          </Grid>
+          </Stack>
 
           {/* Filters  */}
           <Grid
@@ -521,7 +527,7 @@ export default function EcosystemsPageLowerSection() {
           </Grid>
 
           {/* Ecosystems */}
-          <Grid container spacing={{ xs: 1, md: 2 }}>
+          <Grid container spacing={2}>
             {sortedArray.map((ele, index) => {
               return (
                 <Grid
@@ -531,24 +537,24 @@ export default function EcosystemsPageLowerSection() {
                     justifyContent: "center",
                   }}
                   item
-                  backgroundColor="transparent"
                   xs={12}
-                  md={6}
-                  lg={4}
+                  md={4}
                 >
                   <Card
                     variant="translucent"
                     sx={{
                       maxWidth: "400px",
+                      height: "100%",
+                      display: "flex",
                       flexGrow: 1,
                       flexDirection: "column",
-                      // justifyContent: "space-between",
+                      justifyContent: "space-between",
                     }}
                   >
                     <CardHeader
                       avatar={
                         <img
-                          width="5%"
+                          width="60px"
                           src={
                             ele.filters[ele.filters.length - 1] == "AssetMantle"
                               ? "/images/ecosystemLowerSection/AM_Logo.png"
@@ -557,35 +563,24 @@ export default function EcosystemsPageLowerSection() {
                           alt=""
                         />
                       }
-                      action={
-                        <IconButton aria-label="settings">
-                          <MoreVertIcon />
-                        </IconButton>
-                      }
-                    />
+                      action={<Chip color="primary" label={ele.filters["0"]} />}
+                    ></CardHeader>
                     <CardContent>
-                      <Stack justifyContent="space-between" spacing={2}>
-                        <Typography variant="h4" color="primary.main">
-                          {ele.name}
-                          {console.log(ele.filters[ele.filters.length - 1])}
-                        </Typography>
-                        <Typography variant="body2">
-                          {ele.description}
-                        </Typography>
-                      </Stack>
+                      <Typography variant="h4" color="primary.main">
+                        {ele.name}
+                      </Typography>
+                      <Typography variant="body2">{ele.description}</Typography>
                     </CardContent>
-                    <Box
+                    <CardActions
                       sx={{
                         display: "flex",
                         justifyContent: "end",
-                        marginBottom: "40px",
-                        marginRight: "10px",
                       }}
                     >
                       <Typography color="primary" variant="caption">
                         Live Now
                       </Typography>
-                    </Box>
+                    </CardActions>
                   </Card>
                 </Grid>
               );
