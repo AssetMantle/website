@@ -256,15 +256,21 @@ export default function TokenInfo() {
             justifyContent={{ xs: "center", sm: "start" }}
             sx={{ my: "auto" }}
           >
-            <img
-              src="/images/tokenInfo/mntlCoin.png"
-              alt="MNTL token illustration"
-              style={{
+            <Box
+              sx={{
                 width: "min(204px, 100%)",
-                height: "auto",
-                objectPosition: "center",
               }}
-            />
+            >
+              <img
+                src="/images/tokenInfo/mntlCoin.png"
+                alt="MNTL token illustration"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectPosition: "center",
+                }}
+              />
+            </Box>
             <Stack direction="column" spacing={3}>
               <Typography variant="h2" color="primary.main">
                 {TokenInfoConfigData.left.title &&
@@ -386,10 +392,7 @@ export default function TokenInfo() {
                         sx={{
                           margin: "0 auto",
                           border: "none",
-                          width: {
-                            xs: "calc(20px + 7vmin)",
-                            sm: "min(90px,100%)",
-                          },
+                          width: "30%",
                           height: "auto",
                           objectPosition: "center",
                         }}
