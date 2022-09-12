@@ -112,7 +112,8 @@ const configData = [
   {
     name: "Kevin Harrison",
     filters: ["MantleGrants Partners", "MantleLabs"],
-    description: "description",
+    description:
+      "A proof-of-ownership Discord bot for NFTs on AssetMantle with selective access control based on various criteria",
   },
   {
     name: "LumosLabs",
