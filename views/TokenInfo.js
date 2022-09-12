@@ -278,50 +278,57 @@ export default function TokenInfo() {
                         "polygon(30% 1%, 70% 1%, 95% 50%, 70% 99%, 30% 99%, 5% 50%)",
                     }}
                   >
-                    <Card
-                      sx={{
-                        aspectRatio: "5/4",
-                        background: "transparent",
-                        boxShadow: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        textAlign: "center",
-                        flexDirection: "column",
-                      }}
+                    <Link
+                      href={token.url}
+                      variant="caption"
+                      textAlign="center"
+                      underline="none"
+                      fontWeight={400}
+                      target={token.target && token.target}
+                      fontSize={{ xs: "60%", md: "90%" }}
                     >
-                      <CardMedia
-                        component="img"
-                        alt={token.name}
-                        image={token.logo && token.logo}
+                      <Card
                         sx={{
-                          margin: "0 auto",
-                          border: "none",
-                          width: "30%",
-                          height: "auto",
-                          objectPosition: "center",
+                          aspectRatio: "5/4",
+                          background: "transparent",
+                          boxShadow: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          textAlign: "center",
+                          flexDirection: "column",
                         }}
-                      />
-                      <CardActions>
-                        <Link
-                          href={token.url}
-                          variant="caption"
-                          textAlign="center"
-                          underline="none"
-                          fontWeight={400}
-                          target={token.target && token.target}
-                          fontSize={{ xs: "60%", md: "90%" }}
-                        >
-                          {token.title && token.title}
-                          {
-                            <>
-                              <br />
-                              {token.subTitle && token.subTitle}
-                            </>
-                          }
-                        </Link>
-                      </CardActions>
-                    </Card>
+                      >
+                        <CardMedia
+                          component="img"
+                          alt={token.name}
+                          image={token.logo && token.logo}
+                          sx={{
+                            margin: "0 auto",
+                            border: "none",
+                            width: "30%",
+                            height: "auto",
+                            objectPosition: "center",
+                          }}
+                        />
+                        <CardActions>
+                          <Typography
+                            variant="caption"
+                            textAlign="center"
+                            color="primary.main"
+                            fontSize={{ xs: "60%", md: "90%" }}
+                          >
+                            {token.title && token.title}
+                            {
+                              <>
+                                <br />
+                                {token.subTitle && token.subTitle}
+                              </>
+                            }
+                          </Typography>
+                        </CardActions>
+                      </Card>
+                    </Link>
                   </Paper>
                 ))
               )}
