@@ -552,7 +552,14 @@ export default function EcosystemsPageLowerSection() {
                 >
                   <ButtonBase href="/">
                     <Card sx={optionStyles}>
-                      <Paper sx={{ height: "312px" }}>
+                      <Paper
+                        sx={{
+                          height: "312px",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                        }}
+                      >
                         <CardContent>
                           <Stack justifyContent="space-between" spacing={2}>
                             <Stack
@@ -572,19 +579,20 @@ export default function EcosystemsPageLowerSection() {
                             <Typography variant="body2">
                               {ele.description}
                             </Typography>
-                            <Box
-                              sx={{
-                                display: "flex",
-                                justifyContent: "end",
-                                // marginTop: "200px",
-                              }}
-                            >
-                              <Typography color="primary" variant="caption">
-                                Live Now
-                              </Typography>
-                            </Box>
                           </Stack>
                         </CardContent>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "end",
+                            marginBottom: "40px",
+                            marginRight: "10px",
+                          }}
+                        >
+                          <Typography color="primary" variant="caption">
+                            Live Now
+                          </Typography>
+                        </Box>
                       </Paper>
                     </Card>
                   </ButtonBase>
