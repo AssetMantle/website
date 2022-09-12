@@ -63,11 +63,11 @@ const TokenInfoConfigData = {
     ],
   },
   right: {
-    tokenFrom: [
+    tokenFrom2: [
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
-        title: "Buy $MNTL>",
+        title: "Buy $MNTL",
         subTitle: "",
         url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
@@ -77,8 +77,8 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/Uniswap.png",
         name: "Uniswap",
-        title: "Buy $MNTL>",
-        subTitle: "ECR 20",
+        title: "Buy $MNTL",
+        subTitle: "ERC20",
         url: "https://app.uniswap.org/#/swap?chain=mainnet",
         target: "_blank",
         row: 4,
@@ -87,7 +87,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
-        title: "Buy $MNTL>",
+        title: "Buy $MNTL",
         subTitle: "(USDC Pool)",
         url: "https://app.osmosis.zone/pool/738",
         target: "_blank",
@@ -97,7 +97,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/mntl.png",
         name: "mntl token",
-        title: "Stake Now >",
+        title: "Stake Now",
         subTitle: "",
         url: "https://wallet.assetmantle.one/#all",
         target: "_blank",
@@ -107,7 +107,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
-        title: "Earn $MNTL>",
+        title: "Earn $MNTL",
         subTitle: "(OSMO Pool)",
         url: "https://app.osmosis.zone/pool/690",
         target: "_blank",
@@ -117,7 +117,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
-        title: "Buy $MNTL>",
+        title: "Buy $MNTL",
         subTitle: "(ATOM Pool)",
         url: "https://app.osmosis.zone/pool/686",
         target: "_blank",
@@ -127,7 +127,7 @@ const TokenInfoConfigData = {
       {
         logo: "/images/tokenInfo/Uniswap.png",
         name: "Uniswap",
-        title: "Earn $MNTL ERC 20>",
+        title: "Earn $MNTL ERC20",
         subTitle: "(ETH Pool)",
         url: "https://app.uniswap.org/#/add/ETH/0x2C4F1DF9c7DE0C59778936C9b145fF56813F3295/3000",
         target: "_blank",
@@ -265,11 +265,11 @@ export default function TokenInfo() {
               mt: 7,
             }}
           >
-            {TokenInfoConfigData.right.tokenFrom &&
-              Array.isArray(TokenInfoConfigData.right.tokenFrom) &&
-              TokenInfoConfigData.right.tokenFrom.length > 0 &&
+            {TokenInfoConfigData.right.tokenFrom2 &&
+              Array.isArray(TokenInfoConfigData.right.tokenFrom2) &&
+              TokenInfoConfigData.right.tokenFrom2.length > 0 &&
               React.Children.toArray(
-                TokenInfoConfigData.right.tokenFrom.map((token) => (
+                TokenInfoConfigData.right.tokenFrom2.map((token) => (
                   <Paper
                     variant="translucent"
                     sx={{
