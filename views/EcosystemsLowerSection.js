@@ -89,14 +89,14 @@ const configData = [
   },
   {
     name: "RushRaids",
-    filters: ["MantleGrants Partners", "Ecosystem Projects", "MantleLabs"],
+    filters: ["MantleGrants", "Ecosystem Projects", "MantleLabs"],
     description:
       "First Multiplayer Battle Royale Game where you play and earn Cryptos",
   },
   {
     name: "MyriadFlow",
     filters: [
-      "MantleGrants Partners",
+      "MantleGrants",
       "Ecosystem Projects",
       "interNFT",
       "AssetMantle Ecosystem",
@@ -105,19 +105,19 @@ const configData = [
   },
   {
     name: "GlitchCandies",
-    filters: ["MantleGrants Partners", "MantleLabs"],
+    filters: ["MantleGrants", "MantleLabs"],
     description:
       "Hand made collection of evolving sculptures, minted on Cosmos ecosystem",
   },
   {
     name: "Kevin Harrison",
-    filters: ["MantleGrants Partners", "MantleLabs"],
+    filters: ["MantleGrants", "MantleLabs"],
     description:
       "A proof-of-ownership Discord bot for NFTs on AssetMantle with selective access control based on various criteria",
   },
   {
     name: "LumosLabs",
-    filters: ["MantleGrants Partners", "MantleLabs"],
+    filters: ["MantleGrants", "MantleLabs"],
     description:
       "A world built for developers, designed to open access to Web3 opportunities",
   },
@@ -206,18 +206,13 @@ const configData = [
   },
   {
     name: "Tanukiverse",
-    filters: ["Partnerships", "MantleLabs"],
+    filters: ["Partnerships", "Metaverse", "MantleLabs"],
     description:
       "A community driven explore-to-earn game governed by Tanuki NFTs",
   },
   {
-    name: "Metaverse",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
     name: "Vorlds",
-    filters: ["Partnerships", "MantleLabs"],
+    filters: ["Partnerships", "Metaverse", "MantleLabs"],
     description:
       "A creator based Metaverse platform that supports Polkadot & Ethereum ecosystems",
   },
@@ -277,15 +272,11 @@ const configData = [
   {
     name: "Membership NFTs",
     filters: ["MantleCreatives", "AssetMantle Ecosystem"],
-    description: "description",
+    description:
+      "An access to unlock a variety of exclusive utilities and rewards from the MantleEcosystem ",
   },
   {
     name: "Mantlers",
-    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
-    description: "description",
-  },
-  {
-    name: "AssMan NFTs",
     filters: ["MantleCreatives", "AssetMantle Ecosystem"],
     description: "description",
   },
@@ -299,17 +290,17 @@ const configData = [
     name: "MantleBuilder",
     filters: ["Products", "AssetMantle Ecosystem"],
     description:
-      "A no-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts.",
+      "A no-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts",
   },
   {
     name: "MantleWallet",
     filters: ["Products", "Integrations", "AssetMantle Ecosystem"],
-    description: "description",
+    description: "A non-custodial blockchain wallet for AssetMantle chain",
   },
   {
     name: "Mantle-1(AssetMantle Chain)",
     filters: ["Products", "AssetMantle Ecosystem"],
-    description: "description",
+    description: "Layer 1 interoperable chain",
   },
   {
     name: "$MNTL(AssetMantle Token)",
@@ -324,22 +315,19 @@ const configData = [
   {
     name: "AsGuard(AssetMantle Validator)",
     filters: ["Products", "AssetMantle Ecosystem"],
-    description: "description",
+    description: "Guarding your staked assets",
   },
   {
     name: "interNFT",
     filters: ["Community Initiatives", "AssetMantle Ecosystem"],
-    description: "description",
+    description:
+      "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
   },
   {
     name: "Artist4Web3",
     filters: ["Community Initiatives", "AssetMantle Ecosystem"],
-    description: "description",
-  },
-  {
-    name: "MantleArmy",
-    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
-    description: "description",
+    description:
+      "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
   },
   {
     name: "Xtrathin",
@@ -552,52 +540,48 @@ export default function EcosystemsPageLowerSection() {
                   xs={12}
                   md={4}
                 >
-                  <ButtonBase href="/">
-                    <Card sx={optionStyles}>
-                      <Paper
-                        sx={{
-                          height: "312px",
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <CardContent>
-                          <Stack justifyContent="space-between" spacing={2}>
-                            <Stack
-                              direction="row"
-                              justifyContent="space-between"
-                            >
-                              <img
-                                width="30%"
-                                src="/images/hero/mantlePlace.png"
-                                alt=""
-                              />
-                              <Chip color="primary" label={ele.filters["0"]} />
-                            </Stack>
-                            <Typography variant="h4" color="primary.main">
-                              {ele.name}
-                            </Typography>
-                            <Typography variant="body2">
-                              {ele.description}
-                            </Typography>
-                          </Stack>
-                        </CardContent>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "end",
-                            marginBottom: "40px",
-                            marginRight: "10px",
-                          }}
-                        >
-                          <Typography color="primary" variant="caption">
-                            Live Now
-                          </Typography>
-                        </Box>
-                      </Paper>
-                    </Card>
-                  </ButtonBase>
+                  <Card
+                    variant="translucent"
+                    sx={{
+                      maxWidth: { xs: "400px" },
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "312px",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <CardContent>
+                      <Stack justifyContent="space-between" spacing={2}>
+                        <Stack direction="row" justifyContent="space-between">
+                          <img
+                            width="30%"
+                            src="/images/hero/mantlePlace.png"
+                            alt=""
+                          />
+                          <Chip color="primary" label={ele.filters["0"]} />
+                        </Stack>
+                        <Typography variant="h4" color="primary.main">
+                          {ele.name}
+                        </Typography>
+                        <Typography variant="body2">
+                          {ele.description}
+                        </Typography>
+                      </Stack>
+                    </CardContent>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "end",
+                        marginBottom: "40px",
+                        marginRight: "10px",
+                      }}
+                    >
+                      <Typography color="primary" variant="caption">
+                        Live Now
+                      </Typography>
+                    </Box>
+                  </Card>
                 </Grid>
               );
             })}

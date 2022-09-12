@@ -87,12 +87,7 @@ export default function UniverseSection() {
       title="The Mantle Universe"
       subTitle="There are other entities, apart from AssetMantle, that come under our central entity called MantleLabs, which span Community based, Partner based and other signature creations. "
     >
-      <Button
-        variant="contained"
-        component="a"
-        href="https://assetmantle.one/ecosystems"
-        size="large"
-      >
+      <Button variant="contained" component="a" href="/ecosystems" size="large">
         Learn More <KeyboardArrowRightIcon />
       </Button>
       <Grid disableGutters spacing={2} container>
