@@ -82,7 +82,7 @@ export default function TokenDistribution() {
           </Grid>
         </Grid>
       </Paper>
-      <Grid container spacing={3}>
+      <Grid container spacing={{ xs: 0, sm: 3 }}>
         {TokenDistributionConfig.pies &&
           Array.isArray(TokenDistributionConfig.pies) &&
           TokenDistributionConfig.pies.length > 0 &&
