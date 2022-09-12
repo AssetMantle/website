@@ -461,7 +461,6 @@ export default function EcosystemsPageLowerSection() {
   };
 
   let sortedArray = getSortedArray();
-  console.log(sortedArray);
 
   return (
     <>
@@ -485,7 +484,7 @@ export default function EcosystemsPageLowerSection() {
                 onChange={(e) => {
                   setSearchData(e.target.value);
                   if (e.target.value.length == 0) {
-                    setNameFilters("");
+                    setNameFilters;
                     return;
                   }
                 }}
@@ -513,27 +512,29 @@ export default function EcosystemsPageLowerSection() {
             }}
             gap={2}
           >
-            {filters.map((type, index) => {
-              return (
-                <Grid key={index} item>
-                  <Chip
-                    sx={{ px: 2 }}
-                    color={activeFilters.includes(type) ? "info" : "primary"}
-                    onClick={() => {
-                      if (activeFilters.includes(type)) {
-                        return setActiveFilters(
-                          activeFilters.filter((filter) => {
-                            return filter !== type;
-                          })
-                        );
-                      }
-                      setActiveFilters([...activeFilters, type]);
-                    }}
-                    label={type}
-                  ></Chip>
-                </Grid>
-              );
-            })}
+            {filters.map(
+              (type, index) =>
+                type !== "AssetMantle Ecosystem" &&
+                type !== "MantleLabs" && (
+                  <Grid key={index} item>
+                    <Chip
+                      sx={{ px: 2 }}
+                      color={activeFilters.includes(type) ? "info" : "primary"}
+                      onClick={() => {
+                        if (activeFilters.includes(type)) {
+                          return setActiveFilters(
+                            activeFilters.filter((filter) => {
+                              return filter !== type;
+                            })
+                          );
+                        }
+                        setActiveFilters([...activeFilters, type]);
+                      }}
+                      label={type}
+                    ></Chip>
+                  </Grid>
+                )
+            )}
           </Grid>
 
           {/* Ecosystems */}
