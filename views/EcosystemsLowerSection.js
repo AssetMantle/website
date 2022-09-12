@@ -1,29 +1,23 @@
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
-  Stack,
-  TextField,
-  Grid,
-  Typography,
-  Chip,
   Box,
   Card,
-  Select,
   CardContent,
-  Paper,
-  ButtonBase,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  InputAdornment,
   CardHeader,
-  Avatar,
+  Chip,
+  Grid,
   IconButton,
+  InputAdornment,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+  Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState } from "react";
 import Section from "../components/Section";
-import { MergeType } from "@mui/icons-material";
 
 const optionStyles = {
   // background:
@@ -456,8 +450,8 @@ export default function EcosystemsPageLowerSection() {
       <Section>
         {/* Textbox and Number of Search results text */}
         <Stack spacing={4}>
-          <Grid wrap="nowrap" container justifyContent="space-between">
-            <Grid item>
+          <Grid container justifyContent="space-between">
+            <Grid item xs={12}>
               <TextField
                 InputProps={{
                   endAdornment: (
@@ -480,7 +474,7 @@ export default function EcosystemsPageLowerSection() {
                 variant="outlined"
               />
             </Grid>
-            <Grid item>
+            <Grid item xs={12}>
               <Select value={projects} onChange={handleDropdownChange}>
                 <MenuItem value="All Projects">All Projects</MenuItem>
                 <MenuItem value="AssetMantle">AssetMantle</MenuItem>
@@ -527,7 +521,7 @@ export default function EcosystemsPageLowerSection() {
           </Grid>
 
           {/* Ecosystems */}
-          <Grid container spacing={2}>
+          <Grid container spacing={{ xs: 1, md: 2 }}>
             {sortedArray.map((ele, index) => {
               return (
                 <Grid
@@ -537,18 +531,18 @@ export default function EcosystemsPageLowerSection() {
                     justifyContent: "center",
                   }}
                   item
+                  backgroundColor="transparent"
                   xs={12}
-                  md={4}
+                  md={6}
+                  lg={4}
                 >
                   <Card
                     variant="translucent"
                     sx={{
-                      maxWidth: { xs: "400px" },
-                      display: "flex",
+                      maxWidth: "400px",
+                      flexGrow: 1,
                       flexDirection: "column",
-                      height: "312px",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
+                      // justifyContent: "space-between",
                     }}
                   >
                     <CardHeader
