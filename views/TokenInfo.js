@@ -63,71 +63,7 @@ const TokenInfoConfigData = {
     ],
   },
   right: {
-    tokenFrom: {
-      left: [
-        {
-          logo: "/images/tokenInfo/osmosis.png",
-          name: "Osmosis",
-          title: "Buy $MNTL>",
-          subTitle: "",
-          url: "https://app.osmosis.zone/pool/738",
-          target: "_blank",
-        },
-        {
-          logo: "/images/tokenInfo/Uniswap.png",
-          name: "Uniswap",
-          title: "Buy $MNTL>",
-          subTitle: "ECR 20",
-          url: "https://app.uniswap.org/#/swap?chain=mainnet",
-          target: "_blank",
-        },
-      ],
-      center: [
-        {
-          logo: "/images/tokenInfo/osmosis.png",
-          name: "Osmosis",
-          title: "Buy $MNTL>",
-          subTitle: "(USDC Pool)",
-          url: "https://app.osmosis.zone/pool/738",
-          target: "_blank",
-        },
-        {
-          logo: "/images/tokenInfo/mntl.png",
-          name: "mntl token",
-          title: "Stake Now >",
-          subTitle: "",
-          url: "https://wallet.assetmantle.one/#all",
-          target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-        },
-        {
-          logo: "/images/tokenInfo/osmosis.png",
-          name: "Osmosis",
-          title: "Earn $MNTL>",
-          subTitle: "(OSMO Pool)",
-          url: "https://app.osmosis.zone/pool/690",
-          target: "_blank",
-        },
-      ],
-      right: [
-        {
-          logo: "/images/tokenInfo/osmosis.png",
-          name: "Osmosis",
-          title: "Buy $MNTL>",
-          subTitle: "(ATOM Pool)",
-          url: "https://app.osmosis.zone/pool/686",
-          target: "_blank",
-        },
-        {
-          logo: "/images/tokenInfo/Uniswap.png",
-          name: "Uniswap",
-          title: "Earn $MNTL ERC 20>",
-          subTitle: "(ETH Pool)",
-          url: "https://app.uniswap.org/#/add/ETH/0x2C4F1DF9c7DE0C59778936C9b145fF56813F3295/3000",
-          target: "_blank",
-        },
-      ],
-    },
-    tokenFrom2: [
+    tokenFrom: [
       {
         logo: "/images/tokenInfo/osmosis.png",
         name: "Osmosis",
@@ -200,36 +136,6 @@ const TokenInfoConfigData = {
       },
     ],
   },
-};
-
-const cardContainer = {
-  display: "flex",
-  flexDirection: "column",
-  gap: 1,
-  "&:nth-child(2)": {
-    mx: "-52px",
-  },
-};
-
-const cardStyle = {
-  width: "min(250px,100%)",
-  background: "transparent",
-  aspectRatio: "1/1",
-  boxShadow: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
-  flexDirection: "column",
-  "&:first-child": {
-    marginTop: "auto",
-  },
-  "&:last-child": {
-    marginBottom: "auto",
-  },
-  backgroundImage: "url(/images/tokenInfo/Polygon.png)",
-  backgroundSize: "100% 100%",
-  backgroundRepeat: "no-repeat",
 };
 
 export default function TokenInfo() {
@@ -359,11 +265,11 @@ export default function TokenInfo() {
               mt: 7,
             }}
           >
-            {TokenInfoConfigData.right.tokenFrom2 &&
-              Array.isArray(TokenInfoConfigData.right.tokenFrom2) &&
-              TokenInfoConfigData.right.tokenFrom2.length > 0 &&
+            {TokenInfoConfigData.right.tokenFrom &&
+              Array.isArray(TokenInfoConfigData.right.tokenFrom) &&
+              TokenInfoConfigData.right.tokenFrom.length > 0 &&
               React.Children.toArray(
-                TokenInfoConfigData.right.tokenFrom2.map((token) => (
+                TokenInfoConfigData.right.tokenFrom.map((token) => (
                   <Paper
                     variant="translucent"
                     sx={{
