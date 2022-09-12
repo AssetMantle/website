@@ -14,7 +14,12 @@ import {
   InputLabel,
   FormControl,
   InputAdornment,
+  CardHeader,
+  Avatar,
+  IconButton,
 } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState } from "react";
 import Section from "../components/Section";
@@ -95,12 +100,7 @@ const configData = [
   },
   {
     name: "MyriadFlow",
-    filters: [
-      "MantleGrants",
-      "Ecosystem Projects",
-      "interNFT",
-      "AssetMantle Ecosystem",
-    ],
+    filters: ["MantleGrants", "Ecosystem Projects", "interNFT", "MantleLabs"],
     description: "An innovative platform to explore & launch NFT Experiences",
   },
   {
@@ -230,102 +230,102 @@ const configData = [
   },
   {
     name: "PolkaDot",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description: "description",
   },
   {
     name: "Memora",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "A Fintech Ecosystem that allows all actors of the arts world to monetize the assets",
   },
   {
     name: "IXO",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "An Internet-of-Impact for sustainable social, environmental and economic development",
   },
   {
     name: "HyperSign",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "An Identity and access management solution to authenticate employees and customers",
   },
   {
     name: "interChain Foundation",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "Stewards of interchain, funding the creation of interoperable decentralized ecosystem",
   },
   {
     name: "IRIS",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "A Cosmos zone enabling cross-chain interoperability through a unified service model",
   },
   {
     name: "AkashNetwork",
-    filters: ["interNFT", "AssetMantle Ecosystem"],
+    filters: ["interNFT", "AssetMantle"],
     description:
       "A decentralized cloud for DApps, nodes, and other blockchain network components",
   },
   {
     name: "Membership NFTs",
-    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
+    filters: ["MantleCreatives", "AssetMantle"],
     description:
       "An access to unlock a variety of exclusive utilities and rewards from the MantleEcosystem ",
   },
   {
     name: "Mantlers",
-    filters: ["MantleCreatives", "AssetMantle Ecosystem"],
+    filters: ["MantleCreatives", "AssetMantle"],
     description: "description",
   },
   {
     name: "MantlePlace",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description:
       "A decentralized, no-code NFT marketplace bringing trading features to creators with an easy to use interface",
   },
   {
     name: "MantleBuilder",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description:
-      "A no-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts",
+      "No-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts",
   },
   {
     name: "MantleWallet",
-    filters: ["Products", "Integrations", "AssetMantle Ecosystem"],
+    filters: ["Products", "Integrations", "AssetMantle"],
     description: "A non-custodial blockchain wallet for AssetMantle chain",
   },
   {
     name: "Mantle-1(AssetMantle Chain)",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description: "Layer 1 interoperable chain",
   },
   {
     name: "$MNTL(AssetMantle Token)",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description: "A governance and staking token that secures the MantleChain",
   },
   {
     name: "Modules",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description: "description",
   },
   {
     name: "AsGuard(AssetMantle Validator)",
-    filters: ["Products", "AssetMantle Ecosystem"],
+    filters: ["Products", "AssetMantle"],
     description: "Guarding your staked assets",
   },
   {
     name: "interNFT",
-    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
+    filters: ["Community Initiatives", "AssetMantle"],
     description:
       "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
   },
   {
     name: "Artist4Web3",
-    filters: ["Community Initiatives", "AssetMantle Ecosystem"],
+    filters: ["Community Initiatives", "AssetMantle"],
     description:
       "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
   },
@@ -483,9 +483,7 @@ export default function EcosystemsPageLowerSection() {
             <Grid item>
               <Select value={projects} onChange={handleDropdownChange}>
                 <MenuItem value="All Projects">All Projects</MenuItem>
-                <MenuItem value="AssetMantle Ecosystem">
-                  AssetMantle Ecosystem
-                </MenuItem>
+                <MenuItem value="AssetMantle">AssetMantle</MenuItem>
                 <MenuItem value="MantleLabs">MantleLabs</MenuItem>
               </Select>
             </Grid>
@@ -503,12 +501,14 @@ export default function EcosystemsPageLowerSection() {
           >
             {filters.map(
               (type, index) =>
-                type !== "AssetMantle Ecosystem" &&
+                type !== "AssetMantle" &&
                 type !== "MantleLabs" && (
                   <Grid key={index} item>
                     <Chip
                       sx={{ px: 2 }}
-                      color={activeFilters.includes(type) ? "info" : "primary"}
+                      color={
+                        activeFilters.includes(type) ? "warning" : "primary"
+                      }
                       onClick={() => {
                         if (activeFilters.includes(type)) {
                           return setActiveFilters(
@@ -551,18 +551,29 @@ export default function EcosystemsPageLowerSection() {
                       justifyContent: "space-between",
                     }}
                   >
+                    <CardHeader
+                      avatar={
+                        <img
+                          width="5%"
+                          src={
+                            ele.filters[ele.filters.length - 1] == "AssetMantle"
+                              ? "/images/ecosystemLowerSection/AM_Logo.png"
+                              : "/images/ecosystemLowerSection/ML-Logo.png"
+                          }
+                          alt=""
+                        />
+                      }
+                      action={
+                        <IconButton aria-label="settings">
+                          <MoreVertIcon />
+                        </IconButton>
+                      }
+                    />
                     <CardContent>
                       <Stack justifyContent="space-between" spacing={2}>
-                        <Stack direction="row" justifyContent="space-between">
-                          <img
-                            width="30%"
-                            src="/images/hero/mantlePlace.png"
-                            alt=""
-                          />
-                          <Chip color="primary" label={ele.filters["0"]} />
-                        </Stack>
                         <Typography variant="h4" color="primary.main">
                           {ele.name}
+                          {console.log(ele.filters[ele.filters.length - 1])}
                         </Typography>
                         <Typography variant="body2">
                           {ele.description}
