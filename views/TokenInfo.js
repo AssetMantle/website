@@ -151,7 +151,7 @@ export default function TokenInfo() {
           md={5}
           sx={{
             display: "flex",
-            justifyContent: { xs: "center", sm: "start" },
+            justifyContent: { xs: "center", md: "start" },
             textAlign: { xs: "center", sm: "left" },
           }}
         >
@@ -261,8 +261,7 @@ export default function TokenInfo() {
             sx={{
               display: "grid",
               gridTemplateColumns: "repeat(7, 1fr)",
-              gap: "5px",
-              mt: 7,
+              mt: { xs: 7, md: 0 },
             }}
           >
             {TokenInfoConfigData.right.tokenFrom2 &&
@@ -276,7 +275,7 @@ export default function TokenInfo() {
                       gridColumn: `${token.col} / span 3`,
                       gridRow: `${token.row} / span 2`,
                       clipPath:
-                        "polygon(30% 0%, 70% 0%, 95% 50%, 70% 100%, 30% 100%, 5% 50%)",
+                        "polygon(30% 1%, 70% 1%, 95% 50%, 70% 99%, 30% 99%, 5% 50%)",
                     }}
                   >
                     <Card
