@@ -330,7 +330,8 @@ const configData = [
   {
     name: "Xtrathin",
     filters: ["Ecosystem Projects", "MantleLabs"],
-    description: "description",
+    description:
+      "xTrathin Utility Focused NFT Collection to create sub-communities around Joint Robots ",
   },
   {
     name: "Validators",
