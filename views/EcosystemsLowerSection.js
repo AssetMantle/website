@@ -229,7 +229,8 @@ const configData = [
   {
     name: "PolkaDot",
     filters: ["interNFT", "AssetMantle"],
-    description: "description",
+    description:
+      "An multichain ecosystem enabling truly interoperable decentralized web",
   },
   {
     name: "Memora",
@@ -276,7 +277,7 @@ const configData = [
   {
     name: "Mantlers",
     filters: ["MantleCreatives", "AssetMantle"],
-    description: "description",
+    description: "A collection of PFP based NFTs, released in MantlePlace",
   },
   {
     name: "MantlePlace",
@@ -296,19 +297,21 @@ const configData = [
     description: "A non-custodial blockchain wallet for AssetMantle chain",
   },
   {
-    name: "Mantle-1(AssetMantle Chain)",
+    name: "Mantle-1 (AssetMantle Chain)",
     filters: ["Products", "AssetMantle"],
-    description: "Layer 1 interoperable chain",
+    description: "The core Layer 1 interoperable chain of AssetMantle",
   },
   {
-    name: "$MNTL(AssetMantle Token)",
+    name: "$MNTL Token",
     filters: ["Products", "AssetMantle"],
-    description: "A governance and staking token that secures the MantleChain",
+    description:
+      "The primary governance and staking token of AssetMantle that secures the MantleChain",
   },
   {
-    name: "Modules",
-    filters: ["Products", "AssetMantle"],
-    description: "description",
+    name: "AssetMantle SDK Modules",
+    filters: ["Products", "Integrations", "AssetMantle"],
+    description:
+      "The custom SDK modules of AssetMantle chain enabling NFT based transactions",
   },
   {
     name: "AsGuard(AssetMantle Validator)",
@@ -331,9 +334,9 @@ const configData = [
     name: "Xtrathin",
     filters: ["Ecosystem Projects", "MantleLabs"],
     description:
-      "xTrathin Utility Focused NFT Collection to create sub-communities around Joint Robots ",
+      "Utility Focused NFT Collection to create sub-communities around Joint Robots",
   },
-  {
+  /* {
     name: "Validators",
     filters: ["Partnerships", "MantleLabs"],
     description: "description",
@@ -387,21 +390,12 @@ const configData = [
     name: "Toolings",
     filters: ["Integrations", "MantleLabs"],
     description: "description",
-  },
-  {
-    name: "NFT",
-    filters: ["Integrations", "MantleLabs"],
-    description: "description",
-  },
+  }, */
   {
     name: "Analytics",
     filters: ["Integrations", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "LaunchPads",
-    filters: ["Integrations", "MantleLabs"],
-    description: "description",
+    description:
+      "The dashboard for Insights for all AssetMantle transfer of value",
   },
 ];
 
