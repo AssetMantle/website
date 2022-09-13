@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { useEffect, useState } from "react";
 import Section from "../components/Section";
 
 const TokenInfoConfigData = {
@@ -21,10 +22,6 @@ const TokenInfoConfigData = {
   left: {
     title: "$MNTL",
     values: [
-      {
-        key: "USD",
-        value: "$0.100711",
-      },
       {
         key: "APR",
         value: "140%",
@@ -139,6 +136,17 @@ const TokenInfoConfigData = {
 };
 
 export default function TokenInfo() {
+  const [usdPrice, setUsdPrice] = useState("loading...");
+  useEffect(() => {
+    fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=assetmantle&vs_currencies=USD"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setUsdPrice(data.assetmantle.usd);
+      });
+  }, []);
+
   return (
     <Section
       title={TokenInfoConfigData.title}
@@ -183,28 +191,37 @@ export default function TokenInfo() {
                   TokenInfoConfigData.left.title}
               </Typography>
               <Stack>
-                {TokenInfoConfigData.left.values &&
-                  Array.isArray(TokenInfoConfigData.left.values) &&
-                  TokenInfoConfigData.left.values.length > 0 &&
-                  React.Children.toArray(
-                    TokenInfoConfigData.left.values.map((value) => (
-                      <Typography
-                        component="span"
-                        sx={{ display: "inline" }}
-                        variant="h4"
-                        color="secondary.light"
-                      >
-                        {value.key}:{" "}
-                        <Typography
-                          sx={{ display: "inline" }}
-                          variant="h4"
-                          color="primary.main"
-                        >
-                          {value.value}
-                        </Typography>
-                      </Typography>
-                    ))
-                  )}
+                <Typography
+                  component="span"
+                  sx={{ display: "inline" }}
+                  variant="h4"
+                  color="secondary.light"
+                >
+                  USD:
+                  <Typography
+                    sx={{ display: "inline" }}
+                    variant="h4"
+                    color="primary.main"
+                  >
+                    {usdPrice}
+                  </Typography>
+                </Typography>
+
+                <Typography
+                  component="span"
+                  sx={{ display: "inline" }}
+                  variant="h4"
+                  color="secondary.light"
+                >
+                  APR:
+                  <Typography
+                    sx={{ display: "inline" }}
+                    variant="h4"
+                    color="primary.main"
+                  >
+                    140%
+                  </Typography>
+                </Typography>
               </Stack>
               <Stack
                 direction="row"
