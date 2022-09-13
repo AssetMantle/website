@@ -140,7 +140,7 @@ const configData = [
     name: "Forbole",
     filters: ["Validators", "MantleLabs"],
     description:
-      "A pioneer in building blockchain solutions, increasing accessability to people",
+      "A pioneer in building blockchain solutions, increasing accessibility to people",
   },
   {
     name: "P2P.org",
