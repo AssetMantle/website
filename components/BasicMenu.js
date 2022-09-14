@@ -2,14 +2,22 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Divider, Grid, Paper, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionActions,
+  AccordionDetails,
+  AccordionSummary,
+  Chip,
+  Divider,
+  Grid,
+  MenuList,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function BasicMenu({
-  title,
-  titleEndIcon,
-  urls,
-  ratioWidthExist,
-}) {
+export default function BasicMenu({ title, titleEndIcon, urls }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -41,84 +49,131 @@ export default function BasicMenu({
           MenuListProps={{
             "aria-labelledby": "basic-button",
           }}
+          sx={{ ".css-6hp17o-MuiList-root-MuiMenu-list": { padding: 0 } }}
         >
           <Paper component="dark">
-            <Grid container spacing={1}>
-              {urls.map((data, index) => (
-                <Grid
-                  item
-                  xs={12}
-                  md={ratioWidthExist ? (data.titleExist ? 6 : 5 + index) : 6}
+            {urls.map((data, index) =>
+              !data.titleExist ? (
+                <Stack
                   key={data.menuName && data.menuName + index}
+                  direction="row"
+                  spacing={1}
+                  sx={{
+                    borderBottom: "1px solid",
+                    borderColor: "grey.600",
+                    py: 2,
+                    px: 2,
+                  }}
                 >
-                  <Typography variant="body2" sx={{ px: 2, pb: 1 }}>
-                    {data.menuName && data.menuName}
-                    <Divider />
-                  </Typography>
-                  {!data.titleExist ? (
-                    data.url &&
-                    Array.isArray(data.url) &&
-                    data.url.length > 0 &&
-                    data.url.map((url, index) => (
-                      <MenuItem
-                        key={url.menuName && url.menuName + index}
-                        component="a"
-                        href={url.url && url.url}
-                        target={url.isExternalURL ? "_blank" : "_self"}
-                        rel={url.isExternalURL ? "noopener noreferrer" : ""}
-                        onClick={handleClose}
-                      >
-                        <Typography variant="caption">
-                          {url.menuName}
-                        </Typography>
-                      </MenuItem>
-                    ))
-                  ) : (
-                    <Grid container spacing={1}>
+                  {data.menuIcon && data.menuIcon}
+                  <Stack>
+                    <Typography variant="body2">
+                      {data.menuName && data.menuName}
+                    </Typography>
+                    <Typography variant="caption" sx={{ pb: 2 }}>
+                      {data.menuDescription && data.menuDescription}
+                    </Typography>
+                    <Stack direction="row" flexWrap="wrap" spacing={1}>
                       {data.url &&
                         Array.isArray(data.url) &&
                         data.url.length > 0 &&
-                        data.url.map((urls, index) => (
-                          <Grid
-                            item
-                            xs={12}
-                            md={6}
-                            key={urls.menuName && urls.menuName + index}
+                        data.url.map((url, index) => (
+                          <MenuItem
+                            key={url.menuName && url.menuName + index}
+                            component="a"
+                            href={url.url && url.url}
+                            target={url.isExternalURL ? "_blank" : "_self"}
+                            rel={url.isExternalURL ? "noopener noreferrer" : ""}
+                            onClick={handleClose}
+                            sx={{
+                              p: 0,
+                              ":hover": {
+                                backgroundColor: "transparent",
+                              },
+                            }}
                           >
-                            <Typography variant="body2" sx={{ px: 2, pb: 1 }}>
-                              {urls.menuName && urls.menuName}
-                              <Divider />
-                            </Typography>
-                            {urls.url &&
-                              Array.isArray(urls.url) &&
-                              urls.url.length > 0 &&
-                              urls.url.map((url, index) => (
-                                <MenuItem
-                                  key={url.menuName && url.menuName + index}
-                                  component="a"
-                                  href={url.url && url.url}
-                                  target={
-                                    url.isExternalURL ? "_blank" : "_self"
-                                  }
-                                  rel={
-                                    url.isExternalURL
-                                      ? "noopener noreferrer"
-                                      : ""
-                                  }
-                                  onClick={handleClose}
-                                >
-                                  <Typography variant="caption">
-                                    {url.menuName}
-                                  </Typography>
-                                </MenuItem>
-                              ))}
-                          </Grid>
+                            <Chip label={url.menuName} />
+                          </MenuItem>
                         ))}
-                    </Grid>
-                  )}
-                </Grid>
-              ))}
-            </Grid>
+                    </Stack>
+                  </Stack>
+                </Stack>
+              ) : (
+                <Accordion
+                  variant="transparent"
+                  key={data.menuName && data.menuName + index}
+                >
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{}}>
+                    <span
+                      style={{
+                        marginRight: "16px",
+                      }}
+                    >
+                      {data.menuIcon && data.menuIcon}
+                    </span>
+                    <Typography variant="body2">
+                      {data.menuName && data.menuName}
+                      <br />
+                      <Typography variant="caption" sx={{ pb: 2 }}>
+                        {data.menuDescription && data.menuDescription}
+                      </Typography>
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Stack direction="row" flexWrap="wrap">
+                      <Stack spacing={0}>
+                        {data.url &&
+                          Array.isArray(data.url) &&
+                          data.url.length > 0 &&
+                          data.url.map((urls, index) => (
+                            <Stack key={urls.menuName && urls.menuName + index}>
+                              <Typography variant="body2" sx={{ px: 2, pb: 1 }}>
+                                {urls.menuName && urls.menuName}
+                              </Typography>
+                              <Stack
+                                direction="row"
+                                flexWrap="wrap"
+                                spacing={1}
+                                sx={{
+                                  p: 1,
+                                }}
+                              >
+                                {urls.url &&
+                                  Array.isArray(urls.url) &&
+                                  urls.url.length > 0 &&
+                                  urls.url.map((url, index) => (
+                                    <MenuItem
+                                      key={url.menuName && url.menuName + index}
+                                      component="a"
+                                      href={url.url && url.url}
+                                      target={
+                                        url.isExternalURL ? "_blank" : "_self"
+                                      }
+                                      rel={
+                                        url.isExternalURL
+                                          ? "noopener noreferrer"
+                                          : ""
+                                      }
+                                      onClick={handleClose}
+                                      sx={{
+                                        p: 0,
+                                        ":hover": {
+                                          backgroundColor: "transparent",
+                                        },
+                                      }}
+                                    >
+                                      <Chip label={url.menuName} />
+                                    </MenuItem>
+                                  ))}
+                              </Stack>
+                            </Stack>
+                          ))}
+                      </Stack>
+                    </Stack>
+                  </AccordionDetails>
+                </Accordion>
+              )
+            )}
           </Paper>
         </Menu>
       )}
