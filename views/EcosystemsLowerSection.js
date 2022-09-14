@@ -414,7 +414,7 @@ export default function EcosystemsPageLowerSection() {
               onChange={(e) => {
                 setSearchData(e.target.value);
                 if (e.target.value.length == 0) {
-                  setNameFilters;
+                  setNameFilters("");
                   return;
                 }
               }}
