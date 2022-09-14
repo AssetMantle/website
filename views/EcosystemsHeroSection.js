@@ -28,10 +28,10 @@ export default function AboutPageHeroSection() {
             {/* Left Sub-section */}
 
             <Stack spacing={1} maxWidth="300px">
-              <Typography variant="h1" color="primary">
+              <Typography variant="h1" color="secondary.light">
                 {configData.title}
               </Typography>
-              <Typography variant="subtitle2" color="white">
+              <Typography variant="subtitle2" color="primary.main">
                 {configData.subTitle}
               </Typography>
             </Stack>

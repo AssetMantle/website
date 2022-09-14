@@ -297,7 +297,7 @@ const configData = [
     description: "A non-custodial blockchain wallet for AssetMantle chain",
   },
   {
-    name: "Mantle-1 (AssetMantle Chain)",
+    name: "Mantle-1",
     filters: ["Products", "AssetMantle"],
     description: "The core Layer 1 interoperable chain of AssetMantle",
   },
@@ -314,9 +314,10 @@ const configData = [
       "The custom SDK modules of AssetMantle chain enabling NFT based transactions",
   },
   {
-    name: "AsGuard(AssetMantle Validator)",
+    name: "AsGuard",
     filters: ["Products", "AssetMantle"],
-    description: "Guarding your staked assets",
+    description:
+      "An AssetMantle validator providing highly incentivised staking services",
   },
   {
     name: "interNFT",
@@ -336,61 +337,6 @@ const configData = [
     description:
       "Utility Focused NFT Collection to create sub-communities around Joint Robots",
   },
-  /* {
-    name: "Validators",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "DAOs",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Investors",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Media",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Protocol",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Projects",
-    filters: ["Partnerships", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Internal Development",
-    filters: ["Grants", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "External Integrations",
-    filters: ["Grants", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Products",
-    filters: ["Grants", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Modules",
-    filters: ["Integrations", "MantleLabs"],
-    description: "description",
-  },
-  {
-    name: "Toolings",
-    filters: ["Integrations", "MantleLabs"],
-    description: "description",
-  }, */
   {
     name: "Analytics",
     filters: ["Integrations", "MantleLabs"],
@@ -543,7 +489,6 @@ export default function EcosystemsPageLowerSection() {
                       display: "flex",
                       flexGrow: 1,
                       flexDirection: "column",
-                      justifyContent: "space-between",
                     }}
                   >
                     <CardHeader
@@ -566,16 +511,6 @@ export default function EcosystemsPageLowerSection() {
                       </Typography>
                       <Typography variant="body2">{ele.description}</Typography>
                     </CardContent>
-                    <CardActions
-                      sx={{
-                        display: "flex",
-                        justifyContent: "end",
-                      }}
-                    >
-                      <Typography color="primary" variant="caption">
-                        Live Now
-                      </Typography>
-                    </CardActions>
                   </Card>
                 </Grid>
               );
