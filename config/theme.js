@@ -64,7 +64,6 @@ const baseTheme = createTheme({
       fontWeight: 300,
       lineHeight: 1,
     },
-
   },
   components: {
     MuiPaper: {
@@ -76,6 +75,13 @@ const baseTheme = createTheme({
               "linear-gradient(157.26deg, rgba(217, 217, 217, 0.06) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
             // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
             backdropFilter: "blur(10px)",
+            borderRadius: "16px",
+          },
+        },
+        {
+          props: { variant: "transparent" },
+          style: {
+            background: "transparent",
             borderRadius: "16px",
           },
         },
