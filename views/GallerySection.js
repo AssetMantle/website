@@ -6,6 +6,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   Paper,
   Typography,
 } from "@mui/material";
@@ -168,7 +169,7 @@ export default function GallerySection() {
                           >
                             {button.text && (
                               <>
-                                {button.text} <KeyboardArrowRightIcon />
+                                {button.text} <Icon>keyboard_arrow_right</Icon>
                               </>
                             )}
                           </Button>

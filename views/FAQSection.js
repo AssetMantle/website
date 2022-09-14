@@ -61,6 +61,7 @@ export default function FAQSection() {
         <Grid container>
           {configData.list.map((ele, index) => (
             <Accordion
+              key={index}
               variant="translucent"
               expanded={expanded === `panel${index}`}
               onChange={handleChange(`panel${index}`)}
@@ -75,8 +76,8 @@ export default function FAQSection() {
                 <Typography variant="body1">{ele.info}</Typography>
                 {"accordionList" in ele && (
                   <List>
-                    {ele.accordionList.map((item) => (
-                      <ListItem>
+                    {ele.accordionList.map((item, index) => (
+                      <ListItem key={index}>
                         <Typography variant="body1">{item}</Typography>
                       </ListItem>
                     ))}

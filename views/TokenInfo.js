@@ -5,6 +5,7 @@ import {
   CardActions,
   CardMedia,
   Grid,
+  Icon,
   Link,
   Paper,
   Stack,
@@ -15,127 +16,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Section from "../components/Section";
 
-const TokenInfoConfigData = {
-  title: "$MNTL Token Info",
-  description:
-    "Find out how the protocol token of AssetMantle chain is optimized for maximizing yield using across various DEXs",
-  left: {
-    title: "$MNTL",
-    values: [
-      {
-        key: "APR",
-        value: "140%",
-      },
-    ],
-    ctas: [
-      {
-        title: "Airdrops",
-        url: "https://airdrop.assetmantle.one/",
-        endIcon: <DownloadingIcon />, // url: "/" or component: <Icon/>
-        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-        disabled: false,
-        variant: "contained",
-        size: "large",
-      },
-    ],
-    references: [
-      {
-        logo: "/images/tokenInfo/CoinGeckoLogo.png",
-        name: "CoinGecko",
-        url: "https://www.coingecko.com/en/coins/assetmantle/usd",
-        target: "_blank",
-      },
-      {
-        logo: "/images/tokenInfo/coinMarketCap.png",
-        name: "CoinMarketCap",
-        url: "https://coinmarketcap.com/currencies/assetmantle/",
-        target: "_blank",
-      },
-      {
-        logo: "/images/tokenInfo/Etherscan.png",
-        name: "Etherscan",
-        url: "https://etherscan.io/token/0x2c4f1df9c7de0c59778936c9b145ff56813f3295",
-        target: "_blank",
-      },
-    ],
-  },
-  right: {
-    tokenFrom2: [
-      {
-        logo: "/images/tokenInfo/osmosis.png",
-        name: "Osmosis",
-        title: "Buy $MNTL",
-        subTitle: "",
-        url: "https://app.osmosis.zone/pool/738",
-        target: "_blank",
-        row: 2,
-        col: 1,
-      },
-      {
-        logo: "/images/tokenInfo/Uniswap.png",
-        name: "Uniswap",
-        title: "Buy $MNTL",
-        subTitle: "ERC20",
-        url: "https://app.uniswap.org/#/swap?chain=mainnet",
-        target: "_blank",
-        row: 4,
-        col: 1,
-      },
-      {
-        logo: "/images/tokenInfo/osmosis.png",
-        name: "Osmosis",
-        title: "Buy $MNTL",
-        subTitle: "(USDC Pool)",
-        url: "https://app.osmosis.zone/pool/738",
-        target: "_blank",
-        row: 1,
-        col: 3,
-      },
-      {
-        logo: "/images/tokenInfo/mntl.png",
-        name: "mntl token",
-        title: "Stake Now",
-        subTitle: "",
-        url: "https://wallet.assetmantle.one/#all",
-        target: "_blank",
-        row: 3,
-        col: 3, // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-      },
-      {
-        logo: "/images/tokenInfo/osmosis.png",
-        name: "Osmosis",
-        title: "Earn $MNTL",
-        subTitle: "(OSMO Pool)",
-        url: "https://app.osmosis.zone/pool/690",
-        target: "_blank",
-        row: 5,
-        col: 3,
-      },
-      {
-        logo: "/images/tokenInfo/osmosis.png",
-        name: "Osmosis",
-        title: "Buy $MNTL",
-        subTitle: "(ATOM Pool)",
-        url: "https://app.osmosis.zone/pool/686",
-        target: "_blank",
-        row: 2,
-        col: 5,
-      },
-      {
-        logo: "/images/tokenInfo/Uniswap.png",
-        name: "Uniswap",
-        title: "Earn $MNTL ERC20",
-        subTitle: "(ETH Pool)",
-        url: "https://app.uniswap.org/#/add/ETH/0x2C4F1DF9c7DE0C59778936C9b145fF56813F3295/3000",
-        target: "_blank",
-        row: 4,
-        col: 5,
-      },
-    ],
-  },
-};
-
-export default function TokenInfo() {
+export default function TokenInfo({ tokenInfoConfigData }) {
+  console.log(tokenInfoConfigData);
   const [usdPrice, setUsdPrice] = useState("loading...");
   useEffect(() => {
     fetch(
@@ -149,8 +31,8 @@ export default function TokenInfo() {
 
   return (
     <Section
-      title={TokenInfoConfigData.title}
-      subTitle={TokenInfoConfigData.description}
+      title={tokenInfoConfigData.title}
+      subTitle={tokenInfoConfigData.description}
     >
       <Grid container spacing={{ xs: 0, md: 3 }}>
         <Grid
@@ -187,8 +69,8 @@ export default function TokenInfo() {
             </Box>
             <Stack direction="column" spacing={3}>
               <Typography variant="h2" color="primary.main">
-                {TokenInfoConfigData.left.title &&
-                  TokenInfoConfigData.left.title}
+                {tokenInfoConfigData.left.title &&
+                  tokenInfoConfigData.left.title}
               </Typography>
               <Stack>
                 <Typography
@@ -228,18 +110,18 @@ export default function TokenInfo() {
                 spacing={2}
                 justifyContent={{ xs: "center", sm: "start" }}
               >
-                {TokenInfoConfigData.left.ctas &&
-                  Array.isArray(TokenInfoConfigData.left.ctas) &&
-                  TokenInfoConfigData.left.ctas.length > 0 &&
+                {tokenInfoConfigData.left.ctas &&
+                  Array.isArray(tokenInfoConfigData.left.ctas) &&
+                  tokenInfoConfigData.left.ctas.length > 0 &&
                   React.Children.toArray(
-                    TokenInfoConfigData.left.ctas.map((cta) => (
+                    tokenInfoConfigData.left.ctas.map((cta) => (
                       <Button
                         component="a"
                         variant={cta.variant ? cta.variant : "contained"}
                         size={cta.size}
                         href={cta.url && cta.url}
                         target={cta.target && cta.target}
-                        endIcon={cta.endIcon ? cta.endIcon : null}
+                        endIcon={<Icon>{cta.endIcon}</Icon>}
                       >
                         {cta.title}
                       </Button>
@@ -247,11 +129,11 @@ export default function TokenInfo() {
                   )}
               </Stack>
               <Stack direction="row" spacing={2.5}>
-                {TokenInfoConfigData.left.references &&
-                  Array.isArray(TokenInfoConfigData.left.references) &&
-                  TokenInfoConfigData.left.references.length > 0 &&
+                {tokenInfoConfigData.left.references &&
+                  Array.isArray(tokenInfoConfigData.left.references) &&
+                  tokenInfoConfigData.left.references.length > 0 &&
                   React.Children.toArray(
-                    TokenInfoConfigData.left.references.map((reference) => (
+                    tokenInfoConfigData.left.references.map((reference) => (
                       <Link
                         href={reference.url && reference.url}
                         target={reference.target && reference.target}
@@ -281,11 +163,11 @@ export default function TokenInfo() {
               mt: { xs: 7, md: 0 },
             }}
           >
-            {TokenInfoConfigData.right.tokenFrom2 &&
-              Array.isArray(TokenInfoConfigData.right.tokenFrom2) &&
-              TokenInfoConfigData.right.tokenFrom2.length > 0 &&
+            {tokenInfoConfigData.right.tokenFrom2 &&
+              Array.isArray(tokenInfoConfigData.right.tokenFrom2) &&
+              tokenInfoConfigData.right.tokenFrom2.length > 0 &&
               React.Children.toArray(
-                TokenInfoConfigData.right.tokenFrom2.map((token) => (
+                tokenInfoConfigData.right.tokenFrom2.map((token) => (
                   <Paper
                     variant="translucent"
                     sx={{

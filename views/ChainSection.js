@@ -1,6 +1,6 @@
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Icon, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Section from "../components/Section";
 
@@ -30,7 +30,7 @@ const ChainSectionConfigData = {
       title: "Buy Now ",
       url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
 
-      icon: <ShoppingCartIcon />, // url: "/" or component: <Icon/>
+      icon: "shopping_cart", // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "contained",
@@ -39,7 +39,7 @@ const ChainSectionConfigData = {
       title: "Airdrops",
       url: "https://airdrop.assetmantle.one/",
 
-      icon: <DownloadingIcon />, // url: "/" or component: <Icon/>
+      icon: "downloading", // url: "/" or component: <Icon/>
 
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -239,7 +239,7 @@ export default function ChainSection() {
                       size="large"
                       href={cta.url && cta.url}
                       target={cta.target && cta.target}
-                      endIcon={cta.icon ? cta.icon : null}
+                      endIcon={<Icon>{cta.icon}</Icon>}
                     >
                       {cta.title && cta.title}
                     </Button>

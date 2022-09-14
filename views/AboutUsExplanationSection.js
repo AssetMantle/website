@@ -1,14 +1,9 @@
 import { Grid, Stack, Typography, List, ListItem } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
+import axios from "axios";
 
-const configData = {
-  question: "What is AssetMantle?",
-  answer:
-    "AssetMantle is a multi-tenant NFT marketplace framework that enables creators and collectors to securely mint, own, and trade digital assets on its fast-finality blockchain.",
-};
-
-export default function ExplanationSection() {
+export default function ExplanationSection({ explanationSectionData }) {
   return (
     <>
       <Section>
@@ -25,8 +20,12 @@ export default function ExplanationSection() {
             lg={5}
           >
             <Stack spacing={2}>
-              <Typography variant="h1">{configData.question}</Typography>
-              <Typography variant="subtitle2">{configData.answer}</Typography>
+              <Typography variant="h1">
+                {explanationSectionData.question}
+              </Typography>
+              <Typography variant="subtitle2">
+                {explanationSectionData.answer}
+              </Typography>
             </Stack>
           </Grid>
           <Grid

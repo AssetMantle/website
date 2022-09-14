@@ -4,6 +4,7 @@ import {
   Button,
   Divider,
   Grid,
+  Icon,
   Paper,
   Stack,
   Typography,
@@ -11,6 +12,8 @@ import {
 import { Container } from "@mui/system";
 import React from "react";
 import SocialIcons from "../components/SocialIcons";
+// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 // import Icon from '@mui/material/Icon';
 
@@ -29,6 +32,24 @@ const contentSheet = {
   title: "Redefining Digital Asset Ownership",
   subtitle:
     "Experience the first NFT marketplace with blockchain-based identity",
+  buttons: [
+    {
+      label: "Learn More",
+      endIcon: "keyboard_arrow_right",
+      variant: "outlined",
+    },
+    {
+      label: "Documentation",
+      endIcon: "keyboard_arrow_right",
+      variant: "contained",
+    },
+  ],
+  image: "/images/hero/mantler.webp",
+  translucentStripData: [
+    { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
+    { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
+    { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
+  ],
 };
 
 export default function HeroSection() {
@@ -62,19 +83,22 @@ export default function HeroSection() {
       <Box
         display="flex"
         alignItems="left"
+        gap={2}
         pt={2}
         pb={4}
         sx={{ backgroundColor: "transparent" }}
       >
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<ArticleIcon />}
-          href="https://docs.assetmantle.one/"
-          target="_blank"
-        >
-          Documentation
-        </Button>
+        {contentSheet.buttons.map((ele) => (
+          <Button
+            variant={ele.variant}
+            size="large"
+            endIcon={<Icon>{ele.endIcon}</Icon>}
+            href="/about"
+            target="_blank"
+          >
+            {ele.label}
+          </Button>
+        ))}
       </Box>
       {/* <Divider
         variant="fullWidth"
@@ -94,7 +118,7 @@ export default function HeroSection() {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src="/images/hero/mantler.webp"
+      src={contentSheet.image}
       alt="hero_image"
       style={{
         width: "95%",
@@ -150,89 +174,36 @@ export default function HeroSection() {
               display: "flex",
             }}
           >
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
+            {contentSheet.translucentStripData.map((ele) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                backgroundColor="transparent"
                 justifyContent="center"
-                alignItems="center"
-                spacing={2}
               >
-                <Typography variant="h3" color="primary.main">
-                  35k+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={2}
                 >
-                  COMMUNITY
-                  <br />
-                  MEMBERS
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-              >
-                <Typography variant="h3" color="primary.main">
-                  93k+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-                >
-                  UNIQUE WALLETS
-                  <br />& USERS
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-              >
-                <Typography variant="h3" color="primary.main">
-                  3M+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-                >
-                  TRANSACTIONS
-                  <br />
-                  ON-CHAIN
-                </Typography>
-              </Stack>
-            </Grid>
+                  <Typography variant="h3" color="primary.main">
+                    {ele.amount}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    textAlign="left"
+                    // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                  >
+                    {ele.top}
+                    <br />
+                    {ele.bottom}
+                  </Typography>
+                </Stack>
+              </Grid>
+            ))}
           </Grid>
         </Paper>
       </Container>

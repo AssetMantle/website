@@ -5,6 +5,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   Paper,
   Stack,
   Typography,
@@ -29,7 +30,7 @@ const InitiativeSectionConfigData = {
     {
       title: "Whitepaper",
       url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
-      icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
+      icon: "call_made", // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "contained",
@@ -37,7 +38,7 @@ const InitiativeSectionConfigData = {
     {
       title: "litepaper",
       url: "/litepaper.pdf",
-      icon: <FileDownloadOutlinedIcon />, // url: "/" or component: <Icon/>
+      icon: "file_download", // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
       variant: "outlined",
@@ -87,6 +88,7 @@ const listStyle = {
 export default function AdvantageSection() {
   return (
     <Section
+      background="url(/images/advantage/advantage_bg.png) no-repeat left"
       title={InitiativeSectionConfigData.title}
       subTitle={
         InitiativeSectionConfigData.description &&
@@ -105,16 +107,6 @@ export default function AdvantageSection() {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
-            backgroundImage:
-              InitiativeSectionConfigData.leftImage &&
-              `url('${InitiativeSectionConfigData.leftImage}')`,
-            backgroundSize: "contain",
-            backgroundPosition: { xs: "center", md: "left" },
-            backgroundRepeat: "no-repeat",
-            aspectRatio: InitiativeSectionConfigData.leftImage && {
-              xs: "2/1",
-              md: "auto",
-            },
           }}
         >
           {InitiativeSectionConfigData.ctas &&
@@ -147,7 +139,7 @@ export default function AdvantageSection() {
                     size="large"
                     href={cta.url && cta.url}
                     target={cta.target && cta.target}
-                    endIcon={cta.icon ? cta.icon : null}
+                    endIcon={<Icon>{cta.icon}</Icon>}
                   >
                     {cta.title && cta.title}
                   </Button>
