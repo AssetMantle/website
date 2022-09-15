@@ -2,6 +2,13 @@ import React from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Section from "../components/Section";
 
+const configData = {
+  title: "Mantle Universe",
+  subTitle:
+    "Experience the first NFT marketplace with blockchain based identity",
+  image: "/images/hero/capture.png",
+};
+
 export default function EcosystemsHeroSection() {
   return (
     <>
