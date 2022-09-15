@@ -13,15 +13,25 @@ export default function VisionMissionSection({ visionMissionSectionData }) {
           <Grid item xs={12} lg={4}></Grid>
 
           <Grid item xs={12} lg={8}>
-            <Paper variant="translucent" sx={{ p: 4 }}>
+            <Paper
+              variant={visionMissionSectionData.paperVariant}
+              sx={{ p: 4 }}
+            >
               <Grid container spacing={4}>
                 {visionMissionSectionData.list.map((ele, index) => (
                   <Grid key={index} item xs={12} md={6}>
                     <Stack spacing={2}>
-                      <Typography variant="h4" color="primary.main">
+                      <Typography
+                        variant={visionMissionSectionData.titleVariant}
+                        color="primary.main"
+                      >
                         {ele.title}
                       </Typography>
-                      <Typography variant="subtitle2">{ele.info}</Typography>
+                      <Typography
+                        variant={visionMissionSectionData.infoVariant}
+                      >
+                        {ele.info}
+                      </Typography>
                     </Stack>
                   </Grid>
                 ))}

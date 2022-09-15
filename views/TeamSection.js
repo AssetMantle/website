@@ -32,10 +32,14 @@ const TeamsConfigData = {
     margin: "0 auto",
   }, // object of styles or false
   descriptionVariant: "subtitle2",
+  nameVariant: "subtile2",
+  nameColor: "primary.main",
+  designationVariant: "body2",
+  designationColor: "primary.light",
   members: [
     // object template
     // {
-    //   image: "/images/teams/https://assetmantle.one/images/team/deepanshu.png",
+    //   image: "/TeamSection/https://assetmantle.one/images/team/deepanshu.png",
     //   name: "Deepanshu Kumar",
     //   designation: "Founder, Core - Product Planning & Implementation​",
     //   designationType: "",
@@ -63,7 +67,7 @@ const TeamsConfigData = {
     //   ],
     // },
     {
-      image: "/images/teams/deepanshu.png",
+      image: "/TeamSection/deepanshu.png",
       name: "Deepanshu Tripathi",
       designation: "Founder, Core - Product Planning & Implementation​",
       designationType: "Founding",
@@ -83,7 +87,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/abhinav.png",
+      image: "/TeamSection/abhinav.png",
       name: "Abhinav Kumar",
       designation: "Co-Founder, Core - Product Planning & Implementation​",
       designationType: "Founding",
@@ -103,7 +107,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/kamlesh.png",
+      image: "/TeamSection/kamlesh.png",
       name: "Kamlesh Parikarath",
       designation: "Core - Product Development & Growth",
       designationType: "Founding",
@@ -127,7 +131,7 @@ const TeamsConfigData = {
       ],
     },
     // {
-    //   image: "/images/teams/naman.png",
+    //   image: "/TeamSection/naman.png",
     //   name: "Naman Kabra",
     //   designation: "Core - Business Development & Growth",
     //   designationType: "Founding",
@@ -147,7 +151,7 @@ const TeamsConfigData = {
     //   ],
     // },
     {
-      image: "/images/teams/sachin.png",
+      image: "/TeamSection/sachin.png",
       name: "Sachin Matta",
       designation: "Core - Product Marketing and Communications",
       designationType: "Founding",
@@ -167,7 +171,7 @@ const TeamsConfigData = {
       ],
     },
     // {
-    //   image: "/images/teams/prabhav.png",
+    //   image: "/TeamSection/prabhav.png",
     //   name: "Prabhav Varambally",
     //   designation: "Core - Business Operations & Strategy",
     //   designationType: "Founding",
@@ -187,7 +191,7 @@ const TeamsConfigData = {
     //   ],
     // },
     {
-      image: "/images/teams/harman.png",
+      image: "/TeamSection/harman.png",
       name: "Harman Sohi",
       designation: "Design Lead",
       designationType: "Design",
@@ -207,7 +211,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/sarin.png",
+      image: "/TeamSection/sarin.png",
       name: "Sarin Venugopal",
       designation: "Product Marketing & Operations",
       designationType: "Developer",
@@ -223,7 +227,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/pratik.png",
+      image: "/TeamSection/pratik.png",
       name: "Pratik Balar",
       designation: "DevOps & Infrastructure",
       designationType: "Founding",
@@ -247,7 +251,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/sarvagya.png",
+      image: "/TeamSection/sarvagya.png",
       name: "Sarvagya Sagar",
       designation: "Research and DevSecOps​",
       designationType: "Founding",
@@ -271,7 +275,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/arun.png",
+      image: "/TeamSection/arun.png",
       name: "Arun Ramesan",
       designation: "Visual Designer​",
       designationType: "Design",
@@ -291,7 +295,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/mrinal.png",
+      image: "/TeamSection/mrinal.png",
       name: "Mrinal Vishwanath",
       designation: "Product Marketing and PR Strategist",
       designationType: "Developer",
@@ -311,7 +315,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/jagdish.png",
+      image: "/TeamSection/jagdish.png",
       name: "Jagdish Chudasama",
       designation: "UI/UX Developer​",
       designationType: "Developer",
@@ -335,7 +339,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/namaha.png",
+      image: "/TeamSection/namaha.png",
       name: "Namaha Shetty",
       designation: "UI/UX Designer",
       designationType: "Design",
@@ -351,7 +355,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/akhlak.png",
+      image: "/TeamSection/akhlak.png",
       name: "Akhlak Hossain",
       designation: "UI Developer",
       designationType: "Developer",
@@ -371,7 +375,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/ankit.png",
+      image: "/TeamSection/ankit.png",
       name: "Ankit Kumar",
       designation: "Blockchain Developer",
       designationType: "Founding",
@@ -391,7 +395,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/aditya.png",
+      image: "/TeamSection/aditya.png",
       name: "Aditya Nalini",
       designation: "NFT Strategist",
       designationType: "Developer",
@@ -411,7 +415,7 @@ const TeamsConfigData = {
       ],
     },
     {
-      image: "/images/teams/rohit.png",
+      image: "/TeamSection/rohit.png",
       name: "Rohit Sharma",
       designation: "Creators Communications and Integrations",
       designationType: "Developer",
@@ -529,8 +533,8 @@ export default function GallerySection() {
                             {member.name && (
                               <Typography
                                 gutterBottom
-                                variant="subtitle2"
-                                component="h4"
+                                variant={TeamsConfigData.nameVariant}
+                                component={TeamsConfigData.nameColor}
                                 color="primary.main"
                               >
                                 {member.name}
@@ -538,8 +542,8 @@ export default function GallerySection() {
                             )}
                             {member.designation && (
                               <Typography
-                                variant="body2"
-                                color="primary.light"
+                                variant={TeamsConfigData.designationVariant}
+                                color={TeamsConfigData.designationColor}
                                 sx={{ pt: 1 }}
                               >
                                 {member.designation}

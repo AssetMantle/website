@@ -44,7 +44,7 @@ const contentSheet = {
       variant: "contained",
     },
   ],
-  image: "/images/hero/mantler.webp",
+  image: "/HeroSection/mantler.webp",
   translucentStripData: [
     { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
     { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },

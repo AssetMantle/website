@@ -10,13 +10,15 @@ const ChainSectionConfigData = {
   subTitle:
     "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere",
   subSectionTitle: "$MNTL",
-  subSectionTitleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
+  subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
   subSectionTitleVariant: "h1",
   subSectionTitleColor: "secondary.light",
   subSectionDescription:
     "The native token which powers the AssetMantle’s NFT Economy",
   subSectionDescriptionVariant: "subtitle2",
   subSectionDescriptionColor: "secondary.light",
+  descriptionVariant: "subtitle2",
+  descriptionColor: "primary.main",
   subSectionDescriptionStyle: {
     textAlign: { xs: "center" },
     mx: { xs: "auto !important", sm: "0 !important" },
@@ -48,23 +50,23 @@ const ChainSectionConfigData = {
   ],
   chains: [
     {
-      icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
+      icon: "/ChainSection/cosmos.svg", // add url: "https://icon.png"
       alt: "modular",
       title: "Implements modular framework from the popular Cosmos SDK",
     },
     {
-      icon: "/images/chain/modular.svg", // add url: "https://icon.png"
+      icon: "/ChainSection/modular.svg", // add url: "https://icon.png"
       alt: "cosmos",
       title: "Imbibes the leading Tendermint BFT Consensus Engine",
     },
     {
-      icon: "/images/chain/connected.svg", // add url: "https://icon.png"
+      icon: "/ChainSection/connected.svg", // add url: "https://icon.png"
       alt: "connected",
 
       title: "Incorporates connectedness with Cosmos Zones using IBC",
     },
     {
-      icon: "/images/chain/interNft.svg", // add url: "https://icon.png"
+      icon: "/ChainSection/interNft.svg", // add url: "https://icon.png"
       alt: "internft",
       title: "Inherits the plan to build open standards for interchain NFT",
     },
@@ -130,8 +132,8 @@ export default function ChainSection() {
                 </Grid>
               )}
             <Typography
-              variant="subtitle2"
-              color="primary.main"
+              variant={ChainSectionConfigData.descriptionVariant}
+              color={ChainSectionConfigData.descriptionColor}
               textAlign="center"
               sx={{
                 maxWidth: "380px",

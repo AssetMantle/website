@@ -1,4 +1,3 @@
-import DownloadingIcon from "@mui/icons-material/Downloading";
 import {
   Button,
   Card,
@@ -13,27 +12,11 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { useEffect, useState } from "react";
 import Section from "../components/Section";
 
-export default function TokenInfo({ tokenInfoConfigData }) {
-  console.log(tokenInfoConfigData);
-  const [usdPrice, setUsdPrice] = useState("loading...");
-  useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=assetmantle&vs_currencies=USD"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setUsdPrice(data.assetmantle.usd);
-      });
-  }, []);
-
+export default function TokenInfo({ tokenInfoData }) {
   return (
-    <Section
-      title={tokenInfoConfigData.title}
-      subTitle={tokenInfoConfigData.description}
-    >
+    <Section title={tokenInfoData.title} subTitle={tokenInfoData.description}>
       <Grid container spacing={{ xs: 0, md: 3 }}>
         <Grid
           item
@@ -58,7 +41,7 @@ export default function TokenInfo({ tokenInfoConfigData }) {
               }}
             >
               <img
-                src="/images/tokenInfo/mntlCoin.png"
+                src={tokenInfoData.left.mntlCoinImage}
                 alt="MNTL token illustration"
                 style={{
                   width: "100%",
@@ -68,53 +51,42 @@ export default function TokenInfo({ tokenInfoConfigData }) {
               />
             </Box>
             <Stack direction="column" spacing={3}>
-              <Typography variant="h2" color="primary.main">
-                {tokenInfoConfigData.left.title &&
-                  tokenInfoConfigData.left.title}
+              <Typography
+                variant={tokenInfoData.left.titleVariant}
+                color={tokenInfoData.left.titleColor}
+              >
+                {tokenInfoData.left.title && tokenInfoData.left.title}
               </Typography>
               <Stack>
-                <Typography
-                  component="span"
-                  sx={{ display: "inline" }}
-                  variant="h4"
-                  color="secondary.light"
-                >
-                  USD:
+                {tokenInfoData.left.data.map((ele, index) => (
                   <Typography
+                    component="span"
                     sx={{ display: "inline" }}
-                    variant="h4"
-                    color="primary.main"
+                    variant={ele.textVariant}
+                    color={ele.textColor}
+                    key={index}
                   >
-                    {usdPrice}
+                    {ele.title}
+                    <Typography
+                      sx={{ display: "inline" }}
+                      variant={ele.textVariant}
+                      color={ele.valueColor}
+                    >
+                      {ele.value}
+                    </Typography>
                   </Typography>
-                </Typography>
-
-                <Typography
-                  component="span"
-                  sx={{ display: "inline" }}
-                  variant="h4"
-                  color="secondary.light"
-                >
-                  APR:
-                  <Typography
-                    sx={{ display: "inline" }}
-                    variant="h4"
-                    color="primary.main"
-                  >
-                    140%
-                  </Typography>
-                </Typography>
+                ))}
               </Stack>
               <Stack
                 direction="row"
                 spacing={2}
                 justifyContent={{ xs: "center", sm: "start" }}
               >
-                {tokenInfoConfigData.left.ctas &&
-                  Array.isArray(tokenInfoConfigData.left.ctas) &&
-                  tokenInfoConfigData.left.ctas.length > 0 &&
+                {tokenInfoData.left.ctas &&
+                  Array.isArray(tokenInfoData.left.ctas) &&
+                  tokenInfoData.left.ctas.length > 0 &&
                   React.Children.toArray(
-                    tokenInfoConfigData.left.ctas.map((cta) => (
+                    tokenInfoData.left.ctas.map((cta) => (
                       <Button
                         component="a"
                         variant={cta.variant ? cta.variant : "contained"}
@@ -129,11 +101,11 @@ export default function TokenInfo({ tokenInfoConfigData }) {
                   )}
               </Stack>
               <Stack direction="row" spacing={2.5}>
-                {tokenInfoConfigData.left.references &&
-                  Array.isArray(tokenInfoConfigData.left.references) &&
-                  tokenInfoConfigData.left.references.length > 0 &&
+                {tokenInfoData.left.references &&
+                  Array.isArray(tokenInfoData.left.references) &&
+                  tokenInfoData.left.references.length > 0 &&
                   React.Children.toArray(
-                    tokenInfoConfigData.left.references.map((reference) => (
+                    tokenInfoData.left.references.map((reference) => (
                       <Link
                         href={reference.url && reference.url}
                         target={reference.target && reference.target}
@@ -163,13 +135,13 @@ export default function TokenInfo({ tokenInfoConfigData }) {
               mt: { xs: 7, md: 0 },
             }}
           >
-            {tokenInfoConfigData.right.tokenFrom2 &&
-              Array.isArray(tokenInfoConfigData.right.tokenFrom2) &&
-              tokenInfoConfigData.right.tokenFrom2.length > 0 &&
+            {tokenInfoData.right.tokenFrom2 &&
+              Array.isArray(tokenInfoData.right.tokenFrom2) &&
+              tokenInfoData.right.tokenFrom2.length > 0 &&
               React.Children.toArray(
-                tokenInfoConfigData.right.tokenFrom2.map((token) => (
+                tokenInfoData.right.tokenFrom2.map((token) => (
                   <Paper
-                    variant="translucent"
+                    variant={tokenInfoData.right.paperVariant}
                     sx={{
                       gridColumn: `${token.col} / span 3`,
                       gridRow: `${token.row} / span 2`,
@@ -179,7 +151,7 @@ export default function TokenInfo({ tokenInfoConfigData }) {
                   >
                     <Link
                       href={token.url}
-                      variant="caption"
+                      variant={tokenInfoData.right.textVariant}
                       textAlign="center"
                       underline="none"
                       fontWeight={400}
@@ -212,9 +184,9 @@ export default function TokenInfo({ tokenInfoConfigData }) {
                         />
                         <CardActions>
                           <Typography
-                            variant="caption"
+                            variant={tokenInfoData.right.textVariant}
                             textAlign="center"
-                            color="primary.main"
+                            color={tokenInfoData.right.textColor}
                             fontSize={{ xs: "60%", md: "90%" }}
                           >
                             {token.title && token.title}

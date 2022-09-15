@@ -1,6 +1,6 @@
 import React from "react";
-import EcosystemsHeroSection from "../views/EcosystemsHeroSection";
-import EcosystemsLowerSection from "../views/EcosystemsLowerSection";
+import EcosystemsHeroSection from "../views/MantleUniverseSection";
+import EcosystemsLowerSection from "../views/UniverseComponentsSection";
 
 export default function Ecosystems() {
   return (

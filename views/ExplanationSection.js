@@ -1,7 +1,6 @@
 import { Grid, Stack, Typography, List, ListItem } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
-import axios from "axios";
 
 export default function ExplanationSection({ explanationSectionData }) {
   return (
@@ -20,10 +19,10 @@ export default function ExplanationSection({ explanationSectionData }) {
             lg={5}
           >
             <Stack spacing={2}>
-              <Typography variant="h1">
+              <Typography variant={explanationSectionData.questionVariant}>
                 {explanationSectionData.question}
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant={explanationSectionData.answerVariant}>
                 {explanationSectionData.answer}
               </Typography>
             </Stack>

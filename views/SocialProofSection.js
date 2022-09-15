@@ -18,27 +18,27 @@ const SocialProofConfigData = {
     // },
     {
       title: "yahoo finance",
-      image: "/images/socialProof/yahoo_finance.png",
+      image: "/SocialProofSection/yahoo_finance.png",
       link: "https://finance.yahoo.com/news/assetmantle-launches-long-awaited-mainnet-150000066.html",
     },
     {
       title: "coinquora",
-      image: "/images/socialProof/coinquora.png",
+      image: "/SocialProofSection/coinquora.png",
       link: "https://coinquora.com/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration/",
     },
     {
       title: "digitaljournal",
-      image: "/images/socialProof/digitaljournal.png",
+      image: "/SocialProofSection/digitaljournal.png",
       link: "https://www.digitaljournal.com/pr/assetmantle-launches-its-long-awaited-mainnet",
     },
     {
       title: "investing.com",
-      image: "/images/socialProof/investing.png",
+      image: "/SocialProofSection/investing.png",
       link: "https://m.investing.com/news/cryptocurrency-news/avigation-ai-collabs-with-assetmantle-to-revamp-nfts-via-ai-integration-2820215?ampMode=1",
     },
     {
       title: "techbullion",
-      image: "/images/socialProof/techbullion.png",
+      image: "/SocialProofSection/techbullion.png",
       link: "https://techbullion.com/talking-nfts-with-assetmantle-founder-deepanshu-tripathi/",
     },
   ],

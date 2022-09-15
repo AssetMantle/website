@@ -24,7 +24,7 @@ const GalleryConfigData = {
   galleries: [
     // object template
     // {
-    //   image: "/images/products/mantleplace.png",
+    //   image: "/GallerySection//mantleplace.png",
     //   title: "",
     //   description: "",
     //   buttons: [
@@ -35,7 +35,7 @@ const GalleryConfigData = {
     //   ],
     // },
     {
-      image: "/images/products/MantlePlace.png",
+      image: "/GallerySection//MantlePlace.png",
       title: "MantlePlace",
       description:
         "A new, highly optimized NFT marketplace for Cosmos Ecosystem",
@@ -47,7 +47,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleBuilder.png",
+      image: "/GallerySection//MantleBuilder.png",
       title: "MantleBuilder",
       description:
         "Coming soon, a no-code marketplace builder for NFT shopifying",
@@ -59,7 +59,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleWallet.png",
+      image: "/GallerySection//MantleWallet.png",
       title: "MantleWallet",
       description: "A non-custodial blockchain wallet for AssetMantle chain",
       buttons: [
@@ -70,7 +70,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleExplorer.png",
+      image: "/GallerySection//MantleExplorer.png",
       title: "MantleExplorer",
       description: "A detailed blockchain explorer for the AssetMantle chain",
       buttons: [

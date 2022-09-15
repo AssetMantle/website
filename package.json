@@ -8,7 +8,6 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@splidejs/react-splide": "^0.7.8",
-    "axios": "^0.27.2",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",

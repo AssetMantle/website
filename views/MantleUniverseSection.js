@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Section from "../components/Section";
 
-export default function AboutPageHeroSection() {
+export default function EcosystemsHeroSection() {
   return (
     <>
       {" "}

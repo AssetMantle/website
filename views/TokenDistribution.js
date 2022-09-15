@@ -2,41 +2,12 @@ import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
 
-const TokenDistributionConfig = {
-  title: "$MNTL Token Distribution",
-  description:
-    "Find out the crucial tokenomics pertaining to the protocol token of AssetMantle, optimizing it for long term value creation",
-  chart: "/images/tokenDistribution/releaseSchedule.svg",
-  chartName: "Release Schedule",
-  overview: {
-    genesis: {
-      title: "Total Genesis Supply",
-      number: "300M",
-    },
-    circular: {
-      title: "Total Circulating Supply",
-      number: "78M",
-    },
-    description:
-      "At genesis, 26% (78 million $MNTL) of the supply will be circulating to bootstrap liquidity and incentivize the early adopters of the platform.",
-  },
-  pies: [
-    {
-      chart: "/images/tokenDistribution/genesisSupply.svg",
-      name: "Genesis Supply",
-    },
-    {
-      chart: "/images/tokenDistribution/circulatingSupply.svg",
-      name: "Circulating Supply",
-    },
-  ],
-};
-
-export default function TokenDistribution() {
+export default function TokenDistribution({ tokenDistributionData }) {
+  console.log(tokenDistributionData);
   return (
     <Section
-      title={TokenDistributionConfig.title}
-      subTitle={TokenDistributionConfig.description}
+      title={tokenDistributionData.title}
+      subTitle={tokenDistributionData.description}
     >
       <Box
         sx={{
@@ -46,29 +17,41 @@ export default function TokenDistribution() {
         }}
       >
         <img
-          src={TokenDistributionConfig.chart}
-          alt={TokenDistributionConfig.chartName}
+          src={tokenDistributionData.chart}
+          alt={tokenDistributionData.chartName}
         />
       </Box>
-      <Paper variant="translucent">
+      <Paper variant={tokenDistributionData.paperVariant}>
         <Grid container spacing={3} sx={{ alignItems: "center", p: 3 }}>
           <Grid item xs={12} sm={6} md={3}>
             <Stack direction="row" gap={2} alignItems="center">
-              <Typography variant="h3" color="primary.main">
-                {TokenDistributionConfig.overview.genesis.number}
+              <Typography
+                variant={tokenDistributionData.numberVariant}
+                color={tokenDistributionData.numberColor}
+              >
+                {tokenDistributionData.overview.genesis.number}
               </Typography>
-              <Typography variant="body1" lineHeight="100%">
-                {TokenDistributionConfig.overview.genesis.title}
+              <Typography
+                variant={tokenDistributionData.titleVariant}
+                lineHeight="100%"
+              >
+                {tokenDistributionData.overview.genesis.title}
               </Typography>
             </Stack>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Stack direction="row" gap={2} alignItems="center">
-              <Typography variant="h3" color="primary.main">
-                {TokenDistributionConfig.overview.circular.number}
+              <Typography
+                variant={tokenDistributionData.numberVariant}
+                color={tokenDistributionData.numberColor}
+              >
+                {tokenDistributionData.overview.circular.number}
               </Typography>
-              <Typography variant="body1" lineHeight="100%">
-                {TokenDistributionConfig.overview.circular.title}
+              <Typography
+                variant={tokenDistributionData.titleVariant}
+                lineHeight="100%"
+              >
+                {tokenDistributionData.overview.circular.title}
               </Typography>
             </Stack>
           </Grid>
@@ -77,17 +60,17 @@ export default function TokenDistribution() {
               variant="body2"
               textAlign={{ xs: "center", md: "left" }}
             >
-              {TokenDistributionConfig.overview.description}
+              {tokenDistributionData.overview.description}
             </Typography>
           </Grid>
         </Grid>
       </Paper>
       <Grid container spacing={{ xs: 0, sm: 3 }}>
-        {TokenDistributionConfig.pies &&
-          Array.isArray(TokenDistributionConfig.pies) &&
-          TokenDistributionConfig.pies.length > 0 &&
+        {tokenDistributionData.pies &&
+          Array.isArray(tokenDistributionData.pies) &&
+          tokenDistributionData.pies.length > 0 &&
           React.Children.toArray(
-            TokenDistributionConfig.pies.map((pie) => (
+            tokenDistributionData.pies.map((pie) => (
               <Grid item xs={12} md={6}>
                 <img
                   src={pie.chart}

@@ -28,9 +28,13 @@ const InfoSectionConfigData = {
   descriptionColor: "secondary.main",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
   rightSidedImage: "",
+  imageListVariant: "quilted",
+  authorVariant: "text",
+  artVariant: "caption",
+  artColor: "primary.light",
   imageData: [
     {
-      img: "/images/info/Archetypes.webp",
+      img: "/InfoSection/Archetypes.webp",
       title: "Archetypes",
       name: "Archetypes",
       author: "Oblitus Mantra",
@@ -38,14 +42,14 @@ const InfoSectionConfigData = {
       rows: 2,
     },
     {
-      img: "/images/info/arto.webp",
+      img: "/InfoSection/arto.webp",
       title: "Arto DAO",
       name: "Arto DAO",
       author: "Arto DAO",
       href: "https://twitter.com/ArtoDAO",
     },
     {
-      img: "/images/info/Aequanimity.webp",
+      img: "/InfoSection/Aequanimity.webp",
       title: "Aequanimity",
       name: "Aequanimity",
       author: "pratykarya",
@@ -53,14 +57,14 @@ const InfoSectionConfigData = {
       rows: 2,
     },
     {
-      img: "/images/info/Christiopkosin.webp",
+      img: "/InfoSection/Christiopkosin.webp",
       title: "Christiopkosin",
       name: "Christiopkosin",
       author: "Christiopkosin",
       href: "",
     },
     {
-      img: "/images/info/the_dansant.webp",
+      img: "/InfoSection/the_dansant.webp",
       title: "The Dansant",
       name: "The Dansant",
       author: "the_dansant",
@@ -68,35 +72,35 @@ const InfoSectionConfigData = {
       rows: 2,
     },
     {
-      img: "/images/info/boldwockeez.webp",
+      img: "/InfoSection/boldwockeez.webp",
       title: "boldwockeez",
       name: "boldwockeez",
       author: "cryptoduuudes",
       href: "https://twitter.com/CryptoDuuudes",
     },
     {
-      img: "/images/info/MantleMonkeys.webp",
+      img: "/InfoSection/MantleMonkeys.webp",
       title: "Mantle Monkeys",
       name: "Mantle Monkeys",
       author: "MantleMonkeys",
       href: "https://twitter.com/MantleMonkeys",
     },
     {
-      img: "/images/info/mantlewarriors.webp",
+      img: "/InfoSection/mantlewarriors.webp",
       title: "Mantle Warriors",
       name: "Mantle Warriors",
       author: "mantlewarriors",
       href: "https://twitter.com/mantlewarriors",
     },
     {
-      img: "/images/info/OblitusMantra1.webp",
+      img: "/InfoSection/OblitusMantra1.webp",
       title: "Oblitus Mantra - Forgotten Worlds",
       name: "Oblitus Mantra",
       author: "Oblitus",
       href: "https://twitter.com/Oblitus_NFT",
     },
     {
-      img: "/images/info/OblitusMantra2.webp",
+      img: "/InfoSection/OblitusMantra2.webp",
       title: "Oblitus Mantra - Forgotten Worlds",
       name: "Oblitus Mantra",
       author: "Oblitus",
@@ -104,7 +108,7 @@ const InfoSectionConfigData = {
       rows: 2,
     },
     {
-      img: "/images/info/Pinnacle1.webp",
+      img: "/InfoSection/Pinnacle1.webp",
       title: "Pinnacle",
       name: "Pinnacle",
       author: "Zeelectric",
@@ -112,7 +116,7 @@ const InfoSectionConfigData = {
       rows: 2,
     },
     {
-      img: "/images/info/Pinnacle2.webp",
+      img: "/InfoSection/Pinnacle2.webp",
       title: "Pinnacle",
       name: "Pinnacle",
       author: "Zeelectric",
@@ -214,7 +218,7 @@ const Content = () => {
       >
         <ImageList
           sx={{ width: "min(640px, 100%)", margin: { xs: "auto", md: "0" } }}
-          variant="quilted"
+          variant={InfoSectionConfigData.imageListVariant}
           cols={3}
           gap={16}
           rowHeight={130}
@@ -254,7 +258,7 @@ const Content = () => {
                 >
                   {item.author && (
                     <Button
-                      variant="text"
+                      variant={InfoSectionConfigData.authorVariant}
                       size="large"
                       component="a"
                       href={item.href ? item.href : null}
@@ -273,8 +277,8 @@ const Content = () => {
                   {item.name && (
                     <Typography
                       component="p"
-                      variant="caption"
-                      color="primary.light"
+                      variant={InfoSectionConfigData.artVariant}
+                      color={InfoSectionConfigData.artColor}
                     >
                       {item.name}
                     </Typography>

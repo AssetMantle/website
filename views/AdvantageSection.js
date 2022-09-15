@@ -11,21 +11,20 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import CallMadeIcon from "@mui/icons-material/CallMade";
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import Section from "../components/Section";
 
 const InitiativeSectionConfigData = {
+  paperVariant: "translucent",
   textAlign: "center", // >>> default: left
   title: "The AssetMantle Advantage",
   titleOnLeft: false, // >>> default: false
-  titleComponent: "h2",
-  titleVariant: "h1",
-  description: "",
+  titleColor: "primary.main",
+  titleVariant: "h4",
+  descriptionVariant: "body1",
   descriptionOnLeft: false, // >>> default: false
   descriptionStyle: false, // object of styles or false
   backgroundImage: "", // "url('/images/mantleplace.png')",
-  leftImage: "/images/advantage/advantage_bg.png", // "url('/images/mantleplace.png')",
+  leftImage: "/AdvantageSection/advantage_bg.png", // "url('/images/mantleplace.png')",
   ctas: [
     {
       title: "Whitepaper",
@@ -37,7 +36,7 @@ const InitiativeSectionConfigData = {
     },
     {
       title: "litepaper",
-      url: "/litepaper.pdf",
+      url: "/static/litepaper.pdf",
       icon: "file_download", // url: "/" or component: <Icon/>
       target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
       disabled: false,
@@ -46,25 +45,25 @@ const InitiativeSectionConfigData = {
   ],
   initiatives: [
     {
-      icon: "/images/advantage/multiChain.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
+      icon: "/AdvantageSection/multiChain.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Multi-Chain Access",
       description:
         "Trade NFT on other chains or show them off across metaverses",
     },
     {
-      icon: "/images/advantage/highEconomical.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
+      icon: "/AdvantageSection/highEconomical.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Highly Economical ROI",
       description:
         "Leverage a rich NFT Economy on an IBC enabled Cosmos Ecosystem at negligible cost",
     },
     {
-      icon: "/images/advantage/multiplePayment.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
+      icon: "/AdvantageSection/multiplePayment.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "Multiple Payment Modes",
       description:
         "Experience AssetMantle with fiat currency, coins or stablecoins",
     },
     {
-      icon: "/images/advantage/noCodeCustomization.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
+      icon: "/AdvantageSection/noCodeCustomization.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
       title: "No-Code Customization Engine",
       description:
         "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
@@ -88,7 +87,7 @@ const listStyle = {
 export default function AdvantageSection() {
   return (
     <Section
-      background="url(/images/advantage/advantage_bg.png) no-repeat left"
+      background="url(/AdvantageSection/advantage_bg.png) no-repeat left"
       title={InitiativeSectionConfigData.title}
       subTitle={
         InitiativeSectionConfigData.description &&
@@ -164,7 +163,7 @@ export default function AdvantageSection() {
                   (initiative, index) => (
                     <Paper
                       key={index}
-                      variant="translucent"
+                      variant={InitiativeSectionConfigData.paperVariant}
                       sx={{
                         mx: { xs: "auto", md: 0 },
                         ml: { md: "auto" },
@@ -188,10 +187,18 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0 !important" }}>
-                          <Typography variant="h4" color="primary.main">
+                          <Typography
+                            variant={InitiativeSectionConfigData.titleVariant}
+                            color={InitiativeSectionConfigData.titleColor}
+                          >
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography variant="body1" sx={{ pt: 1 }}>
+                          <Typography
+                            variant={
+                              InitiativeSectionConfigData.descriptionVariant
+                            }
+                            sx={{ pt: 1 }}
+                          >
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>
