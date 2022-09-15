@@ -67,14 +67,18 @@ const baseTheme = createTheme({
   },
   components: {
     MuiPaper: {
+      defaultProps: {
+        elevation: 12,
+      },
       variants: [
         {
           props: { variant: "translucent" },
           style: {
             background:
-              "linear-gradient(157.26deg, rgba(217, 217, 217, 0.06) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
-            // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
-            backdropFilter: "blur(10px)",
+              // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.06) -5.39%, rgba(217, 217, 217, 0.08) 108.05%)",
+              // "linear-gradient(157.26deg, rgba(217, 217, 217, 0.24) -5.39%, rgba(217, 217, 217, 0.12) 108.05%)",
+              "rgba(255,255,255,0.1)",
+            backdropFilter: "blur(30px)",
             borderRadius: "16px",
           },
         },
@@ -92,6 +96,16 @@ const baseTheme = createTheme({
         root: {
           borderRadius: "32px",
           fontWeight: "bold",
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        root: {
+          ".MuiMenu-paper": {
+            background: "transparent",
+            borderRadius: "16px",
+          },
         },
       },
     },
