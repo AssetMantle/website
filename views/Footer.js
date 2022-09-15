@@ -395,9 +395,9 @@ export default function Footer(props) {
             },
           }}
         >
-          © AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
-        </Typography>
-      </Container>
-    </Box>
+          © AssetMantle {new Date().getFullYear()} - All rights reserved
+        </Fab>
+      </ScrollTop>
+    </>
   );
 }
