@@ -5,7 +5,6 @@ import Section from "../components/Section";
 export default function EcosystemsHeroSection() {
   return (
     <>
-      {" "}
       <Section>
         <Grid backgroundColor="transparent" container>
           <Grid
@@ -17,18 +16,16 @@ export default function EcosystemsHeroSection() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-around",
-              // backgroundColor: "transparent",
             }}
           >
             {/* Left Sub-section */}
 
             <Stack spacing={1} maxWidth="300px">
-              <Typography variant="h1" color="primary">
-                Mantle Universe
+              <Typography variant="h1" color="secondary.light">
+                {configData.title}
               </Typography>
-              <Typography color="white">
-                Experience the first NFT marketplace with blockchain based
-                identity
+              <Typography variant="subtitle2" color="primary.main">
+                {configData.subTitle}
               </Typography>
             </Stack>
           </Grid>
@@ -59,7 +56,7 @@ export default function EcosystemsHeroSection() {
                 backgroundColor: "transparent",
               }}
             >
-              <img src="/images/hero/capture.png" alt="image" width="100%" />
+              <img src={configData.image} alt="image" width="100%" />
             </Stack>
           </Grid>
         </Grid>

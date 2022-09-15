@@ -1,4 +1,5 @@
 import * as React from "react";
+import UniverseSection from "../views/UniverseSection";
 import AdvantageSection from "../views/AdvantageSection";
 import ChainSection from "../views/ChainSection";
 import FeatureSection from "../views/FeatureSection";
@@ -18,6 +19,7 @@ export default function Index() {
       <InfoSection />
       <ChainSection />
       <AdvantageSection />
+      <UniverseSection />
       <TeamSection />
       <SocialProofSection />
       {/* <SubscribeSection /> */}

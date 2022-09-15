@@ -98,6 +98,14 @@ const FooterConfigData = {
           href: "https://wallet.assetmantle.one/",
         },
       },
+      {
+        title: "Access our Resources",
+        link: {
+          icon: <NorthEastIcon />,
+          text: "MediaKit",
+          href: "https://docs.assetmantle.one/MediaKit",
+        },
+      },
     ],
   },
 };
@@ -146,211 +154,221 @@ function ScrollTop(props) {
         role="presentation"
         sx={{ position: "fixed", bottom: 16, right: 16 }}
       >
-        {children}
-      </Box>
-    </Fade>
-  );
-}
-
-ScrollTop.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
-
-export default function Footer(props) {
-  return (
-    <>
-      <Box component="footer" sx={footerStyle}>
-        <Container
-          maxWidth="lg"
-          sx={{
-            borderTop: "1px solid",
-            borderColor: "primary.light",
-            pt: 5,
-          }}
-        >
-          {FooterConfigData.showTopData === true && (
-            <Grid container spacing={4} sx={{ pb: 3 }}>
-              <Grid item xs={12} sm={6} md={4}>
-                {FooterConfigData.colOne.title && (
-                  <Typography
-                    variant={
-                      FooterConfigData.titleVariant
-                        ? FooterConfigData.titleVariant
-                        : "h5"
-                    }
-                    sx={{
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {FooterConfigData.colOne.title}
-                  </Typography>
-                )}
-                {FooterConfigData.colOne.list &&
-                  Array.isArray(FooterConfigData.colOne.list) &&
-                  FooterConfigData.colOne.list.length > 0 && (
-                    <Stack sx={{ pt: 3 }} spacing={2}>
-                      {React.Children.toArray(
-                        FooterConfigData.colOne.list.map((item) => (
-                          <Stack spacing={2}>
-                            <Typography variant="h6">{item.title}</Typography>
-                            <Button
-                              component="a"
-                              variant="text"
-                              size="large"
-                              href={item.email && `mailto:${item.email}`}
-                              sx={{
-                                p: 0,
-                                justifyContent: {
-                                  xs: "center",
-                                  sm: "flex-start",
-                                },
-                                textTransform: "lowercase",
-                                // color: "primary.light",
-                                fontWeight: "400",
-                              }}
-                            >
-                              {item.text}
-                            </Button>
-                          </Stack>
-                        ))
-                      )}
-                    </Stack>
-                  )}
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Stack spacing={3}>
-                  {FooterConfigData.colTwo.image && (
-                    <img
-                      src={
-                        FooterConfigData.colTwo.image &&
-                        FooterConfigData.colTwo.image
-                      }
-                      alt={
-                        FooterConfigData.colTwo.title &&
-                        FooterConfigData.colTwo.title
-                      }
-                      style={{
-                        width: "min(164px,100%)",
-                        height: "auto",
-                        margin: "auto",
-                      }}
-                    />
-                  )}
-                  {FooterConfigData.colTwo.list &&
-                    Array.isArray(FooterConfigData.colTwo.list) &&
-                    FooterConfigData.colTwo.list.length > 0 && (
-                      <Stack
-                        spacing={3}
-                        direction="row"
-                        sx={{ justifyContent: "center" }}
-                      >
-                        {React.Children.toArray(
-                          FooterConfigData.colTwo.list.map((button) => (
-                            <>
-                              <Link
-                                sx={linkStyles}
-                                component="a"
-                                href={button.href && button.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {button.icon && button.icon}
-                              </Link>
-                            </>
-                          ))
-                        )}
+        {FooterConfigData.showTopData === true && (
+          <Grid container spacing={4} sx={{ pb: 3 }}>
+            <Grid item xs={12} sm={6} md={4}>
+              {FooterConfigData.colOne.title && (
+                <Typography
+                  variant={
+                    FooterConfigData.titleVariant
+                      ? FooterConfigData.titleVariant
+                      : "h5"
+                  }
+                  sx={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  {FooterConfigData.colOne.title}
+                </Typography>
+              )}
+              {FooterConfigData.colOne.list &&
+                Array.isArray(FooterConfigData.colOne.list) &&
+                FooterConfigData.colOne.list.length > 0 && (
+                  <Stack sx={{ pt: 3 }} spacing={2}>
+                    {FooterConfigData.colOne.list.map((item, index) => (
+                      <Stack key={`${index}s0a${item.text}`} spacing={2}>
+                        <Typography variant="h6">{item.title}</Typography>
+                        <Button
+                          component="a"
+                          variant="text"
+                          size="large"
+                          href={item.email && `mailto:${item.email}`}
+                          sx={{
+                            p: 0,
+                            justifyContent: { xs: "center", sm: "flex-start" },
+                            textTransform: "lowercase",
+                            // color: "primary.light",
+                            fontWeight: "400",
+                          }}
+                        >
+                          {item.text}
+                        </Button>
                       </Stack>
-                    )}
-                </Stack>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                sx={{
-                  textAlign: "center",
-                  margin: { xs: 0, sm: "auto", md: 0 },
-                }}
-              >
-                {FooterConfigData.colThree.title && (
-                  <Typography
-                    variant={
-                      FooterConfigData.titleVariant
-                        ? FooterConfigData.titleVariant
-                        : "h5"
-                    }
-                    sx={{
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {FooterConfigData.colThree.title}
-                  </Typography>
+                    ))}
+                  </Stack>
                 )}
-                {FooterConfigData.colThree.list &&
-                  Array.isArray(FooterConfigData.colThree.list) &&
-                  FooterConfigData.colThree.list.length > 0 && (
-                    <Stack sx={{ pt: 3 }} spacing={2}>
-                      {React.Children.toArray(
-                        FooterConfigData.colThree.list.map((item) => (
-                          <Typography variant="caption">
-                            {item.title}
-                            <Button
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Stack spacing={3}>
+                {FooterConfigData.colTwo.image && (
+                  <img
+                    src={
+                      FooterConfigData.colTwo.image &&
+                      FooterConfigData.colTwo.image
+                    }
+                    alt={
+                      FooterConfigData.colTwo.title &&
+                      FooterConfigData.colTwo.title
+                    }
+                    style={{
+                      width: "min(164px,100%)",
+                      height: "auto",
+                      margin: "auto",
+                    }}
+                  />
+                )}
+                {FooterConfigData.colTwo.list &&
+                  Array.isArray(FooterConfigData.colTwo.list) &&
+                  FooterConfigData.colTwo.list.length > 0 && (
+                    <Stack
+                      spacing={3}
+                      direction="row"
+                      sx={{ justifyContent: "center" }}
+                    >
+                      {FooterConfigData.colTwo.list.map((button, index) => (
+                        <>
+                          {button.icon === "linkedin" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
                               component="a"
-                              variant="text"
-                              size="large"
-                              href={item.link.href && item.link.href}
-                              sx={{
-                                p: 0,
-                                ml: 1,
-                                width: "max-content",
-                                textTransform: "Capitalize",
-                                fontWeight: "400",
-                              }}
+                              href={button.href && button.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              endIcon={item.link.icon && item.link.icon}
                             >
-                              {item.link.text}
-                            </Button>
-                          </Typography>
-                        ))
-                      )}
+                              <FiLinkedin />
+                            </Link>
+                          )}
+                          {button.icon === "github" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
+                              component="a"
+                              href={button.href && button.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FiGithub />
+                            </Link>
+                          )}
+                          {button.icon === "twitter" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
+                              component="a"
+                              href={button.href && button.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FiTwitter />
+                            </Link>
+                          )}
+                          {button.icon === "instagram" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
+                              component="a"
+                              href={button.href && button.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <InstagramIcon />
+                            </Link>
+                          )}
+                          {button.icon === "telegram" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
+                              component="a"
+                              href={button.href && button.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <TbBrandTelegram />
+                            </Link>
+                          )}
+                          {button.icon === "discord" && (
+                            <Link
+                              key={`${index}akl${button.icon}`}
+                              sx={linkStyles}
+                              component="a"
+                              href={button.href && button.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <TbBrandDiscord />
+                            </Link>
+                          )}
+                        </>
+                      ))}
                     </Stack>
                   )}
-              </Grid>
+              </Stack>
             </Grid>
-          )}
-          <Typography
-            variant="caption"
-            component="p"
-            sx={{ textAlign: "center" }}
-          >
-            © AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
-          </Typography>
-        </Container>
-      </Box>
-      <ScrollTop {...props}>
-        <Fab
-          size="small"
-          aria-label="scroll back to top"
-          sx={{
-            backgroundColor: "background.default",
-            color: "primary.main",
-            ":hover": {
-              backgroundColor: "primary.main",
-              color: "background.default",
-            },
-          }}
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              sx={{ textAlign: "center", margin: { xs: 0, sm: "auto", md: 0 } }}
+            >
+              {FooterConfigData.colThree.title && (
+                <Typography
+                  variant={
+                    FooterConfigData.titleVariant
+                      ? FooterConfigData.titleVariant
+                      : "h5"
+                  }
+                  sx={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  {FooterConfigData.colThree.title}
+                </Typography>
+              )}
+              {FooterConfigData.colThree.list &&
+                Array.isArray(FooterConfigData.colThree.list) &&
+                FooterConfigData.colThree.list.length > 0 && (
+                  <Stack sx={{ pt: 3 }} spacing={2}>
+                    {FooterConfigData.colThree.list.map((item, index) => (
+                      <Typography
+                        variant="caption"
+                        key={`${index}${item.title}`}
+                      >
+                        {item.title}
+                        <Button
+                          component="a"
+                          variant="text"
+                          size="large"
+                          href={item.link.href && item.link.href}
+                          sx={{
+                            p: 0,
+                            ml: 1,
+                            width: "max-content",
+                            textTransform: "Capitalize",
+                            fontWeight: "400",
+                          }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          endIcon={item.link.icon && item.link.icon}
+                        >
+                          {item.link.text}
+                        </Button>
+                      </Typography>
+                    ))}
+                  </Stack>
+                )}
+            </Grid>
+          </Grid>
+        )}
+        <Typography
+          variant="caption"
+          component="p"
+          sx={{ textAlign: "center" }}
         >
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-    </>
+          © AssetMantle {new Date().getFullYear()} - All rights reserved{" "}
+        </Typography>
+      </Container>
+    </Box>
   );
 }
