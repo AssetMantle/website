@@ -2,14 +2,7 @@ import React from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Section from "../components/Section";
 
-const configData = {
-  title: "Mantle Universe",
-  subTitle:
-    "Experience the first NFT marketplace with blockchain based identity",
-  image: "/images/hero/capture.png",
-};
-
-export default function CollabsHeroSection() {
+export default function CollabsHeroSection({ configData }) {
   return (
     <>
       <Section>
@@ -28,10 +21,16 @@ export default function CollabsHeroSection() {
             {/* Left Sub-section */}
 
             <Stack spacing={1} maxWidth="300px">
-              <Typography variant="h1" color="secondary.light">
+              <Typography
+                variant={configData.titleVariant}
+                color={configData.titleColor}
+              >
                 {configData.title}
               </Typography>
-              <Typography variant="subtitle2" color="primary.main">
+              <Typography
+                variant={configData.subTitleVariant}
+                color={configData.subTitleColor}
+              >
                 {configData.subTitle}
               </Typography>
             </Stack>
