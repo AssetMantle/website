@@ -19,7 +19,7 @@ export async function getStaticProps() {
     title: "Mantle Universe",
     subTitle:
       "Experience the first NFT marketplace with blockchain based identity",
-    image: "/images/hero/capture.png",
+    image: "/CollabsHeroSection/mantleUniverse.png",
   };
   const CollabsSectionConfigData = {
     cardVariant: "translucent",
