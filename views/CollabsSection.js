@@ -345,7 +345,7 @@ const configData = [
   },
 ];
 
-export default function EcosystemsPageLowerSection() {
+export default function CollabsSection() {
   const [activeFilters, setActiveFilters] = useState([]);
   const [projects, setProjects] = useState("All Projects");
   const [searchData, setSearchData] = useState("");

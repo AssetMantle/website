@@ -9,7 +9,7 @@ const configData = {
   image: "/images/hero/capture.png",
 };
 
-export default function EcosystemsHeroSection() {
+export default function CollabsHeroSection() {
   return (
     <>
       <Section>

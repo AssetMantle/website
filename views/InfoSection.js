@@ -11,126 +11,6 @@ import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import Section from "../components/Section";
 
-const InfoSectionConfigData = {
-  textAlign: "", // >>> default: left
-  fullWidth: false, // boolean
-  smallDeviceColumnDirections: "", // only "reverse" or "" >>>>>>default is "no-reverse"
-  contentMaxWidth: "", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
-  title: "Distributed NFT economy",
-  titleComponent: "h1",
-  titleVariant: "h2",
-  titleColor: "secondary.main",
-  description: [
-    "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts.",
-    "This shopifying of NFT assets, leads to a distributed network of networks, with world state stored collectively in the AssetMantle chain.",
-  ],
-  descriptionVariant: "body1",
-  descriptionColor: "secondary.main",
-  descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
-  rightSidedImage: "",
-  imageListVariant: "quilted",
-  authorVariant: "text",
-  artVariant: "caption",
-  artColor: "primary.light",
-  imageData: [
-    {
-      img: "/InfoSection/Archetypes.webp",
-      title: "Archetypes",
-      name: "Archetypes",
-      author: "Oblitus Mantra",
-      href: "https://twitter.com/Archetypes0nft",
-      rows: 2,
-    },
-    {
-      img: "/InfoSection/arto.webp",
-      title: "Arto DAO",
-      name: "Arto DAO",
-      author: "Arto DAO",
-      href: "https://twitter.com/ArtoDAO",
-    },
-    {
-      img: "/InfoSection/Aequanimity.webp",
-      title: "Aequanimity",
-      name: "Aequanimity",
-      author: "pratykarya",
-      href: "https://twitter.com/PratykArya",
-      rows: 2,
-    },
-    {
-      img: "/InfoSection/Christiopkosin.webp",
-      title: "Christiopkosin",
-      name: "Christiopkosin",
-      author: "Christiopkosin",
-      href: "",
-    },
-    {
-      img: "/InfoSection/the_dansant.webp",
-      title: "The Dansant",
-      name: "The Dansant",
-      author: "the_dansant",
-      href: "https://twitter.com/the_dansant",
-      rows: 2,
-    },
-    {
-      img: "/InfoSection/boldwockeez.webp",
-      title: "boldwockeez",
-      name: "boldwockeez",
-      author: "cryptoduuudes",
-      href: "https://twitter.com/CryptoDuuudes",
-    },
-    {
-      img: "/InfoSection/MantleMonkeys.webp",
-      title: "Mantle Monkeys",
-      name: "Mantle Monkeys",
-      author: "MantleMonkeys",
-      href: "https://twitter.com/MantleMonkeys",
-    },
-    {
-      img: "/InfoSection/mantlewarriors.webp",
-      title: "Mantle Warriors",
-      name: "Mantle Warriors",
-      author: "mantlewarriors",
-      href: "https://twitter.com/mantlewarriors",
-    },
-    {
-      img: "/InfoSection/OblitusMantra1.webp",
-      title: "Oblitus Mantra - Forgotten Worlds",
-      name: "Oblitus Mantra",
-      author: "Oblitus",
-      href: "https://twitter.com/Oblitus_NFT",
-    },
-    {
-      img: "/InfoSection/OblitusMantra2.webp",
-      title: "Oblitus Mantra - Forgotten Worlds",
-      name: "Oblitus Mantra",
-      author: "Oblitus",
-      href: "https://twitter.com/Oblitus_NFT",
-      rows: 2,
-    },
-    {
-      img: "/InfoSection/Pinnacle1.webp",
-      title: "Pinnacle",
-      name: "Pinnacle",
-      author: "Zeelectric",
-      href: "",
-      rows: 2,
-    },
-    {
-      img: "/InfoSection/Pinnacle2.webp",
-      title: "Pinnacle",
-      name: "Pinnacle",
-      author: "Zeelectric",
-      href: "",
-      rows: 2,
-    },
-  ],
-};
-
-const listStyle = {
-  margin: { xs: "auto", md: "auto 0" },
-  height: "100%",
-};
-
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -140,48 +20,48 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-const Content = () => {
+const Content = ({ infoSectionConfigData, listStyle }) => {
   return (
     <Grid container spacing={0} sx={{ alignItems: "center" }}>
       <Grid item xs={12} md={5}>
         <Box
           sx={listStyle}
           maxWidth={
-            InfoSectionConfigData.contentMaxWidth
-              ? InfoSectionConfigData.contentMaxWidth
+            infoSectionConfigData.contentMaxWidth
+              ? infoSectionConfigData.contentMaxWidth
               : "480px"
           }
         >
-          {InfoSectionConfigData.title && (
+          {infoSectionConfigData.title && (
             <Typography
               variant={
-                InfoSectionConfigData.titleVariant
-                  ? InfoSectionConfigData.titleVariant
+                infoSectionConfigData.titleVariant
+                  ? infoSectionConfigData.titleVariant
                   : "h1"
               }
-              color={InfoSectionConfigData.titleColor}
+              color={infoSectionConfigData.titleColor}
               gutterBottom
             >
-              {InfoSectionConfigData.title}
+              {infoSectionConfigData.title}
             </Typography>
           )}
-          {InfoSectionConfigData.description &&
-          Array.isArray(InfoSectionConfigData.description) ? (
+          {infoSectionConfigData.description &&
+          Array.isArray(infoSectionConfigData.description) ? (
             <Stack
               spacing={4}
               sx={
-                InfoSectionConfigData.descriptionStyle
-                  ? InfoSectionConfigData.descriptionStyle
+                infoSectionConfigData.descriptionStyle
+                  ? infoSectionConfigData.descriptionStyle
                   : {
                       pb: 2,
                       maxWidth: "92%",
                     }
               }
             >
-              {InfoSectionConfigData.description.map((item, index) => (
+              {infoSectionConfigData.description.map((item, index) => (
                 <Typography
-                  variant={InfoSectionConfigData.descriptionVariant}
-                  color={InfoSectionConfigData.descriptionColor}
+                  variant={infoSectionConfigData.descriptionVariant}
+                  color={infoSectionConfigData.descriptionColor}
                   key={index}
                 >
                   {item}
@@ -191,18 +71,18 @@ const Content = () => {
           ) : (
             <Typography
               component="p"
-              variant={InfoSectionConfigData.descriptionVariant}
-              color={InfoSectionConfigData.descriptionColor}
+              variant={infoSectionConfigData.descriptionVariant}
+              color={infoSectionConfigData.descriptionColor}
               sx={
-                InfoSectionConfigData.descriptionStyle
-                  ? InfoSectionConfigData.descriptionStyle
+                infoSectionConfigData.descriptionStyle
+                  ? infoSectionConfigData.descriptionStyle
                   : {
                       pb: 2,
                       maxWidth: "92%",
                     }
               }
             >
-              {InfoSectionConfigData.description}
+              {infoSectionConfigData.description}
             </Typography>
           )}
         </Box>
@@ -218,15 +98,15 @@ const Content = () => {
       >
         <ImageList
           sx={{ width: "min(640px, 100%)", margin: { xs: "auto", md: "0" } }}
-          variant={InfoSectionConfigData.imageListVariant}
+          variant={infoSectionConfigData.imageListVariant}
           cols={3}
           gap={16}
           rowHeight={130}
         >
-          {Array.isArray(InfoSectionConfigData.imageData) &&
-            InfoSectionConfigData.imageData &&
-            InfoSectionConfigData.imageData.length &&
-            InfoSectionConfigData.imageData.map((item) => (
+          {Array.isArray(infoSectionConfigData.imageData) &&
+            infoSectionConfigData.imageData &&
+            infoSectionConfigData.imageData.length &&
+            infoSectionConfigData.imageData.map((item) => (
               <ImageListItem
                 key={item.img}
                 cols={item.cols || 1}
@@ -258,7 +138,7 @@ const Content = () => {
                 >
                   {item.author && (
                     <Button
-                      variant={InfoSectionConfigData.authorVariant}
+                      variant={infoSectionConfigData.authorVariant}
                       size="large"
                       component="a"
                       href={item.href ? item.href : null}
@@ -277,8 +157,8 @@ const Content = () => {
                   {item.name && (
                     <Typography
                       component="p"
-                      variant={InfoSectionConfigData.artVariant}
-                      color={InfoSectionConfigData.artColor}
+                      variant={infoSectionConfigData.artVariant}
+                      color={infoSectionConfigData.artColor}
                     >
                       {item.name}
                     </Typography>
@@ -292,10 +172,13 @@ const Content = () => {
   );
 };
 
-export default function InfoSection() {
+export default function InfoSection({ infoSectionConfigData, listStyle }) {
   return (
     <Section>
-      <Content />
+      <Content
+        infoSectionConfigData={infoSectionConfigData}
+        listStyle={listStyle}
+      />
     </Section>
   );
 }

@@ -12,91 +12,37 @@ import React from "react";
 import Section from "../components/Section";
 import { Box } from "@mui/system";
 
-const headerLogoStyles = {
-  height: "170px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-const leftSubsectionData = {
-  items: [
-    {
-      image: "images/universe_section/Mantle_Products.png",
-      title: "Mantle Products",
-      subData: [
-        "MantlePlace",
-        "MantleBuilder",
-        "MantleWallet",
-        "MantleExplorer",
-        "+2 More",
-      ],
-    },
-    {
-      image: "images/universe_section/Mantle_Chain.png",
-      title: "Mantle-1 Chain",
-      subData: ["$MNTL Token", "Foundation Validators"],
-    },
-    {
-      image: "images/universe_section/Mantle_Creatives.png",
-      title: "Mantle Creatives",
-      subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
-    },
-    {
-      image: "images/universe_section/Community_Initiatives.png",
-      title: "Community Initiatives",
-      subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
-    },
-  ],
-};
-
-const rightSubsectionData = {
-  items: [
-    {
-      image: "images/universe_section/Partnerships.png",
-      title: "Partnerships",
-      subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
-    },
-    {
-      image: "images/universe_section/Ecosystem_Projects.png",
-      title: "Ecosystem Projects",
-      subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
-    },
-    {
-      image: "images/universe_section/Integrations.png",
-      title: "Integrations",
-      subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
-    },
-    {
-      image: "images/universe_section/Grants.png",
-      title: "Grants",
-      subData: ["Internal Development", "External Integrations", "Products"],
-    },
-  ],
-};
-
 // leftSubsectionData.items.map((ele) => {
 //   ele.subData.map((data) => {
 //     console.log(data);
 //   });
 // });
 
-export default function UniverseSection() {
+export default function UniverseSection({
+  leftSubsectionData,
+  rightSubsectionData,
+  headerLogoStyles,
+}) {
   return (
     <Section
       title="The Mantle Universe"
       subTitle="There are other entities, apart from AssetMantle, that come under our central entity called MantleLabs, which span Community based, Partner based and other signature creations. "
     >
-      <Button variant="contained" component="a" href="/ecosystems" size="large">
+      <Button
+        variant={leftSubsectionData.buttonVariant}
+        component="a"
+        href="/ecosystems"
+        size="large"
+      >
         Learn More <KeyboardArrowRightIcon />
       </Button>
-      <Grid disableGutters spacing={2} container>
+      <Grid spacing={2} container>
         <Grid item xs={12} md={6}>
           <Stack spacing={2}>
             <Paper variant="translucent" sx={headerLogoStyles}>
               <img width="80%" src="/static/Logo.svg" />
             </Paper>
-            <Paper variant="translucent">
+            <Paper variant={leftSubsectionData.paperVariant}>
               <Grid
                 justifyContent="space-around"
                 alignItems="start"
@@ -159,8 +105,8 @@ export default function UniverseSection() {
                         </Box>
                         <Typography
                           align="center"
-                          variant="h4"
-                          color="primary.main"
+                          variant={rightSubsectionData.titleVariant}
+                          color={rightSubsectionData.titleColor}
                         >
                           {element.title}
                         </Typography>
@@ -170,7 +116,10 @@ export default function UniverseSection() {
                               sx={{ display: "flex", justifyContent: "center" }}
                               key={idx}
                             >
-                              <Typography align="center" variant="body1">
+                              <Typography
+                                align="center"
+                                variant={rightSubsectionData.listVariant}
+                              >
                                 {listItem}
                               </Typography>
                             </ListItem>

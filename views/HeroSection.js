@@ -17,42 +17,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 // import Icon from '@mui/material/Icon';
 
-const sectionStyle = {
-  pt: 4,
-  mt: 2,
-  pb: 4,
-  mb: 4,
-  color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "center" },
-  // minHeight: { xs: "100vh", xl: "0vh" },
-  // backgroundColor: "orange",
-};
-
-const contentSheet = {
-  title: "Redefining Digital Asset Ownership",
-  subtitle:
-    "Experience the first NFT marketplace with blockchain-based identity",
-  buttons: [
-    {
-      label: "Learn More",
-      endIcon: "keyboard_arrow_right",
-      variant: "outlined",
-    },
-    {
-      label: "Documentation",
-      endIcon: "keyboard_arrow_right",
-      variant: "contained",
-    },
-  ],
-  image: "/HeroSection/mantler.webp",
-  translucentStripData: [
-    { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
-    { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
-    { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
-  ],
-};
-
-export default function HeroSection() {
+export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   // contents of right sub-section
   const LeftSubSectionJSX = (
     <Stack
@@ -63,21 +28,21 @@ export default function HeroSection() {
     >
       {/* Title */}
       <Typography
-        variant="h1"
-        color="secondary.main"
+        variant={sectionStyle.titleVariant}
+        color={sectionStyle.titleColor}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {contentSheet.title}
+        {heroSectionConfigData.title}
       </Typography>
       {/* Subtitle */}
       <Typography
-        variant="subtitle1"
-        color="primary.main"
+        variant={sectionStyle.subTitleVariant}
+        color={sectionStyle.subTitleColor}
         align="left"
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {contentSheet.subtitle}
+        {heroSectionConfigData.subtitle}
       </Typography>
       {/* CTA */}
       <Box
@@ -88,8 +53,9 @@ export default function HeroSection() {
         pb={4}
         sx={{ backgroundColor: "transparent" }}
       >
-        {contentSheet.buttons.map((ele) => (
+        {heroSectionConfigData.buttons.map((ele, index) => (
           <Button
+            key={index}
             variant={ele.variant}
             size="large"
             endIcon={<Icon>{ele.endIcon}</Icon>}
@@ -118,7 +84,7 @@ export default function HeroSection() {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src={contentSheet.image}
+      src={heroSectionConfigData.image}
       alt="hero_image"
       style={{
         width: "95%",
@@ -132,8 +98,8 @@ export default function HeroSection() {
       component="section"
       sx={sectionStyle}
       id={
-        contentSheet.title &&
-        contentSheet.title.toLowerCase().replaceAll(" ", "-")
+        heroSectionConfigData.title &&
+        heroSectionConfigData.title.toLowerCase().replaceAll(" ", "-")
       }
     >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
@@ -174,8 +140,9 @@ export default function HeroSection() {
               display: "flex",
             }}
           >
-            {contentSheet.translucentStripData.map((ele) => (
+            {heroSectionConfigData.translucentStripData.map((ele, index) => (
               <Grid
+                key={index}
                 item
                 xs={12}
                 sm={6}

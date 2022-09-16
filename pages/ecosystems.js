@@ -1,12 +1,12 @@
 import React from "react";
-import EcosystemsHeroSection from "../views/MantleUniverseSection";
-import EcosystemsLowerSection from "../views/UniverseComponentsSection";
+import CollabsHeroSection from "../views/CollabsHeroSection";
+import CollabsSection from "../views/CollabsSection";
 
 export default function Ecosystems() {
   return (
     <div>
-      <EcosystemsHeroSection />
-      <EcosystemsLowerSection />
+      <CollabsHeroSection />
+      <CollabsSection />
     </div>
   );
 }

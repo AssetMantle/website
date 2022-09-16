@@ -13,11 +13,16 @@ import {
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Section from "../components/Section";
 
-const GalleryConfigData = {
+const gallerySectionConfigData = {
+  paperVariant: "translucent",
+  titleVariant: "h3",
+  titleColor: "primary.main",
+  descriptionVariant: "body1",
+  descriptionColor: "primary.light",
   textAlign: "center", // >>> default: left
   title: "Our Products",
   titleComponent: "h1",
-  titleVariant: "h1",
+  endIcon: "keyboard_arrow_right",
   description:
     "AssetMantle’s suite of products, which is focussed on NFT ecosystem, helps you up your game of digital asset ownership",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
@@ -94,17 +99,23 @@ const optionStyles = {
   flexDirection: "column",
 };
 
-export default function GallerySection() {
+export default function GallerySection({
+  gallerySectionConfigData,
+  optionStyles,
+}) {
   return (
     <Section
-      title={GalleryConfigData.title && GalleryConfigData.title}
-      subTitle={GalleryConfigData.description && GalleryConfigData.description}
+      title={gallerySectionConfigData.title && gallerySectionConfigData.title}
+      subTitle={
+        gallerySectionConfigData.description &&
+        gallerySectionConfigData.description
+      }
     >
-      {Array.isArray(GalleryConfigData.galleries) &&
-        GalleryConfigData.galleries &&
-        GalleryConfigData.galleries.length > 0 && (
+      {Array.isArray(gallerySectionConfigData.galleries) &&
+        gallerySectionConfigData.galleries &&
+        gallerySectionConfigData.galleries.length > 0 && (
           <Grid container spacing={2}>
-            {GalleryConfigData.galleries.map((Gallery, index) => (
+            {gallerySectionConfigData.galleries.map((Gallery, index) => (
               <Grid
                 item
                 xs={12}
@@ -112,7 +123,7 @@ export default function GallerySection() {
                 lg={3}
                 key={`${Math.random()}aks${index}`}
               >
-                <Paper variant="translucent">
+                <Paper variant={gallerySectionConfigData.paperVariant}>
                   <Card sx={optionStyles}>
                     {Gallery.image && (
                       <CardMedia
@@ -132,15 +143,20 @@ export default function GallerySection() {
                         {Gallery.title && (
                           <Typography
                             gutterBottom
-                            variant="h3"
+                            variant={gallerySectionConfigData.titleVariant}
                             component="h3"
-                            color="primary.main"
+                            color={gallerySectionConfigData.titleColor}
                           >
                             {Gallery.title}
                           </Typography>
                         )}
                         {Gallery.description && (
-                          <Typography variant="body1" color="primary.light">
+                          <Typography
+                            variant={
+                              gallerySectionConfigData.descriptionVariant
+                            }
+                            color={gallerySectionConfigData.descriptionColor}
+                          >
                             {Gallery.description}
                           </Typography>
                         )}
@@ -169,7 +185,8 @@ export default function GallerySection() {
                           >
                             {button.text && (
                               <>
-                                {button.text} <Icon>keyboard_arrow_right</Icon>
+                                {button.text}{" "}
+                                <Icon>{gallerySectionConfigData.endIcon}</Icon>
                               </>
                             )}
                           </Button>

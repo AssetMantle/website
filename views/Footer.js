@@ -351,6 +351,7 @@ export default function Footer(props) {
                       <Stack sx={{ pt: 3 }} spacing={2}>
                         {FooterConfigData.colFour.list.map((item, index) => (
                           <NextLink
+                            key={index}
                             color="primary.main"
                             underline="hover"
                             variant="caption"
@@ -395,7 +396,7 @@ export default function Footer(props) {
             },
           }}
         >
-          © AssetMantle {new Date().getFullYear()} - All rights reserved
+          <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
     </>
