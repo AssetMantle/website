@@ -61,6 +61,9 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                     borderColor: "grey.700",
                     py: 2,
                     px: 2,
+                    "&:last-child": {
+                      borderColor: "transparent",
+                    },
                   }}
                 >
                   {data.menuIcon && data.menuIcon}
@@ -99,6 +102,7 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
               ) : (
                 <Accordion
                   variant="transparent"
+                  defaultExpanded={!data.isNestMenuCollapsed}
                   key={data.menuName && data.menuName + index}
                 >
                   <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{}}>
