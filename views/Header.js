@@ -65,7 +65,7 @@ const itemList = [
         menuIcon: <SendTimeExtensionIcon />,
         menuDescription: "",
         isExternalURL: false,
-        isNestMenuCollapsed: true,
+        isNestMenuCollapsed: false,
         titleExist: true,
         url: [
           {
