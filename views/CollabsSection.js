@@ -21,13 +21,12 @@ import {
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState } from "react";
 import Section from "../components/Section";
-import { MergeType } from "@mui/icons-material";
 
 export default function CollabsSection({ configData }) {
   const [activeFilters, setActiveFilters] = useState([]);
   const [projects, setProjects] = useState("All Projects");
   const [searchData, setSearchData] = useState("");
-  const [nameFilters, setNameFilters] = useState("");
+  const [searchBoxFilters, setsearchBoxFilters] = useState("");
   let filters = [];
 
   const getFilters = (array) => {
@@ -53,9 +52,14 @@ export default function CollabsSection({ configData }) {
         (compareArrayItem) => element.filters.indexOf(compareArrayItem) != -1
       )
     );
-    if (nameFilters.length) {
+    if (searchBoxFilters.length) {
       sortedData = configData.list.filter((element) => {
-        return element.name.toLowerCase() == nameFilters.toLowerCase();
+        return (
+          element.name.toLowerCase().includes(searchBoxFilters.toLowerCase()) ||
+          element.description
+            .toLowerCase()
+            .includes(searchBoxFilters.toLowerCase())
+        );
       });
     }
     getFilters(sortedData);
@@ -63,7 +67,7 @@ export default function CollabsSection({ configData }) {
   };
 
   const submitSearchData = () => {
-    setNameFilters(searchData);
+    setsearchBoxFilters(searchData);
   };
 
   let sortedArray = getSortedArray();
@@ -92,7 +96,7 @@ export default function CollabsSection({ configData }) {
               onChange={(e) => {
                 setSearchData(e.target.value);
                 if (e.target.value.length == 0) {
-                  setNameFilters("");
+                  setsearchBoxFilters("");
                   return;
                 }
               }}
@@ -100,9 +104,18 @@ export default function CollabsSection({ configData }) {
             />
 
             <Grid item>
-              <Select value={projects} onChange={handleDropdownChange}>
+              <Select
+                MenuProps={{ PaperProps: { variant: "translucent" } }}
+                value={projects}
+                onChange={handleDropdownChange}
+              >
                 {configData.dropdownFilters.map((ele) => (
-                  <MenuItem value={ele.text}>{ele.text}</MenuItem>
+                  <MenuItem color="primary.main" value={ele.text}>
+                    <Typography color="primary.main" variant="body1">
+                      {" "}
+                      {ele.text}
+                    </Typography>
+                  </MenuItem>
                 ))}
               </Select>
             </Grid>
@@ -125,8 +138,9 @@ export default function CollabsSection({ configData }) {
                   <Grid key={index} item>
                     <Chip
                       sx={{ px: 2 }}
-                      color={
-                        activeFilters.includes(type) ? "warning" : "primary"
+                      color="primary"
+                      variant={
+                        activeFilters.includes(type) ? "filled" : "outlined"
                       }
                       onClick={() => {
                         if (activeFilters.includes(type)) {

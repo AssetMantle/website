@@ -6,7 +6,7 @@ export default function Ecosystems(props) {
   return (
     <div>
       <CollabsHeroSection configData={props.collabsHeroSectionConfigData} />
-      <CollabsSection configData={props.CollabsSectionConfigData} />
+      <CollabsSection configData={props.collabsSectionConfigData} />
     </div>
   );
 }
@@ -21,10 +21,12 @@ export async function getStaticProps() {
       "Experience the first NFT marketplace with blockchain based identity",
     image: "/CollabsHeroSection/mantleUniverse.png",
   };
-  const CollabsSectionConfigData = {
+  const collabsSectionConfigData = {
     cardVariant: "translucent",
     textFieldVariant: "outlined",
     nameVariant: "h4",
+    nameColor: "primary.main",
+    filterColor: "primary",
     descriptionVariant: "body2",
     list: [
       {
@@ -344,5 +346,5 @@ export async function getStaticProps() {
       { text: "MantleLabs" },
     ],
   };
-  return { props: { collabsHeroSectionConfigData, CollabsSectionConfigData } };
+  return { props: { collabsHeroSectionConfigData, collabsSectionConfigData } };
 }

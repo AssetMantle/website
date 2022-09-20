@@ -529,6 +529,9 @@ export async function getStaticProps() {
     textAlign: { xs: "center", md: "left" },
   };
   const universeSectionLeftSubSectionData = {
+    sectionTitle: "The Mantle Universe",
+    sectionSubTitle:
+      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven product & service creation",
     paperVariant: "translucent",
     buttonVariant: "contained",
     items: [

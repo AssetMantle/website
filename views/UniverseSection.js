@@ -25,8 +25,8 @@ export default function UniverseSection({
 }) {
   return (
     <Section
-      title="The Mantle Universe"
-      subTitle="There are other entities, apart from AssetMantle, that come under our central entity called MantleLabs, which span Community based, Partner based and other signature creations. "
+      title={leftSubsectionData.sectionTitle}
+      subTitle={leftSubsectionData.sectionSubTitle}
     >
       <Button
         variant={leftSubsectionData.buttonVariant}
