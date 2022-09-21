@@ -4,21 +4,12 @@ import {
   Grid,
   Typography,
   Chip,
-  Box,
   Card,
   Select,
   CardContent,
-  Paper,
-  ButtonBase,
   MenuItem,
-  InputLabel,
-  FormControl,
-  InputAdornment,
   CardHeader,
-  Avatar,
-  CardActions,
 } from "@mui/material";
-import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { React, useState } from "react";
 import Section from "../components/Section";
 
@@ -26,7 +17,6 @@ export default function CollabsSection({ configData }) {
   const [activeFilters, setActiveFilters] = useState([]);
   const [projects, setProjects] = useState("All Projects");
   const [searchData, setSearchData] = useState("");
-  const [searchBoxFilters, setsearchBoxFilters] = useState("");
   let filters = [];
 
   const getFilters = (array) => {
@@ -41,10 +31,21 @@ export default function CollabsSection({ configData }) {
   };
 
   const handleDropdownChange = (event) => {
+    setActiveFilters([]);
     setProjects(event.target.value);
   };
 
   const getSortedArray = () => {
+    if (searchData.length) {
+      sortedData = configData.list.filter((element) => {
+        return (
+          element.name.toLowerCase().includes(searchData.toLowerCase()) ||
+          element.description.toLowerCase().includes(searchData.toLowerCase())
+        );
+      });
+      return sortedData;
+    }
+
     const compareArray =
       projects == "All Projects" ? activeFilters : [...activeFilters, projects];
     const sortedData = configData.list.filter((element) =>
@@ -52,22 +53,8 @@ export default function CollabsSection({ configData }) {
         (compareArrayItem) => element.filters.indexOf(compareArrayItem) != -1
       )
     );
-    if (searchBoxFilters.length) {
-      sortedData = configData.list.filter((element) => {
-        return (
-          element.name.toLowerCase().includes(searchBoxFilters.toLowerCase()) ||
-          element.description
-            .toLowerCase()
-            .includes(searchBoxFilters.toLowerCase())
-        );
-      });
-    }
     getFilters(sortedData);
     return sortedData;
-  };
-
-  const submitSearchData = () => {
-    setsearchBoxFilters(searchData);
   };
 
   let sortedArray = getSortedArray();
@@ -82,23 +69,14 @@ export default function CollabsSection({ configData }) {
             justifyContent="space-between"
           >
             <TextField
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <ArrowForwardOutlinedIcon
-                      sx={{ cursor: "pointer" }}
-                      onClick={submitSearchData}
-                    />
-                  </InputAdornment>
-                ),
-              }}
+              type="search"
               label="search"
+              // onClose={(e) => {
+              //   setSearchData("");
+
+              // }}
               onChange={(e) => {
                 setSearchData(e.target.value);
-                if (e.target.value.length == 0) {
-                  setsearchBoxFilters("");
-                  return;
-                }
               }}
               variant={configData.textFieldVariant}
             />
@@ -195,7 +173,16 @@ export default function CollabsSection({ configData }) {
                           alt=""
                         />
                       }
-                      action={<Chip color="primary" label={ele.filters["0"]} />}
+                      action={
+                        <Chip
+                          color="primary"
+                          label={
+                            activeFilters.length == 0
+                              ? ele.filters[0]
+                              : activeFilters[0]
+                          }
+                        />
+                      }
                     ></CardHeader>
                     <CardContent>
                       <Typography
