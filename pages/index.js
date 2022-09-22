@@ -425,10 +425,10 @@ export async function getStaticProps() {
         variant: "contained",
       },
       {
-        title: "Airdrops",
-        url: "https://airdrop.assetmantle.one/",
+        title: "Learn More",
+        url: "/about#mntl-token-info",
 
-        icon: "downloading", // url: "/" or component: <Icon/>
+        // icon: "downloading", // url: "/" or component: <Icon/>
 
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
@@ -709,26 +709,26 @@ export async function getStaticProps() {
           },
         ],
       },
-      // {
-      //   image: "/TeamSection/naman.png",
-      //   name: "Naman Kabra",
-      //   designation: "Core - Business Development & Growth",
-      //   designationType: "Founding",
-      //   social: [
-      //     {
-      //       icon: "LinkedIn",
-      //       href: "https://www.linkedin.com/in/namankabra/",
-      //     },
-      //     {
-      //       icon: "Twitter",
-      //       href: "https://twitter.com/307naman",
-      //     },
-      //     {
-      //       icon: "GitHub",
-      //       href: "https://github.com/nk307",
-      //     },
-      //   ],
-      // },
+      {
+        image: "/TeamSection/naman.png",
+        name: "Naman Kabra",
+        designation: "Core - Business Development & Growth",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/namankabra/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/307naman",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/nk307",
+          },
+        ],
+      },
       {
         image: "/TeamSection/sachin.png",
         name: "Sachin Matta",
@@ -749,26 +749,26 @@ export async function getStaticProps() {
           },
         ],
       },
-      // {
-      //   image: "/TeamSection/prabhav.png",
-      //   name: "Prabhav Varambally",
-      //   designation: "Core - Business Operations & Strategy",
-      //   designationType: "Founding",
-      //   social: [
-      //     {
-      //       icon: "LinkedIn",
-      //       href: "https://www.linkedin.com/in/prabhavtv/",
-      //     },
-      //     {
-      //       icon: "Twitter",
-      //       href: "https://twitter.com/Prabhavv_",
-      //     },
-      //     {
-      //       icon: "GitHub",
-      //       href: "https://github.com/Prabhavv",
-      //     },
-      //   ],
-      // },
+      {
+        image: "/TeamSection/prabhav.png",
+        name: "Prabhav Varambally",
+        designation: "Core - Business Operations & Strategy",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/prabhavtv/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/Prabhavv_",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/Prabhavv",
+          },
+        ],
+      },
       {
         image: "/TeamSection/harman.png",
         name: "Harman Sohi",
