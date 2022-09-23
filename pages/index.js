@@ -428,7 +428,7 @@ export async function getStaticProps() {
         title: "Learn More",
         url: "/about#mntl-token-info",
 
-        // icon: "downloading", // url: "/" or component: <Icon/>
+        icon: "keyboard_arrow_right", // url: "/" or component: <Icon/>
 
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,

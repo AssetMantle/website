@@ -171,7 +171,7 @@ export default function ChainSection({ chainSectionConfigData }) {
                       size="large"
                       href={cta.url && cta.url}
                       target={cta.target && cta.target}
-                      endIcon={cta.icon && <Icon>{cta.icon}</Icon>}
+                      endIcon={<Icon>{cta.icon}</Icon>}
                     >
                       {cta.title && cta.title}
                     </Button>
