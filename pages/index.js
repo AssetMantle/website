@@ -63,11 +63,13 @@ export async function getStaticProps() {
         label: "Learn More",
         endIcon: "keyboard_arrow_right",
         variant: "outlined",
+        href: "/about",
       },
       {
         label: "Documentation",
         endIcon: "article",
         variant: "contained",
+        href: "https://docs.assetmantle.one/",
       },
     ],
     image: "/HeroSection/mantler.webp",
