@@ -296,6 +296,7 @@ export default function Footer(props) {
                               color="primary.main"
                               underline="hover"
                               variant="caption"
+                              href={item.link.href}
                             >
                               {item.link.text}
                             </NextLink>
@@ -327,6 +328,7 @@ export default function Footer(props) {
                               color="primary.main"
                               underline="hover"
                               variant="caption"
+                              href={item.link.href}
                             >
                               {item.link.text}
                             </NextLink>
@@ -355,6 +357,7 @@ export default function Footer(props) {
                             color="primary.main"
                             underline="hover"
                             variant="caption"
+                            href={item.link.href}
                           >
                             {item.link.text}
                           </NextLink>
