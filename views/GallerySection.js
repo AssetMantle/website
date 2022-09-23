@@ -116,13 +116,7 @@ export default function GallerySection({
         gallerySectionConfigData.galleries.length > 0 && (
           <Grid container spacing={2}>
             {gallerySectionConfigData.galleries.map((Gallery, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                lg={3}
-                key={`${Math.random()}aks${index}`}
-              >
+              <Grid item xs={12} sm={6} lg={3} key={index}>
                 <Paper variant={gallerySectionConfigData.paperVariant}>
                   <Card sx={optionStyles}>
                     {Gallery.image && (
@@ -174,7 +168,7 @@ export default function GallerySection({
                       >
                         {Gallery.buttons.map((button, i) => (
                           <Button
-                            key={`}-sa${Math.random()}}`}
+                            key={i}
                             component="a"
                             href={button.url && button.url}
                             sx={{
