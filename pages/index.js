@@ -87,7 +87,7 @@ export async function getStaticProps() {
     titleVariant: "h1",
     titleColor: "secondary.main",
     subTitleVariant: "subtitle1",
-    subTitleVariant: "primary.main",
+    subTitleColor: "primary.main",
   };
   const gallerySectionConfigData = {
     paperVariant: "translucent",
@@ -466,7 +466,8 @@ export async function getStaticProps() {
     titleOnLeft: false, // >>> default: false
     titleColor: "primary.main",
     titleVariant: "h4",
-    description: "Find out the unique qualities inherent in the AssetMantle ecosystem which makes our suite of products and services stand out",
+    description:
+      "Find out the unique qualities inherent in the AssetMantle ecosystem which makes our suite of products and services stand out",
     descriptionVariant: "body1",
     descriptionOnLeft: false, // >>> default: false
     descriptionStyle: false, // object of styles or false
@@ -604,7 +605,7 @@ export async function getStaticProps() {
     titleComponent: "h2",
     titleVariant: "h1",
     description:
-    "Browse through the highly skilled and qualified AssetMantle cohort who make the scalable value creation happen",
+      "Browse through the highly skilled and qualified AssetMantle cohort who make the scalable value creation happen",
     descriptionStyle: {
       mt: 4,
       mx: "auto",
@@ -1035,7 +1036,8 @@ export async function getStaticProps() {
     title: "Featured In",
     titleComponent: "",
     titleVariant: "h1",
-    description: "A quick look into the social proof aspect surrounding AssetMantle to get the bearings of its wide adoption factor",
+    description:
+      "A quick look into the social proof aspect surrounding AssetMantle to get the bearings of its wide adoption factor",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     features: [
       // object template

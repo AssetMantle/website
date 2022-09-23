@@ -78,6 +78,13 @@ const FooterConfigData = {
           href: "https://app.osmosis.zone/?from=USDC&to=MNTL",
         },
       },
+      {
+        title: "Tokenomics",
+        link: {
+          text: "Tokenomics",
+          href: "/about#mntl-token-distribution",
+        },
+      },
     ],
   },
   colThree: {
@@ -118,6 +125,13 @@ const FooterConfigData = {
           href: "https://devnet.assetmantle.one/",
         },
       },
+      {
+        title: "Mantle-1 Chain",
+        link: {
+          text: "Mantle-1 Chain",
+          href: "/about#mntl-token-info",
+        },
+      },
     ],
   },
   colFour: {
@@ -148,14 +162,14 @@ const FooterConfigData = {
         title: "About",
         link: {
           text: "About",
-          href: "https://assetmantle.one/about",
+          href: "/about",
         },
       },
       {
         title: "Ecosystems",
         link: {
           text: "Ecosystems",
-          href: "https://assetmantle.one/ecosystems",
+          href: "/ecosystems",
         },
       },
       {
@@ -264,6 +278,7 @@ export default function Footer(props) {
                               color="primary.main"
                               underline="hover"
                               variant="caption"
+                              href={`mailto:${item.text}`}
                             >
                               {item.text}
                             </NextLink>

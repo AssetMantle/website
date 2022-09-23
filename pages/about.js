@@ -56,7 +56,7 @@ export async function getStaticProps() {
   const tokenInfoData = {
     title: "$MNTL Token Info",
     description:
-      "Find out how the protocol token of AssetMantle chain is optimized for maximizing yield using across various DEXs",
+      "Find out how the protocol token of AssetMantle chain is optimized for maximizing yield  across various DEXs",
     left: {
       titleVariant: "h2",
       titleColor: "primary.main",
