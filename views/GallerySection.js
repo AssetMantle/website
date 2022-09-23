@@ -168,7 +168,7 @@ export default function GallerySection({
                       >
                         {Gallery.buttons.map((button, i) => (
                           <Button
-                            key={i}
+                            key={`ff${i}`}
                             component="a"
                             href={button.url && button.url}
                             sx={{

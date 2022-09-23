@@ -189,7 +189,7 @@ export async function getStaticProps() {
     featuresArray: [
       {
         href: "",
-        icon: "//FeatureSection//optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
         title: "Optimized for NFTs",
         titleVariant: "h4",
         titleColor: "primary.main",
@@ -200,7 +200,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "//FeatureSection//pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
         title: "Cosmos Ecosystem",
         titleVariant: "h4",
         titleColor: "primary.main",
@@ -211,7 +211,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "//FeatureSection//extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
         title: "Extremely Low Fees",
         titleVariant: "h4",
         titleColor: "primary.main",
@@ -222,7 +222,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "//FeatureSection//fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
         title: "Fast Order Fulfillments",
         titleVariant: "h4",
         titleColor: "primary.main",
@@ -233,7 +233,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "//FeatureSection//completelySecure.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
         title: "Completely Secure",
         titleVariant: "h4",
         titleColor: "primary.main",
@@ -244,7 +244,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "//FeatureSection//futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
         title: "Future Interoperability",
         titleVariant: "h4",
         titleColor: "primary.main",

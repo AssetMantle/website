@@ -133,10 +133,9 @@ export default function GallerySection({
                               }}
                             >
                               {member.social.map((button, index) => (
-                                <>
+                                <div key={`sefs${index}`}>
                                   {button.icon === "LinkedIn" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -148,7 +147,6 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "GitHub" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -160,7 +158,6 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Twitter" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -172,7 +169,6 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Behance" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -184,7 +180,6 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Website" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -196,7 +191,6 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Instagram" && (
                                     <Link
-                                      key={index}
                                       sx={linkStyles}
                                       component="a"
                                       href={button.href && button.href}
@@ -206,7 +200,7 @@ export default function GallerySection({
                                       <InstagramIcon />
                                     </Link>
                                   )}
-                                </>
+                                </div>
                               ))}
                             </CardActions>
                           )}
