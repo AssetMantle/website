@@ -13,6 +13,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import BasicMenu from "../components/BasicMenu";
 
+import WarehouseIcon from "@mui/icons-material/Warehouse";
+import SendTimeExtensionIcon from "@mui/icons-material/SendTimeExtension";
+import TokenIcon from "@mui/icons-material/Token";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import ArticleIcon from "@mui/icons-material/Article";
+import CodeIcon from "@mui/icons-material/Code";
+
 // contents of menu and/or drawer
 const itemList = [
   {
@@ -24,6 +31,8 @@ const itemList = [
     url: [
       {
         menuName: "In-House",
+        menuIcon: <WarehouseIcon />,
+        menuDescription: "",
         isExternalURL: false,
         isNestMenuCollapsed: false,
         url: [
@@ -55,8 +64,10 @@ const itemList = [
       },
       {
         menuName: "External",
+        menuIcon: <SendTimeExtensionIcon />,
+        menuDescription: "",
         isExternalURL: false,
-        isNestMenuCollapsed: true,
+        isNestMenuCollapsed: false,
         titleExist: true,
         url: [
           {
@@ -133,6 +144,8 @@ const itemList = [
     url: [
       {
         menuName: "Token",
+        menuIcon: <TokenIcon />,
+        menuDescription: "",
         isExternalURL: true,
         isNestMenuCollapsed: true,
         url: [
@@ -152,6 +165,8 @@ const itemList = [
       },
       {
         menuName: "Tracking",
+        menuIcon: <TimelineIcon />,
+        menuDescription: "",
         isExternalURL: true,
         isNestMenuCollapsed: true,
         url: [
@@ -179,6 +194,8 @@ const itemList = [
     url: [
       {
         menuName: "Docs",
+        menuIcon: <ArticleIcon />,
+        menuDescription: "",
         isExternalURL: true,
         isNestMenuCollapsed: false,
         url: [
@@ -204,6 +221,8 @@ const itemList = [
       },
       {
         menuName: "Developer Resources",
+        menuIcon: <CodeIcon />,
+        menuDescription: "",
         isExternalURL: true,
         isNestMenuCollapsed: false,
         url: [
@@ -371,7 +390,6 @@ export default function Header(props) {
           </Box>
         </AppBar>
       </ElevationScroll>
-
       <Toolbar id="back-to-top-anchor" />
     </>
   );
