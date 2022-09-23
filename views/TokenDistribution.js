@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../components/Section";
 
 export default function TokenDistribution({ tokenDistributionData }) {
-  console.log(tokenDistributionData);
+  // console.log(tokenDistributionData);
   return (
     <Section
       title={tokenDistributionData.title}

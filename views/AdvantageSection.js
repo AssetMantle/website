@@ -17,7 +17,7 @@ export default function AdvantageSection({
   initiativeSectionConfigData,
   initiativeSectionListStyle,
 }) {
-  console.log(initiativeSectionConfigData, initiativeSectionListStyle);
+  // console.log(initiativeSectionConfigData, initiativeSectionListStyle);
   return (
     <Section
       title={initiativeSectionConfigData.title}
