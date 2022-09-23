@@ -2,7 +2,7 @@ import { Grid, Stack, Typography, List, ListItem } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
 
-export default function ExplanationSection() {
+export default function ExplanationSection({ explanationSectionData }) {
   return (
     <>
       <Section>
@@ -19,11 +19,11 @@ export default function ExplanationSection() {
             lg={5}
           >
             <Stack spacing={2}>
-              <Typography variant="h1">What is AssetMantle?</Typography>
-              <Typography variant="subtitle2">
-                AssetMantle is a multi-tenant NFT marketplace framework that
-                enables creators and collectors to securely mint, own, and trade
-                digital assets on its fast-finality blockchain.
+              <Typography variant={explanationSectionData.questionVariant}>
+                {explanationSectionData.question}
+              </Typography>
+              <Typography variant={explanationSectionData.answerVariant}>
+                {explanationSectionData.answer}
               </Typography>
             </Stack>
           </Grid>

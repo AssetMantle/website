@@ -6,24 +6,30 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   Paper,
   Typography,
 } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Section from "../components/Section";
 
-const GalleryConfigData = {
+const gallerySectionConfigData = {
+  paperVariant: "translucent",
+  titleVariant: "h3",
+  titleColor: "primary.main",
+  descriptionVariant: "body1",
+  descriptionColor: "primary.light",
   textAlign: "center", // >>> default: left
   title: "Our Products",
   titleComponent: "h1",
-  titleVariant: "h1",
+  endIcon: "keyboard_arrow_right",
   description:
     "AssetMantle’s suite of products, which is focussed on NFT ecosystem, helps you up your game of digital asset ownership",
   descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
   galleries: [
     // object template
     // {
-    //   image: "/images/products/mantleplace.png",
+    //   image: "/GallerySection//mantleplace.png",
     //   title: "",
     //   description: "",
     //   buttons: [
@@ -34,7 +40,7 @@ const GalleryConfigData = {
     //   ],
     // },
     {
-      image: "/images/products/MantlePlace.png",
+      image: "/GallerySection//MantlePlace.png",
       title: "MantlePlace",
       description:
         "A new, highly optimized NFT marketplace for Cosmos Ecosystem",
@@ -46,7 +52,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleBuilder.png",
+      image: "/GallerySection//MantleBuilder.png",
       title: "MantleBuilder",
       description:
         "Coming soon, a no-code marketplace builder for NFT shopifying",
@@ -58,7 +64,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleWallet.png",
+      image: "/GallerySection//MantleWallet.png",
       title: "MantleWallet",
       description: "A non-custodial blockchain wallet for AssetMantle chain",
       buttons: [
@@ -69,7 +75,7 @@ const GalleryConfigData = {
       ],
     },
     {
-      image: "/images/products/MantleExplorer.png",
+      image: "/GallerySection//MantleExplorer.png",
       title: "MantleExplorer",
       description: "A detailed blockchain explorer for the AssetMantle chain",
       buttons: [
@@ -93,25 +99,25 @@ const optionStyles = {
   flexDirection: "column",
 };
 
-export default function GallerySection() {
+export default function GallerySection({
+  gallerySectionConfigData,
+  optionStyles,
+}) {
   return (
     <Section
-      title={GalleryConfigData.title && GalleryConfigData.title}
-      subTitle={GalleryConfigData.description && GalleryConfigData.description}
+      title={gallerySectionConfigData.title && gallerySectionConfigData.title}
+      subTitle={
+        gallerySectionConfigData.description &&
+        gallerySectionConfigData.description
+      }
     >
-      {Array.isArray(GalleryConfigData.galleries) &&
-        GalleryConfigData.galleries &&
-        GalleryConfigData.galleries.length > 0 && (
+      {Array.isArray(gallerySectionConfigData.galleries) &&
+        gallerySectionConfigData.galleries &&
+        gallerySectionConfigData.galleries.length > 0 && (
           <Grid container spacing={2}>
-            {GalleryConfigData.galleries.map((Gallery, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                lg={3}
-                key={`${Math.random()}aks${index}`}
-              >
-                <Paper variant="translucent">
+            {gallerySectionConfigData.galleries.map((Gallery, index) => (
+              <Grid item xs={12} sm={6} lg={3} key={index}>
+                <Paper variant={gallerySectionConfigData.paperVariant}>
                   <Card sx={optionStyles}>
                     {Gallery.image && (
                       <CardMedia
@@ -131,15 +137,20 @@ export default function GallerySection() {
                         {Gallery.title && (
                           <Typography
                             gutterBottom
-                            variant="h3"
+                            variant={gallerySectionConfigData.titleVariant}
                             component="h3"
-                            color="primary.main"
+                            color={gallerySectionConfigData.titleColor}
                           >
                             {Gallery.title}
                           </Typography>
                         )}
                         {Gallery.description && (
-                          <Typography variant="body1" color="primary.light">
+                          <Typography
+                            variant={
+                              gallerySectionConfigData.descriptionVariant
+                            }
+                            color={gallerySectionConfigData.descriptionColor}
+                          >
                             {Gallery.description}
                           </Typography>
                         )}
@@ -157,7 +168,7 @@ export default function GallerySection() {
                       >
                         {Gallery.buttons.map((button, i) => (
                           <Button
-                            key={`}-sa${Math.random()}}`}
+                            key={`ff${i}`}
                             component="a"
                             href={button.url && button.url}
                             sx={{
@@ -168,7 +179,8 @@ export default function GallerySection() {
                           >
                             {button.text && (
                               <>
-                                {button.text} <KeyboardArrowRightIcon />
+                                {button.text}{" "}
+                                <Icon>{gallerySectionConfigData.endIcon}</Icon>
                               </>
                             )}
                           </Button>

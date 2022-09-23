@@ -5,96 +5,35 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
 import React from "react";
-import CallMadeIcon from "@mui/icons-material/CallMade";
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import Section from "../components/Section";
 
-const InitiativeSectionConfigData = {
-  textAlign: "center", // >>> default: left
-  title: "The AssetMantle Advantage",
-  titleOnLeft: false, // >>> default: false
-  titleComponent: "h2",
-  titleVariant: "h1",
-  description: "",
-  descriptionOnLeft: false, // >>> default: false
-  descriptionStyle: false, // object of styles or false
-  backgroundImage: "", // "url('/images/mantleplace.png')",
-  leftImage: "/images/advantage/advantage_bg.png", // "url('/images/mantleplace.png')",
-  ctas: [
-    {
-      title: "Whitepaper",
-      url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
-      icon: <CallMadeIcon />, // url: "/" or component: <Icon/>
-      target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-      disabled: false,
-      variant: "contained",
-    },
-    {
-      title: "litepaper",
-      url: "/litepaper.pdf",
-      icon: <FileDownloadOutlinedIcon />, // url: "/" or component: <Icon/>
-      target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-      disabled: false,
-      variant: "outlined",
-    },
-  ],
-  initiatives: [
-    {
-      icon: "/images/advantage/multiChain.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-      title: "Multi-Chain Access",
-      description:
-        "Trade NFT on other chains or show them off across metaverses",
-    },
-    {
-      icon: "/images/advantage/highEconomical.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-      title: "Highly Economical ROI",
-      description:
-        "Leverage a rich NFT Economy on an IBC enabled Cosmos Ecosystem at negligible cost",
-    },
-    {
-      icon: "/images/advantage/multiplePayment.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-      title: "Multiple Payment Modes",
-      description:
-        "Experience AssetMantle with fiat currency, coins or stablecoins",
-    },
-    {
-      icon: "/images/advantage/noCodeCustomization.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-      title: "No-Code Customization Engine",
-      description:
-        "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
-    },
-  ],
-};
-
-const listStyle = {
-  background: "transparent",
-  pl: { xs: 2, md: 0 },
-  pr: 2,
-  py: 3,
-
-  color: "primary.light",
-  display: "flex",
-  flexDirection: { xs: "column", md: "row" },
-  alignItems: "center",
-  textAlign: { xs: "center", md: "left" },
-};
-
-export default function AdvantageSection() {
+export default function AdvantageSection({
+  initiativeSectionConfigData,
+  initiativeSectionListStyle,
+}) {
+  // console.log(initiativeSectionConfigData, initiativeSectionListStyle);
   return (
     <Section
-      title={InitiativeSectionConfigData.title}
+      title={initiativeSectionConfigData.title}
       subTitle={
-        InitiativeSectionConfigData.description &&
-        !InitiativeSectionConfigData.descriptionOnLeft &&
-        InitiativeSectionConfigData.description
+        initiativeSectionConfigData.description &&
+        initiativeSectionConfigData.description
       }
     >
-      <Grid container spacing={2} maxWidth="lg">
+      <Grid
+        container
+        spacing={2}
+        maxWidth="lg"
+        sx={{
+          background: "url(/AdvantageSection/advantage_bg.png) no-repeat left",
+        }}
+      >
         <Grid
           item
           xs={12}
@@ -105,41 +44,31 @@ export default function AdvantageSection() {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
-            backgroundImage:
-              InitiativeSectionConfigData.leftImage &&
-              `url('${InitiativeSectionConfigData.leftImage}')`,
-            backgroundSize: "contain",
-            backgroundPosition: { xs: "center", md: "left" },
-            backgroundRepeat: "no-repeat",
-            aspectRatio: InitiativeSectionConfigData.leftImage && {
-              xs: "2/1",
-              md: "auto",
-            },
           }}
         >
-          {InitiativeSectionConfigData.ctas &&
-            InitiativeSectionConfigData.ctas.length > 0 && (
+          {initiativeSectionConfigData.ctas &&
+            initiativeSectionConfigData.ctas.length > 0 && (
               <Box
                 sx={{
                   display: "flex",
                   flexWrap: "wrap",
-                  gap: 2,
+                  // gap: 2,
                   pt: 8,
                   justifyContent: "center",
                   width: "100%",
                   mt:
-                    InitiativeSectionConfigData.descriptionOnLeft ||
-                    InitiativeSectionConfigData.titleOnLeft
+                    initiativeSectionConfigData.descriptionOnLeft ||
+                    initiativeSectionConfigData.titleOnLeft
                       ? 0
                       : "auto",
                   mb:
-                    InitiativeSectionConfigData.descriptionOnLeft ||
-                    InitiativeSectionConfigData.titleOnLeft
+                    initiativeSectionConfigData.descriptionOnLeft ||
+                    initiativeSectionConfigData.titleOnLeft
                       ? 0
                       : 8,
                 }}
               >
-                {InitiativeSectionConfigData.ctas.map((cta, index) => (
+                {initiativeSectionConfigData.ctas.map((cta, index) => (
                   <Button
                     component="a"
                     variant={cta.variant ? cta.variant : "contained"}
@@ -147,7 +76,7 @@ export default function AdvantageSection() {
                     size="large"
                     href={cta.url && cta.url}
                     target={cta.target && cta.target}
-                    endIcon={cta.icon ? cta.icon : null}
+                    endIcon={<Icon>{cta.icon}</Icon>}
                   >
                     {cta.title && cta.title}
                   </Button>
@@ -156,9 +85,9 @@ export default function AdvantageSection() {
             )}
         </Grid>
         <Grid item xs={12} md={6}>
-          {Array.isArray(InitiativeSectionConfigData.initiatives) &&
-            InitiativeSectionConfigData.initiatives &&
-            InitiativeSectionConfigData.initiatives.length > 0 && (
+          {Array.isArray(initiativeSectionConfigData.initiatives) &&
+            initiativeSectionConfigData.initiatives &&
+            initiativeSectionConfigData.initiatives.length > 0 && (
               <Stack
                 sx={{
                   gap: "10px",
@@ -168,18 +97,18 @@ export default function AdvantageSection() {
                   backgroundColor: "transparent",
                 }}
               >
-                {InitiativeSectionConfigData.initiatives.map(
+                {initiativeSectionConfigData.initiatives.map(
                   (initiative, index) => (
                     <Paper
                       key={index}
-                      variant="translucent"
+                      variant={initiativeSectionConfigData.paperVariant}
                       sx={{
                         mx: { xs: "auto", md: 0 },
                         ml: { md: "auto" },
                         width: "min(500px, 100%)",
                       }}
                     >
-                      <Card sx={listStyle}>
+                      <Card sx={initiativeSectionListStyle}>
                         {initiative.icon &&
                           (typeof initiative.icon === "string" ? (
                             <CardMedia
@@ -196,10 +125,18 @@ export default function AdvantageSection() {
                             initiative.icon
                           ))}
                         <CardContent sx={{ padding: "0 !important" }}>
-                          <Typography variant="h4" color="primary.main">
+                          <Typography
+                            variant={initiativeSectionConfigData.titleVariant}
+                            color={initiativeSectionConfigData.titleColor}
+                          >
                             {initiative.title && initiative.title}
                           </Typography>
-                          <Typography variant="body1" sx={{ pt: 1 }}>
+                          <Typography
+                            variant={
+                              initiativeSectionConfigData.descriptionVariant
+                            }
+                            sx={{ pt: 1 }}
+                          >
                             {initiative.description && initiative.description}
                           </Typography>
                         </CardContent>

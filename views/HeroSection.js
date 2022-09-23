@@ -4,6 +4,7 @@ import {
   Button,
   Divider,
   Grid,
+  Icon,
   Paper,
   Stack,
   Typography,
@@ -11,27 +12,12 @@ import {
 import { Container } from "@mui/system";
 import React from "react";
 import SocialIcons from "../components/SocialIcons";
+// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 // import Icon from '@mui/material/Icon';
 
-const sectionStyle = {
-  pt: 4,
-  mt: 2,
-  pb: 4,
-  mb: 4,
-  color: "primary.light",
-  textAlign: { xs: "center", sm: "center", md: "center" },
-  // minHeight: { xs: "100vh", xl: "0vh" },
-  // backgroundColor: "orange",
-};
-
-const contentSheet = {
-  title: "Redefining Digital Asset Ownership",
-  subtitle:
-    "Experience the first NFT marketplace with blockchain-based identity",
-};
-
-export default function HeroSection() {
+export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   // contents of right sub-section
   const LeftSubSectionJSX = (
     <Stack
@@ -42,50 +28,45 @@ export default function HeroSection() {
     >
       {/* Title */}
       <Typography
-        variant="h1"
-        color="secondary.main"
+        variant={sectionStyle.titleVariant}
+        color={sectionStyle.titleColor}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {contentSheet.title}
+        {heroSectionConfigData.title}
       </Typography>
       {/* Subtitle */}
       <Typography
-        variant="subtitle1"
-        color="primary.main"
+        variant={sectionStyle.subTitleVariant}
+        color={sectionStyle.subTitleColor}
         align="left"
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {contentSheet.subtitle}
+        {heroSectionConfigData.subtitle}
       </Typography>
       {/* CTA */}
       <Box
         display="flex"
-        alignItems="left"
+        flexWrap="wrap"
+        justifyContent={{ xs: "center", md: "flex-start" }}
+        gap={2}
         pt={2}
         pb={4}
         sx={{ backgroundColor: "transparent" }}
       >
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<ArticleIcon />}
-          href="https://docs.assetmantle.one/"
-          target="_blank"
-        >
-          Documentation
-        </Button>
+        {heroSectionConfigData.buttons.map((ele, index) => (
+          <Button
+            key={index}
+            variant={ele.variant}
+            size="large"
+            endIcon={<Icon>{ele.endIcon}</Icon>}
+            href={ele.href}
+            target="_blank"
+          >
+            {ele.label}
+          </Button>
+        ))}
       </Box>
-      {/* <Divider
-        variant="fullWidth"
-        orientation="horizontal"
-        light={true}
-        sx={{
-          width: { xs: "100%", md: "80%" },
-          borderColor: "primary.light",
-          margin: "16px 0 !important",
-        }}
-      /> */}
       <SocialIcons />
     </Stack>
   );
@@ -94,7 +75,7 @@ export default function HeroSection() {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src="/images/hero/mantler.webp"
+      src={heroSectionConfigData.image}
       alt="hero_image"
       style={{
         width: "95%",
@@ -108,8 +89,8 @@ export default function HeroSection() {
       component="section"
       sx={sectionStyle}
       id={
-        contentSheet.title &&
-        contentSheet.title.toLowerCase().replaceAll(" ", "-")
+        heroSectionConfigData.title &&
+        heroSectionConfigData.title.toLowerCase().replaceAll(" ", "-")
       }
     >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
@@ -150,89 +131,37 @@ export default function HeroSection() {
               display: "flex",
             }}
           >
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
+            {heroSectionConfigData.translucentStripData.map((ele, index) => (
+              <Grid
+                key={index}
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                backgroundColor="transparent"
                 justifyContent="center"
-                alignItems="center"
-                spacing={2}
               >
-                <Typography variant="h3" color="primary.main">
-                  35k+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={2}
                 >
-                  COMMUNITY
-                  <br />
-                  MEMBERS
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-              >
-                <Typography variant="h3" color="primary.main">
-                  93k+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-                >
-                  UNIQUE WALLETS
-                  <br />& USERS
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              backgroundColor="transparent"
-              justifyContent="center"
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-              >
-                <Typography variant="h3" color="primary.main">
-                  3M+
-                </Typography>
-                <Typography
-                  variant="caption"
-                  textAlign="left"
-                  // sx={{ fontWeight: "400", textTransform: "capitalize" }}
-                >
-                  TRANSACTIONS
-                  <br />
-                  ON-CHAIN
-                </Typography>
-              </Stack>
-            </Grid>
+                  <Typography variant="h3" color="primary.main">
+                    {ele.amount}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    textAlign="left"
+                    // sx={{ fontWeight: "400", textTransform: "capitalize" }}
+                  >
+                    {ele.top}
+                    <br />
+                    {ele.bottom}
+                  </Typography>
+                </Stack>
+              </Grid>
+            ))}
           </Grid>
         </Paper>
       </Container>

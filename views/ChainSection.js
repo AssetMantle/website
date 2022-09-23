@@ -1,83 +1,15 @@
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Icon, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Section from "../components/Section";
 
-const ChainSectionConfigData = {
-  textAlign: "", // >>> default: left
-  title: "The AssetMantle Chain",
-  subTitle:
-    "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere",
-  subSectionTitle: "$MNTL",
-  subSectionTitleIcon: "/images/chain/mntl.svg", // url:"/someImage.png">>> default: none
-  subSectionTitleVariant: "h1",
-  subSectionTitleColor: "secondary.light",
-  subSectionDescription:
-    "The native token which powers the AssetMantle’s NFT Economy",
-  subSectionDescriptionVariant: "subtitle2",
-  subSectionDescriptionColor: "secondary.light",
-  subSectionDescriptionStyle: {
-    textAlign: { xs: "center" },
-    mx: { xs: "auto !important", sm: "0 !important" },
-    maxWidth: "400px",
-  }, // object of styles or false
-  backgroundImage: "", // "url('/images/mantleplace.png')",
-  defaultChainDescription:
-    "One of the pioneering zones of the rich Cosmos Ecosystem ",
-  ctas: [
-    {
-      title: "Buy Now ",
-      url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
-
-      icon: <ShoppingCartIcon />, // url: "/" or component: <Icon/>
-      target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-      disabled: false,
-      variant: "contained",
-    },
-    {
-      title: "Airdrops",
-      url: "https://airdrop.assetmantle.one/",
-
-      icon: <DownloadingIcon />, // url: "/" or component: <Icon/>
-
-      target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-      disabled: false,
-      variant: "outlined",
-    },
-  ],
-  chains: [
-    {
-      icon: "/images/chain/cosmos.svg", // add url: "https://icon.png"
-      alt: "modular",
-      title: "Implements modular framework from the popular Cosmos SDK",
-    },
-    {
-      icon: "/images/chain/modular.svg", // add url: "https://icon.png"
-      alt: "cosmos",
-      title: "Imbibes the leading Tendermint BFT Consensus Engine",
-    },
-    {
-      icon: "/images/chain/connected.svg", // add url: "https://icon.png"
-      alt: "connected",
-
-      title: "Incorporates connectedness with Cosmos Zones using IBC",
-    },
-    {
-      icon: "/images/chain/interNft.svg", // add url: "https://icon.png"
-      alt: "internft",
-      title: "Inherits the plan to build open standards for interchain NFT",
-    },
-  ],
-};
-
-export default function ChainSection() {
+export default function ChainSection({ chainSectionConfigData }) {
   const [showDescription, setShowDescription] = useState();
-
   return (
     <Section
-      title={ChainSectionConfigData.title}
-      subTitle={ChainSectionConfigData.subTitle}
+      title={chainSectionConfigData.title}
+      subTitle={chainSectionConfigData.subTitle}
     >
       <Grid container spacing={2} backgroundColor="transparent">
         <Grid
@@ -101,11 +33,11 @@ export default function ChainSection() {
             justifyContent="center"
             backgroundColor="transparent"
           >
-            {Array.isArray(ChainSectionConfigData.chains) &&
-              ChainSectionConfigData.chains &&
-              ChainSectionConfigData.chains.length > 0 && (
+            {Array.isArray(chainSectionConfigData.chains) &&
+              chainSectionConfigData.chains &&
+              chainSectionConfigData.chains.length > 0 && (
                 <Grid container spacing={0}>
-                  {ChainSectionConfigData.chains.map((data, index) => (
+                  {chainSectionConfigData.chains.map((data, index) => (
                     <Grid
                       item
                       xs={6}
@@ -130,16 +62,16 @@ export default function ChainSection() {
                 </Grid>
               )}
             <Typography
-              variant="subtitle2"
-              color="primary.main"
+              variant={chainSectionConfigData.descriptionVariant}
+              color={chainSectionConfigData.descriptionColor}
               textAlign="center"
               sx={{
                 maxWidth: "380px",
               }}
             >
               {showDescription
-                ? ChainSectionConfigData.chains[showDescription - 1].title
-                : ChainSectionConfigData.defaultChainDescription}
+                ? chainSectionConfigData.chains[showDescription - 1].title
+                : chainSectionConfigData.defaultChainDescription}
             </Typography>
           </Stack>
         </Grid>
@@ -179,49 +111,49 @@ export default function ChainSection() {
                 backgroundColor: "transparent",
               }}
             >
-              {ChainSectionConfigData.subSectionTitleIcon && (
+              {chainSectionConfigData.subSectionTitleIcon && (
                 <img
-                  src={ChainSectionConfigData.subSectionTitleIcon}
+                  src={chainSectionConfigData.subSectionTitleIcon}
                   alt={
-                    ChainSectionConfigData.subSectionTitle &&
-                    ChainSectionConfigData.subSectionTitle
+                    chainSectionConfigData.subSectionTitle &&
+                    chainSectionConfigData.subSectionTitle
                   }
                   style={{ width: "50%" }}
                 />
               )}
-              {ChainSectionConfigData.subSectionTitle && (
+              {chainSectionConfigData.subSectionTitle && (
                 <Typography
                   variant={
-                    ChainSectionConfigData.subSectionTitleVariant || "h1"
+                    chainSectionConfigData.subSectionTitleVariant || "h1"
                   }
                   color={
-                    ChainSectionConfigData.subSectionTitleColor ||
+                    chainSectionConfigData.subSectionTitleColor ||
                     "primary.main"
                   }
                 >
-                  {ChainSectionConfigData.subSectionTitle}
+                  {chainSectionConfigData.subSectionTitle}
                 </Typography>
               )}
             </Stack>
-            {ChainSectionConfigData.subSectionDescription && (
+            {chainSectionConfigData.subSectionDescription && (
               <Typography
                 variant={
-                  ChainSectionConfigData.subSectionDescriptionVariant || "body1"
+                  chainSectionConfigData.subSectionDescriptionVariant || "body1"
                 }
                 color={
-                  ChainSectionConfigData.subSectionDescriptionColor ||
+                  chainSectionConfigData.subSectionDescriptionColor ||
                   "secondary.main"
                 }
                 sx={
-                  ChainSectionConfigData.subSectionDescriptionStyle &&
-                  ChainSectionConfigData.subSectionDescriptionStyle
+                  chainSectionConfigData.subSectionDescriptionStyle &&
+                  chainSectionConfigData.subSectionDescriptionStyle
                 }
               >
-                {ChainSectionConfigData.subSectionDescription}
+                {chainSectionConfigData.subSectionDescription}
               </Typography>
             )}
-            {ChainSectionConfigData.ctas &&
-              ChainSectionConfigData.ctas.length > 0 && (
+            {chainSectionConfigData.ctas &&
+              chainSectionConfigData.ctas.length > 0 && (
                 <Box
                   sx={{
                     display: "flex",
@@ -231,7 +163,7 @@ export default function ChainSection() {
                     justifyContent: { xs: "center" },
                   }}
                 >
-                  {ChainSectionConfigData.ctas.map((cta, index) => (
+                  {chainSectionConfigData.ctas.map((cta, index) => (
                     <Button
                       component="a"
                       variant={cta.variant ? cta.variant : "contained"}
@@ -239,7 +171,7 @@ export default function ChainSection() {
                       size="large"
                       href={cta.url && cta.url}
                       target={cta.target && cta.target}
-                      endIcon={cta.icon ? cta.icon : null}
+                      endIcon={<Icon>{cta.icon}</Icon>}
                     >
                       {cta.title && cta.title}
                     </Button>
