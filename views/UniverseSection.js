@@ -86,7 +86,11 @@ export default function UniverseSection({
         <Grid item xs={12} md={6}>
           <Stack spacing={2}>
             <Paper variant="translucent" sx={headerLogoStyles}>
-              <img height="80%" src="images/universe_section/MLLogo.png" />
+              <img
+                width="80%"
+                src="UniverseSection/MLLogo.png"
+                style={{ maxWidth: "331px" }}
+              />
             </Paper>
             <Paper variant="translucent">
               <Grid

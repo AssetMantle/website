@@ -87,10 +87,9 @@ export default function CollabsSection({ configData }) {
                 value={projects}
                 onChange={handleDropdownChange}
               >
-                {configData.dropdownFilters.map((ele) => (
-                  <MenuItem color="primary.main" value={ele.text}>
+                {configData.dropdownFilters.map((ele, index) => (
+                  <MenuItem color="primary.main" value={ele.text} key={index}>
                     <Typography color="primary.main" variant="body1">
-                      {" "}
                       {ele.text}
                     </Typography>
                   </MenuItem>

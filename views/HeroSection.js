@@ -45,22 +45,28 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
         {heroSectionConfigData.subtitle}
       </Typography>
       {/* CTA */}
-      <Grid container pt={2} pb={4} sx={{ backgroundColor: "transparent" }}>
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        justifyContent={{ xs: "center", md: "flex-start" }}
+        gap={2}
+        pt={2}
+        pb={4}
+        sx={{ backgroundColor: "transparent" }}
+      >
         {heroSectionConfigData.buttons.map((ele, index) => (
-          <Grid key={index} item xs={12} md={6}>
-            <Button
-              variant={ele.variant}
-              size="large"
-              endIcon={<Icon>{ele.endIcon}</Icon>}
-              href={ele.href}
-              target="_blank"
-            >
-              {ele.label}
-            </Button>
-          </Grid>
+          <Button
+            key={index}
+            variant={ele.variant}
+            size="large"
+            endIcon={<Icon>{ele.endIcon}</Icon>}
+            href={ele.href}
+            target="_blank"
+          >
+            {ele.label}
+          </Button>
         ))}
-      </Grid>
-
+      </Box>
       <SocialIcons />
     </Stack>
   );

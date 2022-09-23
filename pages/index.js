@@ -540,7 +540,7 @@ export async function getStaticProps() {
     buttonVariant: "contained",
     items: [
       {
-        image: "images/universe_section/Mantle_Products.png",
+        image: "UniverseSection/Mantle_Products.png",
         title: "Mantle Products",
         subData: [
           "MantlePlace",
@@ -551,17 +551,17 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "images/universe_section/Mantle_Chain.png",
+        image: "UniverseSection/Mantle_Chain.png",
         title: "Mantle-1 Chain",
         subData: ["$MNTL Token", "Foundation Validators"],
       },
       {
-        image: "images/universe_section/Mantle_Creatives.png",
+        image: "UniverseSection/Mantle_Creatives.png",
         title: "Mantle Creatives",
         subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
       },
       {
-        image: "images/universe_section/Community_Initiatives.png",
+        image: "UniverseSection/Community_Initiatives.png",
         title: "Community Initiatives",
         subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
       },
@@ -573,22 +573,22 @@ export async function getStaticProps() {
     titleVariant: "h4",
     items: [
       {
-        image: "images/universe_section/Partnerships.png",
+        image: "UniverseSection/Partnerships.png",
         title: "Partnerships",
         subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
       },
       {
-        image: "images/universe_section/Ecosystem_Projects.png",
+        image: "UniverseSection/Ecosystem_Projects.png",
         title: "Ecosystem Projects",
         subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
       },
       {
-        image: "images/universe_section/Integrations.png",
+        image: "UniverseSection/Integrations.png",
         title: "Integrations",
         subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
       },
       {
-        image: "images/universe_section/Grants.png",
+        image: "UniverseSection/Grants.png",
         title: "Grants",
         subData: ["Internal Development", "External Integrations", "Products"],
       },
