@@ -24,7 +24,7 @@ const Section = (props) => {
       <Container
         maxWidth="lg"
         sx={{
-          textAlign: "center",
+          // textAlign: "center",
           background,
         }}
       >
