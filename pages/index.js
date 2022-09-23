@@ -66,7 +66,7 @@ export async function getStaticProps() {
       },
       {
         label: "Documentation",
-        endIcon: "keyboard_arrow_right",
+        endIcon: "article",
         variant: "contained",
       },
     ],
@@ -466,6 +466,7 @@ export async function getStaticProps() {
     titleOnLeft: false, // >>> default: false
     titleColor: "primary.main",
     titleVariant: "h4",
+    description: "Find out the unique qualities inherent in the AssetMantle ecosystem which makes our suite of products and services stand out",
     descriptionVariant: "body1",
     descriptionOnLeft: false, // >>> default: false
     descriptionStyle: false, // object of styles or false
@@ -475,7 +476,7 @@ export async function getStaticProps() {
       {
         title: "Whitepaper",
         url: "https://docs.assetmantle.one/AssetMantle_Whitepaper/",
-        icon: "call_made", // url: "/" or component: <Icon/>
+        icon: "article", // url: "/" or component: <Icon/>
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
         variant: "contained",
@@ -531,7 +532,7 @@ export async function getStaticProps() {
   const universeSectionLeftSubSectionData = {
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
-      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven product & service creation",
+      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
     paperVariant: "translucent",
     buttonVariant: "contained",
     items: [
@@ -602,8 +603,8 @@ export async function getStaticProps() {
     title: "Meet our team",
     titleComponent: "h2",
     titleVariant: "h1",
-    /* description:
-    "The Mantle team consists of some of the best minds in their respective fields.", */
+    description:
+    "Browse through the highly skilled and qualified AssetMantle cohort who make the scalable value creation happen",
     descriptionStyle: {
       mt: 4,
       mx: "auto",
@@ -1034,7 +1035,7 @@ export async function getStaticProps() {
     title: "Featured In",
     titleComponent: "",
     titleVariant: "h1",
-    description: "",
+    description: "A quick look into the social proof aspect surrounding AssetMantle to get the bearings of its wide adoption factor",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     features: [
       // object template

@@ -10,6 +10,7 @@ import {
 import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import Section from "../components/Section";
+import TitleAndSubtitle from "../components/TitleAndSubtitle";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -33,29 +34,22 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
           }
         >
           {infoSectionConfigData.title && (
-            <Typography
-              variant={
-                infoSectionConfigData.titleVariant
-                  ? infoSectionConfigData.titleVariant
-                  : "h1"
-              }
-              color={infoSectionConfigData.titleColor}
-              gutterBottom
-            >
-              {infoSectionConfigData.title}
-            </Typography>
+            <TitleAndSubtitle
+              title={infoSectionConfigData.title}
+              textAlign="left"
+              isContent
+            />
           )}
           {infoSectionConfigData.description &&
           Array.isArray(infoSectionConfigData.description) ? (
             <Stack
               spacing={4}
               sx={
-                infoSectionConfigData.descriptionStyle
-                  ? infoSectionConfigData.descriptionStyle
-                  : {
-                      pb: 2,
-                      maxWidth: "92%",
-                    }
+                infoSectionConfigData.descriptionStyle || {
+                  pb: 2,
+                  maxWidth: "92%",
+                  textAlign: "left",
+                }
               }
             >
               {infoSectionConfigData.description.map((item, index) => (
@@ -63,6 +57,7 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
                   variant={infoSectionConfigData.descriptionVariant}
                   color={infoSectionConfigData.descriptionColor}
                   key={index}
+                  textAlign="left"
                 >
                   {item}
                 </Typography>
@@ -79,6 +74,7 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
                   : {
                       pb: 2,
                       maxWidth: "92%",
+                      textAlign: "left",
                     }
               }
             >

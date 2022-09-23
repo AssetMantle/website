@@ -16,9 +16,9 @@ export async function getStaticProps() {
     subTitleVariant: "secondary.light",
     titleColor: "subtitle2",
     subTitleColor: "primary.main",
-    title: "Mantle Universe",
+    title: "The Mantle Universe",
     subTitle:
-      "Experience the first NFT marketplace with blockchain based identity",
+      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
     image: "/CollabsHeroSection/mantleUniverse.png",
   };
   const collabsSectionConfigData = {

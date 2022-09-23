@@ -20,15 +20,20 @@ export default function AdvantageSection({
   console.log(initiativeSectionConfigData, initiativeSectionListStyle);
   return (
     <Section
-      background="url(/AdvantageSection/advantage_bg.png) no-repeat left"
       title={initiativeSectionConfigData.title}
       subTitle={
         initiativeSectionConfigData.description &&
-        !initiativeSectionConfigData.descriptionOnLeft &&
         initiativeSectionConfigData.description
       }
     >
-      <Grid container spacing={2} maxWidth="lg">
+      <Grid
+        container
+        spacing={2}
+        maxWidth="lg"
+        sx={{
+          background: "url(/AdvantageSection/advantage_bg.png) no-repeat left",
+        }}
+      >
         <Grid
           item
           xs={12}

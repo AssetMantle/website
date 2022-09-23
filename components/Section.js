@@ -1,7 +1,7 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import NextLink from "./NextLink";
+import TitleAndSubtitle from "./TitleAndSubtitle";
 
 const Section = (props) => {
   const {
@@ -19,121 +19,18 @@ const Section = (props) => {
     backgroundColor,
   };
 
-  const SectionConfigData = {
-    textAlign: "", // >>> default: left
-    title,
-    titleVariant: "h1",
-    titleColor: "secondary.light",
-    subTitle,
-    subTitleVariant: "subtitle2",
-
-    subTitleColor: "secondary.light",
-    subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
-  };
-
-  const getTitleAndSubtitleJSX = () => {
-    if (SectionConfigData.title || SectionConfigData.subTitle) {
-      if (SectionConfigData.title && SectionConfigData.subTitle) {
-        return (
-          <Stack
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            textAlign="center"
-          >
-            {SectionConfigData.title && (
-              <Typography
-                variant={SectionConfigData.titleVariant || "h1"}
-                color={SectionConfigData.titleColor || "inherit"}
-              >
-                <NextLink
-                  color="inherit"
-                  underline="none"
-                  href={`#${
-                    SectionConfigData.title &&
-                    SectionConfigData.title
-                      .toLowerCase()
-                      .replaceAll(" ", "-")
-                      .replace(/[^a-z-]/g, "")
-                  }`}
-                >
-                  {SectionConfigData.title}
-                </NextLink>
-              </Typography>
-            )}
-
-            {SectionConfigData.subTitle && (
-              <Typography
-                variant={SectionConfigData.subTitleVariant || "subtitle1"}
-                color={SectionConfigData.subTitleColor || "inherit"}
-                sx={SectionConfigData.subTitleStyle}
-              >
-                {SectionConfigData.subTitle}
-              </Typography>
-            )}
-          </Stack>
-        );
-      } else {
-        return SectionConfigData.title ? (
-          <Typography
-            variant={SectionConfigData.titleVariant || "h1"}
-            color={SectionConfigData.titleColor || "inherit"}
-          >
-            <NextLink
-              color="inherit"
-              underline="none"
-              href={`#${
-                SectionConfigData.title &&
-                SectionConfigData.title
-                  .toLowerCase()
-                  .replaceAll(" ", "-")
-                  .replace(/[^a-z-]/g, "")
-              }`}
-            >
-              {SectionConfigData.title}
-            </NextLink>
-          </Typography>
-        ) : (
-          <Typography
-            variant={SectionConfigData.subTitleVariant || "subtitle1"}
-            color={SectionConfigData.subTitleColor || "inherit"}
-            sx={SectionConfigData.subTitleStyle}
-          >
-            {SectionConfigData.subTitle}
-          </Typography>
-        );
-      }
-    } else {
-      return null;
-    }
-  };
-
-  const TitleAndSubtitleJSX = getTitleAndSubtitleJSX();
-
-  // console.log("TitleAndSubtitleJSX: ", TitleAndSubtitleJSX);
-
   return (
-    <Box
-      component="section"
-      sx={sectionStyle}
-      id={
-        SectionConfigData.title &&
-        SectionConfigData.title
-          .toLowerCase()
-          .replaceAll(" ", "-")
-          .replace(/[^a-z-]/g, "")
-      }
-    >
+    <Box component="section" sx={sectionStyle}>
       <Container
         maxWidth="lg"
         sx={{
-          textAlign: SectionConfigData.textAlign || "left",
+          textAlign: "center",
           background,
         }}
       >
-        {TitleAndSubtitleJSX ? (
+        {title || subTitle ? (
           <Stack spacing={8} direction="column" alignItems="center">
-            {TitleAndSubtitleJSX}
+            <TitleAndSubtitle title={title} subTitle={subTitle} />
             {children}
           </Stack>
         ) : (
