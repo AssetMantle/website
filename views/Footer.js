@@ -51,13 +51,6 @@ const FooterConfigData = {
         },
       },
       {
-        title: "MediaKit",
-        link: {
-          text: "MediaKit",
-          href: "https://docs.assetmantle.one/MediaKit/",
-        },
-      },
-      {
         title: "Blog",
         link: {
           text: "Blog",
