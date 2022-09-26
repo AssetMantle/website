@@ -40,9 +40,17 @@ export default function FAQSection({ FAQSectionData }) {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography variant={FAQSectionData.accordionTextVariant}>
-                  {ele.info}
-                </Typography>
+                {"link" in ele ? (
+                  <Typography variant={FAQSectionData.accordionTextVariant}>
+                    {ele.info}{" "}
+                    <NextLink href={ele.link.href}> {ele.link.text} </NextLink>.
+                  </Typography>
+                ) : (
+                  <Typography variant={FAQSectionData.accordionTextVariant}>
+                    {ele.info}
+                  </Typography>
+                )}
+
                 {"accordionList" in ele && (
                   <List>
                     {ele.accordionList.map((item, index) => (

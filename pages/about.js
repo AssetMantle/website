@@ -275,6 +275,10 @@ export async function getStaticProps() {
         info: "MantlePlace is the native NFT marketplace if AssetMantle.All creators on MantlePlace are verified for authenticity in an effort to minimize instances of frauds and rug pulls.",
       },
       {
+        link: {
+          text: "here",
+          href: "https://docs.assetmantle.one/MantleBuilder_Overview",
+        },
         title: "What is MantleBuilder?",
         info: "MantleBuilder is the revolutionary no-code NFT marketplace builder from AssetMantle. It's simple drag-and-drop interface empowers creators and brands to build their robust and custom-branded NFT storefronts in the Cosmos ecosystem. Read more about MantleBuilder",
       },

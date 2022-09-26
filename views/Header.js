@@ -187,7 +187,7 @@ const itemList = [
     ],
   },
   {
-    menuName: "$MNTL",
+    menuName: "Resources",
     isExternalURL: false,
     isNestMenuCollapsed: true,
     endIcon: "expand_more",

@@ -118,7 +118,7 @@ export async function getStaticProps() {
       //   ],
       // },
       {
-        image: "/GallerySection//MantlePlace.png",
+        image: "/GallerySection/MantlePlace.png",
         title: "MantlePlace",
         description:
           "A new, highly optimized NFT marketplace for Cosmos Ecosystem",
@@ -130,7 +130,7 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/GallerySection//MantleBuilder.png",
+        image: "/GallerySection/MantleBuilder.png",
         title: "MantleBuilder",
         description:
           "Coming soon, a no-code marketplace builder for NFT shopifying",
@@ -142,7 +142,7 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/GallerySection//MantleWallet.png",
+        image: "/GallerySection/MantleWallet.png",
         title: "MantleWallet",
         description: "A non-custodial blockchain wallet for AssetMantle chain",
         buttons: [
@@ -153,7 +153,7 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/GallerySection//MantleExplorer.png",
+        image: "/GallerySection/MantleExplorer.png",
         title: "MantleExplorer",
         description: "A detailed blockchain explorer for the AssetMantle chain",
         buttons: [
