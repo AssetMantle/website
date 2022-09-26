@@ -52,7 +52,7 @@ export default function AdvantageSection({
                 sx={{
                   display: "flex",
                   flexWrap: "wrap",
-                  // gap: 2,
+                  gap: 2,
                   pt: 8,
                   justifyContent: "center",
                   width: "100%",
