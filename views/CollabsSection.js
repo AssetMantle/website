@@ -9,6 +9,7 @@ import {
   CardContent,
   MenuItem,
   CardHeader,
+  Tooltip,
 } from "@mui/material";
 import { React, useState } from "react";
 import Section from "../components/Section";
@@ -162,15 +163,41 @@ export default function CollabsSection({ configData }) {
                   >
                     <CardHeader
                       avatar={
-                        <img
-                          width="60px"
-                          src={
-                            ele.filters[ele.filters.length - 1] == "AssetMantle"
-                              ? "/CollabsSection/AM_Logo.png"
-                              : "/CollabsSection/ML-Logo.png"
-                          }
-                          alt=""
-                        />
+                        ele.filters[ele.filters.length - 1] == "AssetMantle" ? (
+                          <Tooltip title={"Part of AssetMantle"}>
+                            <img
+                              width="32x"
+                              src={"/CollabsSection/AM_Logo.png"}
+                              alt=""
+                            />
+                          </Tooltip>
+                        ) : (
+                          <Tooltip title={"Part of MantlePlace"}>
+                            <img
+                              width="32px"
+                              src={"/CollabsSection/ML_Logo.png"}
+                              alt=""
+                            />
+                          </Tooltip>
+                        )
+                        // <Tooltip
+                        //   title={
+                        //     ele.filters[ele.filters.length - 1] == "AssetMantle"
+                        //       ? "Part of AssetMantle"
+                        //       : "Part of MantleLabs"
+                        //   }
+                        // >
+                        //   <img
+                        //     width="60px"
+                        //     src={
+                        //       ele.filters[ele.filters.length - 1] ==
+                        //       "AssetMantle"
+                        //         ? "/CollabsSection/AM_Logo.png"
+                        //         : "/CollabsSection/ML-Logo.png"
+                        //     }
+                        //     alt=""
+                        //   />
+                        // </Tooltip>
                       }
                       action={
                         <Chip
@@ -184,6 +211,7 @@ export default function CollabsSection({ configData }) {
                       }
                     ></CardHeader>
                     <CardContent>
+                      <img width="40%" src={ele.icon} alt="" />
                       <Typography
                         variant={configData.nameVariant}
                         color="primary.main"
