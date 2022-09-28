@@ -172,7 +172,7 @@ export default function CollabsSection({ configData }) {
                             />
                           </Tooltip>
                         ) : (
-                          <Tooltip title={"Part of MantlePlace"}>
+                          <Tooltip title={"Part of MantleLabs"}>
                             <img
                               width="32px"
                               src={"/CollabsSection/ML_Logo.png"}
@@ -180,24 +180,6 @@ export default function CollabsSection({ configData }) {
                             />
                           </Tooltip>
                         )
-                        // <Tooltip
-                        //   title={
-                        //     ele.filters[ele.filters.length - 1] == "AssetMantle"
-                        //       ? "Part of AssetMantle"
-                        //       : "Part of MantleLabs"
-                        //   }
-                        // >
-                        //   <img
-                        //     width="60px"
-                        //     src={
-                        //       ele.filters[ele.filters.length - 1] ==
-                        //       "AssetMantle"
-                        //         ? "/CollabsSection/AM_Logo.png"
-                        //         : "/CollabsSection/ML-Logo.png"
-                        //     }
-                        //     alt=""
-                        //   />
-                        // </Tooltip>
                       }
                       action={
                         <Chip
@@ -211,7 +193,17 @@ export default function CollabsSection({ configData }) {
                       }
                     ></CardHeader>
                     <CardContent>
-                      <img width="40%" src={ele.icon} alt="" />
+                      {"heading" in ele ? (
+                        <Typography variant="h4">{ele.heading}</Typography>
+                      ) : (
+                        <img
+                          width={ele.dimensions.width}
+                          height={ele.dimensions.height}
+                          src={ele.icon}
+                          alt=""
+                        />
+                      )}
+
                       <Typography
                         variant={configData.nameVariant}
                         color="primary.main"
