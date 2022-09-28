@@ -167,7 +167,7 @@ export default function CollabsSection({ configData }) {
                           <Tooltip title={"Part of AssetMantle"}>
                             <img
                               width="32x"
-                              src={"/CollabsSection/AM_Logo.png"}
+                              src={"/CollabsSection/AM_LogoMark.png"}
                               alt=""
                             />
                           </Tooltip>
@@ -196,12 +196,7 @@ export default function CollabsSection({ configData }) {
                       {"heading" in ele ? (
                         <Typography variant="h4">{ele.heading}</Typography>
                       ) : (
-                        <img
-                          width={ele.dimensions.width}
-                          height={ele.dimensions.height}
-                          src={ele.icon}
-                          alt=""
-                        />
+                        <img width="auto" height="30px" src={ele.icon} alt="" />
                       )}
 
                       <Typography
