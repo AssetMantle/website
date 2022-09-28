@@ -118,7 +118,7 @@ export async function getStaticProps() {
         icon: "/CollabsSection/glitchcandies.png",
         name: "GlitchCandies",
         filters: ["MantleGrants", "MantleLabs"],
-        dimensions: { width: "153px", height: "21px" },
+        dimensions: { width: "153px", height: "25px" },
         description:
           "Hand made collection of evolving sculptures, minted on Cosmos ecosystem",
       },
@@ -198,7 +198,7 @@ export async function getStaticProps() {
         icon: "/CollabsSection/cros-nest.png",
         name: "Cros-Nest",
         filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
+        dimensions: { width: "47px", height: "47px" },
         description:
           "State-of-the-art distributed & redundant validator infrastructure for PoS Blockchains",
       },
@@ -254,7 +254,7 @@ export async function getStaticProps() {
         icon: "/CollabsSection/tanukiverse.png",
         name: "Tanukiverse",
         filters: ["Partnerships", "Metaverse", "MantleLabs"],
-        dimensions: { width: "150px", height: "28px" },
+        dimensions: { width: "150px", height: "35x" },
         description:
           "A community driven explore-to-earn game governed by Tanuki NFTs",
       },
@@ -339,7 +339,7 @@ export async function getStaticProps() {
           "A decentralized cloud for DApps, nodes, and other blockchain network components",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/AM_Logo.png",
         name: "Membership NFTs",
         filters: ["MantleCreatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
@@ -347,7 +347,7 @@ export async function getStaticProps() {
           "An access to unlock a variety of exclusive utilities and rewards from the MantleEcosystem ",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/AM_Logo.png",
         name: "Mantlers",
         filters: ["MantleCreatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
@@ -377,14 +377,14 @@ export async function getStaticProps() {
         description: "A non-custodial blockchain wallet for AssetMantle chain",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/AM_Logo.png",
         name: "Mantle-1",
         filters: ["Products", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description: "The core Layer 1 interoperable chain of AssetMantle",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/mantletoken.png",
         name: "$MNTL Token",
         filters: ["Products", "AssetMantle"],
         dimensions: { width: "164.95px", height: "27px" },
@@ -392,7 +392,7 @@ export async function getStaticProps() {
           "The primary governance and staking token of AssetMantle that secures the MantleChain",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/AM_Logo.png",
         name: "AssetMantle SDK Modules",
         filters: ["Products", "Integrations", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
@@ -400,7 +400,7 @@ export async function getStaticProps() {
           "The custom SDK modules of AssetMantle chain enabling NFT based transactions",
       },
       {
-        icon: "/CollabsSection/asguard.png",
+        icon: "/CollabsSection/asguard.svg",
         name: "AsGuard",
         filters: ["Products", "AssetMantle"],
         dimensions: { width: "112.96px", height: "27px" },
@@ -408,7 +408,7 @@ export async function getStaticProps() {
           "An AssetMantle validator providing highly incentivised staking services",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/internft.png",
         name: "interNFT",
         filters: ["Community Initiatives", "AssetMantle"],
         dimensions: { width: "103.54px", height: "53.96px" },
@@ -416,7 +416,7 @@ export async function getStaticProps() {
           "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
       },
       {
-        icon: "/CollabsSection/artist4web3.png",
+        icon: "/CollabsSection/AM_Logo.png",
         name: "Artist4Web3",
         filters: ["Community Initiatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
@@ -424,7 +424,7 @@ export async function getStaticProps() {
           "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
       },
       {
-        icon: "/CollabsSection/.png",
+        icon: "/CollabsSection/xtrathin.png",
         name: "Xtrathin",
         filters: ["Ecosystem Projects", "MantleLabs"],
         dimensions: { width: "100px", height: "100px" },
