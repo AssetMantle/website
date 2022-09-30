@@ -194,7 +194,19 @@ export default function CollabsSection({ configData }) {
                     ></CardHeader>
                     <CardContent>
                       {"heading" in ele ? (
-                        <Typography variant="h4">{ele.heading}</Typography>
+                        "icon" in ele ? (
+                          <Stack direction="row">
+                            <img
+                              width="auto"
+                              height="30px"
+                              src={ele.icon}
+                              alt=""
+                            />
+                            <Typography variant="h4">{ele.heading}</Typography>
+                          </Stack>
+                        ) : (
+                          <Typography variant="h4">{ele.heading}</Typography>
+                        )
                       ) : (
                         <img width="auto" height="30px" src={ele.icon} alt="" />
                       )}

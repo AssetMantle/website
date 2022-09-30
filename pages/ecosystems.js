@@ -384,6 +384,7 @@ export async function getStaticProps() {
         description: "The core Layer 1 interoperable chain of AssetMantle",
       },
       {
+        heading: "$MNTL Token",
         icon: "/CollabsSection/mantletoken.png",
         name: "$MNTL Token",
         filters: ["Products", "AssetMantle"],
