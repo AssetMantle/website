@@ -354,7 +354,7 @@ export async function getStaticProps() {
         description: "A collection of PFP based NFTs, released in MantlePlace",
       },
       {
-        icon: "/CollabsSection/mantleplace.png",
+        icon: "/CollabsSection/mantleplace.svg",
         name: "MantlePlace",
         filters: ["Products", "AssetMantle"],
         dimensions: { width: "153px", height: "27px" },
@@ -362,7 +362,7 @@ export async function getStaticProps() {
           "A decentralized, no-code NFT marketplace bringing trading features to creators with an easy to use interface",
       },
       {
-        icon: "/CollabsSection/mantlebuilder.png",
+        icon: "/CollabsSection/mantlebuilder.svg",
         name: "MantleBuilder",
         filters: ["Products", "AssetMantle"],
         dimensions: { width: "168.75px", height: "27px" },
@@ -370,7 +370,7 @@ export async function getStaticProps() {
           "No-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts",
       },
       {
-        icon: "/CollabsSection/mantlewallet.png",
+        icon: "/CollabsSection/mantlewallet.svg",
         name: "MantleWallet",
         filters: ["Products", "Integrations", "AssetMantle"],
         dimensions: { width: "159.39px", height: "27px" },
@@ -393,7 +393,7 @@ export async function getStaticProps() {
       },
       {
         icon: "/CollabsSection/AM_Logo.png",
-        name: "AssetMantle SDK Modules",
+        name: "AssetMantle SDK ",
         filters: ["Products", "Integrations", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
