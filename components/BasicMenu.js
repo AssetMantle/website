@@ -93,7 +93,10 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                               },
                             }}
                           >
-                            <Chip label={url.menuName} />
+                            <Chip
+                              label={url.menuName}
+                              sx={{ cursor: "pointer" }}
+                            />
                           </MenuItem>
                         ))}
                     </Stack>
@@ -170,7 +173,10 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                                       },
                                     }}
                                   >
-                                    <Chip label={url.menuName} />
+                                    <Chip
+                                      label={url.menuName}
+                                      sx={{ cursor: "pointer" }}
+                                    />
                                   </MenuItem>
                                 ))}
                             </Stack>
