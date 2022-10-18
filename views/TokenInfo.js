@@ -12,9 +12,23 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { useEffect, useState } from "react";
 import Section from "../components/Section";
 
 export default function TokenInfo({ tokenInfoData }) {
+  const [usdValue, setUSDValue] = useState("");
+
+  useEffect(() => {
+    const fetchUSDValue = async () => {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=assetmantle&vs_currencies=USD"
+      );
+      const responseJson = await response.json();
+      setUSDValue(responseJson.assetmantle.usd);
+    };
+    fetchUSDValue();
+  }, []);
+
   return (
     <Section title={tokenInfoData.title} subTitle={tokenInfoData.description}>
       <Grid container spacing={{ xs: 0, md: 3 }}>
@@ -67,13 +81,23 @@ export default function TokenInfo({ tokenInfoData }) {
                     key={index}
                   >
                     {ele.title}
-                    <Typography
-                      sx={{ display: "inline" }}
-                      variant={ele.textVariant}
-                      color={ele.valueColor}
-                    >
-                      {ele.value}
-                    </Typography>
+                    {"value" in ele ? (
+                      <Typography
+                        sx={{ display: "inline" }}
+                        variant={ele.textVariant}
+                        color={ele.valueColor}
+                      >
+                        {ele.value}
+                      </Typography>
+                    ) : (
+                      <Typography
+                        sx={{ display: "inline" }}
+                        variant={ele.textVariant}
+                        color={ele.valueColor}
+                      >
+                        {usdValue}
+                      </Typography>
+                    )}
                   </Typography>
                 ))}
               </Stack>

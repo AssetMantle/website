@@ -23,11 +23,6 @@ export default function About(props) {
   );
 }
 export async function getStaticProps() {
-  const usdValue = await (
-    await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=assetmantle&vs_currencies=USD"
-    )
-  ).json();
   const explanationSectionData = {
     questionVariant: "h1",
     answerVariant: "subtitle2",
@@ -105,7 +100,6 @@ export async function getStaticProps() {
           variant: "h4",
           textColor: "secondary.light",
           valueColor: "primary.main",
-          value: usdValue.assetmantle.usd,
         },
         {
           title: "APR: ",
