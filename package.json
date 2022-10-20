@@ -1,55 +1,36 @@
 {
-  "name": "assetmantle-website",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cosmjs/stargate": "^0.27.1",
-    "@splidejs/react-splide": "^0.6.20",
-    "@splidejs/splide-extension-auto-scroll": "^0.3.7",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "bootstrap": "^4.6.0",
-    "cosmjs-types": "^0.4.1",
-    "i18next": "^21.6.11",
-    "i18next-browser-languagedetector": "^6.1.3",
-    "react": "^17.0.2",
-    "react-bootstrap": "^1.4.3",
-    "react-dom": "^17.0.2",
-    "react-i18next": "^11.15.5",
-    "react-icons": "^4.3.1",
-    "react-mailchimp-subscribe": "^2.1.3",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.3.3",
-    "swiper": "^8.1.4",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts start",
-    "startWithOutENV": "react-scripts start",
-    "build": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts build",
-    "test": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts test",
-    "eject": "REACT_APP_VERSION=$(git describe --tags --abbrev=0) react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@splidejs/react-splide": "^0.7.8",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "^4.4.0",
+    "serve": "11.2.0"
   },
   "devDependencies": {
-    "react-router-dom": "^5.3.0"
-  }
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "preexport": "npm run build",
+    "export": "next export",
+    "prestart": "npm run export",
+    "start": "serve out"
+  },
+  "name": "assetmantle-website",
+  "version": "1.0.0",
+  "description": "Landing Website for AssetMantle.one",
+  "repository": "https://github.com/AssetMantle/assetMantle-website.git",
+  "author": "kombos <kamlesh@assetmantle.one>",
+  "license": "MIT"
 }
