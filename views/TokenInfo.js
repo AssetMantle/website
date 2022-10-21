@@ -8,23 +8,41 @@ import {
   Link,
   Paper,
   Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useEffect, useState } from "react";
+import NextLink from "../components/NextLink";
 import Section from "../components/Section";
 
 export default function TokenInfo({ tokenInfoData }) {
   const [usdValue, setUSDValue] = useState("");
+  const [tickersValue, setTickersValue] = useState([]);
 
   useEffect(() => {
     const fetchUSDValue = async () => {
       const response = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=assetmantle&vs_currencies=USD"
+        "https://api.coingecko.com/api/v3/coins/assetmantle?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false"
       );
       const responseJson = await response.json();
-      setUSDValue(responseJson.assetmantle.usd);
+      setUSDValue(responseJson.market_data.current_price.usd);
+      setTickersValue(
+        responseJson.tickers.map((item) => {
+          return {
+            name: item.market.name,
+            usd_value: item.converted_last.usd || item.market_data.current_price.usd,
+            coin_id: item.coin_id,
+            target_coin_id: item.target_coin_id,
+          };
+        })
+      );
     };
     fetchUSDValue();
   }, []);
@@ -154,79 +172,65 @@ export default function TokenInfo({ tokenInfoData }) {
         <Grid item xs={12} md={7}>
           <Box
             sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(7, 1fr)",
+              // display: "grid",
+              // gridTemplateColumns: "repeat(7, 1fr)",
               mt: { xs: 7, md: 0 },
             }}
           >
-            {tokenInfoData.right.tokenFrom2 &&
-              Array.isArray(tokenInfoData.right.tokenFrom2) &&
-              tokenInfoData.right.tokenFrom2.length > 0 &&
-              React.Children.toArray(
-                tokenInfoData.right.tokenFrom2.map((token) => (
-                  <Paper
-                    variant={tokenInfoData.right.paperVariant}
-                    sx={{
-                      gridColumn: `${token.col} / span 3`,
-                      gridRow: `${token.row} / span 2`,
-                      clipPath:
-                        "polygon(30% 1%, 70% 1%, 95% 50%, 70% 99%, 30% 99%, 5% 50%)",
-                    }}
-                  >
-                    <Link
-                      href={token.url}
-                      variant={tokenInfoData.right.textVariant}
-                      textAlign="center"
-                      underline="none"
-                      fontWeight={400}
-                      target={token.target && token.target}
-                      fontSize={{ xs: "60%", md: "90%" }}
+           <TableContainer
+              sx={{
+                height: "350px",
+              }}
+              component={Paper}
+              variant="translucent"
+            >
+              <Table size="small" aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    {tokenInfoData.right.tableHeaders.map((header, index) => (
+                      <TableCell key={index}>{header}</TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {tokenInfoData.right.tokenFrom2.map((token, index) => (
+                    <TableRow
+                      key={index}
+                      sx={{
+                        "&:last-child td, &:last-child th": { border: 0 },
+                      }}
                     >
-                      <Card
-                        sx={{
-                          aspectRatio: "5/4",
-                          background: "transparent",
-                          boxShadow: "none",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          textAlign: "center",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <CardMedia
-                          component="img"
-                          alt={token.name}
-                          image={token.logo && token.logo}
-                          sx={{
-                            margin: "0 auto",
-                            border: "none",
-                            width: "30%",
-                            height: "auto",
-                            objectPosition: "center",
-                          }}
-                        />
-                        <CardActions>
-                          <Typography
-                            variant={tokenInfoData.right.textVariant}
-                            textAlign="center"
-                            color={tokenInfoData.right.textColor}
-                            fontSize={{ xs: "60%", md: "90%" }}
-                          >
-                            {token.title && token.title}
-                            {
-                              <>
-                                <br />
-                                {token.subTitle && token.subTitle}
-                              </>
-                            }
-                          </Typography>
-                        </CardActions>
-                      </Card>
-                    </Link>
-                  </Paper>
-                ))
-              )}
+                      <TableCell component="th" scope="row">
+                        <Typography variant="caption">{token.name}</Typography>
+                      </TableCell>
+                      <TableCell scope="row">
+                        <Typography variant="caption">{token.pair}</Typography>
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {tickersValue.map((ele) => {
+                          return token.name === "Osmosis"
+                            ? ele.target_coin_id === "osmosis" && (
+                                <Typography variant="caption">
+                                  {ele.usd_value}
+                                </Typography>
+                              )
+                            : ele.name.includes(token.name) && (
+                                <Typography variant="caption">
+                                  {ele.usd_value}
+                                </Typography>
+                              );
+                        })}
+                      </TableCell>
+                      <TableCell align="right">
+                        <Typography variant="caption">
+                          <NextLink href={token.url}>{token.title}</NextLink>
+                        </Typography>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Box>
         </Grid>
       </Grid>
