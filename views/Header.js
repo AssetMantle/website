@@ -333,11 +333,24 @@ export default function Header(props) {
                   flexGrow: 1,
                 }}
               >
+                {" "}
                 <img
                   src="/static/Logo.svg"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
                   style={{ cursor: "pointer", maxWidth: "200px" }}
+                />
+                <img
+                  src="/static/Pumpkin.svg"
+                  alt="logo"
+                  onClick={() => window.open("/", "_self")}
+                  style={{
+                    cursor: "pointer",
+                    maxWidth: "40px",
+                    rotate: "15deg",
+                    marginLeft: "-10px",
+                    marginTop: "50px",
+                  }}
                 />
               </Box>
               <Box sx={{ display: { xs: "none", sm: "flex" } }}>
