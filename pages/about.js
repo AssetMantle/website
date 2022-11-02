@@ -111,10 +111,11 @@ export async function getStaticProps() {
       ],
     },
     right: {
+      buttonVariant: "contained",
       paperVariant: "translucent",
       textVariant: "caption",
       textColor: "primary.main",
-      tableHeaders: ["Exchange", "Pair", "Price"],
+      tableHeaders: ["", "Exchange", "Pair", "Price"],
       tokenFrom2: [
         {
           logo: "/TokenInfoSection/osmosis.png",

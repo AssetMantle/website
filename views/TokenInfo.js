@@ -37,7 +37,8 @@ export default function TokenInfo({ tokenInfoData }) {
         responseJson.tickers.map((item) => {
           return {
             name: item.market.name,
-            usd_value: item.converted_last.usd || item.market_data.current_price.usd,
+            usd_value:
+              item.converted_last.usd || item.market_data.current_price.usd,
             coin_id: item.coin_id,
             target_coin_id: item.target_coin_id,
           };
@@ -177,7 +178,7 @@ export default function TokenInfo({ tokenInfoData }) {
               mt: { xs: 7, md: 0 },
             }}
           >
-           <TableContainer
+            <TableContainer
               sx={{
                 height: "350px",
               }}
@@ -200,6 +201,17 @@ export default function TokenInfo({ tokenInfoData }) {
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
                     >
+                      <TableCell>
+                        <Typography variant="caption">
+                          <Button
+                            component="a"
+                            variant={tokenInfoData.right.buttonVariant}
+                            href={token.url}
+                          >
+                            {token.title}
+                          </Button>
+                        </Typography>
+                      </TableCell>
                       <TableCell component="th" scope="row">
                         <Typography variant="caption">{token.name}</Typography>
                       </TableCell>
@@ -220,11 +232,6 @@ export default function TokenInfo({ tokenInfoData }) {
                                 </Typography>
                               );
                         })}
-                      </TableCell>
-                      <TableCell align="right">
-                        <Typography variant="caption">
-                          <NextLink href={token.url}>{token.title}</NextLink>
-                        </Typography>
                       </TableCell>
                     </TableRow>
                   ))}
