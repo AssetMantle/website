@@ -339,18 +339,6 @@ export default function Header(props) {
                   onClick={() => window.open("/", "_self")}
                   style={{ cursor: "pointer", maxWidth: "200px" }}
                 />
-                <img
-                  src="/static/Pumpkin.svg"
-                  alt="logo"
-                  onClick={() => window.open("/", "_self")}
-                  style={{
-                    cursor: "pointer",
-                    maxWidth: "30px",
-                    marginTop: "40px",
-                    marginLeft: "-10px",
-                    rotate: "15deg",
-                  }}
-                />
               </Box>
               <Box sx={{ display: { xs: "none", sm: "flex" } }}>
                 {itemList &&
