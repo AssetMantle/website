@@ -25,13 +25,34 @@ import Section from "../components/Section";
 export default function TokenInfo({ tokenInfoData }) {
   const [usdValue, setUSDValue] = useState("");
   const [tickersValue, setTickersValue] = useState([]);
+  const [apyValue, setAPYValue] = useState("");
 
   useEffect(() => {
     const fetchUSDValue = async () => {
       const response = await fetch(
         "https://api.coingecko.com/api/v3/coins/assetmantle?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false"
       );
+      const inflation = await fetch(
+        "https://rest.assetmantle.one//cosmos/mint/v1beta1/inflation"
+      );
+      const pool = await fetch(
+        "https://rest.assetmantle.one//cosmos/staking/v1beta1/pool"
+      );
+      const totalSupply = await fetch(
+        "https://rest.assetmantle.one//cosmos/bank/v1beta1/supply"
+      );
       const responseJson = await response.json();
+      const inflationJson = await inflation.json();
+      const poolJson = await pool.json();
+      const totalSupplyJson = await totalSupply.json();
+      const mntlSupply = totalSupplyJson.supply.find(
+        (ele) => ele.denom === "umntl"
+      );
+      setAPYValue(
+        (10 ** 6 * mntlSupply.amount * inflationJson.inflation) /
+          poolJson.pool.bonded_tokens /
+          10000
+      );
       setUSDValue(responseJson.market_data.current_price.usd);
       setTickersValue(
         responseJson.tickers.map((item) => {
@@ -99,14 +120,14 @@ export default function TokenInfo({ tokenInfoData }) {
                     color={ele.textColor}
                     key={index}
                   >
-                    {ele.title}
-                    {"value" in ele ? (
+                    {`${ele.title.toUpperCase()}:`}
+                    {ele.title === "usd" ? (
                       <Typography
                         sx={{ display: "inline" }}
                         variant={ele.textVariant}
                         color={ele.valueColor}
                       >
-                        {ele.value}
+                        {usdValue}
                       </Typography>
                     ) : (
                       <Typography
@@ -114,7 +135,7 @@ export default function TokenInfo({ tokenInfoData }) {
                         variant={ele.textVariant}
                         color={ele.valueColor}
                       >
-                        {usdValue}
+                        {Math.trunc(apyValue)}
                       </Typography>
                     )}
                   </Typography>
@@ -129,7 +150,7 @@ export default function TokenInfo({ tokenInfoData }) {
                   Array.isArray(tokenInfoData.left.ctas) &&
                   tokenInfoData.left.ctas.length > 0 &&
                   React.Children.toArray(
-                    tokenInfoData.left.ctas.map((cta) => (
+                    tokenInfoData.left.ctas.map((cta, index) => (
                       <Button
                         component="a"
                         variant={cta.variant ? cta.variant : "contained"}
@@ -137,6 +158,7 @@ export default function TokenInfo({ tokenInfoData }) {
                         href={cta.url && cta.url}
                         target={cta.target && cta.target}
                         endIcon={<Icon>{cta.endIcon}</Icon>}
+                        key={index}
                       >
                         {cta.title}
                       </Button>
@@ -148,11 +170,12 @@ export default function TokenInfo({ tokenInfoData }) {
                   Array.isArray(tokenInfoData.left.references) &&
                   tokenInfoData.left.references.length > 0 &&
                   React.Children.toArray(
-                    tokenInfoData.left.references.map((reference) => (
+                    tokenInfoData.left.references.map((reference, index) => (
                       <Link
                         href={reference.url && reference.url}
                         target={reference.target && reference.target}
                         sx={{ width: "45px" }}
+                        key={index}
                       >
                         <img
                           src={reference.logo && reference.logo}
@@ -207,6 +230,7 @@ export default function TokenInfo({ tokenInfoData }) {
                             component="a"
                             variant={tokenInfoData.right.buttonVariant}
                             href={token.url}
+                            target="_blank"
                           >
                             {token.title}
                           </Button>
@@ -219,15 +243,15 @@ export default function TokenInfo({ tokenInfoData }) {
                         <Typography variant="caption">{token.pair}</Typography>
                       </TableCell>
                       <TableCell component="th" scope="row">
-                        {tickersValue.map((ele) => {
+                        {tickersValue.map((ele, index) => {
                           return token.name === "Osmosis"
                             ? ele.target_coin_id === "osmosis" && (
-                                <Typography variant="caption">
+                                <Typography variant="caption" key={index}>
                                   {ele.usd_value}
                                 </Typography>
                               )
                             : ele.name.includes(token.name) && (
-                                <Typography variant="caption">
+                                <Typography variant="caption" key={index}>
                                   {ele.usd_value}
                                 </Typography>
                               );
