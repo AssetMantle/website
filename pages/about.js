@@ -175,7 +175,7 @@ export async function getStaticProps() {
         {
           logo: "/TokenInfoSection/Uniswap.png",
           name: "MEXC Global",
-          pair: "MNTL/ERC20",
+          pair: "MNTL/USDT",
           title: "Buy",
           subTitle: "ERC20",
           url: "https://www.mexc.com/exchange/MNTL_USDT?inviteCode=1498J",
@@ -186,7 +186,7 @@ export async function getStaticProps() {
         {
           logo: "/TokenInfoSection/osmosis.png",
           name: "P2B",
-          pair: "MNTL/USDC",
+          pair: "MNTL/USDT",
           title: "Buy",
           subTitle: "(USDC Pool)",
           url: "https://p2pb2b.com/trade/MNTL_USDT/",
@@ -197,7 +197,7 @@ export async function getStaticProps() {
         {
           logo: "/TokenInfoSection/osmosis.png",
           name: "Coinsbit",
-          pair: "MNTL/USDC",
+          pair: "MNTL/USDT",
           title: "Buy",
           subTitle: "(USDC Pool)",
           url: "https://coinsbit.io/trade/MNTL_USDT",
