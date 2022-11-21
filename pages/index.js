@@ -84,17 +84,15 @@ export async function getStaticProps() {
     mt: 2,
     pb: 4,
     mb: 4,
-    color: "primary.light",
     textAlign: { xs: "center", sm: "center", md: "center" },
     titleVariant: "h1",
-    titleColor: "secondary.main",
     subTitleVariant: "subtitle1",
-    subTitleColor: "primary.main",
+    color: "white",
   };
   const gallerySectionConfigData = {
     paperVariant: "translucent",
     titleVariant: "h3",
-    titleColor: "primary.main",
+    titleColor: "white",
     descriptionVariant: "body1",
     descriptionColor: "primary.light",
     textAlign: "center", // >>> default: left
@@ -191,8 +189,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
         title: "Optimized for NFTs",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "white",
         description:
           "Our AssetMantle chain is specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
         descriptionVariant: "body2",
@@ -202,8 +200,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
         title: "Cosmos Ecosystem",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "white",
         description:
           "AssetMantle being one of the top zones of the Cosmos Hub, leverages features like Tendermint Core for Consensus and a highly modular SDK framework.",
         descriptionVariant: "body2",
@@ -213,8 +211,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
         title: "Extremely Low Fees",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "white",
         description:
           "AssetMantle has a highly Economical network providing one of the lowest fees compared to any popular network, of around $0.01 per transaction.",
         descriptionVariant: "body2",
@@ -224,8 +222,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
         title: "Fast Order Fulfillments",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "white",
         description:
           "Extremely fast transactions nearing 7 seconds enables almost zero waiting time for fulfillment of orders of buy, sell, auction etc.",
         descriptionVariant: "body2",
@@ -235,8 +233,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
         title: "Completely Secure",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "white",
         description:
           "With high network security and leveraging the native token $MNTL, AssetMantle provides the level of protection required for your assets.",
         descriptionVariant: "body2",
@@ -246,8 +244,8 @@ export async function getStaticProps() {
         href: "",
         icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
         title: "Future Interoperability",
-        titleVariant: "h4",
-        titleColor: "primary.main",
+        titleVariant: "h5",
+        titleColor: "White",
         description:
           "InterNFT can potentially enable NFTs to be transferred to other connected chains, thereby creating a larger shared market economy.",
         descriptionVariant: "body2",
@@ -288,7 +286,7 @@ export async function getStaticProps() {
       "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts.",
       "This shopifying of NFT assets, leads to a distributed network of networks, with world state stored collectively in the AssetMantle chain.",
     ],
-    descriptionVariant: "body1",
+    descriptionVariant: "subtitle2",
     descriptionColor: "secondary.main",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     rightSidedImage: "",
@@ -466,11 +464,11 @@ export async function getStaticProps() {
     textAlign: "center", // >>> default: left
     title: "The AssetMantle Advantage",
     titleOnLeft: false, // >>> default: false
-    titleColor: "primary.main",
-    titleVariant: "h4",
+    titleColor: "white",
+    titleVariant: "h5",
     description:
       "Find out the unique qualities inherent in the AssetMantle ecosystem which makes our suite of products and services stand out",
-    descriptionVariant: "body1",
+    descriptionVariant: "body2",
     descriptionOnLeft: false, // >>> default: false
     descriptionStyle: false, // object of styles or false
     backgroundImage: "", // "url('/images/mantleplace.png')",
@@ -533,6 +531,9 @@ export async function getStaticProps() {
     textAlign: { xs: "center", md: "left" },
   };
   const universeSectionLeftSubSectionData = {
+    titleColor: "white",
+    listVariant: "body2",
+    titleVariant: "h5",
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
       "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
@@ -568,9 +569,9 @@ export async function getStaticProps() {
     ],
   };
   const universeSectionRightSubSectionData = {
-    titleColor: "primary.main",
-    listVariant: "body1",
-    titleVariant: "h4",
+    titleColor: "white",
+    listVariant: "body2",
+    titleVariant: "h5",
     items: [
       {
         image: "UniverseSection/Partnerships.png",
@@ -615,8 +616,8 @@ export async function getStaticProps() {
       margin: "0 auto",
     }, // object of styles or false
     descriptionVariant: "subtitle2",
-    nameVariant: "subtile2",
-    nameColor: "primary.main",
+    nameVariant: "h6",
+    nameColor: "white",
     designationVariant: "body2",
     designationColor: "primary.light",
     members: [

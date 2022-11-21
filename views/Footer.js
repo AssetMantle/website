@@ -264,13 +264,13 @@ export default function Footer(props) {
                             backgroundColor="transparent"
                             alignItems={{ xs: "center", md: "start" }}
                           >
-                            <Typography variant="caption">
+                            <Typography variant="body2">
                               {item.title}
                             </Typography>
                             <NextLink
                               color="primary.main"
                               underline="hover"
-                              variant="caption"
+                              variant="body2"
                               href={`mailto:${item.text}`}
                             >
                               {item.text}
@@ -303,7 +303,7 @@ export default function Footer(props) {
                             <NextLink
                               color="primary.main"
                               underline="hover"
-                              variant="caption"
+                              variant="body2"
                               href={item.link.href}
                             >
                               {item.link.text}
@@ -328,14 +328,11 @@ export default function Footer(props) {
                     FooterConfigData.colThree.list.length > 0 && (
                       <Stack sx={{ pt: 3 }} spacing={2}>
                         {FooterConfigData.colThree.list.map((item, index) => (
-                          <Typography
-                            variant="caption"
-                            key={`${index}sa${item}`}
-                          >
+                          <Typography variant="body2" key={`${index}sa${item}`}>
                             <NextLink
                               color="primary.main"
                               underline="hover"
-                              variant="caption"
+                              variant="body2"
                               href={item.link.href}
                             >
                               {item.link.text}
@@ -364,7 +361,7 @@ export default function Footer(props) {
                             key={index}
                             color="primary.main"
                             underline="hover"
-                            variant="caption"
+                            variant="body2"
                             href={item.link.href}
                           >
                             {item.link.text}
@@ -384,7 +381,7 @@ export default function Footer(props) {
             >
               <img src="/static/Logo.svg" style={{ maxWidth: "200px" }}></img>
               <Typography
-                variant="caption"
+                variant="body2"
                 component="p"
                 sx={{ textAlign: "center" }}
               >

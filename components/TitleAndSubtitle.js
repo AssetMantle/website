@@ -14,7 +14,7 @@ const TitleAndSubtitle = (props) => {
     titleVariant: isContent ? "h2" : "h1",
     titleColor: "secondary.light",
     subTitle,
-    subTitleVariant: "subtitle2",
+    subTitleVariant: "subtitle1",
     subTitleColor: "secondary.light",
     subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
   };

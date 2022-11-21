@@ -58,8 +58,8 @@ export default function UniverseSection({
                         </Box>
                         <Typography
                           align="center"
-                          variant="h4"
-                          color="primary.main"
+                          variant={leftSubsectionData.titleVariant}
+                          color={leftSubsectionData.titleColor}
                         >
                           {element.title}
                         </Typography>
@@ -69,7 +69,10 @@ export default function UniverseSection({
                               sx={{ display: "flex", justifyContent: "center" }}
                               key={idx}
                             >
-                              <Typography align="center" variant="body1">
+                              <Typography
+                                align="center"
+                                variant={leftSubsectionData.listVariant}
+                              >
                                 {listItem}
                               </Typography>
                             </ListItem>

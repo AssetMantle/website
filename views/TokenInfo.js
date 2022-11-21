@@ -15,6 +15,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  Skeleton,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
@@ -26,12 +27,21 @@ export default function TokenInfo({ tokenInfoData }) {
   const [usdValue, setUSDValue] = useState("");
   const [tickersValue, setTickersValue] = useState([]);
   const [apyValue, setAPYValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let responseJson = "";
     const fetchUSDValue = async () => {
       const response = await fetch(
         "https://api.coingecko.com/api/v3/coins/assetmantle?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false"
-      );
+      )
+        .then((data) => {
+          return data.json();
+        })
+        .then((response) => {
+          responseJson = response;
+          setIsLoading(false);
+        });
       const inflation = await fetch(
         "https://rest.assetmantle.one//cosmos/mint/v1beta1/inflation"
       );
@@ -41,7 +51,6 @@ export default function TokenInfo({ tokenInfoData }) {
       const totalSupply = await fetch(
         "https://rest.assetmantle.one//cosmos/bank/v1beta1/supply"
       );
-      const responseJson = await response.json();
       const inflationJson = await inflation.json();
       const poolJson = await pool.json();
       const totalSupplyJson = await totalSupply.json();
@@ -68,6 +77,24 @@ export default function TokenInfo({ tokenInfoData }) {
     };
     fetchUSDValue();
   }, []);
+
+  const calculatePrice = (token, index) => {
+    tickersValue.map((ele, index) =>
+      token.name === "Osmosis"
+        ? ele.target_coin_id === "osmosis" && (
+            <Typography variant="caption" key={index}>
+              {ele.usd_value}
+            </Typography>
+          )
+        : ele.name.includes(token.name) && (
+            <Typography variant="caption" key={index}>
+              {ele.usd_value}
+            </Typography>
+          )
+    );
+  };
+
+  const SkeletonComponent = <Skeleton />;
 
   return (
     <Section title={tokenInfoData.title} subTitle={tokenInfoData.description}>
@@ -243,19 +270,7 @@ export default function TokenInfo({ tokenInfoData }) {
                         <Typography variant="caption">{token.pair}</Typography>
                       </TableCell>
                       <TableCell component="th" scope="row">
-                        {tickersValue.map((ele, index) => {
-                          return token.name === "Osmosis"
-                            ? ele.target_coin_id === "osmosis" && (
-                                <Typography variant="caption" key={index}>
-                                  {ele.usd_value}
-                                </Typography>
-                              )
-                            : ele.name.includes(token.name) && (
-                                <Typography variant="caption" key={index}>
-                                  {ele.usd_value}
-                                </Typography>
-                              );
-                        })}
+                        {calculatePrice(token, index) || SkeletonComponent}
                       </TableCell>
                     </TableRow>
                   ))}
