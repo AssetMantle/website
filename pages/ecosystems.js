@@ -418,7 +418,7 @@ export async function getStaticProps() {
       },
       {
         icon: "/CollabsSection/AM_Logo.png",
-        name: "Artist4Web3",
+        name: "Artists4Web3",
         filters: ["Community Initiatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
@@ -436,6 +436,46 @@ export async function getStaticProps() {
         icon: "/CollabsSection/analytics.png",
         name: "Analytics",
         filters: ["Integrations", "MantleLabs"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "The dashboard for Insights for all AssetMantle transfer of value",
+      },
+      {
+        icon: "/CollabsSection/AM_Logo.png",
+        name: "Mirage Metaverse",
+        filters: ["MantleGrants"],
+        dimensions: { width: "112.96px", height: "27px" },
+        description:
+          "An AssetMantle validator providing highly incentivised staking services",
+      },
+      {
+        icon: "/CollabsSection/Leap_light.png",
+        name: "Leap Wallet",
+        filters: ["Token Integration Partners"],
+        dimensions: { width: "103.54px", height: "53.96px" },
+        description:
+          "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
+      },
+      {
+        icon: "/CollabsSection/Falcon_Wallet.png",
+        name: "Falcon Wallet",
+        filters: ["Token Integration Partners"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
+      },
+      {
+        icon: "/CollabsSection/frontier-logo.jpeg",
+        name: "Frontier Wallet",
+        filters: ["Token Integration Partners"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "Utility Focused NFT Collection to create sub-communities around Joint Robots",
+      },
+      {
+        icon: "/CollabsSection/pulsar-logo.svg",
+        name: "Pulsar Finance",
+        filters: ["Token Integration Partners"],
         dimensions: { width: "100px", height: "100px" },
         description:
           "The dashboard for Insights for all AssetMantle transfer of value",
