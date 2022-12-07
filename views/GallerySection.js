@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -114,81 +115,105 @@ export default function GallerySection({
       {Array.isArray(gallerySectionConfigData.galleries) &&
         gallerySectionConfigData.galleries &&
         gallerySectionConfigData.galleries.length > 0 && (
-          <Grid container spacing={2}>
+          <Grid container spacing={0}>
             {gallerySectionConfigData.galleries.map((Gallery, index) => (
-              <Grid item xs={12} sm={6} lg={3} key={index}>
-                <Paper variant={gallerySectionConfigData.paperVariant}>
-                  <Card sx={optionStyles}>
-                    {Gallery.image && (
-                      <CardMedia
-                        component="img"
-                        alt={Gallery.title}
-                        // height={Gallery.height ? Gallery.height : 420}
-                        image={Gallery.image}
-                        sx={{
-                          border: "none",
-                          width: "100%",
-                          aspectRatio: "1/1",
-                        }}
-                      />
-                    )}
-                    {(Gallery.title || Gallery.description) && (
-                      <CardContent sx={{ p: 0.5 }}>
-                        {Gallery.title && (
-                          <Typography
-                            gutterBottom
-                            variant={gallerySectionConfigData.titleVariant}
-                            component="h3"
-                            color={gallerySectionConfigData.titleColor}
-                          >
-                            {Gallery.title}
-                          </Typography>
-                        )}
-                        {Gallery.description && (
-                          <Typography
-                            variant={
-                              gallerySectionConfigData.descriptionVariant
-                            }
-                            color={gallerySectionConfigData.descriptionColor}
-                          >
-                            {Gallery.description}
-                          </Typography>
-                        )}
-                      </CardContent>
-                    )}
-                    {Gallery.buttons.length !== 0 && (
-                      <CardActions
-                        sx={{
-                          mt: "auto",
-                          pb: 2,
-                          px: 0.5,
-                          justifyContent: { xs: "center", md: "flex-start" },
-                          justifySelf: "flex-end",
-                        }}
-                      >
-                        {Gallery.buttons.map((button, i) => (
-                          <Button
-                            key={`ff${i}`}
-                            component="a"
-                            href={button.url && button.url}
-                            sx={{
-                              px: 0,
-                            }}
-                            aria-label={`${button.text} about ${Gallery.title}`}
-                            // size="small"
-                          >
-                            {button.text && (
-                              <>
-                                {button.text}{" "}
-                                <Icon>{gallerySectionConfigData.endIcon}</Icon>
-                              </>
-                            )}
-                          </Button>
-                        ))}
-                      </CardActions>
-                    )}
-                  </Card>
-                </Paper>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                lg={3}
+                key={index}
+                sx={{
+                  backgroundColor: "transparent",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    p: 1,
+                    justifyContent: "center",
+                  }}
+                >
+                  <Paper
+                    variant={gallerySectionConfigData.paperVariant}
+                    sx={{
+                      width: { xs: "100%" },
+                    }}
+                  >
+                    <Card sx={optionStyles}>
+                      {Gallery.image && (
+                        <CardMedia
+                          component="img"
+                          alt={Gallery.title}
+                          // height={Gallery.height ? Gallery.height : 420}
+                          image={Gallery.image}
+                          sx={{
+                            border: "none",
+                            width: "100%",
+                            aspectRatio: "1/1",
+                          }}
+                        />
+                      )}
+                      {(Gallery.title || Gallery.description) && (
+                        <CardContent sx={{ p: 0.5 }}>
+                          {Gallery.title && (
+                            <Typography
+                              gutterBottom
+                              variant={gallerySectionConfigData.titleVariant}
+                              component="h3"
+                              color={gallerySectionConfigData.titleColor}
+                            >
+                              {Gallery.title}
+                            </Typography>
+                          )}
+                          {Gallery.description && (
+                            <Typography
+                              variant={
+                                gallerySectionConfigData.descriptionVariant
+                              }
+                              color={gallerySectionConfigData.descriptionColor}
+                            >
+                              {Gallery.description}
+                            </Typography>
+                          )}
+                        </CardContent>
+                      )}
+                      {Gallery.buttons.length !== 0 && (
+                        <CardActions
+                          sx={{
+                            mt: "auto",
+                            pb: 2,
+                            px: 0.5,
+                            justifyContent: { xs: "center", md: "flex-start" },
+                            justifySelf: "flex-end",
+                          }}
+                        >
+                          {Gallery.buttons.map((button, i) => (
+                            <Button
+                              key={`ff${i}`}
+                              component="a"
+                              href={button.url && button.url}
+                              sx={{
+                                px: 0,
+                              }}
+                              aria-label={`${button.text} about ${Gallery.title}`}
+                              // size="small"
+                            >
+                              {button.text && (
+                                <>
+                                  {button.text}{" "}
+                                  <Icon>
+                                    {gallerySectionConfigData.endIcon}
+                                  </Icon>
+                                </>
+                              )}
+                            </Button>
+                          ))}
+                        </CardActions>
+                      )}
+                    </Card>
+                  </Paper>
+                </Box>
               </Grid>
             ))}
           </Grid>

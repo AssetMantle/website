@@ -119,15 +119,18 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
             width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
+            display: "flex",
           }}
         >
           <Grid
             container
             alignItems="center"
-            spacing={2}
+            justifyContent="space-between"
+            // backgroundColor="red"
+            // spacing={2}
             sx={{
-              px: 6,
-              py: 4,
+              px: 4,
+              py: 3,
               display: "flex",
             }}
           >
@@ -138,8 +141,14 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
                 xs={12}
                 sm={6}
                 md={4}
-                backgroundColor="transparent"
+                // backgroundColor={`rgba(${index * 29}, ${index * 24}, ${
+                //   index * 92
+                // })`}
                 justifyContent="center"
+                sx={{
+                  py: 1,
+                  display: "flex",
+                }}
               >
                 <Stack
                   direction="row"
