@@ -75,6 +75,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   const RightSubSectionJSX = (
     // Hero Image
     <img
+      draggable={false}
       src={heroSectionConfigData.image}
       alt="hero_image"
       style={{
