@@ -35,11 +35,7 @@ export default function Index(props) {
         initiativeSectionConfigData={props.initiativeSectionConfigData}
         initiativeSectionListStyle={props.initiativeSectionListStyle}
       />
-      <UniverseSection
-        leftSubsectionData={props.universeSectionLeftSubSectionData}
-        rightSubsectionData={props.universeSectionRightSubSectionData}
-        headerLogoStyles={props.universeSectionHeaderLogoStyles}
-      />
+      <UniverseSection configData={props.universeSectionConfigData} />
       <TeamSection
         teamsConfigData={props.teamSectionConfigData}
         optionStyles={props.teamSectionOptionStyles}
@@ -534,73 +530,82 @@ export async function getStaticProps() {
     alignItems: "center",
     textAlign: { xs: "center", md: "left" },
   };
-  const universeSectionLeftSubSectionData = {
+  const universeSectionConfigData = {
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
       "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
-    paperVariant: "translucent",
+    paperVariant: "transparent",
     buttonVariant: "contained",
-    items: [
+    listVariant: "body1",
+    titleVariant: "h4",
+    subSections: [
       {
-        image: "UniverseSection/Mantle_Products.png",
-        title: "Mantle Products",
-        subData: [
-          "MantlePlace",
-          "MantleBuilder",
-          "MantleWallet",
-          "MantleExplorer",
-          "+2 More",
+        logo: "/static/Logo.svg",
+        alt: "Assetmantle logo",
+        childLogoBG: "translucent",
+        styles: { width: "90%" },
+        items: [
+          {
+            image: "UniverseSection/Mantle_Products.png",
+            title: "Mantle Products",
+            subData: [
+              "MantlePlace",
+              "MantleBuilder",
+              "MantleWallet",
+              "MantleExplorer",
+              "+2 More",
+            ],
+          },
+          {
+            image: "UniverseSection/Mantle_Chain.png",
+            title: "Mantle-1 Chain",
+            subData: ["$MNTL Token", "Foundation Validators"],
+          },
+          {
+            image: "UniverseSection/Mantle_Creatives.png",
+            title: "Mantle Creatives",
+            subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
+          },
+          {
+            image: "UniverseSection/Community_Initiatives.png",
+            title: "Community Initiatives",
+            subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
+          },
         ],
       },
       {
-        image: "UniverseSection/Mantle_Chain.png",
-        title: "Mantle-1 Chain",
-        subData: ["$MNTL Token", "Foundation Validators"],
-      },
-      {
-        image: "UniverseSection/Mantle_Creatives.png",
-        title: "Mantle Creatives",
-        subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
-      },
-      {
-        image: "UniverseSection/Community_Initiatives.png",
-        title: "Community Initiatives",
-        subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
-      },
-    ],
-  };
-  const universeSectionRightSubSectionData = {
-    titleColor: "primary.main",
-    listVariant: "body1",
-    titleVariant: "h4",
-    items: [
-      {
-        image: "UniverseSection/Partnerships.png",
-        title: "Partnerships",
-        subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
-      },
-      {
-        image: "UniverseSection/Ecosystem_Projects.png",
-        title: "Ecosystem Projects",
-        subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
-      },
-      {
-        image: "UniverseSection/Integrations.png",
-        title: "Integrations",
-        subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
-      },
-      {
-        image: "UniverseSection/Grants.png",
-        title: "Grants",
-        subData: ["Internal Development", "External Integrations", "Products"],
+        logo: "UniverseSection/MLLogo.png",
+        alt: "MantleLab logo",
+        childLogoBG: "translucent",
+        styles: { width: "65%" },
+        items: [
+          {
+            image: "UniverseSection/Partnerships.png",
+            title: "Partnerships",
+            subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
+          },
+          {
+            image: "UniverseSection/Ecosystem_Projects.png",
+            title: "Ecosystem Projects",
+            subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
+          },
+          {
+            image: "UniverseSection/Integrations.png",
+            title: "Integrations",
+            subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
+          },
+          {
+            image: "UniverseSection/Grants.png",
+            title: "Grants",
+            subData: [
+              "Internal Development",
+              "External Integrations",
+              "Products",
+            ],
+          },
+        ],
       },
     ],
-  };
-  const universeSectionHeaderLogoStyles = {
-    height: "170px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   };
   const teamSectionConfigData = {
     memberColor: "primary.main",
@@ -1101,9 +1106,7 @@ export async function getStaticProps() {
       chainSectionConfigData,
       initiativeSectionConfigData,
       initiativeSectionListStyle,
-      universeSectionRightSubSectionData,
-      universeSectionLeftSubSectionData,
-      universeSectionHeaderLogoStyles,
+      universeSectionConfigData,
       teamSectionConfigData,
       teamSectionOptionStyles,
       teamSectionLinkStyles,
