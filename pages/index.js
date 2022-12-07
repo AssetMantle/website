@@ -55,7 +55,9 @@ export default function Index(props) {
 }
 export async function getStaticProps() {
   const heroSectionConfigData = {
-    title: "Redefining Digital Asset Ownership",
+    titleText1: "Redefining",
+    titleText2: "Digital Asset",
+    titleText3: "Ownership",
     subtitle:
       "Experience the first NFT marketplace with blockchain-based identity",
     buttons: [

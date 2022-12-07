@@ -18,6 +18,35 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 // import Icon from '@mui/material/Icon';
 
 export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
+  const customH1Styles = {
+    background: "-webkit-linear-gradient(120deg, #6FB4B5 20%, #FF930F 90%)",
+
+    WebkitBackgroundClip: "text",
+
+    backgroundClip: "text",
+
+    backgroundSize: "200%",
+
+    backgroundPosition: "50% 50%",
+
+    color: "transparent",
+
+    animation: "gradientAnimation 10s ease-in-out infinite",
+
+    "@keyframes gradientAnimation": {
+      "0%": {
+        backgroundPosition: "0 50%",
+      },
+
+      "50%": {
+        backgroundPosition: "100% 50%",
+      },
+
+      "100%": {
+        backgroundPosition: "0 50%",
+      },
+    },
+  };
   // contents of right sub-section
   const LeftSubSectionJSX = (
     <Stack
@@ -33,7 +62,23 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.title}
+        {heroSectionConfigData.titleText1}
+      </Typography>
+      <Typography
+        variant={sectionStyle.titleVariant}
+        color={sectionStyle.titleColor}
+        // align={}
+        sx={customH1Styles}
+      >
+        {heroSectionConfigData.titleText2}
+      </Typography>
+      <Typography
+        variant={sectionStyle.titleVariant}
+        color={sectionStyle.titleColor}
+        // align={}
+        sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
+      >
+        {heroSectionConfigData.titleText3}
       </Typography>
       {/* Subtitle */}
       <Typography
