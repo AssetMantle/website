@@ -8,6 +8,7 @@ import {
   CardMedia,
   Grid,
   Icon,
+  Link,
   Paper,
   Typography,
 } from "@mui/material";
@@ -189,9 +190,13 @@ export default function GallerySection({
                           }}
                         >
                           {Gallery.buttons.map((button, i) => (
-                            <Button
+                            <Link
+                              underline="hover"
                               key={`ff${i}`}
                               component="a"
+                              color="primary.main"
+                              display="flex"
+                              alignItems="center"
                               href={button.url && button.url}
                               sx={{
                                 px: 0,
@@ -207,7 +212,7 @@ export default function GallerySection({
                                   </Icon>
                                 </>
                               )}
-                            </Button>
+                            </Link>
                           ))}
                         </CardActions>
                       )}
