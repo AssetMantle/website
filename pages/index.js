@@ -15,11 +15,7 @@ export default function Index(props) {
     <>
       <HeroSection configData={props.heroSectionConfigData} />
       <GallerySection configData={props.gallerySectionConfigData} />
-      <FeatureSection
-        featureSectionConfigData={props.featureSectionConfigData}
-        optionStyles={props.featureSectionOptionStyles}
-        optionContainerStyles={props.featureSectionOptionContainerStyles}
-      />
+      <FeatureSection configData={props.featureSectionConfigData} />
       <InfoSection
         listStyle={props.infoSectionListStyle}
         infoSectionConfigData={props.infoSectionConfigData}
@@ -246,25 +242,25 @@ export async function getStaticProps() {
         descriptionColor: "secondary.main",
       },
     ],
-  };
-  const featureSectionOptionContainerStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    gap: "14px",
-    mt: 5,
-  };
-  const featureSectionOptionStyles = {
-    background: "transparent",
-    maxWidth: 374,
-    boxShadow: "none",
-    padding: "16px 22px",
-    minHeight: "296px",
-    transition: "all 0.3s ease-in-out",
-    color: "primary.light",
-    "&:hover": {
-      backgroundColor: "navBg",
+    optionContainerStyles: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: "14px",
+      mt: 5,
+    },
+    optionStyles: {
+      background: "transparent",
+      maxWidth: 374,
+      boxShadow: "none",
+      padding: "16px 22px",
+      minHeight: "296px",
+      transition: "all 0.3s ease-in-out",
+      color: "primary.light",
+      "&:hover": {
+        backgroundColor: "navBg",
+      },
     },
   };
   const infoSectionConfigData = {
@@ -1091,8 +1087,6 @@ export async function getStaticProps() {
       heroSectionConfigData,
       gallerySectionConfigData,
       featureSectionConfigData,
-      featureSectionOptionContainerStyles,
-      featureSectionOptionStyles,
       infoSectionConfigData,
       infoSectionListStyle,
       chainSectionConfigData,
