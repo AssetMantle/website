@@ -18,10 +18,7 @@ export default function Index(props) {
       <FeatureSection configData={props.featureSectionConfigData} />
       <InfoSection configData={props.infoSectionConfigData} />
       <ChainSection chainSectionConfigData={props.chainSectionConfigData} />
-      <AdvantageSection
-        initiativeSectionConfigData={props.initiativeSectionConfigData}
-        initiativeSectionListStyle={props.initiativeSectionListStyle}
-      />
+      <AdvantageSection configData={props.advantageSectionConfigData} />
       <UniverseSection configData={props.universeSectionConfigData} />
       <TeamSection
         teamsConfigData={props.teamSectionConfigData}
@@ -446,7 +443,7 @@ export async function getStaticProps() {
       },
     ],
   };
-  const initiativeSectionConfigData = {
+  const advantageSectionConfigData = {
     paperVariant: "translucent",
     textAlign: "center", // >>> default: left
     title: "The AssetMantle Advantage",
@@ -504,18 +501,18 @@ export async function getStaticProps() {
           "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
       },
     ],
-  };
-  const initiativeSectionListStyle = {
-    background: "transparent",
-    pl: { xs: 2, md: 0 },
-    pr: 2,
-    py: 3,
+    listStyle: {
+      background: "transparent",
+      pl: { xs: 2, md: 0 },
+      pr: 2,
+      py: 3,
 
-    color: "primary.light",
-    display: "flex",
-    flexDirection: { xs: "column", md: "row" },
-    alignItems: "center",
-    textAlign: { xs: "center", md: "left" },
+      color: "primary.light",
+      display: "flex",
+      flexDirection: { xs: "column", md: "row" },
+      alignItems: "center",
+      textAlign: { xs: "center", md: "left" },
+    },
   };
   const universeSectionConfigData = {
     sectionTitle: "The Mantle Universe",
@@ -1086,8 +1083,7 @@ export async function getStaticProps() {
       featureSectionConfigData,
       infoSectionConfigData,
       chainSectionConfigData,
-      initiativeSectionConfigData,
-      initiativeSectionListStyle,
+      advantageSectionConfigData,
       universeSectionConfigData,
       teamSectionConfigData,
       teamSectionOptionStyles,
