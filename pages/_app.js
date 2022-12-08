@@ -42,21 +42,12 @@ export default function MyApp(props) {
         <title>AssetMantle</title>
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-5FCP59P8T5"
         ></Script>
-        <Script>
-          id='google-analytics' strategy="afterInteractive"
-          dangerouslySetInnerHTML=
-          {{
-            __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}, {
-page_path: window.location.pathname,
-});
-`,
-          }}
+        <Script strategy="afterInteractive">
+          dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-5FCP59P8T5');
         </Script>
       </Head>
       <ThemeProvider theme={theme}>
