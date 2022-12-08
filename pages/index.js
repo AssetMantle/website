@@ -14,10 +14,7 @@ export default function Index(props) {
   return (
     <>
       <HeroSection configData={props.heroSectionConfigData} />
-      <GallerySection
-        gallerySectionConfigData={props.gallerySectionConfigData}
-        optionStyles={props.gallerySectionOptionStyle}
-      />
+      <GallerySection configData={props.gallerySectionConfigData} />
       <FeatureSection
         featureSectionConfigData={props.featureSectionConfigData}
         optionStyles={props.featureSectionOptionStyles}
@@ -159,17 +156,17 @@ export async function getStaticProps() {
         ],
       },
     ],
-  };
-  const gallerySectionOptionStyle = {
-    background: "transparent",
-    maxWidth: 272,
-    boxShadow: "none",
-    height: "100%",
-    mx: "auto",
-    padding: "0 11px",
-    textAlign: { xs: "center", md: "left" },
-    display: "flex",
-    flexDirection: "column",
+    optionStyle: {
+      background: "transparent",
+      maxWidth: 272,
+      boxShadow: "none",
+      height: "100%",
+      mx: "auto",
+      padding: "0 11px",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+    },
   };
   const featureSectionConfigData = {
     paperVariant: "translucent",
@@ -1093,7 +1090,6 @@ export async function getStaticProps() {
     props: {
       heroSectionConfigData,
       gallerySectionConfigData,
-      gallerySectionOptionStyle,
       featureSectionConfigData,
       featureSectionOptionContainerStyles,
       featureSectionOptionStyles,
