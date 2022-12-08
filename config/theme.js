@@ -20,46 +20,54 @@ const baseTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Inter', 'Roboto'",
     fontSize: 14,
     h1: {
+      fontFamily: "'Futura'",
       fontSize: "4rem",
       fontWeight: 700,
     },
     h2: {
+      fontFamily: "'Futura'",
       fontSize: "3.5rem",
       fontWeight: 700,
       lineHeight: 1,
     },
     h3: {
+      fontFamily: "'Lato'",
       fontSize: "2rem",
       fontWeight: 700,
     },
     h4: {
+      fontFamily: "'Lato'",
       fontSize: "1.8rem",
       fontWeight: 700,
     },
     subtitle1: {
+      fontFamily: "'Lato'",
       fontSize: "2rem",
       fontWeight: 200,
       lineHeight: 1.2,
     },
     subtitle2: {
+      fontFamily: "'Lato'",
       fontSize: "1.7rem",
       fontWeight: 200,
       lineHeight: 1.2,
     },
     body1: {
+      fontFamily: "'Lato'",
       fontSize: "1.4rem",
       fontWeight: 300,
       lineHeight: 1.5,
     },
     body2: {
+      fontFamily: "'Lato'",
       fontSize: "1.2rem",
       fontWeight: 300,
       lineHeight: 1.5,
     },
     caption: {
+      fontFamily: "'Lato'",
       fontSize: "1rem",
       fontWeight: 300,
       lineHeight: 1,

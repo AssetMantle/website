@@ -42,11 +42,11 @@ export default function MyApp(props) {
         <title>AssetMantle</title>
       </Head>
       <Script
-        async
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-5FCP59P8T5"
       ></Script>
-      <Script>
-        window.dataLayer = window.dataLayer || []; function gtag()
+      <Script strategy="afterInteractive">
+        dataLayer = window.dataLayer || []; function gtag()
         {dataLayer.push(arguments)}
         gtag('js', new Date()); gtag('config', 'G-5FCP59P8T5');
       </Script>

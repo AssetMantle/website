@@ -29,7 +29,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
       {/* Title */}
       <Typography
         variant={sectionStyle.titleVariant}
-        color={sectionStyle.titleColor}
+        color={sectionStyle.color}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
@@ -38,7 +38,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
       {/* Subtitle */}
       <Typography
         variant={sectionStyle.subTitleVariant}
-        color={sectionStyle.subTitleColor}
+        color={sectionStyle.color}
         align="left"
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >

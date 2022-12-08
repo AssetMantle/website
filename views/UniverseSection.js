@@ -59,7 +59,7 @@ export default function UniverseSection({
                         <Typography
                           align="center"
                           variant="h4"
-                          color="primary.main"
+                          color={leftSubsectionData.titleColor}
                         >
                           {element.title}
                         </Typography>
