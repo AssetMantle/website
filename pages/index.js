@@ -20,11 +20,7 @@ export default function Index(props) {
       <ChainSection chainSectionConfigData={props.chainSectionConfigData} />
       <AdvantageSection configData={props.advantageSectionConfigData} />
       <UniverseSection configData={props.universeSectionConfigData} />
-      <TeamSection
-        teamsConfigData={props.teamSectionConfigData}
-        optionStyles={props.teamSectionOptionStyles}
-        linkStyles={props.teamSectionLinkStyles}
-      />
+      <TeamSection configData={props.teamSectionConfigData} />
       <SocialProofSection
         socialProofConfigData={props.socialProofSectionConfigData}
         optionContainerStyles={props.socialProofSectionOptionContainerStyles}
@@ -1005,23 +1001,23 @@ export async function getStaticProps() {
         ],
       },
     ],
-  };
-  const teamSectionOptionStyles = {
-    background: "transparent",
-    borderRadius: "12px",
-    maxWidth: 227,
-    height: "100%",
-    boxShadow: "none",
-    padding: "0",
-    textAlign: { xs: "center", md: "left" },
-    display: "flex",
-    flexDirection: "column",
-    margin: { xs: "auto", md: "0" },
-  };
-  const teamSectionLinkStyles = {
-    color: "primary.light",
-    "&:hover": {
-      color: "primary.main",
+    optionStyles: {
+      background: "transparent",
+      borderRadius: "12px",
+      maxWidth: 227,
+      height: "100%",
+      boxShadow: "none",
+      padding: "0",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+      margin: { xs: "auto", md: "0" },
+    },
+    linkStyles: {
+      color: "primary.light",
+      "&:hover": {
+        color: "primary.main",
+      },
     },
   };
   const socialProofSectionConfigData = {
@@ -1086,8 +1082,6 @@ export async function getStaticProps() {
       advantageSectionConfigData,
       universeSectionConfigData,
       teamSectionConfigData,
-      teamSectionOptionStyles,
-      teamSectionLinkStyles,
       socialProofSectionConfigData,
       socialProofSectionOptionContainerStyles,
     },
