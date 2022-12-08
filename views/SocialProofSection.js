@@ -24,10 +24,12 @@ export default function SocialProofSection({
                   height: "100%",
                   display: "flex",
                   boxShadow: "none",
-
+                  transition: "all 300ms ease-in-out",
                   backgroundImage: "none",
+                  filter: "contrast(0%)",
                   "&:hover": {
-                    boxShadow: "0px 0px 4px 4px rgba(0,0,0,0.2)",
+                    transform: "scale(1.2)",
+                    filter: "contrast(100%)",
                   },
                 }}
                 key={index}
