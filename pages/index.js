@@ -16,10 +16,7 @@ export default function Index(props) {
       <HeroSection configData={props.heroSectionConfigData} />
       <GallerySection configData={props.gallerySectionConfigData} />
       <FeatureSection configData={props.featureSectionConfigData} />
-      <InfoSection
-        listStyle={props.infoSectionListStyle}
-        infoSectionConfigData={props.infoSectionConfigData}
-      />
+      <InfoSection configData={props.infoSectionConfigData} />
       <ChainSection chainSectionConfigData={props.chainSectionConfigData} />
       <AdvantageSection
         initiativeSectionConfigData={props.initiativeSectionConfigData}
@@ -376,10 +373,10 @@ export async function getStaticProps() {
         rows: 2,
       },
     ],
-  };
-  const infoSectionListStyle = {
-    margin: { xs: "auto", md: "auto 0" },
-    height: "100%",
+    listStyle: {
+      margin: { xs: "auto", md: "auto 0" },
+      height: "100%",
+    },
   };
   const chainSectionConfigData = {
     textAlign: "", // >>> default: left
@@ -1088,7 +1085,6 @@ export async function getStaticProps() {
       gallerySectionConfigData,
       featureSectionConfigData,
       infoSectionConfigData,
-      infoSectionListStyle,
       chainSectionConfigData,
       initiativeSectionConfigData,
       initiativeSectionListStyle,
