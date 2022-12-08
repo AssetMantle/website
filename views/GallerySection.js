@@ -49,7 +49,7 @@ export default function GallerySection({ configData }) {
                       width: { xs: "100%" },
                     }}
                   >
-                    <Card sx={configData.optionStyles}>
+                    <Card sx={configData.optionStyle}>
                       {Gallery.image && (
                         <CardMedia
                           component="img"
