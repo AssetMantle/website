@@ -21,10 +21,7 @@ export default function Index(props) {
       <AdvantageSection configData={props.advantageSectionConfigData} />
       <UniverseSection configData={props.universeSectionConfigData} />
       <TeamSection configData={props.teamSectionConfigData} />
-      <SocialProofSection
-        socialProofConfigData={props.socialProofSectionConfigData}
-        optionContainerStyles={props.socialProofSectionOptionContainerStyles}
-      />
+      <SocialProofSection configData={props.socialProofSectionConfigData} />
       {/* <SubscribeSection /> */}
     </>
   );
@@ -1061,15 +1058,14 @@ export async function getStaticProps() {
         link: "https://techbullion.com/talking-nfts-with-assetmantle-founder-deepanshu-tripathi/",
       },
     ],
-  };
+    optionContainerStyles: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: { xs: "center", md: "space-around" },
+      flexWrap: "wrap",
 
-  const socialProofSectionOptionContainerStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: { xs: "center", md: "space-around" },
-    flexWrap: "wrap",
-
-    pt: 10,
+      pt: 10,
+    },
   };
 
   return {
@@ -1083,7 +1079,6 @@ export async function getStaticProps() {
       universeSectionConfigData,
       teamSectionConfigData,
       socialProofSectionConfigData,
-      socialProofSectionOptionContainerStyles,
     },
   };
 }
