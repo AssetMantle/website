@@ -13,10 +13,7 @@ import TeamSection from "../views/TeamSection";
 export default function Index(props) {
   return (
     <>
-      <HeroSection
-        heroSectionConfigData={props.heroSectionConfigData}
-        sectionStyle={props.heroSectionStyle}
-      />
+      <HeroSection configData={props.heroSectionConfigData} />
       <GallerySection
         gallerySectionConfigData={props.gallerySectionConfigData}
         optionStyles={props.gallerySectionOptionStyle}
@@ -76,18 +73,18 @@ export async function getStaticProps() {
       { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
       { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
     ],
-  };
-  const heroSectionStyle = {
-    pt: 4,
-    mt: 2,
-    pb: 4,
-    mb: 4,
-    color: "primary.light",
-    textAlign: { xs: "center", sm: "center", md: "center" },
-    titleVariant: "h1",
-    titleColor: "secondary.main",
-    subTitleVariant: "subtitle1",
-    subTitleColor: "primary.main",
+    sectionStyle: {
+      pt: 4,
+      mt: 2,
+      pb: 4,
+      mb: 4,
+      color: "primary.light",
+      textAlign: { xs: "center", sm: "center", md: "center" },
+      titleVariant: "h1",
+      titleColor: "secondary.main",
+      subTitleVariant: "subtitle1",
+      subTitleColor: "primary.main",
+    },
   };
   const gallerySectionConfigData = {
     paperVariant: "translucent",
@@ -1095,7 +1092,6 @@ export async function getStaticProps() {
   return {
     props: {
       heroSectionConfigData,
-      heroSectionStyle,
       gallerySectionConfigData,
       gallerySectionOptionStyle,
       featureSectionConfigData,

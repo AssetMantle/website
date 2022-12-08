@@ -17,7 +17,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 // import Icon from '@mui/material/Icon';
 
-export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
+export default function HeroSection({ configData }) {
   const customH1Styles = {
     background: "-webkit-linear-gradient(120deg, #6FB4B5 20%, #FF930F 90%)",
 
@@ -57,37 +57,37 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
     >
       {/* Title */}
       <Typography
-        variant={sectionStyle.titleVariant}
-        color={sectionStyle.titleColor}
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.titleText1}
+        {configData.titleText1}
       </Typography>
       <Typography
-        variant={sectionStyle.titleVariant}
-        color={sectionStyle.titleColor}
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
         // align={}
         sx={customH1Styles}
       >
-        {heroSectionConfigData.titleText2}
+        {configData.titleText2}
       </Typography>
       <Typography
-        variant={sectionStyle.titleVariant}
-        color={sectionStyle.titleColor}
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.titleText3}
+        {configData.titleText3}
       </Typography>
       {/* Subtitle */}
       <Typography
-        variant={sectionStyle.subTitleVariant}
-        color={sectionStyle.subTitleColor}
+        variant={configData.sectionStyle.subTitleVariant}
+        color={configData.sectionStyle.subTitleColor}
         align="left"
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.subtitle}
+        {configData.subtitle}
       </Typography>
       {/* CTA */}
       <Box
@@ -99,7 +99,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
         pb={4}
         sx={{ backgroundColor: "transparent" }}
       >
-        {heroSectionConfigData.buttons.map((ele, index) => (
+        {configData.buttons.map((ele, index) => (
           <Button
             key={index}
             variant={ele.variant}
@@ -120,7 +120,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src={heroSectionConfigData.image}
+      src={configData.image}
       alt="hero_image"
       style={{
         width: "95%",
@@ -132,10 +132,9 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   return (
     <Box
       component="section"
-      sx={sectionStyle}
+      sx={configData.sectionStyle}
       id={
-        heroSectionConfigData.title &&
-        heroSectionConfigData.title.toLowerCase().replaceAll(" ", "-")
+        configData.title && configData.title.toLowerCase().replaceAll(" ", "-")
       }
     >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
@@ -179,7 +178,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
               display: "flex",
             }}
           >
-            {heroSectionConfigData.translucentStripData.map((ele, index) => (
+            {configData.translucentStripData.map((ele, index) => (
               <Grid
                 key={index}
                 item
