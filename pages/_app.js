@@ -8,6 +8,7 @@ import theme from "../config/theme";
 import { useEffect } from "react";
 import * as ga from "../lib";
 import { useRouter } from "next/router";
+import Script from "next/script";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 
@@ -39,6 +40,24 @@ export default function MyApp(props) {
           content="AssetMantle is a community-first platform for NFT creators and collectors. Use AssetMantle to create your own NFT store or to expand your collection of NFTs."
         />
         <title>AssetMantle</title>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-5FCP59P8T5"
+        ></Script>
+        <Script>
+          id='google-analytics' strategy="afterInteractive"
+          dangerouslySetInnerHTML=
+          {{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}, {
+page_path: window.location.pathname,
+});
+`,
+          }}
+        </Script>
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
