@@ -17,6 +17,16 @@ export default function MyApp(props) {
   const router = useRouter();
 
   useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-5FCP59P8T5");
+    console.log(dataLayer);
+  }, []);
+
+  useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url);
     };
@@ -40,16 +50,11 @@ export default function MyApp(props) {
           content="AssetMantle is a community-first platform for NFT creators and collectors. Use AssetMantle to create your own NFT store or to expand your collection of NFTs."
         />
         <title>AssetMantle</title>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-5FCP59P8T5"
-        ></Script>
-        <Script strategy="afterInteractive">
-          dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-5FCP59P8T5');
-        </Script>
       </Head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-5FCP59P8T5"
+      ></Script>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Layout>
