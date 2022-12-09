@@ -478,7 +478,7 @@ export async function getStaticProps() {
         filters: ["Token Integration Partners"],
         dimensions: { width: "100px", height: "100px" },
         description:
-          "The dashboard for Insights for all AssetMantle transfer of value",
+          "The Center of Decentralized Finance.An all-in-one interface to manage assets across Cosmos",
       },
     ],
     dropdownFilters: [
