@@ -60,6 +60,7 @@ export default class MyDocument extends Document {
             // backgroundPosition: "center top",
             backgroundSize: "100%",
             backgroundColor: theme.palette.background.default,
+            backgroundColor: "#990503",
           }}
         >
           <Main />
