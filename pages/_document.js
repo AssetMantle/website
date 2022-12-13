@@ -55,12 +55,12 @@ export default class MyDocument extends Document {
         </Head>
         <body
           style={{
-            backgroundImage: "url('/images/Background_tile.webp')",
+            // backgroundImage: "url('/images/Background_tile.webp')",
             backgroundRepeat: "repeat-y",
             // backgroundPosition: "center top",
             backgroundSize: "100%",
             backgroundColor: theme.palette.background.default,
-            backgroundColor: "#990503",
+            backgroundColor: "#700000",
           }}
         >
           <Main />
