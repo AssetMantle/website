@@ -20,28 +20,20 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 export default function HeroSection({ configData }) {
   const customH1Styles = {
     background: "-webkit-linear-gradient(120deg, #6FB4B5 20%, #FF930F 90%)",
-
     WebkitBackgroundClip: "text",
-
     backgroundClip: "text",
-
     backgroundSize: "200%",
-
     backgroundPosition: "50% 50%",
-
     color: "transparent",
-
+    margin: "0 !important",
     animation: "gradientAnimation 10s ease-in-out infinite",
-
     "@keyframes gradientAnimation": {
       "0%": {
         backgroundPosition: "0 50%",
       },
-
       "50%": {
         backgroundPosition: "100% 50%",
       },
-
       "100%": {
         backgroundPosition: "0 50%",
       },
@@ -76,7 +68,11 @@ export default function HeroSection({ configData }) {
         variant={configData.sectionStyle.titleVariant}
         color={configData.sectionStyle.titleColor}
         // align={}
-        sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
+        sx={{
+          maxWidth: 375,
+          textAlign: { xs: "center", md: "left" },
+          margin: "0 !important",
+        }}
       >
         {configData.titleText3}
       </Typography>
