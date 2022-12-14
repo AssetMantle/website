@@ -334,10 +334,14 @@ export default function Header(props) {
                 }}
               >
                 <img
-                  src="/static/xmas.svg"
+                  src="/static/xmas1.svg"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
-                  style={{ cursor: "pointer", maxWidth: "200px" }}
+                  style={{
+                    cursor: "pointer",
+                    maxWidth: "200px",
+                    paddingBottom: "20px",
+                  }}
                 />
               </Box>
               <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
