@@ -342,7 +342,7 @@ export default function Header(props) {
                   style={{
                     cursor: "pointer",
                     maxWidth: "200px",
-                    paddingBottom: "20px",
+                    paddingBottom: "8px",
                   }}
                 />
               </Box>
