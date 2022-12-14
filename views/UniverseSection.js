@@ -26,13 +26,13 @@ export default function UniverseSection({ configData }) {
       >
         Learn More <KeyboardArrowRightIcon />
       </Button>
-      <Grid spacing={4} container>
+      <Grid spacing={{ xs: 0, md: 4 }} container>
         {configData.subSections &&
           Array.isArray(configData.subSections) &&
           configData.subSections.length > 0 &&
           React.Children.toArray(
             configData.subSections.map((subSection) => (
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} py={{ xs: 2, md: 0 }}>
                 <Stack spacing={2} sx={{ height: "100%" }}>
                   <Paper
                     variant={configData.paperVariant}
