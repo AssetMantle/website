@@ -245,9 +245,9 @@ export async function getStaticProps() {
       minHeight: "296px",
       transition: "all 0.3s ease-in-out",
       color: "primary.light",
-      "&:hover": {
-        backgroundColor: "navBg",
-      },
+      // "&:hover": {
+      //   backgroundColor: "navBg",
+      // },
     },
   };
   const infoSectionConfigData = {
