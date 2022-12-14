@@ -60,7 +60,8 @@ export default class MyDocument extends Document {
             // backgroundPosition: "center top",
             backgroundSize: "100%",
             backgroundColor: theme.palette.background.default,
-            backgroundColor: "#700000", // to remove christmas styles remove this line
+            // backgroundColor: "#620D06", // to remove christmas styles remove this line
+            backgroundImage: "linear-gradient(to right,#550D05,#620D06,#461009)",
           }}
         >
           <Main />
