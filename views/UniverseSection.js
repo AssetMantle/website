@@ -33,7 +33,7 @@ export default function UniverseSection({ configData }) {
           React.Children.toArray(
             configData.subSections.map((subSection) => (
               <Grid item xs={12} md={6}>
-                <Stack spacing={2}>
+                <Stack spacing={2} sx={{ height: "100%" }}>
                   <Paper
                     variant={configData.paperVariant}
                     sx={{
@@ -55,7 +55,10 @@ export default function UniverseSection({ configData }) {
                       }}
                     />
                   </Paper>
-                  <Paper variant={configData.paperVariant}>
+                  <Paper
+                    variant={configData.paperVariant}
+                    sx={{ height: "100%" }}
+                  >
                     <Stack
                       direction="column"
                       gap={5}
