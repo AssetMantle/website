@@ -311,6 +311,7 @@ export default function Header(props) {
               sx={{
                 display: "flex",
                 alignItems: "center",
+                py: 1,
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
@@ -323,6 +324,7 @@ export default function Header(props) {
                   edge: "start",
                   mr: 1,
                   display: { xs: "box", sm: "none" },
+                  my: "auto",
                 }}
               >
                 <MenuIcon color="primary" />
