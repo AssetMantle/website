@@ -22,7 +22,7 @@ export default function AdvantageSection({ configData }) {
     >
       <Grid
         container
-        spacing={2}
+        spacing={{ xs: 0, md: 2 }}
         maxWidth="lg"
         sx={{
           background: "url(/AdvantageSection/advantage_bg.png) no-repeat left",
@@ -75,7 +75,7 @@ export default function AdvantageSection({ configData }) {
             </Box>
           )}
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} py={{ xs: 3, md: 0 }}>
           {Array.isArray(configData.initiatives) &&
             configData.initiatives &&
             configData.initiatives.length > 0 && (

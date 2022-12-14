@@ -1063,8 +1063,7 @@ export async function getStaticProps() {
       alignItems: "center",
       justifyContent: { xs: "center", md: "space-around" },
       flexWrap: "wrap",
-
-      pt: 10,
+      pt: { xs: 4, md: 6 },
     },
   };
 
