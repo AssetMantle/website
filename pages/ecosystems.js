@@ -432,14 +432,14 @@ export async function getStaticProps() {
         description:
           "Utility Focused NFT Collection to create sub-communities around Joint Robots",
       },
-      {
+      /* {
         icon: "/CollabsSection/analytics.png",
         name: "Analytics",
         filters: ["Integrations", "MantleLabs"],
         dimensions: { width: "100px", height: "100px" },
         description:
           "The dashboard for Insights for all AssetMantle transfer of value",
-      },
+      }, */
       {
         icon: "/CollabsSection/AM_Logo.png",
         name: "Mirage Metaverse",

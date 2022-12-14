@@ -13,49 +13,24 @@ import TeamSection from "../views/TeamSection";
 export default function Index(props) {
   return (
     <>
-      <HeroSection
-        heroSectionConfigData={props.heroSectionConfigData}
-        sectionStyle={props.heroSectionStyle}
-      />
-      <GallerySection
-        gallerySectionConfigData={props.gallerySectionConfigData}
-        optionStyles={props.gallerySectionOptionStyle}
-      />
-      <FeatureSection
-        featureSectionConfigData={props.featureSectionConfigData}
-        optionStyles={props.featureSectionOptionStyles}
-        optionContainerStyles={props.featureSectionOptionContainerStyles}
-      />
-      <InfoSection
-        listStyle={props.infoSectionListStyle}
-        infoSectionConfigData={props.infoSectionConfigData}
-      />
+      <HeroSection configData={props.heroSectionConfigData} />
+      <GallerySection configData={props.gallerySectionConfigData} />
+      <FeatureSection configData={props.featureSectionConfigData} />
+      <InfoSection configData={props.infoSectionConfigData} />
       <ChainSection chainSectionConfigData={props.chainSectionConfigData} />
-      <AdvantageSection
-        initiativeSectionConfigData={props.initiativeSectionConfigData}
-        initiativeSectionListStyle={props.initiativeSectionListStyle}
-      />
-      <UniverseSection
-        leftSubsectionData={props.universeSectionLeftSubSectionData}
-        rightSubsectionData={props.universeSectionRightSubSectionData}
-        headerLogoStyles={props.universeSectionHeaderLogoStyles}
-      />
-      <TeamSection
-        teamsConfigData={props.teamSectionConfigData}
-        optionStyles={props.teamSectionOptionStyles}
-        linkStyles={props.teamSectionLinkStyles}
-      />
-      <SocialProofSection
-        socialProofConfigData={props.socialProofSectionConfigData}
-        optionContainerStyles={props.socialProofSectionOptionContainerStyles}
-      />
+      <AdvantageSection configData={props.advantageSectionConfigData} />
+      <UniverseSection configData={props.universeSectionConfigData} />
+      <TeamSection configData={props.teamSectionConfigData} />
+      <SocialProofSection configData={props.socialProofSectionConfigData} />
       {/* <SubscribeSection /> */}
     </>
   );
 }
 export async function getStaticProps() {
   const heroSectionConfigData = {
-    title: "Redefining Digital Asset Ownership",
+    titleText1: "Redefining",
+    titleText2: "Digital Asset",
+    titleText3: "Ownership",
     subtitle:
       "Experience the first NFT marketplace with blockchain-based identity",
     buttons: [
@@ -78,18 +53,18 @@ export async function getStaticProps() {
       { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
       { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
     ],
-  };
-  const heroSectionStyle = {
-    pt: 4,
-    mt: 2,
-    pb: 4,
-    mb: 4,
-    color: "primary.light",
-    textAlign: { xs: "center", sm: "center", md: "center" },
-    titleVariant: "h1",
-    titleColor: "secondary.main",
-    subTitleVariant: "subtitle1",
-    subTitleColor: "primary.main",
+    sectionStyle: {
+      pt: 4,
+      mt: 2,
+      pb: 4,
+      mb: 4,
+      color: "primary.light",
+      textAlign: { xs: "center", sm: "center", md: "center" },
+      titleVariant: "h1",
+      titleColor: "secondary.main",
+      subTitleVariant: "subtitle1",
+      subTitleColor: "primary.main",
+    },
   };
   const gallerySectionConfigData = {
     paperVariant: "translucent",
@@ -164,17 +139,17 @@ export async function getStaticProps() {
         ],
       },
     ],
-  };
-  const gallerySectionOptionStyle = {
-    background: "transparent",
-    maxWidth: 272,
-    boxShadow: "none",
-    height: "100%",
-    mx: "auto",
-    padding: "0 11px",
-    textAlign: { xs: "center", md: "left" },
-    display: "flex",
-    flexDirection: "column",
+    optionStyle: {
+      background: "transparent",
+      maxWidth: 272,
+      boxShadow: "none",
+      height: "100%",
+      mx: "auto",
+      padding: "0 11px",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+    },
   };
   const featureSectionConfigData = {
     paperVariant: "translucent",
@@ -254,26 +229,26 @@ export async function getStaticProps() {
         descriptionColor: "secondary.main",
       },
     ],
-  };
-  const featureSectionOptionContainerStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    gap: "14px",
-    mt: 5,
-  };
-  const featureSectionOptionStyles = {
-    background: "transparent",
-    maxWidth: 374,
-    boxShadow: "none",
-    padding: "16px 22px",
-    minHeight: "296px",
-    transition: "all 0.3s ease-in-out",
-    color: "primary.light",
-    // "&:hover": {
-    //   backgroundColor: "navBg",
-    // },
+    optionContainerStyles: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: "14px",
+      mt: 5,
+    },
+    optionStyles: {
+      background: "transparent",
+      maxWidth: 374,
+      boxShadow: "none",
+      padding: "16px 22px",
+      minHeight: "296px",
+      transition: "all 0.3s ease-in-out",
+      color: "primary.light",
+      // "&:hover": {
+      //   backgroundColor: "navBg",
+      // },
+    },
   };
   const infoSectionConfigData = {
     textAlign: "", // >>> default: left
@@ -388,10 +363,10 @@ export async function getStaticProps() {
         rows: 2,
       },
     ],
-  };
-  const infoSectionListStyle = {
-    margin: { xs: "auto", md: "auto 0" },
-    height: "100%",
+    listStyle: {
+      margin: { xs: "auto", md: "auto 0" },
+      height: "100%",
+    },
   };
   const chainSectionConfigData = {
     textAlign: "", // >>> default: left
@@ -461,7 +436,7 @@ export async function getStaticProps() {
       },
     ],
   };
-  const initiativeSectionConfigData = {
+  const advantageSectionConfigData = {
     paperVariant: "translucent",
     textAlign: "center", // >>> default: left
     title: "The AssetMantle Advantage",
@@ -519,86 +494,95 @@ export async function getStaticProps() {
           "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
       },
     ],
-  };
-  const initiativeSectionListStyle = {
-    background: "transparent",
-    pl: { xs: 2, md: 0 },
-    pr: 2,
-    py: 3,
+    listStyle: {
+      background: "transparent",
+      pl: { xs: 2, md: 0 },
+      pr: 2,
+      py: 3,
 
-    color: "primary.light",
-    display: "flex",
-    flexDirection: { xs: "column", md: "row" },
-    alignItems: "center",
-    textAlign: { xs: "center", md: "left" },
+      color: "primary.light",
+      display: "flex",
+      flexDirection: { xs: "column", md: "row" },
+      alignItems: "center",
+      textAlign: { xs: "center", md: "left" },
+    },
   };
-  const universeSectionLeftSubSectionData = {
+  const universeSectionConfigData = {
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
       "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
     paperVariant: "translucent",
     buttonVariant: "contained",
-    items: [
+    listVariant: "body1",
+    titleVariant: "h4",
+    subSections: [
       {
-        image: "UniverseSection/Mantle_Products.png",
-        title: "Mantle Products",
-        subData: [
-          "MantlePlace",
-          "MantleBuilder",
-          "MantleWallet",
-          "MantleExplorer",
-          "+2 More",
+        logo: "/static/Logo.svg",
+        alt: "Assetmantle logo",
+        childLogoBG: "transparent",
+        styles: { width: "90%" },
+        items: [
+          {
+            image: "UniverseSection/Mantle_Products.png",
+            title: "Mantle Products",
+            subData: [
+              "MantlePlace",
+              "MantleBuilder",
+              "MantleWallet",
+              "MantleExplorer",
+              "+2 More",
+            ],
+          },
+          {
+            image: "UniverseSection/Mantle_Chain.png",
+            title: "Mantle-1 Chain",
+            subData: ["$MNTL Token", "Foundation Validators"],
+          },
+          {
+            image: "UniverseSection/Mantle_Creatives.png",
+            title: "Mantle Creatives",
+            subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
+          },
+          {
+            image: "UniverseSection/Community_Initiatives.png",
+            title: "Community Initiatives",
+            subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
+          },
         ],
       },
       {
-        image: "UniverseSection/Mantle_Chain.png",
-        title: "Mantle-1 Chain",
-        subData: ["$MNTL Token", "Foundation Validators"],
-      },
-      {
-        image: "UniverseSection/Mantle_Creatives.png",
-        title: "Mantle Creatives",
-        subData: ["Membership NFTs", "Mantlers", "AssMan NFTs"],
-      },
-      {
-        image: "UniverseSection/Community_Initiatives.png",
-        title: "Community Initiatives",
-        subData: ["InterNFT", "Artist4Web3", "MantleArmy"],
-      },
-    ],
-  };
-  const universeSectionRightSubSectionData = {
-    titleColor: "primary.main",
-    listVariant: "body1",
-    titleVariant: "h4",
-    items: [
-      {
-        image: "UniverseSection/Partnerships.png",
-        title: "Partnerships",
-        subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
-      },
-      {
-        image: "UniverseSection/Ecosystem_Projects.png",
-        title: "Ecosystem Projects",
-        subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
-      },
-      {
-        image: "UniverseSection/Integrations.png",
-        title: "Integrations",
-        subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
-      },
-      {
-        image: "UniverseSection/Grants.png",
-        title: "Grants",
-        subData: ["Internal Development", "External Integrations", "Products"],
+        logo: "UniverseSection/MLLogo.png",
+        alt: "MantleLab logo",
+        childLogoBG: "transparent",
+        styles: { width: "65%" },
+        items: [
+          {
+            image: "UniverseSection/Partnerships.png",
+            title: "Partnerships",
+            subData: ["Vaildators", "DAOs", "Investors", "Media", "+2 More"],
+          },
+          {
+            image: "UniverseSection/Ecosystem_Projects.png",
+            title: "Ecosystem Projects",
+            subData: ["MyriadFlow", "RushRaids", "Xtrathin"],
+          },
+          {
+            image: "UniverseSection/Integrations.png",
+            title: "Integrations",
+            subData: ["Modules", "NFT Toolings", "Analytics", "LaunchPads"],
+          },
+          {
+            image: "UniverseSection/Grants.png",
+            title: "Grants",
+            subData: [
+              "Internal Development",
+              "External Integrations",
+              "Products",
+            ],
+          },
+        ],
       },
     ],
-  };
-  const universeSectionHeaderLogoStyles = {
-    height: "170px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   };
   const teamSectionConfigData = {
     memberColor: "primary.main",
@@ -1014,23 +998,23 @@ export async function getStaticProps() {
         ],
       },
     ],
-  };
-  const teamSectionOptionStyles = {
-    background: "transparent",
-    borderRadius: "12px",
-    maxWidth: 227,
-    height: "100%",
-    boxShadow: "none",
-    padding: "0",
-    textAlign: { xs: "center", md: "left" },
-    display: "flex",
-    flexDirection: "column",
-    margin: { xs: "auto", md: "0" },
-  };
-  const teamSectionLinkStyles = {
-    color: "primary.light",
-    "&:hover": {
-      color: "primary.main",
+    optionStyles: {
+      background: "transparent",
+      borderRadius: "12px",
+      maxWidth: 227,
+      height: "100%",
+      boxShadow: "none",
+      padding: "0",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+      margin: { xs: "auto", md: "0" },
+    },
+    linkStyles: {
+      color: "primary.light",
+      "&:hover": {
+        color: "primary.main",
+      },
     },
   };
   const socialProofSectionConfigData = {
@@ -1074,39 +1058,26 @@ export async function getStaticProps() {
         link: "https://techbullion.com/talking-nfts-with-assetmantle-founder-deepanshu-tripathi/",
       },
     ],
-  };
-
-  const socialProofSectionOptionContainerStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: { xs: "center", md: "space-around" },
-    flexWrap: "wrap",
-
-    pt: 10,
+    optionContainerStyles: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: { xs: "center", md: "space-around" },
+      flexWrap: "wrap",
+      pt: { xs: 4, md: 6 },
+    },
   };
 
   return {
     props: {
       heroSectionConfigData,
-      heroSectionStyle,
       gallerySectionConfigData,
-      gallerySectionOptionStyle,
       featureSectionConfigData,
-      featureSectionOptionContainerStyles,
-      featureSectionOptionStyles,
       infoSectionConfigData,
-      infoSectionListStyle,
       chainSectionConfigData,
-      initiativeSectionConfigData,
-      initiativeSectionListStyle,
-      universeSectionRightSubSectionData,
-      universeSectionLeftSubSectionData,
-      universeSectionHeaderLogoStyles,
+      advantageSectionConfigData,
+      universeSectionConfigData,
       teamSectionConfigData,
-      teamSectionOptionStyles,
-      teamSectionLinkStyles,
       socialProofSectionConfigData,
-      socialProofSectionOptionContainerStyles,
     },
   };
 }

@@ -340,7 +340,7 @@ export default function Header(props) {
                   style={{ cursor: "pointer", maxWidth: "200px" }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
                 {itemList &&
                   Array.isArray(itemList) &&
                   itemList.length > 0 &&
