@@ -5,7 +5,7 @@ import Christmas from "./Christmas";
 export default function Layout({ children }) {
   return (
     <>
-      <Christmas />
+      <Christmas /> {/* to remove christmas styles remove this component */}
       <Header />
       <main>{children}</main>
       <Footer />
