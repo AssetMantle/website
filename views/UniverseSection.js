@@ -37,9 +37,6 @@ export default function UniverseSection({ configData }) {
                   <Paper
                     variant={configData.paperVariant}
                     sx={{
-                      borderBottom: "1px solid",
-                      borderColor: "primary.light",
-                      borderRadius: "0px",
                       display: "flex",
                       py: 2,
                       aspectRatio: "16/6",
@@ -59,7 +56,12 @@ export default function UniverseSection({ configData }) {
                     />
                   </Paper>
                   <Paper variant={configData.paperVariant}>
-                    <Stack direction="column" gap={5} px={{ xs: 1, md: 3 }}>
+                    <Stack
+                      direction="column"
+                      gap={5}
+                      px={{ xs: 1, md: 3 }}
+                      pt={4}
+                    >
                       {subSection.items.map((element, index) => {
                         return (
                           <Grid

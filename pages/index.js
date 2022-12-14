@@ -511,7 +511,7 @@ export async function getStaticProps() {
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
       "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
-    paperVariant: "transparent",
+    paperVariant: "translucent",
     buttonVariant: "contained",
     listVariant: "body1",
     titleVariant: "h4",
@@ -519,7 +519,7 @@ export async function getStaticProps() {
       {
         logo: "/static/Logo.svg",
         alt: "Assetmantle logo",
-        childLogoBG: "translucent",
+        childLogoBG: "transparent",
         styles: { width: "90%" },
         items: [
           {
@@ -553,7 +553,7 @@ export async function getStaticProps() {
       {
         logo: "UniverseSection/MLLogo.png",
         alt: "MantleLab logo",
-        childLogoBG: "translucent",
+        childLogoBG: "transparent",
         styles: { width: "65%" },
         items: [
           {
