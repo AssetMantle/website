@@ -137,7 +137,7 @@ export default function Christmas() {
             type="rotate"
           ></animateTransform>
           <animateMotion begin="20s" dur="13s" repeatCount="indefinite">
-            <mPath xLinkHref="#Line2"></mPath>
+            <mpath xlinkHref="#Line2"></mpath>
           </animateMotion>
         </g>
         <g>
@@ -2459,7 +2459,7 @@ export default function Christmas() {
             type="rotate"
           ></animateTransform>
           <animateMotion begin="10s" dur="13s" repeatCount="indefinite">
-            <mPath xLinkHref="#Line2"></mPath>
+            <mpath xlinkHref="#Line2"></mpath>
           </animateMotion>
         </g>
         <g>
