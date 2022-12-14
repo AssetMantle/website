@@ -334,7 +334,7 @@ export default function Header(props) {
                 }}
               >
                 <img
-                  src="/static/Logo.svg"
+                  src="/static/xmas.svg"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
                   style={{ cursor: "pointer", maxWidth: "200px" }}

@@ -38,7 +38,19 @@ const TitleAndSubtitle = (props) => {
           variant={SectionConfigData.titleVariant || "h1"}
           color={SectionConfigData.titleColor || "inherit"}
         >
-          {SectionConfigData.title}
+          <NextLink
+            color="inherit"
+            underline="hover"
+            href={`#${
+              SectionConfigData.title &&
+              SectionConfigData.title
+                .toLowerCase()
+                .replaceAll(" ", "-")
+                .replace(/[^a-z-]/g, "")
+            }`}
+          >
+            {SectionConfigData.title}
+          </NextLink>
         </Typography>
       )}
 
