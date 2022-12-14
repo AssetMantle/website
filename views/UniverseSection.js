@@ -8,135 +8,119 @@ import {
   Typography,
 } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 import React from "react";
 import Section from "../components/Section";
-import { Box } from "@mui/system";
 
-// leftSubsectionData.items.map((ele) => {
-//   ele.subData.map((data) => {
-//     console.log(data);
-//   });
-// });
-
-export default function UniverseSection({
-  leftSubsectionData,
-  rightSubsectionData,
-  headerLogoStyles,
-}) {
+export default function UniverseSection({ configData }) {
   return (
     <Section
-      title={leftSubsectionData.sectionTitle}
-      subTitle={leftSubsectionData.sectionSubTitle}
+      title={configData.sectionTitle}
+      subTitle={configData.sectionSubTitle}
     >
       <Button
-        variant={leftSubsectionData.buttonVariant}
+        variant={configData.buttonVariant}
         component="a"
         href="/ecosystems"
         size="large"
       >
         Learn More <KeyboardArrowRightIcon />
       </Button>
-      <Grid spacing={2} container>
-        <Grid item xs={12} md={6}>
-          <Stack spacing={2}>
-            <Paper variant="translucent" sx={headerLogoStyles}>
-              <img width="80%" src="/static/Logo.svg" />
-            </Paper>
-            <Paper variant={leftSubsectionData.paperVariant}>
-              <Grid
-                justifyContent="space-around"
-                alignItems="start"
-                container
-                gap={2}
-              >
-                {leftSubsectionData.items.map((element, index) => {
-                  return (
-                    <Grid key={index} item xs={4}>
-                      <Stack>
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
-                          <img width="98px" src={element.image}></img>
-                        </Box>
-                        <Typography
-                          align="center"
-                          variant="h4"
-                          color="primary.main"
-                        >
-                          {element.title}
-                        </Typography>
-                        <List>
-                          {element.subData.map((listItem, idx) => (
-                            <ListItem
-                              sx={{ display: "flex", justifyContent: "center" }}
-                              key={idx}
-                            >
-                              <Typography align="center" variant="body1">
-                                {listItem}
-                              </Typography>
-                            </ListItem>
-                          ))}
-                        </List>
-                      </Stack>
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Paper>
-          </Stack>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Stack spacing={2}>
-            <Paper variant="translucent" sx={headerLogoStyles}>
-              <img
-                width="80%"
-                src="UniverseSection/MLLogo.png"
-                style={{ maxWidth: "331px" }}
-              />
-            </Paper>
-            <Paper variant="translucent">
-              <Grid
-                sx={{ height: "804px" }}
-                justifyContent="space-around"
-                alignItems="start"
-                container
-                gap={2}
-              >
-                {rightSubsectionData.items.map((element, index) => {
-                  return (
-                    <Grid key={index} item xs={4}>
-                      <Stack>
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
-                          <img width="98px" src={element.image}></img>
-                        </Box>
-                        <Typography
-                          align="center"
-                          variant={rightSubsectionData.titleVariant}
-                          color={rightSubsectionData.titleColor}
-                        >
-                          {element.title}
-                        </Typography>
-                        <List>
-                          {element.subData.map((listItem, idx) => (
-                            <ListItem
-                              sx={{ display: "flex", justifyContent: "center" }}
-                              key={idx}
-                            >
-                              <Typography
-                                align="center"
-                                variant={rightSubsectionData.listVariant}
+      <Grid spacing={4} container>
+        {configData.subSections &&
+          Array.isArray(configData.subSections) &&
+          configData.subSections.length > 0 &&
+          React.Children.toArray(
+            configData.subSections.map((subSection) => (
+              <Grid item xs={12} md={6}>
+                <Stack spacing={2}>
+                  <Paper
+                    variant={configData.paperVariant}
+                    sx={{
+                      borderBottom: "1px solid",
+                      borderColor: "primary.light",
+                      borderRadius: "0px",
+                      display: "flex",
+                      py: 2,
+                      aspectRatio: "16/6",
+                    }}
+                  >
+                    <img
+                      src={subSection.logo}
+                      alt={subSection.alt}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        ...subSection.styles,
+                        objectPosition: "center",
+                        objectFit: "scale-down",
+                        margin: "auto",
+                      }}
+                    />
+                  </Paper>
+                  <Paper variant={configData.paperVariant}>
+                    <Stack direction="column" gap={5} px={{ xs: 1, md: 3 }}>
+                      {subSection.items.map((element, index) => {
+                        return (
+                          <Grid
+                            key={index}
+                            container
+                            spacing={{ xs: 1, md: 3 }}
+                          >
+                            <Grid item xs={4} md={5} alignSelf="center">
+                              <Paper
+                                variant={subSection.childLogoBG}
+                                sx={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
                               >
-                                {listItem}
+                                <img
+                                  alt={element.title}
+                                  src={element.image}
+                                  style={{
+                                    width: "100%",
+                                    height: "auto",
+                                    objectPosition: "center",
+                                  }}
+                                ></img>
+                              </Paper>
+                            </Grid>
+                            <Grid item xs={8} md={7}>
+                              <Typography
+                                variant="h4"
+                                color="primary.light"
+                                align="left"
+                              >
+                                {element.title}
                               </Typography>
-                            </ListItem>
-                          ))}
-                        </List>
-                      </Stack>
-                    </Grid>
-                  );
-                })}
+                              <List>
+                                {element.subData.map((listItem, idx) => (
+                                  <ListItem
+                                    sx={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: 1,
+                                    }}
+                                    key={idx}
+                                  >
+                                    <FiberManualRecordOutlinedIcon />
+                                    <Typography variant="body2">
+                                      {listItem}
+                                    </Typography>
+                                  </ListItem>
+                                ))}
+                              </List>
+                            </Grid>
+                          </Grid>
+                        );
+                      })}
+                    </Stack>
+                  </Paper>
+                </Stack>
               </Grid>
-            </Paper>
-          </Stack>
-        </Grid>
+            ))
+          )}
       </Grid>
     </Section>
   );

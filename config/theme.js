@@ -70,6 +70,11 @@ const baseTheme = createTheme({
       defaultProps: {
         elevation: 12,
       },
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
+      },
       variants: [
         {
           props: { variant: "translucent" },

@@ -2,20 +2,14 @@ import { Box, Card, CardMedia } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
 
-export default function SocialProofSection({
-  socialProofConfigData,
-  optionContainerStyles,
-}) {
+export default function SocialProofSection({ configData }) {
   return (
-    <Section
-      title={socialProofConfigData.title}
-      subTitle={socialProofConfigData.description}
-    >
-      {Array.isArray(socialProofConfigData.features) &&
-        socialProofConfigData.features &&
-        socialProofConfigData.features.length > 0 && (
-          <Box sx={optionContainerStyles}>
-            {socialProofConfigData.features.map((feature, index) => (
+    <Section title={configData.title} subTitle={configData.description}>
+      {Array.isArray(configData.features) &&
+        configData.features &&
+        configData.features.length > 0 && (
+          <Box sx={configData.optionContainerStyles}>
+            {configData.features.map((feature, index) => (
               <Card
                 sx={{
                   width: "min(208px,100%)",
@@ -24,10 +18,12 @@ export default function SocialProofSection({
                   height: "100%",
                   display: "flex",
                   boxShadow: "none",
-
+                  transition: "all 300ms ease-in-out",
                   backgroundImage: "none",
+                  filter: "contrast(0%)",
                   "&:hover": {
-                    boxShadow: "0px 0px 4px 4px rgba(0,0,0,0.2)",
+                    transform: "scale(1.2)",
+                    filter: "contrast(100%)",
                   },
                 }}
                 key={index}
