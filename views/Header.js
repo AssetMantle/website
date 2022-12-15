@@ -311,7 +311,7 @@ export default function Header(props) {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                py: 1,
+                py: 2,
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
@@ -336,13 +336,13 @@ export default function Header(props) {
                 }}
               >
                 <img
-                  src="/static/xmas1.svg"
+                  src="/static/xmas1.png"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
                   style={{
                     cursor: "pointer",
-                    maxWidth: "200px",
-                    paddingBottom: "20px",
+                    width: "min(230px, 100%)", // decrease the size to 200px also while removing the christmas logo
+                    paddingBottom: "8px", // remove this line also while removing the christmas logo
                   }}
                 />
               </Box>
