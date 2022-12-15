@@ -220,7 +220,7 @@ export async function getStaticProps() {
       {
         href: "",
         icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
-        title: "Future Interoperability",
+        title: "InterChain Assets & Liquidity",
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
