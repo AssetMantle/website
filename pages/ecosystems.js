@@ -433,17 +433,9 @@ export async function getStaticProps() {
           "Utility Focused NFT Collection to create sub-communities around Joint Robots",
       },
       {
-        icon: "/CollabsSection/analytics.png",
-        name: "Analytics",
-        filters: ["Integrations", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "The dashboard for Insights for all AssetMantle transfer of value",
-      },
-      {
         icon: "/CollabsSection/AM_Logo.png",
         name: "Mirage Metaverse",
-        filters: ["MantleGrants"],
+        filters: ["MantleGrants", "AssetMantle"],
         dimensions: { width: "112.96px", height: "27px" },
         description:
           "A Social Commerce Metaverse made for the next generation. A Metaverse where you can buy, sell, trade, socialize, attend concerts, learn,  game, and experience many more exciting stuff!",
@@ -451,7 +443,7 @@ export async function getStaticProps() {
       {
         icon: "/CollabsSection/Leap_light.png",
         name: "Leap Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "103.54px", height: "53.96px" },
         description:
           "A non-custodial super wallet for Cosmos & Terra 2.0 .Leap is the simplest & safest way to send, swap, and stake tokens.",
@@ -459,7 +451,7 @@ export async function getStaticProps() {
       {
         icon: "/CollabsSection/Falcon_Wallet.png",
         name: "Falcon Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
           "A secure, safe and convenient wallet to store, send and receive tokens across 40+ zones in the Cosmos ecosystem",
@@ -467,7 +459,7 @@ export async function getStaticProps() {
       {
         icon: "/CollabsSection/frontier-logo.jpeg",
         name: "Frontier Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
           "It is a DeFi, NFT & crypto wallet where you can send, store & invest in 4,000+ assets. Facilitates  staking or supplying assets in DeFi apps from a single place.",
@@ -475,10 +467,18 @@ export async function getStaticProps() {
       {
         icon: "/CollabsSection/pulsar-logo.svg",
         name: "Pulsar Finance",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
           "The dashboard for Insights for all AssetMantle transfer of value",
+      },
+      {
+        icon: "/CollabsSection/QuillAudits.png",
+        name: "QuillAudits",
+        filters: ["Partnerships", "MantleLabs"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "Providing reliable Smart Contract Audits & Diligence Services to emerging web 3 ventures ",
       },
     ],
     dropdownFilters: [

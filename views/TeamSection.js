@@ -18,19 +18,12 @@ import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Section from "../components/Section";
 
-export default function GallerySection({
-  teamsConfigData,
-  linkStyles,
-  optionStyles,
-}) {
+export default function GallerySection({ configData }) {
   return (
-    <Section
-      title={teamsConfigData.title}
-      subTitle={teamsConfigData.description}
-    >
-      {Array.isArray(teamsConfigData.members) &&
-        teamsConfigData.members &&
-        teamsConfigData.members.length > 0 && (
+    <Section title={configData.title} subTitle={configData.description}>
+      {Array.isArray(configData.members) &&
+        configData.members &&
+        configData.members.length > 0 && (
           <Box
             sx={{
               width: "100%",
@@ -70,12 +63,12 @@ export default function GallerySection({
               }}
             >
               <SplideTrack>
-                {Array.isArray(teamsConfigData.members) &&
-                  teamsConfigData.members &&
-                  teamsConfigData.members.length > 0 &&
-                  teamsConfigData.members.map((member, index) => (
+                {Array.isArray(configData.members) &&
+                  configData.members &&
+                  configData.members.length > 0 &&
+                  configData.members.map((member, index) => (
                     <SplideSlide key={index}>
-                      <Card sx={optionStyles}>
+                      <Card sx={configData.optionStyles}>
                         {member.image && (
                           <CardMedia
                             component="img"
@@ -96,17 +89,17 @@ export default function GallerySection({
                             {member.name && (
                               <Typography
                                 gutterBottom
-                                variant={teamsConfigData.nameVariant}
-                                component={teamsConfigData.nameColor}
-                                color={teamsConfigData.nameColor}
+                                variant={configData.nameVariant}
+                                component={configData.nameColor}
+                                color={configData.nameColor}
                               >
                                 {member.name}
                               </Typography>
                             )}
                             {member.designation && (
                               <Typography
-                                variant={teamsConfigData.designationVariant}
-                                color={teamsConfigData.designationColor}
+                                variant={configData.designationVariant}
+                                color={configData.designationColor}
                                 sx={{ pt: 1 }}
                               >
                                 {member.designation}
@@ -136,7 +129,7 @@ export default function GallerySection({
                                 <div key={`sefs${index}`}>
                                   {button.icon === "LinkedIn" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"
@@ -147,7 +140,7 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "GitHub" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"
@@ -158,7 +151,7 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Twitter" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"
@@ -169,7 +162,7 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Behance" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"
@@ -180,7 +173,7 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Website" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"
@@ -191,7 +184,7 @@ export default function GallerySection({
                                   )}
                                   {button.icon === "Instagram" && (
                                     <Link
-                                      sx={linkStyles}
+                                      sx={configData.linkStyles}
                                       component="a"
                                       href={button.href && button.href}
                                       target="_blank"

@@ -11,11 +11,12 @@ export default function ChainSection({ chainSectionConfigData }) {
       title={chainSectionConfigData.title}
       subTitle={chainSectionConfigData.subTitle}
     >
-      <Grid container spacing={2} backgroundColor="transparent">
+      <Grid container spacing={{ xs: 0, md: 2 }} backgroundColor="transparent">
         <Grid
           item
           xs={12}
           md={6}
+          py={{ xs: 3, md: 0 }}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -75,11 +76,11 @@ export default function ChainSection({ chainSectionConfigData }) {
             </Typography>
           </Stack>
         </Grid>
-
         <Grid
           item
           xs={12}
           md={6}
+          py={{ xs: 3, md: 0 }}
           sx={{
             display: "flex",
             alignItems: "center",

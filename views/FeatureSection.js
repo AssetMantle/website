@@ -2,51 +2,23 @@ import { Box, Card, CardMedia, Paper, Typography } from "@mui/material";
 import React from "react";
 import Section from "../components/Section";
 
-const optionContainerStyles = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  flexWrap: "wrap",
-  gap: "14px",
-  mt: 5,
-};
-const optionStyles = {
-  background: "transparent",
-  maxWidth: 374,
-  boxShadow: "none",
-  padding: "16px 22px",
-  minHeight: "296px",
-  transition: "all 0.3s ease-in-out",
-  color: "primary.light",
-  "&:hover": {
-    backgroundColor: "navBg",
-  },
-};
-
-export default function FeatureSection({
-  featureSectionConfigData,
-  optionContainerStyles,
-  optionStyles,
-}) {
+export default function FeatureSection({ configData }) {
   return (
     <Section
-      title={featureSectionConfigData.title && featureSectionConfigData.title}
-      subTitle={
-        featureSectionConfigData.description &&
-        featureSectionConfigData.description
-      }
+      title={configData.title && configData.title}
+      subTitle={configData.description && configData.description}
     >
-      {Array.isArray(featureSectionConfigData.featuresArray) &&
-        featureSectionConfigData.featuresArray &&
-        featureSectionConfigData.featuresArray.length > 0 && (
-          <Box sx={optionContainerStyles}>
-            {featureSectionConfigData.featuresArray.map((feature, index) => (
+      {Array.isArray(configData.featuresArray) &&
+        configData.featuresArray &&
+        configData.featuresArray.length > 0 && (
+          <Box sx={configData.optionContainerStyles}>
+            {configData.featuresArray.map((feature, index) => (
               <Paper
-                variant={featureSectionConfigData.paperVariant}
+                variant={configData.paperVariant}
                 sx={{ overflow: "hidden" }}
                 key={index}
               >
-                <Card sx={optionStyles}>
+                <Card sx={configData.optionStyles}>
                   <Box
                     sx={{
                       display: "flex",

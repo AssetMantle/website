@@ -311,6 +311,7 @@ export default function Header(props) {
               sx={{
                 display: "flex",
                 alignItems: "center",
+                py: 2,
                 // justifyContent: { xs: "flex-start", sm: "space-between" },
               }}
             >
@@ -323,6 +324,7 @@ export default function Header(props) {
                   edge: "start",
                   mr: 1,
                   display: { xs: "box", sm: "none" },
+                  my: "auto",
                 }}
               >
                 <MenuIcon color="primary" />
@@ -334,13 +336,17 @@ export default function Header(props) {
                 }}
               >
                 <img
-                  src="/static/Logo.svg"
+                  src="/static/xmas1.png"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
-                  style={{ cursor: "pointer", maxWidth: "200px" }}
+                  style={{
+                    cursor: "pointer",
+                    width: "min(230px, 100%)", // decrease the size to 200px also while removing the christmas logo
+                    paddingBottom: "8px", // remove this line also while removing the christmas logo
+                  }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
                 {itemList &&
                   Array.isArray(itemList) &&
                   itemList.length > 0 &&
