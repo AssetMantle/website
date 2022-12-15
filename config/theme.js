@@ -73,6 +73,7 @@ const baseTheme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "none",
+          transition: "opacity 10ms ease-in-out !important",
         },
       },
       variants: [
