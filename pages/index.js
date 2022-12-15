@@ -50,8 +50,8 @@ export async function getStaticProps() {
     image: "/HeroSection/mantler.webp",
     translucentStripData: [
       { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
-      { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
-      { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
+      { amount: "96k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
+      { amount: "6M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
     ],
     sectionStyle: {
       pt: 4,
