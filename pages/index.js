@@ -220,11 +220,11 @@ export async function getStaticProps() {
       {
         href: "",
         icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
-        title: "InterChain Assets & Liquidity",
+        title: "InterChain Assets",
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "InterNFT can potentially enable NFTs to be transferred to other connected chains, thereby creating a larger shared market economy.",
+          "Our InterNFT standards will potentially allow NFTs to be transferred to other connected chains, thereby creating a larger shared market economy.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },

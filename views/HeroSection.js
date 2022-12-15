@@ -19,14 +19,14 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 export default function HeroSection({ configData }) {
   const customH1Styles = {
-    background: "-webkit-linear-gradient(120deg, #6FB4B5 20%, #FF930F 90%)",
+    background: "-webkit-linear-gradient(120deg, #0aabad 20%, #FF930F 90%)",
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
     backgroundSize: "200%",
     backgroundPosition: "50% 50%",
     color: "transparent",
     margin: "0 !important",
-    animation: "gradientAnimation 10s ease-in-out infinite",
+    animation: "gradientAnimation 6s ease-in-out infinite",
     "@keyframes gradientAnimation": {
       "0%": {
         backgroundPosition: "0 50%",
