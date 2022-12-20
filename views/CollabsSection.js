@@ -138,7 +138,7 @@ export default function CollabsSection({ configData }) {
           </Grid>
 
           {/* Ecosystems */}
-          <Grid container spacing={2}>
+          <Grid container spacing={{ xs: 0, md: 2 }} s>
             {sortedArray.map((ele, index) => {
               return (
                 <Grid
@@ -150,6 +150,7 @@ export default function CollabsSection({ configData }) {
                   item
                   xs={12}
                   md={4}
+                  py={{ xs: 1, md: 0 }}
                 >
                   <Card
                     variant={configData.cardVariant}

@@ -46,6 +46,7 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
             "aria-labelledby": "basic-button",
           }}
           sx={{
+            boxShadow: "none",
             ".css-6hp17o-MuiList-root-MuiMenu-list": { padding: 0 },
           }}
         >
@@ -95,7 +96,14 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                           >
                             <Chip
                               label={url.menuName}
-                              sx={{ cursor: "pointer" }}
+                              sx={{
+                                cursor: "pointer",
+                                "&:hover": {
+                                  backgroundColor: "primary.main",
+                                  color: "background.default",
+                                  fontWeight: "400",
+                                },
+                              }}
                             />
                           </MenuItem>
                         ))}
@@ -136,6 +144,9 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                               borderBottom: "1px solid",
                               borderColor: "grey.700",
                               py: 2,
+                              "&:last-child": {
+                                border: "none",
+                              },
                             }}
                           >
                             <Typography variant="body2" sx={{ px: 2, pb: 1 }}>
@@ -175,7 +186,14 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
                                   >
                                     <Chip
                                       label={url.menuName}
-                                      sx={{ cursor: "pointer" }}
+                                      sx={{
+                                        cursor: "pointer",
+                                        "&:hover": {
+                                          backgroundColor: "primary.main",
+                                          color: "background.default",
+                                          fontWeight: "400",
+                                        },
+                                      }}
                                     />
                                   </MenuItem>
                                 ))}

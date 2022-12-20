@@ -17,7 +17,28 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 // import Icon from '@mui/material/Icon';
 
-export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
+export default function HeroSection({ configData }) {
+  const customH1Styles = {
+    background: "-webkit-linear-gradient(120deg, #6FB4B5 20%, #FF930F 90%)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    backgroundSize: "200%",
+    backgroundPosition: "50% 50%",
+    color: "transparent",
+    margin: "0 !important",
+    animation: "gradientAnimation 10s ease-in-out infinite",
+    "@keyframes gradientAnimation": {
+      "0%": {
+        backgroundPosition: "0 50%",
+      },
+      "50%": {
+        backgroundPosition: "100% 50%",
+      },
+      "100%": {
+        backgroundPosition: "0 50%",
+      },
+    },
+  };
   // contents of right sub-section
   const LeftSubSectionJSX = (
     <Stack
@@ -28,21 +49,41 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
     >
       {/* Title */}
       <Typography
-        variant={sectionStyle.titleVariant}
-        color={sectionStyle.titleColor}
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
         // align={}
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.title}
+        {configData.titleText1}
+      </Typography>
+      <Typography
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
+        // align={}
+        sx={customH1Styles}
+      >
+        {configData.titleText2}
+      </Typography>
+      <Typography
+        variant={configData.sectionStyle.titleVariant}
+        color={configData.sectionStyle.titleColor}
+        // align={}
+        sx={{
+          maxWidth: 375,
+          textAlign: { xs: "center", md: "left" },
+          margin: "0 !important",
+        }}
+      >
+        {configData.titleText3}
       </Typography>
       {/* Subtitle */}
       <Typography
-        variant={sectionStyle.subTitleVariant}
-        color={sectionStyle.subTitleColor}
+        variant={configData.sectionStyle.subTitleVariant}
+        color={configData.sectionStyle.subTitleColor}
         align="left"
         sx={{ maxWidth: 375, textAlign: { xs: "center", md: "left" } }}
       >
-        {heroSectionConfigData.subtitle}
+        {configData.subtitle}
       </Typography>
       {/* CTA */}
       <Box
@@ -54,7 +95,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
         pb={4}
         sx={{ backgroundColor: "transparent" }}
       >
-        {heroSectionConfigData.buttons.map((ele, index) => (
+        {configData.buttons.map((ele, index) => (
           <Button
             key={index}
             variant={ele.variant}
@@ -75,7 +116,7 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   const RightSubSectionJSX = (
     // Hero Image
     <img
-      src={heroSectionConfigData.image}
+      src={configData.image}
       alt="hero_image"
       style={{
         width: "95%",
@@ -87,10 +128,9 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
   return (
     <Box
       component="section"
-      sx={sectionStyle}
+      sx={configData.sectionStyle}
       id={
-        heroSectionConfigData.title &&
-        heroSectionConfigData.title.toLowerCase().replaceAll(" ", "-")
+        configData.title && configData.title.toLowerCase().replaceAll(" ", "-")
       }
     >
       <Container maxWidth="lg" sx={{ position: "relative" }}>
@@ -119,27 +159,36 @@ export default function HeroSection({ heroSectionConfigData, sectionStyle }) {
             width: { xs: "100%", md: "min(1200px, 90vw)" },
             position: { xs: "relative", md: "absolute" },
             bottom: { xs: "0", md: "-24px" },
+            display: "flex",
           }}
         >
           <Grid
             container
             alignItems="center"
-            spacing={2}
+            justifyContent="space-between"
+            // backgroundColor="red"
+            // spacing={2}
             sx={{
-              px: 6,
-              py: 4,
+              px: 4,
+              py: 3,
               display: "flex",
             }}
           >
-            {heroSectionConfigData.translucentStripData.map((ele, index) => (
+            {configData.translucentStripData.map((ele, index) => (
               <Grid
                 key={index}
                 item
                 xs={12}
                 sm={6}
                 md={4}
-                backgroundColor="transparent"
+                // backgroundColor={`rgba(${index * 29}, ${index * 24}, ${
+                //   index * 92
+                // })`}
                 justifyContent="center"
+                sx={{
+                  py: 1,
+                  display: "flex",
+                }}
               >
                 <Stack
                   direction="row"

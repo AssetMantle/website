@@ -435,42 +435,50 @@ export async function getStaticProps() {
       {
         icon: "/CollabsSection/AM_Logo.png",
         name: "Mirage Metaverse",
-        filters: ["MantleGrants"],
+        filters: ["MantleGrants", "AssetMantle"],
         dimensions: { width: "112.96px", height: "27px" },
         description:
-          "An AssetMantle validator providing highly incentivised staking services",
+          "A Social Commerce Metaverse made for the next generation. A Metaverse where you can buy, sell, trade, socialize, attend concerts, learn,  game, and experience many more exciting stuff!",
       },
       {
         icon: "/CollabsSection/Leap_light.png",
         name: "Leap Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "103.54px", height: "53.96px" },
         description:
-          "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
+          "A non-custodial super wallet for Cosmos & Terra 2.0 .Leap is the simplest & safest way to send, swap, and stake tokens.",
       },
       {
         icon: "/CollabsSection/Falcon_Wallet.png",
         name: "Falcon Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
-          "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
+          "A secure, safe and convenient wallet to store, send and receive tokens across 40+ zones in the Cosmos ecosystem",
       },
       {
         icon: "/CollabsSection/frontier-logo.jpeg",
         name: "Frontier Wallet",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
-          "Utility Focused NFT Collection to create sub-communities around Joint Robots",
+          "It is a DeFi, NFT & crypto wallet where you can send, store & invest in 4,000+ assets. Facilitates  staking or supplying assets in DeFi apps from a single place.",
       },
       {
         icon: "/CollabsSection/pulsar-logo.svg",
         name: "Pulsar Finance",
-        filters: ["Token Integration Partners"],
+        filters: ["Token Integration Partners", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
         description:
-          "The Center of Decentralized Finance.An all-in-one interface to manage assets across Cosmos",
+          "The dashboard for Insights for all AssetMantle transfer of value",
+      },
+      {
+        icon: "/CollabsSection/QuillAudits.png",
+        name: "QuillAudits",
+        filters: ["Partnerships", "MantleLabs"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "Providing reliable Smart Contract Audits & Diligence Services to emerging web 3 ventures ",
       },
     ],
     dropdownFilters: [

@@ -21,41 +21,38 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-const Content = ({ infoSectionConfigData, listStyle }) => {
+const Content = ({ configData, listStyle }) => {
   return (
     <Grid container spacing={0} sx={{ alignItems: "center" }}>
       <Grid item xs={12} md={5}>
         <Box
           sx={listStyle}
           maxWidth={
-            infoSectionConfigData.contentMaxWidth
-              ? infoSectionConfigData.contentMaxWidth
-              : "480px"
+            configData.contentMaxWidth ? configData.contentMaxWidth : "480px"
           }
         >
-          {infoSectionConfigData.title && (
+          {configData.title && (
             <TitleAndSubtitle
-              title={infoSectionConfigData.title}
+              title={configData.title}
               textAlign="left"
               isContent
             />
           )}
-          {infoSectionConfigData.description &&
-          Array.isArray(infoSectionConfigData.description) ? (
+          {configData.description && Array.isArray(configData.description) ? (
             <Stack
               spacing={4}
               sx={
-                infoSectionConfigData.descriptionStyle || {
+                configData.descriptionStyle || {
                   pb: 2,
                   maxWidth: "92%",
                   textAlign: "left",
                 }
               }
             >
-              {infoSectionConfigData.description.map((item, index) => (
+              {configData.description.map((item, index) => (
                 <Typography
-                  variant={infoSectionConfigData.descriptionVariant}
-                  color={infoSectionConfigData.descriptionColor}
+                  variant={configData.descriptionVariant}
+                  color={configData.descriptionColor}
                   key={index}
                   textAlign="left"
                 >
@@ -66,11 +63,11 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
           ) : (
             <Typography
               component="p"
-              variant={infoSectionConfigData.descriptionVariant}
-              color={infoSectionConfigData.descriptionColor}
+              variant={configData.descriptionVariant}
+              color={configData.descriptionColor}
               sx={
-                infoSectionConfigData.descriptionStyle
-                  ? infoSectionConfigData.descriptionStyle
+                configData.descriptionStyle
+                  ? configData.descriptionStyle
                   : {
                       pb: 2,
                       maxWidth: "92%",
@@ -78,7 +75,7 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
                     }
               }
             >
-              {infoSectionConfigData.description}
+              {configData.description}
             </Typography>
           )}
         </Box>
@@ -94,15 +91,15 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
       >
         <ImageList
           sx={{ width: "min(640px, 100%)", margin: { xs: "auto", md: "0" } }}
-          variant={infoSectionConfigData.imageListVariant}
+          variant={configData.imageListVariant}
           cols={3}
           gap={16}
           rowHeight={130}
         >
-          {Array.isArray(infoSectionConfigData.imageData) &&
-            infoSectionConfigData.imageData &&
-            infoSectionConfigData.imageData.length &&
-            infoSectionConfigData.imageData.map((item) => (
+          {Array.isArray(configData.imageData) &&
+            configData.imageData &&
+            configData.imageData.length &&
+            configData.imageData.map((item) => (
               <ImageListItem
                 key={item.img}
                 cols={item.cols || 1}
@@ -134,7 +131,7 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
                 >
                   {item.author && (
                     <Button
-                      variant={infoSectionConfigData.authorVariant}
+                      variant={configData.authorVariant}
                       size="large"
                       component="a"
                       href={item.href ? item.href : null}
@@ -153,8 +150,8 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
                   {item.name && (
                     <Typography
                       component="p"
-                      variant={infoSectionConfigData.artVariant}
-                      color={infoSectionConfigData.artColor}
+                      variant={configData.artVariant}
+                      color={configData.artColor}
                     >
                       {item.name}
                     </Typography>
@@ -168,13 +165,10 @@ const Content = ({ infoSectionConfigData, listStyle }) => {
   );
 };
 
-export default function InfoSection({ infoSectionConfigData, listStyle }) {
+export default function InfoSection({ configData }) {
   return (
     <Section>
-      <Content
-        infoSectionConfigData={infoSectionConfigData}
-        listStyle={listStyle}
-      />
+      <Content configData={configData} listStyle={configData.listStyle} />
     </Section>
   );
 }
