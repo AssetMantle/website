@@ -417,7 +417,7 @@ export async function getStaticProps() {
           "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
       },
       {
-        icon: "/CollabsSection/AM_Logo.png",
+        icon: "/CollabsSection/artist4web3.png",
         name: "Artists4Web3",
         filters: ["Community Initiatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
@@ -479,6 +479,14 @@ export async function getStaticProps() {
         dimensions: { width: "100px", height: "100px" },
         description:
           "Providing reliable Smart Contract Audits & Diligence Services to emerging web 3 ventures ",
+      },
+      {
+        icon: "/CollabsSection/BlockRelations.png",
+        name: "BlockRelations",
+        filters: ["MantleGrants", "MantleLabs"],
+        dimensions: { width: "100px", height: "100px" },
+        description:
+          "Block Relations is a leader in Education, Technology, Marketing, and Innovation for Web3",
       },
     ],
     dropdownFilters: [
