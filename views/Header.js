@@ -336,13 +336,12 @@ export default function Header(props) {
                 }}
               >
                 <img
-                  src="/static/xmas1.png"
+                  src="/static/logo.svg"
                   alt="logo"
                   onClick={() => window.open("/", "_self")}
                   style={{
                     cursor: "pointer",
-                    width: "min(230px, 100%)", // decrease the size to 200px also while removing the christmas logo
-                    paddingBottom: "8px", // remove this line also while removing the christmas logo
+                    width: "min(200px, 100%)",
                   }}
                 />
               </Box>
