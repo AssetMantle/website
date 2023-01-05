@@ -55,13 +55,11 @@ export default class MyDocument extends Document {
         </Head>
         <body
           style={{
-            // backgroundImage: "url('/images/Background_tile.webp')", //  to remove christmas styles uncomment this line
+            backgroundImage: "url('/images/Background_tile.webp')", //  to remove christmas styles uncomment this line
             backgroundRepeat: "repeat-y",
             // backgroundPosition: "center top",
             backgroundSize: "100%",
             backgroundColor: theme.palette.background.default,
-            // backgroundColor: "#620D06", // to remove christmas styles remove this line
-            backgroundImage: "linear-gradient(to right,#550D05,#620D06,#461009)",
           }}
         >
           <Main />
