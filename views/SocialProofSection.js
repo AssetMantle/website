@@ -11,6 +11,11 @@ export default function SocialProofSection({ configData }) {
           <Box sx={configData.optionContainerStyles}>
             {configData.features.map((feature, index) => (
               <Card
+                key={index}
+                component="a"
+                href={feature.link && feature.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
                   width: "min(208px,100%)",
                   padding: 3,
@@ -18,19 +23,14 @@ export default function SocialProofSection({ configData }) {
                   height: "100%",
                   display: "flex",
                   boxShadow: "none",
-                  transition: "all 300ms ease-in-out",
                   backgroundImage: "none",
                   filter: "contrast(0%)",
+                  transition: "all 300ms ease-in-out !important",
                   "&:hover": {
                     transform: "scale(1.2)",
                     filter: "contrast(100%)",
                   },
                 }}
-                key={index}
-                component="a"
-                href={feature.link && feature.link}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 <CardMedia
                   component="img"
