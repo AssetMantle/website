@@ -417,7 +417,7 @@ export async function getStaticProps() {
           "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
       },
       {
-        icon: "/CollabsSection/Artist4Web3.png",
+        icon: "/CollabsSection/artist4web3.png",
         name: "Artists4Web3",
         filters: ["Community Initiatives", "AssetMantle"],
         dimensions: { width: "100px", height: "100px" },
