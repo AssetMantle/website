@@ -18,35 +18,37 @@ export default function Layout({ children }) {
           sx={{
             backgroundColor: "primary.main",
             color: "navBg",
+            borderRadius: 0,
+            py: 0,
             "& > *:first-child": {
               flex: "1",
+              py: 0,
+            },
+            "&>.MuiAlert-action.css-ki1hdl-MuiAlert-action": {
+              p: 0,
+              alignItems: "center",
             },
           }}
         >
           {" "}
           <Button
             component={Link}
-            style={{ margin: "4 auto", width: "100%" }}
+            style={{ margin: "auto", width: "100%", py: 0 }}
             to="https://marketplace.assetmantle.one/"
-            variant="contained"
+            variant="text"
             color="primary"
           >
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-              }}
+            <Typography
+              px={2}
+              variant="caption"
+              color="navBg"
+              textTransform="capitalize"
+              textAlign="center"
+              style={{ fontWeight: "400" }}
             >
-              <CelebrationIcon />
-              <Typography px={2} variant="body1">
-                Click here for limited early access to MantlePlace NFTs
-              </Typography>
-              <CelebrationIcon />
-            </Box>
+              🎉 Click here for limited early access to{" "}
+              <strong>MantlePlace NFTs</strong> 🎉
+            </Typography>
           </Button>
         </Alert>
       ) : null}
