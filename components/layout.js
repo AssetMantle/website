@@ -24,11 +24,9 @@ export default function Layout({ children }) {
           }}
         >
           {" "}
-          <Button
-            component={Link}
-            style={{ margin: "4 auto", width: "100%" }}
-            to="https://marketplace.assetmantle.one/"
-            variant="contained"
+          <Link
+            target="_blank"
+            href="https://marketplace.assetmantle.one/"
             color="primary"
           >
             <Box
@@ -41,13 +39,13 @@ export default function Layout({ children }) {
                 textAlign: "center",
               }}
             >
-              <CelebrationIcon />
-              <Typography px={2} variant="body1">
+              <CelebrationIcon style={{ color: "black" }} />
+              <Typography px={2} variant="body1" color="black">
                 Click here for limited early access to MantlePlace NFTs
               </Typography>
-              <CelebrationIcon />
+              <CelebrationIcon style={{ color: "black" }} />
             </Box>
-          </Button>
+          </Link>
         </Alert>
       ) : null}
       <Header />
