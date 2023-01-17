@@ -18,12 +18,15 @@ export default function Layout({ children }) {
           sx={{
             backgroundColor: "primary.main",
             color: "navBg",
+            "& > *:first-child": {
+              flex: "1",
+            },
           }}
         >
           {" "}
           <Button
             component={Link}
-            style={{ margin: 4 }}
+            style={{ margin: "4 auto", width: "100%" }}
             to="https://marketplace.assetmantle.one/"
             variant="contained"
             color="primary"
