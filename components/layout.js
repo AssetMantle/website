@@ -16,9 +16,6 @@ export default function Layout({ children }) {
             setShowAlert(false);
           }}
           sx={{
-            height: "60px",
-            padding: "8px",
-            margin: "0px",
             backgroundColor: "primary.main",
             color: "navBg",
             borderRadius: 0,
@@ -34,25 +31,28 @@ export default function Layout({ children }) {
           }}
         >
           {" "}
-          <Button
+          <Link
             component={Link}
-            style={{ margin: "auto", width: "100%", py: 0 }}
-            to="https://marketplace.assetmantle.one/"
+            display="flex"
+            style={{ margin: "auto", width: "100%" }}
+            href="https://marketplace.assetmantle.one/"
+            target="_blank"
             variant="text"
             color="primary"
+            py={1}
           >
             <Typography
-              px={2}
               variant="caption"
               color="navBg"
               textTransform="capitalize"
               textAlign="center"
               style={{ fontWeight: "400" }}
+              mx="auto"
             >
               🎉 Click here for limited early access to{" "}
               <strong>MantlePlace NFTs</strong> 🎉
             </Typography>
-          </Button>
+          </Link>
         </Alert>
       ) : null}
       <Header />
