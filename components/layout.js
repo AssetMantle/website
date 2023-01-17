@@ -14,8 +14,10 @@ export default function Layout({ children }) {
           onClose={() => {
             setShowAlert(false);
           }}
-          sx={{ backgroundColor: "primary.main" }}
-        />
+          sx={{ backgroundColor: "primary.main", color: "navBg" }}
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, vel.
+        </Alert>
       ) : null}
       <Header />
       <main>{children}</main>
