@@ -16,6 +16,9 @@ export default function Layout({ children }) {
             setShowAlert(false);
           }}
           sx={{
+            height: "60px",
+            padding: "8px",
+            margin: "0px",
             backgroundColor: "primary.main",
             color: "navBg",
             "& > *:first-child": {
@@ -31,6 +34,8 @@ export default function Layout({ children }) {
           >
             <Box
               sx={{
+                padding: "0",
+                margin: "0",
                 width: "100%",
                 display: "flex",
                 flexDirection: "row",
@@ -40,8 +45,9 @@ export default function Layout({ children }) {
               }}
             >
               <CelebrationIcon style={{ color: "black" }} />
-              <Typography px={2} variant="body1" color="black">
-                Click here for limited early access to MantlePlace NFTs
+              <Typography px={2} variant="caption" color="black">
+                Click here for limited early access to{" "}
+                <strong>MantlePlace NFTs</strong>
               </Typography>
               <CelebrationIcon style={{ color: "black" }} />
             </Box>
