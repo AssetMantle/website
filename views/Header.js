@@ -305,7 +305,7 @@ export default function Header(props) {
   return (
     <>
       <ElevationScroll>
-        <AppBar>
+        <AppBar position="sticky">
           <Container disableGutters maxWidth="lg">
             <Toolbar
               sx={{
