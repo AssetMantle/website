@@ -24,10 +24,6 @@ export default function Layout({ children }) {
               flex: "1",
               py: 0,
             },
-            "&>.MuiAlert-action.css-ki1hdl-MuiAlert-action": {
-              p: 0,
-              alignItems: "center",
-            },
           }}
         >
           {" "}
