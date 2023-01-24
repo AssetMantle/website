@@ -77,7 +77,7 @@ export async function getStaticProps() {
     titleComponent: "h1",
     endIcon: "keyboard_arrow_right",
     description:
-      "AssetMantle’s suite of products, which is focussed on NFT ecosystem, helps you up your game of digital asset ownership",
+      "AssetMantle’s suite of products is focused on the NFT ecosystem, helping you up your game with digital asset ownership",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     galleries: [
       // object template
@@ -96,7 +96,7 @@ export async function getStaticProps() {
         image: "/GallerySection/MantlePlace.png",
         title: "MantlePlace",
         description:
-          "A new, highly optimized NFT marketplace for Cosmos Ecosystem",
+          "A new, highly optimized NFT marketplace for the Cosmos ecosystem",
         buttons: [
           {
             text: "Learn More",
@@ -108,7 +108,7 @@ export async function getStaticProps() {
         image: "/GallerySection/MantleBuilder.png",
         title: "MantleBuilder",
         description:
-          "Coming soon, a no-code marketplace builder for NFT shopifying",
+          "A no-code marketplace builder for NFT shopifying (coming soon)",
         buttons: [
           {
             text: "Learn More",
@@ -119,7 +119,8 @@ export async function getStaticProps() {
       {
         image: "/GallerySection/MantleWallet.png",
         title: "MantleWallet",
-        description: "A non-custodial blockchain wallet for AssetMantle chain",
+        description:
+          "A non-custodial blockchain wallet for the AssetMantle chain",
         buttons: [
           {
             text: "Learn More",
@@ -159,7 +160,7 @@ export async function getStaticProps() {
     titleVariant: "h1",
     titleColor: "secondary.main",
     description:
-      "AssetMantle’s foundation is built using the best-in-class core blockchain principles, and optimized for the next evolution of NFT economy",
+      "AssetMantle’s foundation is built using the best-in-class core blockchain principles and optimized for the next evolution of the NFT economy",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     featuresArray: [
       {
@@ -180,7 +181,7 @@ export async function getStaticProps() {
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "AssetMantle being one of the top zones of the Cosmos Hub, leverages features like Tendermint Core for Consensus and a highly modular SDK framework.",
+          "AssetMantle is one of the top zones across Cosmos, leveraging features like Tendermint Core for consensus and a highly modular SDK framework.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
@@ -191,7 +192,7 @@ export async function getStaticProps() {
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "AssetMantle has a highly Economical network providing one of the lowest fees compared to any popular network, of around $0.01 per transaction.",
+          "AssetMantle has a highly economical network providing some of the lowest fees compared to other chains, averaging around $0.01 per transaction.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
@@ -202,18 +203,18 @@ export async function getStaticProps() {
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "Extremely fast transactions nearing 7 seconds enables almost zero waiting time for fulfillment of orders of buy, sell, auction etc.",
+          "Near-instant transactions (~7 seconds) enable almost zero waiting time for fulfillments of buy, sell, and auction orders.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
-        title: "Completely Secure",
+        title: "Highly Secure",
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "With high network security and leveraging the native token $MNTL, AssetMantle provides the level of protection required for your assets.",
+          "With high network security and leveraging the native $MNTL token, AssetMantle provides an optimal level of protection for your digital assets.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
@@ -224,7 +225,7 @@ export async function getStaticProps() {
         titleVariant: "h4",
         titleColor: "primary.main",
         description:
-          "Our InterNFT standards will potentially allow NFTs to be transferred to other connected chains, thereby creating a larger shared market economy.",
+          "Our InterNFT standards will allow NFTs to be transferred to other connected chains, creating a larger shared market economy.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
@@ -260,8 +261,8 @@ export async function getStaticProps() {
     titleVariant: "h2",
     titleColor: "secondary.main",
     description: [
-      "AssetMantle suite of products creates a distributed NFT Economy where users can create not only NFT collections but their own NFT marketplaces and storefronts.",
-      "This shopifying of NFT assets, leads to a distributed network of networks, with world state stored collectively in the AssetMantle chain.",
+      "AssetMantle’s suite of products creates a distributed NFT economy where users can not only develop NFT collections but also their own NFT marketplaces and storefronts.",
+      "This shopifying of NFT assets leads to a distributed environment of networks, with the world state stored exclusively in the AssetMantle chain.",
     ],
     descriptionVariant: "body1",
     descriptionColor: "secondary.main",
@@ -372,13 +373,13 @@ export async function getStaticProps() {
     textAlign: "", // >>> default: left
     title: "The AssetMantle Chain",
     subTitle:
-      "The AssetMantle Blockchain leverages the following web3 standards which makes it pioneer the NFT Ecosphere",
+      "The AssetMantle blockchain leverages the following Web3 standards, making it a pioneer in the NFT ecosphere:",
     subSectionTitle: "$MNTL",
     subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
     subSectionTitleVariant: "h1",
     subSectionTitleColor: "secondary.light",
     subSectionDescription:
-      "The native token which powers the AssetMantle’s NFT Economy",
+      "The native token powering the AssetMantle NFT economy",
     subSectionDescriptionVariant: "subtitle2",
     subSectionDescriptionColor: "secondary.light",
     descriptionVariant: "subtitle2",
@@ -439,12 +440,12 @@ export async function getStaticProps() {
   const advantageSectionConfigData = {
     paperVariant: "translucent",
     textAlign: "center", // >>> default: left
-    title: "The AssetMantle Advantage",
+    title: "Our Advantage",
     titleOnLeft: false, // >>> default: false
     titleColor: "primary.main",
     titleVariant: "h4",
     description:
-      "Find out the unique qualities inherent in the AssetMantle ecosystem which makes our suite of products and services stand out",
+      "Discover the unique qualities inherent to the AssetMantle ecosystem, truly differentiating our suite of products and services",
     descriptionVariant: "body1",
     descriptionOnLeft: false, // >>> default: false
     descriptionStyle: false, // object of styles or false
@@ -471,27 +472,27 @@ export async function getStaticProps() {
     initiatives: [
       {
         icon: "/AdvantageSection/multiChain.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-        title: "Multi-Chain Access",
+        title: "Multichain Access",
         description:
-          "Trade NFT on other chains or show them off across metaverses",
+          "Trade NFTs across other chains or show them off across metaverses",
       },
       {
         icon: "/AdvantageSection/highEconomical.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
         title: "Highly Economical ROI",
         description:
-          "Leverage a rich NFT Economy on an IBC enabled Cosmos Ecosystem at negligible cost",
+          "Leverage a rich NFT economy on an IBC-enabled Cosmos ecosystem chain with negligible costs",
       },
       {
         icon: "/AdvantageSection/multiplePayment.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
-        title: "Multiple Payment Modes",
+        title: "Multiple Payment Options",
         description:
-          "Experience AssetMantle with fiat currency, coins or stablecoins",
+          "Experience AssetMantle with fiat, digital assets, or stablecoins",
       },
       {
         icon: "/AdvantageSection/noCodeCustomization.svg", // add component: <Icon sx={styles} /> or url: "https://icon.png"
         title: "No-Code Customization Engine",
         description:
-          "Experience No-Code NFT Marketplace creation with plug-and-play NFT Modules",
+          "Experience no-code NFT marketplace creation with plug-and-play NFT modules",
       },
     ],
     listStyle: {
@@ -510,7 +511,7 @@ export async function getStaticProps() {
   const universeSectionConfigData = {
     sectionTitle: "The Mantle Universe",
     sectionSubTitle:
-      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
+      "Apart from our main ecosystem, there’s an extended ecosystem called MantleLabs that commits to community-driven development",
     paperVariant: "translucent",
     buttonVariant: "contained",
     listVariant: "body1",
