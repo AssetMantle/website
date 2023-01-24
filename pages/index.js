@@ -758,26 +758,6 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/TeamSection/harman.png",
-        name: "Harman Sohi",
-        designation: "Design Lead",
-        designationType: "Design",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/harman-sohi-she-her-2590b8b4/",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/NotHarmanSohi",
-          },
-          {
-            icon: "Behance",
-            href: "https://www.behance.net/sohiharman",
-          },
-        ],
-      },
-      {
         image: "/TeamSection/sarin.png",
         name: "Sarin Venugopal",
         designation: "Product Marketing & Operations",
@@ -817,30 +797,7 @@ export async function getStaticProps() {
           },
         ],
       },
-      {
-        image: "/TeamSection/sarvagya.png",
-        name: "Sarvagya Sagar",
-        designation: "Research and DevSecOps​",
-        designationType: "Founding",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/iamsarvagyaa/",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/iamsarvagyaa",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/iamsarvagyaa",
-          },
-          {
-            icon: "Website",
-            href: "https://sarvagya.me",
-          },
-        ],
-      },
+
       {
         image: "/TeamSection/arun.png",
         name: "Arun Ramesan",
@@ -942,26 +899,6 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/TeamSection/ankit.png",
-        name: "Ankit Kumar",
-        designation: "Blockchain Developer",
-        designationType: "Founding",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/0xankit",
-          },
-          {
-            icon: "Twitter",
-            href: "https://mobile.twitter.com/me_0xankit",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/0xankit",
-          },
-        ],
-      },
-      {
         image: "/TeamSection/aditya.png",
         name: "Aditya Nalini",
         designation: "NFT Strategist",
@@ -994,6 +931,46 @@ export async function getStaticProps() {
           {
             icon: "Website",
             href: "https://www.instagram.com/schoolboy_sharma",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/mukund.png",
+        name: "Mukund Rawat",
+        designation: "Blockchain Developer",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/mukund-rawat-7795871b1",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/jathin.png",
+        name: "Jathin Kotian",
+        designation: "UI Developer",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/jathinkotian",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/vismay.png",
+        name: "Vismay Hegde",
+        designation: "Marketing Associate",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/BassetMantle",
+          },
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/vismay-hegde-b9a89a81/",
           },
         ],
       },
