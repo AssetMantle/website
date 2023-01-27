@@ -99,6 +99,12 @@ const itemList = [
                 isNestMenuCollapsed: true,
                 url: "https://app.citadel.one/",
               },
+              {
+                menuName: "Frontier",
+                isExternalURL: true,
+                isNestMenuCollapsed: true,
+                url: "https://www.frontier.xyz/download",
+              },
             ],
           },
           {
