@@ -18,7 +18,7 @@ export default function Banner() {
       color="navBg"
       textTransform="capitalize"
       textAlign="center"
-      style={{ fontWeight: "400", width: "80%" }}
+      style={{ fontWeight: "400" }}
       mx="auto"
     >
       {bannerIcon}&nbsp;&nbsp;Click here for limited early access to{" "}
@@ -87,35 +87,30 @@ export default function Banner() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                "& > *:first-of-type": {
-                  flex: "1",
-                  py: 0,
-                },
+                py: 0,
               }}
             >
-              <Link
-                component={Link}
-                href="https://github.com/AssetMantle/Bug-Bounty"
-                target="_blank"
-                variant="text"
-                color="background.default"
-                underline="none"
-                fontWeight="500"
-                style={{ margin: "auto", width: "100%" }}
+              <Typography
+                variant="caption"
+                textTransform="capitalize"
+                textAlign="center"
+                style={{ fontWeight: "400" }}
+                mx="auto"
               >
-                <Typography
-                  component="p"
-                  variant="caption"
-                  textTransform="capitalize"
-                  textAlign="center"
-                  style={{ fontWeight: "400", width: "80%" }}
-                  mx="auto"
-                  py={1}
+                Participate in the Bug Bounty Program{" "}
+                <Link
+                  component={Link}
+                  href="https://github.com/AssetMantle/Bug-Bounty"
+                  target="_blank"
+                  variant="text"
+                  color="background.default"
+                  underline="none"
+                  fontWeight="500"
                 >
-                  Participate in the Bug Bounty Program <strong>here</strong>{" "}
-                  and win prizes!
-                </Typography>
-              </Link>
+                  here
+                </Link>{" "}
+                and win prizes!
+              </Typography>
             </Alert>
           </SplideSlide>
         </SplideTrack>
