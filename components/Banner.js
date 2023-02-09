@@ -45,7 +45,7 @@ export default function Banner() {
           perPage: 1,
           pagination: false,
           autoplay: true,
-          interval: 8000,
+          interval: 4000,
           speed: 2000,
         }}
       >
@@ -115,8 +115,8 @@ export default function Banner() {
                   mx="auto"
                   py={1}
                 >
-                  🏆{" "}Participate in the Bug Bounty Program <strong>here</strong>{" "}
-                  and win prizes!{" "}🏆
+                  Participate in the Bug Bounty Program <strong>here</strong>{" "}
+                  and win prizes!
                 </Typography>
               </Link>
             </Alert>
