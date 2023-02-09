@@ -44,9 +44,6 @@ export default function Banner() {
           gap: "32px",
           perPage: 1,
           pagination: false,
-          autoplay: true,
-          interval: 4000,
-          speed: 2000,
         }}
       >
         <SplideTrack>
