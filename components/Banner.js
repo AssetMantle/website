@@ -121,6 +121,47 @@ export default function Banner() {
               </Link>
             </Alert>
           </SplideSlide>
+          <SplideSlide>
+            <Alert
+              icon={false}
+              severity="info"
+              sx={{
+                backgroundColor: "primary.main",
+                color: "navBg",
+                borderRadius: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                "& > *:first-of-type": {
+                  flex: "1",
+                  py: 0,
+                },
+              }}
+            >
+              <Link
+                component={Link}
+                href="https://quickswap.exchange/#/farm/v2?tab=DualFarm"
+                target="_blank"
+                variant="text"
+                color="background.default"
+                underline="none"
+                fontWeight="500"
+                style={{ margin: "auto", width: "100%" }}
+              >
+                <Typography
+                  component="p"
+                  variant="caption"
+                  textTransform="capitalize"
+                  textAlign="center"
+                  style={{ fontWeight: "400", width: "80%" }}
+                  mx="auto"
+                  py={1}
+                >
+                  💰 QuickSwap farming rewards are live now! Click Here! 💰
+                </Typography>
+              </Link>
+            </Alert>
+          </SplideSlide>
         </SplideTrack>
         <Box className="splide__arrows">
           <Button
