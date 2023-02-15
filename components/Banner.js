@@ -45,7 +45,7 @@ export default function Banner() {
           perPage: 1,
           pagination: false,
           autoplay: true,
-          interval: 8000,
+          interval: 4000,
           speed: 2000,
         }}
       >
