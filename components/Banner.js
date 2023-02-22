@@ -98,7 +98,7 @@ export default function Banner() {
             >
               <Link
                 component={Link}
-                href="https://github.com/AssetMantle/Bug-Bounty"
+                href="https://hackenproof.com/assetmantle/assetmantle"
                 target="_blank"
                 variant="text"
                 color="background.default"
