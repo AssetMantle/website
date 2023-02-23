@@ -770,7 +770,7 @@ export async function getStaticProps() {
           },
           {
             icon: "Twitter",
-            href: "https://twitter.com/the_bad_apple_",
+            href: "https://twitter.com/sarin_venugopal",
           },
         ],
       },
