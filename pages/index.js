@@ -699,26 +699,6 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/TeamSection/naman.png",
-        name: "Naman Kabra",
-        designation: "Core - Business Development & Growth",
-        designationType: "Founding",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/namankabra/",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/307naman",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/nk307",
-          },
-        ],
-      },
-      {
         image: "/TeamSection/sachin.png",
         name: "Sachin Matta",
         designation: "Core - Product Marketing and Communications",
@@ -820,26 +800,6 @@ export async function getStaticProps() {
         ],
       },
       {
-        image: "/TeamSection/mrinal.png",
-        name: "Mrinal Vishwanath",
-        designation: "Product Marketing and PR Strategist",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/mrinal-vishwanath-813a07137",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/MrinalVishwana1",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/MrinalVishy",
-          },
-        ],
-      },
-      {
         image: "/TeamSection/jagdish.png",
         name: "Jagdish Chudasama",
         designation: "UI/UX Developer​",
@@ -896,42 +856,6 @@ export async function getStaticProps() {
           {
             icon: "Website",
             href: "http://ahjim.com/",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/aditya.png",
-        name: "Aditya Nalini",
-        designation: "NFT Strategist",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/adinalini",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/adinalini",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/adinalini",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/rohit.png",
-        name: "Rohit Sharma",
-        designation: "Creators Communications and Integrations",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/SharmaJiKaSon1",
-          },
-          {
-            icon: "Website",
-            href: "https://www.instagram.com/schoolboy_sharma",
           },
         ],
       },
