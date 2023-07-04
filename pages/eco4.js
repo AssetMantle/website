@@ -24,28 +24,44 @@ export default function Eco4() {
     };
   };
 
-  const stones = () => {
+  const stones = (ind) => {
     return {
       width: `100%`,
       height: "100%",
       overflow: "hidden",
       // transform: "translate(-50%)",
-      "@keyframes rotateAn": {
+      "@keyframes bounce": {
         "0%": {
-          transform: "translateY(-10px)",
+          transform: `translateY(-${10 + ind}px)`,
           transformOrigin: "center",
         },
         "50%": {
-          transform: "translateY(10px)",
+          transform: `translateY(${10 + ind}px)`,
           transformOrigin: "center",
         },
         "100%": {
-          transform: "translateY(-10px)",
+          transform: `translateY(-${10 + ind}px)`,
           transformOrigin: "center",
         },
       },
-      //   animation: "3s ease-in-out 0s infinite reverse forwards running rotateAn",
-      animation: "rotateAn infinite 4s linear both",
+      animation: `bounce infinite ${4000 + ind * 100}ms linear both ${
+        ind * 100
+      }ms`,
+      "@keyframes ZoomInOut": {
+        "0%": {
+          transform: "scale(0.9)",
+        },
+        "50%": {
+          transform: "scale(1.1)",
+        },
+        "100%": {
+          transform: "scale(0.9)",
+        },
+      },
+      // ":hover": {
+      //   animationName: "ZoomInOut",
+      //   animationDuration: "3s",
+      // },
     };
   };
 
@@ -54,61 +70,67 @@ export default function Eco4() {
       src: "/ecosystem/stone1.png",
       title: "Lorem",
       href: "",
-      style: imgCon(144.2, 150.05, 1129, 136),
+      style: imgCon(144.2, 150.05, 1127, 146),
     },
     {
       src: "/ecosystem/stone2.png",
       title: "Lorem",
       href: "",
-      style: imgCon(79, 81, 1144, 409),
+      style: imgCon(140, 116, 47, 309),
     },
     {
       src: "/ecosystem/stone3.png",
       title: "Lorem",
       href: "",
-      style: imgCon(174.182, 138.065, 1160.03, 506.02),
+      style: imgCon(128.32, 107.24, 912, 508),
     },
     {
       src: "/ecosystem/stone4.png",
       title: "Lorem",
       href: "",
-      style: imgCon(68.238, 76.069, 1286, 310),
+      style: imgCon(85.02, 80.54, 839, 131),
     },
     {
       src: "/ecosystem/stone5.png",
       title: "Lorem",
       href: "",
-      style: imgCon(85.018, 80.543, 841.02, 121.3),
+      style: imgCon(85, 81, 274, 524),
     },
     {
       src: "/ecosystem/stone6.png",
       title: "Lorem",
       href: "",
-      style: imgCon(85, 81, 276, 514),
+      style: imgCon(79, 81, 1218, 463),
     },
     {
       src: "/ecosystem/stone7.png",
       title: "Lorem",
       href: "",
-      style: imgCon(74.85, 59.33, 319, 187),
+      style: imgCon(74, 71, 291, 81),
     },
     {
       src: "/ecosystem/stone8.png",
       title: "Lorem",
       href: "",
-      style: imgCon(68.238, 76.069, 101, 37),
+      style: imgCon(56.77, 48.4, 224, 210),
     },
     {
       src: "/ecosystem/stone9.png",
       title: "Lorem",
       href: "",
-      style: imgCon(190, 151, 0, 268),
+      style: imgCon(46.55, 39.44, 19.2, 536),
     },
     {
       src: "/ecosystem/stone10.png",
       title: "Lorem",
       href: "",
-      style: imgCon(62.566, 49.593, 16, 517),
+      style: imgCon(33.66, 40.74, 1304, 338),
+    },
+    {
+      src: "/ecosystem/stone10.png",
+      title: "Lorem",
+      href: "",
+      style: imgCon(33.66, 40.74, 119, 65.1),
     },
   ];
 
@@ -129,14 +151,14 @@ export default function Eco4() {
         <img src="/ecosystem/mascot.png" alt="mascot" style={imgStyle} />
       </div>
       {React.Children.toArray(
-        stonesArr.map((item) => (
+        stonesArr.map((item, index) => (
           <Tooltip title={item.title} placement="top">
             <Link
               href={item.href}
               sx={{ ...item.style, overflow: "visible" }}
               onClick={(e) => item.href === "" && e.preventDefault()}
             >
-              <Box sx={stones()}>
+              <Box sx={stones(index)}>
                 <img src={item.src} alt="stone illustration" style={imgStyle} />
               </Box>
             </Link>
