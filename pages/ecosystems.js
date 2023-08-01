@@ -1,499 +1,372 @@
 import React from "react";
-import CollabsHeroSection from "../views/CollabsHeroSection";
-import CollabsSection from "../views/CollabsSection";
+import Hero from "../views/ecosystem/Hero";
+import Protocol from "../views/ecosystem/Protocol";
+import Validators from "../views/ecosystem/Validators";
+import IAndP from "../views/ecosystem/IAndP";
+import KolIM from "../views/ecosystem/KolIM";
+import MantleLabs from "../views/ecosystem/MantleLabs";
 
 export default function Ecosystems(props) {
   return (
     <div>
-      <CollabsHeroSection configData={props.collabsHeroSectionConfigData} />
-      <CollabsSection configData={props.collabsSectionConfigData} />
+      <Hero />
+      <Protocol configData={props.ecoProtocol} />
+      <IAndP configData={props.ecoIAndP} />
+      <Validators configData={props.ecoValidators} />
+      <MantleLabs configData={props.ecoMantleLabs} />
+      <KolIM configData={props.ecoKolIM} />
     </div>
   );
 }
 export async function getStaticProps() {
-  const collabsHeroSectionConfigData = {
+  const ecoProtocol = {
     titleVariant: "h1",
     subTitleVariant: "secondary.light",
     titleColor: "subtitle2",
     subTitleColor: "primary.main",
-    title: "The Mantle Universe",
+    title: "AssetMantle Protocol",
     subTitle:
-      "Apart from the AssetMantle ecosystem, there is an extended ecosystem called MantleLabs that commits to community driven development",
+      "The AssetMantle Protocol encompasses a range of web3 products on the mntlChain, powered by mantleModules for seamless integration.",
     image: "/CollabsHeroSection/mantleUniverse.png",
+    cardTitleVariant: "h5",
+    cardDescVariant: "body2",
+    optionStyles: {
+      background: "transparent",
+      borderRadius: "12px",
+      maxWidth: 230,
+      height: "100%",
+      boxShadow: "none",
+      padding: "0",
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      margin: "auto",
+    },
+    linkStyles: {},
+    protocols: [
+      {
+        icon: "/ecosystem/protocol/MantlePlace.png",
+        iWidth: 72,
+        iHeight: 72,
+        title: "MantlePlace",
+        description:
+          "Cutting-edge NFT marketplace with low to nil gas fees, InterNFT-based cross-chain compatibility, decentralized identities, and much more.",
+        buttonText: "Go to MantlePlace >",
+        href: "https://marketplace.assetmantle.one/",
+      },
+      {
+        icon: "/ecosystem/protocol/MantleWallet.png",
+        iWidth: 72,
+        iHeight: 72,
+        title: "MantleWallet",
+        description:
+          "Cutting-edge multi-functional web-wallet for seamless token management for transacting, staking, farming, bridging, and more.",
+        buttonText: "Go to MantleWallet >",
+        href: "https://wallet.assetmantle.one/",
+      },
+      {
+        icon: "/ecosystem/protocol/MantleBuilder.png",
+        iWidth: 70,
+        iHeight: 70,
+        title: "MantleBuilder",
+        description:
+          "No-code NFT marketplace, the Shopify for NFTs marketplace creators; drag & drop marketplace builder empowering NFT creators",
+        buttonText: "Learn More >",
+        href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
+      },
+      {
+        icon: "/ecosystem/protocol/MantleExplorer.png",
+        iWidth: 72,
+        iHeight: 72,
+        title: "MantleExplorer",
+        description:
+          "Next-gen web3-explorer tracking $mntl token across ecosystems; comprehensive token tracking and analytics tool",
+        buttonText: "Go to MantleExplorer >",
+        href: "https://explorer.assetmantle.one/",
+      },
+      {
+        icon: "/ecosystem/protocol/AssetMantle-NFT-SDK.png",
+        iWidth: 72,
+        iHeight: 63,
+        title: "AssetMantle NFT SDK",
+        description:
+          "Utilize MantleModules, an open-source SDK, for building NFT tooling and infrastructure with ease.",
+        buttonText: "Learn More >",
+        href: "",
+      },
+      {
+        icon: "/ecosystem/protocol/Asguard.png",
+        iWidth: 73,
+        iHeight: 69,
+        title: "Asguard",
+        description:
+          "In-house Validator securing dPoS chains like AssetMantle mainnet & others; ensuring network integrity and decentralization",
+        buttonText: "Go to Asguard >",
+        href: "https://asguard.network/",
+      },
+    ],
   };
-  const collabsSectionConfigData = {
-    cardVariant: "translucent",
-    textFieldVariant: "outlined",
-    nameVariant: "h4",
-    nameColor: "primary.main",
-    filterColor: "primary",
-    descriptionVariant: "body2",
-    list: [
+  const ecoIAndP = {
+    title: "Integrations & Partnerships",
+    subTitle:
+      "Integrations and partnerships form a comprehensive amalgamation at various levels, including chain-level, token-level, as well as collaborations with DAOs, Metaverses, and audit entities.",
+    IPs: [
       {
-        icon: "/CollabsSection/osmosis.png",
-        name: "Osmosis",
-        filters: [
-          "MantleChain Partners",
-          "Token Integration Partners",
-          "MantleLabs",
+        icon: "/ecosystem/ip/chain.png",
+        title: "Chain Based",
+        coms: [
+          {
+            icon: "/ecosystem/ip/logo/Axelar.png",
+            name: "Axelar",
+            details:
+              "Axelar delivers secure cross-chain communication for AssetMantle",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Juno.png",
+            name: "Juno",
+            details:
+              "A digital banking platform that offers a high-yield checking account",
+          },
+          {
+            icon: "/ecosystem/ip/logo/OKC.png",
+            name: "OKC",
+            details:
+              "A high-performance, decentralized, smart contract-enabled blockchain, optimized for trading via the leading DEX OKX",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Evmos.png",
+            name: "Evmos",
+            details:
+              "Bringing the world of Ethereum-based applications and assets to the AssetMantle & Cosmos ecosystem",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Crescent.png",
+            name: "Crescent",
+            details:
+              "Innovating DeFi investment through advancements in inter-blockchain technology",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Osmosis.png",
+            name: "Osmosis",
+            details:
+              "Swap and earn $mntl tokens on the primary decentralized exchange within the Cosmos network.",
+          },
+          {
+            icon: "/ecosystem/ip/logo/GravityBridge.png",
+            name: "GravityBridge",
+            details:
+              "A decentralized bridge enabling seamless asset transfer between Cosmos and other blockchains, fostering interoperability and liquidity.",
+          },
         ],
-        dimensions: { width: "124px", height: "30px" },
-        description:
-          "The leading decentralized Cosmos exchange to swap, earn, and build",
       },
       {
-        icon: "/CollabsSection/axelar.png",
-        name: "Axelar",
-        filters: ["MantleChain Partners", "MantleLabs"],
-        dimensions: { width: "113px", height: "27px" },
-        description:
-          "Axelar delivers secure cross-chain communication for Web3. ",
-      },
-      {
-        icon: "/CollabsSection/crescent.png",
-        name: "Crescent",
-        filters: ["MantleChain Partners", "MantleLabs"],
-        dimensions: { width: "143px", height: "30px" },
-        description:
-          "Innovating DeFi investment through advancements in inter-blockchain technology",
-      },
-      {
-        icon: "/CollabsSection/juno.png",
-        name: "Juno",
-        filters: ["MantleChain Partners", "MantleLabs"],
-        dimensions: { width: "76px", height: "24px" },
-        description:
-          " A digital banking platform that offers a high-yield checking account",
-      },
-      {
-        icon: "/CollabsSection/evmos.png",
-        name: "Evmos",
-        filters: ["MantleChain Partners", "MantleLabs"],
-        dimensions: { width: "136px", height: "30px" },
-        description:
-          "Bringing the world of Ethereum-based applications and assets to the Cosmos ecosystem",
-      },
-      {
-        icon: "/CollabsSection/gravitybridge.png",
-        name: "Gravity Bridge",
-        filters: [
-          "MantleChain Partners",
-          "Token Integration Partners",
-          "MantleLabs",
+        icon: "/ecosystem/ip/coin.png",
+        title: "Token Based",
+        coms: [
+          {
+            icon: "/ecosystem/ip/logo/Pulsar.png",
+            name: "Pulsar",
+            details:
+              "The dashboard for Insights for all AssetMantle transfer of value",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Osmosis.png",
+            name: "Osmosis",
+            details:
+              "Swap and earn $mntl tokens on the primary decentralized exchange (DEX) within the Cosmos network.",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Frontier.png",
+            name: "Frontier",
+            details:
+              "A DeFi, NFT & crypto wallet where you can send, store & invest in 4,000+ assets. Facilitates staking or supplying assets in DeFi apps from a single place.",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Falcon.png",
+            name: "Falcon",
+            details:
+              "Experience a secure, reliable, and user-friendly wallet for storing, sending, and receiving tokens within the expansive Cosmos ecosystem, covering over 40 different zones.",
+          },
+          {
+            icon: "/ecosystem/ip/logo/GravityBridge.png",
+            name: "GravityBridge",
+            details:
+              "An open, decentralized bridge connecting blockchains to enable seamless interoperability and liquidity for the $mntl token.",
+          },
         ],
-        dimensions: { width: "173px", height: "25px" },
-        description:
-          "An open, decentralized bridge enabling interoperability & liquidity between blockchains",
       },
       {
-        icon: "/CollabsSection/OKC.png",
-        name: "OKC",
-        filters: ["MantleChain Partners", "MantleLabs"],
-        dimensions: { width: "67px", height: "36px" },
-        description:
-          "A high-performance, decentralized, smart contract-enabled blockchain, optimized for trading",
+        icon: "/ecosystem/ip/boxes.png",
+        title: "DAO’s, Metaverse & Auditors",
+        coms: [
+          {
+            icon: "/ecosystem/ip/logo/Droid.png",
+            name: "Droid",
+            details:
+              "A DAO that aims to capitalize upon leading, crypto native opportunities",
+          },
+          {
+            icon: "/ecosystem/ip/logo/AvigationAI.png",
+            name: "AvigationAI",
+            details:
+              "An AI specialization company that identifies potentially viral content",
+          },
+          {
+            icon: "/ecosystem/ip/logo/NerdHaven.png",
+            name: "NerdHaven",
+            details:
+              "Web3 consultancy with optimum experience in marketing and launching of NFTs",
+          },
+          {
+            icon: "/ecosystem/ip/logo/QuillAudits.png",
+            name: "QuillAudits",
+            details:
+              "Providing reliable Smart Contract Audits & Diligence Services to emerging web 3 ventures.",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Vorlds.png",
+            name: "Vorlds",
+            details:
+              "A creator based Metaverse platform that supports Polkadot & Ethereum ecosystems",
+          },
+          {
+            icon: "/ecosystem/ip/logo/Tanukiverse.png",
+            name: "Tanukiverse",
+            details:
+              "A community driven explore-to-earn game governed by Tanuki NFTs",
+          },
+        ],
+      },
+    ],
+  };
+  const ecoValidators = {
+    title: "Validators",
+    subTitle:
+      "Validators, responsible for securing the AssetMantle and Cosmos ecosystem, operate sequentially in a dPoS (delegated proof-of-stake) manner to finalize blocks.",
+    imageFolderUrl: "/ecosystem/validators/",
+    vals: [
+      {
+        dir: "down",
+        imgs: [
+          { name: "SmartNodes", extension: null },
+          { name: "Crosnest" },
+          { name: "mycointrainer" },
+          { name: "Imperator" },
+          { name: "Duality" },
+          { name: "posthuman" },
+        ],
       },
       {
-        icon: "/CollabsSection/rushraids.png",
-        name: "RushRaids",
-        filters: ["MantleGrants", "Ecosystem Projects", "MantleLabs"],
-        dimensions: { width: "161px", height: "30px" },
-        description:
-          "First Multiplayer Battle Royale Game where you play and earn Cryptos",
+        dir: "up",
+        imgs: [
+          { name: "Citadel", extension: null },
+          { name: "ecostake" },
+          { name: "kalpatech" },
+          { name: "AsGuard" },
+          { name: "StakeLab" },
+        ],
       },
       {
-        icon: "/CollabsSection/myriadflow.png",
+        dir: "down",
+        imgs: [
+          { name: "Cosmostation", extension: null },
+          { name: "prithvidevs" },
+          { name: "CosmicValidator" },
+          { name: "Polkachu" },
+          { name: "AllNodes" },
+          { name: "KingSuper" },
+        ],
+      },
+    ],
+  };
+  const ecoMantleLabs = {
+    title: "MantleLabs",
+    subTitle:
+      "MantleLabs is an extended incubator and accelerator ecosystem committed to product development and innovation.",
+    buttonText: "Learn more",
+    buttonHref:
+      "https://assetmantle.notion.site/MantleGrants-Program-47e7af9b8b5c4ebfaf30fc005ade9656",
+    labs: [
+      {
+        logo: "/ecosystem/labs/MyriadFlow.png",
         name: "MyriadFlow",
-        filters: [
-          "MantleGrants",
-          "Ecosystem Projects",
-          "interNFT",
-          "MantleLabs",
-        ],
-        dimensions: { width: "140px", height: "38px" },
-        description:
-          "An innovative platform to explore & launch NFT Experiences",
+        right: "/ecosystem/labs/MyriadFlowM.png",
       },
       {
-        icon: "/CollabsSection/glitchcandies.png",
-        name: "GlitchCandies",
-        filters: ["MantleGrants", "MantleLabs"],
-        dimensions: { width: "153px", height: "25px" },
-        description:
-          "Hand made collection of evolving sculptures, minted on Cosmos ecosystem",
+        logo: "/ecosystem/labs/Mirage.png",
+        name: "Mirage",
+        right: "/ecosystem/labs/MirageM.png",
       },
       {
-        heading: "Kevin Harrison",
-        name: "Kevin Harrison",
-        filters: ["MantleGrants", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "A proof-of-ownership Discord bot for AssetMantle NFTs with selective access control",
+        logo: "/ecosystem/labs/Frontier.png",
+        name: "Frontier",
+        right: "/ecosystem/labs/FrontierM.png",
       },
       {
-        icon: "/CollabsSection/lumoslabs.png",
-        name: "LumosLabs",
-        filters: ["MantleGrants", "MantleLabs"],
-        dimensions: { width: "107px", height: "27px" },
-        description:
-          "A world built for developers, designed to open access to Web3 opportunities",
-      },
-      {
-        icon: "/CollabsSection/cosmostation.png",
-        name: "Cosmostation",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "195.43px", height: "36px" },
-        description:
-          "A performant Wallet for Cosmos Hub and related zone chains",
-      },
-      {
-        icon: "/CollabsSection/everstake.png",
-        name: "Everstake",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "150px", height: "24px" },
-        description:
-          "The biggest decentralized staking provider in the blockchain industry",
-      },
-      {
-        icon: "/CollabsSection/citadel_one.png",
-        name: "Citadel.one",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "135px", height: "22px" },
-        description:
-          "An all-in-one staking interface with a user-friendly non-custodial platform",
-      },
-      {
-        icon: "/CollabsSection/forbole.png",
-        name: "Forbole",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "140.97px", height: "28px" },
-        description:
-          "A pioneer in building blockchain solutions, increasing accessibility to people",
-      },
-      {
-        icon: "/CollabsSection/p2p.png",
-        name: "P2P.org",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "109px", height: "29px" },
-        description:
-          "Helping investors compound their crypto investments through non-custodial staking",
-      },
-      {
-        icon: "/CollabsSection/dsrv.png",
-        name: "DSRV",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "90px", height: "27px" },
-        description:
-          "Leading validator and blockchain infrastructure provider based in Seoul",
-      },
-      {
-        icon: "/CollabsSection/infstones.png",
-        name: "INFStones",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "158px", height: "26px" },
-        description:
-          "Build decentralized applications on more than 60 leading blockchain protocols",
-      },
-      {
-        icon: "/CollabsSection/cros-nest.png",
-        name: "Cros-Nest",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "47px", height: "47px" },
-        description:
-          "State-of-the-art distributed & redundant validator infrastructure for PoS Blockchains",
-      },
-      {
-        icon: "/CollabsSection/blockscope.png",
-        name: "BlockScope",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "163px", height: "29.29px" },
-        description:
-          "A reliable Staking service in multiple chains for crypto investors",
-      },
-      {
-        icon: "/CollabsSection/frens.png",
-        name: "Frens",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "111px", height: "39px" },
-        description:
-          "A community growth platform to help NFT, DAO, DeFi and blockchain gaming projects",
-      },
-      {
-        icon: "/CollabsSection/allnodes.png",
-        name: "AllNodes",
-        filters: ["Validators", "MantleLabs"],
-        dimensions: { width: "151px", height: "31px" },
-        description:
-          "A non-custodial platform where you can partake in Staking in over 55 protocols",
-      },
-      {
-        icon: "/CollabsSection/droid.png",
-        name: "DroidDAO",
-        filters: ["Partnerships", "MantleLabs"],
-        dimensions: { width: "96px", height: "31px" },
-        description:
-          "a DAO that aims to capitalize upon leading, crypto native opportunities",
-      },
-      {
-        icon: "/CollabsSection/nerdhaven.png",
-        name: "NHDAO",
-        filters: ["Partnerships", "MantleLabs"],
-        dimensions: { width: "165.55px", height: "15.77px" },
-        description:
-          "Web3 consultancy with optimum experience in marketing and launching of NFTs",
-      },
-      {
-        icon: "/CollabsSection/avigation.png",
-        name: "AvigationAI",
-        filters: ["Partnerships", "MantleLabs"],
-        dimensions: { width: "145px", height: "29px" },
-        description:
-          "An AI specialization company that identifies potentially viral content",
-      },
-      {
-        icon: "/CollabsSection/tanukiverse.png",
-        name: "Tanukiverse",
-        filters: ["Partnerships", "Metaverse", "MantleLabs"],
-        dimensions: { width: "150px", height: "35x" },
-        description:
-          "A community driven explore-to-earn game governed by Tanuki NFTs",
-      },
-      {
-        icon: "/CollabsSection/vorlds.png",
-        name: "Vorlds",
-        filters: ["Partnerships", "Metaverse", "MantleLabs"],
-        dimensions: { width: "99px", height: "31px" },
-        description:
-          "A creator based Metaverse platform that supports Polkadot & Ethereum ecosystems",
-      },
-      {
-        icon: "/CollabsSection/junoswap.png",
-        name: "JunoSwap",
-        filters: ["Token Integration Partners", "MantleLabs"],
-        dimensions: { width: "134px", height: "32px" },
-        description:
-          "First ever interchain DEX focussed on CW-20 (CosmWasm) asset adoption",
-      },
-      {
-        icon: "/CollabsSection/stakingrewards.png",
-        name: "StakingRewards",
-        filters: ["Token Integration Partners", "MantleLabs"],
-        dimensions: { width: "170px", height: "27px" },
-        description:
-          "Crypto Staking explorer providing data for staking and crypto-growth tools",
-      },
-      {
-        icon: "/CollabsSection/polkadot.png",
-        name: "PolkaDot",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "144px", height: "30.72px" },
-        description:
-          "An multichain ecosystem enabling truly interoperable decentralized web",
-      },
-      {
-        icon: "/CollabsSection/memora.png",
-        name: "Memora",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "128px", height: "32px" },
-        description:
-          "A Fintech Ecosystem that allows all actors of the arts world to monetize the assets",
-      },
-      {
-        icon: "/CollabsSection/ixo.png",
-        name: "IXO",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "59px", height: "35px" },
-        description:
-          "An Internet-of-Impact for sustainable social, environmental and economic development",
-      },
-      {
-        icon: "/CollabsSection/hypersign.png",
-        name: "HyperSign",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "148px", height: "38px" },
-        description:
-          "An Identity and access management solution to authenticate employees and customers",
-      },
-      {
-        icon: "/CollabsSection/interchainfoundation.png",
-        name: "interChain Foundation",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "106px", height: "29px" },
-        description:
-          "Stewards of interchain, funding the creation of interoperable decentralized ecosystem",
-      },
-      {
-        icon: "/CollabsSection/iris.png",
-        name: "IRIS",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "115px", height: "34px" },
-        description:
-          "A Cosmos zone enabling cross-chain interoperability through a unified service model",
-      },
-      {
-        icon: "/CollabsSection/akash.png",
-        name: "AkashNetwork",
-        filters: ["interNFT", "AssetMantle"],
-        dimensions: { width: "134px", height: "37px" },
-        description:
-          "A decentralized cloud for DApps, nodes, and other blockchain network components",
-      },
-      {
-        icon: "/CollabsSection/AM_Logo.png",
-        name: "Membership NFTs",
-        filters: ["MantleCreatives", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "An access to unlock a variety of exclusive utilities and rewards from the MantleEcosystem ",
-      },
-      {
-        icon: "/CollabsSection/AM_Logo.png",
-        name: "Mantlers",
-        filters: ["MantleCreatives", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description: "A collection of PFP based NFTs, released in MantlePlace",
-      },
-      {
-        icon: "/CollabsSection/mantleplace.svg",
-        name: "MantlePlace",
-        filters: ["Products", "AssetMantle"],
-        dimensions: { width: "153px", height: "27px" },
-        description:
-          "A decentralized, no-code NFT marketplace bringing trading features to creators with an easy to use interface",
-      },
-      {
-        icon: "/CollabsSection/mantlebuilder.svg",
-        name: "MantleBuilder",
-        filters: ["Products", "AssetMantle"],
-        dimensions: { width: "168.75px", height: "27px" },
-        description:
-          "No-code, customizable NFT marketplace builder helping creators build their own custom-branded NFT storefronts",
-      },
-      {
-        icon: "/CollabsSection/mantlewallet.svg",
-        name: "MantleWallet",
-        filters: ["Products", "Integrations", "AssetMantle"],
-        dimensions: { width: "159.39px", height: "27px" },
-        description: "A non-custodial blockchain wallet for AssetMantle chain",
-      },
-      {
-        icon: "/CollabsSection/AM_Logo.png",
-        name: "Mantle-1",
-        filters: ["Products", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description: "The core Layer 1 interoperable chain of AssetMantle",
-      },
-      {
-        heading: "$MNTL Token",
-        icon: "/CollabsSection/mantletoken.png",
-        name: "$MNTL Token",
-        filters: ["Products", "AssetMantle"],
-        dimensions: { width: "164.95px", height: "27px" },
-        description:
-          "The primary governance and staking token of AssetMantle that secures the MantleChain",
-      },
-      {
-        icon: "/CollabsSection/AM_Logo.png",
-        name: "AssetMantle SDK ",
-        filters: ["Products", "Integrations", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "The custom SDK modules of AssetMantle chain enabling NFT based transactions",
-      },
-      {
-        icon: "/CollabsSection/asguard.svg",
-        name: "AsGuard",
-        filters: ["Products", "AssetMantle"],
-        dimensions: { width: "112.96px", height: "27px" },
-        description:
-          "An AssetMantle validator providing highly incentivised staking services",
-      },
-      {
-        icon: "/CollabsSection/internft.png",
-        name: "interNFT",
-        filters: ["Community Initiatives", "AssetMantle"],
-        dimensions: { width: "103.54px", height: "53.96px" },
-        description:
-          "A community-led initiative to develop Interchain standards for Non-fungible Tokens ",
-      },
-      {
-        icon: "/CollabsSection/artist4web3.png",
-        name: "Artists4Web3",
-        filters: ["Community Initiatives", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "A community initiative to increase the awareness and knowledge about NFTs and help onboard artists to Web3",
-      },
-      {
-        icon: "/CollabsSection/xtrathin.png",
-        name: "Xtrathin",
-        filters: ["Ecosystem Projects", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "Utility Focused NFT Collection to create sub-communities around Joint Robots",
-      },
-      {
-        icon: "/CollabsSection/AM_Logo.png",
-        name: "Mirage Metaverse",
-        filters: ["MantleGrants", "AssetMantle"],
-        dimensions: { width: "112.96px", height: "27px" },
-        description:
-          "A Social Commerce Metaverse made for the next generation. A Metaverse where you can buy, sell, trade, socialize, attend concerts, learn,  game, and experience many more exciting stuff!",
-      },
-      {
-        icon: "/CollabsSection/Leap_light.png",
-        name: "Leap Wallet",
-        filters: ["Token Integration Partners", "AssetMantle"],
-        dimensions: { width: "103.54px", height: "53.96px" },
-        description:
-          "A non-custodial super wallet for Cosmos & Terra 2.0 .Leap is the simplest & safest way to send, swap, and stake tokens.",
-      },
-      {
-        icon: "/CollabsSection/Falcon_Wallet.png",
-        name: "Falcon Wallet",
-        filters: ["Token Integration Partners", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "A secure, safe and convenient wallet to store, send and receive tokens across 40+ zones in the Cosmos ecosystem",
-      },
-      {
-        icon: "/CollabsSection/frontier-logo.jpeg",
-        name: "Frontier Wallet",
-        filters: ["Token Integration Partners", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "It is a DeFi, NFT & crypto wallet where you can send, store & invest in 4,000+ assets. Facilitates  staking or supplying assets in DeFi apps from a single place.",
-      },
-      {
-        icon: "/CollabsSection/pulsar-logo.svg",
-        name: "Pulsar Finance",
-        filters: ["Token Integration Partners", "AssetMantle"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "The dashboard for Insights for all AssetMantle transfer of value",
-      },
-      {
-        icon: "/CollabsSection/QuillAudits.png",
-        name: "QuillAudits",
-        filters: ["Partnerships", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "Providing reliable Smart Contract Audits & Diligence Services to emerging web 3 ventures ",
-      },
-      {
-        icon: "/CollabsSection/BlockRelations.png",
+        logo: "/ecosystem/labs/BlockRelations.png",
         name: "BlockRelations",
-        filters: ["MantleGrants", "MantleLabs"],
-        dimensions: { width: "100px", height: "100px" },
-        description:
-          "Block Relations is a leader in Education, Technology, Marketing, and Innovation for Web3",
+        right: "/ecosystem/labs/BlockRelationsM.png",
       },
-    ],
-    dropdownFilters: [
-      { text: "All Projects" },
-      { text: "AssetMantle" },
-      { text: "MantleLabs" },
+      {
+        logo: "/ecosystem/labs/GlitchCandies.png",
+        name: "GlitchCandies",
+        right: "/ecosystem/labs/GlitchCandiesM.png",
+      },
+      {
+        logo: "/ecosystem/labs/RushraDS.png",
+        name: "RushraDS",
+        right: "/ecosystem/labs/RushraDSM.png",
+      },
+      {
+        logo: "/ecosystem/labs/Mande.png",
+        name: "Mande",
+        right: "/ecosystem/labs/MandeM.png",
+      },
+      {
+        logo: "/ecosystem/labs/HashCase.png",
+        name: "HashCase",
+        right: "/ecosystem/labs/HashCaseM.png",
+      },
+      {
+        logo: "/ecosystem/labs/MyriadFlow.png",
+        name: "MyriadFlow",
+        right: "/ecosystem/labs/MyriadFlowM.png",
+      },
+      {
+        logo: "/ecosystem/labs/MyriadFlow.png",
+        name: "MyriadFlow",
+        right: "/ecosystem/labs/MyriadFlowM.png",
+      },
     ],
   };
-  return { props: { collabsHeroSectionConfigData, collabsSectionConfigData } };
+  const ecoKolIM = {
+    title: "KOL Initiatives  &  MantleCreatives",
+    subTitle:
+      "AssetMantle is taking the lead in thought and knowledge leadership within the blockchain sub-strata through ongoing research & development.",
+    initiatives: [
+      {
+        icon: "/ecosystem/initiatives/interNFT.png",
+        title: "InterNFT",
+        description:
+          "Open-source Decentralized Identity (DID) based NFT standard on mantle-1 chain for NFT interoperability within & across ecosystems.",
+        href: "https://internft.github.io/",
+      },
+      {
+        icon: "/ecosystem/initiatives/a4w3.png",
+        title: "Artists4Web3",
+        description:
+          "An artist-focused initiative bringing traditional web2 and real-world artists of diverse genres onto the blockchain NFT economy.",
+        href: "https://artists4web3.org/",
+      },
+    ],
+  };
+  return {
+    props: {
+      ecoProtocol,
+      ecoIAndP,
+      ecoValidators,
+      ecoMantleLabs,
+      ecoKolIM,
+    },
+  };
 }
