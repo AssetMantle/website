@@ -50,8 +50,8 @@ export default function Validators({ configData }) {
                           border: "none",
                           padding: "0",
                           margin: "0",
-                          boxShadow:
-                            "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
+                          // boxShadow:
+                          //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
                       >
                         <CardMedia
@@ -86,8 +86,8 @@ export default function Validators({ configData }) {
                           border: "none",
                           padding: "0",
                           margin: "0",
-                          boxShadow:
-                            "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
+                          // boxShadow:
+                          //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
                       >
                         <CardMedia
@@ -122,8 +122,8 @@ export default function Validators({ configData }) {
                           border: "none",
                           padding: "0",
                           margin: "0",
-                          boxShadow:
-                            "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
+                          // boxShadow:
+                          //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
                       >
                         <CardMedia
@@ -153,12 +153,13 @@ export default function Validators({ configData }) {
             position: "absolute",
             width: "100%",
             height: "20%",
-            bottom: "-0px",
+            // bottom: "-0px",
+            top: "90%",
             left: "0",
             right: "0",
             // filter: "blur(20px)",
-            background:
-              "linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0) 100%)",
+            // background:
+            //   "linear-gradient(0deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.5) 50%, rgba(17,17,17,0.7) 100%)",
             zIndex: "10",
           }}
           //   #6FB4B5A6, #6FB4B54D
