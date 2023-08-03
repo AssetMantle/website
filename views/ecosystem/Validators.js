@@ -33,7 +33,7 @@ export default function Validators({ configData }) {
                     "0%": { transform: "translateY(-66.66%)" },
                     "100%": { transform: "translateY(0%)" },
                   },
-                  animation: `${val.dir} infinite 12000ms linear both`,
+                  animation: `${val.dir} infinite 30000ms linear both`,
                 }}
               >
                 <Stack
@@ -45,11 +45,16 @@ export default function Validators({ configData }) {
                   {React.Children.toArray(
                     val.imgs.map((item) => (
                       <Card
+                        role="button"
+                        onClick={() =>
+                          item.href && window.open(item.href, "_blank")
+                        }
                         sx={{
                           background: "transparent",
                           border: "none",
                           padding: "0",
                           margin: "0",
+                          cursor: "pointer",
                           // boxShadow:
                           //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
@@ -81,11 +86,16 @@ export default function Validators({ configData }) {
                   {React.Children.toArray(
                     val.imgs.map((item) => (
                       <Card
+                        role="button"
+                        onClick={() =>
+                          item.href && window.open(item.href, "_blank")
+                        }
                         sx={{
                           background: "transparent",
                           border: "none",
                           padding: "0",
                           margin: "0",
+                          cursor: "pointer",
                           // boxShadow:
                           //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
@@ -117,11 +127,16 @@ export default function Validators({ configData }) {
                   {React.Children.toArray(
                     val.imgs.map((item) => (
                       <Card
+                        role="button"
+                        onClick={() =>
+                          item.href && window.open(item.href, "_blank")
+                        }
                         sx={{
                           background: "transparent",
                           border: "none",
                           padding: "0",
                           margin: "0",
+                          cursor: "pointer",
                           // boxShadow:
                           //   "0px 0px 60px 0px rgba(255, 198, 64, 0.50)",
                         }}
@@ -181,7 +196,7 @@ export default function Validators({ configData }) {
           href="https://www.mintscan.io/asset-mantle/validators"
           sx={{ textDecoration: "none" }}
           target="_blank"
-          variant="large"
+          variant="h4"
         >
           + 50 More
         </Link>
