@@ -25,13 +25,6 @@ const TitleAndSubtitle = (props) => {
       direction="column"
       alignItems="center"
       textAlign={textAlign}
-      id={
-        title &&
-        title
-          .toLowerCase()
-          .replaceAll(" ", "-")
-          .replace(/[^a-z-]/g, "")
-      }
     >
       {SectionConfigData.title && (
         <Typography
@@ -40,7 +33,7 @@ const TitleAndSubtitle = (props) => {
         >
           <NextLink
             color="inherit"
-            underline="hover"
+            underline="none"
             href={`#${
               SectionConfigData.title &&
               SectionConfigData.title
