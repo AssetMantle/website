@@ -20,7 +20,17 @@ const Section = (props) => {
   };
 
   return (
-    <Box component="section" sx={sectionStyle}>
+    <Box component="section" sx={{ ...sectionStyle, position: "relative" }}>
+      <Box
+        style={{ position: "absolute", top: "-50px" }}
+        id={
+          title &&
+          title
+            .toLowerCase()
+            .replaceAll(" ", "-")
+            .replace(/[^a-z-]/g, "")
+        }
+      />
       <Container
         maxWidth="lg"
         sx={{
