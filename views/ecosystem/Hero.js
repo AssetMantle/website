@@ -105,7 +105,7 @@ export default function Hero() {
     {
       src: "/ecosystem/hero/stone7.png",
       title: "Lorem",
-      href: "#kol-initiatives--mantlecreatives",
+      href: "#kol-initiatives----mantlecreatives",
       style: imgCon(107.998, 122, 291, 81),
     },
     {
