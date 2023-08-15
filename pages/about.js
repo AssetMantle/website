@@ -1,10 +1,10 @@
 import React from "react";
-import ExplanationSection from "../views/ExplanationSection";
+import ExplanationSection from "../views/about/ExplanationSection";
 import FAQSection from "../views/FAQSection";
-import TokenDistribution from "../views/TokenDistribution";
-import TokenInfo from "../views/TokenInfo";
-import TokenUtility from "../views/TokenUtility";
-import VisionMissionSection from "../views/VisionMissionSection";
+import TokenDistribution from "../views/about/TokenDistribution";
+import TokenInfo from "../views//about/TokenInfo";
+import TokenUtility from "../views//about/TokenUtility";
+import VisionMissionSection from "../views/about/VisionMissionSection";
 
 export default function About(props) {
   return (
@@ -24,7 +24,7 @@ export default function About(props) {
 }
 export async function getStaticProps() {
   const explanationSectionData = {
-    questionVariant: "h1",
+    questionVariant: "h2",
     answerVariant: "subtitle2",
     question: "What is AssetMantle?",
     answer:
@@ -53,7 +53,7 @@ export async function getStaticProps() {
     description:
       "Find out how the protocol token of AssetMantle chain is optimized for maximizing yield  across various DEXs",
     left: {
-      titleVariant: "h2",
+      titleVariant: "h3",
       titleColor: "primary.main",
       title: "$MNTL",
       values: [
@@ -211,9 +211,9 @@ export async function getStaticProps() {
   const tokenUtilityData = {
     title: "$MNTL Token Utility",
     paperVariant: "translucent",
-    optionsTitleVariant: "h3",
-    optionsDescriptionVariant: "body1",
-    optionsColor: "primary.main",
+    optionsTitleVariant: "h4",
+    optionsDescriptionVariant: "body2",
+    optionsColor: "primary.light",
     description:
       "AssetMantle's protocol token is created using latest best practices for tokenization, realizing multiple types of utilities for its holder",
     options: [
@@ -250,7 +250,7 @@ export async function getStaticProps() {
     chart: "/TokenDistributionSection/releaseSchedule.svg",
     chartName: "Release Schedule",
     paperVariant: "translucent",
-    numberVariant: "h3",
+    numberVariant: "h4",
     titleVariant: "body1",
     numberColor: "primary.main",
     overview: {
