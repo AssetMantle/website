@@ -16,7 +16,12 @@ export default function MantleLabs({ configData }) {
   }, [Identifier, configData.labs.length]);
 
   return (
-    <Section title={configData.title} subTitle={configData.subTitle}>
+    <Section
+      title={configData.title}
+      subTitle={configData.subTitle}
+      subTitleVariant={"subtitle2"}
+      subtitleSx={{ maxWidth: "min(961px,100%)" }}
+    >
       <Stack>
         <Button
           variant="contained"

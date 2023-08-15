@@ -7,7 +7,12 @@ import CallMadeIcon from "@mui/icons-material/CallMade";
 
 export default function KolIM({ configData }) {
   return (
-    <Section title={configData.title} subTitle={configData.subTitle}>
+    <Section
+      title={configData.title}
+      subTitle={configData.subTitle}
+      subTitleVariant={"subtitle2"}
+      subtitleSx={{ maxWidth: "min(961px,100%)" }}
+    >
       <Box
         sx={{
           width: "100%",

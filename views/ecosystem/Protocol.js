@@ -16,7 +16,11 @@ import Section from "../../components/Section";
 
 export default function Protocol({ configData }) {
   return (
-    <Section title={configData.title} subTitle={configData.subTitle}>
+    <Section
+      title={configData.title}
+      subTitle={configData.subTitle}
+      subtitleSx={{ maxWidth: "min(912px,100%)" }}
+    >
       {Array.isArray(configData.protocols) &&
         configData.protocols &&
         configData.protocols.length > 0 && (
