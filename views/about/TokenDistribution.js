@@ -1,6 +1,6 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
-import Section from "../components/Section";
+import Section from "../../components/Section";
 
 export default function TokenDistribution({ tokenDistributionData }) {
   // console.log(tokenDistributionData);
@@ -47,10 +47,7 @@ export default function TokenDistribution({ tokenDistributionData }) {
               >
                 {tokenDistributionData.overview.circular.number}
               </Typography>
-              <Typography
-                variant={tokenDistributionData.titleVariant}
-                lineHeight="100%"
-              >
+              <Typography variant="h6" lineHeight="100%">
                 {tokenDistributionData.overview.circular.title}
               </Typography>
             </Stack>

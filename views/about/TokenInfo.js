@@ -19,8 +19,8 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import { useEffect, useState } from "react";
-import NextLink from "../components/NextLink";
-import Section from "../components/Section";
+import NextLink from "../../components/NextLink";
+import Section from "../../components/Section";
 
 export default function TokenInfo({ tokenInfoData }) {
   const [usdValue, setUSDValue] = useState("");
