@@ -99,15 +99,17 @@ export default function HeroSection({ configData }) {
           <Button
             key={index}
             variant={ele.variant}
-            size="large"
+            size="medium"
             endIcon={<Icon>{ele.endIcon}</Icon>}
             href={ele.href}
+            style={{ padding: "0.65rem 1.25rem" }}
             target="_blank"
           >
             {ele.label}
           </Button>
         ))}
       </Box>
+      <Divider flexItem />
       <SocialIcons />
     </Stack>
   );
@@ -196,11 +198,11 @@ export default function HeroSection({ configData }) {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Typography variant="h3" color="primary.main">
+                  <Typography variant="h4" color="primary.main">
                     {ele.amount}
                   </Typography>
                   <Typography
-                    variant="caption"
+                    variant="h6"
                     textAlign="left"
                     // sx={{ fontWeight: "400", textTransform: "capitalize" }}
                   >
