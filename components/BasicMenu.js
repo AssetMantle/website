@@ -34,7 +34,7 @@ export default function BasicMenu({ title, titleEndIcon, urls }) {
         endIcon={titleEndIcon && titleEndIcon}
         sx={{ justifyContent: { xs: "start", md: "center" } }}
       >
-        {title}
+        <Typography variant="h6">{title}</Typography>
       </Button>
       {urls && Array.isArray(urls) && urls.length > 0 && (
         <Menu
