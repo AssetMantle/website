@@ -15,7 +15,7 @@ export default function FeatureSection({ configData }) {
             {configData.featuresArray.map((feature, index) => (
               <Paper
                 variant={configData.paperVariant}
-                sx={{ overflow: "hidden" }}
+                sx={{ overflow: "hidden", height: "max-content" }}
                 key={index}
               >
                 <Card sx={configData.optionStyles}>
@@ -38,10 +38,7 @@ export default function FeatureSection({ configData }) {
                       feature.icon
                     )}
                     {feature.title && (
-                      <Typography
-                        variant={feature.titleVariant}
-                        color={feature.titleColor}
-                      >
+                      <Typography variant="h6" color={feature.titleColor}>
                         {feature.title}
                       </Typography>
                     )}
@@ -50,6 +47,7 @@ export default function FeatureSection({ configData }) {
                     <Typography
                       variant={feature.descriptionVariant}
                       color={feature.descriptionColor}
+                      sx={{ textAlign: "center" }}
                     >
                       {feature.description}
                     </Typography>
