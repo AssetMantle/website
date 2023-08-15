@@ -9,6 +9,9 @@ const Section = (props) => {
     subTitle = null,
     background = "none",
     backgroundColor = "transparent",
+    titleVariant,
+    subTitleVariant,
+    subtitleSx,
     children,
   } = props;
 
@@ -40,7 +43,13 @@ const Section = (props) => {
       >
         {title || subTitle ? (
           <Stack spacing={8} direction="column" alignItems="center">
-            <TitleAndSubtitle title={title} subTitle={subTitle} />
+            <TitleAndSubtitle
+              title={title}
+              subTitle={subTitle}
+              titleVariant={titleVariant}
+              subTitleVariant={subTitleVariant}
+              subtitleSx={subtitleSx}
+            />
             {children}
           </Stack>
         ) : (
