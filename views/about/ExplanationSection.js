@@ -1,6 +1,6 @@
 import { Grid, Stack, Typography, List, ListItem } from "@mui/material";
 import React from "react";
-import Section from "../components/Section";
+import Section from "../../components/Section";
 
 export default function ExplanationSection({ explanationSectionData }) {
   return (
