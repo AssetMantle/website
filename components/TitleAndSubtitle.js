@@ -10,7 +10,7 @@ const TitleAndSubtitle = (props) => {
     isContent = false,
     titleVariant,
     subTitleVariant,
-    subtitleSx,
+    subtitleSx = {},
   } = props;
   const SectionConfigData = {
     title,
