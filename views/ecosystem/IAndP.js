@@ -16,7 +16,11 @@ export default function IAndP({ configData }) {
   }, [Identifier]);
 
   return (
-    <Section title={configData.title} subTitle={configData.subTitle}>
+    <Section
+      title={configData.title}
+      subTitle={configData.subTitle}
+      subTitleVariant={"subtitle2"}
+    >
       <Grid container spacing={5} width={"100%"}>
         <Grid
           items
