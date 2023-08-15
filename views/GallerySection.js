@@ -41,6 +41,7 @@ export default function GallerySection({ configData }) {
                     display: "flex",
                     p: 1,
                     justifyContent: "center",
+                    height: "100%",
                   }}
                 >
                   <Paper
@@ -49,7 +50,7 @@ export default function GallerySection({ configData }) {
                       width: { xs: "100%" },
                     }}
                   >
-                    <Card sx={configData.optionStyle}>
+                    <Card sx={{ ...configData.optionStyle, height: "100%" }}>
                       {Gallery.image && (
                         <CardMedia
                           component="img"
@@ -68,7 +69,7 @@ export default function GallerySection({ configData }) {
                           {Gallery.title && (
                             <Typography
                               gutterBottom
-                              variant={configData.titleVariant}
+                              variant="h5"
                               component="h3"
                               color={configData.titleColor}
                             >
@@ -77,7 +78,7 @@ export default function GallerySection({ configData }) {
                           )}
                           {Gallery.description && (
                             <Typography
-                              variant={configData.descriptionVariant}
+                              variant="body2"
                               color={configData.descriptionColor}
                             >
                               {Gallery.description}
