@@ -115,16 +115,10 @@ export default function AdvantageSection({ configData }) {
                           initiative.icon
                         ))}
                       <CardContent sx={{ padding: "0 !important" }}>
-                        <Typography
-                          variant={configData.titleVariant}
-                          color={configData.titleColor}
-                        >
+                        <Typography variant="h6" color={configData.titleColor}>
                           {initiative.title && initiative.title}
                         </Typography>
-                        <Typography
-                          variant={configData.descriptionVariant}
-                          sx={{ pt: 1 }}
-                        >
+                        <Typography variant="body2" sx={{ pt: 1 }}>
                           {initiative.description && initiative.description}
                         </Typography>
                       </CardContent>
