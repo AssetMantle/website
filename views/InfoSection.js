@@ -34,6 +34,7 @@ const Content = ({ configData, listStyle }) => {
           {configData.title && (
             <TitleAndSubtitle
               title={configData.title}
+              titleVariant={configData.titleVariant}
               textAlign="left"
               isContent
             />
@@ -41,13 +42,14 @@ const Content = ({ configData, listStyle }) => {
           {configData.description && Array.isArray(configData.description) ? (
             <Stack
               spacing={4}
-              sx={
-                configData.descriptionStyle || {
-                  pb: 2,
-                  maxWidth: "92%",
-                  textAlign: "left",
-                }
-              }
+              sx={{
+                ...configData.descriptionStyle,
+                pb: 2,
+                pt: 4,
+                maxWidth: "92%",
+                textAlign: "left",
+                mx: 0,
+              }}
             >
               {configData.description.map((item, index) => (
                 <Typography
@@ -132,7 +134,7 @@ const Content = ({ configData, listStyle }) => {
                   {item.author && (
                     <Button
                       variant={configData.authorVariant}
-                      size="large"
+                      size="small"
                       component="a"
                       href={item.href ? item.href : null}
                       target="_blank"
