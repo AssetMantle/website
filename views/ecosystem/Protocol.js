@@ -105,7 +105,7 @@ export default function Protocol({ configData }) {
                             )}
                             {protocol.description && (
                               <Typography
-                                variant="caption"
+                                variant="body2"
                                 component={"p"}
                                 sx={{ pt: 1 }}
                               >
@@ -134,7 +134,7 @@ export default function Protocol({ configData }) {
                               href={protocol.href && protocol.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              variant="button"
+                              variant="body2"
                             >
                               {protocol.buttonText}
                             </Link>
