@@ -8,27 +8,29 @@ const TitleAndSubtitle = (props) => {
     subTitle = null,
     textAlign = "center",
     isContent = false,
+    titleVariant,
+    subTitleVariant,
   } = props;
   const SectionConfigData = {
     title,
-    titleVariant: isContent ? "h2" : "h1",
+    titleVariant: titleVariant ? titleVariant : "h2",
     titleColor: "secondary.light",
     subTitle,
-    subTitleVariant: "subtitle2",
+    subTitleVariant: subTitleVariant || "subtitle2",
     subTitleColor: "secondary.light",
     subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
   };
 
   return (
     <Stack
-      spacing={0}
+      spacing={4}
       direction="column"
       alignItems="center"
       textAlign={textAlign}
     >
       {SectionConfigData.title && (
         <Typography
-          variant={SectionConfigData.titleVariant || "h1"}
+          variant={SectionConfigData.titleVariant || "h2"}
           color={SectionConfigData.titleColor || "inherit"}
         >
           <NextLink
@@ -52,6 +54,7 @@ const TitleAndSubtitle = (props) => {
           variant={SectionConfigData.subTitleVariant || "subtitle1"}
           color={SectionConfigData.subTitleColor || "inherit"}
           sx={SectionConfigData.subTitleStyle}
+          component={"p"}
         >
           {SectionConfigData.subTitle}
         </Typography>
