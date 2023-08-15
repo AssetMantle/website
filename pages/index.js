@@ -60,17 +60,17 @@ export async function getStaticProps() {
       mb: 4,
       color: "primary.light",
       textAlign: { xs: "center", sm: "center", md: "center" },
-      titleVariant: "h1",
+      titleVariant: "h2",
       titleColor: "secondary.main",
       subTitleVariant: "subtitle1",
-      subTitleColor: "primary.main",
+      subTitleColor: "primary.light",
     },
   };
   const gallerySectionConfigData = {
     paperVariant: "translucent",
-    titleVariant: "h3",
-    titleColor: "primary.main",
-    descriptionVariant: "body1",
+    titleVariant: "h2",
+    titleColor: "primary.light",
+    descriptionVariant: "subtitle1",
     descriptionColor: "primary.light",
     textAlign: "center", // >>> default: left
     title: "Our Products",
@@ -157,8 +157,9 @@ export async function getStaticProps() {
     textAlign: "center",
     title: "Why choose us?",
     titleComponent: "",
-    titleVariant: "h1",
-    titleColor: "secondary.main",
+    titleVariant: "h2",
+    titleColor: "primary.light",
+    descriptionColor: "primary.light",
     description:
       "AssetMantle’s foundation is built using the best-in-class core blockchain principles and optimized for the next evolution of the NFT economy",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
@@ -168,7 +169,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
         title: "Optimized for NFTs",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "Our AssetMantle chain is specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
         descriptionVariant: "body2",
@@ -179,7 +180,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
         title: "Cosmos Ecosystem",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "AssetMantle is one of the top zones across Cosmos, leveraging features like Tendermint Core for consensus and a highly modular SDK framework.",
         descriptionVariant: "body2",
@@ -190,7 +191,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
         title: "Extremely Low Fees",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "AssetMantle has a highly economical network providing some of the lowest fees compared to other chains, averaging around $0.01 per transaction.",
         descriptionVariant: "body2",
@@ -201,7 +202,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
         title: "Fast Order Fulfillments",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "Near-instant transactions (~7 seconds) enable almost zero waiting time for fulfillments of buy, sell, and auction orders.",
         descriptionVariant: "body2",
@@ -212,7 +213,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
         title: "Highly Secure",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "With high network security and leveraging the native $MNTL token, AssetMantle provides an optimal level of protection for your digital assets.",
         descriptionVariant: "body2",
@@ -223,7 +224,7 @@ export async function getStaticProps() {
         icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
         title: "InterChain Assets",
         titleVariant: "h4",
-        titleColor: "primary.main",
+        titleColor: "primary.light",
         description:
           "Our InterNFT standards will allow NFTs to be transferred to other connected chains, creating a larger shared market economy.",
         descriptionVariant: "body2",
@@ -257,14 +258,14 @@ export async function getStaticProps() {
     smallDeviceColumnDirections: "", // only "reverse" or "" >>>>>>default is "no-reverse"
     contentMaxWidth: "", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
     title: "Distributed NFT economy",
-    titleComponent: "h1",
-    titleVariant: "h2",
+    titleComponent: "h2",
+    titleVariant: "h3",
     titleColor: "secondary.main",
     description: [
       "AssetMantle’s suite of products creates a distributed NFT economy where users can not only develop NFT collections but also their own NFT marketplaces and storefronts.",
       "This shopifying of NFT assets leads to a distributed environment of networks, with the world state stored exclusively in the AssetMantle chain.",
     ],
-    descriptionVariant: "body1",
+    descriptionVariant: "body2",
     descriptionColor: "secondary.main",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     rightSidedImage: "",
@@ -376,7 +377,7 @@ export async function getStaticProps() {
       "The AssetMantle blockchain leverages the following Web3 standards, making it a pioneer in the NFT ecosphere:",
     subSectionTitle: "$MNTL",
     subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
-    subSectionTitleVariant: "h1",
+    subSectionTitleVariant: "h3",
     subSectionTitleColor: "secondary.light",
     subSectionDescription:
       "The native token powering the AssetMantle NFT economy",
