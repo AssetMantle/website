@@ -20,6 +20,9 @@ export default function IAndP({ configData }) {
       title={configData.title}
       subTitle={configData.subTitle}
       subTitleVariant={"subtitle2"}
+      subtitleSx={{
+        maxWidth: "min(1057px,100%)",
+      }}
     >
       <Grid container spacing={5} width={"100%"}>
         <Grid

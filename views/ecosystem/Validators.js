@@ -4,7 +4,12 @@ import Section from "../../components/Section";
 
 export default function Validators({ configData }) {
   return (
-    <Section title={configData.title} subTitle={configData.subTitle}>
+    <Section
+      title={configData.title}
+      subTitle={configData.subTitle}
+      subTitleVariant={"subtitle2"}
+      subtitleSx={{ maxWidth: "min(961px,100%)" }}
+    >
       <Box sx={{ position: "relative" }}>
         <Grid
           container
