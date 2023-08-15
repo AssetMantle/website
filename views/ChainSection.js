@@ -125,7 +125,7 @@ export default function ChainSection({ chainSectionConfigData }) {
               {chainSectionConfigData.subSectionTitle && (
                 <Typography
                   variant={
-                    chainSectionConfigData.subSectionTitleVariant || "h1"
+                    chainSectionConfigData.subSectionTitleVariant || "h2"
                   }
                   color={
                     chainSectionConfigData.subSectionTitleColor ||
