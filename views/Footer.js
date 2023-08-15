@@ -264,9 +264,7 @@ export default function Footer(props) {
                             backgroundColor="transparent"
                             alignItems={{ xs: "center", md: "start" }}
                           >
-                            <Typography variant="caption">
-                              {item.title}
-                            </Typography>
+                            <Typography variant="h6">{item.title}</Typography>
                             <NextLink
                               color="primary.main"
                               underline="hover"
