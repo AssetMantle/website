@@ -157,12 +157,17 @@ export default function Hero() {
   return (
     <Box>
       <Typography
-        variant="h1"
+        variant="h2"
         component={"h1"}
         color={"secondary.main"}
-        sx={{ ...customH1Styles, padding: "8px 24px", textAlign: "center" }}
+        sx={{
+          ...customH1Styles,
+          padding: "8px 24px",
+          textAlign: "center",
+          textTransform: "capitalize",
+        }}
       >
-        THE MANTLE UNIVERSE
+        The mantle Universe
       </Typography>
       <Typography
         variant="subtitle1"
