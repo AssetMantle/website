@@ -78,6 +78,13 @@ const FooterConfigData = {
           href: "/about#mntl-token-distribution",
         },
       },
+      {
+        title: "Bug Bounty",
+        link: {
+          text: "Bug Bounty",
+          href: "https://github.com/AssetMantle/Bug-Bounty",
+        },
+      },
     ],
   },
   colThree: {
