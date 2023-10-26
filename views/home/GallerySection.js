@@ -34,6 +34,7 @@ export default function GallerySection({ configData }) {
                 key={index}
                 sx={{
                   backgroundColor: "transparent",
+                  alignSelf: "stretch",
                 }}
               >
                 <Box
@@ -41,12 +42,14 @@ export default function GallerySection({ configData }) {
                     display: "flex",
                     p: 1,
                     justifyContent: "center",
+                    height: "100%",
                   }}
                 >
                   <Paper
                     variant={configData.paperVariant}
                     sx={{
                       width: { xs: "100%" },
+                      height: "100%",
                     }}
                   >
                     <Card sx={configData.optionStyle}>
@@ -68,8 +71,8 @@ export default function GallerySection({ configData }) {
                           {Gallery.title && (
                             <Typography
                               gutterBottom
-                              variant={configData.titleVariant}
-                              component="h5"
+                              variant={configData.itemTitleVariant}
+                              component="h4"
                               color={configData.titleColor}
                             >
                               {Gallery.title}
@@ -77,7 +80,7 @@ export default function GallerySection({ configData }) {
                           )}
                           {Gallery.description && (
                             <Typography
-                              variant={configData.descriptionVariant}
+                              variant={configData.itemDescriptionVariant}
                               color={configData.descriptionColor}
                             >
                               {Gallery.description}
