@@ -10,7 +10,7 @@ const TitleAndSubtitle = (props) => {
     isContent = false,
     titleVariant,
     subTitleVariant,
-    subtitleSx = {},
+    subtitleSx,
   } = props;
   const SectionConfigData = {
     title,
@@ -19,7 +19,10 @@ const TitleAndSubtitle = (props) => {
     subTitle,
     subTitleVariant: subTitleVariant || "subtitle1",
     subTitleColor: "secondary.light",
-    subTitleStyle: { maxWidth: "min(836px, 100%)" }, // object of styles or false
+    subTitleStyle:
+      subtitleSx && subtitleSx?.maxWidth
+        ? subtitleSx
+        : { maxWidth: "min(836px, 100%)" }, // object of styles or false
   };
 
   return (
@@ -54,7 +57,7 @@ const TitleAndSubtitle = (props) => {
         <Typography
           variant={SectionConfigData.subTitleVariant || "subtitle1"}
           color={SectionConfigData.subTitleColor || "inherit"}
-          sx={{ ...SectionConfigData.subTitleStyle, ...subtitleSx }}
+          sx={{ ...SectionConfigData.subTitleStyle }}
           component={"p"}
         >
           {SectionConfigData.subTitle}
