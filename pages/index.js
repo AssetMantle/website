@@ -1,38 +1,45 @@
 import * as React from "react";
-import UniverseSection from "../views/UniverseSection";
-import AdvantageSection from "../views/AdvantageSection";
-import ChainSection from "../views/ChainSection";
-import FeatureSection from "../views/FeatureSection";
-import GallerySection from "../views/GallerySection";
-import HeroSection from "../views/HeroSection";
-import InfoSection from "../views/InfoSection";
-import SocialProofSection from "../views/SocialProofSection";
+import UniverseSection from "../views/home/UniverseSection";
+import AdvantageSection from "../views/home/AdvantageSection";
+import ChainSection from "../views/home/ChainSection";
+import FeatureSection from "../views/home/FeatureSection";
+import GallerySection from "../views/home/GallerySection";
+import HeroSection from "../views/home/HeroSection";
+import InfoSection from "../views/home/InfoSection";
+import SocialProofSection from "../views/home/SocialProofSection";
 // import SubscribeSection from "../views/SubscribeSection";
-import TeamSection from "../views/TeamSection";
+import TeamSection from "../views/home/TeamSection";
+import ControlledIdentity from "../views/home/ControlledIdentity";
+import IdentityStandard from "../views/home/IdentityStandard";
+import Web3EcoSystem from "../views/home/Web3EcoSystem";
 
 export default function Index(props) {
   return (
     <>
       <HeroSection configData={props.heroSectionConfigData} />
       <GallerySection configData={props.gallerySectionConfigData} />
-      <FeatureSection configData={props.featureSectionConfigData} />
-      <InfoSection configData={props.infoSectionConfigData} />
+      <ControlledIdentity configData={props.controlledIdentityData} />
+      <IdentityStandard configData={props.identityStandardConfigData} />
+      <Web3EcoSystem configData={props.web3EcoConfigData} />
       <ChainSection chainSectionConfigData={props.chainSectionConfigData} />
+      <FeatureSection configData={props.featureSectionConfigData} />
+      {/* 
+      <InfoSection configData={props.infoSectionConfigData} />
       <AdvantageSection configData={props.advantageSectionConfigData} />
       <UniverseSection configData={props.universeSectionConfigData} />
       <TeamSection configData={props.teamSectionConfigData} />
-      <SocialProofSection configData={props.socialProofSectionConfigData} />
+      <SocialProofSection configData={props.socialProofSectionConfigData} /> */}
       {/* <SubscribeSection /> */}
     </>
   );
 }
 export async function getStaticProps() {
   const heroSectionConfigData = {
-    titleText1: "Redefining",
-    titleText2: "Digital Asset",
-    titleText3: "Ownership",
+    titleText1: "Unlocking",
+    titleText2: "the future of",
+    titleText3: "Asset Economy",
     subtitle:
-      "Experience the first NFT marketplace with blockchain-based identity",
+      "Pioneering standard for Asset Tokenization & Digital Identity in Web3 Era .",
     buttons: [
       {
         label: "Learn More",
@@ -50,8 +57,8 @@ export async function getStaticProps() {
     image: "/HeroSection/mantler.webp",
     translucentStripData: [
       { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
-      { amount: "96k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
-      { amount: "6M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
+      { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
+      { amount: "3M+", top: "TRANSACTIONS", bottom: "ON-CHAIN" },
     ],
     sectionStyle: {
       pt: 4,
@@ -73,12 +80,26 @@ export async function getStaticProps() {
     descriptionVariant: "subtitle1",
     descriptionColor: "primary.light",
     textAlign: "center", // >>> default: left
-    title: "Our Products",
-    titleComponent: "h1",
+    title: "Digitally Owned Assets ",
+    titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "AssetMantle’s suite of products is focused on the NFT ecosystem, helping you up your game with digital asset ownership",
+      "Our own ‘Specification Driven Approach’ for onboarding Assets as NFT, leading to uniform composition of all asset class.",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
+
+    itemTitleVariant: "h5",
+    itemDescriptionVariant: "body2",
+    optionStyle: {
+      background: "transparent",
+      maxWidth: 272,
+      boxShadow: "none",
+      height: "100%",
+      mx: "auto",
+      padding: "0 11px",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+    },
     galleries: [
       // object template
       // {
@@ -94,55 +115,171 @@ export async function getStaticProps() {
       // },
       {
         image: "/GallerySection/MantlePlace.png",
-        title: "MantlePlace",
+        title: "Web3 Native Assets",
         description:
-          "A new, highly optimized NFT marketplace for the Cosmos ecosystem",
-        buttons: [
-          {
-            text: "Learn More",
-            url: "https://marketplace.assetmantle.one/",
-          },
-        ],
+          "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class ",
+        // buttons: [
+        //   {
+        //     text: "Learn More",
+        //     url: "https://marketplace.assetmantle.one/",
+        //   },
+        // ],
       },
       {
         image: "/GallerySection/MantleBuilder.png",
-        title: "MantleBuilder",
+        title: "Digital Native Assets",
         description:
-          "A no-code marketplace builder for NFT shopifying (coming soon)",
-        buttons: [
-          {
-            text: "Learn More",
-            url: "https://docs.assetmantle.one/MantleBuilder_Overview/",
-          },
-        ],
+          "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
+        // buttons: [
+        //   {
+        //     text: "Learn More",
+        //     url: "https://docs.assetmantle.one/MantleBuilder_Overview/",
+        //   },
+        // ],
       },
       {
         image: "/GallerySection/MantleWallet.png",
-        title: "MantleWallet",
+        title: "RWAs",
         description:
-          "A non-custodial blockchain wallet for the AssetMantle chain",
-        buttons: [
-          {
-            text: "Learn More",
-            url: "https://wallet.assetmantle.one/",
-          },
-        ],
+          "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
+        // buttons: [
+        //   {
+        //     text: "Learn More",
+        //     url: "https://wallet.assetmantle.one/",
+        //   },
+        // ],
       },
       {
         image: "/GallerySection/MantleExplorer.png",
-        title: "MantleExplorer",
-        description: "A detailed blockchain explorer for the AssetMantle chain",
-        buttons: [
-          {
-            text: "Learn More",
-            url: "https://explorer.assetmantle.one/",
-          },
-        ],
+        title: "Hybrid Assets",
+        description:
+          "Assets which might exist in real world but controlled by legacy digital systems, upgraded to web3 based assets",
+        // buttons: [
+        //   {
+        //     text: "Learn More",
+        //     url: "https://explorer.assetmantle.one/",
+        //   },
+        // ],
+      },
+    ],
+  };
+  const controlledIdentityData = {
+    title: "Digitally Controlled Identities ",
+    description:
+      "Build trusted and secure relationships using our Decentralized Identifiers (DID) Specification driven identity stack",
+
+    textAlign: "", // >>> default: left
+    fullWidth: false, // boolean
+    smallDeviceColumnDirections: "", // only "reverse" or "" >>>>>>default is "no-reverse"
+
+    listStyle: {
+      margin: { xs: "auto", md: "auto 0" },
+      height: "100%",
+    },
+
+    left: {
+      contentMaxWidth: "290px", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
+      title: "DID Specification:",
+      titleComponent: "h3",
+      titleVariant: "h4",
+      titleColor: "secondary.main",
+      description: [
+        "Our identity stack adheres to DID Specification leading to universal identification and verifiability in both web3 & web2 ecosystems",
+      ],
+      descriptionVariant: "body1",
+      descriptionColor: "secondary.main",
+      descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
+      icon: {
+        src: "/ChainSection/mntl.svg",
+      },
+    },
+
+    right: {
+      titleVariant: "h5",
+      descriptionVariant: "body2",
+      array: [
+        {
+          icon: "/ChainSection/mntl.svg",
+          title: "Decentralized Identities",
+          description:
+            "Identity implemented in a decentralized network via user-owned public key infrastructure (PKI)",
+        },
+        {
+          icon: "/ChainSection/mntl.svg",
+          title: "Self-Sovereign Identity",
+          description:
+            "SSI allows individual to have complete control over their abstracted account, to create, own, manage and share their identity information ",
+        },
+        {
+          icon: "/ChainSection/mntl.svg",
+          title: "Verifiable Credentials",
+          description:
+            "digital attestations issued by trusted entities that can be stored, shared and verified cryptographically",
+        },
+        {
+          icon: "/ChainSection/mntl.svg",
+          title: "Enterprise Identity in Web3",
+          description:
+            "Build new age web3 based federated identities where permissions are granted as verifiable credentials",
+        },
+      ],
+    },
+  };
+  const identityStandardConfigData = {
+    paperVariant: "translucent",
+    titleVariant: "h2",
+    titleColor: "primary.light",
+    descriptionVariant: "subtitle1",
+    descriptionColor: "primary.light",
+    textAlign: "center", // >>> default: left
+    title: "Asset & Identity Standards ",
+    titleComponent: "h2",
+    endIcon: "keyboard_arrow_right",
+    description:
+      "Our set of Standards from which all asset class and identity stack is fabricated, leading to highest levels of uniformity and interoperability ",
+    descriptionStyle: { maxWidth: "min(926px, 100%)", margin: "0 auto" }, // object of styles or false
+
+    itemTitleVariant: "h4",
+    itemSubtitleVariant: "h5",
+    itemDescriptionVariant: "body2",
+    galleries: [
+      // object template
+      // {
+      //   image: "/GallerySection//mantleplace.png",
+      //   title: "",
+      //   description: "",
+      //   buttons: [
+      //     {
+      //       text: "",
+      //       url: "",
+      //     },
+      //   ],
+      // },
+      {
+        image: "/GallerySection/MantleBuilder.png",
+        title: "iDOA",
+        subtitle: "Industrial Digitally Owned Assets",
+        description:
+          "Our proprietary standard for digitally owned assets from which all asset class are fabricated",
+      },
+      {
+        image: "/GallerySection/MantleWallet.png",
+        title: "iDCI ",
+        subtitle: "Industrial Digitally Controlled Identity",
+        description:
+          "Our proprietary standard for digitally controlled identity implemented by our complete identity stack",
+      },
+      {
+        image: "/GallerySection/MantleExplorer.png",
+        title: "iDOC",
+        subtitle: "Industrial Digitally Owned or Controlled Entities",
+        description:
+          "Our proprietary universal standard for any industrial entity (assets or identities)   ",
       },
     ],
     optionStyle: {
       background: "transparent",
-      maxWidth: 272,
+      // maxWidth: 272,
       boxShadow: "none",
       height: "100%",
       mx: "auto",
@@ -152,81 +289,245 @@ export async function getStaticProps() {
       flexDirection: "column",
     },
   };
+  const web3EcoConfigData = {
+    titleVariant: "h2",
+    titleColor: "primary.light",
+    descriptionVariant: "subtitle1",
+    descriptionColor: "primary.light",
+    textAlign: "center", // >>> default: left
+    title: "Our Web3 Ecosystem ",
+    titleComponent: "h2",
+    endIcon: "keyboard_arrow_right",
+    description:
+      "Our very own Web3 ecosystem comprising of value creators and consumers which can act as an economic platform for you ",
+    descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
+    left: {
+      description:
+        "Our first foray into public Web3 Native assets has been remarkably successful, issuing collectibles, digital art NFTs, PFP NFTs, Audio NFTs etc., in our own NFT Marketplace. We have created a large community of Digital Creators who are hugely incentivized to use our platform.",
+
+      desStyle: {
+        maxWidth: { xs: "100%", md: 356 },
+        ml: "auto",
+        mr: { xs: "auto", md: "0" },
+        textAlign: { xs: "center", md: "right" },
+      },
+      itemTitleVariant: "h6",
+      itemDescriptionVariant: "caption",
+      optionStyle: {
+        background: "transparent",
+        maxWidth: 272,
+        boxShadow: "none",
+        height: "100%",
+        mx: "auto",
+        padding: "0 11px",
+        textAlign: { xs: "center", md: "left" },
+        display: "flex",
+        flexDirection: "column",
+      },
+      cards: [
+        // object template
+        // {
+        //   image: "/GallerySection//mantleplace.png",
+        //   title: "",
+        //   description: "",
+        //   buttons: [
+        //     {
+        //       text: "",
+        //       url: "",
+        //     },
+        //   ],
+        // },
+        {
+          image: "/GallerySection/MantlePlace.png",
+          title: "MantlePlace",
+          description:
+            "Natively built fully custodial NFT Marketplace for web3 native assets, founded in AssetMantle Blockchain",
+          buttons: [
+            {
+              text: "Learn More",
+              url: "https://marketplace.assetmantle.one/",
+            },
+          ],
+        },
+        {
+          image: "/GallerySection/MantleBuilder.png",
+          title: "MantlePlace web3",
+          description:
+            "Coming soon, a non-custodial version of NFT Secondary Marketplace, giving full control of keys to the users",
+          buttons: [
+            {
+              text: "Coming Soon",
+              url: "https://docs.assetmantle.one/MantleBuilder_Overview/",
+              disabled: true,
+            },
+          ],
+        },
+      ],
+    },
+    right: {
+      description:
+        "Our extended network of partners, incubators and collaborators contribute to growing AssetMantle Ecosystem and creating value for the assets onboarded. The democratization of value creation for assets is unique to web3 based ecosystem ",
+
+      desStyle: {
+        maxWidth: { xs: "100%", md: 356 },
+        mx: { xs: "auto", md: 0 },
+        textAlign: { xs: "center", md: "left" },
+      },
+      link: {
+        text: "Learn More about<br/>AssetMantle Extended Ecosystem",
+        url: "https://marketplace.assetmantle.one/",
+        endIcon: "keyboard_arrow_right",
+      },
+      button: {
+        text: "View The Ecosystem",
+        url: "/ecosystems",
+        endIcon: "keyboard_arrow_right",
+      },
+    },
+  };
+  const chainSectionConfigData = {
+    textAlign: "", // >>> default: left
+    title: "The AssetMantle Blockchain",
+    subTitle:
+      "Our primary Verifiable Data Registry, customized for Enterprise Readiness and Web3 Scaling ",
+    subSectionTitle: "$MNTL",
+    subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
+    subSectionTitleVariant: "h2",
+    subSectionTitleColor: "secondary.light",
+    subSectionDescription:
+      "The native token powering the AssetMantle NFT economy",
+    subSectionDescriptionVariant: "subtitle2",
+    subSectionDescriptionColor: "secondary.light",
+    descriptionVariant: "subtitle2",
+    descriptionColor: "primary.main",
+    subSectionDescriptionStyle: {
+      textAlign: { xs: "center" },
+      mx: { xs: "auto !important", sm: "0 !important" },
+      maxWidth: "400px",
+    }, // object of styles or false
+    backgroundImage: "", // "url('/images/mantleplace.png')",
+    defaultChainDescription:
+      "One of the pioneering zones of the rich Cosmos Ecosystem ",
+    ctas: [
+      {
+        title: "Buy Now ",
+        url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
+
+        icon: "shopping_cart", // url: "/" or component: <Icon/>
+        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
+        disabled: false,
+        variant: "contained",
+      },
+      {
+        title: "Learn More",
+        url: "/about#mntl-token-info",
+
+        icon: "keyboard_arrow_right", // url: "/" or component: <Icon/>
+
+        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
+        disabled: false,
+        variant: "outlined",
+      },
+    ],
+    chains: [
+      {
+        icon: "/ChainSection/cosmos.svg", // add url: "https://icon.png"
+        alt: "modular",
+        title: "Implements modular framework from the popular Cosmos SDK",
+      },
+      {
+        icon: "/ChainSection/modular.svg", // add url: "https://icon.png"
+        alt: "cosmos",
+        title: "Imbibes the leading Tendermint BFT Consensus Engine",
+      },
+      {
+        icon: "/ChainSection/connected.svg", // add url: "https://icon.png"
+        alt: "connected",
+
+        title: "Incorporates connectedness with Cosmos Zones using IBC",
+      },
+      {
+        icon: "/ChainSection/interNft.svg", // add url: "https://icon.png"
+        alt: "internft",
+        title: "Inherits the plan to build open standards for interchain NFT",
+      },
+    ],
+  };
   const featureSectionConfigData = {
     paperVariant: "translucent",
     textAlign: "center",
-    title: "Why choose us?",
+    title: "Benefits",
     titleComponent: "",
     titleVariant: "h2",
     titleColor: "primary.light",
     descriptionColor: "primary.light",
     description:
-      "AssetMantle’s foundation is built using the best-in-class core blockchain principles and optimized for the next evolution of the NFT economy",
+      "Discover whole new kinds of benefit creation from the new Web3 Technologies based Digital Transformation ",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     featuresArray: [
       {
         href: "",
         icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
-        title: "Optimized for NFTs",
-        titleVariant: "h4",
+        title: "Asset Class Interoperability",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "Our AssetMantle chain is specifically calibrated with features like Verified NFT Creators, customized NFT properties, in-built whitelisting features etc.",
+          "Our universal standard-based asset creation ensures highest levels of interoperability creating possibilities of transfer of value between any asset class, even those undiscovered today",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
-        title: "Cosmos Ecosystem",
-        titleVariant: "h4",
+        title: "Value Actualization",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "AssetMantle is one of the top zones across Cosmos, leveraging features like Tendermint Core for consensus and a highly modular SDK framework.",
+          "Discover new ways and types of creating value for your assets in a connected collaborative ecosystem where 3rd parties create protocols that can leverage your assets to build new value chains.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
-        title: "Extremely Low Fees",
-        titleVariant: "h4",
+        title: "Improved Capital Efficiency",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "AssetMantle has a highly economical network providing some of the lowest fees compared to other chains, averaging around $0.01 per transaction.",
+          "Tokenization can deliver meaningful capital efficiencies in certain capital market use cases. Shorter settlement times generate significant savings in high-interest-rate environments such as the current cycle.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
-        title: "Fast Order Fulfillments",
-        titleVariant: "h4",
+        title: "Democratization of access",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "Near-instant transactions (~7 seconds) enable almost zero waiting time for fulfillments of buy, sell, and auction orders.",
+          "Among tokenization’s most touted benefits is the inherent democratization of access, which offers potential for improved liquidity resulting from the fractionalization of assets.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
-        title: "Highly Secure",
-        titleVariant: "h4",
+        title: "Operational cost savings",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "With high network security and leveraging the native $MNTL token, AssetMantle provides an optimal level of protection for your digital assets.",
+          " Reduce inefficiencies like expensive paper-based processes to multiple intermediaries, disconnected data silos, and slow transaction settlement etc. Faced by traditional capital and asset markets.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
       {
         href: "",
         icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
-        title: "InterChain Assets",
-        titleVariant: "h4",
+        title: "Enhanced Transparency",
+        titleVariant: "h6",
         titleColor: "primary.light",
         description:
-          "Our InterNFT standards will allow NFTs to be transferred to other connected chains, creating a larger shared market economy.",
+          "Asset issuers could automate manual compliance checks by embedding specific compliance-related actions into tokenized assets, improving auditability ",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
       },
@@ -252,6 +553,7 @@ export async function getStaticProps() {
       // },
     },
   };
+  // not being used
   const infoSectionConfigData = {
     textAlign: "", // >>> default: left
     fullWidth: false, // boolean
@@ -369,74 +671,6 @@ export async function getStaticProps() {
       margin: { xs: "auto", md: "auto 0" },
       height: "100%",
     },
-  };
-  const chainSectionConfigData = {
-    textAlign: "", // >>> default: left
-    title: "The AssetMantle Chain",
-    subTitle:
-      "The AssetMantle blockchain leverages the following Web3 standards, making it a pioneer in the NFT ecosphere:",
-    subSectionTitle: "$MNTL",
-    subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
-    subSectionTitleVariant: "h3",
-    subSectionTitleColor: "secondary.light",
-    subSectionDescription:
-      "The native token powering the AssetMantle NFT economy",
-    subSectionDescriptionVariant: "subtitle2",
-    subSectionDescriptionColor: "secondary.light",
-    descriptionVariant: "subtitle2",
-    descriptionColor: "primary.main",
-    subSectionDescriptionStyle: {
-      textAlign: { xs: "center" },
-      mx: { xs: "auto !important", sm: "0 !important" },
-      maxWidth: "400px",
-    }, // object of styles or false
-    backgroundImage: "", // "url('/images/mantleplace.png')",
-    defaultChainDescription:
-      "One of the pioneering zones of the rich Cosmos Ecosystem ",
-    ctas: [
-      {
-        title: "Buy Now ",
-        url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
-
-        icon: "shopping_cart", // url: "/" or component: <Icon/>
-        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-        disabled: false,
-        variant: "contained",
-      },
-      {
-        title: "Learn More",
-        url: "/about#mntl-token-info",
-
-        icon: "keyboard_arrow_right", // url: "/" or component: <Icon/>
-
-        target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
-        disabled: false,
-        variant: "outlined",
-      },
-    ],
-    chains: [
-      {
-        icon: "/ChainSection/cosmos.svg", // add url: "https://icon.png"
-        alt: "modular",
-        title: "Implements modular framework from the popular Cosmos SDK",
-      },
-      {
-        icon: "/ChainSection/modular.svg", // add url: "https://icon.png"
-        alt: "cosmos",
-        title: "Imbibes the leading Tendermint BFT Consensus Engine",
-      },
-      {
-        icon: "/ChainSection/connected.svg", // add url: "https://icon.png"
-        alt: "connected",
-
-        title: "Incorporates connectedness with Cosmos Zones using IBC",
-      },
-      {
-        icon: "/ChainSection/interNft.svg", // add url: "https://icon.png"
-        alt: "internft",
-        title: "Inherits the plan to build open standards for interchain NFT",
-      },
-    ],
   };
   const advantageSectionConfigData = {
     paperVariant: "translucent",
@@ -974,9 +1208,13 @@ export async function getStaticProps() {
     props: {
       heroSectionConfigData,
       gallerySectionConfigData,
-      featureSectionConfigData,
-      infoSectionConfigData,
+      controlledIdentityData,
+      identityStandardConfigData,
+      web3EcoConfigData,
       chainSectionConfigData,
+      featureSectionConfigData,
+      // not in use
+      infoSectionConfigData,
       advantageSectionConfigData,
       universeSectionConfigData,
       teamSectionConfigData,
