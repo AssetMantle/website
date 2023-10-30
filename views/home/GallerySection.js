@@ -10,6 +10,7 @@ import {
   Icon,
   Link,
   Paper,
+  Stack,
   Typography,
 } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -68,24 +69,26 @@ export default function GallerySection({ configData }) {
                       )}
                       {(Gallery.title || Gallery.description) && (
                         <CardContent sx={{ p: 0.5 }}>
-                          {Gallery.title && (
-                            <Typography
-                              gutterBottom
-                              variant={configData.itemTitleVariant}
-                              component="h4"
-                              color={configData.titleColor}
-                            >
-                              {Gallery.title}
-                            </Typography>
-                          )}
-                          {Gallery.description && (
-                            <Typography
-                              variant={configData.itemDescriptionVariant}
-                              color={configData.descriptionColor}
-                            >
-                              {Gallery.description}
-                            </Typography>
-                          )}
+                          <Stack spacing={2}>
+                            {Gallery.title && (
+                              <Typography
+                                gutterBottom
+                                variant={configData.itemTitleVariant}
+                                component="h4"
+                                color={configData.titleColor}
+                              >
+                                {Gallery.title}
+                              </Typography>
+                            )}
+                            {Gallery.description && (
+                              <Typography
+                                variant={configData.itemDescriptionVariant}
+                                color={configData.descriptionColor}
+                              >
+                                {Gallery.description}
+                              </Typography>
+                            )}
+                          </Stack>
                         </CardContent>
                       )}
                       {Gallery.buttons &&
