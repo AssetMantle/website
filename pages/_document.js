@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
         </Head>
         <body
           style={{
-            backgroundImage: "url('/images/Background_tile.webp')", //  to remove christmas styles uncomment this line
+            // backgroundImage: "url('/images/Background_tile.webp')", //  to remove christmas styles uncomment this line
             backgroundRepeat: "repeat-y",
             // backgroundPosition: "center top",
             backgroundSize: "100%",
