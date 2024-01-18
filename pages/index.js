@@ -699,26 +699,26 @@ export async function getStaticProps() {
           },
         ],
       },
-      {
-        image: "/TeamSection/sachin.png",
-        name: "Sachin Matta",
-        designation: "Core - Product Marketing and Communications",
-        designationType: "Founding",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/sachin-matta/",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/ciberexplosion",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/ciberexplosion",
-          },
-        ],
-      },
+      // {
+      //   image: "/TeamSection/sachin.png",
+      //   name: "Sachin Matta",
+      //   designation: "Core - Product Marketing and Communications",
+      //   designationType: "Founding",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/sachin-matta/",
+      //     },
+      //     {
+      //       icon: "Twitter",
+      //       href: "https://twitter.com/ciberexplosion",
+      //     },
+      //     {
+      //       icon: "GitHub",
+      //       href: "https://github.com/ciberexplosion",
+      //     },
+      //   ],
+      // },
       {
         image: "/TeamSection/prabhav.png",
         name: "Prabhav Varambally",
@@ -739,91 +739,91 @@ export async function getStaticProps() {
           },
         ],
       },
-      {
-        image: "/TeamSection/sarin.png",
-        name: "Sarin Venugopal",
-        designation: "Product Marketing & Operations",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/sarin-venugopal-3123638/",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/the_bad_apple_",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/pratik.png",
-        name: "Pratik Balar",
-        designation: "DevOps & Infrastructure",
-        designationType: "Founding",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/pratikbalar",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/pratikbin",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/pratikbin",
-          },
-          {
-            icon: "Website",
-            href: "https://pratikb.in/",
-          },
-        ],
-      },
+      // {
+      //   image: "/TeamSection/sarin.png",
+      //   name: "Sarin Venugopal",
+      //   designation: "Product Marketing & Operations",
+      //   designationType: "Developer",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/sarin-venugopal-3123638/",
+      //     },
+      //     {
+      //       icon: "Twitter",
+      //       href: "https://twitter.com/the_bad_apple_",
+      //     },
+      //   ],
+      // },
+      // {
+      //   image: "/TeamSection/pratik.png",
+      //   name: "Pratik Balar",
+      //   designation: "DevOps & Infrastructure",
+      //   designationType: "Founding",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/pratikbalar",
+      //     },
+      //     {
+      //       icon: "Twitter",
+      //       href: "https://twitter.com/pratikbin",
+      //     },
+      //     {
+      //       icon: "GitHub",
+      //       href: "https://github.com/pratikbin",
+      //     },
+      //     {
+      //       icon: "Website",
+      //       href: "https://pratikb.in/",
+      //     },
+      //   ],
+      // },
 
-      {
-        image: "/TeamSection/arun.png",
-        name: "Arun Ramesan",
-        designation: "Visual Designer​",
-        designationType: "Design",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/arunramesan",
-          },
-          {
-            icon: "Behance",
-            href: "https://www.behance.net/arxwork",
-          },
-          {
-            icon: "Instagram",
-            href: "https://www.instagram.com/arxwork",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/jagdish.png",
-        name: "Jagdish Chudasama",
-        designation: "UI/UX Developer​",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/chudasama-jagdish-3759981b1/",
-          },
-          {
-            icon: "GitHub",
-            href: "https://github.com/chudasamajd",
-          },
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/JagdishChudas15",
-          },
-          {
-            icon: "Website",
-            href: `https://chudasamajd.github.io/chudasamajd`,
-          },
-        ],
-      },
+      // {
+      //   image: "/TeamSection/arun.png",
+      //   name: "Arun Ramesan",
+      //   designation: "Visual Designer​",
+      //   designationType: "Design",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/arunramesan",
+      //     },
+      //     {
+      //       icon: "Behance",
+      //       href: "https://www.behance.net/arxwork",
+      //     },
+      //     {
+      //       icon: "Instagram",
+      //       href: "https://www.instagram.com/arxwork",
+      //     },
+      //   ],
+      // },
+      // {
+      //   image: "/TeamSection/jagdish.png",
+      //   name: "Jagdish Chudasama",
+      //   designation: "UI/UX Developer​",
+      //   designationType: "Developer",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/chudasama-jagdish-3759981b1/",
+      //     },
+      //     {
+      //       icon: "GitHub",
+      //       href: "https://github.com/chudasamajd",
+      //     },
+      //     {
+      //       icon: "Twitter",
+      //       href: "https://twitter.com/JagdishChudas15",
+      //     },
+      //     {
+      //       icon: "Website",
+      //       href: `https://chudasamajd.github.io/chudasamajd`,
+      //     },
+      //   ],
+      // },
       {
         image: "/TeamSection/namaha.png",
         name: "Namaha Shetty",
@@ -860,46 +860,46 @@ export async function getStaticProps() {
           },
         ],
       },
-      {
-        image: "/TeamSection/mukund.png",
-        name: "Mukund Rawat",
-        designation: "Blockchain Developer",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/mukund-rawat-7795871b1",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/jathin.png",
-        name: "Jathin Kotian",
-        designation: "UI Developer",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/jathinkotian",
-          },
-        ],
-      },
-      {
-        image: "/TeamSection/vismay.png",
-        name: "Vismay Hegde",
-        designation: "Marketing Associate",
-        designationType: "Developer",
-        social: [
-          {
-            icon: "Twitter",
-            href: "https://twitter.com/BassetMantle",
-          },
-          {
-            icon: "LinkedIn",
-            href: "https://www.linkedin.com/in/vismay-hegde-b9a89a81/",
-          },
-        ],
-      },
+      // {
+      //   image: "/TeamSection/mukund.png",
+      //   name: "Mukund Rawat",
+      //   designation: "Blockchain Developer",
+      //   designationType: "Developer",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/mukund-rawat-7795871b1",
+      //     },
+      //   ],
+      // },
+      // {
+      //   image: "/TeamSection/jathin.png",
+      //   name: "Jathin Kotian",
+      //   designation: "UI Developer",
+      //   designationType: "Developer",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/jathinkotian",
+      //     },
+      //   ],
+      // },
+      // {
+      //   image: "/TeamSection/vismay.png",
+      //   name: "Vismay Hegde",
+      //   designation: "Marketing Associate",
+      //   designationType: "Developer",
+      //   social: [
+      //     {
+      //       icon: "Twitter",
+      //       href: "https://twitter.com/BassetMantle",
+      //     },
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "https://www.linkedin.com/in/vismay-hegde-b9a89a81/",
+      //     },
+      //   ],
+      // },
     ],
     optionStyles: {
       background: "transparent",
