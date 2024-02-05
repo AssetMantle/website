@@ -83,14 +83,18 @@ export default function Web3EcoSystem({ configData }) {
                                 image={item.image}
                                 sx={{
                                   border: "none",
-                                  width: "100%",
-                                  aspectRatio: "1/1",
+                                  width: "min(90px, 100%)",
+                                  aspectRatio: "90/80.5",
+                                  margin: "32px auto",
                                 }}
                               />
                             )}
                             {(item.title || item.description) && (
-                              <CardContent sx={{ p: 1 }}>
-                                <Stack spacing={2}>
+                              <CardContent sx={{ p: 1, flex: "1" }}>
+                                <Stack
+                                  spacing={2}
+                                  sx={{ alignSelf: "stretch" }}
+                                >
                                   {item.title && (
                                     <Typography
                                       gutterBottom
@@ -107,6 +111,7 @@ export default function Web3EcoSystem({ configData }) {
                                         configData.left.itemDescriptionVariant
                                       }
                                       color={configData.left.descriptionColor}
+                                      sx={{ marginTop: "auto" }}
                                     >
                                       {item.description}
                                     </Typography>
@@ -138,14 +143,14 @@ export default function Web3EcoSystem({ configData }) {
                                       }
                                       color={
                                         button.disabled
-                                          ? "secondary.light"
+                                          ? "secondary.gray"
                                           : "primary.main"
                                       }
                                       display="flex"
                                       alignItems="center"
                                       href={button.url && button.url}
                                       disabled={button.disabled}
-                                      variant="body1"
+                                      variant="am-xs"
                                       sx={{
                                         px: 0,
                                       }}
