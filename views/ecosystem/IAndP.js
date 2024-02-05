@@ -141,6 +141,7 @@ export default function IAndP({ configData }) {
               container
               spacing={2}
               justifyContent={{ xs: "center", md: "start" }}
+              sx={{ minHeight: "570px" }}
             >
               {React.Children.toArray(
                 configData.IPs[Identifier].coms.map((item) => (
