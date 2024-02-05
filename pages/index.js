@@ -1,14 +1,14 @@
 import * as React from "react";
-import UniverseSection from "../views/home/UniverseSection";
-import AdvantageSection from "../views/home/AdvantageSection";
+// import UniverseSection from "../views/home/UniverseSection";
+// import AdvantageSection from "../views/home/AdvantageSection";
 import ChainSection from "../views/home/ChainSection";
 import FeatureSection from "../views/home/FeatureSection";
 import GallerySection from "../views/home/GallerySection";
 import HeroSection from "../views/home/HeroSection";
-import InfoSection from "../views/home/InfoSection";
-import SocialProofSection from "../views/home/SocialProofSection";
+// import InfoSection from "../views/home/InfoSection";
+// import SocialProofSection from "../views/home/SocialProofSection";
 // import SubscribeSection from "../views/SubscribeSection";
-import TeamSection from "../views/home/TeamSection";
+// import TeamSection from "../views/home/TeamSection";
 import ControlledIdentity from "../views/home/ControlledIdentity";
 import IdentityStandard from "../views/home/IdentityStandard";
 import Web3EcoSystem from "../views/home/Web3EcoSystem";
@@ -39,20 +39,20 @@ export async function getStaticProps() {
     titleText2: "the future of",
     titleText3: "Asset Economy",
     subtitle:
-      "Pioneering standard for Asset Tokenization & Digital Identity in Web3 Era .",
+      "Pioneering standard for Asset~~lineBreak~~Tokenization & Digital Identity in Web3 Era .",
     buttons: [
       {
         label: "Learn More",
-        endIcon: "keyboard_arrow_right",
-        variant: "outlined",
+        // endIcon: "keyboard_arrow_right",
+        variant: "contained",
         href: "/about",
       },
-      {
-        label: "Documentation",
-        endIcon: "article",
-        variant: "contained",
-        href: "https://docs.assetmantle.one/",
-      },
+      // {
+      //   label: "Documentation",
+      //   endIcon: "article",
+      //   variant: "contained",
+      //   href: "https://docs.assetmantle.one/",
+      // },
     ],
     image: "/HeroSection/mantler.webp",
     translucentStripData: [
@@ -114,10 +114,10 @@ export async function getStaticProps() {
       //   ],
       // },
       {
-        image: "/GallerySection/MantlePlace.png",
+        image: "/GallerySection/web3_native_asset.png",
         title: "Web3 Native Assets",
         description:
-          "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class ",
+          "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -126,7 +126,7 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/MantleBuilder.png",
+        image: "/GallerySection/digital_native_asset.png",
         title: "Digital Native Assets",
         description:
           "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
@@ -138,7 +138,7 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/MantleWallet.png",
+        image: "/GallerySection/rwas.png",
         title: "RWAs",
         description:
           "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
@@ -150,7 +150,7 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/MantleExplorer.png",
+        image: "/GallerySection/hybrid_asset.png",
         title: "Hybrid Assets",
         description:
           "Assets which might exist in real world but controlled by legacy digital systems, upgraded to web3 based assets",
@@ -166,7 +166,7 @@ export async function getStaticProps() {
   const controlledIdentityData = {
     title: "Digitally Controlled Identities ",
     description:
-      "Build trusted and secure relationships using our Decentralized Identifiers (DID) Specification driven identity stack",
+      "Build trusted and secure relationships using Decentralized Identifiers backed universal identity stack, a W3C Recommended Specification ",
 
     textAlign: "", // >>> default: left
     fullWidth: false, // boolean
@@ -177,53 +177,44 @@ export async function getStaticProps() {
       height: "100%",
     },
 
-    left: {
-      contentMaxWidth: "290px", // "number+px"(ie. "100px") or "" >>>>>>default is "457px"
-      title: "DID Specification:",
-      titleComponent: "h3",
-      titleVariant: "h4",
-      titleColor: "secondary.main",
-      description: [
-        "Our identity stack adheres to DID Specification leading to universal identification and verifiability in both web3 & web2 ecosystems",
-      ],
-      descriptionVariant: "body1",
-      descriptionColor: "secondary.main",
-      descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
-      icon: {
-        src: "/ChainSection/mntl.svg",
+    identities: [
+      {
+        icon: "/identity/ssi.png",
+        title: "Self-Sovereign Identity",
+        description:
+          "SSI allows individual to have complete control over their abstracted account, to create, own, manage and share their identity information",
       },
-    },
-
-    right: {
-      titleVariant: "h5",
-      descriptionVariant: "body2",
-      array: [
-        {
-          icon: "/ChainSection/mntl.svg",
-          title: "Decentralized Identities",
-          description:
-            "Identity implemented in a decentralized network via user-owned public key infrastructure (PKI)",
-        },
-        {
-          icon: "/ChainSection/mntl.svg",
-          title: "Self-Sovereign Identity",
-          description:
-            "SSI allows individual to have complete control over their abstracted account, to create, own, manage and share their identity information ",
-        },
-        {
-          icon: "/ChainSection/mntl.svg",
-          title: "Verifiable Credentials",
-          description:
-            "digital attestations issued by trusted entities that can be stored, shared and verified cryptographically",
-        },
-        {
-          icon: "/ChainSection/mntl.svg",
-          title: "Enterprise Identity in Web3",
-          description:
-            "Build new age web3 based federated identities where permissions are granted as verifiable credentials",
-        },
-      ],
-    },
+      {
+        icon: "/identity/verified.png",
+        title: "Company Verified",
+        description:
+          "Identities representing enterprise actors, which are verifiable on-chain and also programmatically using Verifiable Credentials",
+      },
+      {
+        icon: "/identity/kyc.png",
+        title: "KYC Verified",
+        description:
+          "Identities bearing KYC verified status of their individual sovereign, verifiable on-chain and also programmatically using Verifiable Credentials",
+      },
+      {
+        icon: "/identity/pi.png",
+        title: "Pseudonymous Identity",
+        description:
+          "Authorized minimal Identities which doesn’t contain any PII, but universally interoperable with any ecosystem",
+      },
+      {
+        icon: "/identity/trusted.png",
+        title: "Trusted Authority",
+        description:
+          "Authoritative identities representing Govt., executive, financial or autonomous bodies, again, verifiable on-chain and also programmatically",
+      },
+      {
+        icon: "/identity/community.png",
+        title: "Community Verified",
+        description:
+          "Identities digitally verified by a community or network of stakeholders, subsequently building trust, which are verifiable. ",
+      },
+    ],
   };
   const identityStandardConfigData = {
     paperVariant: "translucent",
@@ -236,7 +227,7 @@ export async function getStaticProps() {
     titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "Our set of Standards from which all asset class and identity stack is fabricated, leading to highest levels of uniformity and interoperability ",
+      "Our set of Standards from which all asset class and identity stack is fabricated, leading to highest levels of uniformity and interoperability",
     descriptionStyle: { maxWidth: "min(926px, 100%)", margin: "0 auto" }, // object of styles or false
 
     itemTitleVariant: "h4",
@@ -256,21 +247,21 @@ export async function getStaticProps() {
       //   ],
       // },
       {
-        image: "/GallerySection/MantleBuilder.png",
+        image: "/images/idoa.png",
         title: "iDOA",
         subtitle: "Industrial Digitally Owned Assets",
         description:
           "Our proprietary standard for digitally owned assets from which all asset class are fabricated",
       },
       {
-        image: "/GallerySection/MantleWallet.png",
+        image: "/images/idci.png",
         title: "iDCI ",
         subtitle: "Industrial Digitally Controlled Identity",
         description:
           "Our proprietary standard for digitally controlled identity implemented by our complete identity stack",
       },
       {
-        image: "/GallerySection/MantleExplorer.png",
+        image: "/images/idoc.png",
         title: "iDOC",
         subtitle: "Industrial Digitally Owned or Controlled Entities",
         description:
@@ -295,11 +286,11 @@ export async function getStaticProps() {
     descriptionVariant: "subtitle1",
     descriptionColor: "primary.light",
     textAlign: "center", // >>> default: left
-    title: "Our Web3 Ecosystem ",
+    title: "Our Web3 Ecosystem",
     titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "Our very own Web3 ecosystem comprising of value creators and consumers which can act as an economic platform for you ",
+      "Our very own Web3 ecosystem comprising of value creators and consumers which can act as an economic platform for you",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     left: {
       description:
@@ -338,7 +329,7 @@ export async function getStaticProps() {
         //   ],
         // },
         {
-          image: "/GallerySection/MantlePlace.png",
+          image: "/GallerySection/mantleplace_v2.png",
           title: "MantlePlace",
           description:
             "Natively built fully custodial NFT Marketplace for web3 native assets, founded in AssetMantle Blockchain",
@@ -350,7 +341,7 @@ export async function getStaticProps() {
           ],
         },
         {
-          image: "/GallerySection/MantleBuilder.png",
+          image: "/GallerySection/mantleplace_web3_v2.png",
           title: "MantlePlace web3",
           description:
             "Coming soon, a non-custodial version of NFT Secondary Marketplace, giving full control of keys to the users",
@@ -391,7 +382,7 @@ export async function getStaticProps() {
     subTitle:
       "Our primary Verifiable Data Registry, customized for Enterprise Readiness and Web3 Scaling ",
     subSectionTitle: "$MNTL",
-    subSectionTitleIcon: "/ChainSection/mntl.svg", // url:"/someImage.png">>> default: none
+    subSectionTitleIcon: "/ChainSection/token_m.png", // url:"/someImage.png">>> default: none
     subSectionTitleVariant: "h2",
     subSectionTitleColor: "secondary.light",
     subSectionDescription:
@@ -413,16 +404,16 @@ export async function getStaticProps() {
         title: "Buy Now ",
         url: "https://app.osmosis.zone/?from=USDC&to=MNTL",
 
-        icon: "shopping_cart", // url: "/" or component: <Icon/>
+        icon: "keyboard_arrow_right", // url: "/" or component: <Icon/>
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
         variant: "contained",
       },
       {
-        title: "Learn More",
-        url: "/about#mntl-token-info",
+        title: "Airdrops",
+        url: "https://airdrop.assetmantle.one/",
 
-        icon: "keyboard_arrow_right", // url: "/" or component: <Icon/>
+        icon: "call_made", // url: "/" or component: <Icon/>
 
         target: "_blank", // valid values: "_blank", "_self", "_parent", "_top" >>>default: "_self"
         disabled: false,
@@ -462,12 +453,12 @@ export async function getStaticProps() {
     titleColor: "primary.light",
     descriptionColor: "primary.light",
     description:
-      "Discover whole new kinds of benefit creation from the new Web3 Technologies based Digital Transformation ",
+      "Discover whole new kinds of benefit creation from the new Web3 Technologies based Digital Transformation",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
     featuresArray: [
       {
         href: "",
-        icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
         title: "Asset Class Interoperability",
         titleVariant: "h6",
         titleColor: "primary.light",
@@ -478,7 +469,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/optimizedForNft.svg", // put icon component or url >>don't forgot to change the below
         title: "Value Actualization",
         titleVariant: "h6",
         titleColor: "primary.light",
@@ -489,7 +480,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
         title: "Improved Capital Efficiency",
         titleVariant: "h6",
         titleColor: "primary.light",
@@ -500,7 +491,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "/FeatureSection/fastOrderFulfillment.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/pioneeringCosmosEco.svg", // put icon component or url >>don't forgot to change the below
         title: "Democratization of access",
         titleVariant: "h6",
         titleColor: "primary.light",
@@ -511,7 +502,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/extremelyLowFees.svg", // put icon component or url >>don't forgot to change the below
         title: "Operational cost savings",
         titleVariant: "h6",
         titleColor: "primary.light",
@@ -522,7 +513,7 @@ export async function getStaticProps() {
       },
       {
         href: "",
-        icon: "/FeatureSection/futureInteroperability.svg", // put icon component or url >>don't forgot to change the below
+        icon: "/FeatureSection/completelySecure.svg", // put icon component or url >>don't forgot to change the below
         title: "Enhanced Transparency",
         titleVariant: "h6",
         titleColor: "primary.light",
