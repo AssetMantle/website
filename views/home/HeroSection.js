@@ -81,9 +81,17 @@ export default function HeroSection({ configData }) {
         variant={configData.sectionStyle.subTitleVariant}
         color={configData.sectionStyle.subTitleColor}
         align="left"
-        sx={{ textAlign: { xs: "center", md: "left" } }}
+        sx={{
+          textAlign: { xs: "center", md: "left" },
+        }}
       >
-        {configData.subtitle}
+        {configData.subtitle.split("~~lineBreak~~")?.[0]}
+        {configData.subtitle.split("~~lineBreak~~")?.[1] && (
+          <>
+            <br />
+            {configData.subtitle.split("~~lineBreak~~")?.[1]}
+          </>
+        )}
       </Typography>
       {/* CTA */}
       <Box
@@ -100,7 +108,7 @@ export default function HeroSection({ configData }) {
             key={index}
             variant={ele.variant}
             size="large"
-            endIcon={<Icon>{ele.endIcon}</Icon>}
+            endIcon={ele?.endIcon && <Icon>{ele.endIcon}</Icon>}
             href={ele.href}
             target="_blank"
           >
