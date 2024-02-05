@@ -26,6 +26,7 @@ const Section = (props) => {
     <Box component="section" sx={{ ...sectionStyle, position: "relative" }}>
       <Box
         style={{ position: "absolute", top: "-50px" }}
+        component={"span"}
         id={
           title &&
           title
