@@ -16,11 +16,11 @@ import { FiLinkedin, FiGithub, FiTwitter } from "react-icons/fi";
 import { TbBrandTelegram, TbBrandDiscord } from "react-icons/tb";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-import SocialIcons from "../components/SocialIcons";
+import SocialIcons from "../../components/SocialIcons";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import NextLink from "../components/NextLink";
+import NextLink from "../../components/NextLink";
 
 const FooterConfigData = {
   showTopData: true,

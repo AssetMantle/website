@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import Section from "../components/Section";
+import Section from "../../components/Section";
 import {
   List,
   ListItem,
@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@mui/material";
 import Link from "next/link";
-import NextLink from "../components/NextLink";
+import NextLink from "../../components/NextLink";
 
 export default function FAQSection({ FAQSectionData }) {
   const [expanded, setExpanded] = useState(false);
@@ -30,6 +30,7 @@ export default function FAQSection({ FAQSectionData }) {
               variant={FAQSectionData.accordionVariant}
               expanded={expanded === `panel${index}`}
               onChange={handleChange(`panel${index}`)}
+              sx={{ width: "100%" }}
             >
               <AccordionSummary
                 aria-controls={`panel${index}a-content`}
