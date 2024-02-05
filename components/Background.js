@@ -15,7 +15,7 @@ export default function Background({ containerRef }) {
             (containerRef?.current?.clientWidth * 1.05)
         )
       );
-  }, [containerRef?.current]);
+  }, [containerRef?.current, containerRef?.current?.clientHeight]);
 
   return (
     <Box

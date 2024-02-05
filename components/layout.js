@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import Footer from "../views/Footer";
-import Header from "../views/Header";
+import Footer from "../views/layout/Footer";
+import Header from "../views/layout/Header";
 // import Banner from "./Banner";
 // import Christmas from "./Christmas";
 import Background from "./Background";
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   const containerRef = useRef();
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} style={{ height: "fit-content" }}>
       {/* <Banner /> */}
       <Background containerRef={containerRef} />
       <Header />
