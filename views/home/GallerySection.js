@@ -25,7 +25,7 @@ export default function GallerySection({ configData }) {
       {Array.isArray(configData.galleries) &&
         configData.galleries &&
         configData.galleries.length > 0 && (
-          <Grid container spacing={0}>
+          <Grid container spacing={2}>
             {configData.galleries.map((Gallery, index) => (
               <Grid
                 item
@@ -41,7 +41,7 @@ export default function GallerySection({ configData }) {
                 <Box
                   sx={{
                     display: "flex",
-                    p: 1,
+                    p: 0,
                     justifyContent: "center",
                     height: "100%",
                   }}
@@ -62,8 +62,9 @@ export default function GallerySection({ configData }) {
                           image={Gallery.image}
                           sx={{
                             border: "none",
-                            width: "100%",
+                            width: "min(140px, 100%)",
                             aspectRatio: "1/1",
+                            margin: "40px auto",
                           }}
                         />
                       )}
@@ -74,7 +75,7 @@ export default function GallerySection({ configData }) {
                               <Typography
                                 gutterBottom
                                 variant={configData.itemTitleVariant}
-                                component="h4"
+                                component={configData.itemTitleVariant}
                                 color={configData.titleColor}
                               >
                                 {Gallery.title}
@@ -84,6 +85,9 @@ export default function GallerySection({ configData }) {
                               <Typography
                                 variant={configData.itemDescriptionVariant}
                                 color={configData.descriptionColor}
+                                sx={{
+                                  width: { xs: "100%", md: "min(225px,100%)" },
+                                }}
                               >
                                 {Gallery.description}
                               </Typography>
