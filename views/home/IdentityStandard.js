@@ -63,8 +63,9 @@ export default function IdentityStandard({ configData }) {
                           image={item.image}
                           sx={{
                             border: "none",
-                            width: "100%",
+                            width: "min(170px, 100%)",
                             aspectRatio: "1/1",
+                            margin: "48px auto",
                           }}
                         />
                       )}
