@@ -1,9 +1,9 @@
 import React from "react";
 import ExplanationSection from "../views/about/ExplanationSection";
-import FAQSection from "../views/FAQSection";
+import FAQSection from "../views/about/FAQSection";
 import TokenDistribution from "../views/about/TokenDistribution";
-import TokenInfo from "../views//about/TokenInfo";
-import TokenUtility from "../views//about/TokenUtility";
+import TokenInfo from "../views/about/TokenInfo";
+import TokenUtility from "../views/about/TokenUtility";
 import VisionMissionSection from "../views/about/VisionMissionSection";
 
 export default function About(props) {
