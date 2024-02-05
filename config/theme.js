@@ -13,6 +13,7 @@ const baseTheme = createTheme({
       light: "#FFFFFF",
       main: "#ffffe6",
       dark: "#ffffcc",
+      gray: "rgba(255,253,250,0.5)",
     },
     background: {
       // paper: "#FFD365",
@@ -154,6 +155,16 @@ const baseTheme = createTheme({
           },
         },
       },
+    },
+    MuiLink: {
+      variants: [
+        {
+          props: { variant: "am-xs" },
+          style: {
+            fontSize: "0.76rem",
+          },
+        },
+      ],
     },
   },
 });
