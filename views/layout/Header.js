@@ -11,7 +11,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
-import BasicMenu from "../components/BasicMenu";
+import BasicMenu from "../../components/BasicMenu";
 
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import SendTimeExtensionIcon from "@mui/icons-material/SendTimeExtension";
