@@ -12,98 +12,15 @@ import Section from "../../components/Section";
 
 const Content = ({ configData, listStyle }) => {
   return (
-    <Grid container spacing={0} sx={{ alignItems: "center" }}>
-      <Grid item xs={12} md={5}>
-        <Stack
-          spacing={3}
-          sx={listStyle}
-          maxWidth={
-            configData.left.contentMaxWidth
-              ? configData.left.contentMaxWidth
-              : "480px"
-          }
-        >
-          {configData.left.icon && (
-            <Stack
-              sx={{
-                alignItems: { xs: "center", md: "start" },
-              }}
-            >
-              <img
-                src={configData.left.icon.src}
-                alt={configData.left.title && configData.left.title}
-                style={{ width: "50%" }}
-              />
-            </Stack>
-          )}
-          {configData.left.title && (
-            <Typography
-              variant={configData.left.titleVariant}
-              color={configData.left.titleColor}
-              textAlign={{ xs: "center", md: "left" }}
-            >
-              {configData.left.title}
-            </Typography>
-          )}
-          {configData.left.description &&
-          Array.isArray(configData.left.description) ? (
-            <Stack
-              spacing={4}
-              sx={
-                configData.left.descriptionStyle || {
-                  pb: 2,
-                  maxWidth: "92%",
-                  textAlign: { xs: "center", md: "left" },
-                }
-              }
-            >
-              {configData.left.description.map((item, index) => (
-                <Typography
-                  variant={configData.left.descriptionVariant}
-                  color={configData.left.descriptionColor}
-                  key={index}
-                  textAlign={{ xs: "center", md: "left" }}
-                >
-                  {item}
-                </Typography>
-              ))}
-            </Stack>
-          ) : (
-            <Typography
-              component="p"
-              variant={configData.left.descriptionVariant}
-              color={configData.left.descriptionColor}
-              sx={
-                configData.left.descriptionStyle
-                  ? configData.left.descriptionStyle
-                  : {
-                      pb: 2,
-                      maxWidth: "92%",
-                      textAlign: "left",
-                    }
-              }
-            >
-              {configData.left.description}
-            </Typography>
-          )}
-        </Stack>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={7}
-        sx={{
-          position: "relative",
-          padding: { xs: " 56px 0 0", md: "32px" },
-        }}
-      >
+    <>
+      <Box sx={{ width: "min(848px,100%)", margin: "0 auto" }}>
         <Grid container spacing={3} sx={{ alignItems: "center" }}>
-          {configData?.right?.array &&
-            Array.isArray(configData.right.array) &&
-            configData.right.array.length > 0 &&
+          {configData?.identities &&
+            Array.isArray(configData.identities) &&
+            configData.identities.length > 0 &&
             React.Children.toArray(
-              configData.right.array.map((item) => (
-                <Grid item xs={12} sm={6}>
+              configData.identities.map((item) => (
+                <Grid item xs={12} sm={6} md={4}>
                   <Stack spacing={2}>
                     {item.icon && (
                       <Stack
@@ -122,15 +39,17 @@ const Content = ({ configData, listStyle }) => {
                       <Typography
                         variant={configData?.right?.titleVariant}
                         component={"h4"}
-                        sx={{ width: { xs: "100%", md: "min(236px,100%)" } }}
                       >
-                        {item.title}
+                        {item.title?.split(" ")?.[0]}
+                        <br />
+                        {item.title?.split(" ")?.[1]}
                       </Typography>
                     )}
                     {item.description && (
                       <Typography
                         variant={configData?.right?.descriptionVariant}
                         component={"p"}
+                        sx={{ width: { xs: "100%", md: "min(238px,100%)" } }}
                       >
                         {item.description}
                       </Typography>
@@ -140,8 +59,8 @@ const Content = ({ configData, listStyle }) => {
               ))
             )}
         </Grid>
-      </Grid>
-    </Grid>
+      </Box>
+    </>
   );
 };
 
