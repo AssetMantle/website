@@ -5,6 +5,7 @@ import {
   Drawer,
   Icon,
   IconButton,
+  Link,
   Toolbar,
   useScrollTrigger,
 } from "@mui/material";
@@ -351,7 +352,16 @@ export default function Header(props) {
                   }}
                 />
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+              <Box
+                sx={{
+                  display: { xs: "none", sm: "flex" },
+                  gap: 2,
+                  alignItems: { sm: "center" },
+                }}
+              >
+                <Link href="/about" variant="h6" underline="none">
+                  About
+                </Link>
                 {itemList &&
                   Array.isArray(itemList) &&
                   itemList.length > 0 &&
