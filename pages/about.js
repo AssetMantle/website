@@ -5,6 +5,7 @@ import TokenDistribution from "../views/about/TokenDistribution";
 import TokenInfo from "../views/about/TokenInfo";
 import TokenUtility from "../views/about/TokenUtility";
 import VisionMissionSection from "../views/about/VisionMissionSection";
+import TeamSection from "../views/about/TeamSection";
 
 export default function About(props) {
   return (
@@ -18,6 +19,7 @@ export default function About(props) {
       <TokenInfo tokenInfoData={props.tokenInfoData} />
       <TokenUtility tokenUtilityData={props.tokenUtilityData} />
       <TokenDistribution tokenDistributionData={props.tokenDistributionData} />
+      <TeamSection configData={props.teamSectionConfigData} />
       <FAQSection FAQSectionData={props.FAQSectionData} />
     </>
   );
@@ -276,6 +278,340 @@ export async function getStaticProps() {
       },
     ],
   };
+  const teamSectionConfigData = {
+    memberColor: "primary.main",
+    textAlign: "center", // >>> default: left
+    title: "Meet our team",
+    titleComponent: "h2",
+    titleVariant: "h1",
+    description:
+      "Browse through the highly skilled and qualified AssetMantle cohort who make the scalable value creation happen",
+    descriptionStyle: {
+      mt: 4,
+      mx: "auto",
+      maxWidth: "min(836px, 100%)",
+      margin: "0 auto",
+    }, // object of styles or false
+    descriptionVariant: "subtitle2",
+    nameVariant: "subtile2",
+    nameColor: "primary.main",
+    designationVariant: "body2",
+    designationColor: "primary.light",
+    members: [
+      // object template
+      // {
+      //   image: "/TeamSection/https://assetmantle.one/images/team/deepanshu.png",
+      //   name: "Deepanshu Kumar",
+      //   designation: "Founder, Core - Product Planning & Implementation​",
+      //   designationType: "",
+      //   social: [
+      //     {
+      //       icon: "LinkedIn",
+      //       href: "",
+      //     },
+      //     {
+      //       icon: "Twitter",
+      //       href: "",
+      //     },
+      //     {
+      //       icon: "GitHub",
+      //       href: "",
+      //     },
+      //     {
+      //       icon: "Behance",
+      //       href: "",
+      //     },
+      //     {
+      //       icon: "Website",
+      //       href: "",
+      //     },
+      //   ],
+      // },
+      {
+        image: "/TeamSection/deepanshu.png",
+        name: "Deepanshu Tripathi",
+        designation: "Founder, Core - Product Planning & Implementation​",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "http://linkedin.com/in/deepanshutr",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/deepanshutr",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/deepanshutr",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/abhinav.png",
+        name: "Abhinav Kumar",
+        designation: "Co-Founder, Core - Product Planning & Implementation​",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/avkr003/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/avkr003",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/avkr003",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/kamlesh.png",
+        name: "Kamlesh Parikarath",
+        designation: "Core - Product Development & Growth",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/kamleshparikarath/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/0xKombos",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/kombos",
+          },
+          {
+            icon: "Behance",
+            href: "https://www.behance.net/kombos",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/sachin.png",
+        name: "Sachin Matta",
+        designation: "Core - Product Marketing and Communications",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/sachin-matta/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/ciberexplosion",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/ciberexplosion",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/prabhav.png",
+        name: "Prabhav Varambally",
+        designation: "Core - Business Operations & Strategy",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/prabhavtv/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/Prabhavv_",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/Prabhavv",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/sarin.png",
+        name: "Sarin Venugopal",
+        designation: "Product Marketing & Operations",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/sarin-venugopal-3123638/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/the_bad_apple_",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/pratik.png",
+        name: "Pratik Balar",
+        designation: "DevOps & Infrastructure",
+        designationType: "Founding",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/pratikbalar",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/pratikbin",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/pratikbin",
+          },
+          {
+            icon: "Website",
+            href: "https://pratikb.in/",
+          },
+        ],
+      },
+
+      {
+        image: "/TeamSection/arun.png",
+        name: "Arun Ramesan",
+        designation: "Visual Designer​",
+        designationType: "Design",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/arunramesan",
+          },
+          {
+            icon: "Behance",
+            href: "https://www.behance.net/arxwork",
+          },
+          {
+            icon: "Instagram",
+            href: "https://www.instagram.com/arxwork",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/jagdish.png",
+        name: "Jagdish Chudasama",
+        designation: "UI/UX Developer​",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/chudasama-jagdish-3759981b1/",
+          },
+          {
+            icon: "GitHub",
+            href: "https://github.com/chudasamajd",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/JagdishChudas15",
+          },
+          {
+            icon: "Website",
+            href: `https://chudasamajd.github.io/chudasamajd`,
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/namaha.png",
+        name: "Namaha Shetty",
+        designation: "UI/UX Designer",
+        designationType: "Design",
+        social: [
+          {
+            icon: "Website",
+            href: "https://www.namahashetty.com",
+          },
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/namahashetty/",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/akhlak.png",
+        name: "Akhlak Hossain",
+        designation: "UI Developer",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/akhlakhossainjim/",
+          },
+          {
+            icon: "GitHub",
+            href: "http://github.com/Akhlak-Hossain-Jim",
+          },
+          {
+            icon: "Website",
+            href: "http://ahjim.com/",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/mukund.png",
+        name: "Mukund Rawat",
+        designation: "Blockchain Developer",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/mukund-rawat-7795871b1",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/jathin.png",
+        name: "Jathin Kotian",
+        designation: "UI Developer",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/jathinkotian",
+          },
+        ],
+      },
+      {
+        image: "/TeamSection/vismay.png",
+        name: "Vismay Hegde",
+        designation: "Marketing Associate",
+        designationType: "Developer",
+        social: [
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/BassetMantle",
+          },
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/vismay-hegde-b9a89a81/",
+          },
+        ],
+      },
+    ],
+    optionStyles: {
+      background: "transparent",
+      borderRadius: "12px",
+      maxWidth: 227,
+      height: "100%",
+      boxShadow: "none",
+      padding: "0",
+      textAlign: { xs: "center", md: "left" },
+      display: "flex",
+      flexDirection: "column",
+      margin: { xs: "auto", md: "0" },
+    },
+    linkStyles: {
+      color: "primary.light",
+      "&:hover": {
+        color: "primary.main",
+      },
+    },
+  };
   const FAQSectionData = {
     accordionVariant: "translucent",
     accordionTextVariant: "body1",
@@ -324,6 +660,7 @@ export async function getStaticProps() {
       tokenInfoData,
       tokenUtilityData,
       tokenDistributionData,
+      teamSectionConfigData,
       FAQSectionData,
     },
   };
