@@ -395,6 +395,9 @@ export default function Header(props) {
                 },
               }}
             >
+              <Link href="/about" variant="h6" underline="none" p={1}>
+                About
+              </Link>
               {itemList &&
                 Array.isArray(itemList) &&
                 itemList.length > 0 &&
