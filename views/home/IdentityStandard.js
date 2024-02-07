@@ -70,7 +70,7 @@ export default function IdentityStandard({ configData }) {
                         />
                       )}
                       {(item.title || item.subtitle || item.description) && (
-                        <CardContent sx={{ p: 2 }}>
+                        <CardContent sx={{ p: 1.8 }}>
                           <Stack spacing={2}>
                             {item.title && (
                               <Typography
