@@ -177,6 +177,9 @@ export async function getStaticProps() {
       height: "100%",
     },
 
+    IdentityTitleVariant: "h5",
+    IdentitySubtitleVariant: "body2",
+
     identities: [
       {
         icon: "/identity/ssi.png",
@@ -301,6 +304,7 @@ export async function getStaticProps() {
         ml: "auto",
         mr: { xs: "auto", md: "0" },
         textAlign: { xs: "center", md: "right" },
+        fontWeight: "400",
       },
       itemTitleVariant: "h6",
       itemDescriptionVariant: "caption",
@@ -357,12 +361,13 @@ export async function getStaticProps() {
     },
     right: {
       description:
-        "Our extended network of partners, incubators and collaborators contribute to growing AssetMantle Ecosystem and creating value for the assets onboarded. The democratization of value creation for assets is unique to web3 based ecosystem ",
+        "Our extended network of partners, incubators and collaborators contribute to growing AssetMantle Ecosystem and creating value for the assets onboarded. The democratization of value creation for assets is unique to web3 based ecosystem.",
 
       desStyle: {
-        maxWidth: { xs: "100%", md: 356 },
+        maxWidth: { xs: "100%", md: 348 },
         mx: { xs: "auto", md: 0 },
         textAlign: { xs: "center", md: "left" },
+        fontWeight: "400",
       },
       link: {
         text: "Learn More about<br/>AssetMantle Extended Ecosystem",
