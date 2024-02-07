@@ -23,7 +23,7 @@ export default function Web3EcoSystem({ configData }) {
     >
       <Grid
         container
-        spacing={{ sx: 0, md: 3 }}
+        spacing={{ sx: 0, sm: 3, md: 5, lg: 8 }}
         sx={{ width: { sm: "100%", lg: "80%" } }}
       >
         <Grid
@@ -90,10 +90,15 @@ export default function Web3EcoSystem({ configData }) {
                               />
                             )}
                             {(item.title || item.description) && (
-                              <CardContent sx={{ p: 1, flex: "1" }}>
+                              <CardContent
+                                sx={{ p: 1, flex: "1", display: "flex" }}
+                              >
                                 <Stack
                                   spacing={2}
-                                  sx={{ alignSelf: "stretch" }}
+                                  sx={{
+                                    alignSelf: "stretch",
+                                    justifyContent: "space-between",
+                                  }}
                                 >
                                   {item.title && (
                                     <Typography
@@ -111,7 +116,7 @@ export default function Web3EcoSystem({ configData }) {
                                         configData.left.itemDescriptionVariant
                                       }
                                       color={configData.left.descriptionColor}
-                                      sx={{ marginTop: "auto" }}
+                                      sx={{ marginTop: "4px !important" }}
                                     >
                                       {item.description}
                                     </Typography>
@@ -160,11 +165,15 @@ export default function Web3EcoSystem({ configData }) {
                                       {button.text && (
                                         <>
                                           {button.text}{" "}
-                                          {button.disabled ? (
-                                            ""
-                                          ) : (
-                                            <Icon>{configData.endIcon}</Icon>
-                                          )}
+                                          {button.disabled
+                                            ? ""
+                                            : button?.endIcon && (
+                                                <Icon
+                                                  sx={{ fontSize: "inherent" }}
+                                                >
+                                                  {button?.endIcon}
+                                                </Icon>
+                                              )}
                                         </>
                                       )}
                                     </Link>
@@ -206,6 +215,7 @@ export default function Web3EcoSystem({ configData }) {
                 display={"flex"}
                 alignItems={"end"}
                 justifyContent={{ xs: "center", md: "start" }}
+                sx={{ fontWeight: "400" }}
                 gap={1}
               >
                 <span
