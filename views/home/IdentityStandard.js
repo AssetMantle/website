@@ -89,7 +89,9 @@ export default function IdentityStandard({ configData }) {
                                 variant={configData.itemSubtitleVariant}
                                 component="p"
                                 color={configData.titleColor}
-                                sx={{ marginTop: "0px !important" }}
+                                sx={{
+                                  marginTop: "0px !important",
+                                }}
                               >
                                 {item.subtitle}
                               </Typography>
@@ -98,7 +100,7 @@ export default function IdentityStandard({ configData }) {
                               <Typography
                                 variant={configData.itemDescriptionVariant}
                                 color={configData.descriptionColor}
-                                sx={{ m: 0 }}
+                                sx={{ m: 0, paddingRight: "28px" }}
                               >
                                 {item.description}
                               </Typography>

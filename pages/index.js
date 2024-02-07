@@ -364,7 +364,7 @@ export async function getStaticProps() {
         "Our extended network of partners, incubators and collaborators contribute to growing AssetMantle Ecosystem and creating value for the assets onboarded. The democratization of value creation for assets is unique to web3 based ecosystem.",
 
       desStyle: {
-        maxWidth: { xs: "100%", md: 348 },
+        maxWidth: { xs: "100%", md: 320 },
         mx: { xs: "auto", md: 0 },
         textAlign: { xs: "center", md: "left" },
         fontWeight: "400",
