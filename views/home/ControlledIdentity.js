@@ -37,7 +37,7 @@ const Content = ({ configData, listStyle }) => {
                     )}
                     {item.title && (
                       <Typography
-                        variant={configData?.right?.titleVariant}
+                        variant={configData?.IdentityTitleVariant}
                         component={"h4"}
                       >
                         {item.title?.split(" ")?.[0]}
@@ -47,7 +47,7 @@ const Content = ({ configData, listStyle }) => {
                     )}
                     {item.description && (
                       <Typography
-                        variant={configData?.right?.descriptionVariant}
+                        variant={configData?.IdentitySubtitleVariant}
                         component={"p"}
                         sx={{ width: { xs: "100%", md: "min(238px,100%)" } }}
                       >
