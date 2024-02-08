@@ -310,7 +310,7 @@ export async function getStaticProps() {
       itemDescriptionVariant: "caption",
       optionStyle: {
         background: "transparent",
-        maxWidth: 272,
+        maxWidth: 350,
         boxShadow: "none",
         height: "100%",
         mx: "auto",
