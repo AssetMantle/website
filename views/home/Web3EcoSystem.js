@@ -91,7 +91,7 @@ export default function Web3EcoSystem({ configData }) {
                             )}
                             {(item.title || item.description) && (
                               <CardContent
-                                sx={{ p: 1, flex: "1", display: "flex" }}
+                                sx={{ p: 0, flex: "1", display: "flex" }}
                               >
                                 <Stack
                                   spacing={2}
@@ -116,7 +116,10 @@ export default function Web3EcoSystem({ configData }) {
                                         configData.left.itemDescriptionVariant
                                       }
                                       color={configData.left.descriptionColor}
-                                      sx={{ marginTop: "4px !important" }}
+                                      sx={{
+                                        marginTop: "4px !important",
+                                        fontSize: "0.7rem",
+                                      }}
                                     >
                                       {item.description}
                                     </Typography>
