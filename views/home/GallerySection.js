@@ -86,7 +86,12 @@ export default function GallerySection({ configData }) {
                                 variant={configData.itemDescriptionVariant}
                                 color={configData.descriptionColor}
                                 sx={{
-                                  width: { xs: "100%", md: "min(206px,100%)" },
+                                  width: {
+                                    xs: "100%",
+                                    md: `min(${
+                                      Gallery.width ? Gallery.width : 200
+                                    }px,100%)`,
+                                  },
                                 }}
                               >
                                 {Gallery.description}

@@ -118,6 +118,7 @@ export async function getStaticProps() {
         title: "Web3 Native Assets",
         description:
           "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
+        width: 192,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -130,6 +131,7 @@ export async function getStaticProps() {
         title: "Digital Native Assets",
         description:
           "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
+        width: 200,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -142,6 +144,7 @@ export async function getStaticProps() {
         title: "RWAs",
         description:
           "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
+        width: 200,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -154,6 +157,7 @@ export async function getStaticProps() {
         title: "Hybrid Assets",
         description:
           "Assets which might exist in real world but controlled by legacy digital systems, upgraded to web3 based assets",
+        width: 200,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -186,36 +190,42 @@ export async function getStaticProps() {
         title: "Self-Sovereign Identity",
         description:
           "SSI allows individual to have complete control over their abstracted account, to create, own, manage and share their identity information",
+        width: 238,
       },
       {
         icon: "/identity/verified.png",
         title: "Company Verified",
         description:
           "Identities representing enterprise actors, which are verifiable on-chain and also programmatically using Verifiable Credentials",
+        width: 205,
       },
       {
         icon: "/identity/kyc.png",
         title: "KYC Verified",
         description:
           "Identities bearing KYC verified status of their individual sovereign, verifiable on-chain and also programmatically using Verifiable Credentials",
+        width: 238,
       },
       {
         icon: "/identity/pi.png",
         title: "Pseudonymous Identity",
         description:
           "Authorized minimal Identities which doesn’t contain any PII, but universally interoperable with any ecosystem",
+        width: 210,
       },
       {
         icon: "/identity/trusted.png",
         title: "Trusted Authority",
         description:
           "Authoritative identities representing Govt., executive, financial or autonomous bodies, again, verifiable on-chain and also programmatically",
+        width: 238,
       },
       {
         icon: "/identity/community.png",
         title: "Community Verified",
         description:
           "Identities digitally verified by a community or network of stakeholders, subsequently building trust, which are verifiable. ",
+        width: 205,
       },
     ],
   };
