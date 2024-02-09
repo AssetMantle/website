@@ -49,7 +49,12 @@ const Content = ({ configData, listStyle }) => {
                       <Typography
                         variant={configData?.IdentitySubtitleVariant}
                         component={"p"}
-                        sx={{ width: { xs: "100%", md: "min(238px,100%)" } }}
+                        sx={{
+                          width: {
+                            xs: "100%",
+                            md: `min(${item?.width ? item.width : 238}px,100%)`,
+                          },
+                        }}
                       >
                         {item.description}
                       </Typography>
