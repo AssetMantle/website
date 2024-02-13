@@ -285,7 +285,10 @@ export default function Header(props) {
 
     let appBarJSX = React.cloneElement(children, {
       elevation: trigger ? 2 : 0,
-      style: { backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent" },
+      style: {
+        backgroundColor: trigger ? "rgba(0,0,0,0.75)" : "transparent",
+        backdropFilter: trigger ? "blur(30px)" : "blur(0px)",
+      },
     });
 
     return appBarJSX;
@@ -311,7 +314,7 @@ export default function Header(props) {
 
   return (
     <>
-      <ElevationScroll>
+      <ElevationScroll style={{}}>
         <AppBar position="sticky">
           <Container disableGutters maxWidth="lg">
             <Toolbar
