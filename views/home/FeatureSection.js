@@ -51,6 +51,11 @@ export default function FeatureSection({ configData }) {
                       variant={feature.descriptionVariant}
                       color={feature.descriptionColor}
                       sx={{ textAlign: "center" }}
+                      px={
+                        feature?.descriptionWidth
+                          ? `${(330 - feature.descriptionWidth) / 2}px`
+                          : ""
+                      }
                     >
                       {feature.description}
                     </Typography>
