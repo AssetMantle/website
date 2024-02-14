@@ -118,7 +118,7 @@ export async function getStaticProps() {
         title: "Web3 Native Assets",
         description:
           "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
-        width: 192,
+        width: 190,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -131,7 +131,7 @@ export async function getStaticProps() {
         title: "Digital Native Assets",
         description:
           "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
-        width: 200,
+        width: 190,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -211,7 +211,7 @@ export async function getStaticProps() {
         title: "Pseudonymous Identity",
         description:
           "Authorized minimal Identities which doesn’t contain any PII, but universally interoperable with any ecosystem",
-        width: 210,
+        width: 200,
       },
       {
         icon: "/identity/trusted.png",
@@ -514,6 +514,7 @@ export async function getStaticProps() {
           "Among tokenization’s most touted benefits is the inherent democratization of access, which offers potential for improved liquidity resulting from the fractionalization of assets.",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
+        descriptionWidth: 295,
       },
       {
         href: "",
@@ -536,6 +537,7 @@ export async function getStaticProps() {
           "Asset issuers could automate manual compliance checks by embedding specific compliance-related actions into tokenized assets, improving auditability ",
         descriptionVariant: "body2",
         descriptionColor: "secondary.main",
+        descriptionWidth: 250,
       },
     ],
     optionContainerStyles: {
