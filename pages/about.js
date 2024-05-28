@@ -392,6 +392,22 @@ export async function getStaticProps() {
         ],
       },
       {
+        image: "/TeamSection/aman.png",
+        name: "Aman Tripathi",
+        designation: "Chief Innovation Officer​",
+        designationType: "Core",
+        social: [
+          {
+            icon: "LinkedIn",
+            href: "https://www.linkedin.com/in/aman-tripathi-at/",
+          },
+          {
+            icon: "Twitter",
+            href: "https://twitter.com/TheAmanTripathi",
+          },
+        ],
+      },
+      {
         image: "/TeamSection/namaha.png",
         name: "Namaha Shetty",
         designation: "UI/UX Designer",
