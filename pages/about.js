@@ -330,7 +330,7 @@ export async function getStaticProps() {
       {
         image: "/TeamSection/deepanshu.png",
         name: "Deepanshu Tripathi",
-        designation: "Founder, Core - Product Planning & Implementation​",
+        designation: "Founder & Chief Executive Officer",
         designationType: "Founding",
         social: [
           {
@@ -350,7 +350,7 @@ export async function getStaticProps() {
       {
         image: "/TeamSection/abhinav.png",
         name: "Abhinav Kumar",
-        designation: "Co-Founder, Core - Product Planning & Implementation​",
+        designation: "Co-Founder & Chief Product Officer",
         designationType: "Founding",
         social: [
           {
@@ -370,7 +370,7 @@ export async function getStaticProps() {
       {
         image: "/TeamSection/kamlesh.png",
         name: "Kamlesh Parikarath",
-        designation: "Core - Product Development & Growth",
+        designation: "Chief Technology Officer",
         designationType: "Founding",
         social: [
           {
@@ -410,7 +410,7 @@ export async function getStaticProps() {
       {
         image: "/TeamSection/namaha.png",
         name: "Namaha Shetty",
-        designation: "UI/UX Designer",
+        designation: "Design Strategy Head",
         designationType: "Design",
         social: [
           {
