@@ -130,14 +130,22 @@ export default function HeroSection({ configData }) {
   // contents of left sub-section
   const RightSubSectionJSX = (
     // Hero Image
-
-    <Image
-      src={configData.image}
-      alt="hero_image"
-      layout="fill"
-      objectFit="contain"
-      priority
-    />
+    <div
+      style={{
+        width: "95%",
+        aspectRatio: "1/1",
+        background: "transparent",
+        position: "relative",
+      }}
+    >
+      <Image
+        src={configData.image}
+        alt="hero_image"
+        layout="fill"
+        objectFit="contain"
+        priority
+      />
+    </div>
   );
 
   return (
@@ -164,7 +172,7 @@ export default function HeroSection({ configData }) {
           </Grid>
 
           {/* Right Sub-section */}
-          <Grid item xs={12} md={6} sx={{ backgroundColor: "blue" }}>
+          <Grid item xs={12} md={6}>
             {RightSubSectionJSX}
           </Grid>
         </Grid>
