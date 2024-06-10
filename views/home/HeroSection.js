@@ -14,6 +14,7 @@ import React from "react";
 import SocialIcons from "../../components/SocialIcons";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Image from "next/image";
 
 // import Icon from '@mui/material/Icon';
 
@@ -129,13 +130,13 @@ export default function HeroSection({ configData }) {
   // contents of left sub-section
   const RightSubSectionJSX = (
     // Hero Image
-    <img
+
+    <Image
       src={configData.image}
       alt="hero_image"
-      style={{
-        width: "95%",
-        height: "auto",
-      }}
+      layout="fill"
+      objectFit="contain"
+      priority
     />
   );
 
@@ -163,7 +164,7 @@ export default function HeroSection({ configData }) {
           </Grid>
 
           {/* Right Sub-section */}
-          <Grid item xs={12} md={6} sx={{ backgroundColor: "transparent" }}>
+          <Grid item xs={12} md={6} sx={{ backgroundColor: "blue" }}>
             {RightSubSectionJSX}
           </Grid>
         </Grid>
