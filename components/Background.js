@@ -35,7 +35,7 @@ export default function Background({ containerRef }) {
           [...new Array(ArrInterval)]
             .map(
               (el) =>
-                `linear-gradient(180deg, rgba(243, 178, 17, 0.60) 12.87%, rgba(243, 178, 17, 0.25) 112.87%), linear-gradient(152deg, rgba(111, 180, 181, 0.65) 25.91%, rgba(111, 180, 181, 0.30) 82.41%)`
+                `linear-gradient(180deg, rgba(156, 38, 196, 0.90) 12.87%, rgba(156, 38, 196, 0.25) 112.87%), linear-gradient(152deg, rgba(111, 180, 181, 0.65) 25.91%, rgba(111, 180, 181, 0.30) 82.41%)`
             )
             .join(", "),
         backgroundPosition:
