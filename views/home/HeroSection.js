@@ -155,7 +155,8 @@ export default function HeroSection({ configData }) {
             item
             xs={12}
             md={6}
-            py={10}
+            pt={4}
+            pb={10}
             sx={{ backgroundColor: "transparent" }}
           >
             {LeftSubSectionJSX}
