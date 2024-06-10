@@ -54,7 +54,7 @@ export async function getStaticProps() {
       //   href: "https://docs.assetmantle.one/",
       // },
     ],
-    image: "/HeroSection/mantler.webp",
+    image: "/HeroSection/hero.webp",
     translucentStripData: [
       { amount: "35k+", top: "COMMUNITY", bottom: "MEMBERS" },
       { amount: "93k+", top: "UNIQUE WALLETS", bottom: "& USERS" },
