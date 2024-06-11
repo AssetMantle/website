@@ -347,7 +347,7 @@ export async function getStaticProps() {
           },
         ],
       },
-      {
+     /*  {
         image: "/TeamSection/abhinav.png",
         name: "Abhinav Kumar",
         designation: "Co-Founder & Chief Product Officer",
@@ -366,11 +366,11 @@ export async function getStaticProps() {
             href: "https://github.com/avkr003",
           },
         ],
-      },
+      }, */
       {
         image: "/TeamSection/kamlesh.png",
         name: "Kamlesh Parikarath",
-        designation: "Chief Technology Officer",
+        designation: "Co-Founder & Chief Technology Officer",
         designationType: "Founding",
         social: [
           {
