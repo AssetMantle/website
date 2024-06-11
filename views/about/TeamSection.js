@@ -1,6 +1,5 @@
-import React from "react";
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import {
   Box,
   Button,
@@ -11,11 +10,11 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
-import { FiLinkedin, FiGithub, FiTwitter, FiGlobe } from "react-icons/fi";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import React from "react";
 import { FaBehance } from "react-icons/fa";
-import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { FiGithub, FiGlobe, FiLinkedin, FiTwitter } from "react-icons/fi";
 import Section from "../../components/Section";
 
 export default function GallerySection({ configData }) {
