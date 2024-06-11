@@ -22,29 +22,31 @@ const Content = ({ configData, listStyle }) => {
               configData.identities.map((item) => (
                 <Grid item xs={12} sm={6} md={4}>
                   <Stack spacing={2}>
-                    {item.icon && (
-                      <Stack
-                        sx={{
-                          alignItems: { xs: "center", md: "start" },
-                        }}
-                      >
-                        <img
-                          src={item.icon}
-                          alt={item.title && item.title}
-                          style={{ width: "79px" }}
-                        />
-                      </Stack>
-                    )}
-                    {item.title && (
-                      <Typography
-                        variant={configData?.IdentityTitleVariant}
-                        component={"h4"}
-                      >
-                        {item.title?.split(" ")?.[0]}
-                        <br />
-                        {item.title?.split(" ")?.[1]}
-                      </Typography>
-                    )}
+                    <Stack direction={"row"} alignItems={"center"}>
+                      {item.icon && (
+                        <Stack
+                          sx={{
+                            alignItems: { xs: "center", md: "start" },
+                          }}
+                        >
+                          <img
+                            src={item.icon}
+                            alt={item.title && item.title}
+                            style={{ width: "79px" }}
+                          />
+                        </Stack>
+                      )}
+                      {item.title && (
+                        <Typography
+                          variant={configData?.IdentityTitleVariant}
+                          component={"h4"}
+                        >
+                          {item.title?.split(" ")?.[0]}
+                          <br />
+                          {item.title?.split(" ")?.[1]}
+                        </Typography>
+                      )}
+                    </Stack>
                     {item.description && (
                       <Typography
                         variant={configData?.IdentitySubtitleVariant}
