@@ -53,7 +53,7 @@ export default function Background({ containerRef }) {
         backgroundSize:
           ArrInterval &&
           [...new Array(ArrInterval)]
-            .map((el) => `30dvw 30dvw, 45dvw 45dvw`)
+            .map((el) => `20dvw 20dvw, 25dvw 25dvw`)
             .join(", "),
         backgroundRepeat: `no-repeat`,
       }}
