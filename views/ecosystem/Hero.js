@@ -189,7 +189,7 @@ export default function Hero() {
           <img src="/ecosystem/hero/paths.svg" alt="paths" style={imgStyle} />
         </div>
         <div style={imgCon(586, 576, 398, 58)}>
-          <img src="/ecosystem/hero/mascot.png" alt="mascot" style={imgStyle} />
+          <img src="/HeroSection/hero.png" alt="mascot" style={imgStyle} />
         </div>
         {React.Children.toArray(
           stonesArr.map((item, index) =>
