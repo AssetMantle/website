@@ -38,7 +38,7 @@ export async function getStaticProps() {
     infoVariant: "subtitle2",
     title: "Vision & Mission",
     backgroundImage:
-      "url(/VisionMissionSection/Mantler_Vision_Mission.png) no-repeat left center / contain",
+      "url(/HeroSection/hero.png) no-repeat left center / contain",
     list: [
       {
         title: "Vision",
