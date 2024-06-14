@@ -95,7 +95,7 @@ export async function getStaticProps() {
       boxShadow: "none",
       height: "100%",
       mx: "auto",
-      padding: "0 11px",
+      padding: "0",
       textAlign: { xs: "center", md: "left" },
       display: "flex",
       flexDirection: "column",
@@ -114,11 +114,11 @@ export async function getStaticProps() {
       //   ],
       // },
       {
-        image: "/GallerySection/web3_native_asset.png",
+        image: "/GallerySection/Web3_Native_Assets.png",
         title: "Web3 Native Assets",
         description:
           "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
-        width: 190,
+        width: 250,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -127,11 +127,11 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/digital_native_asset.png",
+        image: "/GallerySection/Enterprise_Assets.png",
         title: "Digital Native Assets",
         description:
           "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
-        width: 190,
+        width: 250,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -140,11 +140,11 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/rwas.png",
+        image: "/GallerySection/RWA.png",
         title: "RWAs",
         description:
           "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
-        width: 200,
+        width: 250,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -153,11 +153,11 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/hybrid_asset.png",
+        image: "/GallerySection/Hybrid_Assets.png",
         title: "Hybrid Assets",
         description:
           "Assets which might exist in real world but controlled by legacy digital systems, upgraded to web3 based assets",
-        width: 200,
+        width: 250,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -260,21 +260,21 @@ export async function getStaticProps() {
       //   ],
       // },
       {
-        image: "/images/idoa.png",
+        image: "/images/idoa-n.png",
         title: "iDOA",
         subtitle: "Industrial Digitally Owned Assets",
         description:
           "Our proprietary standard for digitally owned assets from which all asset class are fabricated",
       },
       {
-        image: "/images/idci.png",
+        image: "/images/idci-n.png",
         title: "iDCI ",
         subtitle: "Industrial Digitally Controlled Identity",
         description:
           "Our proprietary standard for digitally controlled identity implemented by our complete identity stack",
       },
       {
-        image: "/images/idoc.png",
+        image: "/images/idoc-n.png",
         title: "iDOC",
         subtitle: "Industrial Digitally Owned or Controlled Entities",
         description:
@@ -287,7 +287,7 @@ export async function getStaticProps() {
       boxShadow: "none",
       height: "100%",
       mx: "auto",
-      padding: "0 11px",
+      padding: "0",
       textAlign: { xs: "center", md: "left" },
       display: "flex",
       flexDirection: "column",
