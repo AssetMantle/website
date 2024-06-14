@@ -84,7 +84,7 @@ export async function getStaticProps() {
     titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "Our own ‘Specification Driven Approach’ for onboarding Assets as NFT, leading to uniform composition of all asset class.",
+      "Our own ‘Specification Driven Approach’ for onboarding tokenized assets, enabling highest interoperability and composability",
     descriptionStyle: { maxWidth: "min(836px, 100%)", margin: "0 auto" }, // object of styles or false
 
     itemTitleVariant: "h5",
@@ -113,24 +113,12 @@ export async function getStaticProps() {
       //     },
       //   ],
       // },
-      {
-        image: "/GallerySection/web3_native_asset.png",
-        title: "Web3 Native Assets",
-        description:
-          "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
-        width: 190,
-        // buttons: [
-        //   {
-        //     text: "Learn More",
-        //     url: "https://marketplace.assetmantle.one/",
-        //   },
-        // ],
-      },
+
       {
         image: "/GallerySection/digital_native_asset.png",
-        title: "Digital Native Assets",
+        title: "Enterprise Assets",
         description:
-          "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
+          "Assets of businesses or organizations unlocking financial opportunities & enhanced liquidity in tokenized form",
         width: 190,
         // buttons: [
         //   {
@@ -153,6 +141,19 @@ export async function getStaticProps() {
         // ],
       },
       {
+        image: "/GallerySection/web3_native_asset.png",
+        title: "Web3 Native Assets",
+        description:
+          "New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
+        width: 190,
+        // buttons: [
+        //   {
+        //     text: "Learn More",
+        //     url: "https://marketplace.assetmantle.one/",
+        //   },
+        // ],
+      },
+      {
         image: "/GallerySection/hybrid_asset.png",
         title: "Hybrid Assets",
         description:
@@ -170,7 +171,7 @@ export async function getStaticProps() {
   const controlledIdentityData = {
     title: "Digitally Controlled Identities ",
     description:
-      "Build trusted and secure relationships using Decentralized Identifiers backed universal identity stack, a W3C Recommended Specification ",
+      "Implement the new in identity paradigm, like Programmatic Verifiability & Universal IDs, using W3C Recommended Specification",
 
     textAlign: "", // >>> default: left
     fullWidth: false, // boolean
@@ -240,7 +241,7 @@ export async function getStaticProps() {
     titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "Our set of Standards from which all asset class and identity stack is fabricated, leading to highest levels of uniformity and interoperability",
+      "Our proprietary specifications evolved over 2 years for process driven asset definitions for maximum asset-class interoperability",
     descriptionStyle: { maxWidth: "min(926px, 100%)", margin: "0 auto" }, // object of styles or false
 
     itemTitleVariant: "h4",
