@@ -21,8 +21,13 @@ const Content = ({ configData, listStyle }) => {
             React.Children.toArray(
               configData.identities.map((item) => (
                 <Grid item xs={12} sm={6} md={4}>
-                  <Stack spacing={2}>
-                    <Stack direction={"row"} alignItems={"center"}>
+                  <Stack spacing={2} alignItems={"center"}>
+                    <Stack
+                      direction={"row"}
+                      alignItems={"center"}
+                      justifyContent={"flex-start"}
+                      alignSelf={"flex-start"}
+                    >
                       {item.icon && (
                         <Stack
                           sx={{
@@ -56,7 +61,9 @@ const Content = ({ configData, listStyle }) => {
                             xs: "100%",
                             md: `min(${item?.width ? item.width : 238}px,100%)`,
                           },
+                          textAlign: "center",
                         }}
+                        mx={"auto"}
                       >
                         {item.description}
                       </Typography>
