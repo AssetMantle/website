@@ -63,14 +63,16 @@ export default function IdentityStandard({ configData }) {
                           image={item.image}
                           sx={{
                             border: "none",
-                            width: "min(170px, 100%)",
+                            width: "100%",
                             aspectRatio: "1/1",
-                            margin: "48px auto",
+                            margin: "0px auto 12px",
+                            borderTopLeftRadius: "20px",
+                            borderTopRightRadius: "20px",
                           }}
                         />
                       )}
                       {(item.title || item.subtitle || item.description) && (
-                        <CardContent sx={{ p: 1.8 }}>
+                        <CardContent sx={{ p: 2 }}>
                           <Stack spacing={2}>
                             {item.title && (
                               <Typography
