@@ -115,11 +115,11 @@ export async function getStaticProps() {
       // },
 
       {
-        image: "/GallerySection/Web3_Native_Assets.png",
-        title: "Web3 Native Assets",
+        image: "/GallerySection/Enterprise_Assets.png",
+        title: "Enterprise Assets",
         description:
-          "The New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
-        width: 250,
+          "Assets of businesses or organizations unlocking financial opportunities & enhanced liquidity in tokenized form",
+        width: 190,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -128,11 +128,11 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/Enterprise_Assets.png",
-        title: "Digital Native Assets",
+        image: "/GallerySection/RWA.png",
+        title: "RWAs",
         description:
-          "Digital assets like Music & Video Files, Digital Certificates, Photos, Domain Names etc. owned and managed in web3",
-        width: 250,
+          "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
+        width: 200,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -141,11 +141,11 @@ export async function getStaticProps() {
         // ],
       },
       {
-        image: "/GallerySection/RWA.png",
-        title: "RWAs",
+        image: "/GallerySection/Web3_Native_Assets.png",
+        title: "Web3 Native Assets",
         description:
-          "Real world assets tokenized and issued in web3 infrastructure for high value creation and lifecycle management",
-        width: 250,
+          "New Generation web3 assets like collectibles, digital art, game assets etc., defining a new asset class",
+        width: 190,
         // buttons: [
         //   {
         //     text: "Learn More",
@@ -241,7 +241,7 @@ export async function getStaticProps() {
     titleComponent: "h2",
     endIcon: "keyboard_arrow_right",
     description:
-      "Our proprietary specifications evolved over 2 years for process driven asset definitions for maximum asset-class interoperability",
+      "Our proprietary specifications evolved over 2 years for process driven asset definitions for maximizing asset-value",
     descriptionStyle: { maxWidth: "min(926px, 100%)", margin: "0 auto" }, // object of styles or false
 
     itemTitleVariant: "h4",
