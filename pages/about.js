@@ -394,7 +394,7 @@ export async function getStaticProps() {
       {
         image: "/TeamSection/aman.png",
         name: "Aman Tripathi",
-        designation: "Chief Innovation Officer​",
+        designation: "Co-Founder & Chief Innovation Officer",
         designationType: "Core",
         social: [
           {
