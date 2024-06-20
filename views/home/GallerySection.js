@@ -62,14 +62,16 @@ export default function GallerySection({ configData }) {
                           image={Gallery.image}
                           sx={{
                             border: "none",
-                            width: "min(140px, 100%)",
+                            width: `min(${Gallery.width}, 100%)`,
                             aspectRatio: "1/1",
-                            margin: "40px auto",
+                            margin: "0px auto 12px",
+                            borderTopLeftRadius: "20px",
+                            borderTopRightRadius: "20px",
                           }}
                         />
                       )}
                       {(Gallery.title || Gallery.description) && (
-                        <CardContent sx={{ p: 0.5 }}>
+                        <CardContent sx={{ p: 1.2 }}>
                           <Stack spacing={2}>
                             {Gallery.title && (
                               <Typography
