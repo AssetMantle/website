@@ -71,7 +71,7 @@ export default function GallerySection({ configData }) {
                         />
                       )}
                       {(Gallery.title || Gallery.description) && (
-                        <CardContent sx={{ p: 1.2 }}>
+                        <CardContent sx={{ px: 2, py: 1.2 }}>
                           <Stack spacing={2}>
                             {Gallery.title && (
                               <Typography
