@@ -4,6 +4,7 @@ import {
   Grid,
   ImageList,
   ImageListItem,
+  Paper,
   Stack,
   Typography,
 } from "@mui/material";
@@ -21,54 +22,60 @@ const Content = ({ configData, listStyle }) => {
             React.Children.toArray(
               configData.identities.map((item) => (
                 <Grid item xs={12} sm={6} md={4}>
-                  <Stack spacing={2} alignItems={"center"}>
-                    <Stack
-                      direction={"row"}
-                      alignItems={"center"}
-                      justifyContent={"flex-start"}
-                      alignSelf={"flex-start"}
-                    >
-                      {item.icon && (
-                        <Stack
-                          sx={{
-                            alignItems: { xs: "center", md: "start" },
-                          }}
-                        >
-                          <img
-                            src={item.icon}
-                            alt={item.title && item.title}
-                            style={{ width: "79px" }}
-                          />
-                        </Stack>
-                      )}
-                      {item.title && (
-                        <Typography
-                          variant={configData?.IdentityTitleVariant}
-                          component={"h4"}
-                        >
-                          {item.title?.split(" ")?.[0]}
-                          <br />
-                          {item.title?.split(" ")?.[1]}
-                        </Typography>
+                  <Paper variant="translucent">
+                    <Stack spacing={2} alignItems={"start"} py={2}>
+                      <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        justifyContent={"start"}
+                        alignSelf={"start"}
+                      >
+                        {item.icon && (
+                          <Stack
+                            sx={{
+                              alignItems: { xs: "center", md: "start" },
+                            }}
+                          >
+                            <img
+                              src={item.icon}
+                              alt={item.title && item.title}
+                              style={{ width: "79px" }}
+                            />
+                          </Stack>
+                        )}
+                        {item.title && (
+                          <Typography
+                            variant={configData?.IdentityTitleVariant}
+                            component={"h4"}
+                          >
+                            {item.title?.split(" ")?.[0]}
+                            <br />
+                            {item.title?.split(" ")?.[1]}
+                          </Typography>
+                        )}
+                      </Stack>
+                      {item.description && (
+                        <Box>
+                          <Typography
+                            variant={configData?.IdentitySubtitleVariant}
+                            component={"p"}
+                            sx={{
+                              width: {
+                                xs: "100%",
+                                md: `min(${
+                                  item?.width ? item.width : 238
+                                }px,100%)`,
+                              },
+                              textAlign: "left",
+                              ml: 2,
+                            }}
+                          >
+                            {item.description}
+                          </Typography>
+                        </Box>
                       )}
                     </Stack>
-                    {item.description && (
-                      <Typography
-                        variant={configData?.IdentitySubtitleVariant}
-                        component={"p"}
-                        sx={{
-                          width: {
-                            xs: "100%",
-                            md: `min(${item?.width ? item.width : 238}px,100%)`,
-                          },
-                          textAlign: "center",
-                        }}
-                        mx={"auto"}
-                      >
-                        {item.description}
-                      </Typography>
-                    )}
-                  </Stack>
+                  </Paper>
                 </Grid>
               ))
             )}
