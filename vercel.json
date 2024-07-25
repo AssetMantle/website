@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/explorer",
+      "destination": "https://www.mintscan.io/asset-mantle",
+      "permanent": true
+    }
+  ]
+}
