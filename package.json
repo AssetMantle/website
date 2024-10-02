@@ -1,36 +1,23 @@
 {
+  "name": "website-1",
+  "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/server": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "@splidejs/react-splide": "^0.7.8",
-    "next": "latest",
-    "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-icons": "^4.4.0",
-    "serve": "11.2.0"
+    "bootstrap": "^5.3.3",
+    "next": "14.2.14",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.3.0",
+    "sass": "^1.79.4"
   },
   "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-next": "latest"
-  },
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "preexport": "npm run build",
-    "export": "next export",
-    "prestart": "npm run export",
-    "start": "serve out"
-  },
-  "name": "assetmantle-website",
-  "version": "1.0.0",
-  "description": "Landing Website for AssetMantle.one",
-  "repository": "https://github.com/AssetMantle/assetMantle-website.git",
-  "author": "kombos <kamlesh@assetmantle.one>",
-  "license": "MIT"
+    "eslint": "^8",
+    "eslint-config-next": "14.2.14"
+  }
 }
