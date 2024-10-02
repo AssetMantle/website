@@ -1,0 +1,143 @@
+@keyframes headerAppear {
+  0% {
+    transform: translateY(-200%) scale(1);
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    height: auto;
+    opacity: 1;
+  }
+}
+
+@keyframes sliderAppear {
+  0% {
+    transform: translateX(500%) scale(0);
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    height: auto;
+    opacity: 1;
+  }
+}
+@keyframes sliderActive {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    background-color: transparent;
+  }
+  50% {
+    transform: rotate(45deg);
+    background-color: var(--slider-bg);
+    border-color: var(--slider-bg);
+  }
+}
+
+@keyframes problemBoxG1 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(31.3deg) translateX(16px) translateY(90px);
+  }
+}
+
+@keyframes problemBoxG3 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-31.8deg) translateX(16px) translateY(-74px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-2.6%);
+  }
+  100% {
+    transform: translateY(2.6%);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    filter: blur(var(--blur)) contrast(var(--contrast));
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  50% {
+    filter: blur(0) contrast(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fade-scroll {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes horizontal-scroll {
+  0% {
+    transform: translate3d(100%, 0%, 0);
+  }
+
+  50% {
+    transform: none;
+  }
+
+  100% {
+    transform: translate3d(-100%, 0%, 0);
+  }
+}
+
+@keyframes backwards-scroll {
+  0% {
+    transform: translate3d(0%, -100%, 0);
+  }
+
+  50% {
+    transform: none;
+  }
+
+  100% {
+    transform: translate3d(0%, 100%, 0);
+  }
+}
+
+@keyframes zoom-scroll {
+  0% {
+    filter: blur(5rem);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  50% {
+    filter: blur(0);
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    filter: blur(3rem);
+    transform: scale(1.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
