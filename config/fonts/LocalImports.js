@@ -1,16 +1,40 @@
 import localFont from "next/font/local";
 
-export const PixeloidMono = localFont({
-  src: "./PixeloidMono.woff2",
+export const BPdotsSquare = localFont({
+  src: [
+    {
+      path: "./BPdotsSquare/BPdotsSquare.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./BPdotsSquareLight/BPdotsSquareLight.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./BPdotsSquareBold/BPdotsSquareBold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   display: "swap",
+  preload: true,
 });
 
-export const PixeloidSans = localFont({
-  src: "./PixeloidSans.woff2",
+export const DMSans = localFont({
+  src: [
+    {
+      path: "./DMSans/DMSans.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./DMSansItalic/DMSansItalic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   display: "swap",
-});
-
-export const PixeloidSansBold = localFont({
-  src: "./PixeloidSansBold.woff2",
-  display: "swap",
+  preload: true,
 });
