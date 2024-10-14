@@ -27,13 +27,13 @@ export default function Home() {
     <>
       <Header />
 
-      <main className="am-bg-grid">
-        <Hero />
-        <Metrics />
-        <Business />
-        <Builder />
-        <User />
-        <Ecosystems />
+      <main className="">
+        <Hero indicator={Position} />
+        <Metrics indicator={Position} />
+        <Business indicator={Position} />
+        <Builder indicator={Position} />
+        <User indicator={Position} />
+        <Ecosystems indicator={Position} />
       </main>
 
       <SlideIndicator indicator={Position} />
