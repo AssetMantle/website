@@ -1,4 +1,3 @@
-import MetricsGame from "@/components/games/MetricsGame";
 import { BPdotsSquare } from "@/config/fonts/LocalImports";
 import React from "react";
 
@@ -24,7 +23,6 @@ export default function Metrics({ indicator }) {
 
   return (
     <section className="am-metrics-parent" id="metrics">
-      {indicator === 1 && <MetricsGame />}
       <div className={`am-container am-metrics ${BPdotsSquare.className}`}>
         <div className="content">
           <h2>metrics</h2>

@@ -1,7 +1,6 @@
 import React from "react";
 import { CgArrowTopRightR } from "react-icons/cg";
 import { BPdotsSquare, DMSans } from "@/config/fonts/LocalImports";
-import BuilderGame from "@/components/games/BuilderGame";
 
 export default function Builder({ indicator }) {
   const DATA = [
@@ -30,7 +29,6 @@ export default function Builder({ indicator }) {
 
   return (
     <section className="am-builder-parent" id="builder">
-      {indicator === 3 && <BuilderGame />}
       <div className={`am-container am-builder ${BPdotsSquare.className}`}>
         <div className="content">
           <h2>builder</h2>
