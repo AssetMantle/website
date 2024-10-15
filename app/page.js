@@ -30,12 +30,12 @@ export default function Home() {
 
       <GlobalGameCanvas indicator={Position} />
       <main className="">
-        <Hero indicator={Position} />
-        <Metrics indicator={Position} />
-        <Business indicator={Position} />
-        <Builder indicator={Position} />
-        <User indicator={Position} />
-        <Ecosystems indicator={Position} />
+        <Hero />
+        <Metrics />
+        <Business />
+        <Builder />
+        <User />
+        <Ecosystems />
       </main>
 
       <SlideIndicator indicator={Position} />

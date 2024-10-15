@@ -2,7 +2,7 @@ import React from "react";
 import { CgArrowTopRightR } from "react-icons/cg";
 import { BPdotsSquare, DMSans } from "@/config/fonts/LocalImports";
 
-export default function Builder({ indicator }) {
+export default function Builder() {
   const DATA = [
     {
       title: "Github",
