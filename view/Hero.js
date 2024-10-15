@@ -1,7 +1,7 @@
 import { BPdotsSquare } from "@/config/fonts/LocalImports";
 import React from "react";
 
-export default function Hero({ indicator }) {
+export default function Hero() {
   return (
     <section id="hero" className="am-hero-bg">
       <div className="timeline"></div>
