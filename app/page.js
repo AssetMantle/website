@@ -9,6 +9,7 @@ import Business from "@/view/Business";
 import Builder from "@/view/Builder";
 import User from "@/view/User";
 import Ecosystems from "@/view/Ecosystems";
+import GlobalGameCanvas from "@/components/games/GlobalGameCanvas";
 
 export default function Home() {
   const [Position, setPosition] = useState(0);
@@ -27,6 +28,7 @@ export default function Home() {
     <>
       <Header />
 
+      <GlobalGameCanvas indicator={Position} />
       <main className="">
         <Hero indicator={Position} />
         <Metrics indicator={Position} />
