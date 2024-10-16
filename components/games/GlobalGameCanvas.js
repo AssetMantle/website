@@ -1243,7 +1243,14 @@ OOOOO.....OOOOO
 
   return (
     <div className="am-game-container">
-      <canvas ref={canvasRef} style={{ display: "block" }}></canvas>
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: "min(1440px,100%)",
+          display: "block",
+          margin: "0 auto",
+        }}
+      ></canvas>
     </div>
   );
 }
