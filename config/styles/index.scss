@@ -85,6 +85,9 @@ html {
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+  @media (max-width: 670px) {
+    font-size: 14.5px;
+  }
 }
 
 body {
@@ -256,8 +259,8 @@ section {
     animation: sliderAppear ease-in-out both;
     animation-timeline: --hero;
     transform-origin: center right;
-    @media (max-width: 670px) {
-      right: 12px;
+    @media (max-width: 850px) {
+      left: 24px;
     }
     & > .indicator {
       border: none;
@@ -269,8 +272,9 @@ section {
       font-size: 1rem;
       font-weight: 300;
       letter-spacing: 0.02em;
-      @media (max-width: 600px) {
-        width: 12px;
+      cursor: pointer;
+      @media (max-width: 670px) {
+        font-size: 0.8rem;
       }
       &.active {
         font-weight: 700;
@@ -341,9 +345,16 @@ section {
     grid-template-columns: repeat(16, 1fr);
     align-items: center;
     gap: 1.5rem;
+    @media (max-width: 670px) {
+      grid-template-columns: 100%;
+    }
     & > .content {
       grid-column: 11 / span 6;
       letter-spacing: 0.02em;
+      @media (max-width: 670px) {
+        grid-column: 1 / span 1;
+        padding-left: 60px;
+      }
       & > h2 {
         font-size: 3rem;
         text-transform: uppercase;
@@ -397,6 +408,9 @@ section {
     grid-template-columns: repeat(16, 1fr);
     align-items: center;
     gap: 1.5rem;
+    @media (max-width: 670px) {
+      grid-template-columns: 100%;
+    }
     & > .content {
       grid-column: 2 / span 6;
       letter-spacing: 0.02em;
@@ -409,6 +423,10 @@ section {
       }
       @media (min-height: 400px) and (max-height: 650px) {
         height: 65%;
+      }
+      @media (max-width: 670px) {
+        grid-column: 1 / span 1;
+        padding-left: 60px;
       }
       & > h2 {
         font-size: 3rem;
@@ -479,6 +497,9 @@ section {
     grid-template-columns: repeat(16, 1fr);
     align-items: center;
     gap: 1.5rem;
+    @media (max-width: 670px) {
+      grid-template-columns: 100%;
+    }
     & > .content {
       grid-column: 2 / span 6;
       letter-spacing: 0.02em;
@@ -486,6 +507,10 @@ section {
       flex-direction: column;
       @media (max-width: 1330px) {
         grid-column: 3 / span 6;
+      }
+      @media (max-width: 670px) {
+        grid-column: 1 / span 1;
+        padding-left: 60px;
       }
       & > h2 {
         font-size: 3rem;
@@ -553,6 +578,9 @@ section {
     grid-template-columns: repeat(16, 1fr);
     align-items: center;
     gap: 1.5rem;
+    @media (max-width: 670px) {
+      grid-template-columns: 100%;
+    }
     & > .content {
       grid-column: 2 / span 6;
       letter-spacing: 0.02em;
@@ -560,6 +588,10 @@ section {
       flex-direction: column;
       @media (max-width: 1330px) {
         grid-column: 3 / span 6;
+      }
+      @media (max-width: 670px) {
+        grid-column: 1 / span 1;
+        padding-left: 60px;
       }
       & > h2 {
         font-size: 3rem;
@@ -627,6 +659,9 @@ section {
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
+    @media (max-width: 670px) {
+      grid-template-columns: 100%;
+    }
     @media (min-height: 650px) {
       gap: 10%;
     }
@@ -701,11 +736,19 @@ section {
         @media (max-width: 1330px) {
           grid-column: 3 / span 6;
         }
+        @media (max-width: 670px) {
+          grid-column: 1 / span 1;
+          padding-left: 80px;
+        }
       }
       & > .right {
         grid-column: 13 / span 4;
         @media (max-width: 1330px) {
           grid-column: 13 / span 4;
+        }
+        @media (max-width: 670px) {
+          grid-column: 1 / span 1;
+          padding-left: 80px;
         }
       }
     }
