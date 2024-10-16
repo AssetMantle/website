@@ -1128,6 +1128,119 @@ OOOOO.....OOOOO
     };
   }, [indicator, grid]);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    function initializeGrid() {
+      rows = Math.floor(
+        window.innerHeight / PatternsArray[indicator]?.cellSize
+      );
+      cols = Math.floor(window.innerWidth / PatternsArray[indicator]?.cellSize);
+      canvas.width = cols * PatternsArray[indicator]?.cellSize;
+      canvas.height = rows * PatternsArray[indicator]?.cellSize;
+      setGrid({});
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw live cells
+      for (const key in grid) {
+        const [r, c] = key.split(",").map(Number);
+        ctx.fillStyle = "#FBAB30"; // Live cell color
+        ctx.fillRect(
+          c * PatternsArray[indicator]?.cellSize,
+          r * PatternsArray[indicator]?.cellSize,
+          PatternsArray[indicator]?.cellSize,
+          PatternsArray[indicator]?.cellSize
+        );
+      }
+
+      // Draw grid lines
+      ctx.strokeStyle = "#FFFFFF"; // Grid line color
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          ctx.strokeRect(
+            c * PatternsArray[indicator]?.cellSize,
+            r * PatternsArray[indicator]?.cellSize,
+            PatternsArray[indicator]?.cellSize,
+            PatternsArray[indicator]?.cellSize
+          );
+        }
+      }
+    }
+
+    function update() {
+      const newGrid = {};
+      const cellsToCheck = new Set();
+
+      for (const key in grid) {
+        const [r, c] = key.split(",").map(Number);
+        cellsToCheck.add(`${r},${c}`);
+
+        for (let i = -1; i <= 1; i++) {
+          for (let j = -1; j <= 1; j++) {
+            if (i === 0 && j === 0) continue; // Skip self
+            cellsToCheck.add(`${r + i},${c + j}`);
+          }
+        }
+      }
+
+      for (const key of cellsToCheck) {
+        const [r, c] = key.split(",").map(Number);
+        const neighbors = countNeighbors(r, c);
+
+        if (grid[key]) {
+          if (neighbors === 2 || neighbors === 3) newGrid[key] = true; // Survives
+        } else {
+          if (neighbors === 3) newGrid[key] = true; // Becomes alive
+        }
+      }
+
+      setGrid(newGrid);
+    }
+
+    function countNeighbors(row, col) {
+      let count = 0;
+
+      for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+          if (i === 0 && j === 0) continue; // Skip self
+          const neighborKey = `${row + i},${col + j}`;
+          if (grid[neighborKey]) {
+            count++;
+          }
+        }
+      }
+
+      return count;
+    }
+
+    function gameLoop(currentTime) {
+      const elapsedTime = currentTime - lastTime;
+
+      if (
+        isRunning &&
+        elapsedTime >= PatternsArray[indicator]?.targetFrameDelay
+      ) {
+        setLastTime(currentTime);
+        update();
+        draw();
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    setIsRunning(true);
+    requestAnimationFrame(gameLoop);
+
+    window.addEventListener("resize", initializeGrid);
+    return () => {
+      window.removeEventListener("resize", initializeGrid);
+    };
+  }, [grid, isRunning, lastTime]);
+
   return (
     <div className="am-game-container">
       <canvas ref={canvasRef} style={{ display: "block" }}></canvas>
