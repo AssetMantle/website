@@ -1242,7 +1242,7 @@ OOOOO.....OOOOO
   // }, [grid, isRunning, lastTime]);
 
   return (
-    <div className="am-game-container">
+    <div className="am-game-container" style={{ display: "flex" }}>
       <canvas
         ref={canvasRef}
         style={{
