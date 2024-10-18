@@ -6,7 +6,9 @@ export default function Hero() {
     <section id="hero" className="am-hero-bg">
       <div className="timeline"></div>
       <div className="am-container am-hero">
-        <h1 className={`${BPdotsSquare.className}`}>Lorem IPsum Dolor</h1>
+        <h1 className={`${BPdotsSquare.className}`}>
+          Assetization Infrastructure Layer
+        </h1>
       </div>
     </section>
   );
