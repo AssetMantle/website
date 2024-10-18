@@ -29,7 +29,7 @@ export default function Home() {
       <Header />
 
       <GlobalGameCanvas indicator={Position} />
-      <main className="">
+      <main className="am-bg-grid">
         <Hero />
         <Metrics />
         <Business />
