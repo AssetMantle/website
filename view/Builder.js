@@ -8,22 +8,19 @@ export default function Builder() {
       title: "Github",
       title_icon: <CgArrowTopRightR />,
       href: "https://github.com/AssetMantle",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+      details: "Machine Readable code",
     },
     {
       title: "Documentation",
       title_icon: <CgArrowTopRightR />,
       href: "https://docs.assetmantle.one/",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+      details: "Human Readable Code",
     },
     {
       title: "Explorer",
       title_icon: <CgArrowTopRightR />,
       href: "https://explorer.assetmantle.one/",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+      details: "Track & Verify Metrics",
     },
   ];
 
