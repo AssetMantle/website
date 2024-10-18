@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
 export default function GlobalGameCanvas({ indicator }) {
-  // Example patterns
   const PatternsArray = [
     {
       patterns: [
@@ -25,7 +24,7 @@ export default function GlobalGameCanvas({ indicator }) {
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, // done
+    }, // hero
     {
       patterns: [
         {
@@ -53,72 +52,10 @@ OO.........OO.O.O......O.O..........
 ............OOOO....................
 .............O......................`,
           x: (cols, w) => {
-            return (cols - w) * 0 - 10;
+            return (cols - w) * 0 + 20;
           },
           y: (rows, w) => {
-            return Math.floor((rows - w) / 2) - 15;
-          },
-        },
-        {
-          pattern: `! Inline inverter-! A reaction in which the Gosper glider gun can be used to invert the
-!  presence or absence of a glider in a period 30 glider stream.
-! www.conwaylife.com/wiki/index.php?title=Gosper_glider_gun
-.........O..........................
-.......O.O..........................
-........OO..........................
-....................................
-....................................
-....................................
-....................................
-................O...................
-.................O..................
-...............OOO..................
-....................................
-.......................O.O..........
-.....................O...O..........
-.............O.......O..............
-............OOOO....O....O........OO
-...........OO.O.O....O............OO
-OO........OOO.O..O...O...O..........
-OO.........OO.O.O......O.O..........
-............OOOO....................
-.............O......................`,
-          x: (cols, w) => {
-            return (cols - w) * 0 + 5;
-          },
-          y: (rows, w) => {
-            return Math.floor((rows - w) / 2) + w / 2 - 5;
-          },
-        },
-        {
-          pattern: `! Inline inverter-! A reaction in which the Gosper glider gun can be used to invert the
-!  presence or absence of a glider in a period 30 glider stream.
-! www.conwaylife.com/wiki/index.php?title=Gosper_glider_gun
-.........O..........................
-.......O.O..........................
-........OO..........................
-....................................
-....................................
-....................................
-....................................
-................O...................
-.................O..................
-...............OOO..................
-....................................
-.......................O.O..........
-.....................O...O..........
-.............O.......O..............
-............OOOO....O....O........OO
-...........OO.O.O....O............OO
-OO........OOO.O..O...O...O..........
-OO.........OO.O.O......O.O..........
-............OOOO....................
-.............O......................`,
-          x: (cols, w) => {
-            return (cols - w) * 0 + 15;
-          },
-          y: (rows, w) => {
-            return Math.floor((rows - w) / 2) + w + 5;
+            return rows - w - 90;
           },
         },
         {
@@ -149,13 +86,75 @@ OO.........OO.O.O......O.O..........
             return (cols - w) * 0 + 30;
           },
           y: (rows, w) => {
-            return Math.floor((rows - w) / 2) + w * 1.5 + 15;
+            return rows - w - 65;
+          },
+        },
+        {
+          pattern: `! Inline inverter-! A reaction in which the Gosper glider gun can be used to invert the
+!  presence or absence of a glider in a period 30 glider stream.
+! www.conwaylife.com/wiki/index.php?title=Gosper_glider_gun
+.........O..........................
+.......O.O..........................
+........OO..........................
+....................................
+....................................
+....................................
+....................................
+................O...................
+.................O..................
+...............OOO..................
+....................................
+.......................O.O..........
+.....................O...O..........
+.............O.......O..............
+............OOOO....O....O........OO
+...........OO.O.O....O............OO
+OO........OOO.O..O...O...O..........
+OO.........OO.O.O......O.O..........
+............OOOO....................
+.............O......................`,
+          x: (cols, w) => {
+            return (cols - w) * 0 + 40;
+          },
+          y: (rows, w) => {
+            return rows - w - 40;
+          },
+        },
+        {
+          pattern: `! Inline inverter-! A reaction in which the Gosper glider gun can be used to invert the
+!  presence or absence of a glider in a period 30 glider stream.
+! www.conwaylife.com/wiki/index.php?title=Gosper_glider_gun
+.........O..........................
+.......O.O..........................
+........OO..........................
+....................................
+....................................
+....................................
+....................................
+................O...................
+.................O..................
+...............OOO..................
+....................................
+.......................O.O..........
+.....................O...O..........
+.............O.......O..............
+............OOOO....O....O........OO
+...........OO.O.O....O............OO
+OO........OOO.O..O...O...O..........
+OO.........OO.O.O......O.O..........
+............OOOO....................
+.............O......................`,
+          x: (cols, w) => {
+            return (cols - w) * 0 + 50;
+          },
+          y: (rows, w) => {
+            return rows - w - 15;
           },
         },
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, // done
+    }, // metrics
     {
       patterns: [
         {
@@ -226,33 +225,6 @@ OOO.......OOO...O
           pattern: `! P26 dependent reflector loop-! Matthias Merzenich
 ! The smallest known period 26 oscillator in terms of population-! as of August 2014, discovered in April 2013.
 ! www.conwaylife.com/wiki/P26_dependent_reflector_loop
-                ..........OO
-                ..........O
-                ....OO.OO.O....OO
-                ..O..O.O.O.....O
-                ..OO....O........O
-                ................OO
-
-                ................OO
-                O..........O...O.O
-                OOO.......OOO...O
-                ...O......O.O....OOO
-                ..O.O..............O
-                ..OO
-
-                ..OO
-                ..O........O....OO
-                ....O.....O.O.O..O
-                ...OO....O.OO.OO
-                .........O
-                ........OO
-
-
-
-
-
-
-
 ...................OO................................
 ...................O.O...............................
 ......................O..OO..........................
@@ -305,34 +277,7 @@ OO..O.............OO............OO...................
 ..........................O..O.OO....................
 ..........................OO..O......................
 ...............................O.O...................
-................................OO...................
-
-
-
-
-
-
-
-                ..........OO
-                ..........O
-                ....OO.OO.O....OO
-                ..O..O.O.O.....O
-                ..OO....O........O
-                ................OO
-
-                ................OO
-                O..........O...O.O
-                OOO.......OOO...O
-                ...O......O.O....OOO
-                ..O.O..............O
-                ..OO
-
-                ..OO
-                ..O........O....OO
-                ....O.....O.O.O..O
-                ...OO....O.OO.OO
-                .........O
-                ........OO`,
+................................OO...................`,
           x: (cols, w) => {
             return Math.floor(((cols * 3) / 2 - w) / 2) - 5;
           },
@@ -408,7 +353,7 @@ OOO.......OOO...O
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, // done
+    }, // business
     {
       patterns: [
         {
@@ -522,7 +467,7 @@ O...O....O...O..O...O...O.O.OO.OO.O.O...O...O..O...O....O...O
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, // done
+    }, // builder
     {
       patterns: [
         {
@@ -827,7 +772,7 @@ O......O           O......O
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, // done
+    }, // user
     {
       patterns: [
         {
@@ -1027,7 +972,7 @@ OOOOO.....OOOOO
       ],
       cellSize: 5,
       targetFrameDelay: 1,
-    }, //done
+    }, // ecosystem
   ];
 
   const canvasRef = useRef(null);
@@ -1035,9 +980,7 @@ OOOOO.....OOOOO
   const [grid, setGrid] = useState({});
   const [Here, setHere] = useState(indicator);
   const [lastTime, setLastTime] = useState(performance.now());
-  //   const cellSize = 10; // Size of each cell
-  //   const targetFrameDelay = 1; // Target delay between frames in milliseconds
-  let rows, cols;
+  var rows, cols;
 
   useEffect(() => {
     setHere(indicator);
@@ -1050,9 +993,11 @@ OOOOO.....OOOOO
 
     function initializeGrid() {
       rows = Math.floor(
-        window.innerHeight / PatternsArray[indicator]?.cellSize
+        canvas.offsetHeight / PatternsArray[indicator]?.cellSize
       );
-      cols = Math.floor(window.innerWidth / PatternsArray[indicator]?.cellSize);
+      cols = Math.floor(
+        canvas.offsetWidth / PatternsArray[indicator]?.cellSize
+      );
       canvas.width = cols * PatternsArray[indicator]?.cellSize;
       canvas.height = rows * PatternsArray[indicator]?.cellSize;
       setGrid({});
