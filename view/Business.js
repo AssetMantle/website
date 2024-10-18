@@ -9,7 +9,7 @@ export default function Business() {
       title_icon: <CgArrowTopRightR />,
       href: "https://mantleworks.one",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. Praesent porttitor ligula eget felis facilisis consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis ",
+        "MantleWorks is revolutionizing enterprise resource utilization by transforming untapped assets into valuable digital assets. Built on AssetMantle’s six proprietary IPs, its assetization infrastructure provides digital assets with digitally enfrocable ownership rights across industries such as healthcare, real estate, ESG, and unified loyalty programs, unlocking hidden value and commercial potential within these sectors.",
     },
   ];
 
