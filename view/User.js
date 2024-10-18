@@ -8,22 +8,20 @@ export default function User() {
       title: "MantleWallet",
       title_icon: <CgArrowTopRightR />,
       href: "https://wallet.assetmantle.one/",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+      details: "Transact, Stake, Farm, Bridge, and more",
     },
     {
       title: "MantlePlace",
       title_icon: <CgArrowTopRightR />,
       href: "https://marketplace.assetmantle.one/",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+        "ow gas fees, cross-chain compatibility, decentralized identities, and more",
     },
     {
       title: "Ami Names",
       title_icon: <CgArrowTopRightR />,
       href: "https://names.assetmantle.one/",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lacinia tortor. ",
+      details: "Universal Verifiable Credential",
     },
     {
       title: "Others",
