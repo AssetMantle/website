@@ -6,105 +6,107 @@ export default function Ecosystems() {
   const DATA = {
     left: [
       {
-        title: "Others",
+        title: "InterNFT",
+        title_icon: <CgArrowTopRightR />,
+        href: "https://internft.github.io/",
+      },
+      {
+        title: "Validators",
         title_icon: <CgArrowTopRightR />,
         href: "",
       },
       {
-        title: "Others",
+        title: "MantleLabs",
         title_icon: <CgArrowTopRightR />,
         href: "",
       },
-      {
-        title: "Others",
-        title_icon: <CgArrowTopRightR />,
-        href: "",
-      },
-      {
-        title: "Others",
-        title_icon: <CgArrowTopRightR />,
-        href: "",
-      },
+      // {
+      //   title: "Others",
+      //   title_icon: <CgArrowTopRightR />,
+      //   href: "",
+      // },
     ],
     right: [
       {
-        title: "Others",
+        title: "Artist4Web3",
         title_icon: <CgArrowTopRightR />,
-        href: "",
+        href: "https://artists4web3.org/",
       },
       {
-        title: "Others",
+        title: "Asgurard",
         title_icon: <CgArrowTopRightR />,
-        href: "",
+        href: "https://www.asguard.network/",
       },
       {
-        title: "Others",
+        title: "MantleBuilder",
         title_icon: <CgArrowTopRightR />,
         href: "",
       },
-      {
-        title: "Others",
-        title_icon: <CgArrowTopRightR />,
-        href: "",
-      },
+      // {
+      //   title: "Others",
+      //   title_icon: <CgArrowTopRightR />,
+      //   href: "",
+      // },
     ],
   };
 
   return (
     <section className="am-ecosystems-parent" id="ecosystems">
       <div className={`am-container am-ecosystems ${BPdotsSquare.className}`}>
-        <h2>ecosystems</h2>
-        <div className="container">
-          <div className="content left">
-            <div className="list">
-              {React.Children.toArray(
-                DATA?.left?.map((item) => (
-                  <div className="option">
-                    <div className="dot">
-                      <span></span>
+        <div className="content">
+          <h2>ecosystems</h2>
+          <div className="container">
+            <div className="content left">
+              <div className="list">
+                {React.Children.toArray(
+                  DATA?.left?.map((item) => (
+                    <div className="option">
+                      <div className="dot">
+                        <span></span>
+                      </div>
+                      <div className="content">
+                        <h3>
+                          <a
+                            href={item?.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item?.title}
+                            {item?.title_icon}
+                          </a>
+                        </h3>
+                        <p className={`${DMSans.className}`}>{item?.details}</p>
+                      </div>
                     </div>
-                    <div className="content">
-                      <h3>
-                        <a
-                          href={item?.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item?.title}
-                          {item?.title_icon}
-                        </a>
-                      </h3>
-                      <p className={`${DMSans.className}`}>{item?.details}</p>
-                    </div>
-                  </div>
-                ))
-              )}
+                  ))
+                )}
+              </div>
             </div>
-          </div>
-          <div className="content right">
-            <div className="list">
-              {React.Children.toArray(
-                DATA?.right?.map((item) => (
-                  <div className="option">
-                    <div className="dot">
-                      <span></span>
+            <div className="content right">
+              <div className="list">
+                {React.Children.toArray(
+                  DATA?.right?.map((item) => (
+                    <div className="option">
+                      <div className="dot">
+                        <span></span>
+                      </div>
+                      <div className="content">
+                        <h3>
+                          <a
+                            href={item?.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item?.title}
+                            {item?.title_icon}
+                          </a>
+                        </h3>
+                        <p className={`${DMSans.className}`}>{item?.details}</p>
+                      </div>
                     </div>
-                    <div className="content">
-                      <h3>
-                        <a
-                          href={item?.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item?.title}
-                          {item?.title_icon}
-                        </a>
-                      </h3>
-                      <p className={`${DMSans.className}`}>{item?.details}</p>
-                    </div>
-                  </div>
-                ))
-              )}
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>
