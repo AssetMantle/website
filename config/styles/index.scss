@@ -359,6 +359,7 @@ section {
         font-size: 3rem;
         text-transform: uppercase;
         font-weight: 700;
+        margin-bottom: 32px;
       }
       & > .list {
         display: flex;
@@ -502,6 +503,7 @@ section {
       letter-spacing: 0.02em;
       display: flex;
       flex-direction: column;
+      gap: 1.5rem;
       @media (max-width: 1330px) {
         grid-column: 3 / span 6;
       }
@@ -583,6 +585,7 @@ section {
       letter-spacing: 0.02em;
       display: flex;
       flex-direction: column;
+      gap: 1.5rem;
       @media (max-width: 1330px) {
         grid-column: 3 / span 6;
       }
@@ -650,102 +653,107 @@ section {
   &-ecosystems {
     width: min(1240px, 100%);
     margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    @media (max-width: 670px) {
-      grid-template-columns: 100%;
-    }
     @media (min-height: 650px) {
       gap: 10%;
     }
-    & > h2 {
-      font-size: 3rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      grid-column: 1 / span 16;
-      text-align: center;
-    }
-    & > .container {
-      display: grid;
-      grid-template-columns: repeat(16, 1fr);
-      grid-auto-flow: dense;
-      & > .content {
-        letter-spacing: 0.02em;
-        display: flex;
-        flex-direction: column;
-        & > .list {
+    & > .content {
+      height: min(800px, 100%);
+      padding-left: 24px;
+      padding-right: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      & > h2 {
+        padding-top: 32px;
+        font-size: 3rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        grid-column: 1 / span 16;
+        text-align: center;
+      }
+      & > .container {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        grid-auto-flow: dense;
+        margin: auto 0;
+        & > .content {
+          letter-spacing: 0.02em;
           display: flex;
           flex-direction: column;
-          gap: 2rem;
-          margin-top: 24px;
-          & > .option {
+          & > .list {
             display: flex;
-            gap: 24px;
-            & > .dot {
-              padding: 2px 0 0;
-              & > span {
-                display: inline-block;
-                width: 8px;
-                aspect-ratio: 1/1;
-                background-color: var(--am-theme);
-              }
-            }
-            & > .content {
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 24px;
+            & > .option {
               display: flex;
-              flex-direction: column;
-              gap: 20px;
-              & > h3 {
-                font-size: 1.75rem;
-                font-weight: 400;
-                letter-spacing: 0.02em;
-                margin: 0;
-                text-transform: uppercase;
-                line-height: 100%;
-                & > a {
-                  font-size: inherit;
-                  font-weight: inherit;
-                  line-height: inherit;
-                  text-transform: inherit;
-                  margin: 0;
-                  display: flex;
-                  align-items: center;
-                  gap: 16px;
-                  color: var(--black);
-                  text-decoration: none;
+              gap: 24px;
+              & > .dot {
+                padding: 2px 0 0;
+                & > span {
+                  display: inline-block;
+                  width: 8px;
+                  aspect-ratio: 1/1;
+                  background-color: var(--am-theme);
                 }
               }
-              & > p {
-                width: min(380px, 100%);
-                font-size: 1rem;
-                font-weight: 400;
-                margin: 0;
+              & > .content {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                & > h3 {
+                  font-size: 1.75rem;
+                  font-weight: 400;
+                  letter-spacing: 0.02em;
+                  margin: 0;
+                  text-transform: uppercase;
+                  line-height: 100%;
+                  & > a {
+                    font-size: inherit;
+                    font-weight: inherit;
+                    line-height: inherit;
+                    text-transform: inherit;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    color: var(--black);
+                    text-decoration: none;
+                  }
+                }
+                & > p {
+                  width: min(380px, 100%);
+                  font-size: 1rem;
+                  font-weight: 400;
+                  margin: 0;
+                }
               }
             }
           }
         }
-      }
-      & > .left {
-        grid-column: 2 / span 6;
-        @media (max-width: 1330px) {
-          grid-column: 3 / span 6;
+        & > .left {
+          grid-column: 2 / span 6;
+          @media (max-width: 1330px) {
+            grid-column: 3 / span 6;
+          }
+          @media (max-width: 670px) {
+            grid-column: 1 / span 1;
+            padding-left: 80px;
+          }
         }
-        @media (max-width: 670px) {
-          grid-column: 1 / span 1;
-          padding-left: 80px;
-        }
-      }
-      & > .right {
-        grid-column: 13 / span 4;
-        @media (max-width: 1330px) {
+        & > .right {
           grid-column: 13 / span 4;
-        }
-        @media (max-width: 670px) {
-          grid-column: 1 / span 1;
-          padding-left: 80px;
+          @media (max-width: 1330px) {
+            grid-column: 13 / span 4;
+          }
+          @media (max-width: 670px) {
+            grid-column: 1 / span 1;
+            padding-left: 80px;
+          }
         }
       }
     }
