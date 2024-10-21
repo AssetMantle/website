@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 export default function GlobalGameCanvas({ indicator }) {
   const PatternsArray = [
@@ -976,22 +976,16 @@ OOOOO.....OOOOO
   ];
 
   const canvasRef = useRef(null);
-  const [isRunning, setIsRunning] = useState(false);
-  const [grid, setGrid] = useState({});
-  const [Here, setHere] = useState(indicator);
-  const [lastTime, setLastTime] = useState(performance.now());
-  var rows, cols;
+  const gridRef = useRef({});
+  const isRunningRef = useRef(true);
+  const lastTimeRef = useRef(performance.now());
 
   useEffect(() => {
-    setHere(indicator);
-    if (indicator === Here) {
-      setGrid({});
-    }
-    setLastTime(performance.now());
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    let rows, cols;
 
-    function initializeGrid() {
+    const initializeGrid = () => {
       rows = Math.floor(
         canvas.offsetHeight / PatternsArray[indicator]?.cellSize
       );
@@ -1000,26 +994,42 @@ OOOOO.....OOOOO
       );
       canvas.width = cols * PatternsArray[indicator]?.cellSize;
       canvas.height = rows * PatternsArray[indicator]?.cellSize;
-      setGrid({});
-    }
+      gridRef.current = {};
+    };
 
-    function draw() {
+    const setPatternFromInput = (input, x, y) => {
+      const lines = input.trim().split("\n").slice(3); // Ignore metadata
+      const patternWidth = Math.max(...lines.map((line) => line.length));
+      const xOffset = x(cols, patternWidth);
+      const yOffset = y(rows, lines.length);
+
+      lines.forEach((line, rIndex) => {
+        [...line].forEach((char, cIndex) => {
+          if (char === "O") {
+            const row = yOffset + rIndex;
+            const col = xOffset + cIndex;
+            gridRef.current[`${row},${col}`] = true;
+          }
+        });
+      });
+    };
+
+    const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const grid = gridRef.current;
 
-      // Draw live cells
-      for (const key in grid) {
+      Object.keys(grid).forEach((key) => {
         const [r, c] = key.split(",").map(Number);
-        ctx.fillStyle = "#FBAB30"; // Live cell color
+        ctx.fillStyle = "#FBAB30";
         ctx.fillRect(
           c * PatternsArray[indicator]?.cellSize,
           r * PatternsArray[indicator]?.cellSize,
           PatternsArray[indicator]?.cellSize,
           PatternsArray[indicator]?.cellSize
         );
-      }
+      });
 
-      // Draw grid lines
-      ctx.strokeStyle = "#FFFFFF"; // Grid line color
+      ctx.strokeStyle = "#fcfbf9";
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           ctx.strokeRect(
@@ -1030,161 +1040,77 @@ OOOOO.....OOOOO
           );
         }
       }
-    }
+    };
 
-    function setPatternFromInput(input, x, y) {
-      const lines = input.trim().split("\n");
+    const countNeighbors = (r, c) => {
+      let count = 0;
+      for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+          if (i === 0 && j === 0) continue;
+          if (gridRef.current[`${r + i},${c + j}`]) count++;
+        }
+      }
+      return count;
+    };
 
-      // Skip the first three lines which contain metadata
-      const patternLines = lines.slice(3);
-
-      const patternWidth = Math.max(...patternLines.map((line) => line.length));
-      const patternHeight = patternLines.length;
-
-      const xOffset = x(cols, patternWidth);
-      const yOffset = y(rows, patternHeight);
-
+    const update = () => {
       const newGrid = {};
-      patternLines.forEach((line, index) => {
-        for (let i = 0; i < line.length; i++) {
-          if (line[i] === "O") {
-            const rowIndex = yOffset + index;
-            const colIndex = xOffset + i;
-            newGrid[`${rowIndex},${colIndex}`] = true;
+      const cellsToCheck = new Set();
+
+      Object.keys(gridRef.current).forEach((key) => {
+        const [r, c] = key.split(",").map(Number);
+        cellsToCheck.add(`${r},${c}`);
+        for (let i = -1; i <= 1; i++) {
+          for (let j = -1; j <= 1; j++) {
+            cellsToCheck.add(`${r + i},${c + j}`);
           }
         }
       });
 
-      setGrid((prevGrid) => ({ ...prevGrid, ...newGrid }));
-    }
+      cellsToCheck.forEach((key) => {
+        const [r, c] = key.split(",").map(Number);
+        const neighbors = countNeighbors(r, c);
+        if (gridRef.current[key]) {
+          if (neighbors === 2 || neighbors === 3) newGrid[key] = true;
+        } else if (neighbors === 3) newGrid[key] = true;
+      });
+
+      gridRef.current = newGrid;
+    };
+
+    const gameLoop = (currentTime) => {
+      if (!isRunningRef.current) return;
+      const elapsedTime = currentTime - lastTimeRef.current;
+
+      if (elapsedTime >= PatternsArray[indicator]?.targetFrameDelay) {
+        lastTimeRef.current = currentTime;
+        update();
+        draw();
+      }
+
+      requestAnimationFrame(gameLoop);
+    };
 
     initializeGrid();
-
     PatternsArray[indicator]?.patterns?.forEach((patternObj) => {
       setPatternFromInput(patternObj.pattern, patternObj.x, patternObj.y);
     });
 
     draw();
-    setIsRunning(true);
+    isRunningRef.current = true;
+    requestAnimationFrame(gameLoop);
 
-    window.addEventListener("resize", initializeGrid);
-    return () => {
-      window.removeEventListener("resize", initializeGrid);
+    const resizeHandler = () => {
+      initializeGrid();
+      draw();
     };
-  }, [indicator, grid]);
 
-  // useEffect(() => {
-  //   const canvas = canvasRef.current;
-  //   const ctx = canvas.getContext("2d");
-
-  //   function initializeGrid() {
-  //     rows = Math.floor(
-  //       window.innerHeight / PatternsArray[indicator]?.cellSize
-  //     );
-  //     cols = Math.floor(window.innerWidth / PatternsArray[indicator]?.cellSize);
-  //     canvas.width = cols * PatternsArray[indicator]?.cellSize;
-  //     canvas.height = rows * PatternsArray[indicator]?.cellSize;
-  //     setGrid({});
-  //   }
-
-  //   function draw() {
-  //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  //     // Draw live cells
-  //     for (const key in grid) {
-  //       const [r, c] = key.split(",").map(Number);
-  //       ctx.fillStyle = "#FBAB30"; // Live cell color
-  //       ctx.fillRect(
-  //         c * PatternsArray[indicator]?.cellSize,
-  //         r * PatternsArray[indicator]?.cellSize,
-  //         PatternsArray[indicator]?.cellSize,
-  //         PatternsArray[indicator]?.cellSize
-  //       );
-  //     }
-
-  //     // Draw grid lines
-  //     ctx.strokeStyle = "#FFFFFF"; // Grid line color
-  //     for (let r = 0; r < rows; r++) {
-  //       for (let c = 0; c < cols; c++) {
-  //         ctx.strokeRect(
-  //           c * PatternsArray[indicator]?.cellSize,
-  //           r * PatternsArray[indicator]?.cellSize,
-  //           PatternsArray[indicator]?.cellSize,
-  //           PatternsArray[indicator]?.cellSize
-  //         );
-  //       }
-  //     }
-  //   }
-
-  //   function update() {
-  //     const newGrid = {};
-  //     const cellsToCheck = new Set();
-
-  //     for (const key in grid) {
-  //       const [r, c] = key.split(",").map(Number);
-  //       cellsToCheck.add(`${r},${c}`);
-
-  //       for (let i = -1; i <= 1; i++) {
-  //         for (let j = -1; j <= 1; j++) {
-  //           if (i === 0 && j === 0) continue; // Skip self
-  //           cellsToCheck.add(`${r + i},${c + j}`);
-  //         }
-  //       }
-  //     }
-
-  //     for (const key of cellsToCheck) {
-  //       const [r, c] = key.split(",").map(Number);
-  //       const neighbors = countNeighbors(r, c);
-
-  //       if (grid[key]) {
-  //         if (neighbors === 2 || neighbors === 3) newGrid[key] = true; // Survives
-  //       } else {
-  //         if (neighbors === 3) newGrid[key] = true; // Becomes alive
-  //       }
-  //     }
-
-  //     setGrid(newGrid);
-  //   }
-
-  //   function countNeighbors(row, col) {
-  //     let count = 0;
-
-  //     for (let i = -1; i <= 1; i++) {
-  //       for (let j = -1; j <= 1; j++) {
-  //         if (i === 0 && j === 0) continue; // Skip self
-  //         const neighborKey = `${row + i},${col + j}`;
-  //         if (grid[neighborKey]) {
-  //           count++;
-  //         }
-  //       }
-  //     }
-
-  //     return count;
-  //   }
-
-  //   function gameLoop(currentTime) {
-  //     const elapsedTime = currentTime - lastTime;
-
-  //     if (
-  //       isRunning &&
-  //       elapsedTime >= PatternsArray[indicator]?.targetFrameDelay
-  //     ) {
-  //       setLastTime(currentTime);
-  //       update();
-  //       draw();
-  //     }
-
-  //     requestAnimationFrame(gameLoop);
-  //   }
-
-  //   setIsRunning(true);
-  //   requestAnimationFrame(gameLoop);
-
-  //   window.addEventListener("resize", initializeGrid);
-  //   return () => {
-  //     window.removeEventListener("resize", initializeGrid);
-  //   };
-  // }, [grid, isRunning, lastTime]);
+    window.addEventListener("resize", resizeHandler);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+      isRunningRef.current = false;
+    };
+  }, [indicator]);
 
   return (
     <div className="am-game-container" style={{ display: "flex" }}>
