@@ -539,6 +539,9 @@ section {
         flex-direction: column;
         gap: 2rem;
         margin-top: 24px;
+        @media (max-height: 700px) {
+          gap: 1rem;
+        }
         & > .option {
           display: flex;
           gap: 24px;
@@ -556,6 +559,9 @@ section {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            @media (max-height: 700px) {
+              gap: 8px;
+            }
             & > h3 {
               font-size: 2rem;
               font-weight: 400;
@@ -622,6 +628,9 @@ section {
         flex-direction: column;
         gap: 2rem;
         margin-top: 24px;
+        @media (max-height: 700px) {
+          gap: 1rem;
+        }
         & > .option {
           display: flex;
           gap: 24px;
@@ -639,6 +648,9 @@ section {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            @media (max-height: 700px) {
+              gap: 8px;
+            }
             & > h3 {
               font-size: 2rem;
               font-weight: 400;
@@ -698,21 +710,32 @@ section {
         @media (min-width: 768px) {
           padding-left: 24px;
         }
+        @media (max-height: 700px) {
+          padding-top: 2rem;
+        }
       }
       & > .container {
         display: grid;
         grid-template-columns: repeat(18, 1fr);
         grid-auto-flow: dense;
         margin: auto 0;
+        transform: translateY(-7.5%);
+        @media (max-width: 900px) {
+          grid-template-columns: repeat(9, 1fr);
+        }
         & > .content {
           letter-spacing: 0.02em;
           display: flex;
           flex-direction: column;
+          gap: 24px;
           & > .list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 4rem;
             margin-top: 24px;
+            @media (max-height: 700px) {
+              gap: 2rem;
+            }
             & > .option {
               display: flex;
               gap: 24px;
@@ -764,16 +787,28 @@ section {
           & > .list {
             & > * {
               justify-content: flex-end;
+              @media (max-width: 670px) {
+                flex-direction: row-reverse;
+              }
               & > * {
                 & > h3 {
-                  text-align: right;
-                  width: 100%;
+                  & > * {
+                    text-align: right;
+                    width: 100%;
+                    @media (max-width: 670px) {
+                      display: flex;
+                      flex-direction: row-reverse;
+                    }
+                  }
                 }
               }
             }
           }
           @media (max-width: 1330px) {
-            grid-column: 3 / span 6;
+            grid-column: 0 / span 6;
+          }
+          @media (max-width: 900px) {
+            grid-column: 1 / span 4;
           }
           @media (max-width: 670px) {
             grid-column: 1 / span 1;
@@ -782,8 +817,31 @@ section {
         }
         & > .right {
           grid-column: 14 / span 6;
+          & > .list {
+            & > * {
+              justify-content: flex-start;
+              @media (max-width: 670px) {
+                flex-direction: row;
+              }
+              & > * {
+                & > h3 {
+                  & > * {
+                    text-align: right;
+                    width: 100%;
+                    @media (max-width: 670px) {
+                      display: flex;
+                      flex-direction: row;
+                    }
+                  }
+                }
+              }
+            }
+          }
           @media (max-width: 1330px) {
-            grid-column: 13 / span 4;
+            grid-column: 14 / span 6;
+          }
+          @media (max-width: 900px) {
+            grid-column: 6 / span 4;
           }
           @media (max-width: 670px) {
             grid-column: 1 / span 1;
