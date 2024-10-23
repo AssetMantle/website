@@ -13,40 +13,40 @@ export default function Ecosystems() {
       {
         title: "Validators",
         title_icon: <CgArrowTopRightR />,
-        href: "",
+        href: "https://www.mintscan.io/asset-mantle/validators",
       },
       {
-        title: "MantleLabs",
+        title: "Ingrained Logic",
         title_icon: <CgArrowTopRightR />,
         href: "",
       },
-      // {
-      //   title: "Others",
-      //   title_icon: <CgArrowTopRightR />,
-      //   href: "",
-      // },
+      {
+        title: "LoyaltyLabs",
+        title_icon: <CgArrowTopRightR />,
+        href: "",
+      },
     ],
     right: [
+      {
+        title: "Asguard",
+        title_icon: <CgArrowTopRightR />,
+        href: "https://www.asguard.network/",
+      },
       {
         title: "Artist4Web3",
         title_icon: <CgArrowTopRightR />,
         href: "https://artists4web3.org/",
       },
       {
-        title: "Asgurard",
+        title: "MantleBuilder",
         title_icon: <CgArrowTopRightR />,
-        href: "https://www.asguard.network/",
+        href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
       },
       {
-        title: "MantleBuilder",
+        title: "$MNTL",
         title_icon: <CgArrowTopRightR />,
         href: "",
       },
-      // {
-      //   title: "Others",
-      //   title_icon: <CgArrowTopRightR />,
-      //   href: "",
-      // },
     ],
   };
 
@@ -54,7 +54,7 @@ export default function Ecosystems() {
     <section className="am-ecosystems-parent" id="ecosystems">
       <div className={`am-container am-ecosystems ${BPdotsSquare.className}`}>
         <div className="content">
-          <h2>ecosystems</h2>
+          <h2>Ecosystem</h2>
           <div className="container">
             <div className="content left">
               <div className="list">
