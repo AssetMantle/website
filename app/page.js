@@ -30,7 +30,7 @@ export default function Home() {
 
       <GlobalGameCanvas indicator={Position} />
       <main className="am-bg-grid">
-        <Hero />
+        <Hero indicator={Position} />
         <Metrics />
         <Business />
         <Builder />
@@ -39,7 +39,7 @@ export default function Home() {
       </main>
 
       <SlideIndicator indicator={Position} />
-      <Footer />
+      <Footer indicator={Position} />
     </>
   );
 }
