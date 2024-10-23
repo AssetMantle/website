@@ -696,7 +696,7 @@ section {
         grid-column: 1 / span 16;
         text-align: center;
         @media (min-width: 768px) {
-          padding-left: 11px;
+          padding-left: 24px;
         }
       }
       & > .container {
@@ -2040,7 +2040,9 @@ section {
         font-size: 0.75rem;
         margin: 0;
         &.hero {
-          // margin-left: -60px;
+          @media (min-width: 760px) {
+            margin-left: -30px;
+          }
         }
       }
       & > .socials {
