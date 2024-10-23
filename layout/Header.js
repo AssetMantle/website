@@ -8,7 +8,7 @@ export default function Header() {
       <div className="am-header-container">
         <div className="am-header-container-content">
           <Link href="#hero" className="logo position-relative">
-            <Image src={Logo} alt="mantleWorks Logo" className="w-100 h-100" />
+            <Image src={Logo} alt="assetmantle Logo" className="w-100 h-100" />
           </Link>
         </div>
       </div>
