@@ -6,6 +6,11 @@ export default function Ecosystems() {
   const DATA = {
     left: [
       {
+        title: "$MNTL",
+        title_icon: <CgArrowTopRightR />,
+        href: "https://app.osmosis.zone/?from=USDC&to=MNTL",
+      },
+      {
         title: "InterNFT",
         title_icon: <CgArrowTopRightR />,
         href: "https://internft.github.io/",
@@ -16,14 +21,9 @@ export default function Ecosystems() {
         href: "https://www.mintscan.io/asset-mantle/validators",
       },
       {
-        title: "Ingrained Logic",
+        title: "MantleBuilder",
         title_icon: <CgArrowTopRightR />,
-        href: "",
-      },
-      {
-        title: "LoyaltyLabs",
-        title_icon: <CgArrowTopRightR />,
-        href: "",
+        href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
       },
     ],
     right: [
@@ -33,19 +33,19 @@ export default function Ecosystems() {
         href: "https://www.asguard.network/",
       },
       {
+        title: "LoyaltyLabs",
+        title_icon: "",
+        href: "",
+      },
+      {
         title: "Artist4Web3",
         title_icon: <CgArrowTopRightR />,
         href: "https://artists4web3.org/",
       },
       {
-        title: "MantleBuilder",
+        title: "Ingrained Logic",
         title_icon: <CgArrowTopRightR />,
-        href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
-      },
-      {
-        title: "$MNTL",
-        title_icon: <CgArrowTopRightR />,
-        href: "",
+        href: "https://www.ingrainedlogic.com/",
       },
     ],
   };
@@ -61,9 +61,6 @@ export default function Ecosystems() {
                 {React.Children.toArray(
                   DATA?.left?.map((item) => (
                     <div className="option">
-                      <div className="dot">
-                        <span></span>
-                      </div>
                       <div className="content">
                         <h3>
                           <a
@@ -71,11 +68,14 @@ export default function Ecosystems() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {item?.title}
                             {item?.title_icon}
+                            {item?.title}
                           </a>
                         </h3>
                         <p className={`${DMSans.className}`}>{item?.details}</p>
+                      </div>
+                      <div className="dot">
+                        <span></span>
                       </div>
                     </div>
                   ))
