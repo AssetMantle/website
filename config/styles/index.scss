@@ -233,7 +233,7 @@ section {
         & > .logo {
           display: block;
           width: min(196px, 100%);
-          aspect-ratio: 195.54/32;
+          aspect-ratio: 1099.06/180;
           position: relative;
           & > img {
             width: 100%;
@@ -329,11 +329,16 @@ section {
       }
     }
     & > h1 {
-      font-size: 3.65rem;
+      font-size: 3.25rem;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.02em;
       font-weight: bold;
+      opacity: 0;
+      transition: opacity 500ms ease-in;
+      &.active {
+        opacity: 1;
+      }
     }
   }
   &-metrics {
@@ -417,8 +422,8 @@ section {
       letter-spacing: 0.02em;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: min(418px, 100%);
+      justify-content: flex-start;
+      height: min(375px, 100%);
       @media (max-width: 1330px) {
         grid-column: 3 / span 6;
       }
@@ -438,7 +443,8 @@ section {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        margin-top: 24px;
+        margin-top: 6rem;
+        // margin-bottom: 5rem;
         & > .option {
           display: flex;
           gap: 24px;
@@ -524,6 +530,7 @@ section {
         & > .option {
           display: flex;
           gap: 24px;
+          margin: 0.8rem 0px;
           & > .dot {
             padding: 2px 0 0;
             & > span {
@@ -606,6 +613,7 @@ section {
         & > .option {
           display: flex;
           gap: 24px;
+          margin: 0.8rem 0px;
           & > .dot {
             padding: 2px 0 0;
             & > span {
@@ -674,6 +682,9 @@ section {
         font-weight: 700;
         grid-column: 1 / span 16;
         text-align: center;
+        @media (min-width: 768px) {
+          padding-left: 60px;
+        }
       }
       & > .container {
         display: grid;
@@ -1975,10 +1986,12 @@ section {
       }
       & > .left {
         display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
         & > .logo {
           display: inline-block;
           height: 32px;
-          aspect-ratio: 195.54/32;
+          aspect-ratio: 1099.06/180;
           position: relative;
           @media (max-width: 670px) {
             height: 14px;
@@ -1988,7 +2001,7 @@ section {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            object-position: center;
+            object-position: left center;
           }
         }
         & > p {
