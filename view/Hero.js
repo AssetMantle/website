@@ -17,7 +17,15 @@ export default function Hero({ indicator }) {
       <div className="timeline"></div>
       <div className="am-container am-hero">
         <h1 className={`${BPdotsSquare.className}${Show ? " active" : ""}`}>
-          Assetization Infrastructure Layer
+          <span>
+            Assetization <i />{" "}
+          </span>
+          <span>
+            Infrastructure <i />{" "}
+          </span>
+          <span>
+            Layer <i />{" "}
+          </span>
         </h1>
       </div>
     </section>
