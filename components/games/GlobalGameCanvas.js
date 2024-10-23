@@ -15,7 +15,7 @@ export default function GlobalGameCanvas({ indicator }) {
   O..
   OOO`,
           x: (cols, w) => {
-            return Math.floor((cols - w) / 2);
+            return Math.floor((cols - w) / 2) + 8;
           },
           y: (rows, w) => {
             return Math.floor((rows - w) / 2);
@@ -83,7 +83,7 @@ OO.........OO.O.O......O.O..........
 ............OOOO....................
 .............O......................`,
           x: (cols, w) => {
-            return (cols - w) * 0 + 30;
+            return (cols - w) * 0 + 40;
           },
           y: (rows, w) => {
             return rows - w - 70;
@@ -114,7 +114,7 @@ OO.........OO.O.O......O.O..........
 ............OOOO....................
 .............O......................`,
           x: (cols, w) => {
-            return (cols - w) * 0 + 40;
+            return (cols - w) * 0 + 50;
           },
           y: (rows, w) => {
             return rows - w - 45;
@@ -145,7 +145,7 @@ OO.........OO.O.O......O.O..........
 ............OOOO....................
 .............O......................`,
           x: (cols, w) => {
-            return (cols - w) * 0 + 50;
+            return (cols - w) * 0 + 65;
           },
           y: (rows, w) => {
             return rows - w - 20;
@@ -459,7 +459,7 @@ O...O....O...O..O...O...O.O.OO.OO.O.O...O...O..O...O....O...O
 ......................O.OOOO.....OOOO.O......................
 ......................OO.O.........O.OO......................`,
           x: (cols, w) => {
-            return Math.floor(cols - w - w / 1.2);
+            return Math.floor(cols - w - w / 0.8);
           },
           y: (rows, w) => {
             return Math.floor(rows - w) - 15;
@@ -816,10 +816,10 @@ OOOOO.....OOOOO
 .....O...O.....
 .....O...O.....`,
           x: (cols, w) => {
-            return Math.floor((cols - w) / 2) - 40;
+            return Math.floor((cols - w) / 2) - 45;
           },
           y: (rows, w) => {
-            return Math.floor((rows - w) / 2);
+            return Math.floor((rows - w) / 2) + 8;
           },
         },
         {
@@ -918,10 +918,10 @@ O.O.O.O..........O.OO..........O.O..........O.O.OO
                    .....O...O.....
                    .....O...O.....`,
           x: (cols, w) => {
-            return Math.floor((cols - w) / 2) + 5;
+            return Math.floor((cols - w) / 2) + 0;
           },
           y: (rows, w) => {
-            return Math.floor((rows - w) / 2);
+            return Math.floor((rows - w) / 2) + 8;
           },
         },
         {
@@ -964,10 +964,10 @@ OOOOO.....OOOOO
 .....O...O.....
 .....O...O.....`,
           x: (cols, w) => {
-            return Math.floor((cols - w) / 2) + 50;
+            return Math.floor((cols - w) / 2) + 45;
           },
           y: (rows, w) => {
-            return Math.floor((rows - w) / 2);
+            return Math.floor((rows - w) / 2) + 8;
           },
         },
       ],
