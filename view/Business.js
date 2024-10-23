@@ -8,8 +8,10 @@ export default function Business() {
       title: "MantleWorks",
       title_icon: <CgArrowTopRightR />,
       href: "https://mantleworks.one",
-      details:
-        "Implementation arm for industrial use cases utilising AssetMantle's Assetization Infrastructure.",
+      details: [
+        "Containerization / Assetization / Practice",
+        "Implementation arm for industrial use cases utilising AssetMantle's Assetization",
+      ],
     },
   ];
 
@@ -36,7 +38,11 @@ export default function Business() {
                         {item?.title_icon}
                       </a>
                     </h3>
-                    <p className={`${DMSans.className}`}>{item?.details}</p>
+                    {React.Children.toArray(
+                      item?.details.map((el) => (
+                        <p className={`${DMSans.className}`}>{el}</p>
+                      ))
+                    )}
                   </div>
                 </div>
               ))
