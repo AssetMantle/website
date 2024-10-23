@@ -68,11 +68,15 @@ export default function Ecosystems() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {item?.title_icon}
-                            {item?.title}
+                            <span>{item?.title_icon}</span>
+                            <span>{item?.title}</span>
                           </a>
                         </h3>
-                        <p className={`${DMSans.className}`}>{item?.details}</p>
+                        {item?.details && (
+                          <p className={`${DMSans.className}`}>
+                            {item?.details}
+                          </p>
+                        )}
                       </div>
                       <div className="dot">
                         <span></span>
@@ -97,11 +101,15 @@ export default function Ecosystems() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {item?.title}
-                            {item?.title_icon}
+                            <span>{item?.title}</span>
+                            <span>{item?.title_icon}</span>
                           </a>
                         </h3>
-                        <p className={`${DMSans.className}`}>{item?.details}</p>
+                        {item?.details && (
+                          <p className={`${DMSans.className}`}>
+                            {item?.details}
+                          </p>
+                        )}
                       </div>
                     </div>
                   ))
