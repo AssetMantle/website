@@ -10,14 +10,16 @@ export default function Footer({ indicator }) {
         style={{ backgroundImage: "url(/media/border-bg.png)" }}
       ></div>
       <div className="am-footer-container">
-        <div className="left">
-          {indicator === 0 && (
+        {indicator === 0 && (
+          <div className="left">
             <Link href="#hero" className="logo position-relative">
               <Image src={Logo} alt="assetmantle Logo" />
             </Link>
-          )}
-          <p className="m-0">&copy; Assetmantle 2024 - All rights reserved </p>
-        </div>
+          </div>
+        )}
+        <p className={indicator === 0 ? "hero" : ""}>
+          &copy; Assetmantle 2024 - All rights reserved{" "}
+        </p>
         <div className="socials">
           <Link
             href="mailto:hello@assetmantle.one"
