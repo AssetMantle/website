@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/media/logo.png";
+import Logo from "@/public/media/logo.svg";
 
-export default function Footer() {
+export default function Footer({ indicator }) {
   return (
     <footer className="am-footer">
       <div
@@ -11,19 +11,16 @@ export default function Footer() {
       ></div>
       <div className="am-footer-container">
         <div className="left">
-          <Link href="#hero" className="logo position-relative">
-            <Image
-              src={Logo}
-              alt="assetmantle Logo"
-              className="w-100 h-100"
-              style={{ objectFit: "contain", objectPosition: "center" }}
-            />
-          </Link>
+          {indicator === 0 && (
+            <Link href="#hero" className="logo position-relative">
+              <Image src={Logo} alt="assetmantle Logo" />
+            </Link>
+          )}
+          <p className="m-0">&copy; Assetmantle 2024 - All rights reserved </p>
         </div>
-        <p className="m-0">&copy; Assetmantle 2024 - All rights reserved </p>
-        {/* <div className="socials">
+        <div className="socials">
           <Link
-            href="mailto:hello@mantlewroks.one"
+            href="mailto:hello@assetmantle.one"
             className="icon position-relative"
           >
             <Image
@@ -60,7 +57,7 @@ export default function Footer() {
               style={{ objectFit: "contain", objectPosition: "center" }}
             />
           </Link>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
