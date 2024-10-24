@@ -15,7 +15,7 @@ export default function User() {
       title_icon: <CgArrowTopRightR />,
       href: "https://marketplace.assetmantle.one/",
       details:
-        "ow gas fees, cross-chain compatibility, decentralized identities, and more",
+        "Low gas fees, cross-chain compatibility, decentralized identities, and more",
     },
     {
       title: "Ami Names",
