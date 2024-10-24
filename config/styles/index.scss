@@ -658,7 +658,8 @@ section {
               margin: 0;
               text-transform: uppercase;
               line-height: 100%;
-              & > a {
+              & > a,
+              & > p {
                 font-size: inherit;
                 font-weight: inherit;
                 line-height: inherit;
@@ -759,7 +760,8 @@ section {
                   margin: 0;
                   text-transform: uppercase;
                   line-height: 100%;
-                  & > a {
+                  & > a,
+                  & > p {
                     font-size: inherit;
                     font-weight: inherit;
                     line-height: inherit;
