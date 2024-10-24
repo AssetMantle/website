@@ -40,7 +40,7 @@ export default function Ecosystems() {
       {
         title: "Artist4Web3",
         title_icon: <CgArrowTopRightR />,
-        href: "https://artists4web3.org/",
+        href: "https://artists4web3.studio/",
       },
       {
         title: "Ingrained Logic",
@@ -63,14 +63,21 @@ export default function Ecosystems() {
                     <div className="option">
                       <div className="content">
                         <h3>
-                          <a
-                            href={item?.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span>{item?.title_icon}</span>
-                            <span>{item?.title}</span>
-                          </a>
+                          {item?.href ? (
+                            <a
+                              href={item?.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span>{item?.title_icon}</span>
+                              <span>{item?.title}</span>
+                            </a>
+                          ) : (
+                            <p>
+                              <span>{item?.title_icon}</span>
+                              <span>{item?.title}</span>
+                            </p>
+                          )}
                         </h3>
                         {item?.details && (
                           <p className={`${DMSans.className}`}>
@@ -96,14 +103,21 @@ export default function Ecosystems() {
                       </div>
                       <div className="content">
                         <h3>
-                          <a
-                            href={item?.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span>{item?.title}</span>
-                            <span>{item?.title_icon}</span>
-                          </a>
+                          {item?.href ? (
+                            <a
+                              href={item?.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span>{item?.title}</span>
+                              <span>{item?.title_icon}</span>
+                            </a>
+                          ) : (
+                            <p>
+                              <span>{item?.title}</span>
+                              <span>{item?.title_icon}</span>
+                            </p>
+                          )}
                         </h3>
                         {item?.details && (
                           <p className={`${DMSans.className}`}>
