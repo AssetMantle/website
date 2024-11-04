@@ -262,6 +262,14 @@ section {
     @media (max-width: 850px) {
       left: 24px;
     }
+    @media (max-width: 670px) {
+      flex-direction: row;
+      bottom: calc(var(--footer-height) + 0px);
+      top: auto;
+      left: 0;
+      right: 0;
+      height: min-content !important;
+    }
     & > .indicator {
       border: none;
       outline: none;
@@ -370,7 +378,8 @@ section {
       letter-spacing: 0.02em;
       @media (max-width: 670px) {
         grid-column: 1 / span 1;
-        padding-left: 60px;
+        padding-left: 28px;
+        margin: auto;
       }
       & > h2 {
         font-size: 3rem;
@@ -444,7 +453,8 @@ section {
       }
       @media (max-width: 670px) {
         grid-column: 1 / span 1;
-        padding-left: 60px;
+        padding-left: 28px;
+        margin: auto;
       }
       & > h2 {
         font-size: 3rem;
@@ -527,7 +537,8 @@ section {
       }
       @media (max-width: 670px) {
         grid-column: 1 / span 1;
-        padding-left: 60px;
+        padding-left: 28px;
+        margin: auto;
       }
       & > h2 {
         font-size: 3rem;
@@ -616,7 +627,8 @@ section {
       }
       @media (max-width: 670px) {
         grid-column: 1 / span 1;
-        padding-left: 60px;
+        padding-left: 28px;
+        margin: auto;
       }
       & > h2 {
         font-size: 3rem;
@@ -724,6 +736,10 @@ section {
         @media (max-width: 900px) {
           grid-template-columns: repeat(9, 1fr);
         }
+        @media (max-width: 670px) {
+          grid-template-columns: 100%;
+          gap: 2.25rem;
+        }
         & > .content {
           letter-spacing: 0.02em;
           display: flex;
@@ -736,6 +752,10 @@ section {
             margin-top: 24px;
             @media (max-height: 700px) {
               gap: 2rem;
+            }
+            @media (max-width: 670px) {
+              gap: 2.25rem;
+              margin-top: 0;
             }
             & > .option {
               display: flex;
@@ -814,7 +834,7 @@ section {
           }
           @media (max-width: 670px) {
             grid-column: 1 / span 1;
-            padding-left: 80px;
+            padding-left: 28px;
           }
         }
         & > .right {
@@ -847,7 +867,8 @@ section {
           }
           @media (max-width: 670px) {
             grid-column: 1 / span 1;
-            padding-left: 80px;
+            padding-left: 28px;
+            width: 100%;
           }
         }
       }
