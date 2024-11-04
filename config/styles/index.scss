@@ -2088,11 +2088,18 @@ section {
       justify-content: space-between;
       @media (max-width: 670px) {
         padding: 8px 24px 12px;
+        flex-wrap: wrap;
       }
       & > .left {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+        @media (max-width: 450px) {
+          flex-grow: 1;
+          width: 100%;
+          justify-content: flex-start;
+          margin-bottom: 4px;
+        }
         & > .logo {
           display: inline-block;
           height: 32px;
@@ -2100,7 +2107,6 @@ section {
           position: relative;
           @media (max-width: 670px) {
             height: 14px;
-            margin-left: auto;
           }
           & > img {
             width: 100%;
