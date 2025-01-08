@@ -310,12 +310,35 @@ section {
       overflow: hidden;
       position: fixed;
       inset: 0;
-      animation: zoom-scroll ease-in-out both;
+      animation: fade-scroll ease-in-out both;
+      transition-delay: 0.8s;
+      // background: #fff url("/media/pixel.png");
+      // background-size: auto 100dvh;
+      // animation: Pixelate ease-in-out both;
+      //
       animation-timeline: --section;
       margin: 0 auto;
     }
   }
+  &-pixelate {
+    position: fixed;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+    // background: #ffffff url("/media/pixel.png");
+    /* transition-delay: 0.8s; */
+    // background-size: 140%;
+    // -webkit-animation: animate 0.8s steps(8) forwards;
+    animation: Pixelate 0.8s steps(8) forwards;
+    z-index: 1000;
+  }
   &-hero {
+    // animation: zoom-scroll ease-in-out both;
+    // background: #fff url("/media/pixel.png");
+    // background-size: auto 100dvh;
+    // animation: Pixelate steps(8) forwards;
+    // animation-timeline: --section;
+    //
     &-bg {
       width: 100%;
       background-image: url("/media/bgs/hero-bg3.png");
