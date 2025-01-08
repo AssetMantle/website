@@ -13,6 +13,7 @@ import GlobalGameCanvas from "@/components/games/GlobalGameCanvas";
 
 export default function Home() {
   const [Position, setPosition] = useState(0);
+  const [Animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -23,6 +24,15 @@ export default function Home() {
       });
     }
   }, []);
+
+  useEffect(() => {
+    setAnimate(true);
+    const to = setTimeout(() => setAnimate(false), 800);
+
+    return () => {
+      clearTimeout(to);
+    };
+  }, [Position]);
 
   return (
     <>
@@ -37,6 +47,8 @@ export default function Home() {
         <User />
         <Ecosystems />
       </main>
+
+      {Animate && <div className={"am-pixelate"}></div>}
 
       <SlideIndicator indicator={Position} />
       <Footer indicator={Position} />
