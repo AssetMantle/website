@@ -1,0 +1,22 @@
+.pixelBackground {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  .row {
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    .block {
+      width: 4vh;
+      height: 100%;
+      --white-100: #ffffff;
+      background-color: var(--white-100);
+      box-shadow: 0 0 0.5px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
