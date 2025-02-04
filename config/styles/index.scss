@@ -2098,9 +2098,11 @@ section {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      @media (max-width: 670px) {
+      gap: 24px;
+      @media (max-width: 688px) {
         padding: 8px 24px 12px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 4px;
       }
       & > .left {
         display: flex;
@@ -2140,7 +2142,7 @@ section {
         margin: 0;
         &.hero {
           @media (min-width: 760px) {
-            margin-left: -30px;
+            // margin-left: -30px;
           }
         }
       }
