@@ -10,6 +10,7 @@ import Builder from "@/view/Builder";
 import User from "@/view/User";
 import Ecosystems from "@/view/Ecosystems";
 import GlobalGameCanvas from "@/components/games/GlobalGameCanvas";
+import Pixelate from "@/components/animations/Pixelate";
 
 export default function Home() {
   const [Position, setPosition] = useState(0);
@@ -27,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     setAnimate(true);
-    const to = setTimeout(() => setAnimate(false), 800);
+    const to = setTimeout(() => setAnimate(false), 850);
 
     return () => {
       clearTimeout(to);
@@ -48,7 +49,8 @@ export default function Home() {
         <Ecosystems />
       </main>
 
-      {Animate && <div className={"am-pixelate"}></div>}
+      {/* {Animate && <div className={"am-pixelate"}></div>} */}
+      <Pixelate menuIsActive={Animate} />
 
       <SlideIndicator indicator={Position} />
       <Footer indicator={Position} />

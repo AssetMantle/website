@@ -159,41 +159,23 @@
 }
 
 @keyframes Pixelate {
-  // 0% {
-  // background: #fff url("/media/pixel.png");
-  // background-color: aqua;
-  // background-position-y: -100dvh;
-  // opacity: 1;
-  // color: #fff;
-  // }
-
   0% {
     background: #00000022 url("/media/pixel.png");
     background-size: 100%;
-    // background-color: yellow;
     background-position-y: 0px;
     visibility: visible;
-    // color: var(--primary-dark);
   }
 
   70% {
-    // background: url("/media/pixel.png");
     background-color: #fff;
     background-size: 100%;
     background-position-y: 150%;
-    // opacity: 1;
-    // visibility: hidden;
-    // color: #fff;
   }
 
   100% {
-    // background: url("/media/pixel.png");
-    // background-color: red;
     background-color: #fff;
     background-size: 100%;
     background-position-y: 150%;
-    // opacity: 1;
     visibility: hidden;
-    // color: #fff;
   }
 }
