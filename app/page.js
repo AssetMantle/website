@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     setAnimate(true);
-    const to = setTimeout(() => setAnimate(false), 820);
+    const to = setTimeout(() => setAnimate(false), 850);
 
     return () => {
       clearTimeout(to);
