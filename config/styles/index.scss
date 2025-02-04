@@ -88,6 +88,9 @@ html {
   @media (max-width: 670px) {
     font-size: 14.5px;
   }
+  @media (max-width: 400px) {
+    font-size: 11.5px !important;
+  }
 }
 
 body {
