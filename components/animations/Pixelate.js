@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 
-const anim = {
+const animationVariants = {
   initial: {
     opacity: 0,
   },
@@ -18,10 +18,6 @@ const anim = {
 };
 
 export default function Pixelate({ menuIsActive }) {
-  /**
-   * Shuffles array in place (Fisher–Yates shuffle).
-   * @param {Array} a items An array containing the items.
-   */
   const shuffle = (a) => {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -34,6 +30,7 @@ export default function Pixelate({ menuIsActive }) {
   };
 
   const getBlocks = (indexOfColum) => {
+    if (typeof window === "undefined") return null;
     const { innerWidth, innerHeight } = window;
     const blockSize = innerHeight * 0.04;
     const nbOfBlocks = Math.ceil(innerWidth / blockSize);
@@ -44,7 +41,7 @@ export default function Pixelate({ menuIsActive }) {
           <motion.div
             key={index}
             className={styles.block}
-            variants={anim}
+            variants={animationVariants}
             initial="initial"
             animate={menuIsActive ? "open" : "closed"}
             custom={[
