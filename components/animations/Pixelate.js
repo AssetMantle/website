@@ -9,11 +9,11 @@ const animationVariants = {
   },
   open: (delay) => ({
     opacity: 1,
-    transition: { duration: 0, delay: 0.01 * delay[1] },
+    transition: { duration: 0, delay: 0.004 * delay[1] },
   }),
   closed: (delay) => ({
     opacity: 0,
-    transition: { duration: 0, delay: 0.01 * delay[0] },
+    transition: { duration: 0, delay: 0.004 * delay[0] },
   }),
 };
 
