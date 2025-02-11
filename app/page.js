@@ -50,7 +50,7 @@ export default function Home() {
       </main>
 
       {/* {Animate && <div className={"am-pixelate"}></div>} */}
-      <Pixelate menuIsActive={Animate} />
+      {Position < 1 && <Pixelate menuIsActive={Animate} />}
 
       <SlideIndicator indicator={Position} />
       <Footer indicator={Position} />
