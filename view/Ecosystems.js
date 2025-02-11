@@ -8,21 +8,25 @@ export default function Ecosystems() {
       {
         title: "$MNTL",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://app.osmosis.zone/?from=USDC&to=MNTL",
       },
       {
         title: "InterNFT",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://internft.github.io/",
       },
       {
         title: "Validators",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://www.mintscan.io/asset-mantle/validators",
       },
       {
         title: "MantleBuilder",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
       },
     ],
@@ -30,21 +34,25 @@ export default function Ecosystems() {
       {
         title: "Asguard",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://www.asguard.network/",
       },
       {
         title: "LoyaltyLabs",
-        title_icon: "",
+        title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: false,
         href: "",
       },
       {
         title: "Artist4Web3",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://artists4web3.studio/",
       },
       {
         title: "Ingrained Logic",
         title_icon: <CgArrowTopRightR />,
+        title_icon_visibility: true,
         href: "https://www.ingrainedlogic.com/",
       },
     ],
@@ -69,12 +77,28 @@ export default function Ecosystems() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <span>{item?.title_icon}</span>
+                              <span
+                                style={{
+                                  visibility: item?.title_icon_visibility
+                                    ? "visible"
+                                    : "hidden",
+                                }}
+                              >
+                                {item?.title_icon}
+                              </span>
                               <span>{item?.title}</span>
                             </a>
                           ) : (
                             <p>
-                              <span>{item?.title_icon}</span>
+                              <span
+                                style={{
+                                  visibility: item?.title_icon_visibility
+                                    ? "visible"
+                                    : "hidden",
+                                }}
+                              >
+                                {item?.title_icon}
+                              </span>
                               <span>{item?.title}</span>
                             </p>
                           )}
@@ -110,12 +134,28 @@ export default function Ecosystems() {
                               rel="noopener noreferrer"
                             >
                               <span>{item?.title}</span>
-                              <span>{item?.title_icon}</span>
+                              <span
+                                style={{
+                                  visibility: item?.title_icon_visibility
+                                    ? "visible"
+                                    : "hidden",
+                                }}
+                              >
+                                {item?.title_icon}
+                              </span>
                             </a>
                           ) : (
                             <p>
                               <span>{item?.title}</span>
-                              <span>{item?.title_icon}</span>
+                              <span
+                                style={{
+                                  visibility: item?.title_icon_visibility
+                                    ? "visible"
+                                    : "hidden",
+                                }}
+                              >
+                                {item?.title_icon}
+                              </span>
                             </p>
                           )}
                         </h3>
