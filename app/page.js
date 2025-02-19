@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     setAnimate(true);
-    const to = setTimeout(() => setAnimate(false), 400);
+    const to = setTimeout(() => setAnimate(false), 320);
 
     return () => {
       clearTimeout(to);
@@ -50,7 +50,7 @@ export default function Home() {
       </main>
 
       {/* {Animate && <div className={"am-pixelate"}></div>} */}
-      {Position < 1 && <Pixelate menuIsActive={Animate} />}
+      {Position > 0 && <Pixelate menuIsActive={Animate} />}
 
       <SlideIndicator indicator={Position} />
       <Footer indicator={Position} />
