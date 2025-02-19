@@ -13,7 +13,7 @@ const animationVariants = {
   }),
   closed: (delay) => ({
     opacity: 0,
-    transition: { duration: 0, delay: 0.004 * delay[0] },
+    transition: { duration: 0, delay: 0.0 * delay[0] },
   }),
 };
 
