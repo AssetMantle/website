@@ -226,6 +226,15 @@ section {
     animation: headerAppear ease-in-out both;
     animation-timeline: --hero;
     transform-origin: top center;
+    @supports not (animation-timeline: auto) {
+      top: 0;
+      transition: all 300ms ease-in-out;
+    }
+    &.hide {
+      @supports not (animation-timeline: auto) {
+        top: -100%;
+      }
+    }
     &-container {
       &-content {
         display: flex;
