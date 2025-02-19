@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header indicator={Position} />
 
       <GlobalGameCanvas indicator={Position} />
       <main className="am-bg-grid">
