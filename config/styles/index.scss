@@ -290,6 +290,12 @@ section {
       &.active {
         font-weight: 700;
       }
+      &.hide {
+        opacity: 0;
+        @supports (animation-timeline: auto) {
+          opacity: 1;
+        }
+      }
     }
   }
   &-canvas {
