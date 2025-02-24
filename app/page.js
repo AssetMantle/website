@@ -11,6 +11,7 @@ import User from "@/view/User";
 import Ecosystems from "@/view/Ecosystems";
 import GlobalGameCanvas from "@/components/games/GlobalGameCanvas";
 import Pixelate from "@/components/animations/Pixelate";
+import ContactForm from "@/view/ContactForm";
 
 export default function Home() {
   const [Position, setPosition] = useState(0);
@@ -47,6 +48,7 @@ export default function Home() {
         <Builder />
         <User />
         <Ecosystems />
+        <ContactForm />
       </main>
 
       {/* {Animate && <div className={"am-pixelate"}></div>} */}
