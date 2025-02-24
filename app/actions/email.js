@@ -9,7 +9,7 @@ export async function sendEmail({ name, businessEmail, companyName, message }) {
     const msg = {
       to: "hello@assetmantle.one", // Email to receive the form submission
       from: "hello@assetmantle.one", // Verified sender email
-      subject: "New Contact for AM Website : " + name, // Subject of the email
+      subject: "New Contact for AssetMantle : " + name, // Subject of the email
       text: `You have received a new message from ${name} (${businessEmail}) of ${companyName}.\n\nMessage:\n${message}`, // Plain text version
       html: `<strong>You have received a new message from ${name} (${businessEmail}) of ${companyName}</strong><br><br><p>Message: ${message}</p>`, // HTML version
       cc: businessEmail, // Send a copy to the user’s email
