@@ -154,6 +154,18 @@ export default function RootLayout({ children }) {
           property="og:description"
           content="AssetMantle revolutionizes real-world asset tokenization by integrating advanced blockchain technology with enterprise-ready solutions. We empower institutions and users to bridge traditional and decentralized economies, offering a secure, scalable framework for assetization. Our platform facilitates seamless ownership, trading, and identity management of tokenized assets, providing tools like self-sovereign identity solutions, customizable asset minting, and cross-chain interoperability. Unlock global liquidity for diverse asset classes with AssetMantle's next-generation smart contract capabilities."
         />
+        <meta property="og:type" content="website" />
+        {/* open graph ends */}
+
+        {/* twitter starts */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AssetMantle" />
+        <meta
+          name="twitter:description"
+          content="AssetMantle revolutionizes real-world asset tokenization by integrating advanced blockchain technology with enterprise-ready solutions. We empower institutions and users to bridge traditional and decentralized economies, offering a secure, scalable framework for assetization. Our platform facilitates seamless ownership, trading, and identity management of tokenized assets, providing tools like self-sovereign identity solutions, customizable asset minting, and cross-chain interoperability. Unlock global liquidity for diverse asset classes with AssetMantle's next-generation smart contract capabilities."
+        />
+        <meta name="twitter:image" content="/og.png" />
+        {/* twitter ends */}
 
         <meta name="robots" content="index, follow" />
 
