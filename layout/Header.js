@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/media/logo.svg";
 
-export default function Header({ indicator }) {
+export default function Header() {
   return (
-    <header className={`am-header ${indicator === 0 ? " hide" : ""}`}>
+    <header className="am-header">
       <div className="am-header-container">
         <div className="am-header-container-content">
           <Link href="#hero" className="logo position-relative">
