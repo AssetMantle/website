@@ -48,7 +48,7 @@ export default function Home() {
         <Builder />
         <User />
         <Ecosystems />
-        <ContactForm />
+        {/* <ContactForm /> */}
       </main>
 
       {/* {Animate && <div className={"am-pixelate"}></div>} */}

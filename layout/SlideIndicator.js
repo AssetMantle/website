@@ -18,9 +18,9 @@ export default function SlideIndicator({ indicator }) {
     {
       title: "Ecosystem",
     },
-    {
+    /* {
       title: "Connect",
-    },
+    }, */
   ];
 
   return (
