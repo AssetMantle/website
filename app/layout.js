@@ -2,9 +2,9 @@ import { DMSans } from "@/config/fonts/LocalImports";
 import "@/config/styles/index.scss";
 
 export const metadata = {
-  title: "Assetmantle",
+  title: "AssetMantle",
   description:
-    "AssetMantle revolutionizes real-world asset tokenization by integrating advanced blockchain technology with enterprise-ready solutions. We empower institutions and users to bridge traditional and decentralized economies, offering a secure, scalable framework for assetization. Our platform facilitates seamless ownership, trading, and identity management of tokenized assets, providing tools like self-sovereign identity solutions, customizable asset minting, and cross-chain interoperability. Unlock global liquidity for diverse asset classes with AssetMantle's next-generation smart contract capabilities.",
+    "AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets",
 };
 
 export default function RootLayout({ children }) {
@@ -152,7 +152,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="AssetMantle" />
         <meta
           property="og:description"
-          content="AssetMantle revolutionizes real-world asset tokenization by integrating advanced blockchain technology with enterprise-ready solutions. We empower institutions and users to bridge traditional and decentralized economies, offering a secure, scalable framework for assetization. Our platform facilitates seamless ownership, trading, and identity management of tokenized assets, providing tools like self-sovereign identity solutions, customizable asset minting, and cross-chain interoperability. Unlock global liquidity for diverse asset classes with AssetMantle's next-generation smart contract capabilities."
+          content="AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets"
         />
         <meta property="og:type" content="website" />
         {/* open graph ends */}
@@ -162,7 +162,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:title" content="AssetMantle" />
         <meta
           name="twitter:description"
-          content="AssetMantle revolutionizes real-world asset tokenization by integrating advanced blockchain technology with enterprise-ready solutions. We empower institutions and users to bridge traditional and decentralized economies, offering a secure, scalable framework for assetization. Our platform facilitates seamless ownership, trading, and identity management of tokenized assets, providing tools like self-sovereign identity solutions, customizable asset minting, and cross-chain interoperability. Unlock global liquidity for diverse asset classes with AssetMantle's next-generation smart contract capabilities."
+          content="AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets"
         />
         <meta name="twitter:image" content="/og.png" />
         {/* twitter ends */}
