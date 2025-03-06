@@ -18,9 +18,9 @@ export default function SlideIndicator({ indicator }) {
     {
       title: "Ecosystem",
     },
-    // {
-    //   title: "metrics",
-    // },
+    /* {
+      title: "Connect",
+    }, */
   ];
 
   return (
@@ -30,7 +30,7 @@ export default function SlideIndicator({ indicator }) {
           <button
             className={`indicator ${BPdotsSquare.className} mw-${indicator}${
               indicator === ind + 1 ? " active" : ""
-            }`}
+            }${indicator === 0 ? " hide" : ""}`}
             onClick={() =>
               window &&
               window.innerHeight &&

@@ -18,6 +18,10 @@ export default function Footer({ indicator }) {
           </div>
         )}
         <p className={indicator === 0 ? "hero" : ""}>
+        🏣 : 20A, Tanjong Pagar Road, Singapore - 088443&nbsp;&nbsp;&nbsp;📞 : +6531071296
+        </p>
+        {indicator === 0 && <div style={{ marginLeft: "auto" }}></div>}
+        <p className={indicator === 0 ? "hero" : ""}>
           &copy; Assetmantle 2024 - All rights reserved{" "}
         </p>
         <div className="socials">

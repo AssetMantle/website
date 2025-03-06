@@ -10,9 +10,12 @@ import Builder from "@/view/Builder";
 import User from "@/view/User";
 import Ecosystems from "@/view/Ecosystems";
 import GlobalGameCanvas from "@/components/games/GlobalGameCanvas";
+import Pixelate from "@/components/animations/Pixelate";
+import ContactForm from "@/view/ContactForm";
 
 export default function Home() {
   const [Position, setPosition] = useState(0);
+  const [Animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -24,9 +27,18 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    setAnimate(true);
+    const to = setTimeout(() => setAnimate(false), 320);
+
+    return () => {
+      clearTimeout(to);
+    };
+  }, [Position]);
+
   return (
     <>
-      <Header />
+      <Header indicator={Position} />
 
       <GlobalGameCanvas indicator={Position} />
       <main className="am-bg-grid">
@@ -36,7 +48,11 @@ export default function Home() {
         <Builder />
         <User />
         <Ecosystems />
+        {/* <ContactForm /> */}
       </main>
+
+      {/* {Animate && <div className={"am-pixelate"}></div>} */}
+      {Position > 0 && <Pixelate menuIsActive={Animate} />}
 
       <SlideIndicator indicator={Position} />
       <Footer indicator={Position} />
