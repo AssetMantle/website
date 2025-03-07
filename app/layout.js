@@ -4,7 +4,7 @@ import "@/config/styles/index.scss";
 export const metadata = {
   title: "AssetMantle",
   description:
-    "AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets",
+    "AssetMantle is the Assetization Infrastructure Layer, providing the proprietary infra and frameworks to tokenize real-world assets (RWAs) and enable seamless Web3 assetization solutions.",
 };
 
 export default function RootLayout({ children }) {
@@ -152,7 +152,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="AssetMantle" />
         <meta
           property="og:description"
-          content="AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets"
+          content="AssetMantle is the Assetization Infrastructure Layer, providing the proprietary infra and frameworks to tokenize real-world assets (RWAs) and enable seamless Web3 assetization solutions."
         />
         <meta property="og:type" content="website" />
         {/* open graph ends */}
@@ -162,7 +162,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:title" content="AssetMantle" />
         <meta
           name="twitter:description"
-          content="AssetMantle pioneers Assetization  using its unique Asset Specification to build Digitally Owned Assets and Tokenized Assets"
+          content="AssetMantle is the Assetization Infrastructure Layer, providing the proprietary infra and frameworks to tokenize real-world assets (RWAs) and enable seamless Web3 assetization solutions."
         />
         <meta name="twitter:image" content="/og.png" />
         {/* twitter ends */}
