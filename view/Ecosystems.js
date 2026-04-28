@@ -23,12 +23,6 @@ export default function Ecosystems() {
         title_icon_visibility: true,
         href: "https://www.mintscan.io/asset-mantle/validators",
       },
-      {
-        title: "MantleBuilder",
-        title_icon: <CgArrowTopRightR />,
-        title_icon_visibility: true,
-        href: "https://docs.assetmantle.one/MantleBuilder_Overview/",
-      },
     ],
     right: [
       {
