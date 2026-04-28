@@ -18,13 +18,22 @@ export default function Home() {
   const [Animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    if (window) {
-      window.addEventListener("scroll", () => {
-        window.innerHeight &&
-          window.scrollY &&
+    if (typeof window === "undefined") return;
+    let rafId = 0;
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        if (window.innerHeight && window.scrollY) {
           setPosition(Math.round(window.scrollY / window.innerHeight));
+        }
+        rafId = 0;
       });
-    }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   useEffect(() => {
