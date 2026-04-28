@@ -143,6 +143,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var u=navigator.userAgent;if(/^((?!chrome|chromium|crios|edg|fxios|firefox|opera|opr).)*safari/i.test(u))document.documentElement.classList.add('no-scroll-anim');}catch(e){}})();",
+          }}
+        />
         <meta name="theme-color" content="#fcfbf9" />
         {/* open graphs start */}
         <meta property="og:site_name" content="AssetMantle" />
