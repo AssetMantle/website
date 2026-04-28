@@ -43,12 +43,6 @@ export default function Ecosystems() {
         title_icon_visibility: true,
         href: "https://artists4web3.studio/",
       },
-      {
-        title: "Ingrained Logic",
-        title_icon: <CgArrowTopRightR />,
-        title_icon_visibility: true,
-        href: "https://www.ingrainedlogic.com/",
-      },
     ],
   };
 
