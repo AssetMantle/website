@@ -223,16 +223,26 @@ section {
     }
     z-index: 999;
     overflow: hidden;
-    animation: headerAppear ease-in-out both;
-    animation-timeline: --hero;
     transform-origin: top center;
-    @supports not (animation-timeline: auto) {
-      top: 0;
-      transition: all 300ms ease-in-out;
-    }
+    // Fallback layout (Safari + browsers without scroll-driven animation):
+    // top toggle drives show/hide via the .hide class set in JS.
+    top: 0;
+    transition: all 300ms ease-in-out;
     &.hide {
-      @supports not (animation-timeline: auto) {
-        top: -100%;
+      top: -100%;
+    }
+    // Modern path: only when animation-timeline really drives (Chrome/Edge/Firefox).
+    // .no-scroll-anim is set on <html> by the inline UA-sniff in app/layout.js
+    // for Safari, which falsely reports @supports as true but does not drive
+    // named view-timelines.
+    :root:not(.no-scroll-anim) & {
+      @supports (animation-timeline: auto) {
+        animation: headerAppear ease-in-out both;
+        animation-timeline: --hero;
+        transition: none;
+        &.hide {
+          top: 0;
+        }
       }
     }
     &-container {
@@ -268,9 +278,17 @@ section {
     justify-content: center;
     gap: 12px;
 
-    animation: sliderAppear ease-in-out both;
-    animation-timeline: --hero;
     transform-origin: center right;
+    // Modern path: scroll-driven appearance (Chrome/Edge/Firefox). Safari is
+    // forced into the no-animation default via :root:not(.no-scroll-anim) so
+    // the slider stays visible instead of freezing at the off-screen 0%
+    // keyframe of sliderAppear.
+    :root:not(.no-scroll-anim) & {
+      @supports (animation-timeline: auto) {
+        animation: sliderAppear ease-in-out both;
+        animation-timeline: --hero;
+      }
+    }
     @media (max-width: 850px) {
       left: 24px;
     }
@@ -301,8 +319,10 @@ section {
       }
       &.hide {
         opacity: 0;
-        @supports (animation-timeline: auto) {
-          opacity: 1;
+        :root:not(.no-scroll-anim) & {
+          @supports (animation-timeline: auto) {
+            opacity: 1;
+          }
         }
       }
     }
