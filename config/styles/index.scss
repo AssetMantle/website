@@ -323,14 +323,22 @@ section {
     margin: 0 auto;
     padding-top: var(--header-height);
     padding-bottom: var(--footer-height);
-    @supports (animation-timeline: auto) {
-      overflow: hidden;
-      position: fixed;
-      inset: 0;
-      animation: fade-scroll ease-in-out both;
-      transition-delay: 0s;
-      animation-timeline: --section;
-      margin: 0 auto;
+    // Safari (incl. latest 26+) reports @supports (animation-timeline: auto) as
+    // true but does not actually drive the named view-timelines, so every
+    // .am-container stays painted at inset:0 and they overlap. Gate the modern
+    // path on :not(.no-scroll-anim) — the inline UA-sniff in app/layout.js sets
+    // .no-scroll-anim on <html> for Safari, forcing the absolute-positioned
+    // fallback inside each section.
+    :root:not(.no-scroll-anim) & {
+      @supports (animation-timeline: auto) {
+        overflow: hidden;
+        position: fixed;
+        inset: 0;
+        animation: fade-scroll ease-in-out both;
+        transition-delay: 0s;
+        animation-timeline: --section;
+        margin: 0 auto;
+      }
     }
   }
   // &-pixelate {
